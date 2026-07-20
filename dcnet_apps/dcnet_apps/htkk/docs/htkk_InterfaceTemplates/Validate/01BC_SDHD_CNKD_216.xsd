@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.7">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="THinhSDungHDonBH">
+							<xs:annotation>
+								<xs:documentation>A. TÌNH HÌNH SỬ DỤNG HOÁ ĐƠN BÁN HÀNG</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CTietSDHDon" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct06" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ký hiệu mẫu hoá đơn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct07" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ký hiệu hoá đơn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct08" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct09" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tồn đầu kỳ Từ số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tồn đầu kỳ Đến số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct11" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số mua/ phát hành trong kỳ Từ số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct12" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số mua/ phát hành trong kỳ
+ Đến số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct13" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng số sử dụng, xóa bỏ, mất, hủy Từ số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct14" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng số sử dụng, xóa bỏ, mất, hủy Đến số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct15" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng số sử dụng, xóa bỏ, mất, hủy Cộng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct16" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lượng đã sử dụng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct17" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Xóa bỏ Số lượng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct18" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Xóa bỏ Số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct19" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mất Số lượng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct20" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mất Số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct21" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Huỷ Số lượng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct22" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Huỷ Số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct23" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tồn cuối kỳ Từ số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct24" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tồn cuối kỳ Đến số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct25" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tồn cuối kỳ Số lượng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CTietDThuTThue">
+							<xs:annotation>
+								<xs:documentation>B. CHI TIẾT DOANH THU TÍNH THUẾ THEO HOÁ ĐƠN </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="KThueGTGT_TNCN">
+										<xs:annotation>
+											<xs:documentation>I. KHAI THUẾ GTGT, TNCN                                                                                                                                          </xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="DThuTheoHDon" type="KhaiThueGTGT_TNCN">
+													<xs:annotation>
+														<xs:documentation>Doanh thu theo hoá đơn (a)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ThueGTGT" type="KhaiThueGTGT_TNCN">
+													<xs:annotation>
+														<xs:documentation>Thuế GTGT phải nộp (b)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ThueTNCN" type="KhaiThueGTGT_TNCN">
+													<xs:annotation>
+														<xs:documentation>Thuế  TNCN phải nộp (c)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="KThueKhac">
+										<xs:annotation>
+											<xs:documentation>II. KHAI CÁC LOẠI THUẾ KHÁC</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="CT31" type="KhaiLoaiThueKhac">
+													<xs:annotation>
+														<xs:documentation>Khai thuế TTĐB</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="CT32" type="KhaiLoaiThueKhac">
+													<xs:annotation>
+														<xs:documentation>Khai thuế tài nguyên</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="CT33" type="KhaiLoaiThueKhac">
+													<xs:annotation>
+														<xs:documentation>Khai thuế bảo vệ môi trường</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="CT34" type="KhaiLoaiThueKhac">
+													<xs:annotation>
+														<xs:documentation>Khai phí bảo vệ môi trường</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+	<xs:complexType name="KhaiLoaiThueKhac">
+		<xs:sequence>
+			<xs:element name="doanhThu" type="xs:decimal" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Doanh thu/Sản lượng/Số lượng tính thuế</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="soThuePNop" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Số thuế phải nộp</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tieuMuc" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tiểu mục</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KhaiThueGTGT_TNCN">
+		<xs:sequence>
+			<xs:element name="ct26" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Hoạt động phân phối, cung cấp hàng hoá</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct27" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Hoạt động dịch vụ, xây dựng không bao thầu nguyên vật liệu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct28" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Hoạt động sản xuất, vận tải, dịch vụ có gắn với hàng hoá, xây dựng có bao thầu nguyên vật l
+ệ
+</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct29" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Hoạt động kinh doanh khác</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct30" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tổng cộng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

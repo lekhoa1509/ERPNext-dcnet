@@ -1,0 +1,1190 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DCNET Flow - Plan import bổ sung đầu kỳ</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-soft: #f1f5f9;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #dbe3ee;
+      --primary: #0f172a;
+      --blue: #0369a1;
+      --teal: #0f766e;
+      --green: #15803d;
+      --amber: #b45309;
+      --red: #b91c1c;
+      --violet: #6d28d9;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --radius: 8px;
+      --mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", Consolas, monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(3, 105, 161, 0.08), transparent 340px),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a.button {
+      cursor: pointer;
+    }
+
+    .page {
+      width: min(1440px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 14px;
+      border: 1px solid rgba(203, 213, 225, 0.9);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 230px;
+    }
+
+    .mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .nav a {
+      border-radius: 7px;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 650;
+      padding: 8px 10px;
+      transition: background-color 180ms ease, color 180ms ease;
+    }
+
+    .nav a:hover {
+      background: #e2e8f0;
+      color: var(--ink);
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      min-width: 190px;
+      gap: 8px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 12px;
+      transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button.primary {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .button:hover {
+      border-color: #94a3b8;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    .button.primary:hover {
+      border-color: #075985;
+      background: #075985;
+    }
+
+    .button:focus-visible,
+    .nav a:focus-visible,
+    .task input:focus-visible {
+      outline: 3px solid rgba(3, 105, 161, 0.24);
+      outline-offset: 2px;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      stroke-width: 2;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.55fr);
+      gap: 18px;
+      padding: 30px 0 18px;
+    }
+
+    .headline {
+      padding: 8px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(21, 128, 61, 0.12);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 860px;
+      margin: 16px 0 0;
+      color: #334155;
+      font-size: 17px;
+    }
+
+    .meta-panel {
+      align-self: end;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 11px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .meta-row:last-child {
+      border-bottom: 0;
+    }
+
+    .meta-row span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .meta-row strong {
+      text-align: right;
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    .section {
+      margin-top: 28px;
+      scroll-margin-top: 92px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      max-width: 720px;
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      min-height: 132px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+      padding: 16px;
+    }
+
+    .metric-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 28px;
+    }
+
+    .metric-icon {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 8px;
+      background: #e0f2fe;
+      color: var(--blue);
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 14px;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .metric.ok .metric-icon {
+      background: #dcfce7;
+      color: var(--green);
+    }
+
+    .metric.warn .metric-icon {
+      background: #fef3c7;
+      color: var(--amber);
+    }
+
+    .metric.risk .metric-icon {
+      background: #fee2e2;
+      color: var(--red);
+    }
+
+    .metric.info .metric-icon {
+      background: #ede9fe;
+      color: var(--violet);
+    }
+
+    .matrix-wrap,
+    .panel,
+    .phase,
+    .question-list,
+    .checklist {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+    }
+
+    .matrix-wrap {
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 13px 14px;
+      vertical-align: top;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    .num {
+      font-family: var(--mono);
+      white-space: nowrap;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 26px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 9px;
+      white-space: nowrap;
+    }
+
+    .tag::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+
+    .tag.done {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .tag.done::before {
+      background: #16a34a;
+    }
+
+    .tag.partial {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .tag.partial::before {
+      background: #d97706;
+    }
+
+    .tag.missing {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .tag.missing::before {
+      background: #dc2626;
+    }
+
+    .tag.plan {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .tag.plan::before {
+      background: #2563eb;
+    }
+
+    .layout-two {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.55fr);
+      gap: 16px;
+    }
+
+    .phase-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .phase {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr) 170px;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .phase-index {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      background: var(--surface-soft);
+      color: var(--primary);
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .phase h3,
+    .panel h3 {
+      margin: 0;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    .phase p,
+    .panel p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .phase ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #334155;
+      font-size: 14px;
+    }
+
+    .phase-status {
+      display: flex;
+      justify-content: end;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 18px;
+    }
+
+    .risk-stack {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .risk-item {
+      border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0;
+      background: #fffbeb;
+      padding: 12px;
+    }
+
+    .risk-item.high {
+      border-left-color: var(--red);
+      background: #fef2f2;
+    }
+
+    .risk-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    .risk-item span {
+      color: #475569;
+      font-size: 13px;
+    }
+
+    .questions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .question-list {
+      padding: 16px;
+    }
+
+    .question-list h3,
+    .checklist h3 {
+      margin: 0 0 12px;
+      font-size: 17px;
+    }
+
+    .question {
+      display: flex;
+      gap: 10px;
+      padding: 11px 0;
+      border-top: 1px solid #e2e8f0;
+      color: #334155;
+    }
+
+    .question:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .question b {
+      flex: 0 0 auto;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    .checklist {
+      padding: 16px;
+    }
+
+    .task {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-top: 1px solid #e2e8f0;
+      color: #334155;
+    }
+
+    .task:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .task input {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--blue);
+      cursor: pointer;
+    }
+
+    .command {
+      overflow: auto;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius);
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 14px;
+      white-space: pre;
+    }
+
+    .source-note {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1180px) {
+      .status-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .hero,
+      .layout-two {
+        grid-template-columns: 1fr;
+      }
+
+      .meta-panel {
+        align-self: stretch;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(100% - 24px, 760px);
+        padding-top: 12px;
+      }
+
+      .topbar {
+        position: static;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .brand,
+      .actions {
+        min-width: 0;
+      }
+
+      .actions {
+        justify-content: stretch;
+      }
+
+      .actions .button {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .nav {
+        justify-content: start;
+      }
+
+      .status-grid,
+      .questions {
+        grid-template-columns: 1fr;
+      }
+
+      .matrix-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        min-width: 860px;
+      }
+
+      .phase {
+        grid-template-columns: 1fr;
+      }
+
+      .phase-status {
+        justify-content: start;
+      }
+    }
+
+    @media (max-width: 520px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .topbar,
+      .actions {
+        display: none;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .section {
+        break-inside: avoid;
+      }
+
+      .metric,
+      .panel,
+      .matrix-wrap,
+      .phase,
+      .question-list,
+      .checklist {
+        box-shadow: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar" aria-label="Điều hướng kế hoạch import">
+      <a class="brand" href="#top" aria-label="DCNET Opening Import Plan">
+        <span class="mark">DC</span>
+        <span>
+          <strong>Opening Import Plan</strong>
+          <span>DCNET Flow - Accounting Migration</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Các khu vực chính">
+        <a href="#overview">Tổng quan</a>
+        <a href="#matrix">Backlog</a>
+        <a href="#phases">Phase</a>
+        <a href="#questions">Clarify</a>
+        <a href="#checks">Checklist</a>
+      </nav>
+      <div class="actions">
+        <a class="button" href="PLAN_IMPORT_BO_SUNG_DAU_KY.md" title="Mở file Markdown nguồn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <path d="M14 2v6h6"></path>
+            <path d="M9 15h6"></path>
+            <path d="M9 18h6"></path>
+            <path d="M9 12h1"></path>
+          </svg>
+          Markdown
+        </a>
+        <button class="button primary" type="button" onclick="window.print()" title="In hoặc xuất PDF">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <path d="M6 9V2h12v7"></path>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <path d="M6 14h12v8H6z"></path>
+          </svg>
+          Xuất PDF
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="headline">
+          <p class="eyebrow">Kế hoạch bổ sung dữ liệu đầu kỳ</p>
+          <h1 id="page-title">Import backlog cho số dư đầu kỳ MISA sang ERPNext</h1>
+          <p class="lead">Dashboard này chuyển file Markdown kế hoạch thành một bản tác nghiệp dễ rà: hạng mục nào đã ổn, hạng mục nào còn thiếu chi tiết, thứ tự xử lý và điều kiện pass trước khi chốt số liệu kế toán.</p>
+        </div>
+        <aside class="meta-panel" aria-label="Thông tin nguồn">
+          <div class="meta-row">
+            <span>Ngày lập</span>
+            <strong>25/06/2026</strong>
+          </div>
+          <div class="meta-row">
+            <span>Nguồn file</span>
+            <strong>data import/02_So_Du_Dau_Ky</strong>
+          </div>
+          <div class="meta-row">
+            <span>Site đối soát</span>
+            <strong>flow.local</strong>
+          </div>
+          <div class="meta-row">
+            <span>Container</span>
+            <strong>devcontainer-frappe-1</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section id="overview" class="section" aria-labelledby="overview-title">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title" id="overview-title">Tổng quan trạng thái</h2>
+            <p class="section-note">Bỏ qua danh mục/master data; chỉ nhìn các dữ liệu đầu kỳ cần bổ sung hoặc đối soát thêm.</p>
+          </div>
+        </div>
+        <div class="status-grid">
+          <article class="metric ok">
+            <div class="metric-top">
+              <div class="metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="m20 6-11 11-5-5"></path>
+                </svg>
+              </div>
+              <span class="tag done">Ổn</span>
+            </div>
+            <strong>646</strong>
+            <span>Cặp hàng+kho đã có Stock Ledger Entry</span>
+          </article>
+
+          <article class="metric warn">
+            <div class="metric-top">
+              <div class="metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M10.3 3.3 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.3a2 2 0 0 0-3.4 0z"></path>
+                  <path d="M12 9v4"></path>
+                  <path d="M12 17h.01"></path>
+                </svg>
+              </div>
+              <span class="tag partial">Một phần</span>
+            </div>
+            <strong>3</strong>
+            <span>Nhóm công nợ cần khớp party: KH, NCC, NV</span>
+          </article>
+
+          <article class="metric risk">
+            <div class="metric-top">
+              <div class="metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M18 6 6 18"></path>
+                  <path d="m6 6 12 12"></path>
+                </svg>
+              </div>
+              <span class="tag missing">Thiếu</span>
+            </div>
+            <strong>0</strong>
+            <span>Asset records hiện có trong ERP cho 28 TSCĐ</span>
+          </article>
+
+          <article class="metric info">
+            <div class="metric-top">
+              <div class="metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M3 3v18h18"></path>
+                  <path d="m19 9-5 5-4-4-3 3"></path>
+                </svg>
+              </div>
+              <span class="tag plan">Lập lịch</span>
+            </div>
+            <strong>1.225</strong>
+            <span>Dòng cần lịch phân bổ: CCDC, CPTT, DTNT</span>
+          </article>
+
+          <article class="metric risk">
+            <div class="metric-top">
+              <div class="metric-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 8v4"></path>
+                  <path d="M12 16h.01"></path>
+                  <circle cx="12" cy="12" r="10"></circle>
+                </svg>
+              </div>
+              <span class="tag missing">Rủi ro</span>
+            </div>
+            <strong>2</strong>
+            <span>Voucher opening có GL nhưng không còn Journal Entry</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="matrix" class="section" aria-labelledby="matrix-title">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title" id="matrix-title">Backlog import bổ sung</h2>
+            <p class="section-note">Ma trận này là bản rút gọn từ `PLAN_IMPORT_BO_SUNG_DAU_KY.md`, giữ nguyên số liệu quan trọng để team chia việc.</p>
+          </div>
+        </div>
+        <div class="matrix-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nhóm đầu kỳ</th>
+                <th>File nguồn</th>
+                <th>Số liệu nguồn</th>
+                <th>Hiện trạng ERP</th>
+                <th>Trạng thái</th>
+                <th>Việc cần làm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tồn kho VTHH</strong></td>
+                <td><code>Danh_sach_ton_kho_vthh.xlsx</code></td>
+                <td class="num">1.145 dòng, 646 cặp</td>
+                <td>Đã có 1 Stock Reconciliation và 646 SLE</td>
+                <td><span class="tag done">Gần xong</span></td>
+                <td>Đối soát chênh lệch 88 đồng do làm tròn, sau đó khóa số.</td>
+              </tr>
+              <tr>
+                <td><strong>Số dư tài khoản tổng hợp</strong></td>
+                <td><code>Danh_sach_so_du_tai_khoan.xlsx</code></td>
+                <td class="num">49 dòng</td>
+                <td>Đã có opening Journal Entry</td>
+                <td><span class="tag partial">Cần rà</span></td>
+                <td>Dọn GL mồ côi trước khi chốt Trial Balance.</td>
+              </tr>
+              <tr>
+                <td><strong>Công nợ khách hàng</strong></td>
+                <td><code>Danh_sach_cong_no_khach_hang.xlsx</code></td>
+                <td class="num">102 dòng</td>
+                <td>Opening GL mới có 73 Customer party lines</td>
+                <td><span class="tag partial">Thiếu chi tiết</span></td>
+                <td>Bổ sung hoặc rebuild opening theo party, giữ source row.</td>
+              </tr>
+              <tr>
+                <td><strong>Công nợ nhà cung cấp</strong></td>
+                <td><code>Danh_sach_cong_no_nha_cung_cap.xlsx</code></td>
+                <td class="num">299 dòng</td>
+                <td>Opening GL mới có 106 Supplier party lines</td>
+                <td><span class="tag partial">Thiếu chi tiết</span></td>
+                <td>Khớp AP theo Supplier với file nguồn và Trial Balance.</td>
+              </tr>
+              <tr>
+                <td><strong>Công nợ nhân viên</strong></td>
+                <td><code>Danh_sach_cong_no_nhan_vien.xlsx</code></td>
+                <td class="num">2 dòng</td>
+                <td>Opening GL mới có 1 Employee party line</td>
+                <td><span class="tag partial">Cần clarify</span></td>
+                <td>Tách dòng `Tổng` khỏi nhân viên thật trước khi import.</td>
+              </tr>
+              <tr>
+                <td><strong>TSCĐ đầu kỳ</strong></td>
+                <td><code>Danh_sach_tai_san_co_dinh_dau_ky.xlsx</code></td>
+                <td class="num">28 tài sản</td>
+                <td>Asset = 0, Asset Category = 0</td>
+                <td><span class="tag missing">Thiếu hồ sơ</span></td>
+                <td>Tạo Asset Category, Asset existing, lịch khấu hao không ghi trùng GL.</td>
+              </tr>
+              <tr>
+                <td><strong>CCDC đầu kỳ</strong></td>
+                <td><code>Danh_sach_cong_cu_dung_cu_dau_ky.xlsx</code></td>
+                <td class="num">179 dòng</td>
+                <td>Chưa thấy dữ liệu chi tiết tương ứng</td>
+                <td><span class="tag missing">Chưa chọn mô hình</span></td>
+                <td>Chọn Asset low-value hoặc custom DocType quản lý phân bổ.</td>
+              </tr>
+              <tr>
+                <td><strong>Chi phí trả trước</strong></td>
+                <td><code>Danh_sach_chi_phi_tra_truoc_dau_ky.xlsx</code></td>
+                <td class="num">207 dòng</td>
+                <td>Đã có GL TK 242</td>
+                <td><span class="tag partial">Thiếu lịch</span></td>
+                <td>Import lịch phân bổ chi tiết theo từng khoản.</td>
+              </tr>
+              <tr>
+                <td><strong>Doanh thu nhận trước</strong></td>
+                <td><code>Danh_sach_doanh_thu_nhan_truoc_dau_ky.xlsx</code></td>
+                <td class="num">839 dòng</td>
+                <td>Đã có GL TK 3387</td>
+                <td><span class="tag partial">Thiếu lịch</span></td>
+                <td>Import lịch phân bổ theo chứng từ, hàng, đối tượng, đơn hàng.</td>
+              </tr>
+              <tr>
+                <td><strong>Số dư ngân hàng</strong></td>
+                <td><code>Danh_sach_nhap_so_du_tai_khoan_ngan_hang.xlsx</code></td>
+                <td class="num">6 dòng</td>
+                <td>Có GL tiền/bank; Payment Entry = 0</td>
+                <td><span class="tag plan">Tùy mục tiêu</span></td>
+                <td>Chỉ bổ sung nếu cần vận hành Bank Account report chi tiết.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="phases" class="section" aria-labelledby="phases-title">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title" id="phases-title">Thứ tự triển khai</h2>
+            <p class="section-note">Đi từ nền kế toán sạch tới dữ liệu chi tiết, tránh tạo thêm bút toán khi số dư hiện tại chưa rõ nguồn.</p>
+          </div>
+        </div>
+        <div class="layout-two">
+          <div class="phase-list">
+            <article class="phase">
+              <div class="phase-index">0</div>
+              <div>
+                <h3>Backup và đóng băng số liệu</h3>
+                <p>Backup DB, snapshot bảng kế toán/kho/tài sản, ghi checksum file nguồn.</p>
+                <ul>
+                  <li>Không sửa trực tiếp file Excel gốc.</li>
+                  <li>Lưu timestamp cho từng nguồn import.</li>
+                </ul>
+              </div>
+              <div class="phase-status"><span class="tag plan">Bắt buộc</span></div>
+            </article>
+
+            <article class="phase">
+              <div class="phase-index">1</div>
+              <div>
+                <h3>Đối soát và sửa opening GL hiện có</h3>
+                <p>Xử lý `ACC-JV-2026-00003`, `ACC-JV-2026-00005`, rà `ACC-JV-2026-00009` với các file số dư.</p>
+                <ul>
+                  <li>Không import thêm khi Trial Balance chưa sạch.</li>
+                  <li>Tách dòng có party và dòng tổng hợp không party.</li>
+                </ul>
+              </div>
+              <div class="phase-status"><span class="tag missing">Rủi ro cao</span></div>
+            </article>
+
+            <article class="phase">
+              <div class="phase-index">2</div>
+              <div>
+                <h3>Bổ sung công nợ theo party</h3>
+                <p>Hoàn thiện AR/AP/Employee advance để báo cáo công nợ hiển thị đúng đối tượng.</p>
+                <ul>
+                  <li>Giữ `source_file`, `source_row`, `misa_code`.</li>
+                  <li>Không tạo thêm tổng số dư TK 131/331/141 nếu GL đã có.</li>
+                </ul>
+              </div>
+              <div class="phase-status"><span class="tag partial">Ưu tiên 1</span></div>
+            </article>
+
+            <article class="phase">
+              <div class="phase-index">3</div>
+              <div>
+                <h3>Import TSCĐ và lịch khấu hao</h3>
+                <p>Tạo Asset Category và 28 Asset existing, khớp nguyên giá và hao mòn lũy kế.</p>
+                <ul>
+                  <li>Không để Asset import sinh trùng GL opening.</li>
+                  <li>Kiểm tra lịch khấu hao từ kỳ tiếp theo.</li>
+                </ul>
+              </div>
+              <div class="phase-status"><span class="tag partial">Ưu tiên 2</span></div>
+            </article>
+
+            <article class="phase">
+              <div class="phase-index">4</div>
+              <div>
+                <h3>Chọn mô hình CCDC</h3>
+                <p>Quyết định dùng Asset low-value hay custom DocType quản lý CCDC và lịch phân bổ.</p>
+                <ul>
+                  <li>179 dòng, giá trị còn lại 140.868.814.</li>
+                  <li>Cần khách xác nhận mức độ quản lý chi tiết.</li>
+                </ul>
+              </div>
+              <div class="phase-status"><span class="tag plan">Cần quyết định</span></div>
+            </article>
+
+            <article class="phase">
+              <div class="phase-index">5</div>
+              <div>
+                <h3>Import CPTT và DTNT chi tiết</h3>
+                <p>Thiết lập lịch phân bổ cho 207 khoản chi phí trả trước và 839 dòng doanh thu nhận trước.</p>
+                <ul>
+                  <li>Phân bổ kỳ sau phải sinh đúng GL 242/3387.</li>
+                  <li>Không ghi lại GL đầu kỳ đã có.</li>
+                </ul>
+              </div>
+              <div class="phase-status"><span class="tag partial">Ưu tiên 3</span></div>
+            </article>
+
+            <article class="phase">
+              <div class="phase-index">6</div>
+              <div>
+                <h3>Đối soát bank/cash detail</h3>
+                <p>Chỉ bổ sung opening reference cho Bank Account nếu khách cần báo cáo bank vận hành chi tiết.</p>
+              </div>
+              <div class="phase-status"><span class="tag plan">Tùy scope</span></div>
+            </article>
+          </div>
+
+          <aside class="panel" aria-labelledby="risk-title">
+            <h3 id="risk-title">Rủi ro cần giữ trước mắt</h3>
+            <p>Những điểm này nên được xử lý hoặc có quyết định rõ trước khi chạy import thêm.</p>
+            <div class="risk-stack">
+              <div class="risk-item high">
+                <strong>GL mồ côi</strong>
+                <span>Hai voucher opening TSCĐ còn GL nhưng không còn Journal Entry, có thể làm lệch báo cáo.</span>
+              </div>
+              <div class="risk-item high">
+                <strong>Ghi trùng số dư</strong>
+                <span>TSCĐ, CPTT, DTNT đã có GL; import chi tiết phải tránh tạo lại bút toán đầu kỳ.</span>
+              </div>
+              <div class="risk-item">
+                <strong>Party mapping chưa đầy đủ</strong>
+                <span>Công nợ chưa khớp toàn bộ party lines, AR/AP report sẽ không đủ nếu chỉ nhìn tổng GL.</span>
+              </div>
+              <div class="risk-item">
+                <strong>CCDC chưa có mô hình</strong>
+                <span>Cần chốt dùng Asset low-value hay custom DocType trước khi phát triển import.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="questions" class="section" aria-labelledby="questions-title">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title" id="questions-title">Câu hỏi cần clarify</h2>
+            <p class="section-note">Những câu này nên được ghi nhận trước khi team khóa phương án import bổ sung.</p>
+          </div>
+        </div>
+        <div class="questions">
+          <div class="question-list">
+            <h3>Khách hàng / kế toán</h3>
+            <div class="question"><b>Q1</b><span>Ngày chốt đầu kỳ chính thức là `01/01/2026` hay ngày go-live?</span></div>
+            <div class="question"><b>Q2</b><span>Công nợ nhân viên có dòng `Tổng`: đây là dòng tổng cộng hay một đối tượng thật?</span></div>
+            <div class="question"><b>Q3</b><span>Khách có cần quản lý CCDC theo từng mã hay chỉ cần số dư tài khoản?</span></div>
+            <div class="question"><b>Q4</b><span>CPTT và DTNT có cần ERP tự động sinh bút toán phân bổ hàng tháng không?</span></div>
+          </div>
+          <div class="question-list">
+            <h3>Kỹ thuật / triển khai</h3>
+            <div class="question"><b>Q5</b><span>Khi import TSCĐ, có chấp nhận tạo Asset record không tạo lại GL opening?</span></div>
+            <div class="question"><b>Q6</b><span>Bank opening có cần khớp Bank Account report hay chỉ cần Trial Balance?</span></div>
+            <div class="question"><b>Q7</b><span>Phương án xử lý GL mồ côi là cancel bằng API/patch hay rebuild opening entries?</span></div>
+            <div class="question"><b>Q8</b><span>Custom DocType cho lịch phân bổ có cần trace đầy đủ file, sheet, row và mã MISA?</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="checks" class="section" aria-labelledby="checks-title">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title" id="checks-title">Checklist đối soát cuối</h2>
+            <p class="section-note">Dùng để tick trong buổi kiểm tra sau import. Trạng thái tick chỉ lưu trên trình duyệt khi trang còn mở.</p>
+          </div>
+        </div>
+        <div class="layout-two">
+          <div class="checklist">
+            <h3>Điều kiện pass</h3>
+            <label class="task"><input type="checkbox"><span>Không còn GL opening mồ côi.</span></label>
+            <label class="task"><input type="checkbox"><span>Tổng debit opening = tổng credit opening.</span></label>
+            <label class="task"><input type="checkbox"><span>Trial Balance tại `2026-01-01` khớp nguồn sau khi loại trừ phần import bằng module riêng.</span></label>
+            <label class="task"><input type="checkbox"><span>AR theo Customer khớp file công nợ khách hàng.</span></label>
+            <label class="task"><input type="checkbox"><span>AP theo Supplier khớp file công nợ nhà cung cấp.</span></label>
+            <label class="task"><input type="checkbox"><span>Employee advance/payable khớp file công nợ nhân viên.</span></label>
+            <label class="task"><input type="checkbox"><span>Stock Balance khớp 646 cặp hàng+kho, chênh lệch trong ngưỡng làm tròn.</span></label>
+            <label class="task"><input type="checkbox"><span>Asset Register có 28 TSCĐ và khớp nguyên giá/hao mòn lũy kế.</span></label>
+            <label class="task"><input type="checkbox"><span>Lịch phân bổ CCDC/CPTT/DTNT chạy được kỳ tiếp theo.</span></label>
+            <label class="task"><input type="checkbox"><span>Mỗi dòng import có source trace: file, sheet, row, mã MISA/chứng từ.</span></label>
+          </div>
+
+          <div class="panel">
+            <h3>Lệnh kiểm tra nhanh</h3>
+            <p>Chạy trong repo để phát hiện GL opening mồ côi.</p>
+            <pre class="command">docker exec devcontainer-frappe-1 bash -lc 'cd /workspace/development/frappe-bench && bench --site flow.local mariadb -e "select gle.voucher_no, count(*) from \`tabGL Entry\` gle left join \`tabJournal Entry\` je on je.name=gle.voucher_no where gle.voucher_type=\"Journal Entry\" and gle.is_opening=\"Yes\" and je.name is null group by gle.voucher_no;"'</pre>
+            <p>Đếm party lines trong opening GL.</p>
+            <pre class="command">docker exec devcontainer-frappe-1 bash -lc 'cd /workspace/development/frappe-bench && bench --site flow.local mariadb -e "select voucher_no, party_type, count(distinct party) parties, count(*) line_count from \`tabGL Entry\` where is_opening=\"Yes\" and ifnull(party_type,\"\")<>\"\" group by voucher_no, party_type;"'</pre>
+          </div>
+        </div>
+      </section>
+
+      <p class="source-note">Nguồn nội dung: `docs/accounting/PLAN_IMPORT_BO_SUNG_DAU_KY.md`. Thiết kế dùng hướng dẫn `ui-ux-pro-max`: Soft UI Evolution, layout dashboard tác nghiệp, focus visible, reduced motion, tương phản light mode.</p>
+    </main>
+  </div>
+</body>
+</html>

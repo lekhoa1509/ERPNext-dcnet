@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by MESMERiZE (MiZE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1">
+	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
+	<xs:simpleType name="TINType">
+		<xs:annotation>
+			<xs:documentation>Định nghĩa kiểu dữ liệu mã số thuế</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([0-9]{10}(-[0-9]{3})?)|([0-9]{12})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PLucType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>
+   Kiểu thành phần phụ lục chứa số liệu các chỉ tiêu kê khai phụ lục chung cho các tờ khai. Với mỗi tờ khai cụ thể thành phần này sẽ chứa các thành phần chỉ tiêu cụ thể được định nghĩa
+   trong schema của tờ khai.
+   </xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="CTieuTKhaiChinhType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>
+   Kiểu thành phần chứa số liệu các chỉ tiêu kê khai chung cho các tờ khai. Với mỗi tờ khai cụ thể thành phần này sẽ chứa các thành phần chỉ tiêu cụ thể được định nghĩa
+   trong schema của tờ khai.
+   </xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:element name="HSoThueDTu">
+		<xs:annotation>
+			<xs:documentation>Phần tử gốc của tệp hồ sơ điện tử</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="HSoKhaiThue">
+					<xs:annotation>
+						<xs:documentation>Toàn bộ dữ liệu của hồ sơ đăng ký thuế </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="HSoKhaiThueType"/>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="CKyDTu" type="CKyDTuType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Dữ liệu về các chữ ký điện tử trên hồ sơ</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="HSoKhaiThueType">
+		<xs:sequence>
+			<xs:element name="TTinChung">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TTinDVu">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="maDVu" type="xs:string"/>
+									<xs:element name="tenDVu" type="xs:token"/>
+									<xs:element name="pbanDVu" type="xs:string"/>
+									<xs:element name="ttinNhaCCapDVu" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TTinTKhaiThue">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="maTKhai" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>Mã tờ khai</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tenTKhai" type="xs:token">
+										<xs:annotation>
+											<xs:documentation>Tên tờ khai</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="moTaBMau" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>Mô tả biểu  mẫu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="pbanTKhaiXML" type="xs:string"/>
+									<xs:element name="mst" type="TINType" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Mã số thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tenNNT" type="xs:token">
+										<xs:annotation>
+											<xs:documentation>tên người nộp thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="maCQTQuanLy" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Mã cơ quan thuế quản lý</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tenCQTQuanLy" type="xs:token" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên cơ quan thuế quản lý</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ngayNhanTKhai" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ngày nhận tờ khai:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="noiNhanTKhai" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Nơi nhận:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="soGiayTo_id" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Số quyết định hoặc số giấy phép kinh doanha</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="nghiepVuCapMST" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Trường hợp cấp mới MST thì truyền mã 01
+- Trường hợp cấp MST 13 số thì truyền mã 02
+- Trường hợp thay đổi loại hình NNT thì truyền mã 03</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ngayKy" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ngày ký tờ khai</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="nguoiKy" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Người ký tờ khai</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="nhanKQQuaBuuDien" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Không muốn nhận kết quả tại trụ sở CQT</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="DLyThue">
+										<xs:annotation>
+											<xs:documentation>Đại lý thuế</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tenDLyThue" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đại lý thuế</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:token"/>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="mstDLyThue" type="TINType" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã số thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soHDongDLyThue" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số hợp đồng đại lý thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ngayKyHDDLyThue" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ngày ký hợp đồng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="NVienDLy">
+													<xs:annotation>
+														<xs:documentation>Nhân viên đại lý thuế</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="tenNVienDLyThue" type="xs:token" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên nhân viên đại lý thuế</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="cchiHNghe" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Chứng chỉ hành nghề</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CTieuTKhaiChinh">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="CTieuTKhaiChinhType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PLuc" type="PLucType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="CKyDTuType">
+		<xs:sequence>
+			<xs:element ref="ds:Signature" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Chữ ký điện tử</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

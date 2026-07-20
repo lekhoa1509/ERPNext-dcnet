@@ -1,0 +1,86 @@
+[
+  {
+    "doctype": "Order Schedule",
+    "category_name": "Gậy năm tiếp theo (Next Year Clubs)",
+    "order_period": "Hàng năm",
+    "order_months": "T9,T10",
+    "moq": 10,
+    "moq_unit": "Bộ",
+    "lead_time_days": 90,
+    "deadline_day": 15,
+    "is_active": 1,
+    "notes": "Đặt hàng gậy model năm sau. Cần xác nhận số lượng với Hãng trước ngày 15 của tháng đặt hàng. Lead time 3 tháng."
+  },
+  {
+    "doctype": "Order Schedule",
+    "category_name": "Driver, Fairway, Rescue, Irons",
+    "order_period": "Hàng năm",
+    "order_months": "T1,T2",
+    "moq": 10,
+    "moq_unit": "Chiếc",
+    "lead_time_days": 30,
+    "deadline_day": 20,
+    "is_active": 1,
+    "notes": "Các dòng gậy chính: Driver, Fairway Wood, Rescue/Hybrid, Iron Sets. Đặt đầu năm để có hàng cho mùa golf."
+  },
+  {
+    "doctype": "Order Schedule",
+    "category_name": "Softgoods (US Specs)",
+    "order_period": "Hàng tháng",
+    "order_months": "",
+    "moq": 0,
+    "moq_unit": "",
+    "lead_time_days": 30,
+    "deadline_day": 25,
+    "is_active": 1,
+    "notes": "Phụ kiện golf: Găng tay, mũ, túi, bóng... Có thể đặt hàng tháng theo nhu cầu. Không có MOQ."
+  },
+  {
+    "doctype": "Order Schedule",
+    "category_name": "Gậy P Series (Entry Level)",
+    "order_period": "2 năm/lần",
+    "order_months": "T3",
+    "moq": 0,
+    "moq_unit": "",
+    "lead_time_days": 90,
+    "deadline_day": 15,
+    "is_active": 1,
+    "notes": "Dòng gậy phổ thông, giá rẻ. Chu kỳ ra mắt sản phẩm mới 2 năm/lần. Đặt hàng theo đợt lớn."
+  },
+  {
+    "doctype": "Order Schedule",
+    "category_name": "Putters",
+    "order_period": "Hàng năm",
+    "order_months": "T4",
+    "moq": 0,
+    "moq_unit": "",
+    "lead_time_days": 90,
+    "deadline_day": 15,
+    "is_active": 1,
+    "notes": "Gậy Putter các loại. Đặt hàng 1 lần/năm vào tháng 4. Lead time 3 tháng."
+  },
+  {
+    "doctype": "Order Schedule",
+    "category_name": "Wedges",
+    "order_period": "Hàng năm",
+    "order_months": "T4",
+    "moq": 0,
+    "moq_unit": "",
+    "lead_time_days": 90,
+    "deadline_day": 15,
+    "is_active": 1,
+    "notes": "Gậy Wedge các loại (Sand, Lob, Gap). Đặt hàng cùng đợt với Putter."
+  },
+  {
+    "doctype": "Order Schedule",
+    "category_name": "Quần áo & Phụ kiện (JP Specs)",
+    "order_period": "Hàng quý",
+    "order_months": "T6,T7,T11,T12",
+    "moq": 0,
+    "moq_unit": "",
+    "lead_time_days": 60,
+    "deadline_day": 10,
+    "is_active": 1,
+    "notes": "Quần áo và phụ kiện từ Nhật. Đặt 2 đợt/năm: Hè (T6-7) và Đông (T11-12). Lead time 2 tháng."
+  }
+]

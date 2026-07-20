@@ -1,0 +1,14 @@
+{
+ "name": "Outstanding Receivables by Contract",
+ "doctype": "Report",
+ "module": "DCNet Contract",
+ "ref_doctype": "DCNet Contract",
+ "report_type": "Script Report",
+ "is_standard": "Yes",
+ "disabled": 0,
+ "roles": [
+  {"role": "Accounts Manager"},
+  {"role": "DCNet Sales Manager"},
+  {"role": "System Manager"}
+ ]
+}

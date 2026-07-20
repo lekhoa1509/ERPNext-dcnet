@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "creation": "2026-05-14 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "addendum_no",
+  "addendum_date",
+  "effective_from",
+  "change_type",
+  "column_break_summary",
+  "change_summary",
+  "signed_pdf"
+ ],
+ "fields": [
+  {
+   "fieldname": "addendum_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Số phụ lục",
+   "reqd": 1
+  },
+  {
+   "fieldname": "addendum_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Ngày ký phụ lục",
+   "reqd": 1
+  },
+  {
+   "fieldname": "effective_from",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Hiệu lực từ",
+   "reqd": 1,
+   "description": "Ngày áp dụng thay đổi; mặc định = ngày ký phụ lục."
+  },
+  {
+   "fieldname": "change_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Loại thay đổi",
+   "options": "\nGia hạn\nĐổi gói\nĐổi giá\nBổ sung items\nKhác",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_summary",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "change_summary",
+   "fieldtype": "Small Text",
+   "label": "Nội dung thay đổi",
+   "description": "Tóm tắt 2-3 câu về thay đổi."
+  },
+  {
+   "fieldname": "signed_pdf",
+   "fieldtype": "Attach",
+   "label": "File phụ lục đã ký"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-14 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet Contract",
+ "name": "Contract Addendum",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": []
+}

@@ -1,0 +1,24 @@
+Stt,Tên báo cáo,Người yêu cầu,Mẫu báo cáo,Ghi chú,,
+1,Báo cáo theo dõi mua hàng và dự kiến bán,Hạnh,Mẫu file word ,Chi tiết thuộc tính,,
+2,Tổng hợp theo dõi đơn hàng,Hạnh,Tổng hợp theo dõi đơn hàng,Số lượng trên đơn đặt hàng mua - Đơn đặt hàng bán,,
+3,Báo cáo theo dõi kế hoạch mua hàng,Hạnh + Dung,Theo dõi kế hoạch mua hàng,"Báo cáo lấy nguồn từ đơn đặt hàng và mua và phiếu nhập khẩu
+Báo cáo nhóm theo 2 cấp ProductGroup -->Category
+Các điều kiện lọc giống báo cáo Tổng hợp theo đơn đặt hàng",, 
+4,Báo cáo dự kiến chia hàng theo lệnh,Hạnh + Dung,Dự kiến chia hàng theo lệnh,Báo cáo lấy nguồn từ lệnh nhập hàng và phiếu dự kiến chia hàng,,
+5,Báo cáo So sánh kế hoạch và đơn hàng,Hạnh + Dung,So sánh kế hoạch và đơn hàng,Báo cáo lấy nguồn từ kế hoạch mua hàng và đơn đặt hàng mua,,
+6,Tổng hợp theo dõi đơn - NHật Minh,Dung,Tổng hợp theo dõi đơn - NHật Minh,,,
+7,Báo cáo Nhập xuất tồn chi tiết Nhật Minh,Dung,Báo cáo NXT Chi tiết - NM,"- Có 3 layout: chỉ xem số lượng, chỉ xem giá trị, hoặc cả số lượng và giá trị.
+- Có 2 chế độ xem: Product group --> Category --> Mã chi tiết hoặc  Product group --> Category
+- Giá trị nhập và xuất lấy theo bảng giá bán và chính sách chiết khấu bên khay TM của đối tượng Nhật Minh",,
+8,Báo cáo Nhập xuất tồn chi tiết TM,Chị Ngân,Báo cáo NXT Chi tiết - TM,,,
+9,Báo cáo bán hàng theo đại lý,Chị Ngân,BC bán hàng theo đại lý,,,
+10,Tổng hợp tồn kho,Dung,Tổng hợp tồn kho,"Báo cáo lấy số lượng tồn kho nhóm theo năm, product group --> category (người dùng có thể lựa chọn thứ tứ sắp xếp)
+Giá trị = số lượng tồn*giá bán TM niêm yết * tỷ lệ chiết khấu bán cho Nhật Minh
+Lọc nhóm vật tư
+- Cho chọn kho loại trừ",,
+11,Tổng hợp bán hàng,Dung,Tổng hợp bán hàng,"Báo cáo lấy số lượng bán hàng nhóm theo năm, product -->group --> category (người dùng có thể lựa chọn thứ tứ sắp xếp)
+- Cho lọc được theo cửa hàng",,
+12,Tổng hợp nhập kho ,Dung,Tổng hợp nhập kho ,"Báo cáo lấy số lượng bán hàng nhóm theo năm, product -->group --> category (người dùng có thể lựa chọn thứ tứ sắp xếp)",,
+13,Theo dõi đặt hàng gậy,Hạnh,Theo dõi đặt hàng gậy,,,
+14,Theo dõi đặt hàng quần áo-PK,Hạnh,Theo dõi đặt hàng quần áo-PK,,,
+15,Báo cáo theo dõi dòng tiền,Chị Ngân,Theo dõi dòng tiền,,,

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by mennt (ST) -->
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.8">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="kyBCaoCuoi" type="xs:boolean" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Kỳ báo cáo cuối cùng</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="chuyenDiaDiem" type="xs:boolean" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Chuyển địa điểm</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ngayDauKyBC" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Ngày đầu kỳ báo cáo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ngayCuoiKyBC" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Ngày cuối kỳ báo cáo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="HoaDon">
+							<xs:annotation>
+								<xs:documentation>Hóa đơn</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTiet" type="ChiTietTkhaiChinhType" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="tongCongSoTonDKy" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng cộng số tồn đầu kỳ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tongCongSDung" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng cộng sử dụng,xóa mất hủy trong kỳ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tongCongSoTonCKy" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng cộng số tồn cuối kỳ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="nguoiLapBieu" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Người lập biểu </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="nguoiDaiDien" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Người đại diện theo pháp luật</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ngayBCao" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Ngày báo cáo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="PLucType">
+			<xs:complexContent>
+				<xs:extension base="PLucType">
+					<xs:sequence>
+						<xs:element name="PL_BK_01AC_01" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Bảng kê chi tiết hoá đơn tổ chức, cá nhân đến thời điểm quyết toán hoá đơn</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="HDonHetGTriSDung">
+										<xs:annotation>
+											<xs:documentation>I. HÓA ĐƠN HẾT GIÁ TRỊ SỬ DỤNG</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietHoaDon" type="ChiTietHoaDonType" maxOccurs="unbounded"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="HDonDKiTiepSDung">
+										<xs:annotation>
+											<xs:documentation>II. HÓA ĐƠN ĐĂNG KÝ TIẾP SỬ DỤNG</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietHoaDon" type="ChiTietHoaDonType" maxOccurs="unbounded"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="cqtChuyenDen" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Cơ quan thuế chuyển đến (trường hợp chuyển địa điểm): </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PL_BK_01AC_02" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Bảng kê hoá đơn chưa sử dụng của tổ chức, cá nhân chuyển địa điểm kinh doanh khác địa bàn cơ quan</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietHoaDon" type="ChiTietHoaDonType" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+	<xs:complexType name="ChiTietHoaDonType">
+		<xs:sequence>
+			<xs:element name="maHoaDon" nillable="true">
+				<xs:annotation>
+					<xs:documentation>mã loại hóa đơn</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tenHoaDon" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tên loại hóa đơn</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kyHieuMau" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Ký hiệu mẫu</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kyHieuHD" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Ký hiệu hóa đơn</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="soLuong" type="xs:nonNegativeInteger" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Số lượng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tuSo" type="xs:integer" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Từ số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="denSo" type="xs:integer" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Đến số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="ChiTietTkhaiChinhType">
+		<xs:sequence>
+			<xs:element name="maHoaDon" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Mã hóa đơn</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tenHDon" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tên loại hóa đơn</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kHieuMauHDon" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Ký hiệu mẫu hoá đơn</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kHieuHDon" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Ký hiệu hóa đơn</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="soTonMuaTrKy_tongSo" type="xs:nonNegativeInteger" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tổng số Số tồn đầu kỳ,mua/phát trong kỳ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="soTonDauKy_tuSo" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Số tồn đầu kỳ Từ số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="soTonDauKy_denSo" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Số tồn đầu kỳ Đến Số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="muaTrongKy_tuSo" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Số mua/phát hành trong kỳ Từ số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="muaTrongKy_denSo" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Số mua/phát hành trong kỳ Đến số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tongSoSuDung_tuSo" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tổng số sử dụng, xóa bỏ, mất, hủy Từ số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tongSoSuDung_denSo" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tổng số sử dụng, xóa bỏ, mất, hủy Đến số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tongSoSuDung_cong" type="xs:nonNegativeInteger" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tổng số sử dụng, xóa bỏ, mất, hủy Cộng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="soDaSDung" type="xs:nonNegativeInteger" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Số lượng đã sử dụng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="xoaBo_soLuong" type="xs:nonNegativeInteger" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Xóa bỏ Số lượng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="xoaBo_so" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Xóa bỏ Số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mat_soLuong" type="xs:nonNegativeInteger" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Mất Số lượng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mat_so" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Mất Số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="huy_soLuong" type="xs:nonNegativeInteger" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Huy Số lượng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="huy_so" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Huy Số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tonCuoiKy_tuSo" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tồn cuối kỳ  Từ số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tonCuoiKy_denSo" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tồn cuối kỳ  Đến số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tonCuoiKy_soLuong" type="xs:nonNegativeInteger" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tồn cuối kỳ  Số lượng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+	</xs:complexType>
+</xs:schema>

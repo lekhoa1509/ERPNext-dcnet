@@ -1,0 +1,92 @@
+[
+  {
+    "doctype": "Supplier",
+    "supplier_name": "TaylorMade Golf Vietnam",
+    "supplier_type": "Company",
+    "supplier_group": "Golf Manufacturers",
+    "country": "Vietnam",
+    "mobile_no": "02838123456",
+    "email_id": "vietnam@taylormadegolf.com"
+  },
+  {
+    "doctype": "Supplier",
+    "supplier_name": "Callaway Golf Asia",
+    "supplier_type": "Company",
+    "supplier_group": "Golf Manufacturers",
+    "country": "Singapore",
+    "mobile_no": "+6567891234",
+    "email_id": "asia@callawaygolf.com"
+  },
+  {
+    "doctype": "Supplier",
+    "supplier_name": "Titleist (Acushnet) Vietnam",
+    "supplier_type": "Company",
+    "supplier_group": "Golf Manufacturers",
+    "country": "Vietnam",
+    "mobile_no": "02839012345",
+    "email_id": "vietnam@titleist.com"
+  },
+  {
+    "doctype": "Supplier",
+    "supplier_name": "Ping Golf Asia Pacific",
+    "supplier_type": "Company",
+    "supplier_group": "Golf Manufacturers",
+    "country": "Japan",
+    "mobile_no": "+81345678901",
+    "email_id": "asiapac@pinggolf.com"
+  },
+  {
+    "doctype": "Supplier",
+    "supplier_name": "Bridgestone Golf Southeast Asia",
+    "supplier_type": "Company",
+    "supplier_group": "Golf Manufacturers",
+    "country": "Thailand",
+    "mobile_no": "+6622345678",
+    "email_id": "sea@bridgestonegolf.com"
+  },
+  {
+    "doctype": "Supplier",
+    "supplier_name": "Nike Golf Vietnam",
+    "supplier_type": "Company",
+    "supplier_group": "Apparel Brands",
+    "country": "Vietnam",
+    "mobile_no": "02836789012",
+    "email_id": "golf.vietnam@nike.com"
+  },
+  {
+    "doctype": "Supplier",
+    "supplier_name": "Adidas Golf Asia",
+    "supplier_type": "Company",
+    "supplier_group": "Apparel Brands",
+    "country": "Hong Kong",
+    "mobile_no": "+85234567890",
+    "email_id": "golf.asia@adidas.com"
+  },
+  {
+    "doctype": "Supplier",
+    "supplier_name": "Nhà phân phối Thăng Long TM",
+    "supplier_type": "Company",
+    "supplier_group": "Local Partners",
+    "country": "Vietnam",
+    "mobile_no": "02437890123",
+    "email_id": "sales@thanglong-tm.com"
+  },
+  {
+    "doctype": "Supplier",
+    "supplier_name": "Golf Equipment Distributors VN",
+    "supplier_type": "Company",
+    "supplier_group": "Golf Distributors",
+    "country": "Vietnam",
+    "mobile_no": "02438901234",
+    "email_id": "order@golfequipment.vn"
+  },
+  {
+    "doctype": "Supplier",
+    "supplier_name": "Mizuno Golf Vietnam",
+    "supplier_type": "Company",
+    "supplier_group": "Golf Manufacturers",
+    "country": "Vietnam",
+    "mobile_no": "02835678901",
+    "email_id": "vietnam@mizunogolf.com"
+  }
+]

@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitting Module - UI Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Gray Scale */
+            --gray-50: #f8f8f8;
+            --gray-100: #f3f3f3;
+            --gray-200: #ededed;
+            --gray-300: #e2e2e2;
+            --gray-400: #c7c7c7;
+            --gray-500: #999999;
+            --gray-600: #7c7c7c;
+            --gray-700: #525252;
+            --gray-800: #383838;
+            --gray-900: #171717;
+
+            /* Blue Scale */
+            --blue-50: #f0f7ff;
+            --blue-200: #c3e0ff;
+            --blue-500: #0289f7;
+            --blue-600: #007be0;
+
+            /* Green Scale */
+            --green-500: #59ba8b;
+            --green-600: #30a66d;
+
+            /* Red Scale */
+            --red-500: #e03636;
+            --red-600: #cc2929;
+
+            /* Orange Scale */
+            --orange-500: #e86c13;
+
+            /* Yellow Scale */
+            --yellow-500: #edba13;
+
+            /* Purple Scale */
+            --purple-500: #a855f7;
+
+            /* Spacing */
+            --space-xs: 5px;
+            --space-sm: 10px;
+            --space-md: 15px;
+            --space-lg: 20px;
+            --space-xl: 30px;
+
+            /* Shadows */
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--gray-100);
+            color: var(--gray-900);
+            line-height: 1.5;
+            padding: var(--space-lg);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .header p {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        .screen-tabs {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+            background: white;
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab {
+            padding: 8px 16px;
+            background: var(--gray-100);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-700);
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            background: var(--gray-200);
+        }
+
+        .tab.active {
+            background: var(--gray-900);
+            color: white;
+        }
+
+        .screen {
+            display: none;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        /* Frappe Navbar */
+        .navbar {
+            background: var(--gray-900);
+            color: white;
+            padding: 12px var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .navbar-search {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .navbar-search input {
+            width: 100%;
+            padding: 6px 12px;
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: var(--radius-md);
+            color: white;
+            font-size: 14px;
+        }
+
+        .navbar-search input::placeholder {
+            color: var(--gray-500);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: var(--space-lg);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: var(--gray-900);
+            color: white;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .btn-primary:hover {
+            background: var(--gray-800);
+        }
+
+        .btn-secondary {
+            background: var(--gray-100);
+            color: var(--gray-900);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-200);
+        }
+
+        .btn-success {
+            background: var(--green-600);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--red-500);
+            color: white;
+        }
+
+        /* List View */
+        .list-filters {
+            padding: var(--space-md);
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 6px 12px;
+            background: white;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover {
+            background: var(--gray-50);
+        }
+
+        .list-table {
+            width: 100%;
+        }
+
+        .list-row {
+            display: grid;
+            grid-template-columns: 40px 150px 200px 180px 150px 120px 120px 100px;
+            padding: 12px var(--space-lg);
+            border-bottom: 1px solid var(--gray-200);
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .list-row:hover {
+            background: var(--gray-50);
+        }
+
+        .list-row.header {
+            background: var(--gray-100);
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--gray-700);
+            cursor: default;
+        }
+
+        .list-row.header:hover {
+            background: var(--gray-100);
+        }
+
+        .checkbox {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge-blue {
+            background: var(--blue-500);
+            color: white;
+        }
+
+        .badge-purple {
+            background: var(--purple-500);
+            color: white;
+        }
+
+        .badge-orange {
+            background: var(--orange-500);
+            color: white;
+        }
+
+        .badge-green {
+            background: var(--green-600);
+            color: white;
+        }
+
+        .badge-yellow {
+            background: var(--yellow-500);
+            color: var(--gray-900);
+        }
+
+        .badge-gray {
+            background: var(--gray-400);
+            color: white;
+        }
+
+        .badge-red {
+            background: var(--red-500);
+            color: white;
+        }
+
+        /* Form View */
+        .form-container {
+            padding: var(--space-lg);
+        }
+
+        .form-tabs {
+            display: flex;
+            gap: var(--space-md);
+            border-bottom: 2px solid var(--gray-200);
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-tab {
+            padding: 10px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-600);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+
+        .form-tab:hover {
+            color: var(--gray-900);
+        }
+
+        .form-tab.active {
+            color: var(--gray-900);
+            border-bottom-color: var(--gray-900);
+        }
+
+        .form-section {
+            margin-bottom: var(--space-xl);
+        }
+
+        .form-section-header {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-xs);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-field.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: 8px 10px;
+            background: var(--gray-100);
+            border: 1px solid transparent;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--gray-500);
+            background: white;
+        }
+
+        .form-input.readonly {
+            background: var(--gray-50);
+            color: var(--gray-600);
+        }
+
+        .form-textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        /* Child Table */
+        .child-table {
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .child-table-header {
+            display: grid;
+            grid-template-columns: 200px 200px 100px 120px 120px 1fr;
+            background: var(--gray-100);
+            padding: 8px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        .child-table-row {
+            display: grid;
+            grid-template-columns: 200px 200px 100px 120px 120px 1fr;
+            padding: 8px 12px;
+            border-top: 1px solid var(--gray-200);
+            align-items: center;
+        }
+
+        .child-table-row input {
+            padding: 6px 8px;
+            background: var(--gray-100);
+            border: 1px solid transparent;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+        }
+
+        .add-row-btn {
+            padding: 8px;
+            margin-top: var(--space-sm);
+            background: var(--gray-100);
+            border: 1px dashed var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            color: var(--gray-600);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .add-row-btn:hover {
+            background: var(--gray-200);
+        }
+
+        /* Calendar View */
+        .calendar-header {
+            padding: var(--space-md);
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        .calendar-day-header {
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--gray-700);
+            background: var(--gray-100);
+            border-right: 1px solid var(--gray-200);
+        }
+
+        .calendar-day {
+            min-height: 120px;
+            padding: 8px;
+            border-right: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+            background: white;
+        }
+
+        .calendar-day:nth-child(7n) {
+            border-right: none;
+        }
+
+        .calendar-day-number {
+            font-size: 12px;
+            color: var(--gray-600);
+            margin-bottom: 6px;
+        }
+
+        .calendar-event {
+            padding: 4px 8px;
+            margin-bottom: 4px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .calendar-event:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .calendar-event.new {
+            background: #e3f1fd;
+            border-left: 3px solid var(--blue-500);
+        }
+
+        .calendar-event.confirmed {
+            background: #f3e8ff;
+            border-left: 3px solid var(--purple-500);
+        }
+
+        .calendar-event.in-progress {
+            background: #fff1e7;
+            border-left: 3px solid var(--orange-500);
+        }
+
+        .calendar-event.completed {
+            background: #e4f5e9;
+            border-left: 3px solid var(--green-600);
+        }
+
+        /* Status Indicator */
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status-dot.blue { background: var(--blue-500); }
+        .status-dot.purple { background: var(--purple-500); }
+        .status-dot.orange { background: var(--orange-500); }
+        .status-dot.green { background: var(--green-600); }
+        .status-dot.yellow { background: var(--yellow-500); }
+        .status-dot.gray { background: var(--gray-400); }
+        .status-dot.red { background: var(--red-500); }
+
+        .action-buttons {
+            padding: var(--space-lg);
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: flex-end;
+        }
+
+        .info-card {
+            padding: var(--space-md);
+            background: var(--blue-50);
+            border: 1px solid var(--blue-200);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .info-card-title {
+            font-weight: 600;
+            color: var(--blue-600);
+            margin-bottom: 4px;
+        }
+
+        .info-card-text {
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+
+        @media (max-width: 1200px) {
+            .list-row {
+                grid-template-columns: 40px 120px 150px 140px 120px 100px 100px 80px;
+            }
+
+            .child-table-header,
+            .child-table-row {
+                grid-template-columns: 180px 180px 80px 100px 100px 1fr;
+                font-size: 12px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .list-row {
+                font-size: 12px;
+            }
+
+            .page-header {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .calendar-grid {
+                font-size: 11px;
+            }
+
+            .calendar-day {
+                min-height: 80px;
+                padding: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Fitting Module - UI Mockups</h1>
+            <p>ERPNext Frappe Desk Implementation • 5 Key Screens</p>
+        </div>
+
+        <div class="screen-tabs">
+            <button class="tab active" onclick="showScreen(0)">1. List View</button>
+            <button class="tab" onclick="showScreen(1)">2. Form View</button>
+            <button class="tab" onclick="showScreen(2)">3. Form (Services Tab)</button>
+            <button class="tab" onclick="showScreen(3)">4. Calendar View</button>
+            <button class="tab" onclick="showScreen(4)">5. Quick Dialogs</button>
+        </div>
+
+        <!-- Screen 1: List View -->
+        <div class="screen active" id="screen-0">
+            <div class="navbar">
+                <div class="navbar-brand">DCNET FLOW</div>
+                <div class="navbar-search">
+                    <input type="text" placeholder="Search (Ctrl+K)">
+                </div>
+            </div>
+
+            <div class="page-header">
+                <h2>Fitting Session</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-secondary">Calendar View</button>
+                    <button class="btn btn-primary">+ New Fitting Session</button>
+                </div>
+            </div>
+
+            <div class="list-filters">
+                <button class="filter-btn">Today</button>
+                <button class="filter-btn">This Week</button>
+                <button class="filter-btn">My Sessions</button>
+                <button class="filter-btn">Status ▾</button>
+                <button class="filter-btn">Company ▾</button>
+                <button class="filter-btn">Fitter ▾</button>
+            </div>
+
+            <div class="list-table">
+                <div class="list-row header">
+                    <div><input type="checkbox" class="checkbox"></div>
+                    <div>ID</div>
+                    <div>Customer Name</div>
+                    <div>Scheduled Date</div>
+                    <div>Fitter</div>
+                    <div>Company</div>
+                    <div>Amount</div>
+                    <div>Status</div>
+                </div>
+
+                <div class="list-row">
+                    <div><input type="checkbox" class="checkbox"></div>
+                    <div style="color: var(--blue-600); font-weight: 500;">FIT-00001</div>
+                    <div>Nguyễn Văn A</div>
+                    <div>Today 14:00</div>
+                    <div>John Doe</div>
+                    <div>HCM Branch</div>
+                    <div>5,000,000₫</div>
+                    <div><span class="badge badge-blue">New</span></div>
+                </div>
+
+                <div class="list-row">
+                    <div><input type="checkbox" class="checkbox"></div>
+                    <div style="color: var(--blue-600); font-weight: 500;">FIT-00002</div>
+                    <div>Trần Thị B</div>
+                    <div>Today 16:30</div>
+                    <div>Jane Smith</div>
+                    <div>HCM Branch</div>
+                    <div>8,500,000₫</div>
+                    <div><span class="badge badge-purple">Confirmed</span></div>
+                </div>
+
+                <div class="list-row">
+                    <div><input type="checkbox" class="checkbox"></div>
+                    <div style="color: var(--blue-600); font-weight: 500;">FIT-00003</div>
+                    <div>Lê Văn C</div>
+                    <div>25/01/2026 10:00</div>
+                    <div>John Doe</div>
+                    <div>HN Branch</div>
+                    <div>12,000,000₫</div>
+                    <div><span class="badge badge-orange">In Progress</span></div>
+                </div>
+
+                <div class="list-row">
+                    <div><input type="checkbox" class="checkbox"></div>
+                    <div style="color: var(--blue-600); font-weight: 500;">FIT-00004</div>
+                    <div>Phạm Thị D</div>
+                    <div>23/01/2026 15:00</div>
+                    <div>Jane Smith</div>
+                    <div>HCM Branch</div>
+                    <div>6,200,000₫</div>
+                    <div><span class="badge badge-green">Completed</span></div>
+                </div>
+
+                <div class="list-row">
+                    <div><input type="checkbox" class="checkbox"></div>
+                    <div style="color: var(--blue-600); font-weight: 500;">FIT-00005</div>
+                    <div>Hoàng Văn E</div>
+                    <div>22/01/2026 11:30</div>
+                    <div>John Doe</div>
+                    <div>HCM Branch</div>
+                    <div>4,800,000₫</div>
+                    <div><span class="badge badge-yellow">Follow Up</span></div>
+                </div>
+
+                <div class="list-row">
+                    <div><input type="checkbox" class="checkbox"></div>
+                    <div style="color: var(--blue-600); font-weight: 500;">FIT-00006</div>
+                    <div>Vũ Thị F</div>
+                    <div>20/01/2026 09:00</div>
+                    <div>Jane Smith</div>
+                    <div>HN Branch</div>
+                    <div>0₫</div>
+                    <div><span class="badge badge-gray">No Show</span></div>
+                </div>
+
+                <div class="list-row">
+                    <div><input type="checkbox" class="checkbox"></div>
+                    <div style="color: var(--blue-600); font-weight: 500;">FIT-00007</div>
+                    <div>Đỗ Văn G</div>
+                    <div>19/01/2026 14:00</div>
+                    <div>John Doe</div>
+                    <div>HCM Branch</div>
+                    <div>0₫</div>
+                    <div><span class="badge badge-red">Cancelled</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 2: Form View - Main Tab -->
+        <div class="screen" id="screen-1">
+            <div class="navbar">
+                <div class="navbar-brand">DCNET FLOW</div>
+                <div class="navbar-search">
+                    <input type="text" placeholder="Search (Ctrl+K)">
+                </div>
+            </div>
+
+            <div class="page-header">
+                <h2>FIT-00002</h2>
+                <div style="display: flex; gap: 10px;">
+                    <div class="status-indicator">
+                        <span class="status-dot purple"></span>
+                        <span>Confirmed</span>
+                    </div>
+                    <button class="btn btn-secondary">Print</button>
+                    <button class="btn btn-success">Start Session</button>
+                    <button class="btn btn-primary">Save</button>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <div class="info-card">
+                    <div class="info-card-title">Appointment confirmed - Ready for fitting session</div>
+                    <div class="info-card-text">The customer has confirmed their appointment. You can start the fitting session when they arrive.</div>
+                </div>
+
+                <div class="form-tabs">
+                    <div class="form-tab active">Details</div>
+                    <div class="form-tab">Measurements</div>
+                    <div class="form-tab">Services</div>
+                    <div class="form-tab">Notes</div>
+                    <div class="form-tab">Links</div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-section-header">Customer Information</div>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label class="form-label">Party Type *</label>
+                            <select class="form-select">
+                                <option>Customer</option>
+                                <option>Lead</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Party *</label>
+                            <input type="text" class="form-input" value="CUST-00123">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Customer Name</label>
+                            <input type="text" class="form-input readonly" value="Trần Thị B" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Phone</label>
+                            <input type="text" class="form-input readonly" value="0901234567" readonly>
+                        </div>
+                        <div class="form-field full-width">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input readonly" value="tran.thi.b@email.com" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-section-header">Appointment Details</div>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label class="form-label">Scheduled Date & Time *</label>
+                            <input type="datetime-local" class="form-input" value="2026-01-24T16:30">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Company *</label>
+                            <select class="form-select">
+                                <option>HCM Branch</option>
+                                <option>HN Branch</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Source</label>
+                            <select class="form-select">
+                                <option>website</option>
+                                <option>phone</option>
+                                <option>walk_in</option>
+                                <option>facebook</option>
+                                <option>zalo</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-section-header">Assignment</div>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label class="form-label">Assigned Fitter</label>
+                            <select class="form-select">
+                                <option>Jane Smith</option>
+                                <option>John Doe</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Assigned Sales</label>
+                            <select class="form-select">
+                                <option>Sales User 1</option>
+                                <option>Sales User 2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-section-header">Status Tracking</div>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label class="form-label">Status</label>
+                            <input type="text" class="form-input readonly" value="confirmed" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Confirmed At</label>
+                            <input type="text" class="form-input readonly" value="24/01/2026 14:30:00" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Started At</label>
+                            <input type="text" class="form-input readonly" value="" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Completed At</label>
+                            <input type="text" class="form-input readonly" value="" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-secondary">Cancel</button>
+                <button class="btn btn-primary">Save</button>
+            </div>
+        </div>
+
+        <!-- Screen 3: Form View - Services Tab -->
+        <div class="screen" id="screen-2">
+            <div class="navbar">
+                <div class="navbar-brand">DCNET FLOW</div>
+                <div class="navbar-search">
+                    <input type="text" placeholder="Search (Ctrl+K)">
+                </div>
+            </div>
+
+            <div class="page-header">
+                <h2>FIT-00002</h2>
+                <div style="display: flex; gap: 10px;">
+                    <div class="status-indicator">
+                        <span class="status-dot orange"></span>
+                        <span>In Progress</span>
+                    </div>
+                    <button class="btn btn-secondary">Quick Measurement</button>
+                    <button class="btn btn-secondary">Add Service</button>
+                    <button class="btn btn-success">Complete Session</button>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <div class="form-tabs">
+                    <div class="form-tab">Details</div>
+                    <div class="form-tab">Measurements</div>
+                    <div class="form-tab active">Services</div>
+                    <div class="form-tab">Notes</div>
+                    <div class="form-tab">Links</div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-section-header">Services Performed</div>
+
+                    <div class="child-table">
+                        <div class="child-table-header">
+                            <div>Service Type</div>
+                            <div>Item</div>
+                            <div>Quantity</div>
+                            <div>Rate</div>
+                            <div>Amount</div>
+                            <div>Specifications</div>
+                        </div>
+
+                        <div class="child-table-row">
+                            <div>
+                                <select class="form-select" style="width: 100%;">
+                                    <option>Grip Replacement</option>
+                                    <option>Shaft Replacement</option>
+                                    <option>Custom Club</option>
+                                    <option>Combo Package</option>
+                                </select>
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Select Item" value="Golf Pride MCC Plus4">
+                            </div>
+                            <div>
+                                <input type="number" value="13">
+                            </div>
+                            <div>
+                                <input type="text" value="150,000₫">
+                            </div>
+                            <div style="color: var(--gray-700); font-weight: 500;">
+                                1,950,000₫
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Add specs..." value="Standard size">
+                            </div>
+                        </div>
+
+                        <div class="child-table-row">
+                            <div>
+                                <select class="form-select" style="width: 100%;">
+                                    <option>Shaft Replacement</option>
+                                    <option>Grip Replacement</option>
+                                </select>
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Select Item" value="KBS Tour 120">
+                            </div>
+                            <div>
+                                <input type="number" value="8">
+                            </div>
+                            <div>
+                                <input type="text" value="450,000₫">
+                            </div>
+                            <div style="color: var(--gray-700); font-weight: 500;">
+                                3,600,000₫
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Add specs..." value="Stiff flex, -0.5 inch">
+                            </div>
+                        </div>
+
+                        <div class="child-table-row">
+                            <div>
+                                <select class="form-select" style="width: 100%;">
+                                    <option>Custom Club</option>
+                                    <option>Shaft Replacement</option>
+                                </select>
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Select Item" value="Titleist T200 Iron 7">
+                            </div>
+                            <div>
+                                <input type="number" value="1">
+                            </div>
+                            <div>
+                                <input type="text" value="2,950,000₫">
+                            </div>
+                            <div style="color: var(--gray-700); font-weight: 500;">
+                                2,950,000₫
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Add specs..." value="Custom loft/lie adjustment">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="add-row-btn">+ Add Row</div>
+                </div>
+
+                <div class="form-section">
+                    <div style="display: flex; justify-content: flex-end;">
+                        <div class="form-field" style="min-width: 300px;">
+                            <label class="form-label">Total Amount</label>
+                            <input type="text" class="form-input readonly" value="8,500,000₫" readonly style="font-size: 18px; font-weight: 600; color: var(--green-600);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-secondary">Cancel</button>
+                <button class="btn btn-primary">Save</button>
+            </div>
+        </div>
+
+        <!-- Screen 4: Calendar View -->
+        <div class="screen" id="screen-3">
+            <div class="navbar">
+                <div class="navbar-brand">DCNET FLOW</div>
+                <div class="navbar-search">
+                    <input type="text" placeholder="Search (Ctrl+K)">
+                </div>
+            </div>
+
+            <div class="page-header">
+                <h2>Fitting Calendar</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-secondary">List View</button>
+                    <button class="btn btn-primary">+ New Fitting Session</button>
+                </div>
+            </div>
+
+            <div class="calendar-header">
+                <div class="calendar-nav">
+                    <button class="btn btn-secondary">◀</button>
+                    <h3 style="margin: 0 15px;">January 2026</h3>
+                    <button class="btn btn-secondary">▶</button>
+                    <button class="btn btn-secondary" style="margin-left: 15px;">Today</button>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <select class="form-select" style="width: 150px;">
+                        <option>All Fitters</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                    <select class="form-select" style="width: 150px;">
+                        <option>All Companies</option>
+                        <option>HCM Branch</option>
+                        <option>HN Branch</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="calendar-day-header">Mon</div>
+                <div class="calendar-day-header">Tue</div>
+                <div class="calendar-day-header">Wed</div>
+                <div class="calendar-day-header">Thu</div>
+                <div class="calendar-day-header">Fri</div>
+                <div class="calendar-day-header">Sat</div>
+                <div class="calendar-day-header">Sun</div>
+
+                <!-- Week 1 -->
+                <div class="calendar-day" style="opacity: 0.4;">
+                    <div class="calendar-day-number">30</div>
+                </div>
+                <div class="calendar-day" style="opacity: 0.4;">
+                    <div class="calendar-day-number">31</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">1</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">2</div>
+                    <div class="calendar-event new">
+                        10:00 - Nguyễn Văn A
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">3</div>
+                    <div class="calendar-event confirmed">
+                        14:00 - Lê Thị C
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">4</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">5</div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="calendar-day">
+                    <div class="calendar-day-number">6</div>
+                    <div class="calendar-event new">
+                        09:00 - Phạm Văn D
+                    </div>
+                    <div class="calendar-event confirmed">
+                        15:30 - Hoàng Thị E
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">7</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">8</div>
+                    <div class="calendar-event in-progress">
+                        11:00 - Vũ Văn F
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">9</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">10</div>
+                    <div class="calendar-event completed">
+                        13:00 - Đỗ Thị G
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">11</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">12</div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="calendar-day">
+                    <div class="calendar-day-number">13</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">14</div>
+                    <div class="calendar-event new">
+                        10:30 - Bùi Văn H
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">15</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">16</div>
+                    <div class="calendar-event confirmed">
+                        16:00 - Mai Thị I
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">17</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">18</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">19</div>
+                </div>
+
+                <!-- Week 4 (current) -->
+                <div class="calendar-day">
+                    <div class="calendar-day-number">20</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">21</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">22</div>
+                    <div class="calendar-event completed">
+                        11:30 - Hoàng Văn E
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">23</div>
+                    <div class="calendar-event completed">
+                        15:00 - Phạm Thị D
+                    </div>
+                </div>
+                <div class="calendar-day" style="background: var(--blue-50); border: 2px solid var(--blue-500);">
+                    <div class="calendar-day-number" style="font-weight: 700; color: var(--blue-600);">24 (Today)</div>
+                    <div class="calendar-event new">
+                        14:00 - Nguyễn Văn A
+                    </div>
+                    <div class="calendar-event confirmed">
+                        16:30 - Trần Thị B
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">25</div>
+                    <div class="calendar-event in-progress">
+                        10:00 - Lê Văn C
+                    </div>
+                </div>
+                <div class="calendar-day">
+                    <div class="calendar-day-number">26</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 5: Quick Dialogs -->
+        <div class="screen" id="screen-4">
+            <div class="navbar">
+                <div class="navbar-brand">DCNET FLOW</div>
+                <div class="navbar-search">
+                    <input type="text" placeholder="Search (Ctrl+K)">
+                </div>
+            </div>
+
+            <div style="padding: var(--space-xl); background: var(--gray-50);">
+                <h2 style="margin-bottom: var(--space-lg);">Quick Action Dialogs</h2>
+
+                <!-- Dialog 1: Quick Measurement -->
+                <div style="background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: var(--space-lg); margin-bottom: var(--space-lg); max-width: 800px;">
+                    <h3 style="margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--gray-200);">Quick Measurement Entry</h3>
+
+                    <div class="form-grid" style="margin-bottom: var(--space-lg);">
+                        <div class="form-field">
+                            <label class="form-label">Height (cm)</label>
+                            <input type="number" class="form-input" value="175">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Weight (kg)</label>
+                            <input type="number" class="form-input" value="70">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Hand Size</label>
+                            <select class="form-select">
+                                <option>M</option>
+                                <option>S</option>
+                                <option>L</option>
+                                <option>XL</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Skill Level</label>
+                            <select class="form-select">
+                                <option>Intermediate</option>
+                                <option>Beginner</option>
+                                <option>Advanced</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Club Head Speed</label>
+                            <input type="number" class="form-input" value="95">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Ball Speed</label>
+                            <input type="number" class="form-input" value="140">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Ball Flight</label>
+                            <select class="form-select">
+                                <option>Mid</option>
+                                <option>Low</option>
+                                <option>High</option>
+                            </select>
+                        </div>
+                        <div class="form-field full-width">
+                            <label class="form-label">Upgrade Recommendations</label>
+                            <textarea class="form-textarea">Consider upgrading to stiff shaft for better control. Current grip size is appropriate.</textarea>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: var(--space-sm); justify-content: flex-end;">
+                        <button class="btn btn-secondary">Cancel</button>
+                        <button class="btn btn-primary">Save Measurements</button>
+                    </div>
+                </div>
+
+                <!-- Dialog 2: Add Service -->
+                <div style="background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: var(--space-lg); margin-bottom: var(--space-lg); max-width: 600px;">
+                    <h3 style="margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--gray-200);">Add Service</h3>
+
+                    <div style="display: flex; flex-direction: column; gap: var(--space-md); margin-bottom: var(--space-lg);">
+                        <div class="form-field">
+                            <label class="form-label">Service Type *</label>
+                            <select class="form-select">
+                                <option>Grip Replacement</option>
+                                <option>Shaft Replacement</option>
+                                <option>Custom Club</option>
+                                <option>Combo Package</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Item</label>
+                            <input type="text" class="form-input" placeholder="Search item...">
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label class="form-label">Quantity</label>
+                                <input type="number" class="form-input" value="1">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-label">Rate</label>
+                                <input type="text" class="form-input" value="150,000₫">
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Specifications</label>
+                            <textarea class="form-textarea" placeholder="Add any specific requirements..."></textarea>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: var(--space-sm); justify-content: flex-end;">
+                        <button class="btn btn-secondary">Cancel</button>
+                        <button class="btn btn-primary">Add Service</button>
+                    </div>
+                </div>
+
+                <!-- Dialog 3: Create Sales Order Confirmation -->
+                <div style="background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: var(--space-lg); max-width: 500px;">
+                    <h3 style="margin-bottom: var(--space-md);">Create Sales Order</h3>
+
+                    <div style="background: var(--gray-50); padding: var(--space-md); border-radius: var(--radius-md); margin-bottom: var(--space-lg);">
+                        <p style="margin-bottom: var(--space-sm);"><strong>Fitting Session:</strong> FIT-00002</p>
+                        <p style="margin-bottom: var(--space-sm);"><strong>Customer:</strong> Trần Thị B</p>
+                        <p style="margin-bottom: var(--space-sm);"><strong>Services:</strong> 3 items</p>
+                        <p style="margin-bottom: 0;"><strong>Total Amount:</strong> <span style="color: var(--green-600); font-weight: 600; font-size: 16px;">8,500,000₫</span></p>
+                    </div>
+
+                    <div style="background: var(--blue-50); padding: var(--space-md); border-radius: var(--radius-md); border-left: 3px solid var(--blue-500); margin-bottom: var(--space-lg);">
+                        <p style="font-size: 14px; color: var(--gray-700);">This will create a new Sales Order and link it to this Fitting Session. The session status will be updated to "Has Order".</p>
+                    </div>
+
+                    <div style="display: flex; gap: var(--space-sm); justify-content: flex-end;">
+                        <button class="btn btn-secondary">Cancel</button>
+                        <button class="btn btn-success">Create Sales Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showScreen(index) {
+            // Hide all screens
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+
+            // Remove active from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected screen
+            document.getElementById(`screen-${index}`).classList.add('active');
+            tabs[index].classList.add('active');
+        }
+    </script>
+</body>
+</html>

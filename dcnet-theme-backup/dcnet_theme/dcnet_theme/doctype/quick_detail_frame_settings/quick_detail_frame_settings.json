@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "creation": "2026-05-13 10:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "section_break_mappings",
+  "mappings_intro",
+  "mappings"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enable Quick Detail Frame",
+   "description": "Master switch. When off, the frame UI and patches are disabled across all views."
+  },
+  {
+   "fieldname": "section_break_mappings",
+   "fieldtype": "Section Break",
+   "label": "DocType to Child Table Mappings"
+  },
+  {
+   "fieldname": "mappings_intro",
+   "fieldtype": "HTML",
+   "options": "<p class=\"text-muted small\">Override which child table the frame shows for a given DocType. If a DocType is not listed here, the system uses a built-in registry (e.g., Sales Invoice → items, Journal Entry → accounts), then heuristic field signature, then falls back to the first child table with rows.</p>"
+  },
+  {
+   "fieldname": "mappings",
+   "fieldtype": "Table",
+   "label": "Mappings",
+   "options": "Quick Detail Frame Mapping"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-05-13 10:00:00",
+ "modified_by": "Administrator",
+ "module": "DCNET Theme",
+ "name": "Quick Detail Frame Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

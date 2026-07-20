@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 (http://www.altova.com) by mazuki (darksiderg) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ct01_Tu" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[01] Kỳ tính lợi nhuận sau thuế còn lại sau khi trích lập các quỹ:.... từ.... </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct01_Den" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[01] Kỳ tính lợi nhuận sau thuế còn lại sau khi trích lập các quỹ:.... đến.... </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct21" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Lợi nhuận sau thuế TNDN</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct22" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Các khoản phân phối, trích lập các quỹ theo quy định
+được trừ ([22] = [23] + [24] + … + [28])
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct23" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Chia lãi cho các thành viên góp vốn liên kết theo quy định của hợp đồng kinh tế (nếu có) </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct24" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Bù đắp khoản lỗ của các năm trước đã hết thời hạn được trừ vào lợi nhuận trước thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct25" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Trích quỹ đặc thù theo quyết định của Thủ tướng Chính phủ (nếu có)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct26" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Trích quỹ đầu tư phát triển</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct27" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Trích quỹ khen thưởng, phúc lợi</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct28" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Trích quỹ thưởng người quản lý doanh nghiệp, kiểm soát viên</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct29" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Lợi nhuận sau thuế còn lại sau khi trích lập các quỹ
+phải nộp ngân sách nhà nước ([29] = [21] - [22])
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct30" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Lợi nhuận sau thuế còn lại sau khi trích lập các quỹ đã tạm nộp trong năm
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct31" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Lợi nhuận sau thuế còn lại sau khi trích lập các quỹ
+còn phải nộp ngân sách nhà nước ([31] = [29] - [30])
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct32" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>20% số lợi nhuận sau thuế còn lại sau khi trích lập các quỹ phải nộp ngân sách nhà nước ([32] = [29]*20%)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct33" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Chênh lệch giữa số lợi nhuận sau thuế còn lại sau khi trích lập các quỹ còn phải nộp ngân sách nhà nước với
+20% số lợi nhuận sau thuế còn lại sau khi trích lập các quỹ phải nộp ngân sách nhà nước ([33] = [31] - [32])
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="soNgayChamNop" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[M1] Số ngày chậm nộp...................... ngày,</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tuNgay" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>từ ngày</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="denNgay" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>đến ngày</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="soTienChamNop" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[M2] Số tiền chậm nộp:................</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

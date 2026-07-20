@@ -1,0 +1,31 @@
+,,,,,,,,
+ERPNEXT,Material Request →,Supplier Quotation →,Purchase Order (PO) →,Purchase Receipt (PR) →,Purchase Invoice (PI) →,Payment Entry,,Các luồng rút gọn phổ biến
+,,,,,,,,
+Mô tả,Yêu cầu mua hàng (từ kho hoặc bộ phận),Báo giá từ NCC (so sánh giá),Đặt hàng NCC (xác nhận mua),Nhận hàng vào kho,Hóa đơn mua hàng,Thanh toán cho NCC,,# Luồng đầy đủ
+,,,,,,,,MR → SQ → PO → PR → PI → PE
+,,,,,,,,
+GL Entry,,,,"Nợ 1561 (Kho), Có 331 (NCC)","Nợ 1561, Nợ 1331 (VAT), Có 331","Nợ 331, Có 1111/1121",,# Mua trực tiếp (không qua báo giá)
+,,,,,,,,PO → PR → PI → PE
+,,,,,,,,
+Workflow,,,,,,,,# Mua hàng nhận ngay + hóa đơn cùng lúc
+,,,,,,,,"PO → PI (tick ""Update Stock"") → PE"
+,,,,,,,,
+,,,,,,,,# Mua lẻ không cần PO
+,,,,,,,,"PI (tick ""Update Stock"") → PE"
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,- Purchase Receipt chỉ ảnh hưởng kho (Stock Ledger + GL nếu perpetual inventory),,,,,,,
+,- Purchase Invoice ảnh hưởng công nợ + thuế (Accounts Payable),,,,,,,
+,"- Nếu PI có tick ""Update Stock"" → PI làm luôn việc của PR (nhập kho + ghi sổ cùng lúc)",,,,,,,
+,- ERPNext hỗ trợ liên kết ngược: từ PI có thể truy về PR → PO → MR,,,,,,,
+,- Landed Cost Voucher — phân bổ chi phí vận chuyển/phụ phí vào giá nhập kho (sau PR),,,,,,,

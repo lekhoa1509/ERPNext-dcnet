@@ -1,0 +1,917 @@
+{
+  "nodes": [
+    {
+      "file": ".postcssrc.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "auto-imports.d.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "docs/.vitepress/config.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "docs/.vitepress/meta.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "docs/.vitepress/plugins/componentTransformer.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "docs/.vitepress/theme/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "docs/.vitepress/utils.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "docs/components/Search/cache.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "docs/content/auto-imports.d.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "docs/content/docs/design-system/[token].paths.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "docs/scripts/propsgen.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "docs/state.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/DataImport/dataImport.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/DataImport/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/Filter/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/Filter/utils.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/Help/help.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "frappe/HelpCenter/helpCenter.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "frappe/Link/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/Link/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/Onboarding/onboarding.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "frappe/drive/components/Select/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/drive/components/TagInput/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/drive/components/TagInput/utils.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/drive/index.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "frappe/drive/js/icons.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "frappe/drive/js/resources.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "frappe/drive/js/utils.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "frappe/index.d.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/index.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "frappe/session.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "frappe/telemetry/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/telemetry/pulse.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/telemetry/telemetry.test.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "frappe/telemetry/utils.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "icons/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "icons/spritePlugin.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "main.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "postcss.config.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Alert/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Alert/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Autocomplete/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Autocomplete/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Avatar/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Avatar/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Badge/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Badge/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Breadcrumbs/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Breadcrumbs/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Button/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Button/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Calendar/calendarUtils.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/components/Calendar/composables/useCalendarData.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/components/Calendar/composables/useEventModal.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/components/Calendar/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Charts/axisChartOptions.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Charts/donutChartOptions.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Charts/eChartOptions.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Charts/funnelChartOptions.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Charts/helpers.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Charts/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Charts/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Checkbox/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Checkbox/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/CircularProgressBar/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/CircularProgressBar/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Combobox/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Combobox/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/DatePicker/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/DatePicker/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/DatePicker/useDatePicker.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/DatePicker/utils.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Dialog/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Dialog/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Divider/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Divider/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Dropdown/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Dropdown/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/ErrorMessage/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/ErrorMessage/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/FileUploader/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/FormControl/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/FormControl/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/ListView/utils.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/components/MonthPicker/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/MonthPicker/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/MultiSelect/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/MultiSelect/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Password/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Password/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Popover/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Popover/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Progress/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Progress/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Rating/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Rating/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Select/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Select/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Sidebar/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Sidebar/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Slider/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Slider/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Switch/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Switch/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TabButtons/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Tabs/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/commands.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/components/TextEditor/components/index.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/code-block.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/color/color-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/color/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/content-paste-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/copy-styles.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/emoji/emoji-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/heading/heading.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/highlight/highlight-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/highlight/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/iframe/iframe-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/iframe/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/iframe/utils.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/image/image-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/image/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/image-group/image-group-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/image-viewer-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/link/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/link/link-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/link/linkPasteHandler.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/mention/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/mention/mention-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/shared/color-utils.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/slash-commands/slash-commands-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/suggestion/createSuggestionExtension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/suggestion/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/tag/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/tag/tag-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/toc-node/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/toc-node/toc-node-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/extensions/video-extension.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextEditor/utils.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/components/TextInput/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TextInput/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Textarea/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Textarea/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TimePicker/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/TimePicker/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Toast/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Toast/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Tooltip/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Tooltip/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Tree/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/Tree/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/VueGridLayout/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/components/types/TextInput.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/composables/useImageNavigation.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/composables/useTouchHandler.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/composables/useZoomPan.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/docStore.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/idbStore.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useCall/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useCall/useCall.test.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useCall/useCall.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useDoc/useDoc.test.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useDoc/useDoc.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useDoctype/useDoctype.test.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useDoctype/useDoctype.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useFrappeFetch.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useList/listStore.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useList/types.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useList/useList.test.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useList/useList.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/useNewDoc/useNewDoc.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/data-fetching/utils.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/directives/focus.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/directives/onOutsideClick.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/directives/visibility.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/env.d.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/mocks/handlers.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/mocks/node.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/mocks/utils.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/resources/documentResource.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/resources/index.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/resources/listResource.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/resources/local.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/resources/plugin.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/resources/realtime.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/resources/resources.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/utils/call.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/utils/config.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/utils/confirmDialog.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/utils/dayjs.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/utils/debounce.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/utils/file-to-base64.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/utils/fileUploadHandler.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/utils/frappeRequest.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/utils/markdown.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/utils/pageMeta.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/utils/plugin.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/utils/request.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/utils/socketio.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/utils/tailwind.config.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "src/utils/theme.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/utils/url-validation.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/utils/useFileUpload.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "src/utils/useId.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "tailwind/colorPalette.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "tailwind/colors.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "tailwind/figma-variables-to-colors.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "tailwind/index.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "tailwind/plugin.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "tailwind/preset.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "tailwind/update-tailwind-classes.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "tailwind.config.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "vite/buildConfig.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "vite/doctypeInterfaceGenerator.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "vite/frappeProxy.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "vite/frappeTypes.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "vite/generateTypes.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "vite/index.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "vite/jinjaBootData.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "vite/lucideIcons.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "vite/utils.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "vite.config.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "vitest.config.ts",
+      "language": "TypeScript"
+    },
+    {
+      "file": "vitest.setup.ts",
+      "language": "TypeScript"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 (http://www.altova.com) by mazuki (darksiderg) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ct01" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Kỳ: Cổ tức, lợi nhuận được chia của năm</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="nghiQuyetQDSo" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>theo Nghị quyết/Quyết định số...</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ngayQD" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Ngày quyết đinh</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct01a" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Ngày thông báo chia cổ tức, lợi nhuận </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct02" type="xs:boolean" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Cổ tức được chia </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct03" type="xs:boolean" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Lợi nhuận được chia </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct23" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng số cổ tức của công ty cổ phần, lợi nhuận của công ty trách nhiệm hữu hạn hai thành viên trở lên chia theo Nghị quyết của Đại hội đồng cổ đông, Hội đồng quản trị hoặc quyết định của Hội đồng thành viên </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct24" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tỷ lệ vốn góp của Nhà nước trong công ty cổ phần, công ty trách nhiệm hữu hạn hai thành viên trở lên (%) </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct25" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số cổ tức, lợi nhuận được chia cho phần vốn nhà nước phải nộp ngân sách nhà nước của công ty cổ phần, công ty trách nhiệm hữu hạn hai thành viên trở lên.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

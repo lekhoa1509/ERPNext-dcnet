@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by mennt (ST) -->
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.2">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="Header">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ma_THQuyetToan" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Trường hợp quyết toán</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ten_THQuyetToan" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên trường hợp quyết toán</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="NoiDung02PLPNG">
+							<xs:annotation>
+								<xs:documentation>Thông tin chi tiết  tờ khai</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietPhiLePhiKhoanThuKhac" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ten_LoaiPLPKhoanThuKhac" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Loại phí, lệ phí và các khoản thu khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_LoaiPLPKhoanThuKhac" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã loại phí, lệ phí và các khoản thu khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tieuMuc" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tiểu mục</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soTienThuDuoc" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tiền thu được</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tyLe" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tỷ lệ trích để lại theo chế độ (%)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soTienPHTrichTheoCheDo" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tiền phí trích để lại theo chế độ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soTienPHPhaiNop" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tiền phí phải nộp NSNN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soTienDaKKTrongKy" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tiền đã kê khai trong kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="chenhLech" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Chênh lệch giữa số quyết toán và số đã kê khai</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TongCong02PLPNG">
+							<xs:annotation>
+								<xs:documentation>Tổng cộng (theo đơn vị tiền):</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietTongCongTheoLoaiTien" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ten_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongCongSTThuDuoc" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng Số tiền thu được</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongCongSTTrichTheoCheDo" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng Số tiền trích để lại theo chế độ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongCongSTPhaiNop" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng Số tiền phải nộp NSNN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="PLucType">
+			<xs:complexContent>
+				<xs:extension base="PLucType">
+					<xs:sequence>
+						<xs:element name="PLuc_02_1_PHLPNG" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="NoiDungBang" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ten_CQDaiDien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên cơ quan đại diện Việt Nam ở nước ngoài</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="loai_khoanThu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Loại phí, lệ phí và các khoản thu khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_KhoanThu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã loại phí, lệ phí và các khoản thu khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tieuMuc" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tiểu mục</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_DVTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đơn vị tiền</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_DVTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã đơn vị tiền</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soTienThuDuoc" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tiền thu được</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tyLe" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tỷ lệ trích để lại theo chế độ (%)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soTienTrichDeLai" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tiền trích để lại theo chế độ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soTienPhaiNop" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tiền phải nộp NSNN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ghiChu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ghi chú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TongCongTheoLoaiPhi" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ten_LoaiPhi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Loại phí, lệ phí và các khoản thu khác </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_LoaiPhi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã loại phí, lệ phí và các khoản thu khác </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongCongSTThuDuoc" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng Số tiền thu được</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongCongSTTrichTheoCheDo" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng Số tiền trích để lại theo chế độ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongCongSTPhaiNop" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng Số tiền phải nộp NSNN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TongCongTheoLoaiTien" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ten_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongCongSTThuDuoc" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng Số tiền thu được</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongCongSTTrichTheoCheDo" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng Số tiền trích để lại theo chế độ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongCongSTPhaiNop" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng Số tiền phải nộp NSNN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

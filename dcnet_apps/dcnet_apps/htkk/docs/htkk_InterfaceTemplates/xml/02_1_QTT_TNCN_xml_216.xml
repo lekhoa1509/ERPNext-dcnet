@@ -1,0 +1,43 @@
+<PLuc_02_1_BK_QTT_TNCN>
+	<Header>
+		<ct04/>
+		<ct05/>
+		<ct06/>
+	</Header>
+	<NPTCoCMND_MST>
+		<CTiet id="String">
+			<ct10/>
+			<ct11/>
+			<ct12/>
+			<ct13_ma/>
+			<ct13_ten/>
+			<ct14/>
+			<ct15_ma/>
+			<ct15_ten/>
+			<ct16/>
+			<ct17/>
+		</CTiet>
+	</NPTCoCMND_MST>
+	<NPTChuaCoCMND_MST>
+		<CTiet id="String">
+			<ct19/>
+			<ct20/>
+			<ct21/>
+			<ct22/>
+			<ct23_ma/>
+			<ct23_ten/>
+			<ct24_ma/>
+			<ct24_ten/>
+			<ct25_ma/>
+			<ct25_ten/>
+			<ct26_ma/>
+			<ct26_ten/>
+			<ct27_ma/>
+			<ct27_ten/>
+			<ct28_ma/>
+			<ct28_ten/>
+			<ct29/>
+			<ct30/>
+		</CTiet>
+	</NPTChuaCoCMND_MST>
+</PLuc_02_1_BK_QTT_TNCN>

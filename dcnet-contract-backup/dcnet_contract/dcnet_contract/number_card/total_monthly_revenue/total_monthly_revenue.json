@@ -1,0 +1,20 @@
+{
+ "name": "Total Monthly Revenue",
+ "label": "Total Monthly Revenue",
+ "doctype": "Number Card",
+ "module": "DCNet Contract",
+ "type": "Custom",
+ "method": "dcnet_contract.number_card_methods.get_total_monthly_revenue",
+ "show_percentage_stats": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "color": "#5B9FF5",
+ "filters_json": "[]",
+ "dynamic_filters_json": "[]",
+ "creation": "2026-04-13 00:00:00.000000",
+ "modified": "2026-04-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "owner": "Administrator",
+ "docstatus": 0,
+ "idx": 0
+}

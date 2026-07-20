@@ -1,0 +1,243 @@
+<h2>Chọn bảng màu chủ đạo</h2>
+<p class="subtitle">Màu accent quyết định toàn bộ mood của giao diện — buttons, badges, active states</p>
+
+<style>
+  .pal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
+  .pal-card { border: 2px solid #e2e8f0; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.2s; background: #fff; }
+  .pal-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(0,0,0,0.12); transform: translateY(-1px); }
+  .pal-card.selected { border-color: var(--accent); box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+  .pal-preview { height: 160px; background: #f8fafc; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .pal-topbar { height: 32px; border-radius: 8px; display: flex; align-items: center; padding: 0 12px; gap: 8px; }
+  .pal-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .pal-topbar-title { flex: 1; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.3); width: 100px; }
+  .pal-btn { height: 22px; border-radius: 5px; padding: 0 12px; font-size: 10px; color: white; display: flex; align-items: center; white-space: nowrap; }
+  .pal-cards-row { display: flex; gap: 8px; }
+  .pal-stat { flex: 1; background: white; border-radius: 8px; padding: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.05); }
+  .pal-stat-icon { width: 18px; height: 18px; border-radius: 4px; margin-bottom: 5px; }
+  .pal-stat-val { font-size: 13px; font-weight: 700; color: #1e293b; }
+  .pal-stat-lbl { font-size: 8px; color: #94a3b8; }
+  .pal-content-row { display: flex; gap: 8px; flex: 1; }
+  .pal-sidebar { width: 56px; display: flex; flex-direction: column; gap: 5px; }
+  .pal-dept { height: 20px; border-radius: 5px; }
+  .pal-main { flex: 1; background: white; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); padding: 6px; display: flex; flex-direction: column; gap: 4px; }
+  .pal-row { height: 10px; background: #f1f5f9; border-radius: 3px; }
+  .pal-row-h { height: 12px; border-radius: 3px; }
+  .pal-meta { padding: 14px 16px; }
+  .pal-meta h3 { margin: 0 0 4px; font-size: 14px; font-weight: 600; color: #1e293b; }
+  .pal-meta p { margin: 0 0 10px; font-size: 12px; color: #64748b; }
+  .pal-swatches { display: flex; gap: 6px; }
+  .pal-swatch { width: 20px; height: 20px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 1px rgba(0,0,0,0.1); }
+  .pal-label { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; }
+
+  /* PALETTE A — Indigo/Violet (Modern SaaS) */
+  .pal-a { --accent: #6366f1; --accent-light: #eef2ff; --accent-2: #8b5cf6; }
+  .pal-a .pal-topbar { background: #6366f1; }
+  .pal-a .pal-btn { background: #4f46e5; }
+  .pal-a .pal-stat-icon.a1 { background: #eef2ff; }
+  .pal-a .pal-stat-icon.a2 { background: #f0fdf4; }
+  .pal-a .pal-stat-icon.a3 { background: #fff7ed; }
+  .pal-a .pal-stat-icon.a4 { background: #fdf4ff; }
+  .pal-a .pal-dept.active { background: #eef2ff; border: 1.5px solid #818cf8; }
+  .pal-a .pal-dept { background: #f1f5f9; }
+  .pal-a .pal-row-h { background: #eef2ff; }
+  .pal-a .pal-dot { background: rgba(255,255,255,0.4); }
+
+  /* PALETTE B — Teal/Emerald (giữ brand hiện tại) */
+  .pal-b { --accent: #0f766e; --accent-light: #f0fdfa; --accent-2: #059669; }
+  .pal-b .pal-topbar { background: #0f766e; }
+  .pal-b .pal-btn { background: #0f766e; }
+  .pal-b .pal-stat-icon.a1 { background: #f0fdfa; }
+  .pal-b .pal-stat-icon.a2 { background: #ecfdf5; }
+  .pal-b .pal-stat-icon.a3 { background: #f0fdf4; }
+  .pal-b .pal-stat-icon.a4 { background: #fefce8; }
+  .pal-b .pal-dept.active { background: #f0fdfa; border: 1.5px solid #14b8a6; }
+  .pal-b .pal-dept { background: #f1f5f9; }
+  .pal-b .pal-row-h { background: #ccfbf1; }
+  .pal-b .pal-dot { background: rgba(255,255,255,0.4); }
+
+  /* PALETTE C — Blue/Slate (Enterprise Trust) */
+  .pal-c { --accent: #1d4ed8; --accent-light: #eff6ff; --accent-2: #3b82f6; }
+  .pal-c .pal-topbar { background: #1e293b; }
+  .pal-c .pal-btn { background: #2563eb; }
+  .pal-c .pal-stat-icon.a1 { background: #eff6ff; }
+  .pal-c .pal-stat-icon.a2 { background: #f0fdf4; }
+  .pal-c .pal-stat-icon.a3 { background: #fff7ed; }
+  .pal-c .pal-stat-icon.a4 { background: #fdf2f8; }
+  .pal-c .pal-dept.active { background: #eff6ff; border: 1.5px solid #60a5fa; }
+  .pal-c .pal-dept { background: #f1f5f9; }
+  .pal-c .pal-row-h { background: #dbeafe; }
+  .pal-c .pal-dot { background: rgba(255,255,255,0.3); }
+
+  /* PALETTE D — Rose/Orange (Bold & Energetic) */
+  .pal-d { --accent: #e11d48; --accent-light: #fff1f2; --accent-2: #f97316; }
+  .pal-d .pal-topbar { background: #be123c; }
+  .pal-d .pal-btn { background: #e11d48; }
+  .pal-d .pal-stat-icon.a1 { background: #fff1f2; }
+  .pal-d .pal-stat-icon.a2 { background: #fff7ed; }
+  .pal-d .pal-stat-icon.a3 { background: #fef3c7; }
+  .pal-d .pal-stat-icon.a4 { background: #ecfdf5; }
+  .pal-d .pal-dept.active { background: #fff1f2; border: 1.5px solid #fb7185; }
+  .pal-d .pal-dept { background: #f1f5f9; }
+  .pal-d .pal-row-h { background: #ffe4e6; }
+  .pal-d .pal-dot { background: rgba(255,255,255,0.4); }
+</style>
+
+<div class="pal-grid">
+
+  <!-- A: Indigo -->
+  <div class="pal-card pal-a" data-choice="a" onclick="toggleSelect(this)">
+    <div class="pal-preview">
+      <div class="pal-topbar">
+        <div class="pal-dot"></div>
+        <div class="pal-topbar-title"></div>
+        <div class="pal-btn">+ Tạo user</div>
+      </div>
+      <div class="pal-cards-row">
+        <div class="pal-stat"><div class="pal-stat-icon a1"></div><div class="pal-stat-val">5</div><div class="pal-stat-lbl">Phòng ban</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a2"></div><div class="pal-stat-val">24</div><div class="pal-stat-lbl">Users</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a3"></div><div class="pal-stat-val">22</div><div class="pal-stat-lbl">Active</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a4"></div><div class="pal-stat-val">8</div><div class="pal-stat-lbl">Roles</div></div>
+      </div>
+      <div class="pal-content-row">
+        <div class="pal-sidebar">
+          <div class="pal-dept active"></div>
+          <div class="pal-dept"></div>
+          <div class="pal-dept"></div>
+        </div>
+        <div class="pal-main">
+          <div class="pal-row-h" style="background:#eef2ff;border-radius:3px;height:12px"></div>
+          <div class="pal-row"></div>
+          <div class="pal-row"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pal-meta">
+      <h3>A — Indigo / Violet</h3>
+      <p>Hiện đại, SaaS-feel. Phổ biến ở Linear, Notion, Vercel.</p>
+      <div class="pal-swatches">
+        <div class="pal-swatch" style="background:#6366f1"></div>
+        <div class="pal-swatch" style="background:#8b5cf6"></div>
+        <div class="pal-swatch" style="background:#eef2ff"></div>
+        <div class="pal-swatch" style="background:#1e293b"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B: Teal -->
+  <div class="pal-card pal-b" data-choice="b" onclick="toggleSelect(this)">
+    <div class="pal-preview">
+      <div class="pal-topbar">
+        <div class="pal-dot"></div>
+        <div class="pal-topbar-title"></div>
+        <div class="pal-btn">+ Tạo user</div>
+      </div>
+      <div class="pal-cards-row">
+        <div class="pal-stat"><div class="pal-stat-icon a1"></div><div class="pal-stat-val">5</div><div class="pal-stat-lbl">Phòng ban</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a2"></div><div class="pal-stat-val">24</div><div class="pal-stat-lbl">Users</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a3"></div><div class="pal-stat-val">22</div><div class="pal-stat-lbl">Active</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a4"></div><div class="pal-stat-val">8</div><div class="pal-stat-lbl">Roles</div></div>
+      </div>
+      <div class="pal-content-row">
+        <div class="pal-sidebar">
+          <div class="pal-dept active"></div>
+          <div class="pal-dept"></div>
+          <div class="pal-dept"></div>
+        </div>
+        <div class="pal-main">
+          <div class="pal-row-h" style="background:#ccfbf1;border-radius:3px;height:12px"></div>
+          <div class="pal-row"></div>
+          <div class="pal-row"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pal-meta">
+      <h3>B — Teal / Emerald <span class="pal-label" style="background:#f0fdfa;color:#0f766e">Brand hiện tại</span></h3>
+      <p>Giữ nguyên màu brand DCNET. Nhất quán với CSS hiện có.</p>
+      <div class="pal-swatches">
+        <div class="pal-swatch" style="background:#0f766e"></div>
+        <div class="pal-swatch" style="background:#14b8a6"></div>
+        <div class="pal-swatch" style="background:#f0fdfa"></div>
+        <div class="pal-swatch" style="background:#1e293b"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C: Blue -->
+  <div class="pal-card pal-c" data-choice="c" onclick="toggleSelect(this)">
+    <div class="pal-preview">
+      <div class="pal-topbar">
+        <div class="pal-dot"></div>
+        <div class="pal-topbar-title"></div>
+        <div class="pal-btn">+ Tạo user</div>
+      </div>
+      <div class="pal-cards-row">
+        <div class="pal-stat"><div class="pal-stat-icon a1"></div><div class="pal-stat-val">5</div><div class="pal-stat-lbl">Phòng ban</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a2"></div><div class="pal-stat-val">24</div><div class="pal-stat-lbl">Users</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a3"></div><div class="pal-stat-val">22</div><div class="pal-stat-lbl">Active</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a4"></div><div class="pal-stat-val">8</div><div class="pal-stat-lbl">Roles</div></div>
+      </div>
+      <div class="pal-content-row">
+        <div class="pal-sidebar">
+          <div class="pal-dept active"></div>
+          <div class="pal-dept"></div>
+          <div class="pal-dept"></div>
+        </div>
+        <div class="pal-main">
+          <div class="pal-row-h" style="background:#dbeafe;border-radius:3px;height:12px"></div>
+          <div class="pal-row"></div>
+          <div class="pal-row"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pal-meta">
+      <h3>C — Blue / Slate</h3>
+      <p>Trust & authority. Phong cách enterprise kinh điển. Gần ERPNext default.</p>
+      <div class="pal-swatches">
+        <div class="pal-swatch" style="background:#1e293b"></div>
+        <div class="pal-swatch" style="background:#2563eb"></div>
+        <div class="pal-swatch" style="background:#dbeafe"></div>
+        <div class="pal-swatch" style="background:#f8fafc"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D: Rose -->
+  <div class="pal-card pal-d" data-choice="d" onclick="toggleSelect(this)">
+    <div class="pal-preview">
+      <div class="pal-topbar">
+        <div class="pal-dot"></div>
+        <div class="pal-topbar-title"></div>
+        <div class="pal-btn">+ Tạo user</div>
+      </div>
+      <div class="pal-cards-row">
+        <div class="pal-stat"><div class="pal-stat-icon a1"></div><div class="pal-stat-val">5</div><div class="pal-stat-lbl">Phòng ban</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a2"></div><div class="pal-stat-val">24</div><div class="pal-stat-lbl">Users</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a3"></div><div class="pal-stat-val">22</div><div class="pal-stat-lbl">Active</div></div>
+        <div class="pal-stat"><div class="pal-stat-icon a4"></div><div class="pal-stat-val">8</div><div class="pal-stat-lbl">Roles</div></div>
+      </div>
+      <div class="pal-content-row">
+        <div class="pal-sidebar">
+          <div class="pal-dept active"></div>
+          <div class="pal-dept"></div>
+          <div class="pal-dept"></div>
+        </div>
+        <div class="pal-main">
+          <div class="pal-row-h" style="background:#ffe4e6;border-radius:3px;height:12px"></div>
+          <div class="pal-row"></div>
+          <div class="pal-row"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pal-meta">
+      <h3>D — Rose / Orange</h3>
+      <p>Bold, năng động. Nổi bật, dễ nhận diện nhưng ít phổ biến cho admin UI.</p>
+      <div class="pal-swatches">
+        <div class="pal-swatch" style="background:#e11d48"></div>
+        <div class="pal-swatch" style="background:#f97316"></div>
+        <div class="pal-swatch" style="background:#fff1f2"></div>
+        <div class="pal-swatch" style="background:#1e293b"></div>
+      </div>
+    </div>
+  </div>
+
+</div>

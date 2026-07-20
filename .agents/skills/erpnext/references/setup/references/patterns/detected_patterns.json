@@ -1,0 +1,1155 @@
+[
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/authorization_control/authorization_control.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/authorization_control/authorization_control.py",
+        "class_name": "AuthorizationControl",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Parameterized factory method: get_appr_user_role",
+          "Parameterized factory method: get_value_based_rule",
+          "Multiple factory methods: get_appr_user_role, get_value_based_rule",
+          "Inherits from: TransactionBase"
+        ],
+        "related_classes": [
+          "TransactionBase"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/authorization_control/authorization_control.py",
+        "class_name": "AuthorizationControl",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: TransactionBase",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/authorization_rule/authorization_rule.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/authorization_rule/authorization_rule.py",
+        "class_name": "AuthorizationRule",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/company.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/company.py",
+        "class_name": "Company",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Factory method: create_default_tax_template",
+          "Factory method: create_default_warehouses",
+          "Factory method: create_default_accounts",
+          "Factory method: create_default_departments",
+          "Factory method: create_default_cost_center",
+          "Multiple factory methods: create_default_tax_template, create_default_warehouses, create_default_accounts",
+          "Inherits from: NestedSet"
+        ],
+        "related_classes": [
+          "NestedSet"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/company.py",
+        "class_name": "Company",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Has 4 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/company.py",
+        "class_name": "Company",
+        "method_name": "check_if_transactions_exist",
+        "line_number": 141,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/company.py",
+        "class_name": "Company",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Implements interface: NestedSet",
+          "Has 30 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/company.py",
+        "class_name": "Company",
+        "method_name": "on_update",
+        "line_number": 334,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/company.py",
+        "class_name": "Company",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Has hook methods: validate, validate_inventory_account_settings, validate_abbr",
+          "Has abstract methods: _set_default_account"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 13,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+        "class_name": "TestCompany",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Parameterized factory method: get_no_of_children",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+        "class_name": "TestCompany",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 8 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+        "class_name": "TestCurrencyExchange",
+        "method_name": null,
+        "line_number": 80,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/customer_group/customer_group.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/customer_group/customer_group.py",
+        "class_name": "CustomerGroup",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: NestedSet",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/customer_group/customer_group.py",
+        "class_name": "CustomerGroup",
+        "method_name": "on_update",
+        "line_number": 71,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/department/department.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/department/department.py",
+        "class_name": "Department",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: NestedSet",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/department/department.py",
+        "class_name": "Department",
+        "method_name": "on_update",
+        "line_number": 54,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/email_digest/email_digest.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/email_digest/email_digest.py",
+        "class_name": "EmailDigest",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Factory method: get_users",
+          "Factory method: get_msg_html",
+          "Factory method: get_notifications",
+          "Factory method: get_calendar_events",
+          "Parameterized factory method: get_todo_list",
+          "Parameterized factory method: get_todo_count",
+          "Parameterized factory method: get_issue_list",
+          "Factory method: get_issue_count",
+          "Parameterized factory method: get_project_list",
+          "Factory method: get_project_count",
+          "Factory method: get_income",
+          "Factory method: get_income_year_to_date",
+          "Factory method: get_expense_year_to_date",
+          "Parameterized factory method: get_year_to_date_balance",
+          "Factory method: get_bank_balance",
+          "Factory method: get_credit_balance",
+          "Factory method: get_payables",
+          "Factory method: get_invoiced_amount",
+          "Factory method: get_expenses_booked",
+          "Parameterized factory method: get_period_amounts",
+          "Factory method: get_sales_orders_to_bill",
+          "Factory method: get_sales_orders_to_deliver",
+          "Factory method: get_purchase_orders_to_receive",
+          "Factory method: get_purchase_orders_to_bill",
+          "Parameterized factory method: get_type_balance",
+          "Parameterized factory method: get_roots",
+          "Parameterized factory method: get_root_type_accounts",
+          "Factory method: get_purchase_order",
+          "Factory method: get_sales_order",
+          "Factory method: get_pending_purchase_orders",
+          "Factory method: get_pending_sales_orders",
+          "Factory method: get_sales_invoice",
+          "Factory method: get_purchase_invoice",
+          "Factory method: get_new_quotations",
+          "Factory method: get_pending_quotations",
+          "Parameterized factory method: get_summary_of_pending",
+          "Parameterized factory method: get_summary_of_pending_quotations",
+          "Parameterized factory method: get_summary_of_doc",
+          "Parameterized factory method: get_total_on",
+          "Factory method: get_from_to_date",
+          "Factory method: get_next_sending",
+          "Factory method: get_purchase_orders_items_overdue_list",
+          "Multiple factory methods: get_users, get_msg_html, get_notifications",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/email_digest/email_digest.py",
+        "class_name": "EmailDigest",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Has 4 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/email_digest/email_digest.py",
+        "class_name": "EmailDigest",
+        "method_name": "get_users",
+        "line_number": 86,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/email_digest/email_digest.py",
+        "class_name": "EmailDigest",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 50 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 5,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/employee.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/employee.py",
+        "class_name": "EmployeeUserDisabledError",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Part of strategy family with: InactiveEmployeeStatusError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/employee.py",
+        "class_name": "InactiveEmployeeStatusError",
+        "method_name": null,
+        "line_number": 21,
+        "evidence": [
+          "Part of strategy family with: EmployeeUserDisabledError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/employee.py",
+        "class_name": "Employee",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Implements interface: NestedSet",
+          "Has 19 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/employee.py",
+        "class_name": "Employee",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Notify method: update_nsm_model",
+          "Notify method: on_update",
+          "Notify method: update_user_permissions",
+          "Notify method: update_user"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 3,
+    "total_functions": 12,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 2,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+        "class_name": "TestEmployee",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/global_defaults/global_defaults.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/global_defaults/global_defaults.py",
+        "class_name": "GlobalDefaults",
+        "method_name": "get_defaults",
+        "line_number": 60,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/global_defaults/global_defaults.py",
+        "class_name": "GlobalDefaults",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/global_defaults/global_defaults.py",
+        "class_name": "GlobalDefaults",
+        "method_name": "on_update",
+        "line_number": 45,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/holiday_list.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/holiday_list.py",
+        "class_name": "HolidayList",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Factory method: get_weekly_off_dates",
+          "Factory method: get_supported_countries",
+          "Factory method: get_local_holidays",
+          "Factory method: get_holidays",
+          "Parameterized factory method: get_weekly_off_date_list",
+          "Multiple factory methods: get_weekly_off_dates, get_supported_countries, get_local_holidays",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/holiday_list.py",
+        "class_name": "HolidayList",
+        "method_name": "get_weekly_off_dates",
+        "line_number": 50,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/holiday_list.py",
+        "class_name": "HolidayList",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 10 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 4,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+        "class_name": "TestHolidayList",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/item_group.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/item_group.py",
+        "class_name": "ItemGroup",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: NestedSet",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/item_group.py",
+        "class_name": "ItemGroup",
+        "method_name": "on_update",
+        "line_number": 55,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+        "class_name": "TestItem",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Factory method: test_rebuild_tree",
+          "Parameterized factory method: _get_no_of_children",
+          "Multiple factory methods: test_rebuild_tree, _get_no_of_children",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+        "class_name": "TestItem",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 15 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/sales_partner/sales_partner.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/sales_partner/sales_partner.py",
+        "class_name": "SalesPartner",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Parameterized factory method: get_context",
+          "Inherits from: WebsiteGenerator"
+        ],
+        "related_classes": [
+          "WebsiteGenerator"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/sales_partner/sales_partner.py",
+        "class_name": "SalesPartner",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: WebsiteGenerator",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/sales_person/sales_person.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/sales_person/sales_person.py",
+        "class_name": "SalesPerson",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Implements interface: NestedSet",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/sales_person/sales_person.py",
+        "class_name": "SalesPerson",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Attach method: load_dashboard_info",
+          "Notify method: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/supplier_group/supplier_group.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/supplier_group/supplier_group.py",
+        "class_name": "SupplierGroup",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: NestedSet",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/supplier_group/supplier_group.py",
+        "class_name": "SupplierGroup",
+        "method_name": "on_update",
+        "line_number": 66,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/territory/territory.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/territory/territory.py",
+        "class_name": "Territory",
+        "method_name": "on_update",
+        "line_number": 42,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+        "class_name": "TestTransactionDeletionRecord",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Factory method: test_get_naming_series_prefix_with_dot",
+          "Factory method: test_get_naming_series_prefix_with_brace",
+          "Factory method: test_get_naming_series_prefix_fallback",
+          "Multiple factory methods: test_get_naming_series_prefix_with_dot, test_get_naming_series_prefix_with_brace, test_get_naming_series_prefix_fallback",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+        "class_name": "TestTransactionDeletionRecord",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 22 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+        "class_name": "TestTransactionDeletionRecord",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Class name suggests Command: TestTransactionDeletionRecord"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+        "class_name": "TestTransactionDeletionRecord",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Has hook methods: setUp, tearDown, test_validation_prevents_child_tables",
+          "Has abstract methods: _clear_all_deletion_cache_flags"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Command": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py",
+        "class_name": "TransactionDeletionRecord",
+        "method_name": null,
+        "line_number": 113,
+        "evidence": [
+          "Parameterized factory method: _get_child_tables",
+          "Parameterized factory method: _get_to_delete_row_infos",
+          "Parameterized factory method: _get_company_link_fields",
+          "Factory method: get_doctypes_to_be_ignored_list",
+          "Parameterized factory method: get_doctypes_with_company_field",
+          "Factory method: get_all_child_doctypes",
+          "Parameterized factory method: get_number_of_docs_linked_with_specified_company",
+          "Parameterized factory method: get_company_field",
+          "Parameterized factory method: get_naming_series_prefix",
+          "Multiple factory methods: _get_child_tables, _get_to_delete_row_infos, _get_company_link_fields",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py",
+        "class_name": "TransactionDeletionRecord",
+        "method_name": "generate_to_delete_list",
+        "line_number": 374,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py",
+        "class_name": "TransactionDeletionRecord",
+        "method_name": null,
+        "line_number": 113,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 49 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py",
+        "class_name": "TransactionDeletionRecord",
+        "method_name": null,
+        "line_number": 113,
+        "evidence": [
+          "Attach method: delete_lead_addresses",
+          "Notify method: update_naming_series",
+          "Attach method: unlink_attachments"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py",
+        "class_name": "TransactionDeletionRecord",
+        "method_name": null,
+        "line_number": 113,
+        "evidence": [
+          "Class name suggests Command: TransactionDeletionRecord"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py",
+        "class_name": "TransactionDeletionRecord",
+        "method_name": null,
+        "line_number": 113,
+        "evidence": [
+          "Has hook methods: validate, validate_to_delete_list, before_submit",
+          "Has abstract methods: __init__, _is_any_doctype_in_deletion_list"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 8,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "Command": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record_item/transaction_deletion_record_item.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record_item/transaction_deletion_record_item.py",
+        "class_name": "TransactionDeletionRecordItem",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Class name suggests Command: TransactionDeletionRecordItem"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.py",
+        "class_name": "TransactionDeletionRecordToDelete",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Class name suggests Command: TransactionDeletionRecordToDelete"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  }
+]

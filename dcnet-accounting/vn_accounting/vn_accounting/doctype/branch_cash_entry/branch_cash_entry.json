@@ -1,0 +1,479 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-04-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "posting_date",
+  "branch",
+  "accounting_unit",
+  "column_break_core",
+  "direction",
+  "posting_scope",
+  "amount",
+  "section_break_notes",
+  "remarks",
+  "section_break_invoice",
+  "has_invoice",
+  "invoice_file",
+  "load_invoice_btn",
+  "section_break_invoice_meta",
+  "invoice_form_no",
+  "invoice_serial",
+  "invoice_number",
+  "invoice_id",
+  "column_break_invoice_meta",
+  "invoice_date",
+  "invoice_currency",
+  "exchange_rate",
+  "section_break_invoice_seller",
+  "seller_name",
+  "seller_tax_code",
+  "column_break_invoice_seller",
+  "seller_phone",
+  "seller_address",
+  "section_break_invoice_buyer",
+  "buyer_contact_name",
+  "buyer_company_name",
+  "buyer_tax_code",
+  "column_break_invoice_buyer",
+  "buyer_warehouse",
+  "buyer_address",
+  "section_break_invoice_payment",
+  "payment_method",
+  "payment_due_date",
+  "column_break_invoice_payment",
+  "buyer_bank_account",
+  "buyer_bank_name",
+  "reference_number",
+  "section_break_invoice_items",
+  "invoice_items",
+  "section_break_invoice_totals",
+  "total_before_tax",
+  "tax_rate",
+  "tax_amount",
+  "column_break_invoice_totals",
+  "total_amount",
+  "total_in_words",
+  "section_break_invoice_link",
+  "linked_invoice_type",
+  "column_break_invoice_link",
+  "linked_invoice",
+  "section_break_accounts",
+  "cash_account",
+  "offset_account",
+  "official_journal_entry"
+ ],
+ "fields": [
+  {
+   "default": "BCE-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "label": "Ký hiệu chứng từ",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Công ty",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Ngày hạch toán",
+   "reqd": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Chi nhánh",
+   "options": "Branch",
+   "reqd": 1
+  },
+  {
+   "fieldname": "accounting_unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Đơn vị hạch toán",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_core",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "direction",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Loại phiếu",
+   "options": "Receive\nPay",
+   "reqd": 1
+  },
+  {
+   "fieldname": "posting_scope",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Phạm vi ghi nhận",
+   "options": "Official\nInternal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Số tiền",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_notes",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Diễn giải",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_invoice_link",
+   "fieldtype": "Section Break",
+   "label": "Hóa đơn liên quan",
+   "description": "Gắn phiếu quỹ này với hóa đơn liên quan nếu có (hóa đơn bán hàng, hóa đơn mua hàng, hoặc hóa đơn điện tử đầu vào). Giúp KTT đối chiếu giao dịch không bị thất lạc."
+  },
+  {
+   "fieldname": "linked_invoice_type",
+   "fieldtype": "Select",
+   "label": "Loại hóa đơn",
+   "options": "\nSales Invoice\nPurchase Invoice\nEInvoice Inward",
+   "description": "Để trống nếu phiếu quỹ chưa khớp hóa đơn nào."
+  },
+  {
+   "fieldname": "column_break_invoice_link",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.linked_invoice_type",
+   "fieldname": "linked_invoice",
+   "fieldtype": "Dynamic Link",
+   "label": "Hóa đơn",
+   "options": "linked_invoice_type"
+  },
+  {
+   "fieldname": "section_break_accounts",
+   "fieldtype": "Section Break",
+   "label": "Hạch toán sổ cái"
+  },
+  {
+   "depends_on": "eval:doc.posting_scope==\"Official\"",
+   "fieldname": "cash_account",
+   "fieldtype": "Link",
+   "label": "Tài khoản quỹ",
+   "mandatory_depends_on": "eval:doc.posting_scope==\"Official\"",
+   "options": "Account"
+  },
+  {
+   "depends_on": "eval:doc.posting_scope==\"Official\"",
+   "fieldname": "offset_account",
+   "fieldtype": "Link",
+   "label": "Tài khoản đối ứng",
+   "mandatory_depends_on": "eval:doc.posting_scope==\"Official\"",
+   "options": "Account"
+  },
+  {
+   "fieldname": "official_journal_entry",
+   "fieldtype": "Link",
+   "label": "Bút toán sổ cái",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_invoice",
+   "fieldtype": "Section Break",
+   "label": "Đọc dữ liệu hóa đơn",
+   "collapsible": 1,
+   "description": "Tick Có hóa đơn, tải file XML/HTML/PDF/ảnh, rồi bấm Tải dữ liệu hóa đơn để tự động điền thông tin."
+  },
+  {
+   "default": "0",
+   "fieldname": "has_invoice",
+   "fieldtype": "Check",
+   "label": "Có hóa đơn"
+  },
+  {
+   "depends_on": "eval:doc.has_invoice",
+   "description": "Tải lên hóa đơn điện tử dạng XML/HTML (parse trực tiếp) hoặc PDF/ảnh (dùng AI để trích xuất). Bấm \"Tải dữ liệu hóa đơn\" để tự động điền các trường.",
+   "fieldname": "invoice_file",
+   "fieldtype": "Attach",
+   "label": "File hóa đơn (XML/HTML/PDF/Ảnh)"
+  },
+  {
+   "depends_on": "eval:doc.has_invoice && doc.invoice_file",
+   "fieldname": "load_invoice_btn",
+   "fieldtype": "Button",
+   "label": "Tải dữ liệu hóa đơn"
+  },
+  {
+   "depends_on": "eval:doc.has_invoice",
+   "fieldname": "section_break_invoice_meta",
+   "fieldtype": "Section Break",
+   "label": "Thông tin chung"
+  },
+  {
+   "fieldname": "invoice_form_no",
+   "fieldtype": "Data",
+   "label": "Mẫu số (Form)"
+  },
+  {
+   "fieldname": "invoice_serial",
+   "fieldtype": "Data",
+   "label": "Ký hiệu (Serial)"
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Số (Invoice No)"
+  },
+  {
+   "fieldname": "invoice_id",
+   "fieldtype": "Data",
+   "label": "ID hóa đơn"
+  },
+  {
+   "fieldname": "column_break_invoice_meta",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Ngày lập"
+  },
+  {
+   "fieldname": "invoice_currency",
+   "fieldtype": "Data",
+   "label": "Đồng tiền"
+  },
+  {
+   "default": "1",
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Tỷ giá",
+   "precision": "6"
+  },
+  {
+   "depends_on": "eval:doc.has_invoice",
+   "fieldname": "section_break_invoice_seller",
+   "fieldtype": "Section Break",
+   "label": "Người bán"
+  },
+  {
+   "fieldname": "seller_name",
+   "fieldtype": "Data",
+   "label": "Tên người bán"
+  },
+  {
+   "fieldname": "seller_tax_code",
+   "fieldtype": "Data",
+   "label": "MST người bán"
+  },
+  {
+   "fieldname": "column_break_invoice_seller",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "seller_phone",
+   "fieldtype": "Data",
+   "label": "Điện thoại"
+  },
+  {
+   "fieldname": "seller_address",
+   "fieldtype": "Small Text",
+   "label": "Địa chỉ người bán"
+  },
+  {
+   "depends_on": "eval:doc.has_invoice",
+   "fieldname": "section_break_invoice_buyer",
+   "fieldtype": "Section Break",
+   "label": "Người mua"
+  },
+  {
+   "fieldname": "buyer_contact_name",
+   "fieldtype": "Data",
+   "label": "Họ tên người mua"
+  },
+  {
+   "fieldname": "buyer_company_name",
+   "fieldtype": "Data",
+   "label": "Tên đơn vị"
+  },
+  {
+   "fieldname": "buyer_tax_code",
+   "fieldtype": "Data",
+   "label": "MST người mua"
+  },
+  {
+   "fieldname": "column_break_invoice_buyer",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "buyer_warehouse",
+   "fieldtype": "Data",
+   "label": "Xuất tại kho"
+  },
+  {
+   "fieldname": "buyer_address",
+   "fieldtype": "Small Text",
+   "label": "Địa chỉ người mua"
+  },
+  {
+   "depends_on": "eval:doc.has_invoice",
+   "fieldname": "section_break_invoice_payment",
+   "fieldtype": "Section Break",
+   "label": "Thanh toán"
+  },
+  {
+   "fieldname": "payment_method",
+   "fieldtype": "Data",
+   "label": "Hình thức thanh toán"
+  },
+  {
+   "fieldname": "payment_due_date",
+   "fieldtype": "Data",
+   "label": "Hạn thanh toán"
+  },
+  {
+   "fieldname": "column_break_invoice_payment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "buyer_bank_account",
+   "fieldtype": "Data",
+   "label": "Số tài khoản"
+  },
+  {
+   "fieldname": "buyer_bank_name",
+   "fieldtype": "Data",
+   "label": "Tại ngân hàng"
+  },
+  {
+   "fieldname": "reference_number",
+   "fieldtype": "Data",
+   "label": "Số tham chiếu"
+  },
+  {
+   "depends_on": "eval:doc.has_invoice",
+   "fieldname": "section_break_invoice_items",
+   "fieldtype": "Section Break",
+   "label": "Hàng hóa, dịch vụ"
+  },
+  {
+   "fieldname": "invoice_items",
+   "fieldtype": "Table",
+   "label": "Chi tiết",
+   "options": "Branch Cash Entry Invoice Item"
+  },
+  {
+   "depends_on": "eval:doc.has_invoice",
+   "fieldname": "section_break_invoice_totals",
+   "fieldtype": "Section Break",
+   "label": "Tổng hợp"
+  },
+  {
+   "fieldname": "total_before_tax",
+   "fieldtype": "Currency",
+   "label": "Cộng tiền hàng",
+   "options": "invoice_currency"
+  },
+  {
+   "fieldname": "tax_rate",
+   "fieldtype": "Data",
+   "label": "Thuế suất GTGT (%)"
+  },
+  {
+   "fieldname": "tax_amount",
+   "fieldtype": "Currency",
+   "label": "Tiền thuế GTGT",
+   "options": "invoice_currency"
+  },
+  {
+   "fieldname": "column_break_invoice_totals",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Tổng tiền thanh toán",
+   "options": "invoice_currency"
+  },
+  {
+   "fieldname": "total_in_words",
+   "fieldtype": "Small Text",
+   "label": "Số tiền viết bằng chữ"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-05-28 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "Branch Cash Entry",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "company,branch,accounting_unit,official_journal_entry",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

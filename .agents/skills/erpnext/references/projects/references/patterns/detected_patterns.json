@@ -1,0 +1,726 @@
+[
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/activity_cost/activity_cost.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/activity_cost/activity_cost.py",
+        "class_name": "ActivityCost",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/activity_cost/test_activity_cost.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/activity_cost/test_activity_cost.py",
+        "class_name": "TestActivityCost",
+        "method_name": "setUpClass",
+        "line_number": 12,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/dependent_task/dependent_task.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/dependent_task/dependent_task.py",
+        "class_name": "DependentTask",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Class name suggests Command: DependentTask"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/project/project.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/project/project.py",
+        "class_name": "Project",
+        "method_name": null,
+        "line_number": 21,
+        "evidence": [
+          "Parameterized factory method: create_task_from_template",
+          "Factory method: get_billed_amount_from_parent",
+          "Factory method: get_billed_amount_from_child",
+          "Multiple factory methods: create_task_from_template, get_billed_amount_from_parent, get_billed_amount_from_child",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/project/project.py",
+        "class_name": "Project",
+        "method_name": null,
+        "line_number": 21,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 25 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/project/project.py",
+        "class_name": "Project",
+        "method_name": null,
+        "line_number": 21,
+        "evidence": [
+          "Notify method: update_if_holiday",
+          "Notify method: is_row_updated",
+          "Notify method: update_project",
+          "Notify method: update_percent_complete",
+          "Notify method: update_costing",
+          "Notify method: update_purchase_costing",
+          "Notify method: update_sales_amount",
+          "Notify method: update_billed_amount"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 23,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/project/test_project.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/project/test_project.py",
+        "class_name": "TestProject",
+        "method_name": "setUpClass",
+        "line_number": 18,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/project/test_project.py",
+        "class_name": "TestProject",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: ERPNextTestSuite",
+          "Has 8 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/project_template/project_template.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/project_template/project_template.py",
+        "class_name": "ProjectTemplate",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/project_template_task/project_template_task.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/project_template_task/project_template_task.py",
+        "class_name": "ProjectTemplateTask",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Class name suggests Command: ProjectTemplateTask"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task/task.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task/task.py",
+        "class_name": "CircularReferenceError",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Part of strategy family with: ParentIsGroupError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task/task.py",
+        "class_name": "ParentIsGroupError",
+        "method_name": null,
+        "line_number": 21,
+        "evidence": [
+          "Part of strategy family with: CircularReferenceError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task/task.py",
+        "class_name": "Task",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Implements interface: NestedSet",
+          "Has 26 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task/task.py",
+        "class_name": "Task",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Notify method: update_depends_on",
+          "Notify method: update_nsm_model",
+          "Notify method: on_update",
+          "Notify method: update_time_and_costing",
+          "Notify method: update_project",
+          "Notify method: update_status"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task/task.py",
+        "class_name": "Task",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Class name suggests Command: Task"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 3,
+    "total_functions": 10,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 2,
+      "Adapter": 1,
+      "Observer": 1,
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task/test_task.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task/test_task.py",
+        "class_name": "TestTask",
+        "method_name": "setUpClass",
+        "line_number": 13,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task/test_task.py",
+        "class_name": "TestTask",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: ERPNextTestSuite",
+          "Has 8 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task/test_task.py",
+        "class_name": "TestTask",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Class name suggests Command: TestTask"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task_depends_on/task_depends_on.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task_depends_on/task_depends_on.py",
+        "class_name": "TaskDependsOn",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Class name suggests Command: TaskDependsOn"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task_type/task_type.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task_type/task_type.py",
+        "class_name": "TaskType",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Class name suggests Command: TaskType"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task_type/test_task_type.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/task_type/test_task_type.py",
+        "class_name": "TestTaskType",
+        "method_name": null,
+        "line_number": 7,
+        "evidence": [
+          "Class name suggests Command: TestTaskType"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/test_timesheet.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/test_timesheet.py",
+        "class_name": "TestTimesheet",
+        "method_name": "setUpClass",
+        "line_number": 19,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/test_timesheet.py",
+        "class_name": "TestTimesheet",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: ERPNextTestSuite",
+          "Has 14 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/test_timesheet.py",
+        "class_name": "TestTimesheet",
+        "method_name": "test_timesheet_post_update",
+        "line_number": 26,
+        "evidence": [
+          "Observer method detected: test_timesheet_post_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/timesheet.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/timesheet.py",
+        "class_name": "OverlapError",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Part of strategy family with: OverWorkLoggedError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/timesheet.py",
+        "class_name": "OverWorkLoggedError",
+        "method_name": null,
+        "line_number": 21,
+        "evidence": [
+          "Part of strategy family with: OverlapError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/timesheet.py",
+        "class_name": "Timesheet",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Parameterized factory method: get_overlap_for",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/timesheet.py",
+        "class_name": "Timesheet",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Has 3 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/timesheet.py",
+        "class_name": "Timesheet",
+        "method_name": "update_billing_hours",
+        "line_number": 124,
+        "evidence": [
+          "Method uses decorators: ['deprecated']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/timesheet.py",
+        "class_name": "Timesheet",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 25 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet/timesheet.py",
+        "class_name": "Timesheet",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Notify method: on_update_after_submit",
+          "Notify method: update_billing_hours",
+          "Notify method: update_task_and_project",
+          "Notify method: update_cost",
+          "Notify method: update_time_rates"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 3,
+    "total_functions": 9,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 2,
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet_detail/timesheet_detail.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet_detail/timesheet_detail.py",
+        "class_name": "TimesheetDetail",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 9 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/doctype/timesheet_detail/timesheet_detail.py",
+        "class_name": "TimesheetDetail",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Notify method: update_billing_hours",
+          "Notify method: update_cost"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/report/delayed_tasks_summary/test_delayed_tasks_summary.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/report/delayed_tasks_summary/test_delayed_tasks_summary.py",
+        "class_name": "TestDelayedTasksSummary",
+        "method_name": "setUp",
+        "line_number": 11,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/report/delayed_tasks_summary/test_delayed_tasks_summary.py",
+        "class_name": "TestDelayedTasksSummary",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/projects/report/delayed_tasks_summary/test_delayed_tasks_summary.py",
+        "class_name": "TestDelayedTasksSummary",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Class name suggests Command: TestDelayedTasksSummary"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Command": 1
+    }
+  }
+]

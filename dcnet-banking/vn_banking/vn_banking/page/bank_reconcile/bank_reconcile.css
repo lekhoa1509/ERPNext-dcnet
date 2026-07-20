@@ -1,0 +1,66 @@
+.bank-reconcile-wrapper { padding: 10px; }
+.bank-reconcile-toolbar { margin-bottom: 16px; }
+.bank-reconcile-toolbar .br-bank-account-field { max-width: 380px; }
+.bank-reconcile-toolbar .br-bank-account-field .control-label { font-size: 12px; color: #6c757d; margin-bottom: 4px; }
+.bank-reconcile-toolbar .br-bank-account-field select { height: 36px; font-size: 14px; }
+.bank-reconcile-stats { padding: 8px 12px; background: #f8f9fa; border-radius: 4px; margin-bottom: 10px; }
+.bank-reconcile-table-wrapper { overflow-x: auto; max-height: 75vh; overflow-y: auto; }
+.bank-reconcile-bulk-bar { position: sticky; bottom: 0; background: #fff; padding: 10px; border-top: 1px solid #e5e7eb; }
+
+/* Table */
+.br-txn-table { font-size: 13px; border-collapse: collapse; }
+.br-txn-table thead th { position: sticky; top: 0; background: #f8f9fa; z-index: 1; white-space: nowrap; padding: 6px 8px; font-weight: 600; font-size: 11px; text-transform: uppercase; color: #6c757d; border-bottom: 2px solid #dee2e6; }
+.br-txn-table tbody td { padding: 6px 8px; vertical-align: middle; border-bottom: 1px solid #f0f0f0; }
+.br-txn-table tbody tr:hover { background: #f8f9fa; }
+
+/* Column widths */
+.br-col-check { width: 32px; text-align: center; }
+.br-col-status { width: 28px; text-align: center; }
+.br-col-date { width: 90px; }
+.br-col-desc { min-width: 180px; max-width: 300px; }
+.br-col-amount { width: 110px; text-align: right; white-space: nowrap; }
+.br-col-ref { width: 100px; }
+.br-col-party { min-width: 160px; }
+.br-col-match { min-width: 180px; }
+.br-col-actions { width: 180px; white-space: nowrap; }
+
+/* Confidence dots */
+.br-dot { font-size: 16px; line-height: 1; }
+.br-dot-high { color: #16a34a; }
+.br-dot-medium { color: #eab308; }
+.br-dot-low { color: #f97316; }
+.br-dot-none { color: #d1d5db; }
+
+/* Confidence stats */
+.br-confidence-high { color: #16a34a; font-weight: 600; }
+.br-confidence-medium { color: #eab308; font-weight: 600; }
+.br-confidence-low { color: #f97316; }
+.br-confidence-none { color: #ef4444; }
+
+/* Amount styling */
+.br-amount-credit { color: #16a34a; }
+.br-amount-debit { color: #dc2626; }
+
+/* Description truncate */
+.br-desc-text { display: block; max-width: 280px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: default; }
+
+/* Inline party control */
+.br-party-cell .frappe-control { margin: 0; }
+.br-party-cell .frappe-control .control-input-wrapper { margin: 0; }
+.br-party-cell .frappe-control input[data-fieldtype="Link"] { height: 28px; font-size: 12px; padding: 2px 6px; }
+.br-party-cell .frappe-control .link-btn { display: none; }
+.br-party-text { cursor: pointer; color: #1d4ed8; }
+.br-party-text:hover { text-decoration: underline; }
+
+/* Invoice pills */
+.br-invoice-pill { display: inline-block; padding: 1px 6px; margin: 1px 2px; background: #e0f2fe; border-radius: 3px; font-size: 11px; color: #0369a1; }
+.br-pe-found { display: inline-block; padding: 2px 8px; background: #dcfce7; border-radius: 3px; font-size: 12px; color: #166534; }
+.br-pe-found a { color: #166534; font-weight: 600; }
+
+/* Action buttons */
+.br-actions-cell .btn { padding: 2px 8px; font-size: 11px; margin-right: 3px; }
+.br-reconciled-badge { display: inline-block; padding: 2px 8px; background: #dcfce7; border-radius: 3px; font-size: 11px; color: #166534; font-weight: 600; }
+
+/* Row states */
+tr.br-row-reconciled td { opacity: 0.6; }
+tr.br-row-selected { background: #eff6ff !important; }

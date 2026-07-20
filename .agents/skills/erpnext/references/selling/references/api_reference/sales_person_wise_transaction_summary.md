@@ -1,0 +1,76 @@
+# API Reference: sales_person_wise_transaction_summary.py
+
+**Language**: Python
+
+**Source**: `report/sales_person_wise_transaction_summary/sales_person_wise_transaction_summary.py`
+
+---
+
+## Functions
+
+### execute(filters = None)
+
+**Parameters**:
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| filters | None | None | - |
+
+**Returns**: (none)
+
+
+
+### get_columns(filters)
+
+**Parameters**:
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| filters | None | - | - |
+
+**Returns**: (none)
+
+
+
+### get_entries(filters)
+
+**Parameters**:
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| filters | None | - | - |
+
+**Returns**: (none)
+
+
+
+### get_conditions(filters, date_field)
+
+**Parameters**:
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| filters | None | - | - |
+| date_field | None | - | - |
+
+**Returns**: (none)
+
+
+
+### get_items(filters)
+
+**Parameters**:
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| filters | None | - | - |
+
+**Returns**: (none)
+
+
+
+### get_item_details()
+
+**Returns**: (none)
+
+

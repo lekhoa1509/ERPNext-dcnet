@@ -1,0 +1,27 @@
+<PLuc_01_2_GTGT>
+	<TenNhaMay id="">
+		<sTT/>
+		<ten_nhaMay/>
+		<ma_nhaMay/>
+		<DiaBanPhanBo id="">
+			<sTT/>
+			<loai/>
+			<ct05/>
+			<ct06/>
+			<ct07_huyen_ma/>
+			<ct07_huyen_ten/>
+			<ct08_tinh_ma/>
+			<ct08_tinh_ten/>
+			<ct09_cqt_ma/>
+			<ct09_cqt_ten/>
+			<ct10/>
+			<ct11/>
+			<ct12/>
+		</DiaBanPhanBo>
+		<ct10_a/>
+		<ct11_a/>
+		<ct12_a/>
+	</TenNhaMay>
+	<ct13/>
+	<ct14/>
+</PLuc_01_2_GTGT>

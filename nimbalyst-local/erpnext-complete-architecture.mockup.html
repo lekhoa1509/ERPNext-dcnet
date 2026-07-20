@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ERPNext Complete Architecture - So sánh với Diagram cũ</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			padding: 40px 20px;
+			color: #333;
+		}
+
+		.container {
+			max-width: 1800px;
+			margin: 0 auto;
+		}
+
+		h1 {
+			color: white;
+			text-align: center;
+			margin-bottom: 40px;
+			font-size: 2.5em;
+			text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+		}
+
+		.diagram-section {
+			background: white;
+			border-radius: 20px;
+			padding: 40px;
+			margin-bottom: 30px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+		}
+
+		.section-title {
+			color: #667eea;
+			font-size: 1.8em;
+			margin-bottom: 30px;
+			border-bottom: 3px solid #667eea;
+			padding-bottom: 10px;
+		}
+
+		/* Module Grid */
+		.module-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 20px;
+			margin: 30px 0;
+		}
+
+		.module-card {
+			background: white;
+			border: 3px solid #667eea;
+			border-radius: 15px;
+			padding: 20px;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+			transition: transform 0.3s, box-shadow 0.3s;
+		}
+
+		.module-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+		}
+
+		.module-card.new {
+			border-color: #43e97b;
+			background: #f0fff4;
+		}
+
+		.module-card.updated {
+			border-color: #feca57;
+			background: #fffef0;
+		}
+
+		.module-card.deprecated {
+			border-color: #a8a8a8;
+			background: #f5f5f5;
+			opacity: 0.7;
+		}
+
+		.module-header {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin-bottom: 15px;
+		}
+
+		.module-icon {
+			font-size: 2em;
+		}
+
+		.module-title {
+			font-size: 1.3em;
+			font-weight: bold;
+			color: #667eea;
+			flex: 1;
+		}
+
+		.module-badge {
+			background: #43e97b;
+			color: white;
+			padding: 3px 8px;
+			border-radius: 5px;
+			font-size: 0.7em;
+			font-weight: bold;
+		}
+
+		.module-badge.updated {
+			background: #feca57;
+			color: #333;
+		}
+
+		.module-badge.deprecated {
+			background: #a8a8a8;
+		}
+
+		.module-doctypes {
+			margin-top: 10px;
+		}
+
+		.doctype-item {
+			padding: 5px 0;
+			font-size: 0.9em;
+			border-bottom: 1px solid #f0f0f0;
+		}
+
+		.doctype-item:last-child {
+			border-bottom: none;
+		}
+
+		.doctype-item::before {
+			content: "▸ ";
+			color: #667eea;
+			font-weight: bold;
+		}
+
+		.module-count {
+			margin-top: 15px;
+			padding-top: 15px;
+			border-top: 2px solid #e0e0e0;
+			font-size: 0.85em;
+			color: #666;
+			font-weight: 600;
+		}
+
+		/* Comparison Table */
+		.comparison-table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 20px 0;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+			border-radius: 10px;
+			overflow: hidden;
+		}
+
+		.comparison-table thead {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+		}
+
+		.comparison-table th {
+			padding: 15px;
+			text-align: left;
+			font-weight: 600;
+		}
+
+		.comparison-table tbody tr {
+			border-bottom: 1px solid #f0f0f0;
+		}
+
+		.comparison-table tbody tr:nth-child(even) {
+			background: #f8f9ff;
+		}
+
+		.comparison-table td {
+			padding: 15px;
+			vertical-align: top;
+		}
+
+		.comparison-table td:first-child {
+			font-weight: 600;
+			color: #667eea;
+			white-space: nowrap;
+		}
+
+		/* Flow Diagram */
+		.flow-diagram {
+			background: #f8f9ff;
+			padding: 30px;
+			border-radius: 15px;
+			margin: 30px 0;
+		}
+
+		.flow-title {
+			color: #667eea;
+			font-size: 1.3em;
+			margin-bottom: 20px;
+			font-weight: bold;
+		}
+
+		.flow-steps {
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+		}
+
+		.flow-step {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+		}
+
+		.step-box {
+			background: white;
+			border: 2px solid #667eea;
+			border-radius: 10px;
+			padding: 15px 20px;
+			min-width: 200px;
+			font-weight: 600;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+		}
+
+		.step-box.master {
+			border-color: #f093fb;
+			background: #fff0fa;
+		}
+
+		.step-box.transaction {
+			border-color: #4facfe;
+			background: #f0f9ff;
+		}
+
+		.step-box.accounting {
+			border-color: #fa709a;
+			background: #fff5f7;
+		}
+
+		.step-arrow {
+			color: #667eea;
+			font-size: 1.5em;
+			font-weight: bold;
+		}
+
+		.step-details {
+			flex: 1;
+			background: white;
+			padding: 12px 15px;
+			border-radius: 8px;
+			font-size: 0.9em;
+			color: #666;
+			border-left: 3px solid #667eea;
+		}
+
+		/* Info Box */
+		.info-box {
+			background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+			border-left: 5px solid #e17055;
+			padding: 20px;
+			border-radius: 10px;
+			margin: 20px 0;
+		}
+
+		.info-box h3 {
+			color: #d63031;
+			margin-bottom: 10px;
+		}
+
+		.info-box ul {
+			margin-left: 20px;
+			margin-top: 10px;
+			line-height: 1.8;
+		}
+
+		.info-box p {
+			color: #2d3436;
+			line-height: 1.6;
+		}
+
+		/* Legend */
+		.legend {
+			background: #f8f9ff;
+			padding: 20px;
+			border-radius: 10px;
+			margin: 20px 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+			justify-content: center;
+		}
+
+		.legend-item {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.legend-box {
+			width: 30px;
+			height: 30px;
+			border-radius: 5px;
+			border: 3px solid;
+		}
+
+		.legend-box.new {
+			border-color: #43e97b;
+			background: #f0fff4;
+		}
+
+		.legend-box.updated {
+			border-color: #feca57;
+			background: #fffef0;
+		}
+
+		.legend-box.same {
+			border-color: #667eea;
+			background: white;
+		}
+
+		.legend-box.deprecated {
+			border-color: #a8a8a8;
+			background: #f5f5f5;
+		}
+
+		/* Stats */
+		.stats-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 20px;
+			margin: 30px 0;
+		}
+
+		.stat-card {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+			padding: 25px;
+			border-radius: 15px;
+			text-align: center;
+			box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+		}
+
+		.stat-number {
+			font-size: 3em;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		.stat-label {
+			font-size: 1em;
+			opacity: 0.95;
+		}
+
+		/* Responsive */
+		@media (max-width: 768px) {
+			h1 {
+				font-size: 1.8em;
+			}
+
+			.section-title {
+				font-size: 1.4em;
+			}
+
+			.diagram-section {
+				padding: 20px;
+			}
+
+			.module-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>🏗️ ERPNext Complete Architecture</h1>
+
+		<!-- COMPARISON WITH OLD DIAGRAM -->
+		<div class="diagram-section">
+			<h2 class="section-title">So sánh Diagram cũ với Cấu trúc Hiện tại</h2>
+
+			<div class="info-box">
+				<h3>📌 Phân tích Diagram cũ:</h3>
+				<p>Diagram bạn cung cấp có vẻ là <strong>ERPNext version cũ (v8-v10)</strong>. Nó thiếu nhiều modules và features mới đã được thêm vào.</p>
+				<ul>
+					<li>✅ <strong>Có trong diagram:</strong> CRM, Selling, Buying, Stock, Accounts, Manufacturing, Projects, HR, Service, Maintenance</li>
+					<li>❌ <strong>Thiếu trong diagram:</strong> Subcontracting, Quality Management, Assets (riêng module), Support (riêng), Utilities</li>
+					<li>🔄 <strong>Đã thay đổi:</strong> Service module đã được tách thành Support, Maintenance, Quality Management</li>
+					<li>📈 <strong>Mở rộng:</strong> Stock module từ ~20 doctypes → 80+ doctypes</li>
+				</ul>
+			</div>
+
+			<div class="legend">
+				<div class="legend-item">
+					<div class="legend-box same"></div>
+					<span>Giống diagram cũ</span>
+				</div>
+				<div class="legend-item">
+					<div class="legend-box updated"></div>
+					<span>Đã cập nhật/mở rộng</span>
+				</div>
+				<div class="legend-item">
+					<div class="legend-box new"></div>
+					<span>Module mới (không có trong diagram)</span>
+				</div>
+				<div class="legend-item">
+					<div class="legend-box deprecated"></div>
+					<span>Đã lỗi thời hoặc merge</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- STATISTICS -->
+		<div class="diagram-section">
+			<h2 class="section-title">Thống kê Tổng quan</h2>
+
+			<div class="stats-grid">
+				<div class="stat-card">
+					<div class="stat-number">16</div>
+					<div class="stat-label">Major Modules</div>
+				</div>
+
+				<div class="stat-card">
+					<div class="stat-number">300+</div>
+					<div class="stat-label">Total DocTypes</div>
+				</div>
+
+				<div class="stat-card">
+					<div class="stat-number">80+</div>
+					<div class="stat-label">Stock DocTypes</div>
+				</div>
+
+				<div class="stat-card">
+					<div class="stat-number">50+</div>
+					<div class="stat-label">Mapper Functions</div>
+				</div>
+
+				<div class="stat-card">
+					<div class="stat-number">35+</div>
+					<div class="stat-label">Global Search Types</div>
+				</div>
+
+				<div class="stat-card">
+					<div class="stat-number">20+</div>
+					<div class="stat-label">Scheduled Jobs</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ALL MODULES COMPARISON -->
+		<div class="diagram-section">
+			<h2 class="section-title">Tất cả Modules (So sánh chi tiết)</h2>
+
+			<div class="module-grid">
+				<!-- CRM -->
+				<div class="module-card">
+					<div class="module-header">
+						<div class="module-icon">👥</div>
+						<div class="module-title">CRM</div>
+						<div class="module-badge">Same</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Lead</div>
+						<div class="doctype-item">Opportunity</div>
+						<div class="doctype-item">Campaign</div>
+						<div class="doctype-item">Contact</div>
+						<div class="doctype-item">Contract</div>
+						<div class="doctype-item">Prospect</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✓ Có<br>
+						Hiện tại: ~25 DocTypes
+					</div>
+				</div>
+
+				<!-- Selling -->
+				<div class="module-card updated">
+					<div class="module-header">
+						<div class="module-icon">🛒</div>
+						<div class="module-title">Selling</div>
+						<div class="module-badge updated">Updated</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Quotation</div>
+						<div class="doctype-item">Sales Order</div>
+						<div class="doctype-item">Delivery Note</div>
+						<div class="doctype-item">Sales Invoice</div>
+						<div class="doctype-item">Customer</div>
+						<div class="doctype-item">Product Bundle</div>
+						<div class="doctype-item">Installation Note</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✓ Có (ít hơn)<br>
+						Hiện tại: ~22 DocTypes<br>
+						Thêm: Product Bundle, Installation
+					</div>
+				</div>
+
+				<!-- Buying -->
+				<div class="module-card updated">
+					<div class="module-header">
+						<div class="module-icon">🛍️</div>
+						<div class="module-title">Buying</div>
+						<div class="module-badge updated">Updated</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Material Request (RFQ)</div>
+						<div class="doctype-item">Supplier Quotation</div>
+						<div class="doctype-item">Purchase Order</div>
+						<div class="doctype-item">Purchase Receipt</div>
+						<div class="doctype-item">Purchase Invoice</div>
+						<div class="doctype-item">Supplier</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✓ Có<br>
+						Hiện tại: ~22 DocTypes
+					</div>
+				</div>
+
+				<!-- Stock -->
+				<div class="module-card updated">
+					<div class="module-header">
+						<div class="module-icon">📦</div>
+						<div class="module-title">Stock</div>
+						<div class="module-badge updated">Expanded</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Item (Master)</div>
+						<div class="doctype-item">Warehouse</div>
+						<div class="doctype-item">Stock Entry</div>
+						<div class="doctype-item">Material Request</div>
+						<div class="doctype-item">Batch / Serial No</div>
+						<div class="doctype-item">Pick List</div>
+						<div class="doctype-item">Delivery Trip</div>
+						<div class="doctype-item">Stock Reconciliation</div>
+						<div class="doctype-item">Quality Inspection</div>
+						<div class="doctype-item">Shipment</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✓ Có (~20 types)<br>
+						Hiện tại: <strong>80+ DocTypes</strong><br>
+						Mở rộng lớn!
+					</div>
+				</div>
+
+				<!-- Accounts -->
+				<div class="module-card updated">
+					<div class="module-header">
+						<div class="module-icon">💰</div>
+						<div class="module-title">Accounts</div>
+						<div class="module-badge updated">Updated</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Chart of Accounts</div>
+						<div class="doctype-item">Journal Entry</div>
+						<div class="doctype-item">Sales Invoice</div>
+						<div class="doctype-item">Purchase Invoice</div>
+						<div class="doctype-item">Payment Entry</div>
+						<div class="doctype-item">Cost Center</div>
+						<div class="doctype-item">Fiscal Year</div>
+						<div class="doctype-item">Budget</div>
+						<div class="doctype-item">POS Invoice</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✓ Có<br>
+						Hiện tại: ~24 DocTypes<br>
+						Thêm: POS, Payment Reconciliation
+					</div>
+				</div>
+
+				<!-- Manufacturing -->
+				<div class="module-card updated">
+					<div class="module-header">
+						<div class="module-icon">🏭</div>
+						<div class="module-title">Manufacturing</div>
+						<div class="module-badge updated">Updated</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">BOM</div>
+						<div class="doctype-item">Work Order</div>
+						<div class="doctype-item">Job Card</div>
+						<div class="doctype-item">Production Plan</div>
+						<div class="doctype-item">Operation</div>
+						<div class="doctype-item">Workstation</div>
+						<div class="doctype-item">Routing</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✓ Có<br>
+						Hiện tại: ~42 DocTypes<br>
+						Thêm: Job Card, Routing, MPS
+					</div>
+				</div>
+
+				<!-- Projects -->
+				<div class="module-card">
+					<div class="module-header">
+						<div class="module-icon">📊</div>
+						<div class="module-title">Projects</div>
+						<div class="module-badge">Same</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Project</div>
+						<div class="doctype-item">Task</div>
+						<div class="doctype-item">Timesheet</div>
+						<div class="doctype-item">Activity Type</div>
+						<div class="doctype-item">Activity Cost</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✓ Có<br>
+						Hiện tại: ~30 DocTypes
+					</div>
+				</div>
+
+				<!-- HR / Payroll -->
+				<div class="module-card deprecated">
+					<div class="module-header">
+						<div class="module-icon">👨‍💼</div>
+						<div class="module-title">HR (Human Resource)</div>
+						<div class="module-badge deprecated">Removed</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Employee</div>
+						<div class="doctype-item">Payroll Entry</div>
+						<div class="doctype-item">Salary Structure</div>
+						<div class="doctype-item">Expense Claim</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✓ Có<br>
+						Hiện tại: <strong>ĐÃ TÁCH RA</strong><br>
+						→ Frappe HR (riêng app)
+					</div>
+				</div>
+
+				<!-- Assets -->
+				<div class="module-card new">
+					<div class="module-header">
+						<div class="module-icon">🏢</div>
+						<div class="module-title">Assets</div>
+						<div class="module-badge">NEW</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Asset</div>
+						<div class="doctype-item">Asset Category</div>
+						<div class="doctype-item">Asset Maintenance</div>
+						<div class="doctype-item">Asset Repair</div>
+						<div class="doctype-item">Asset Depreciation</div>
+						<div class="doctype-item">Asset Movement</div>
+						<div class="doctype-item">Asset Capitalization</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✗ Không có<br>
+						Hiện tại: Module riêng<br>
+						Trước đây: Trong Accounts
+					</div>
+				</div>
+
+				<!-- Support -->
+				<div class="module-card new">
+					<div class="module-header">
+						<div class="module-icon">🎫</div>
+						<div class="module-title">Support</div>
+						<div class="module-badge">NEW</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Issue</div>
+						<div class="doctype-item">Warranty Claim</div>
+						<div class="doctype-item">Service Level Agreement</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: Trong "Service"<br>
+						Hiện tại: Module riêng
+					</div>
+				</div>
+
+				<!-- Quality Management -->
+				<div class="module-card new">
+					<div class="module-header">
+						<div class="module-icon">✅</div>
+						<div class="module-title">Quality Management</div>
+						<div class="module-badge">NEW</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Quality Inspection</div>
+						<div class="doctype-item">Quality Review</div>
+						<div class="doctype-item">Quality Procedure</div>
+						<div class="doctype-item">Quality Goal</div>
+						<div class="doctype-item">Non-Conformance</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✗ Không có<br>
+						Hiện tại: Module riêng<br>
+						ISO 9001 compliance
+					</div>
+				</div>
+
+				<!-- Maintenance -->
+				<div class="module-card">
+					<div class="module-header">
+						<div class="module-icon">🔧</div>
+						<div class="module-title">Maintenance</div>
+						<div class="module-badge">Same</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Maintenance Schedule</div>
+						<div class="doctype-item">Maintenance Visit</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✓ Có (Service)<br>
+						Hiện tại: Module riêng
+					</div>
+				</div>
+
+				<!-- Subcontracting -->
+				<div class="module-card new">
+					<div class="module-header">
+						<div class="module-icon">🤝</div>
+						<div class="module-title">Subcontracting</div>
+						<div class="module-badge">NEW</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Subcontracting Order</div>
+						<div class="doctype-item">Subcontracting Receipt</div>
+						<div class="doctype-item">Subcontracting Inward Order</div>
+						<div class="doctype-item">Subcontracting BOM</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✗ Không có<br>
+						Hiện tại: Module riêng (v13+)<br>
+						Outsourcing workflows
+					</div>
+				</div>
+
+				<!-- Setup -->
+				<div class="module-card">
+					<div class="module-header">
+						<div class="module-icon">⚙️</div>
+						<div class="module-title">Setup</div>
+						<div class="module-badge">Same</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Company (Master)</div>
+						<div class="doctype-item">Employee (Master)</div>
+						<div class="doctype-item">Territory</div>
+						<div class="doctype-item">Department</div>
+						<div class="doctype-item">Global Defaults</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✓ Có<br>
+						Hiện tại: Configuration module
+					</div>
+				</div>
+
+				<!-- Controllers -->
+				<div class="module-card new">
+					<div class="module-header">
+						<div class="module-icon">🎮</div>
+						<div class="module-title">Controllers</div>
+						<div class="module-badge">NEW</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">AccountsController</div>
+						<div class="doctype-item">StockController</div>
+						<div class="doctype-item">SellingController</div>
+						<div class="doctype-item">BuyingController</div>
+						<div class="doctype-item">SubcontractingController</div>
+						<div class="doctype-item">StatusUpdater</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✗ Không có<br>
+						Hiện tại: Base classes<br>
+						Inheritance hierarchy
+					</div>
+				</div>
+
+				<!-- Utilities -->
+				<div class="module-card new">
+					<div class="module-header">
+						<div class="module-icon">🛠️</div>
+						<div class="module-title">Utilities</div>
+						<div class="module-badge">NEW</div>
+					</div>
+					<div class="module-doctypes">
+						<div class="doctype-item">Rename Tool</div>
+						<div class="doctype-item">Report</div>
+						<div class="doctype-item">Dashboard</div>
+						<div class="doctype-item">Number Card</div>
+					</div>
+					<div class="module-count">
+						Diagram cũ: ✗ Không có<br>
+						Hiện tại: Helper utilities
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- COMPLETE FLOW -->
+		<div class="diagram-section">
+			<h2 class="section-title">Luồng Nghiệp vụ Hoàn chỉnh (Cập nhật)</h2>
+
+			<div class="flow-diagram">
+				<div class="flow-title">1. Sales Cycle (Bán hàng) - Đầy đủ nhất</div>
+				<div class="flow-steps">
+					<div class="flow-step">
+						<div class="step-box master">Lead</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">CRM: Khách hàng tiềm năng từ marketing/campaigns</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box master">Opportunity</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">CRM: Sales opportunity với estimated value</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Quotation</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Selling: Báo giá cho khách, có thể từ Opportunity</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Sales Order</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Selling: Đơn hàng confirmed, reserve stock, trigger các quy trình</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Pick List</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Stock: (NEW) Warehouse picking workflow</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Delivery Note</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Stock: Xuất kho, update stock, có thể tạo Delivery Trip</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box accounting">Sales Invoice</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Accounts: Hóa đơn bán hàng, tạo GL Entry</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box accounting">Payment Entry</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Accounts: Thu tiền, reconcile invoice, update outstanding</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flow-diagram">
+				<div class="flow-title">2. Purchase Cycle (Mua hàng)</div>
+				<div class="flow-steps">
+					<div class="flow-step">
+						<div class="step-box transaction">Material Request</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Stock: Yêu cầu mua hàng, có thể từ reorder level</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Request for Quotation</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Buying: Gửi RFQ cho nhiều suppliers</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Supplier Quotation</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Buying: Nhận báo giá từ suppliers, so sánh</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Purchase Order</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Buying: Đơn đặt hàng confirmed</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Purchase Receipt</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Stock: Nhập kho, update stock, Quality Inspection</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box accounting">Purchase Invoice</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Accounts: Hóa đơn mua hàng, tạo GL Entry</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box accounting">Payment Entry</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Accounts: Trả tiền supplier</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flow-diagram">
+				<div class="flow-title">3. Manufacturing Cycle (Sản xuất)</div>
+				<div class="flow-steps">
+					<div class="flow-step">
+						<div class="step-box master">BOM</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Manufacturing: Bill of Materials, công thức sản xuất</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Production Plan</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Manufacturing: Kế hoạch sản xuất từ Sales Orders</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Work Order</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Manufacturing: Lệnh sản xuất, schedule operations</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Job Card</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Manufacturing: (NEW) Assign operations to workstations</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Stock Entry</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Stock: Material consumption & finished goods</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flow-diagram">
+				<div class="flow-title">4. Subcontracting Cycle (Gia công) - NEW!</div>
+				<div class="flow-steps">
+					<div class="flow-step">
+						<div class="step-box transaction">Subcontracting Order</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Subcontracting: Đơn gia công, gửi raw materials</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Subcontracting Receipt</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Subcontracting: Nhận finished goods từ subcontractor</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flow-diagram">
+				<div class="flow-title">5. Project & Billing Cycle</div>
+				<div class="flow-steps">
+					<div class="flow-step">
+						<div class="step-box transaction">Sales Order</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Có thể tạo Project từ Sales Order</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box master">Project</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Projects: Project management</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Task</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Projects: Task assignment, tracking</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box transaction">Timesheet</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Projects: Time tracking, billable hours</div>
+					</div>
+
+					<div class="flow-step">
+						<div class="step-box accounting">Sales Invoice</div>
+						<div class="step-arrow">→</div>
+						<div class="step-details">Accounts: Billing từ Timesheet</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- KEY DIFFERENCES -->
+		<div class="diagram-section">
+			<h2 class="section-title">Thay đổi Chính so với Diagram cũ</h2>
+
+			<table class="comparison-table">
+				<thead>
+					<tr>
+						<th style="width: 200px;">Aspect</th>
+						<th>Diagram Cũ (v8-v10)</th>
+						<th>ERPNext Hiện tại (v15+)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>HR Module</td>
+						<td>Có trong ERPNext</td>
+						<td>❌ ĐÃ TÁCH RA thành <strong>Frappe HR</strong> (riêng app)</td>
+					</tr>
+					<tr>
+						<td>Service Module</td>
+						<td>1 module tổng hợp</td>
+						<td>✅ Tách thành: <strong>Support</strong>, <strong>Maintenance</strong>, <strong>Quality Management</strong></td>
+					</tr>
+					<tr>
+						<td>Assets</td>
+						<td>Trong Accounts module</td>
+						<td>✅ Module riêng với đầy đủ tính năng (Depreciation, Maintenance, Capitalization)</td>
+					</tr>
+					<tr>
+						<td>Subcontracting</td>
+						<td>❌ Không có</td>
+						<td>✅ <strong>Module mới</strong> với Subcontracting Order, Receipt, BOM</td>
+					</tr>
+					<tr>
+						<td>Stock DocTypes</td>
+						<td>~20 DocTypes</td>
+						<td>✅ <strong>80+ DocTypes</strong> (Pick List, Delivery Trip, Shipment, Serial Bundle...)</td>
+					</tr>
+					<tr>
+						<td>Quality Management</td>
+						<td>Chỉ có Quality Inspection</td>
+						<td>✅ Module đầy đủ (Review, Procedure, Goal, Action, Non-Conformance) - ISO 9001</td>
+					</tr>
+					<tr>
+						<td>Manufacturing</td>
+						<td>BOM, Work Order cơ bản</td>
+						<td>✅ Thêm: <strong>Job Card</strong>, <strong>Routing</strong>, <strong>Master Production Schedule</strong></td>
+					</tr>
+					<tr>
+						<td>Controllers</td>
+						<td>❌ Không hiển thị</td>
+						<td>✅ Architecture rõ ràng: AccountsController → StockController → Selling/Buying</td>
+					</tr>
+					<tr>
+						<td>POS</td>
+						<td>Trong Sales Invoice</td>
+						<td>✅ <strong>POS Invoice</strong> riêng với POS Profile, Cashier Closing</td>
+					</tr>
+					<tr>
+						<td>Workflows</td>
+						<td>❌ Không thấy trong diagram</td>
+						<td>✅ Workflow engine cho approval processes (tất cả modules)</td>
+					</tr>
+					<tr>
+						<td>E-commerce</td>
+						<td>❌ Không có</td>
+						<td>✅ Website integration (Portal, Shopping Cart, Payment Gateway)</td>
+					</tr>
+					<tr>
+						<td>Regional Features</td>
+						<td>Limited</td>
+						<td>✅ France, UAE, Saudi, Italy, India... specific customizations</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- MISSING FROM DIAGRAM -->
+		<div class="diagram-section">
+			<h2 class="section-title">Các Tính năng KHÔNG CÓ trong Diagram cũ</h2>
+
+			<div class="info-box">
+				<h3>🆕 Features mới (không có trong diagram):</h3>
+				<ul>
+					<li><strong>Pick List:</strong> Warehouse picking workflow cho Delivery Notes</li>
+					<li><strong>Delivery Trip:</strong> Multi-stop delivery optimization</li>
+					<li><strong>Shipment:</strong> Advanced shipping với tracking (FedEx, UPS integration)</li>
+					<li><strong>Serial and Batch Bundle:</strong> Modern serial/batch tracking system</li>
+					<li><strong>Stock Reservation Entry:</strong> Reserve stock cho Sales Orders</li>
+					<li><strong>Job Card:</strong> Operation-level tracking trong manufacturing</li>
+					<li><strong>Routing:</strong> Operation sequences trong production</li>
+					<li><strong>Master Production Schedule:</strong> Long-term production planning</li>
+					<li><strong>Production Forecast:</strong> Demand forecasting</li>
+					<li><strong>Subcontracting toàn bộ:</strong> Order, Receipt, Inward Order, BOM</li>
+					<li><strong>Quality Management module:</strong> Review, Procedure, Goal, Action, Non-Conformance</li>
+					<li><strong>Asset Capitalization:</strong> Capitalize expenses thành assets</li>
+					<li><strong>Asset Value Adjustment:</strong> Adjust asset values</li>
+					<li><strong>POS Invoice:</strong> Riêng biệt với Sales Invoice</li>
+					<li><strong>Payment Reconciliation:</strong> Advanced payment matching</li>
+					<li><strong>Bank Reconciliation Tool:</strong> Auto bank statement matching</li>
+					<li><strong>Invoice Discounting:</strong> Factor invoices</li>
+					<li><strong>Deferred Revenue/Expense:</strong> Accrual accounting</li>
+					<li><strong>Loyalty Program:</strong> Customer loyalty points</li>
+					<li><strong>Coupon Code:</strong> Promotional coupons</li>
+					<li><strong>Pricing Rule:</strong> Advanced pricing engine</li>
+					<li><strong>Promotional Scheme:</strong> Buy X Get Y schemes</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- CONCLUSION -->
+		<div class="diagram-section">
+			<h2 class="section-title">Kết luận</h2>
+
+			<div class="info-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+				<h3 style="color: white;">📊 Tổng kết So sánh:</h3>
+				<p style="color: white; margin-top: 15px; line-height: 1.8;">
+					<strong>Diagram cũ</strong> bạn cung cấp là một bản tóm tắt tốt cho <strong>ERPNext v8-v10</strong>, nhưng thiếu rất nhiều tính năng và modules mới đã được thêm vào từ v11 đến v15 hiện tại.
+				</p>
+				<ul style="color: white; margin-top: 15px; line-height: 1.8;">
+					<li>✅ <strong>Vẫn chính xác:</strong> Core flows (Sales, Purchase, Stock, Manufacturing, Accounts) vẫn giống</li>
+					<li>🔄 <strong>Đã thay đổi:</strong> HR tách riêng, Service tách thành 3 modules, Assets module riêng</li>
+					<li>🆕 <strong>Modules mới:</strong> Subcontracting, Quality Management (đầy đủ), Controllers (architecture)</li>
+					<li>📈 <strong>Mở rộng lớn:</strong> Stock module từ 20 → 80+ DocTypes, thêm 50+ mapper functions</li>
+					<li>🌍 <strong>Regional:</strong> Hỗ trợ nhiều quốc gia với customization riêng</li>
+					<li>🛒 <strong>E-commerce:</strong> Website integration, Shopping Cart, Payment Gateway</li>
+					<li>⚙️ <strong>Workflows:</strong> Approval workflows cho tất cả modules</li>
+				</ul>
+				<p style="color: white; margin-top: 15px; font-weight: bold;">
+					→ ERPNext hiện tại <strong>PHỨC TẠP và HOÀN CHỈNH HƠN NHIỀU</strong> so với diagram cũ!
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<Sections Version="">
+	<Section Dynamic="1" MaxRows="0" id="1" TableName="01_1_TD_GTGT_1" TablePath="PL_01_1_TD_GTGT/BANGTHUEGTGTCUASXTHUYDIEN/chiTietThueGTGTCuaSXThuyDien" iColumnSTT="2" iColumnSTTReport="2" TableSTTValue="1">
+		<Location>
+			<TableTemplateRowStart>5</TableTemplateRowStart>
+			<TableReportRowStart>14</TableReportRowStart>
+			<DataLocationTemplateRowStart>7</DataLocationTemplateRowStart>
+			<DataLocationReportRowStart>16</DataLocationReportRowStart>
+			<DataLocationTaiBangKeRowStart>-1</DataLocationTaiBangKeRowStart>
+		</Location>
+		<RowInfo>
+			<Cell CellID="C" Encode="1" CellID2="E" CellID3="E" Controltype="0" Value="" DefaultValue ="" Path="tenNhaMay" StatusID="0001" MaxLen="200" MinValue="" MaxValue="" HelpContextID="011002"/>
+			<Cell CellID="E" Encode="1" CellID2="L" CellID3="L" Controltype="26" Value="" DefaultValue ="" Path="mstNhaMay" StatusID="0001" MaxLen="14" MinValue="" MaxValue="" HelpContextID="011003"/>
+			<Cell CellID="F" Encode="1" CellID2="Q" CellID3="Q" Controltype="16" Value="0" DefaultValue="0" Path="thueDauRaNhaMay" StatusID="0001" MaxLen="" MinValue="0" MaxValue="99999999999999" HelpContextID="011004"/>
+			<Cell CellID="H" Encode="1" CellID2="V" CellID3="V" Controltype="16" Value="0" DefaultValue="0" Path="thueDauVaoNhaMay" StatusID="0001" MaxLen="" MinValue="0" MaxValue="99999999999999" HelpContextID="011005"/>
+			<Cell CellID="I" Encode="1" CellID2="AG" CellID3="AG" Controltype="16" Value="0" DefaultValue="0" Path="thuePNopNhaMay" StatusID="0002" MaxLen="" MinValue="0" MaxValue="99999999999999" HelpContextID="011006"/>
+		</RowInfo>
+		<RowData RowDisplay="1">######0###0###0</RowData>
+	</Section>
+	<Section Dynamic="0" MaxRows="0">
+		<Cells>
+			<Cell CellID="F_9" Encode="0" CellID2="Q_18" Controltype="16" Value="0" MaxLen="" MinValue="0" MaxValue="999999999999999" Path="PL_01_1_TD_GTGT/tongThueDauRa" StatusID="0002"/>
+			<Cell CellID="H_9" Encode="0" CellID2="V_18" Controltype="16" Value="0" MaxLen="" MinValue="0" MaxValue="999999999999999" Path="PL_01_1_TD_GTGT/tongThueDauVao" StatusID="0002"/>
+			<Cell CellID="I_9" Encode="0" CellID2="AG_18" Controltype="16" Value="0" MaxLen="" MinValue="0" MaxValue="999999999999999" Path="PL_01_1_TD_GTGT/tongThuePhaiNop" StatusID="0002" HelpContextID="011007" />
+		</Cells>
+	</Section>
+</Sections>

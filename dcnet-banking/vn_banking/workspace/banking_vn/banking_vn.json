@@ -1,0 +1,36 @@
+{
+ "charts": [],
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Bank Reconciliation\",\"level\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Bank Reconcile\",\"col\":4}},{\"type\":\"card\",\"data\":{\"card_name\":\"Reference\",\"col\":4}}]",
+ "creation": "2026-04-10 00:00:00",
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "bank",
+ "is_hidden": 0,
+ "label": "Banking VN",
+ "links": [
+  {"type": "Card Break", "label": "Bank Reconcile", "onboard": 0},
+  {"type": "Link", "label": "Bank Reconcile", "link_type": "URL", "link_to": "/app/bank-reconcile"},
+  {"type": "Link", "label": "Bank Statement Import", "link_type": "DocType", "link_to": "Bank Statement Import"},
+  {"type": "Link", "label": "Bank Statement Format", "link_type": "DocType", "link_to": "Bank Statement Format"},
+  {"type": "Link", "label": "Bank Statement Settings", "link_type": "DocType", "link_to": "Bank Statement Settings"},
+  {"type": "Card Break", "label": "Reference", "onboard": 0},
+  {"type": "Link", "label": "Bank Transaction", "link_type": "DocType", "link_to": "Bank Transaction"},
+  {"type": "Link", "label": "Bank Account", "link_type": "DocType", "link_to": "Bank Account"},
+  {"type": "Link", "label": "Payment Entry", "link_type": "DocType", "link_to": "Payment Entry"}
+ ],
+ "modified": "2026-04-10 00:00:00",
+ "modified_by": "Administrator",
+ "module": "VN Banking",
+ "name": "Banking VN",
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 100.0,
+ "shortcuts": [
+  {"label": "Upload New Statement", "type": "URL", "link_to": "/app/bank-reconcile", "color": "Green"}
+ ],
+ "title": "Banking VN"
+}

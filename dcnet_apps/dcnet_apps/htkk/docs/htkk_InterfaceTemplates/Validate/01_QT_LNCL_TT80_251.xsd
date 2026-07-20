@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="Header">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ma_THQuyetToan" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Trường hợp quyết toán</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ten_THQuyetToan" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên trường hợp quyết toán</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="apDung_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Mã áp dụng đối với: ....</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="apDung_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên áp dụng đối với: ....</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ct10" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>1.Lợi nhuận sau thuế thu nhập doanh nghiệp</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct11" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2.Các khoản phân phối, trích lập các quỹ theo quy định được trừ ([11]=[12]+[13]+…+[16])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct12" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2.1 Chia lãi cho các thành viên góp vốn liên kết theo quy định của hợp đồng kinh tế (nếu có) </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct13" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2.2 Bù đắp khoản lỗ của các năm trước đã hết thời hạn được trừ vào lợi nhuận trước thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct14" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2.3 Trích quỹ đầu tư phát triển</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct15" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2.4 Trích quỹ khen thưởng, phúc lợi</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct16" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2.5 Trích quỹ thưởng người quản lý doanh nghiệp, kiểm soát viên</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct17" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>B.Lợi nhuận sau thuế còn lại sau khi trích lập các quỹ phải nộp ([17]=[10]-[11])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct18" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>C.Số lợi nhuận sau thuế còn lại nộp thừa kỳ trước chuyển sang kỳ này</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct19" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>D.Số lợi nhuận sau thuế còn lại đã tạm nộp đến thời hạn nộp hồ sơ khai quyết toán</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct20" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>E.Chênh lệch giữa số phải nộp của kỳ tính thuế và số đã tạm nộp đến thời hạn nộp hồ sơ khai quyết toán ([20]=[17]-[19]) </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct21" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>G.Số lợi nhuận sau thuế còn lại còn phải nộp đến thời hạn nộp hồ sơ khai quyết toán ([21]=[17]-[18]-[19])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="PLucType">
+			<xs:complexContent>
+				<xs:extension base="PLucType">
+					<xs:sequence>
+						<xs:element name="Pluc_01_1_QT_LNCL" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct04" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>04.Tổng số lợi nhuận sau thuế còn lại phải nộp NSNN trên tờ khai quyết toán</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct05" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>05.Tổng doanh thu thực tế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="NoiDungBangPhanBo" nillable="true" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Địa bàn </xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="loai" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>01:Tên đơn vị phụ thuộc khác tỉnh với nơi NNT đóng trụ sở chính. 02:Tên địa điểm kinh doanh khác tỉnh với nơi NNT đóng trụ sở chính. 03:Nơi không có đơn vị phụ thuộc/địa điểm kinh doanh   </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct07" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị phụ thuộc, địa điểm kinh doanh, tên tỉnh nơi phát sinh doanh thu bán vé thực tế (khác tỉnh nơi đóng trụ sở chính)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct08" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã số thuế/Mã địa điểm kinh doanh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct09_huyen_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct09_huyen_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10_tinh_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10_tinh_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct11_cqt_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã cơ quan thuế quản lý địa bàn nhận phân bổ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct11_cqt_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên cơ quan thuế quản lý địa bàn nhận phân bổ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct12" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu  bán vé thực tế theo địa bàn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct13" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tỷ lệ doanh thu bán vé thực tế theo địa bàn (%)[13] =[12]/ [05]*
+100%</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct14" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại phải nộp cho từng tỉnh theo quyết toán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct15" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại nộp thừa kỳ trước chuyển sang kỳ này</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct16" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại đã tạm nộp cho từng tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct17" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Chênh lệch giữa số phải nộp và số đã tạm nộp trong năm </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct18" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại còn phải nộp cho từng tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="cong_ct19" nillable="true" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Cộng theo từng tỉnh .....</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct19_tinh_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct19_tinh_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct19_1" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại phải nộp cho từng tỉnh theo quyết toán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct19_2" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại nộp thừa kỳ trước chuyển sang kỳ này</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct19_3" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại đã tạm nộp cho từng tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct19_4" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Chênh lệch giữa số phải nộp và số đã tạm nộp trong năm </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct19_5" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại còn phải nộp cho từng tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" use="required"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="CT20">
+										<xs:annotation>
+											<xs:documentation>Cộng các tỉnh khác nơi NNT đóng trụ sở chính [20]=∑[19]</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct20_1" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại phải nộp cho từng tỉnh theo quyết toán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct20_2" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại nộp thừa kỳ trước chuyển sang kỳ này</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct20_3" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại đã tạm nộp cho từng tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct20_4" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Chênh lệch giữa số phải nộp và số đã tạm nộp trong năm</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct20_5" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại còn phải nộp cho từng tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TruSoChinh">
+										<xs:annotation>
+											<xs:documentation>Trụ sở chính</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct21_tinh_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã tỉnh trụ sở chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct21_tinh_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên tỉnh trụ sở chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct21_1" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại phải nộp cho từng tỉnh theo quyết toán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct21_2" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại nộp thừa kỳ trước chuyển sang kỳ này</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct21_3" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại đã tạm nộp cho từng tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct21_4" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Chênh lệch giữa số phải nộp và số đã tạm nộp trong năm</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct21_5" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lợi nhuận sau thuế còn lại còn phải nộp cho từng tỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

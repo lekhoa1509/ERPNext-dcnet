@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DCNET Flow — Dashboard</title>
+<style>
+  /* === Frappe v16 Design Tokens === */
+  :root {
+    --gray-50: #f8f8f8; --gray-100: #f3f3f3; --gray-200: #ededed;
+    --gray-300: #e2e2e2; --gray-400: #c7c7c7; --gray-500: #999999;
+    --gray-600: #7c7c7c; --gray-700: #525252; --gray-800: #383838;
+    --gray-900: #171717;
+    --blue-100: #d3e8fd; --blue-500: #0289f7; --blue-700: #004880;
+    --green-100: #cef5d5; --green-500: #28a745; --green-700: #173b2c;
+    --red-100: #ffd7d7; --red-500: #e03636;
+    --orange-100: #ffe4cc; --orange-500: #e67512; --orange-700: #6b2711;
+    --yellow-100: #fff3bf; --yellow-500: #e2a714;
+    --purple-100: #ece8fc; --purple-500: #7c3aed;
+    --cyan-100: #daf0f5; --cyan-500: #1a8da8;
+    --text-color: var(--gray-800);
+    --heading-color: var(--gray-900);
+    --text-muted: var(--gray-700);
+    --text-light: var(--gray-600);
+    --bg-color: white;
+    --control-bg: var(--gray-100);
+    --border-color: var(--gray-200);
+    --navbar-height: 48px;
+    --sidebar-width: 220px;
+    --shadow-xs: rgba(0,0,0,0.05) 0px 0.5px 0px, rgba(0,0,0,0.08) 0px 0px 0px 1px, rgba(0,0,0,0.05) 0px 2px 4px;
+    --shadow-sm: 0px 1px 2px rgba(0,0,0,0.1);
+    --shadow-md: 0px 0px 1px rgba(0,0,0,0.12), 0px 0.5px 2px rgba(0,0,0,0.15), 0px 2px 3px rgba(0,0,0,0.16);
+    --transition-fast: 150ms ease;
+    --transition-normal: 200ms ease;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 420;
+    color: var(--text-color);
+    background: var(--gray-50);
+    line-height: 1.5;
+  }
+
+  /* === SVG Icon Base === */
+  .icon {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+
+  /* === Focus States (Accessibility) === */
+  :focus-visible {
+    outline: none;
+    box-shadow: 0px 0px 0px 2px #c9c9c9; /* --focus-default */
+    border-radius: 4px;
+  }
+
+  /* === Navbar === */
+  .navbar {
+    height: var(--navbar-height);
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+  .navbar-brand {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-right: 24px;
+    cursor: pointer;
+  }
+  .navbar-brand span { color: var(--blue-500); }
+  .navbar-search {
+    flex: 1;
+    max-width: 300px;
+    height: 28px;
+    background: var(--control-bg);
+    border: none;
+    border-radius: 8px;
+    padding: 0 12px;
+    font-size: 13px;
+    color: var(--text-muted);
+    outline: none;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+  }
+  .navbar-search:hover { background: var(--gray-200); }
+  .navbar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .navbar-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background var(--transition-fast), color var(--transition-fast);
+    border: none;
+    background: none;
+  }
+  .navbar-icon:hover {
+    background: var(--control-bg);
+    color: var(--heading-color);
+  }
+  .navbar-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: var(--blue-500);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity var(--transition-fast);
+  }
+  .avatar:hover { opacity: 0.85; }
+
+  /* === Layout === */
+  .layout {
+    display: flex;
+    margin-top: var(--navbar-height);
+    min-height: calc(100vh - var(--navbar-height));
+  }
+
+  /* === Sidebar === */
+  .sidebar {
+    width: var(--sidebar-width);
+    background: var(--gray-100);
+    border-right: 1px solid var(--border-color);
+    padding-top: 12px;
+    position: fixed;
+    top: var(--navbar-height);
+    bottom: 0;
+    overflow-y: auto;
+  }
+  .sidebar-section {
+    padding: 8px 0;
+  }
+  .sidebar-section-title {
+    padding: 6px 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+  }
+  .sidebar-item {
+    height: 30px;
+    padding: 0 12px;
+    margin: 1px 4px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+  .sidebar-item:hover {
+    background: #f3f3f3;
+    color: var(--heading-color);
+  }
+  .sidebar-item.active {
+    background: white;
+    box-shadow: var(--shadow-sm);
+    color: var(--heading-color);
+    font-weight: 500;
+  }
+  .sidebar-item .icon {
+    color: var(--text-light);
+  }
+  .sidebar-item.active .icon,
+  .sidebar-item:hover .icon {
+    color: var(--heading-color);
+  }
+
+  /* === Main Content === */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    padding: 20px 24px 40px;
+  }
+
+  /* === Page Head === */
+  .page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .page-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--heading-color);
+  }
+
+  /* === Filter Bar === */
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .filter-label {
+    font-size: 12px;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+  .filter-select, .filter-date {
+    height: 28px;
+    padding: 0 10px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-color);
+    outline: none;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .filter-select:focus, .filter-date:focus {
+    box-shadow: 0px 0px 0px 2px #65b9fc;
+    border-color: transparent;
+  }
+  .filter-btn {
+    height: 28px;
+    padding: 0 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--shadow-xs);
+    transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .filter-btn.active {
+    background: var(--gray-900);
+    color: white;
+  }
+  .filter-btn:not(.active) {
+    background: white;
+    color: var(--text-color);
+  }
+  .filter-btn:hover:not(.active) {
+    background: var(--gray-100);
+  }
+
+  /* === Section Header === */
+  .section-header {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 12px;
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-header:first-of-type { margin-top: 0; }
+  .section-badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--blue-100);
+    color: var(--blue-700);
+  }
+  .section-badge.future {
+    background: var(--orange-100);
+    color: var(--orange-700);
+  }
+
+  /* === Number Cards Grid === */
+  .number-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .number-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px;
+    min-height: 84px;
+    cursor: pointer;
+  }
+  /* Frappe cards do NOT use hover elevation — just cursor:pointer */
+  .nc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .nc-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-light);
+    text-transform: uppercase;
+  }
+  .nc-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nc-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+  .nc-icon.blue { background: var(--blue-100); color: var(--blue-500); }
+  .nc-icon.green { background: var(--green-100); color: var(--green-500); }
+  .nc-icon.orange { background: var(--orange-100); color: var(--orange-500); }
+  .nc-icon.purple { background: var(--purple-100); color: var(--purple-500); }
+  .nc-icon.cyan { background: var(--cyan-100); color: var(--cyan-500); }
+  .nc-icon.red { background: var(--red-100); color: var(--red-500); }
+  .nc-value {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 4px;
+  }
+  .nc-footer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .nc-trend {
+    padding: 1px 6px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .nc-trend svg {
+    width: 10px;
+    height: 10px;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    fill: none;
+  }
+  .nc-trend.up { background: var(--green-100); color: var(--green-500); }
+  .nc-trend.down { background: var(--red-100); color: var(--red-500); }
+  .nc-compare {
+    color: var(--text-light);
+    font-size: 11px;
+  }
+
+  /* === Chart Cards === */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .chart-grid.full-width {
+    grid-template-columns: 1fr;
+  }
+  .chart-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px;
+  }
+  /* Frappe cards: no hover elevation */
+  .chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .chart-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading-color);
+  }
+  .chart-actions {
+    display: flex;
+    gap: 4px;
+  }
+  .chart-action-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: none;
+    border-radius: 6px;
+    color: var(--text-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+  .chart-action-btn:hover {
+    background: var(--control-bg);
+    color: var(--heading-color);
+  }
+  .chart-action-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+
+  /* === Bar Chart (CSS only) === */
+  .bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 3px 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+  }
+  .bar-row:hover {
+    background: var(--gray-50);
+  }
+  .bar-label {
+    width: 100px;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: right;
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bar-track {
+    flex: 1;
+    height: 22px;
+    background: var(--gray-50);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    min-width: 2px;
+    transition: width 0.5s ease, opacity var(--transition-fast);
+  }
+  .bar-row:hover .bar-fill {
+    opacity: 0.85;
+  }
+  .bar-value {
+    width: 80px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-color);
+    flex-shrink: 0;
+  }
+
+  /* === Future Widgets Section === */
+  .future-section {
+    border: 2px dashed var(--gray-300);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 8px;
+    background: var(--gray-50);
+  }
+  .future-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .future-title .icon {
+    color: var(--text-light);
+  }
+  .future-desc {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+  }
+  .future-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .future-card {
+    background: white;
+    border: 1px dashed var(--gray-300);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    opacity: 0.7;
+  }
+  .future-card .fc-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-400);
+    margin-bottom: 4px;
+  }
+  .future-card .fc-label {
+    font-size: 11px;
+    color: var(--text-light);
+  }
+
+  /* === Divider === */
+  .section-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 24px 0;
+  }
+
+  /* === Link styles === */
+  .link {
+    color: var(--blue-500);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+  }
+  .link:hover {
+    color: var(--blue-700);
+  }
+
+  /* === Tooltip === */
+  .tooltip-wrapper {
+    position: relative;
+  }
+  .tooltip-wrapper .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: var(--gray-900);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    white-space: nowrap;
+    margin-bottom: 4px;
+    z-index: 10;
+    pointer-events: none;
+    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+  }
+  .tooltip-wrapper:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* === Responsive === */
+  @media (max-width: 1200px) {
+    .future-cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .main-content { margin-left: 0; }
+    .chart-grid { grid-template-columns: 1fr; }
+    .future-cards { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* === Reduced Motion (Accessibility) === */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar-brand">DCNET <span>Flow</span></div>
+  <input type="text" class="navbar-search" placeholder="Tìm kiếm hoặc nhập lệnh..." readonly aria-label="Tìm kiếm">
+  <div class="navbar-right">
+    <button class="navbar-icon tooltip-wrapper" aria-label="Thông báo">
+      <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+      <span class="tooltip-text" role="tooltip">Thông báo</span>
+    </button>
+    <button class="navbar-icon tooltip-wrapper" aria-label="Cài đặt">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      <span class="tooltip-text" role="tooltip">Cài đặt</span>
+    </button>
+    <div class="avatar tooltip-wrapper" role="button" aria-label="Tài khoản: Đức Nguyễn">
+      ĐN
+      <span class="tooltip-text" role="tooltip">Đức Nguyễn</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== LAYOUT ===== -->
+<div class="layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" role="navigation" aria-label="Sidebar navigation">
+    <nav>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Modules</div>
+        <a class="sidebar-item active" href="#" aria-current="page">
+          <span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg></span>
+          Dashboard
+        </a>
+        <a class="sidebar-item" href="#">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span>
+          San pham
+        </a>
+        <a class="sidebar-item" href="#">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>
+          Nha cung cap
+        </a>
+        <a class="sidebar-item" href="#">
+          <span class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></span>
+          Mua hang
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Ban hang</div>
+        <a class="sidebar-item" href="#">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></span>
+          Don hang
+        </a>
+        <a class="sidebar-item" href="#">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span>
+          Ban le
+        </a>
+        <a class="sidebar-item" href="#">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M2 20h20"></path><path d="M5 20V8.2a1 1 0 0 1 .4-.8l5-3.7a1 1 0 0 1 1.2 0l5 3.7a1 1 0 0 1 .4.8V20"></path><path d="M9 20v-4h6v4"></path></svg></span>
+          Ban si
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Kho & Ke toan</div>
+        <a class="sidebar-item" href="#">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M9 5H2v7l6.29 6.29c.94.94 2.48.94 3.42 0l4.58-4.58c.94-.94.94-2.48 0-3.42L9 5z"></path><path d="M15 5h7v7l-6.29 6.29c-.94.94-2.48.94-3.42 0"></path></svg></span>
+          Kho hang
+        </a>
+        <a class="sidebar-item" href="#">
+          <span class="icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
+          Ke toan
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">CRM</div>
+        <a class="sidebar-item" href="#">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
+          Khach hang
+        </a>
+        <a class="sidebar-item" href="#">
+          <span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></span>
+          Lead
+        </a>
+        <a class="sidebar-item" href="#">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M2 12h5l3-9 4 18 3-9h5"></path></svg></span>
+          Fitting
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content" role="main">
+
+    <!-- Page Head -->
+    <div class="page-head">
+      <h1 class="page-title">Dashboard</h1>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar" role="toolbar" aria-label="Bộ lọc thời gian">
+      <div class="filter-group" role="radiogroup" aria-label="Khoảng thời gian">
+        <button class="filter-btn" onclick="setTimeRange(this, 'day')" role="radio" aria-checked="false">Ngay</button>
+        <button class="filter-btn active" onclick="setTimeRange(this, 'month')" role="radio" aria-checked="true">Thang</button>
+        <button class="filter-btn" onclick="setTimeRange(this, 'quarter')" role="radio" aria-checked="false">Quy</button>
+        <button class="filter-btn" onclick="setTimeRange(this, 'year')" role="radio" aria-checked="false">Nam</button>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="date-from">Tu</label>
+        <input type="date" id="date-from" class="filter-date" value="2026-02-01">
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="date-to">Den</label>
+        <input type="date" id="date-to" class="filter-date" value="2026-02-11">
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="branch-filter">Chi nhanh</label>
+        <select id="branch-filter" class="filter-select">
+          <option>Tat ca</option>
+          <option>HN - Cau Giay</option>
+          <option>HN - Hai Ba Trung</option>
+          <option>HCM - Q1</option>
+          <option>HCM - Q7</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ===== SECTION: Number Cards ===== -->
+    <div class="section-header">
+      Tong quan doanh so
+      <span class="section-badge">T3</span>
+    </div>
+
+    <div class="number-cards">
+      <!-- NC-01: Doanh so tong -->
+      <div class="number-card" tabindex="0" role="button" aria-label="Doanh so tong: 2.847.500.000 dong">
+        <div class="nc-header">
+          <span class="nc-label">Doanh so tong</span>
+          <div class="nc-icon blue">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+        </div>
+        <div class="nc-value">2.847.500.000₫</div>
+        <div class="nc-footer">
+          <span class="nc-trend up">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            12.5%
+          </span>
+          <span class="nc-compare">so voi thang truoc</span>
+        </div>
+      </div>
+
+      <!-- NC-02: Doanh so ban si -->
+      <div class="number-card" tabindex="0" role="button" aria-label="Doanh so ban si: 1.923.000.000 dong">
+        <div class="nc-header">
+          <span class="nc-label">Doanh so ban si</span>
+          <div class="nc-icon green">
+            <svg viewBox="0 0 24 24"><path d="M2 20h20"></path><path d="M5 20V8.2a1 1 0 0 1 .4-.8l5-3.7a1 1 0 0 1 1.2 0l5 3.7a1 1 0 0 1 .4.8V20"></path><path d="M9 20v-4h6v4"></path></svg>
+          </div>
+        </div>
+        <div class="nc-value">1.923.000.000₫</div>
+        <div class="nc-footer">
+          <span class="nc-trend up">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            8.3%
+          </span>
+          <span class="nc-compare">so voi thang truoc</span>
+        </div>
+      </div>
+
+      <!-- NC-03: Doanh so ban le -->
+      <div class="number-card" tabindex="0" role="button" aria-label="Doanh so ban le: 924.500.000 dong">
+        <div class="nc-header">
+          <span class="nc-label">Doanh so ban le</span>
+          <div class="nc-icon orange">
+            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          </div>
+        </div>
+        <div class="nc-value">924.500.000₫</div>
+        <div class="nc-footer">
+          <span class="nc-trend up">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            18.7%
+          </span>
+          <span class="nc-compare">so voi thang truoc</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SECTION: Charts ===== -->
+    <div class="section-header">
+      Phan tich doanh so
+      <span class="section-badge">T3</span>
+    </div>
+
+    <div class="chart-grid">
+      <!-- DC-01: Doanh so theo nguon KH -->
+      <div class="chart-card">
+        <div class="chart-header">
+          <span class="chart-title">Doanh so theo nguon khach hang</span>
+          <div class="chart-actions">
+            <button class="chart-action-btn tooltip-wrapper" aria-label="Lam moi">
+              <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+              <span class="tooltip-text" role="tooltip">Lam moi</span>
+            </button>
+            <button class="chart-action-btn tooltip-wrapper" aria-label="Phong to">
+              <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+              <span class="tooltip-text" role="tooltip">Phong to</span>
+            </button>
+          </div>
+        </div>
+        <div class="bar-chart" role="img" aria-label="Bieu do doanh so theo nguon khach hang">
+          <div class="bar-row">
+            <span class="bar-label">Cua hang</span>
+            <div class="bar-track"><div class="bar-fill" style="width:85%; background: var(--blue-500);"></div></div>
+            <span class="bar-value">1.215tr</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Facebook</span>
+            <div class="bar-track"><div class="bar-fill" style="width:62%; background: var(--blue-500);"></div></div>
+            <span class="bar-value">885tr</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Zalo</span>
+            <div class="bar-track"><div class="bar-fill" style="width:28%; background: var(--blue-500);"></div></div>
+            <span class="bar-value">398tr</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Website</span>
+            <div class="bar-track"><div class="bar-fill" style="width:18%; background: var(--blue-500);"></div></div>
+            <span class="bar-value">250tr</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Gioi thieu</span>
+            <div class="bar-track"><div class="bar-fill" style="width:7%; background: var(--blue-500);"></div></div>
+            <span class="bar-value">99.5tr</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DC-02: Doanh so theo nguon don hang -->
+      <div class="chart-card">
+        <div class="chart-header">
+          <span class="chart-title">Doanh so theo nguon don hang</span>
+          <div class="chart-actions">
+            <button class="chart-action-btn tooltip-wrapper" aria-label="Lam moi">
+              <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+              <span class="tooltip-text" role="tooltip">Lam moi</span>
+            </button>
+            <button class="chart-action-btn tooltip-wrapper" aria-label="Phong to">
+              <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+              <span class="tooltip-text" role="tooltip">Phong to</span>
+            </button>
+          </div>
+        </div>
+        <div class="bar-chart" role="img" aria-label="Bieu do doanh so theo nguon don hang">
+          <div class="bar-row">
+            <span class="bar-label">Offline</span>
+            <div class="bar-track"><div class="bar-fill" style="width:55%; background: var(--green-500);"></div></div>
+            <span class="bar-value">1.566tr</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Online</span>
+            <div class="bar-track"><div class="bar-fill" style="width:30%; background: var(--green-500);"></div></div>
+            <span class="bar-value">854tr</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">TMDT</span>
+            <div class="bar-track"><div class="bar-fill" style="width:10%; background: var(--green-500);"></div></div>
+            <span class="bar-value">285tr</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Khac</span>
+            <div class="bar-track"><div class="bar-fill" style="width:5%; background: var(--green-500);"></div></div>
+            <span class="bar-value">142.5tr</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DC-03: Top 20 SP -->
+    <div class="chart-grid full-width" style="margin-top: 12px;">
+      <div class="chart-card">
+        <div class="chart-header">
+          <span class="chart-title">Top 20 san pham ban chay</span>
+          <div class="chart-actions">
+            <button class="chart-action-btn tooltip-wrapper" aria-label="Lam moi">
+              <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+              <span class="tooltip-text" role="tooltip">Lam moi</span>
+            </button>
+            <button class="chart-action-btn tooltip-wrapper" aria-label="Phong to">
+              <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+              <span class="tooltip-text" role="tooltip">Phong to</span>
+            </button>
+          </div>
+        </div>
+        <div class="bar-chart" role="img" aria-label="Top 20 san pham ban chay nhat">
+          <div class="bar-row">
+            <span class="bar-label" style="width:180px;">Gay Driver TM Qi35</span>
+            <div class="bar-track"><div class="bar-fill" style="width:100%; background: var(--orange-500);"></div></div>
+            <span class="bar-value">425tr (85 cai)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label" style="width:180px;">Set Sat Mizuno JPX925</span>
+            <div class="bar-track"><div class="bar-fill" style="width:82%; background: var(--orange-500);"></div></div>
+            <span class="bar-value">348tr (29 bo)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label" style="width:180px;">Bong golf Titleist V1</span>
+            <div class="bar-track"><div class="bar-fill" style="width:65%; background: var(--orange-500);"></div></div>
+            <span class="bar-value">276tr (230 hop)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label" style="width:180px;">Ao Polo Malbon SS26</span>
+            <div class="bar-track"><div class="bar-fill" style="width:55%; background: var(--orange-500);"></div></div>
+            <span class="bar-value">234tr (156 cai)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label" style="width:180px;">Giay golf Ecco Biom</span>
+            <div class="bar-track"><div class="bar-fill" style="width:48%; background: var(--orange-500);"></div></div>
+            <span class="bar-value">204tr (68 doi)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label" style="width:180px;">Tui gay Vessel Player</span>
+            <div class="bar-track"><div class="bar-fill" style="width:42%; background: var(--orange-500);"></div></div>
+            <span class="bar-value">178tr (36 cai)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label" style="width:180px;">Gang tay FootJoy Pure</span>
+            <div class="bar-track"><div class="bar-fill" style="width:30%; background: var(--orange-500);"></div></div>
+            <span class="bar-value">128tr (320 doi)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label" style="width:180px;">Gay Putter Scotty Cam</span>
+            <div class="bar-track"><div class="bar-fill" style="width:27%; background: var(--orange-500);"></div></div>
+            <span class="bar-value">115tr (15 cai)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label" style="width:180px;">Mu Titleist Tour Elite</span>
+            <div class="bar-track"><div class="bar-fill" style="width:18%; background: var(--orange-500);"></div></div>
+            <span class="bar-value">76.5tr (153 cai)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label" style="width:180px;">O golf Callaway 68"</span>
+            <div class="bar-track"><div class="bar-fill" style="width:12%; background: var(--orange-500);"></div></div>
+            <span class="bar-value">51tr (102 cai)</span>
+          </div>
+        </div>
+        <div style="text-align: center; padding: 8px 0 0; font-size: 12px; color: var(--text-light);">
+          Hien thi 10/20 san pham — <a href="#" class="link">Xem day du &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== SECTION: Fitting Widgets (T6) ===== -->
+    <div class="section-header">
+      Fitting
+      <span class="section-badge future">T6 — 30/06</span>
+    </div>
+    <div class="future-section">
+      <div class="future-title">
+        <span class="icon"><svg viewBox="0 0 24 24"><path d="M2 12h5l3-9 4 18 3-9h5"></path></svg></span>
+        Fitting Dashboard Widgets
+      </div>
+      <div class="future-desc">Tu dong hien thi khi module Fitting duoc deploy (T6). Nguon: FEATURE_SPECIFICATION.md &sect;16.2.4</div>
+      <div class="future-cards">
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">Buoi fitting thang nay</div>
+        </div>
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">Doanh thu fitting</div>
+        </div>
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">Ti le chuyen doi</div>
+        </div>
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">Top NV Fitting</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SECTION: Trade-in Widgets (T4) ===== -->
+    <div class="section-header" style="margin-top: 24px;">
+      Trade-in
+      <span class="section-badge future">T4 — 30/04</span>
+    </div>
+    <div class="future-section">
+      <div class="future-title">
+        <span class="icon"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg></span>
+        Trade-in Dashboard Widgets
+      </div>
+      <div class="future-desc">Tu dong hien thi khi module Trade-in duoc deploy (T4). Nguon: FEATURE_SPECIFICATION.md &sect;18.2.4</div>
+      <div class="future-cards">
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">Don trade-in thang nay</div>
+        </div>
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">Gia tri chenh lech</div>
+        </div>
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">SP cu da thu</div>
+        </div>
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">Top SP trade-in</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SECTION: Coaching Widgets (T6 - TM only) ===== -->
+    <div class="section-header" style="margin-top: 24px;">
+      Coaching
+      <span class="section-badge future">T6 — TM only</span>
+    </div>
+    <div class="future-section">
+      <div class="future-title">
+        <span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg></span>
+        Coaching Dashboard Widgets
+      </div>
+      <div class="future-desc">Chi hien thi tren site Thang Long TM. Nguon: FEATURE_SPECIFICATION.md &sect;17.2.4</div>
+      <div class="future-cards">
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">Hoc vien dang hoc</div>
+        </div>
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">DT coaching thang</div>
+        </div>
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">DT SP phat sinh</div>
+        </div>
+        <div class="future-card">
+          <div class="fc-value">&mdash;</div>
+          <div class="fc-label">Top HLV doanh so</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// Time range filter toggle
+function setTimeRange(btn, range) {
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-checked', 'false');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-checked', 'true');
+
+  // Update date range based on selection
+  const fromInput = document.getElementById('date-from');
+  const toInput = document.getElementById('date-to');
+
+  switch(range) {
+    case 'day':
+      fromInput.value = '2026-02-11';
+      toInput.value = '2026-02-11';
+      break;
+    case 'month':
+      fromInput.value = '2026-02-01';
+      toInput.value = '2026-02-11';
+      break;
+    case 'quarter':
+      fromInput.value = '2026-01-01';
+      toInput.value = '2026-03-31';
+      break;
+    case 'year':
+      fromInput.value = '2026-01-01';
+      toInput.value = '2026-12-31';
+      break;
+  }
+}
+</script>
+
+</body>
+</html>

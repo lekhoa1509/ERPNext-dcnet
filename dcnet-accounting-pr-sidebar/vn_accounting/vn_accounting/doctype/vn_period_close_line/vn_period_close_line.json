@@ -1,0 +1,17 @@
+{
+ "actions": [],
+ "creation": "2026-05-27 05:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": ["account", "side", "net_amount", "to_close_amount"],
+ "fields": [
+  {"fieldname": "account", "fieldtype": "Link", "options": "Account", "in_list_view": 1, "label": "Tài khoản", "reqd": 1},
+  {"fieldname": "side", "fieldtype": "Select", "options": "Revenue\nExpense", "in_list_view": 1, "label": "Loại"},
+  {"fieldname": "net_amount", "fieldtype": "Currency", "in_list_view": 1, "label": "Số dư trước kết chuyển", "read_only": 1},
+  {"fieldname": "to_close_amount", "fieldtype": "Currency", "in_list_view": 1, "label": "Số tiền kết chuyển sang 911", "read_only": 1}
+ ],
+ "istable": 1, "links": [],
+ "modified": "2026-05-27 05:00:00", "modified_by": "Administrator",
+ "module": "VN Accounting", "name": "VN Period Close Line", "owner": "Administrator",
+ "permissions": [], "sort_field": "account", "sort_order": "ASC", "states": [], "track_changes": 0
+}

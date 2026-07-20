@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DCNET CRM — Checklist feedback Discussion #9</title>
+  <style>
+    :root{color-scheme:light;--blue:#3157d5;--ink:#172033;--muted:#667085;--line:#e4e7ec;--bg:#f5f7fb;--ok:#067647;--okbg:#ecfdf3;--qa:#b54708;--qabg:#fffaeb}*{box-sizing:border-box}body{background:var(--bg);color:var(--ink);font:14px Inter,Segoe UI,sans-serif;margin:0}.wrap{margin:auto;max-width:1500px;padding:24px}.top{align-items:flex-start;display:flex;gap:20px;justify-content:space-between}.top h1{font-size:24px;margin:0 0 6px}.top p{color:var(--muted);margin:0}.top a{color:var(--blue)}.stats{display:flex;gap:8px}.stat{background:#fff;border:1px solid var(--line);border-radius:10px;min-width:92px;padding:10px 14px;text-align:center}.stat strong{display:block;font-size:22px}.stat span{color:var(--muted);font-size:12px}.tools{align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;display:flex;gap:10px;margin:18px 0;padding:12px}.tools input,.tools select{border:1px solid #cfd4dc;border-radius:7px;height:36px;padding:0 10px}.tools input{flex:1;min-width:200px}.tools button{background:#fff;border:1px solid #cfd4dc;border-radius:7px;cursor:pointer;height:36px;padding:0 12px}.tools button:hover{border-color:var(--blue);color:var(--blue)}.table-wrap{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:auto}table{border-collapse:collapse;min-width:1150px;width:100%}th{background:#f9fafb;color:#475467;font-size:12px;position:sticky;text-align:left;top:0;z-index:1}th,td{border-bottom:1px solid var(--line);padding:10px 12px;vertical-align:top}tr:hover td{background:#fafcff}.id{font-weight:700;width:52px}.module{font-weight:600;white-space:nowrap}.badge{border-radius:999px;display:inline-block;font-size:12px;font-weight:700;padding:4px 8px;white-space:nowrap}.fixed{background:var(--okbg);color:var(--ok)}.qa{background:var(--qabg);color:var(--qa)}.evidence{color:var(--muted);font-size:12px}.check{accent-color:var(--blue);height:17px;width:17px}.done td{opacity:.64}.done td:nth-child(3){text-decoration:line-through}.empty{color:var(--muted);padding:40px;text-align:center}.foot{color:var(--muted);font-size:12px;margin-top:12px}@media(max-width:760px){.wrap{padding:14px}.top{display:block}.stats{margin-top:14px}.tools{align-items:stretch;flex-direction:column}.tools input,.tools select{width:100%}}
+  </style>
+</head>
+<body><main class="wrap">
+  <header class="top"><div><h1>Checklist feedback DCNET CRM — Discussion #9</h1><p>Nguồn: <a href="https://github.com/dcnet-cloud/dcnet-crm/discussions/9" target="_blank" rel="noopener">GitHub Discussion #9</a> · cập nhật 14/07/2026</p></div><div class="stats"><div class="stat"><strong id="total">50</strong><span>Tổng mục</span></div><div class="stat"><strong id="checked">0</strong><span>Đã QA</span></div><div class="stat"><strong id="remain">50</strong><span>Còn lại</span></div></div></header>
+  <section class="tools" aria-label="Lọc checklist"><input id="search" type="search" placeholder="Tìm feedback, module hoặc bằng chứng..."><select id="module"><option value="">Tất cả module</option></select><select id="state"><option value="">Tất cả trạng thái</option><option value="fixed">Đã sửa code</option><option value="qa">Chờ QA giao diện</option></select><button id="clear" type="button">Bỏ đánh dấu QA</button></section>
+  <div class="table-wrap"><table><thead><tr><th>QA</th><th>#</th><th>Module</th><th>Feedback / tiêu chí nghiệm thu</th><th>Trạng thái code</th><th>Bằng chứng / cách kiểm tra</th></tr></thead><tbody id="rows"></tbody></table><div id="empty" class="empty" hidden>Không có mục phù hợp.</div></div>
+  <p class="foot">Dấu tick QA được lưu trong trình duyệt bằng localStorage. “Đã sửa code” là kết quả audit source; vẫn cần mở UI tại site test để nghiệm thu trực quan.</p>
+</main><script>
+const items=[
+[1,'Bàn làm việc','Ẩn thông báo Frappe trong sidebar CRM; dashboard tổng hợp đủ KPI.','fixed','app.js: ẩn Notification theo item-name; dashboard có KPI/phễu/thao tác nhanh'],
+[2,'Bàn làm việc','Dịch tiêu đề Dashboard sang “Bàn làm việc”.','fixed','features/dashboard/template.js'],
+[3,'Bàn làm việc','Bộ lọc ngày không được lệch chiều cao.','fixed','Dashboard mới đã bỏ cụm filter cũ, không còn lỗi chiều cao'],
+[4,'Tiềm năng','Có nút cài đặt, bộ lọc và lịch sử.','fixed','features/leads/template.js: toolbar + filter + rail'],
+[5,'Tiềm năng','Sidebar vẫn active khi mở chi tiết.','fixed','app.js: ánh xạ lead-detail → Tiềm năng'],
+[6,'Tiềm năng','Tăng padding-y các section chi tiết.','fixed','styles.css: .misa-detail-section'],
+[7,'Tiềm năng','Toggle Hiển thị dữ liệu trống bấm được và ẩn/hiện đúng trường.','fixed','leadShowEmpty + showLeadDetailField'],
+[8,'Tiềm năng','Loại tiềm năng không nền, chữ đậm.','fixed','styles.css: .misa-field-grid .misa-pill'],
+[9,'Tiềm năng','Các tab sidebar lịch sử/ghi chú bấm chuyển được.','fixed','leadRailTab + .misa-rail-tabs'],
+[10,'Tiềm năng','Header bảng đính kèm/hàng hóa font 13px.','fixed','styles.css: .misa-related-table th'],
+[11,'Tiềm năng','Ghi chú full width.','fixed','styles.css: .misa-notes-panel'],
+[12,'Tiềm năng','Icon trạng thái rỗng đủ lớn.','qa','Kiểm tra các tab rỗng trên màn hình 100% zoom'],
+[13,'Tiềm năng','Sửa/lưu vẫn ở trang chi tiết.','fixed','leads/composable.js: leadFormReturnName'],
+[14,'Tiềm năng','Icon dùng chung hiển thị đúng.','qa','Kiểm tra trường Dùng chung và icon sau build'],
+[15,'Liên hệ','Không hiện Xem thêm khi bộ lọc đã hết dữ liệu.','fixed','Đã bỏ nút Xem thêm dư'],
+[16,'Liên hệ','Chỉ link mới màu xanh; số điện thoại text thường.','fixed','contact-phone dùng màu kế thừa, bỏ icon/link giả'],
+[17,'Liên hệ','Bỏ nút Nhập Excel ngoài vì đã có trong menu ba chấm.','fixed','features/opportunities/template.js (contact list)'],
+[18,'Liên hệ','Chức danh/phòng ban nhập theo khách hàng, không lấy master nội bộ.','fixed','Contact create/detail dùng text input'],
+[19,'Khách hàng','Không hiện Xem thêm khi bộ lọc đã hết dữ liệu.','fixed','Đã bỏ nút Xem thêm dư'],
+[20,'Khách hàng','Tab sidebar Hoạt động/Mua hàng/Liên hệ hoạt động.','fixed','customerTab trong customer list rail'],
+[21,'Khách hàng','Tên khách hàng ngang hàng icon.','qa','Kiểm tra profile identity ở desktop'],
+[22,'Khách hàng','Tăng khoảng cách contact và dãy icon.','qa','Kiểm tra profile quick actions/contact card'],
+[23,'Khách hàng','Nút tùy chỉnh Thông tin tóm tắt hoạt động.','fixed','openCustomerColumnDialog'],
+[24,'Khách hàng','Tăng padding-y phần chi tiết.','qa','Kiểm tra detail sections ở desktop'],
+[25,'Khách hàng','Có tab Tổng quan.','fixed','customerDetailTab=overview + 4 thẻ tổng quan'],
+[26,'Khách hàng','Bảng Liên hệ dùng font 13px.','fixed','profile-related-table 13px'],
+[27,'Khách hàng','Click hoạt động mở trang xem, không mở modal sửa.','fixed','openActivityRecord(activity.name)'],
+[28,'Khách hàng','Đơn hàng hiển thị Account dịch vụ đã tồn tại.','fixed','api.py: _get_service_account_fallbacks + tests'],
+[29,'Khách hàng','Reload/click cơ hội, đơn hàng vẫn ở DCNET CRM.','fixed','app.js internal CRM routing'],
+[30,'Cơ hội','Icon hiển thị vuông/gọn đúng thiết kế.','qa','Kiểm tra stat cards và quick actions'],
+[31,'Cơ hội','Tab sidebar Hoạt động/Mua hàng bấm được.','fixed','oppActivityPanelTab'],
+[32,'Cơ hội','Nút cài đặt danh sách có action.','fixed','showAllOpportunityColumns'],
+[33,'Cơ hội','Nút tùy chỉnh tóm tắt hoạt động.','fixed','opportunitySummaryFields localStorage'],
+[34,'Cơ hội','Ghi chú không hiện JSON/HTML lỗi.','fixed','stripHtml khi render notes'],
+[35,'Cơ hội','Hoạt động chỉ hiển thị ở tab Tổng quan theo bố cục.','qa','Kiểm tra overview và tab Hoạt động'],
+[36,'Cơ hội','Icon nội dung trao đổi rõ trên nền trắng.','qa','Kiểm tra contrast icon/message'],
+[37,'Cơ hội','Bảng Liên hệ nền trắng.','fixed','customer-table trong tab contacts'],
+[38,'Cơ hội','Bán hàng có các tab nghiệp vụ như mẫu.','fixed','opportunitySalesMenu đã return: đơn hàng, báo giá, lịch sử, yêu cầu mua'],
+[39,'Cơ hội','Bảng Hoạt động nền trắng; empty state đồng nhất.','fixed','opp-activity-table + opp-tab-empty'],
+[40,'Cơ hội','Trao đổi nằm trong card nền trắng tách biệt.','fixed','opp-chat-wrap'],
+[41,'Cơ hội','Hỗ trợ nằm trong card/nền tách biệt.','qa','Kiểm tra tab Hỗ trợ khi bật show_unready_features'],
+[42,'Báo giá','Số tiền ẩn bằng dấu * thay vì chấm tròn.','fixed','quotations/template.js dùng ******* / ********'],
+[43,'Báo giá','Bộ icon dễ nhìn và đồng nhất.','fixed','Toolbar dùng CRMIcon'],
+[44,'Đơn hàng','Đổi nhãn “Bản nhập” thành “Đơn nháp”; trạng thái hiển thị theo vòng đời submit/xuất hóa đơn/giao hàng của ERPNext.','fixed','api.py + orders/template.js + composable.js'],
+[45,'Đơn hàng','Nút tùy chỉnh Thông tin tóm tắt hoạt động.','fixed','openSOLayout'],
+[46,'Đơn hàng','Bộ action chi tiết đầy đủ, làm mới tải lại dữ liệu.','qa','Kiểm tra header action và loadOrderDetail'],
+[47,'Đơn hàng','Địa chỉ/chi tiết không lộ thẻ HTML.','fixed','formatSOAddress cho sidebar và tab chi tiết'],
+[48,'Đơn hàng','Có tab Thu chi, Thực xuất, Hỗ trợ, Khác.','fixed','orders/template.js: dữ liệu invoice/payment/delivery/activity'],
+[49,'Tài khoản','Cho phép sửa Account theo quyền.','fixed','update_service_account + form sửa trong detail panel'],
+[50,'Hoạt động','Bố cục không vỡ ở màn hình hẹp.','qa','Responsive: ẩn right rail dưới 1200px, thu list dưới 760px']
+];
+const key='dcnet-crm-discussion-9-qa';let done=new Set(JSON.parse(localStorage.getItem(key)||'[]'));const tbody=document.querySelector('#rows'),empty=document.querySelector('#empty'),search=document.querySelector('#search'),moduleSel=document.querySelector('#module'),stateSel=document.querySelector('#state');
+[...new Set(items.map(i=>i[1]))].forEach(m=>moduleSel.add(new Option(m,m)));
+function status(i){return [12,14,21,22,24,30,35,36,41,46,50].includes(i[0])?'qa':'fixed'}
+function render(){const q=search.value.trim().toLowerCase(),m=moduleSel.value,s=stateSel.value;const list=items.filter(i=>(!m||i[1]===m)&&(!s||status(i)===s)&&(!q||i.join(' ').toLowerCase().includes(q)));tbody.innerHTML=list.map(i=>`<tr class="${done.has(i[0])?'done':''}"><td><input class="check" type="checkbox" data-id="${i[0]}" ${done.has(i[0])?'checked':''} aria-label="Đánh dấu QA mục ${i[0]}"></td><td class="id">${i[0]}</td><td class="module">${i[1]}</td><td>${i[2]}</td><td><span class="badge ${status(i)}">${status(i)==='fixed'?'Đã sửa code':'Chờ QA giao diện'}</span></td><td class="evidence">${i[4]}</td></tr>`).join('');empty.hidden=!!list.length;document.querySelector('#checked').textContent=done.size;document.querySelector('#remain').textContent=items.length-done.size;tbody.querySelectorAll('.check').forEach(c=>c.onchange=()=>{const id=+c.dataset.id;c.checked?done.add(id):done.delete(id);localStorage.setItem(key,JSON.stringify([...done]));render()})}
+[search,moduleSel,stateSel].forEach(el=>el.addEventListener(el===search?'input':'change',render));document.querySelector('#clear').onclick=()=>{if(confirm('Bỏ toàn bộ dấu đã QA?')){done.clear();localStorage.removeItem(key);render()}};render();
+</script></body></html>

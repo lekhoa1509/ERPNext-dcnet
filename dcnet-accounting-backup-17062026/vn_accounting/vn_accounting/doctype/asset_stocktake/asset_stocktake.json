@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "autoname": "format:KK-{YYYY}-.#####",
+ "creation": "2026-04-29 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "scope",
+  "stocktake_date",
+  "company",
+  "location",
+  "department",
+  "stocktake_items",
+  "status",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "default": ":Company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Scope",
+   "options": "\nTSCĐ\nCCDC",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "stocktake_date",
+   "fieldtype": "Date",
+   "label": "Stocktake Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "stocktake_items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Asset Stocktake Item"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nDraft\nIn Progress\nCompleted\nApproved\nClosed"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  }
+ ],
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2026-05-07 11:30:12.053108",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "Asset Stocktake",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 0,
+   "create": 1,
+   "delete": 0,
+   "read": 1,
+   "role": "Accounts User",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,97 @@
+name: Direct Push Guard
+
+on:
+  push:
+    branches: [main, develop]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    name: Block Direct Push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Detect and revert direct push
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branch = context.ref.replace('refs/heads/', '');
+            const sha = context.sha;
+            const pusher = context.actor;
+
+            // Owner bypass — allowed to push directly
+            const ALLOWED_USERS = ['vovanduc'];
+            if (ALLOWED_USERS.includes(pusher)) {
+              core.info(`Owner ${pusher} — bypass direct push guard`);
+              return;
+            }
+
+            const commit = await github.rest.repos.getCommit({
+              ...context.repo,
+              ref: sha,
+            });
+            const message = commit.data.commit.message;
+
+            if (message.startsWith('Merge pull request #')) {
+              core.info(`PR merge detected — allowing push to ${branch}`);
+              return;
+            }
+
+            if (message.startsWith('Merge branch')) {
+              core.info(`Merge branch detected — allowing push to ${branch}`);
+              return;
+            }
+
+            core.warning(`Direct push to ${branch} by ${pusher} — reverting`);
+
+            const parents = commit.data.parents;
+            if (parents.length === 0) {
+              core.setFailed('Cannot revert: no parent commit found');
+              return;
+            }
+            const parentSha = parents[0].sha;
+
+            await github.rest.git.updateRef({
+              ...context.repo,
+              ref: `heads/${branch}`,
+              sha: parentSha,
+              force: true,
+            });
+
+            await github.rest.issues.create({
+              ...context.repo,
+              title: `⛔ Direct push to \`${branch}\` đã bị revert`,
+              body: [
+                '## Direct Push Detected',
+                '',
+                '| | Chi tiết |',
+                '|---|---|',
+                `| **Pusher** | @${pusher} |`,
+                `| **Branch** | \`${branch}\` |`,
+                `| **Commit** | \`${sha.substring(0, 7)}\` |`,
+                `| **Message** | ${message} |`,
+                `| **Action** | Đã revert về \`${parentSha.substring(0, 7)}\` |`,
+                '',
+                '## Quy trình đúng',
+                '',
+                '```bash',
+                '# 1. Tạo nhánh từ develop',
+                'git checkout -b feature/ten-tinh-nang develop',
+                '',
+                '# 2. Code & commit',
+                'git add . && git commit -m "feat: mô tả"',
+                '',
+                '# 3. Push và tạo PR',
+                'git push origin feature/ten-tinh-nang',
+                '# Tạo PR → develop trên GitHub',
+                '```',
+                '',
+                '> Không push trực tiếp vào `main` hoặc `develop`. Luôn tạo PR.',
+              ].join('\n'),
+              labels: ['git-violation'],
+              assignees: [pusher],
+            });
+
+            core.setFailed(`Direct push to ${branch} has been reverted`);

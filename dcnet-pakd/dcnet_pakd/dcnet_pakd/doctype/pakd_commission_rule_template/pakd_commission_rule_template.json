@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "autoname": "field:template_name",
+ "creation": "2026-04-13 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "valid_from",
+  "valid_to",
+  "column_break_scope",
+  "scope_branch",
+  "scope_service_type",
+  "scope_pakd_type",
+  "scope_channel",
+  "section_components",
+  "components"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "label": "T\u00ean m\u1eabu",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "label": "Hi\u1ec7u l\u1ef1c t\u1eeb"
+  },
+  {
+   "fieldname": "valid_to",
+   "fieldtype": "Date",
+   "label": "Hi\u1ec7u l\u1ef1c \u0111\u1ebfn"
+  },
+  {
+   "fieldname": "column_break_scope",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "scope_branch",
+   "fieldtype": "Link",
+   "label": "Chi nh\u00e1nh",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "scope_service_type",
+   "fieldtype": "Select",
+   "label": "Lo\u1ea1i d\u1ecbch v\u1ee5",
+   "options": "\nP2P\nMPLS\nILL\nFTTH DN\nIT Managed\nVTTB\nThi c\u00f4ng"
+  },
+  {
+   "fieldname": "scope_pakd_type",
+   "fieldtype": "Select",
+   "label": "Lo\u1ea1i PAKD",
+   "options": "Recurring Telecom\nOne-off Sale/Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "scope_channel",
+   "fieldtype": "Select",
+   "label": "K\u00eanh \u00e1p d\u1ee5ng",
+   "options": "\nStaff\nBoard",
+   "description": "\u0110\u1ec3 tr\u1ed1ng = \u00e1p d\u1ee5ng cho m\u1ecdi k\u00eanh. Ch\u1ecdn Staff ho\u1eb7c Board \u0111\u1ec3 gi\u1edbi h\u1ea1n m\u1eabu ch\u1ec9 \u00e1p d\u1ee5ng cho PAKD do k\u00eanh \u0111\u00f3 b\u00e1n."
+  },
+  {
+   "fieldname": "section_components",
+   "fieldtype": "Section Break",
+   "label": "Th\u00e0nh ph\u1ea7n"
+  },
+  {
+   "fieldname": "components",
+   "fieldtype": "Table",
+   "label": "Th\u00e0nh ph\u1ea7n",
+   "options": "PAKD Rule Component",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-05-14 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet PAKD",
+ "name": "PAKD Commission Rule Template",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

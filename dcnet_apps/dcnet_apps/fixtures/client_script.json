@@ -1,0 +1,90 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Lead",
+  "enabled": 1,
+  "modified": "2026-02-09 15:23:28.328100",
+  "module": null,
+  "name": "Lead-Show field Created On",
+  "script": "frappe.ui.form.on('Lead', {\n    refresh(frm) {\n        if (frm.doc.creation) {\n            const created_on = frappe.datetime.str_to_user(frm.doc.creation);\n            const label = frappe._(\"Created On\");\n            frm.set_intro(`${label}: ${created_on}`);\n        }\n    }\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Batch",
+  "enabled": 1,
+  "modified": "2026-03-12 16:37:28.507755",
+  "module": null,
+  "name": "ExpiredDate",
+  "script": "frappe.ui.form.on('Batch', {\r\n  refresh(frm) {\r\n    const expiry_field = 'expiry_date';\r\n    const posting_field = 'custom_batch_posting_date';\r\n    const html_fieldname = 'custom_buttons';\r\n\r\n    // 1) Luôn hiện expiry_date\r\n    frm.toggle_display(expiry_field, true);\r\n\r\n    // 2) Nếu posting date rỗng -> expiry_date = null\r\n    if (!frm.doc[posting_field] && frm.doc[expiry_field]) {\r\n      frm.set_value(expiry_field, null);\r\n    }\r\n\r\n    // 3) Render buttons\r\n    const html = frm.fields_dict[html_fieldname];\r\n    if (!html || !html.$wrapper) return;\r\n\r\n    html.$wrapper.html(`\r\n      <div class=\"d-flex flex-wrap\" style=\"gap: 8px;\">\r\n        <button class=\"btn btn-default btn-sm\" type=\"button\" data-add=\"3\">3 months</button>\r\n        <button class=\"btn btn-default btn-sm\" type=\"button\" data-add=\"6\">6 months</button>\r\n        <button class=\"btn btn-default btn-sm\" type=\"button\" data-add=\"9\">9 months</button>\r\n        <button class=\"btn btn-default btn-sm\" type=\"button\" data-add=\"12\">12 months</button>\r\n        <button class=\"btn btn-default btn-sm\" type=\"button\" data-add=\"24\">24 months</button>\r\n      </div>\r\n    `);\r\n\r\n    html.$wrapper\r\n      .off('click.add_months')\r\n      .on('click.add_months', 'button[data-add]', (e) => {\r\n        const months = Number(e.currentTarget.dataset.add);\r\n        const base = frm.doc[posting_field];\r\n\r\n        if (!base) {\r\n          frappe.msgprint('Please set Batch Posting Date first.');\r\n          return;\r\n        }\r\n\r\n        const d = frappe.datetime.str_to_obj(base); // 'YYYY-MM-DD'\r\n        const new_date = frappe.datetime.obj_to_str(\r\n          frappe.datetime.add_months(d, months)\r\n        );\r\n\r\n        frm.set_value(expiry_field, new_date);\r\n      });\r\n  },\r\n\r\n  // Nếu posting date bị xoá -> expiry_date về null ngay\r\n  custom_batch_posting_date(frm) {\r\n    const expiry_field = 'expiry_date';\r\n    const posting_field = 'custom_batch_posting_date';\r\n\r\n    frm.toggle_display(expiry_field, true);\r\n\r\n    if (!frm.doc[posting_field] && frm.doc[expiry_field]) {\r\n      frm.set_value(expiry_field, null);\r\n    }\r\n  }\r\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Purchase Receipt",
+  "enabled": 1,
+  "modified": "2026-03-13 11:36:48.869546",
+  "module": null,
+  "name": "getPostingDateOfPR",
+  "script": "frappe.ui.form.on('Purchase Receipt', {\n  onload(frm) {\n    cache_posting_date_for_batch(frm);\n  },\n  refresh(frm) {\n    cache_posting_date_for_batch(frm);\n  },\n  posting_date(frm) {\n    cache_posting_date_for_batch(frm);\n  }\n});\n\nfunction cache_posting_date_for_batch(frm) {\n  // Lưu vào biến global trong cùng tab để Batch đọc được khi mở \"Create New Batch\"\n  frappe.flags.batch_posting_date = frm.doc.posting_date || null;\n    console.log(frappe.flags.batch_posting_date);\n  // optional: lưu source để debug/truy vết\n  frappe.flags.batch_source_doctype = frm.doc.doctype; // \"Purchase Receipt\"\n  frappe.flags.batch_source_name = frm.doc.name || null;\n}",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Batch",
+  "enabled": 1,
+  "modified": "2026-03-13 11:01:50.017496",
+  "module": null,
+  "name": "getPostingDateForCreateBatch",
+  "script": "frappe.ui.form.on('Batch', {\r\n  refresh(frm) {\r\n    const expiry_field = 'expiry_date';\r\n    const posting_field = 'custom_batch_posting_date';\r\n    const html_fieldname = 'custom_buttons';\r\n\r\n    // 1) Luôn hiện expiry_date\r\n    frm.toggle_display(expiry_field, true);\r\n\r\n    // 2) Nếu posting date rỗng -> expiry_date = null\r\n    if (!frm.doc[posting_field] && frm.doc[expiry_field]) {\r\n      frm.set_value(expiry_field, null);\r\n    }\r\n\r\n    // 3) Render buttons\r\n    const html = frm.fields_dict[html_fieldname];\r\n    if (!html || !html.$wrapper) return;\r\n\r\n    html.$wrapper.html(`\r\n      <div class=\"d-flex flex-wrap\" style=\"gap: 8px;\">\r\n        <button class=\"btn btn-default btn-sm\" type=\"button\" data-add=\"3\">+3 months</button>\r\n        <button class=\"btn btn-default btn-sm\" type=\"button\" data-add=\"6\">+6 months</button>\r\n        <button class=\"btn btn-default btn-sm\" type=\"button\" data-add=\"9\">+9 months</button>\r\n        <button class=\"btn btn-default btn-sm\" type=\"button\" data-add=\"12\">+12 months</button>\r\n        <button class=\"btn btn-default btn-sm\" type=\"button\" data-add=\"24\">+24 months</button>\r\n      </div>\r\n    `);\r\n\r\n    html.$wrapper\r\n      .off('click.add_months')\r\n      .on('click.add_months', 'button[data-add]', (e) => {\r\n        const months = Number(e.currentTarget.dataset.add);\r\n        const base = frm.doc[posting_field];\r\n\r\n        if (!base) {\r\n          frappe.msgprint('Please set Batch Posting Date first.');\r\n          return;\r\n        }\r\n\r\n        const d = frappe.datetime.str_to_obj(base); // 'YYYY-MM-DD'\r\n        const new_date = frappe.datetime.obj_to_str(\r\n          frappe.datetime.add_months(d, months)\r\n        );\r\n\r\n        frm.set_value(expiry_field, new_date);\r\n      });\r\n  },\r\n\r\n  custom_batch_posting_date(frm) {\r\n    const expiry_field = 'expiry_date';\r\n    const posting_field = 'custom_batch_posting_date';\r\n\r\n    frm.toggle_display(expiry_field, true);\r\n\r\n    if (!frm.doc[posting_field] && frm.doc[expiry_field]) {\r\n      frm.set_value(expiry_field, null);\r\n    }\r\n  }\r\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Batch",
+  "enabled": 1,
+  "modified": "2026-03-13 11:40:42.375853",
+  "module": null,
+  "name": "batch_client",
+  "script": "frappe.ui.form.on('Batch', {\n  onload(frm) {\n    if (!frm.is_new()) return;\n\n    const target_field = 'custom_batch_posting_date';\n    const v = frappe.flags.batch_posting_date;\n\n    if (!frm.doc[target_field] && v) {\n      frm.set_value(target_field, v);\n    }\n  }\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Data Import",
+  "enabled": 1,
+  "modified": "2026-06-15 09:08:37.451533",
+  "module": null,
+  "name": "Data Import - Auto Import",
+  "script": "frappe.ui.form.on(\"Data Import\", {\n\timport_file(frm) {\n\t\t// When import file is set and document is saved\n\t\tif (frm.doc.import_file && !frm.is_new()) {\n\t\t\t// Auto-start import after a short delay to ensure file is processed\n\t\t\tsetTimeout(() => {\n\t\t\t\tfrm.call({\n\t\t\t\t\tmethod: \"dcnet_apps.utils.data_import_auto.auto_start_import\",\n\t\t\t\t\targs: {\n\t\t\t\t\t\tdata_import_name: frm.doc.name\n\t\t\t\t\t},\n\t\t\t\t\tbtn: frm.page.btn_primary,\n\t\t\t\t\tcallback: function(r) {\n\t\t\t\t\t\tif (r.message === true) {\n\t\t\t\t\t\t\tfrm.disable_save();\n\t\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\t\tmessage: __(\"Import started automatically\"),\n\t\t\t\t\t\t\t\tindicator: \"green\"\n\t\t\t\t\t\t\t});\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\terror: function(r) {\n\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\tmessage: __(\"Error starting import\"),\n\t\t\t\t\t\t\tindicator: \"red\"\n\t\t\t\t\t\t});\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t}, 500);\n\t\t}\n\t}\n});",
+  "view": null
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Data Import",
+  "enabled": 1,
+  "modified": "2026-06-15 09:08:37.460889",
+  "module": null,
+  "name": "Data Import - Smart Import",
+  "script": "frappe.ui.form.on(\"Data Import\", {\n\timport_file(frm) {\n\t\t// When import file is set and document is saved\n\t\tif (frm.doc.import_file && !frm.is_new()) {\n\t\t\t// Show confirmation dialog for Smart Import\n\t\t\tfrappe.confirm(\n\t\t\t\t__(\"Use Smart Import? This will analyze the file and insert data automatically without manual mapping.\"),\n\t\t\t\tfunction() {\n\t\t\t\t\t// User confirmed - start Smart Import\n\t\t\t\t\tfrm.call({\n\t\t\t\t\t\tmethod: \"dcnet_apps.utils.smart_import.smart_import\",\n\t\t\t\t\t\targs: {\n\t\t\t\t\t\t\tdoctype: frm.doc.reference_doctype,\n\t\t\t\t\t\t\tfile_path: frm.doc.import_file\n\t\t\t\t\t\t},\n\t\t\t\t\t\tcallback: function(r) {\n\t\t\t\t\t\t\tif (r.message) {\n\t\t\t\t\t\t\t\tconst result = r.message;\n\t\t\t\t\t\t\t\tconst message = __(\"Smart Import Complete: {0} records created, {1} failed\", [result.success, result.failed]);\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tif (result.failed > 0) {\n\t\t\t\t\t\t\t\t\tfrappe.msgprint({\n\t\t\t\t\t\t\t\t\t\ttitle: __(\"Import Completed with Errors\"),\n\t\t\t\t\t\t\t\t\t\tmessage: message + \"<br/>\" + result.errors.join(\"<br/>\"),\n\t\t\t\t\t\t\t\t\t\tindicator: \"orange\"\n\t\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\t\t\t\tmessage: message,\n\t\t\t\t\t\t\t\t\t\tindicator: \"green\"\n\t\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tfrm.reload_doc();\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t},\n\t\t\t\t\t\terror: function(r) {\n\t\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\t\tmessage: __(\"Smart Import failed\"),\n\t\t\t\t\t\t\t\tindicator: \"red\"\n\t\t\t\t\t\t\t});\n\t\t\t\t\t\t}\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\tfunction() {\n\t\t\t\t\t// User declined - use standard import\n\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\tmessage: __(\"Using standard import. Click 'Start Import' button.\"),\n\t\t\t\t\t\tindicator: \"blue\"\n\t\t\t\t\t});\n\t\t\t\t}\n\t\t\t);\n\t\t}\n\t}\n});",
+  "view": null
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Customer",
+  "enabled": 1,
+  "modified": "2026-06-16 10:00:00.000000",
+  "module": null,
+  "name": "Customer-MISA-Form",
+  "script": "frappe.ui.form.on('Customer', {\n    setup(frm) {\n        // Set query filter for doi_tac_gioi_thieu - exclude self\n        frm.set_query('doi_tac_gioi_thieu', () => ({\n            filters: [['name', '!=', frm.doc.name || '']]\n        }));\n    },\n\n    onload(frm) {\n        // Set territory default silently for new docs (required by ERPNext)\n        if (frm.doc.__islocal && !frm.doc.territory) {\n            frappe.db.get_single_value('Selling Settings', 'territory')\n                .then(val => {\n                    if (val) frm.doc.territory = val;\n                })\n                .catch(() => {\n                    frm.doc.territory = 'All Territories';\n                });\n        }\n    },\n\n    refresh(frm) {\n        // Show customer code in ma_khach_hang field\n        const code = frm.doc.__islocal ? '' : (frm.doc.name || '');\n        frm.doc.ma_khach_hang = code;\n        frm.refresh_field('ma_khach_hang');\n\n        // Add \"Sao chép địa chỉ hóa đơn\" button in shipping section header\n        _add_copy_address_btn(frm);\n    },\n\n    validate(frm) {\n        // Auto-set territory if empty (ERPNext requires it)\n        if (!frm.doc.territory) {\n            frm.doc.territory = 'All Territories';\n        }\n        // Sync customer_type from la_kh_ca_nhan\n        frm.doc.customer_type = frm.doc.la_kh_ca_nhan ? 'Individual' : 'Company';\n    },\n\n    la_kh_ca_nhan(frm) {\n        frm.doc.customer_type = frm.doc.la_kh_ca_nhan ? 'Individual' : 'Company';\n    },\n\n    billing_country(frm) { _update_billing_address(frm); },\n    billing_province(frm) { _update_billing_address(frm); },\n    billing_district(frm) { _update_billing_address(frm); },\n    billing_ward(frm)     { _update_billing_address(frm); },\n    billing_street(frm)   { _update_billing_address(frm); },\n\n    shipping_country(frm)  { _update_shipping_address(frm); },\n    shipping_province(frm) { _update_shipping_address(frm); },\n    shipping_district(frm) { _update_shipping_address(frm); },\n    shipping_ward(frm)     { _update_shipping_address(frm); },\n    shipping_street(frm)   { _update_shipping_address(frm); },\n});\n\nfunction _add_copy_address_btn(frm) {\n    const section = frm.get_field('misa_sec_shipping');\n    if (!section || !section.$wrapper) return;\n    if (section.$wrapper.find('.copy-addr-btn').length) return;\n\n    const $head = section.$wrapper.find('.section-head');\n    const $btn = $(`\n        <button class=\"btn btn-xs btn-default copy-addr-btn\" style=\"float:right; margin-top:-2px;\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" style=\"vertical-align:middle;margin-right:4px\"><rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"2\"/><path d=\"M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1\"/></svg>\n            Sao chép địa chỉ hóa đơn\n        </button>\n    `);\n    $btn.on('click', (e) => {\n        e.preventDefault();\n        const fields = ['country','province','district','ward','street','zip','address_full'];\n        fields.forEach(f => {\n            frm.set_value('shipping_' + f, frm.doc['billing_' + f] || '');\n        });\n        frappe.show_alert({message: 'Đã sao chép địa chỉ hóa đơn', indicator: 'green'}, 3);\n    });\n    $head.append($btn);\n}\n\nfunction _update_billing_address(frm) {\n    const parts = [\n        frm.doc.billing_street,\n        frm.doc.billing_ward,\n        frm.doc.billing_district,\n        frm.doc.billing_province,\n        frm.doc.billing_country\n    ].filter(Boolean);\n    frm.set_value('billing_address_full', parts.join(', '));\n}\n\nfunction _update_shipping_address(frm) {\n    const parts = [\n        frm.doc.shipping_street,\n        frm.doc.shipping_ward,\n        frm.doc.shipping_district,\n        frm.doc.shipping_province,\n        frm.doc.shipping_country\n    ].filter(Boolean);\n    frm.set_value('shipping_address_full', parts.join(', '));\n}",
+  "view": "Form"
+ }
+]

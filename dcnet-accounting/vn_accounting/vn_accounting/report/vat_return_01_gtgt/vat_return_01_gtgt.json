@@ -1,0 +1,85 @@
+{
+ "add_total_row": 0,
+ "columns": [
+  {
+   "fieldname": "stt",
+   "fieldtype": "Int",
+   "label": "STT",
+   "width": 50
+  },
+  {
+   "fieldname": "chi_tieu",
+   "fieldtype": "Data",
+   "label": "Chỉ tiêu",
+   "width": 340
+  },
+  {
+   "fieldname": "ma_so",
+   "fieldtype": "Data",
+   "label": "Mã số",
+   "width": 70
+  },
+  {
+   "fieldname": "doanh_thu",
+   "fieldtype": "Currency",
+   "label": "Giá trị HHDV (chưa thuế)",
+   "width": 170
+  },
+  {
+   "fieldname": "thue_gtgt",
+   "fieldtype": "Currency",
+   "label": "Thuế GTGT",
+   "width": 150
+  }
+ ],
+ "filters": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Công ty",
+   "options": "Company"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "Từ ngày"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "Đến ngày"
+  },
+  {
+   "fieldname": "tax_period",
+   "fieldtype": "Select",
+   "label": "Kỳ tính thuế",
+   "options": "Tháng\nQuý",
+   "default": "Tháng"
+  },
+  {
+   "fieldname": "thue_ky_truoc_chuyen_sang",
+   "fieldtype": "Currency",
+   "label": "Thuế GTGT đầu vào được KT kỳ trước chuyển sang [30]",
+   "default": "0"
+  }
+ ],
+ "module": "VN Accounting",
+ "name": "vat_return_01_gtgt",
+ "query": "",
+ "ref_doctype": "Sales Invoice",
+ "report_name": "vat_return_01_gtgt",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "doctype": "Report",
+ "is_standard": "Yes"
+}

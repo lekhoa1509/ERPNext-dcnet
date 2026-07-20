@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "creation": "2026-05-11 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "code",
+  "label",
+  "section",
+  "value_type",
+  "column_break_bctc",
+  "account_formula",
+  "line_formula",
+  "display_indent",
+  "is_subtotal",
+  "sign_multiplier",
+  "note"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mã",
+   "reqd": 1,
+   "description": "Mã chỉ tiêu theo TT99/2025 (ví dụ: \"110\", \"01\", \"270\"). Read-only sau khi seed — thay đổi mã sẽ làm hỏng công thức liên kết."
+  },
+  {
+   "columns": 5,
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tên chỉ tiêu",
+   "reqd": 1,
+   "description": "Tên chỉ tiêu theo TT99/2025. Ví dụ: \"Tiền và các khoản tương đương tiền\". Hiển thị thụt lề trong báo cáo theo cột \"Thụt lề\"."
+  },
+  {
+   "fieldname": "section",
+   "fieldtype": "Data",
+   "label": "Nhóm / Section",
+   "description": "Tiêu đề nhóm (heading). Ví dụ: \"TÀI SẢN NGẮN HẠN\", \"VỐN CHỦ SỞ HỮU\". Để trống nếu dòng không có section header riêng."
+  },
+  {
+   "columns": 2,
+   "fieldname": "value_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Cách tính",
+   "options": "closing_debit\nclosing_credit\nperiod_debit\nperiod_credit\nnet_debit\nnet_credit\nperiod_net\ndelta_debit\ndelta_credit\nformula",
+   "description": "Chọn cách tính giá trị. Xem mục \"Hướng dẫn nhanh\" trên đầu form để biết chi tiết từng option."
+  },
+  {
+   "fieldname": "column_break_bctc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 4,
+   "in_list_view": 1,
+   "fieldname": "account_formula",
+   "fieldtype": "Small Text",
+   "label": "TK / Mã (xem hướng dẫn)",
+   "description": "Cú pháp: '+TK' cộng, '-TK' trừ, '%' wildcard. Ví dụ: '+111,+112,+113' hoặc '+511%,-521'. Để trống khi Cách tính = formula (dùng cột 'Công thức mã' bên dưới)."
+  },
+  {
+   "fieldname": "line_formula",
+   "fieldtype": "Long Text",
+   "label": "Công thức mã chỉ tiêu",
+   "depends_on": "eval:doc.value_type=='formula'",
+   "description": "Chỉ dùng khi value_type='formula'. Tham chiếu mã khác: \"=110+120-130\". Ví dụ mã 270 (Tổng tài sản) = \"=100+200\"."
+  },
+  {
+   "fieldname": "display_indent",
+   "fieldtype": "Int",
+   "label": "Thụt lề",
+   "default": "0",
+   "description": "Độ thụt lề khi hiển thị báo cáo (0=không thụt, 1=1 cấp, 2=2 cấp). Dùng để phân cấp trực quan."
+  },
+  {
+   "fieldname": "is_subtotal",
+   "fieldtype": "Check",
+   "label": "Dòng tổng",
+   "description": "Tick nếu đây là dòng tổng cộng (in đậm trong báo cáo). Ví dụ: Tổng tài sản ngắn hạn, Tổng nguồn vốn."
+  },
+  {
+   "fieldname": "sign_multiplier",
+   "fieldtype": "Select",
+   "label": "Hệ số dấu",
+   "options": "+1\n-1",
+   "default": "+1",
+   "description": "Đảo dấu kết quả nếu cần. \"-1\" dùng khi TK thường có số dư bên Nợ nhưng báo cáo hiển thị giá trị dương (ví dụ: TK chi phí kết chuyển về 0, hiển thị phát sinh dương)."
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Small Text",
+   "label": "Ghi chú",
+   "description": "Ghi chú cho kế toán đọc khi cấu hình. Ví dụ: \"Khác với TT200 — tách riêng 2 dòng\"."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-11 17:27:49.287",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "BCTC Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

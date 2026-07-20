@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "creation": "2026-05-18 23:40:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "api_base_url",
+  "model",
+  "column_break_1",
+  "api_key",
+  "timeout_seconds",
+  "test_section",
+  "test_connection_btn",
+  "last_test_result"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enable AI Analysis"
+  },
+  {
+   "default": "https://khoaapi.duckdns.org/v1",
+   "fieldname": "api_base_url",
+   "fieldtype": "Data",
+   "label": "API Base URL",
+   "reqd": 1
+  },
+  {
+   "default": "cx/gpt-5.5",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Store here, in site_config, or env. Do not commit secrets.",
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key"
+  },
+  {
+   "default": "60",
+   "fieldname": "timeout_seconds",
+   "fieldtype": "Int",
+   "label": "Timeout Seconds"
+  },
+  {
+   "fieldname": "test_section",
+   "fieldtype": "Section Break",
+   "label": "Connection Test"
+  },
+  {
+   "fieldname": "test_connection_btn",
+   "fieldtype": "Button",
+   "label": "Check AI Connection"
+  },
+  {
+   "fieldname": "last_test_result",
+   "fieldtype": "Small Text",
+   "label": "Last Test Result",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-05-18 23:40:00.000000",
+ "modified_by": "Administrator",
+ "module": "Import Auto",
+ "name": "Import Auto Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

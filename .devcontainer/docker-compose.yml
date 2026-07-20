@@ -1,0 +1,54 @@
+# DCNET Flow Development Environment
+# Based on frappe_docker devcontainer setup
+# Usage: Open in VS Code with Dev Containers extension
+
+services:
+  mariadb:
+    image: mariadb:10.6
+    ports:
+      - 3307:3306
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+      - --skip-innodb-read-only-compressed
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MARIADB_AUTO_UPGRADE: 1
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis-cache:
+    image: redis:6.2-alpine
+
+  redis-queue:
+    image: redis:6.2-alpine
+
+  frappe:
+    image: frappe/bench:latest
+    command: bash /workspace/development/start-bench.sh
+    environment:
+      - SHELL=/bin/bash
+      # App versions for installer script
+      - FRAPPE_BRANCH=version-16
+      - ERPNEXT_BRANCH=version-16
+    volumes:
+      - ..:/workspace:cached
+      # SSH for git clone (uncomment if needed)
+      # - ${HOME}/.ssh:/home/frappe/.ssh
+    working_dir: /workspace/development
+    ports:
+      - 8000:8000
+      - 8001:8001
+      - 9000:9000
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+volumes:
+  mariadb-data:

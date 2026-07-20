@@ -1,0 +1,20 @@
+<PLuc_01_3_CCTT>
+	<ThongTinTKNCCTrongNuoc id="">
+		<maQuanLyTrenSan/>
+		<soTaiKhoan/>
+		<chuTaiKhoan/>
+		<ma_NganHang/>
+		<ten_NganHang/>
+		<ma_TrangThai/>
+		<ten_TrangThai/>
+	</ThongTinTKNCCTrongNuoc>
+	<ThongTinTKNCCNuocNgoai id="">
+		<maQuanLyTrenSan/>
+		<soTaiKhoan/>
+		<chuTaiKhoan/>
+		<ma_NganHang/>
+		<ten_NganHang/>
+		<ma_TrangThai/>
+		<ten_TrangThai/>
+	</ThongTinTKNCCNuocNgoai>
+</PLuc_01_3_CCTT>

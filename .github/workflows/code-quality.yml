@@ -1,0 +1,363 @@
+name: ERPNext Code Quality
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'dcnet_apps/**/*.py'
+      - 'dcnet_apps/**/*.js'
+      - 'dcnet_core/**/*.py'
+      - 'dcnet_core/**/*.js'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: code-quality-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  erpnext-quality:
+    name: ERPNext Anti-Pattern Check
+    if: false  # Temporarily disabled
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed
+        run: |
+          BASE=${{ github.event.pull_request.base.sha }}
+          HEAD=${{ github.event.pull_request.head.sha }}
+          echo "py_files<<EOF" >> $GITHUB_OUTPUT
+          git diff --name-only --diff-filter=ACMR "$BASE" "$HEAD" -- '*.py' | head -200 >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "js_files<<EOF" >> $GITHUB_OUTPUT
+          git diff --name-only --diff-filter=ACMR "$BASE" "$HEAD" -- '*.js' | head -200 >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: ERPNext Quality Check
+        id: quality
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            const fs = require('fs');
+            const path = require('path');
+
+            const pyFiles = `${{ steps.changed.outputs.py_files }}`.trim().split('\n').filter(Boolean);
+            const jsFiles = `${{ steps.changed.outputs.js_files }}`.trim().split('\n').filter(Boolean);
+
+            if (pyFiles.length === 0 && jsFiles.length === 0) {
+              core.info('No code files changed, skipping quality check');
+              core.setOutput('has_findings', 'false');
+              return;
+            }
+
+            const findings = [];
+
+            // ─── Helper ────────────────────────────────────────────
+            function checkFile(filePath, patterns) {
+              if (!fs.existsSync(filePath)) return;
+              const content = fs.readFileSync(filePath, 'utf8');
+              const lines = content.split('\n');
+
+              for (const { pattern, message, severity, lineCheck } of patterns) {
+                lines.forEach((line, idx) => {
+                  // Skip comments
+                  const trimmed = line.trim();
+                  if (trimmed.startsWith('#') || trimmed.startsWith('//') || trimmed.startsWith('*')) return;
+
+                  if (lineCheck) {
+                    if (lineCheck(line, content, idx, lines)) {
+                      findings.push({ file: filePath, line: idx + 1, severity, message, code: trimmed });
+                    }
+                  } else if (pattern && pattern.test(line)) {
+                    findings.push({ file: filePath, line: idx + 1, severity, message, code: trimmed });
+                  }
+                });
+              }
+            }
+
+            // ─── Python Rules ──────────────────────────────────────
+
+            // Detect file type from path
+            function isServerScript(fp) {
+              return fp.includes('server_script') || fp.includes('_server.py');
+            }
+            function isController(fp) {
+              // Controllers are .py files inside doctype/ directories (matching doctype name)
+              const parts = fp.split('/');
+              const dtIdx = parts.indexOf('doctype');
+              if (dtIdx >= 0 && dtIdx + 1 < parts.length) {
+                const dtName = parts[dtIdx + 1];
+                const fileName = path.basename(fp, '.py');
+                return fileName === dtName;
+              }
+              return false;
+            }
+            function isSchedulerTask(fp, content) {
+              return fp.includes('task') || fp.includes('scheduler') ||
+                     (content && /scheduler_events/.test(content));
+            }
+
+            const pythonRules = [];
+
+            // CRITICAL: SQL injection — f-strings in frappe.db.sql
+            pythonRules.push({
+              pattern: /frappe\.db\.sql\s*\(\s*f['"]/,
+              message: 'SQL injection risk: f-string in `frappe.db.sql()` — use parameterized queries `%(param)s`',
+              severity: 'CRITICAL',
+            });
+
+            // CRITICAL: Raw string format in SQL
+            pythonRules.push({
+              pattern: /frappe\.db\.sql\s*\(.*\.format\s*\(/,
+              message: 'SQL injection risk: `.format()` in `frappe.db.sql()` — use parameterized queries `%(param)s`',
+              severity: 'CRITICAL',
+            });
+
+            // WARNING: frappe.db.commit() in controller hooks
+            pythonRules.push({
+              lineCheck: (line, content) => {
+                return /frappe\.db\.commit\s*\(\)/.test(line) &&
+                       /def\s+(validate|before_save|on_update|on_submit|on_cancel|before_insert)\s*\(/.test(content);
+              },
+              message: '`frappe.db.commit()` in controller hook — Frappe auto-commits, this can cause partial data',
+              severity: 'WARNING',
+            });
+
+            // WARNING: Using run_doc_method without permission check
+            pythonRules.push({
+              pattern: /frappe\.client\.run_doc_method/,
+              message: 'Prefer `@frappe.whitelist()` methods over `frappe.client.run_doc_method`',
+              severity: 'WARNING',
+            });
+
+            for (const fp of pyFiles) {
+              if (!fp.endsWith('.py')) continue;
+              const rules = [...pythonRules];
+              const content = fs.existsSync(fp) ? fs.readFileSync(fp, 'utf8') : '';
+
+              // Server Script specific rules
+              if (isServerScript(fp)) {
+                rules.push({
+                  pattern: /^(from\s+\w+|import\s+\w+)/,
+                  message: 'Server Script: **imports không được phép** — dùng `frappe.utils.method()` trực tiếp',
+                  severity: 'CRITICAL',
+                });
+                rules.push({
+                  pattern: /\bself\.\w+\s*=/,
+                  message: 'Server Script: **không dùng `self.`** — dùng `doc.field` thay thế',
+                  severity: 'CRITICAL',
+                });
+              }
+
+              // Controller specific rules
+              if (isController(fp)) {
+                // Modifying fields in on_update
+                rules.push({
+                  lineCheck: (line, content) => {
+                    if (!/self\.\w+\s*=/.test(line)) return false;
+                    // Check if we're inside on_update method
+                    const lines = content.split('\n');
+                    const lineIdx = lines.indexOf(line);
+                    let inOnUpdate = false;
+                    for (let i = lineIdx; i >= 0; i--) {
+                      if (/^\s+def\s+on_update\s*\(/.test(lines[i])) { inOnUpdate = true; break; }
+                      if (/^\s+def\s+\w+\s*\(/.test(lines[i]) && !/on_update/.test(lines[i])) break;
+                    }
+                    return inOnUpdate;
+                  },
+                  message: 'Controller: field assignment trong `on_update` — dùng `frappe.db.set_value()` thay vì `self.field =`',
+                  severity: 'CRITICAL',
+                });
+              }
+
+              // Whitelisted method — check for permission
+              if (content.includes('@frappe.whitelist')) {
+                rules.push({
+                  lineCheck: (line, content, idx, lines) => {
+                    if (!/@frappe\.whitelist\s*\(?\s*\)?/.test(line)) return false;
+                    // Check if allow_guest=True without any permission check in next 15 lines
+                    if (/allow_guest\s*=\s*True/.test(line)) {
+                      let hasPermCheck = false;
+                      for (let i = idx + 1; i < Math.min(idx + 20, lines.length); i++) {
+                        if (/frappe\.(has_permission|only_for|throw|throw_not_allowed)/.test(lines[i]) ||
+                            /frappe\.session\.user/.test(lines[i])) {
+                          hasPermCheck = true;
+                          break;
+                        }
+                        if (/^(def |class |@)/.test(lines[i].trim())) break;
+                      }
+                      if (!hasPermCheck) return true;
+                    }
+                    return false;
+                  },
+                  message: '`@frappe.whitelist(allow_guest=True)` không có permission check — có thể bị truy cập trái phép',
+                  severity: 'WARNING',
+                });
+              }
+
+              checkFile(fp, rules);
+            }
+
+            // ─── JavaScript Rules ──────────────────────────────────
+
+            const jsRules = [
+              // CRITICAL: frappe.db.* in client scripts
+              {
+                pattern: /frappe\.db\.(get_value|get_list|set_value|sql|delete|get_doc|insert|get_all)/,
+                message: 'Client Script: **`frappe.db.*` không hoạt động phía client** — dùng `frappe.call()` hoặc `frappe.xcall()`',
+                severity: 'CRITICAL',
+              },
+              // WARNING: frappe.call without callback/async handling
+              {
+                lineCheck: (line) => {
+                  if (!/frappe\.call\s*\(\s*\{/.test(line)) return false;
+                  // Simple check: if frappe.call on single line without callback/async/then
+                  return /frappe\.call\s*\(\s*\{/.test(line) &&
+                         !/callback|\.then|await|async/.test(line);
+                },
+                message: '`frappe.call()` có thể thiếu `callback` hoặc `async/await` — response sẽ bị bỏ qua',
+                severity: 'INFO',
+              },
+              // WARNING: Using cur_frm (deprecated pattern)
+              {
+                pattern: /\bcur_frm\b/,
+                message: '`cur_frm` deprecated — dùng `frm` parameter từ form handler thay thế',
+                severity: 'INFO',
+              },
+            ];
+
+            for (const fp of jsFiles) {
+              if (!fp.endsWith('.js')) continue;
+              checkFile(fp, jsRules);
+            }
+
+            // ─── Build Report ──────────────────────────────────────
+
+            core.setOutput('has_findings', findings.length > 0 ? 'true' : 'false');
+
+            const critical = findings.filter(f => f.severity === 'CRITICAL');
+            const warnings = findings.filter(f => f.severity === 'WARNING');
+            const infos = findings.filter(f => f.severity === 'INFO');
+
+            if (findings.length === 0) {
+              core.info('✅ ERPNext Code Quality — No issues found');
+              core.setOutput('comment_body', '');
+              return;
+            }
+
+            // Build comment
+            const marker = '<!-- erpnext-quality -->';
+            let body = `${marker}\n`;
+            body += `## 🔍 ERPNext Code Quality — ${findings.length} finding(s)\n\n`;
+
+            if (critical.length > 0) {
+              body += `### 🔴 Critical (${critical.length})\n\n`;
+              body += `| File | Line | Issue |\n|------|------|-------|\n`;
+              for (const f of critical) {
+                body += `| \`${f.file}\` | L${f.line} | ${f.message} |\n`;
+              }
+              body += '\n';
+            }
+
+            if (warnings.length > 0) {
+              body += `### 🟡 Warning (${warnings.length})\n\n`;
+              body += `| File | Line | Issue |\n|------|------|-------|\n`;
+              for (const f of warnings) {
+                body += `| \`${f.file}\` | L${f.line} | ${f.message} |\n`;
+              }
+              body += '\n';
+            }
+
+            if (infos.length > 0) {
+              body += `### 🔵 Info (${infos.length})\n\n`;
+              body += `| File | Line | Issue |\n|------|------|-------|\n`;
+              for (const f of infos) {
+                body += `| \`${f.file}\` | L${f.line} | ${f.message} |\n`;
+              }
+              body += '\n';
+            }
+
+            body += '<details><summary>📋 Quy tắc kiểm tra (click để xem)</summary>\n\n';
+            body += '| Severity | Rule | Áp dụng cho |\n';
+            body += '|----------|------|-------------|\n';
+            body += '| 🔴 CRITICAL | SQL injection (f-string/format in db.sql) | Python |\n';
+            body += '| 🔴 CRITICAL | Server Script: no imports, no self. | Server Script |\n';
+            body += '| 🔴 CRITICAL | Client Script: no frappe.db.* | JavaScript |\n';
+            body += '| 🔴 CRITICAL | Controller: no field modify in on_update | Controller |\n';
+            body += '| 🟡 WARNING | frappe.db.commit() in controller hooks | Controller |\n';
+            body += '| 🟡 WARNING | allow_guest without permission check | Whitelisted |\n';
+            body += '| 🔵 INFO | cur_frm deprecated | JavaScript |\n';
+            body += '| 🔵 INFO | frappe.call() missing callback | JavaScript |\n\n';
+            body += '📖 Chi tiết: `.claude/skills/dcnet_quality/`\n';
+            body += '</details>\n';
+
+            core.setOutput('comment_body', body);
+
+            // Post/update comment
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: context.payload.pull_request.number,
+            });
+            const existing = comments.find(c => c.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({ ...context.repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number: context.payload.pull_request.number,
+                body,
+              });
+            }
+
+            // Fail on CRITICAL
+            if (critical.length > 0) {
+              core.setFailed(`ERPNext Code Quality: ${critical.length} CRITICAL issue(s) — xem comment trên PR`);
+            }
+
+      - name: Clean up comment if no findings
+        if: steps.quality.outputs.has_findings == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const marker = '<!-- erpnext-quality -->';
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: context.payload.pull_request.number,
+            });
+            const existing = comments.find(c => c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.deleteComment({ ...context.repo, comment_id: existing.id });
+            }
+
+  python-lint:
+    name: Python Lint (Ruff)
+    if: false  # Temporarily disabled
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Ruff check dcnet_apps
+        run: |
+          ruff check dcnet_apps/ \
+            --select=E,W,F,I,B,S,UP \
+            --ignore=E501,E741,F403,F405,B007,B904 \
+            --target-version=py310 \
+            --output-format=github \
+            || true
+
+      - name: Ruff format check
+        run: |
+          ruff format --check dcnet_apps/ \
+            --target-version=py310 \
+            || true

@@ -1,0 +1,1 @@
+../../workflow_diagram/public/js/workflow_auto_render.js

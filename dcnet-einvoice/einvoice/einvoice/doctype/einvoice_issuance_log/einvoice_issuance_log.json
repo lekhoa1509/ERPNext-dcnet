@@ -1,0 +1,130 @@
+{
+    "actions": [],
+    "autoname": "format:ISS-{####}",
+    "creation": "2026-03-03 14:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "provider",
+        "sales_invoice",
+        "company",
+        "column_break_1",
+        "issued_at",
+        "status",
+        "result_section",
+        "provider_invoice_number",
+        "provider_lookup_code",
+        "column_break_res",
+        "provider_pdf_url",
+        "error_section",
+        "error_detail"
+    ],
+    "fields": [
+        {
+            "fieldname": "provider",
+            "fieldtype": "Link",
+            "label": "Provider",
+            "options": "EInvoice Provider",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "sales_invoice",
+            "fieldtype": "Link",
+            "label": "Sales Invoice",
+            "options": "Sales Invoice",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Công ty",
+            "options": "Company",
+            "fetch_from": "sales_invoice.company",
+            "read_only": 1,
+            "in_list_view": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "issued_at",
+            "fieldtype": "Datetime",
+            "label": "Thời điểm",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Trạng thái",
+            "options": "Success\nFailed\nPushed Pending Sign",
+            "in_list_view": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "result_section",
+            "fieldtype": "Section Break",
+            "label": "Kết quả"
+        },
+        {
+            "fieldname": "provider_invoice_number",
+            "fieldtype": "Data",
+            "label": "Số HĐ đỏ"
+        },
+        {
+            "fieldname": "provider_lookup_code",
+            "fieldtype": "Data",
+            "label": "Mã tra cứu"
+        },
+        {
+            "fieldname": "column_break_res",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "provider_pdf_url",
+            "fieldtype": "Data",
+            "label": "Link PDF",
+            "length": 1000,
+            "options": "URL"
+        },
+        {
+            "fieldname": "error_section",
+            "fieldtype": "Section Break",
+            "label": "Lỗi",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "error_detail",
+            "fieldtype": "Long Text",
+            "label": "Chi tiết lỗi"
+        }
+    ],
+    "index_web_pages_for_search": 0,
+    "links": [],
+    "modified": "2026-03-03 14:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "EInvoice",
+    "name": "EInvoice Issuance Log",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "read": 1,
+            "role": "System Manager",
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "read": 1,
+            "role": "Accounts Manager"
+        },
+        {
+            "read": 1,
+            "role": "Accounts User"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC"
+}

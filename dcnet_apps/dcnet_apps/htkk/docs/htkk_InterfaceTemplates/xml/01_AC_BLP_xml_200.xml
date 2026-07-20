@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HSoThueDTu>
+	<HSoKhaiThue>
+		<TTinChung>
+			<TTinDVu>
+				<maDVu></maDVu>
+				<tenDVu></tenDVu>
+				<pbanDVu></pbanDVu>
+				<ttinNhaCCapDVu></ttinNhaCCapDVu>
+			</TTinDVu>
+			<TTinTKhaiThue>
+				<TKhaiThue>
+					<maTKhai></maTKhai>
+					<tenTKhai></tenTKhai>
+					<moTaBMau></moTaBMau>
+					<pbanTKhaiXML></pbanTKhaiXML>
+					<loaiTKhai>C</loaiTKhai>
+					<soLan>1</soLan>
+					<KyKKhaiThue>
+						<kieuKy>D</kieuKy>
+						<kyKKhai/>
+						<kyKKhaiTuNgay/>
+						<kyKKhaiDenNgay/>
+						<kyKKhaiTuThang/>
+						<kyKKhaiDenThang/>
+					</KyKKhaiThue>
+					<maCQTNoiNop></maCQTNoiNop>
+					<tenCQTNoiNop></tenCQTNoiNop>
+					<ngayLapTKhai></ngayLapTKhai>
+					<GiaHan>
+						<maLyDoGiaHan></maLyDoGiaHan>
+						<lyDoGiaHan></lyDoGiaHan>
+					</GiaHan>
+					<nguoiKy></nguoiKy>
+					<ngayKy></ngayKy>
+					<nganhNgheKD></nganhNgheKD>
+				</TKhaiThue>
+				<NNT>
+					<mst></mst>
+					<tenNNT></tenNNT>
+					<dchiNNT></dchiNNT>
+					<phuongXa></phuongXa>
+					<maHuyenNNT></maHuyenNNT>
+					<tenHuyenNNT></tenHuyenNNT>
+					<maTinhNNT></maTinhNNT>
+					<tenTinhNNT></tenTinhNNT>
+					<dthoaiNNT></dthoaiNNT>
+					<faxNNT></faxNNT>
+					<emailNNT></emailNNT>
+				</NNT>
+				<DLyThue>
+					<mstDLyThue></mstDLyThue>
+					<tenDLyThue></tenDLyThue>
+					<dchiDLyThue></dchiDLyThue>
+					<maHuyenDLyThue></maHuyenDLyThue>
+					<tenHuyenDLyThue></tenHuyenDLyThue>
+					<maTinhDLyThue></maTinhDLyThue>
+					<tenTinhDLyThue></tenTinhDLyThue>
+					<dthoaiDLyThue></dthoaiDLyThue>
+					<faxDLyThue></faxDLyThue>
+					<emailDLyThue></emailDLyThue>
+					<soHDongDLyThue></soHDongDLyThue>
+					<ngayKyHDDLyThue></ngayKyHDDLyThue>
+					<NVienDLy>
+						<tenNVienDLyThue></tenNVienDLyThue>
+						<cchiHNghe></cchiHNghe>
+					</NVienDLy>
+				</DLyThue>
+			</TTinTKhaiThue>
+		</TTinChung>
+		<CTieuTKhaiChinh>
+			<tuNgay />
+			<denNgay />
+			<BKeNhanInBienLai>
+				<CTietBKeNhanInBienLai id="" minOccurs="0">
+					<mst />
+					<ten></ten>
+					<diaChi></diaChi>
+					<soHopDong></soHopDong>
+					<ngayHopDong />
+					<tenLoaiBienLai></tenLoaiBienLai>
+					<kyHieuMauBienLai></kyHieuMauBienLai>
+					<kyHieuBienLai></kyHieuBienLai>
+					<tuSo nillable="true" />
+					<denSo nillable="true" />
+					<soLuong>0</soLuong>
+				</CTietBKeNhanInBienLai>
+			</BKeNhanInBienLai>
+			<noiBCao></noiBCao>
+			<ngayLapBCao></ngayLapBCao>
+			<nguoiDaiDien></nguoiDaiDien>
+		</CTieuTKhaiChinh>
+		<PLuc/>
+	</HSoKhaiThue>
+</HSoThueDTu>

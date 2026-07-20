@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by st (st) -->
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:annotation>
+				<xs:documentation>Tờ khai thuế đối với tổ chức nhận tái bảo hiểm nước ngoài - Mẫu 01/TBH</xs:documentation>
+			</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ToChucNhanTBHNN">
+							<xs:annotation>
+								<xs:documentation>Tổ chức nhận tái bảo hiểm nước ngoài</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct6" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên Tổ chức nhận tái bảo hiểm nước ngoài</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct7_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Nước cư trú</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct7_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Nước cư trú</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct8" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Địa chỉ trụ sở chính tại nước ngoài</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ct12_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng doanh thu phát sinh quý này [12]=[13]+[14]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct12_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng doanh thu lũy kế năm</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct13_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Doanh thu từ hoạt động tái bảo hiểm</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct13_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Doanh thu từ hoạt động tái bảo hiểm</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct14_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Doanh thu khác</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct14_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Doanh thu khác</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct15_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Các khoản giảm trừ doanh thu [15]=[16]+[17]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct15_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Các khoản giảm trừ doanh thu [15]=[16]+[17]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct16_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Các khoản thu hộ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct16_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Các khoản thu hộ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct17_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Các khoản chi khác </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct17_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Các khoản chi khác </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct18_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Doanh thu chịu thuế thu nhập doanh nghiệp phát sinh quý này [18]=[12]-[15]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct18_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Doanh thu chịu thuế thu nhập doanh nghiệp lũy kế năm</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct19_phatSinh" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tỷ lệ (%) thuế thu nhập doanh nghiệp tính trên doanh thu chịu thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct19_luyKe" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tỷ lệ (%) thuế thu nhập doanh nghiệp tính trên doanh thu chịu thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct20_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế thu nhập doanh nghiệp phát sinh trong kỳ [20]=[18]x[19]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct20_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế thu nhập doanh nghiệp phát sinh trong kỳ [20]=[18]x[19]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct21_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số thuế miễn, giảm trong kỳ phát sinh quý này [21]=[22]+[23]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct21_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số thuế miễn, giảm trong kỳ lũy kế năm</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct22_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số thuế miễn, giảm theo Hiệp định tránh đánh thuế hai lần</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct22_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số thuế miễn, giảm theo Hiệp định tránh đánh thuế hai lần</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct23_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số thuế miễn, giảm khác</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct23_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số thuế miễn, giảm theo Hiệp định tránh đánh thuế hai lần</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct24_phatSinh" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số thuế phải nộp trong kỳ phát sinh quý này [24]=[20]-[21]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct24_luyKe" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số thuế miễn, giảm trong kỳ lũy kế năm</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="PLucType">
+			<xs:complexContent>
+				<xs:extension base="PLucType">
+					<xs:sequence>
+						<xs:element name="PL_01-1_TBH_TB" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Danh mục hợp đồng tái bảo hiểm</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Header">
+										<xs:annotation>
+											<xs:documentation>Tổ chức nhận tái bảo hiểm nước ngoài hoặc tổ chức được uỷ quyền</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct4_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[04] Tên tổ chức nhận tái bảo hiểm nước ngoài hoặc tổ chức được uỷ quyền</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct5_mst" type="TINType" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[05] Mã số thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="HopDongTBHPI">
+										<xs:annotation>
+											<xs:documentation>A: Hợp đồng TBH P và I</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietHopDongTBHPI" type="NoiDungHopDongType" minOccurs="0" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>Chi tiết hợp đồng TBH P và I</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="HopDongTBHKyThuat" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>B: Hợp đồng TBH kỹ thuật</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietHopDongTBHKyThuat" type="NoiDungHopDongType" minOccurs="0" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>Chi tiết hợp đồng TBH kỹ thuật</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+	<xs:complexType name="NoiDungHopDongType">
+		<xs:sequence>
+			<xs:element name="ct2" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Loai Hợp đồng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct3" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tên đại diện ký kết Bên Việt Nam</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct4" type="TINType" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Mã số thuế đại diện ký kết Bên Việt Nam</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct5" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tên đại diện ký kết Bên Nước ngoài</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct6" type="TINType" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Mã số thuế đại diện ký kết Bên Nước ngoài</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct7" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Số hợp đồng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct8" type="xs:date" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Ngày hợp đồng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct9" type="xs:date" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Thời gian thực hiện hợp đồng từ ngày</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct10" type="xs:date" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Thời gian thực hiện hợp đồng đến ngày</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct11" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Trách nhiệm pháp lý  và cam kết của các bên</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct12" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Đối tượng có thẩm quyền kết hợp đồng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct13" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Các nội dung liên quan đến thuế trong hợp đồng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+	</xs:complexType>
+</xs:schema>

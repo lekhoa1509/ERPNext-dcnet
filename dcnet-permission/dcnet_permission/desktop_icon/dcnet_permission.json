@@ -1,0 +1,35 @@
+{
+ "app": "dcnet_permission",
+ "creation": "2026-05-29 23:31:50.710693",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon": "shield-check",
+ "icon_type": "Link",
+ "idx": 0,
+ "label": "DCNET Permission",
+ "link": "",
+ "link_to": "DCNET Permission",
+ "link_type": "Workspace Sidebar",
+ "modified": "2026-07-20 11:10:17.162708",
+ "modified_by": "Administrator",
+ "name": "DCNET Permission",
+ "owner": "Administrator",
+ "restrict_removal": 1,
+ "roles": [
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "DCNET Permission Admin"
+  },
+  {
+   "role": "DCNET Permission Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sidebar": "DCNET Permission",
+ "standard": 1
+}

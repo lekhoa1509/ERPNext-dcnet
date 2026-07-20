@@ -1,0 +1,20 @@
+[project]
+name = "dcnet_crm"
+authors = [
+    { name = "DCNET", email = "admin@dcnet.vn" },
+]
+description = "CRM workspace extending standard ERPNext CRM"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.bench.frappe-dependencies]
+frappe = ">=16.0.0,<17.0"
+erpnext = ">=16.0.0,<17.0"
+
+[tool.flit.module]
+name = "dcnet_crm"

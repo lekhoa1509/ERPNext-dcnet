@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Opportunity Detail Mockup v2</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; background: #f4f5f7; color: #1a1d23; }
+
+.desk { display: flex; height: 100vh; overflow: hidden; }
+
+/* ── FRAPPE SIDEBAR ───────────────────────── */
+.frappe-sidebar {
+  width: 168px;
+  flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid #e4e7ec;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-brand {
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #f0f2f5;
+}
+.brand-icon {
+  width: 30px; height: 30px;
+  background: #4361ee;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 14px;
+}
+.brand-text { font-weight: 700; font-size: 14px; }
+.brand-sub { font-size: 10px; color: #98a1b3; }
+
+.sidebar-nav { flex: 1; padding: 8px 0; overflow-y: auto; }
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  font-size: 12px;
+  color: #667085;
+  cursor: pointer;
+  border-radius: 0;
+}
+.nav-item:hover { background: #f8f9fc; }
+.nav-item.active { background: #eef2ff; color: #4361ee; font-weight: 600; }
+.nav-icon { font-size: 14px; width: 18px; text-align: center; }
+.sidebar-footer {
+  padding: 10px 14px;
+  border-top: 1px solid #f0f2f5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.avatar { width: 28px; height: 28px; border-radius: 50%; background: #4361ee; color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+/* ── MAIN AREA ───────────────────────────── */
+.main-area { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+.page-header {
+  background: #fff;
+  border-bottom: 1px solid #e4e7ec;
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.back-btn { color: #667085; font-size: 18px; cursor: pointer; }
+.opp-code { font-weight: 700; font-size: 15px; }
+.opp-stars { color: #ffc107; font-size: 12px; letter-spacing: 1px; }
+.stage-badge {
+  background: #1a1d23; color: #fff;
+  padding: 4px 10px; border-radius: 4px;
+  font-size: 11px; display: flex; align-items: center; gap: 5px;
+}
+.header-spacer { flex: 1; }
+.btn { padding: 5px 12px; border-radius: 4px; border: 1px solid #d0d5dd; background: #fff; font-size: 12px; cursor: pointer; }
+.btn-primary { background: #2563eb; color: #fff; border-color: #2563eb; font-weight: 600; }
+
+/* ── CONTENT LAYOUT ──────────────────────── */
+.content-area { flex: 1; display: flex; overflow: hidden; }
+
+/* LEFT OPP SIDEBAR */
+.opp-sidebar {
+  width: 210px; flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid #e4e7ec;
+  overflow-y: auto;
+  display: flex; flex-direction: column;
+}
+.opp-sidebar-customer {
+  padding: 12px 14px 8px;
+  border-bottom: 1px solid #f0f2f5;
+}
+.opp-sidebar-customer h3 { font-size: 12px; font-weight: 600; line-height: 1.4; margin-bottom: 2px; }
+.opp-sidebar-customer small { font-size: 11px; color: #6c757d; }
+.opp-sidebar-tag { display: inline-block; background: #e9f0ff; color: #2563eb; font-size: 10px; padding: 1px 6px; border-radius: 10px; margin-top: 4px; cursor: pointer; }
+
+.opp-sidebar-actions {
+  padding: 8px 14px;
+  display: flex; gap: 5px; flex-wrap: wrap;
+  border-bottom: 1px solid #f0f2f5;
+}
+.act-btn { width: 26px; height: 26px; border-radius: 50%; border: 1px solid #e4e7ec; background: #f8f9fc; display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: pointer; }
+
+.opp-sidebar-stats { padding: 10px 14px; display: flex; flex-direction: column; gap: 8px; }
+.stat-row { display: flex; flex-direction: column; gap: 1px; }
+.stat-label { font-size: 10px; color: #98a1b3; text-transform: uppercase; letter-spacing: 0.4px; }
+.stat-value { font-size: 12px; font-weight: 500; }
+.stat-value.blue { color: #2563eb; font-weight: 700; }
+
+/* MAIN TABS + CONTENT */
+.opp-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+.tabs-nav {
+  background: #fff;
+  border-bottom: 1px solid #e4e7ec;
+  display: flex;
+  padding: 0 14px;
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+.tab-btn {
+  padding: 9px 12px; font-size: 11px; font-weight: 500;
+  color: #667085; border: none; background: transparent;
+  border-bottom: 2px solid transparent; cursor: pointer;
+  white-space: nowrap; display: flex; align-items: center; gap: 4px;
+}
+.tab-btn.active { color: #2563eb; border-bottom-color: #2563eb; }
+.tab-badge { background: #2563eb; color: #fff; font-size: 9px; padding: 1px 4px; border-radius: 8px; font-weight: 700; }
+
+.tab-content { flex: 1; overflow-y: auto; padding: 14px; display: flex; gap: 12px; }
+
+.main-panel { flex: 1; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.right-panel { width: 240px; flex-shrink: 0; }
+
+/* Stage progress */
+.stage-progress { background: #fff; border: 1px solid #e4e7ec; border-radius: 6px; padding: 12px; }
+.stage-track { display: flex; align-items: center; }
+.stage-step {
+  flex: 1; background: #e4e7ec; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 500; color: #667085;
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 50%, calc(100% - 9px) 100%, 0 100%, 9px 50%);
+  margin-right: -1px; padding: 0 14px; text-align: center;
+}
+.stage-step:first-child { clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 50%, calc(100% - 9px) 100%, 0 100%); border-radius: 3px 0 0 3px; }
+.stage-step.done { background: #dbeafe; color: #2563eb; }
+.stage-step.active { background: #2563eb; color: #fff; }
+.stage-step.win { background: #d1fae5; color: #059669; }
+.stage-step.lose { background: #fee2e2; color: #dc2626; }
+
+/* Stat cards */
+.stat-cards { display: flex; gap: 8px; }
+.stat-card { flex: 1; background: #fff; border: 1px solid #e4e7ec; border-radius: 6px; padding: 12px; }
+.sc-label { font-size: 9px; color: #98a1b3; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 4px; }
+.sc-icon { width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; }
+.sc-value { font-size: 18px; font-weight: 700; }
+
+/* Section cards */
+.section-card { background: #fff; border: 1px solid #e4e7ec; border-radius: 6px; overflow: hidden; }
+.section-header { padding: 10px 12px; border-bottom: 1px solid #f0f2f5; display: flex; align-items: center; justify-content: space-between; }
+.section-header h4 { font-size: 12px; font-weight: 600; }
+.section-empty { padding: 24px; text-align: center; color: #98a1b3; font-size: 11px; }
+
+/* Activity panel */
+.activity-panel { background: #fff; border: 1px solid #e4e7ec; border-radius: 6px; height: 100%; display: flex; flex-direction: column; overflow: hidden; }
+.activity-tabs { display: flex; border-bottom: 1px solid #e4e7ec; flex-shrink: 0; }
+.atab { flex: 1; padding: 7px; font-size: 11px; font-weight: 600; text-align: center; cursor: pointer; border-bottom: 2px solid transparent; color: #667085; }
+.atab.active { color: #2563eb; border-bottom-color: #2563eb; }
+.activity-list { flex: 1; overflow-y: auto; padding: 8px; }
+.activity-item { display: flex; gap: 7px; padding: 7px 0; border-bottom: 1px solid #f0f2f5; }
+.av { width: 26px; height: 26px; border-radius: 50%; background: #4361ee; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 10px; flex-shrink: 0; }
+.ai-body strong { font-size: 10px; font-weight: 600; display: block; margin-bottom: 2px; }
+.ai-body p { font-size: 10px; color: #667085; line-height: 1.4; }
+.ai-body small { font-size: 9px; color: #98a1b3; }
+</style>
+</head>
+<body>
+<div class="desk">
+
+  <!-- ── FRAPPE SIDEBAR ── -->
+  <aside class="frappe-sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">C</div>
+      <div>
+        <div class="brand-text">CRM</div>
+        <div class="brand-sub">DCNET</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-item"><span class="nav-icon">🏠</span> Bàn làm việc</div>
+      <div class="nav-item"><span class="nav-icon">🌐</span> Tiềm năng</div>
+      <div class="nav-item"><span class="nav-icon">👤</span> Liên hệ</div>
+      <div class="nav-item"><span class="nav-icon">🏢</span> Khách hàng</div>
+      <div class="nav-item active"><span class="nav-icon">💼</span> Cơ hội</div>
+      <div class="nav-item"><span class="nav-icon">📄</span> Báo giá</div>
+      <div class="nav-item"><span class="nav-icon">🛒</span> Đơn hàng</div>
+      <div class="nav-item"><span class="nav-icon">⚡</span> Hoạt động</div>
+      <div class="nav-item"><span class="nav-icon">♥</span> Thẻ chăm sóc</div>
+      <div class="nav-item"><span class="nav-icon">☰</span> Tất cả</div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="avatar">A</div>
+      <div style="font-size:10px;color:#667085">Administrator</div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN AREA ── -->
+  <div class="main-area">
+
+    <!-- Page header -->
+    <div class="page-header">
+      <span class="back-btn">←</span>
+      <span class="opp-code">CH0000522</span>
+      <span class="opp-stars">★★★★★★★★</span>
+      <div class="stage-badge">● P. Kinh doanh báo giá cho KH <span style="opacity:.6">⌄</span></div>
+      <span style="color:#98a1b3;cursor:pointer;font-size:16px">↻</span>
+      <div class="header-spacer"></div>
+      <button class="btn">✏ Sửa</button>
+      <button class="btn btn-primary">📄 Sinh đơn hàng ▾</button>
+      <button class="btn" style="padding:5px 8px">•••</button>
+    </div>
+
+    <!-- Content area -->
+    <div class="content-area">
+
+      <!-- LEFT OPP SIDEBAR -->
+      <aside class="opp-sidebar">
+        <div class="opp-sidebar-customer">
+          <h3>Trường THCS & THPT Đinh Thiện Lý</h3>
+          <small>KH0001232</small><br>
+          <span class="opp-sidebar-tag">+ Thêm thẻ</span>
+        </div>
+        <div class="opp-sidebar-actions">
+          <div class="act-btn" title="Gọi điện">📞</div>
+          <div class="act-btn" title="Công việc">☑</div>
+          <div class="act-btn" title="Lịch">📅</div>
+          <div class="act-btn" title="Email">✉</div>
+          <div class="act-btn" title="SMS">💬</div>
+          <div class="act-btn" title="Zalo">📱</div>
+        </div>
+        <div class="opp-sidebar-stats">
+          <div class="stat-row">
+            <span class="stat-label">Liên hệ</span>
+            <span class="stat-value" style="color:#98a1b3">— Không chọn —</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Số tiền</span>
+            <span class="stat-value blue">120,000,000 ₫</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Giai đoạn</span>
+            <span class="stat-value">P. KD báo giá cho KH</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Tỷ lệ thành công</span>
+            <span class="stat-value">30%</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Doanh số kỳ vọng</span>
+            <span class="stat-value blue">36,000,000 ₫</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Ngày kỳ vọng</span>
+            <span class="stat-value">31/03/2026</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Người thực hiện</span>
+            <span class="stat-value">Nguyễn Văn A</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN TABS + CONTENT -->
+      <div class="opp-main">
+        <nav class="tabs-nav">
+          <button class="tab-btn active">Tổng quan</button>
+          <button class="tab-btn">Thông tin chi tiết</button>
+          <button class="tab-btn">Hàng hóa</button>
+          <button class="tab-btn">Ghi chú & đính kèm</button>
+          <button class="tab-btn">Liên hệ</button>
+          <button class="tab-btn">Bán hàng</button>
+          <button class="tab-btn">Hoạt động <span class="tab-badge">3</span></button>
+          <button class="tab-btn">Trao đổi <span class="tab-badge">2</span></button>
+          <button class="tab-btn">Hỗ trợ</button>
+        </nav>
+
+        <div class="tab-content">
+          <div class="main-panel">
+
+            <div class="stage-progress">
+              <div class="stage-track">
+                <div class="stage-step done">Kinh doanh lập yêu cầu</div>
+                <div class="stage-step done">P.TH check thông tin</div>
+                <div class="stage-step active">P. KD báo giá cho KH</div>
+                <div class="stage-step win">✓ Hoàn thành</div>
+                <div class="stage-step lose">✗ Thất bại</div>
+              </div>
+            </div>
+
+            <div class="stat-cards">
+              <div class="stat-card">
+                <div class="sc-label"><span class="sc-icon" style="background:#e8f0fe">💰</span> SỐ TIỀN</div>
+                <div class="sc-value">120tr ₫</div>
+              </div>
+              <div class="stat-card">
+                <div class="sc-label"><span class="sc-icon" style="background:#d1fae5">✓</span> TỶ LỆ THÀNH CÔNG</div>
+                <div class="sc-value">30%</div>
+              </div>
+              <div class="stat-card">
+                <div class="sc-label"><span class="sc-icon" style="background:#fef3c7">📈</span> DOANH SỐ KỲ VỌNG</div>
+                <div class="sc-value">36tr ₫</div>
+              </div>
+              <div class="stat-card">
+                <div class="sc-label"><span class="sc-icon" style="background:#fee2e2">📅</span> NGÀY KỲ VỌNG</div>
+                <div class="sc-value" style="font-size:14px">31/03/2026</div>
+              </div>
+            </div>
+
+            <div class="section-card">
+              <div class="section-header">
+                <h4>Hàng hóa</h4>
+                <button class="btn" style="font-size:10px;padding:2px 8px">→</button>
+              </div>
+              <div class="section-empty">📦 Không có dữ liệu</div>
+            </div>
+
+            <div class="section-card" style="flex:1">
+              <div class="section-header">
+                <h4>Nội dung trao đổi</h4>
+                <button class="btn" style="font-size:10px;padding:2px 8px">→</button>
+              </div>
+              <div style="padding:8px 12px">
+                <div class="activity-item">
+                  <div class="av" style="background:#f59e0b">P</div>
+                  <div class="ai-body">
+                    <strong>Phạm Ngọc Đang (01010065) @Chung Mỹ Quân</strong>
+                    <p>Nhờ chị cho em xin giá bán để gửi KH nhé. Em cảm ơn chị.</p>
+                    <small>13/06/2026 8:14 SA</small>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:8px 12px;border-top:1px solid #f0f2f5;display:flex;gap:6px">
+                <input style="flex:1;border:1px solid #e4e7ec;border-radius:5px;padding:6px 10px;font-size:11px" placeholder="Nhập nội dung...">
+                <button class="btn btn-primary" style="padding:5px 8px">➤</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="right-panel">
+            <div class="activity-panel">
+              <div class="activity-tabs">
+                <div class="atab active">Hoạt động</div>
+                <div class="atab">Mua hàng</div>
+              </div>
+              <div class="activity-list">
+                <div style="font-size:9px;color:#98a1b3;padding:4px 2px 6px;text-transform:uppercase;letter-spacing:.5px">CƠ HỘI ▾</div>
+                <div class="activity-item">
+                  <div class="av" style="background:#f59e0b">C</div>
+                  <div class="ai-body">
+                    <strong>P.TH HCM lên dự toán bán hàng — Trường THCS</strong>
+                    <p>Khảo sát làm sàn nâng và làm gọn tủ Rack mạng Địa chỉ: 80 Nguyễn Đức Cảnh</p>
+                    <small>18/03/2026</small>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="av" style="background:#10b981">C</div>
+                  <div class="ai-body">
+                    <strong>P.TH HCM gửi báo giá thi công cho KD</strong>
+                    <p>Theo KSDV — Trường THCS & THPT Đinh Thiện Lý</p>
+                    <small>18/03/2026</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

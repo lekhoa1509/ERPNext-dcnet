@@ -1,0 +1,456 @@
+Vouchers: 1564  BR invoices: 303  MV invoices: 633
+Company: DCNET
+
+STATUS: block
+block_count: 2  warn_count: 2  total_issues: 437
+
+---- Per-check summary ----
+* [block] Bút toán cân Dr=Cr                                 OK
+* [warn ] BH có line items bảng kê                           OK
+! [warn ] MDV/MH/PN có line items bảng kê                    FAIL (1 issues)
+    - PN20260038: thiếu line items trong bảng kê MV
+! [warn ] Mã đối tượng nhất quán                             FAIL (11 issues)
+    - CANG HKQT_ACV_CTCP: gặp cả 131 (Customer) và 331 (Supplier)
+    - FFC: gặp cả 131 (Customer) và 331 (Supplier)
+    - FPTFTICN_HNI: gặp cả 131 (Customer) và 331 (Supplier)
+    - HITC: gặp cả 131 (Customer) và 331 (Supplier)
+    - SOFTNET: gặp cả 131 (Customer) và 331 (Supplier)
+    - SONHAGROUP: gặp cả 131 (Customer) và 331 (Supplier)
+    - SUPERNET: gặp cả 131 (Customer) và 331 (Supplier)
+    - TPCOMS: gặp cả 131 (Customer) và 331 (Supplier)
+    - TTC: gặp cả 131 (Customer) và 331 (Supplier)
+    - VIETTELCHT: gặp cả 131 (Customer) và 331 (Supplier)
+    - ZCOM: gặp cả 131 (Customer) và 331 (Supplier)
+X [block] Tài khoản kế toán đã map                           FAIL (25 issues)
+    - TK 1111: không tìm thấy Account
+    - TK 1121.20: không tìm thấy Account
+    - TK 1121.21: không tìm thấy Account
+    - TK 1121.81: không tìm thấy Account
+    - TK 11210: không tìm thấy Account
+    - TK 11215: không tìm thấy Account
+    - TK 11218: không tìm thấy Account
+    - TK 11219: không tìm thấy Account
+    - TK 1551: không tìm thấy Account
+    - TK 1561: không tìm thấy Account
+    - TK 3341: không tìm thấy Account
+    - TK 3348: không tìm thấy Account
+    - TK 5111: không tìm thấy Account
+    - TK 5112: không tìm thấy Account
+    - TK 51131: không tìm thấy Account
+    - TK 51132: không tìm thấy Account
+    - TK 51133: không tìm thấy Account
+    - TK 51134: không tìm thấy Account
+    - TK 51135: không tìm thấy Account
+    - TK 51136: không tìm thấy Account
+    - TK 5114: không tìm thấy Account
+    - TK 6321: không tìm thấy Account
+    - TK 6322: không tìm thấy Account
+    - TK 6323: không tìm thấy Account
+    - TK 6324: không tìm thấy Account
+* [info ] Item lookup / auto-create                          OK
+* [block] Kỳ kế toán chưa khóa                               OK
+* [block] Company default currency = VND                     OK
+* [block] Voucher chưa được import lần trước                 OK
+X [block] Master Customer/Supplier đã import                 FAIL (399 issues)
+    - Supplier '247' thiếu — chạy Phase 3 trước
+    - Supplier '545_ĐNG' thiếu — chạy Phase 3 trước
+    - Supplier 'ACT' thiếu — chạy Phase 3 trước
+    - Supplier 'AMTHUCBD' thiếu — chạy Phase 3 trước
+    - Supplier 'ANHSANG' thiếu — chạy Phase 3 trước
+    - Supplier 'ANPHONG' thiếu — chạy Phase 3 trước
+    - Supplier 'ANPHUOC' thiếu — chạy Phase 3 trước
+    - Supplier 'ANTHANH' thiếu — chạy Phase 3 trước
+    - Supplier 'ARTEKCP' thiếu — chạy Phase 3 trước
+    - Supplier 'ASPACHAU' thiếu — chạy Phase 3 trước
+    - Supplier 'BACTIENPHONG' thiếu — chạy Phase 3 trước
+    - Supplier 'BBIX HONGKONG' thiếu — chạy Phase 3 trước
+    - Supplier 'BOCAUDV' thiếu — chạy Phase 3 trước
+    - Supplier 'BOCAUKT' thiếu — chạy Phase 3 trước
+    - Supplier 'CAILONUONG' thiếu — chạy Phase 3 trước
+    - Supplier 'CANG HKQT_ACV_CTCP' thiếu — chạy Phase 3 trước
+    - Supplier 'CAPHN' thiếu — chạy Phase 3 trước
+    - Supplier 'CHANGGIGAMAIL' thiếu — chạy Phase 3 trước
+    - Supplier 'CMC' thiếu — chạy Phase 3 trước
+    - Supplier 'CMCCN' thiếu — chạy Phase 3 trước
+    - Supplier 'CMCCNMB' thiếu — chạy Phase 3 trước
+    - Supplier 'CNANPHUOC' thiếu — chạy Phase 3 trước
+    - Supplier 'CNPIZZA4PS' thiếu — chạy Phase 3 trước
+    - Supplier 'CNTHANBIEN001' thiếu — chạy Phase 3 trước
+    - Supplier 'COGENT' thiếu — chạy Phase 3 trước
+    - Supplier 'COLA' thiếu — chạy Phase 3 trước
+    - Supplier 'CONGNGHECHIENLUOCDNG_IID' thiếu — chạy Phase 3 trước
+    - Supplier 'COOP SCA GOLDSILK_MARFOUR' thiếu — chạy Phase 3 trước
+    - Supplier 'COOPDANANG' thiếu — chạy Phase 3 trước
+    - Supplier 'COOPHNI' thiếu — chạy Phase 3 trước
+    - Supplier 'COOPPHUNHUAN' thiếu — chạy Phase 3 trước
+    - Supplier 'COOPQUANGTRUNG_DONGTHINH' thiếu — chạy Phase 3 trước
+    - Supplier 'CQMART' thiếu — chạy Phase 3 trước
+    - Supplier 'CTBT_MA CQ THU 1056441' thiếu — chạy Phase 3 trước
+    - Supplier 'DANANG' thiếu — chạy Phase 3 trước
+    - Supplier 'DCNET' thiếu — chạy Phase 3 trước
+    - Supplier 'DECIX' thiếu — chạy Phase 3 trước
+    - Supplier 'DFPT.1405.22' thiếu — chạy Phase 3 trước
+    - Supplier 'DIENLUCSG' thiếu — chạy Phase 3 trước
+    - Supplier 'DIENLUC_EVF' thiếu — chạy Phase 3 trước
+    - Supplier 'DMARIS' thiếu — chạy Phase 3 trước
+    - Supplier 'DSGVM.0520.046' thiếu — chạy Phase 3 trước
+    - Supplier 'DSTELCNĐNG' thiếu — chạy Phase 3 trước
+    - Supplier 'DTL.0110.22' thiếu — chạy Phase 3 trước
+    - Supplier 'DVBENSONG' thiếu — chạy Phase 3 trước
+    - Supplier 'EPSILON' thiếu — chạy Phase 3 trước
+    - Supplier 'FFC' thiếu — chạy Phase 3 trước
+    - Supplier 'FPTFTE' thiếu — chạy Phase 3 trước
+    - Supplier 'FPTFTICN_HNI' thiếu — chạy Phase 3 trước
+    - Supplier 'FPTINF_HC' thiếu — chạy Phase 3 trước
+    - Supplier 'FPTTELECOM' thiếu — chạy Phase 3 trước
+    - Supplier 'GGG_068' thiếu — chạy Phase 3 trước
+    - Supplier 'GIANGHI' thiếu — chạy Phase 3 trước
+    - Supplier 'GIGANET' thiếu — chạy Phase 3 trước
+    - Supplier 'GNET' thiếu — chạy Phase 3 trước
+    - Supplier 'GOLDENGATE' thiếu — chạy Phase 3 trước
+    - Supplier 'GRAB' thiếu — chạy Phase 3 trước
+    - Supplier 'GTECH_HNI' thiếu — chạy Phase 3 trước
+    - Supplier 'GTEL CTS' thiếu — chạy Phase 3 trước
+    - Supplier 'HAIDILAOHCM' thiếu — chạy Phase 3 trước
+    - Supplier 'HE_HURRICANE ELECTRIC' thiếu — chạy Phase 3 trước
+    - Supplier 'HGC' thiếu — chạy Phase 3 trước
+    - Supplier 'HITC' thiếu — chạy Phase 3 trước
+    - Supplier 'HKIX' thiếu — chạy Phase 3 trước
+    - Supplier 'HOANGANH' thiếu — chạy Phase 3 trước
+    - Supplier 'HTXTPHCM' thiếu — chạy Phase 3 trước
+    - Supplier 'JOLLIBEE_HN' thiếu — chạy Phase 3 trước
+    - Supplier 'JTECH' thiếu — chạy Phase 3 trước
+    - Supplier 'KOWIL VN' thiếu — chạy Phase 3 trước
+    - Supplier 'LOTTEVN' thiếu — chạy Phase 3 trước
+    - Supplier 'MANGTHANHCONG' thiếu — chạy Phase 3 trước
+    - Supplier 'MATROIVANG' thiếu — chạy Phase 3 trước
+    - Supplier 'MBBANK_TANBINH' thiếu — chạy Phase 3 trước
+    - Supplier 'MC_365' thiếu — chạy Phase 3 trước
+    - Supplier 'METASERV' thiếu — chạy Phase 3 trước
+    - Supplier 'MICBACSG' thiếu — chạy Phase 3 trước
+    - Supplier 'MINHTAN' thiếu — chạy Phase 3 trước
+    - Supplier 'MOBIFONETPHCM' thiếu — chạy Phase 3 trước
+    - Supplier 'MUCINVIET' thiếu — chạy Phase 3 trước
+    - Supplier 'NANO' thiếu — chạy Phase 3 trước
+    - Supplier 'NEWLINKS' thiếu — chạy Phase 3 trước
+    - Supplier 'NGUYENCONG' thiếu — chạy Phase 3 trước
+    - Supplier 'NHD_KHOHNI' thiếu — chạy Phase 3 trước
+    - Supplier 'NTTCOM' thiếu — chạy Phase 3 trước
+    - Supplier 'NV02' thiếu — chạy Phase 3 trước
+    - Supplier 'OKFOODS' thiếu — chạy Phase 3 trước
+    - Supplier 'OPES' thiếu — chạy Phase 3 trước
+    - Supplier 'PETROLIMEX_HNI' thiếu — chạy Phase 3 trước
+    - Supplier 'PETROLIMEX_KVII_SAIGON' thiếu — chạy Phase 3 trước
+    - Supplier 'PHELA' thiếu — chạy Phase 3 trước
+    - Supplier 'PHUCDAT' thiếu — chạy Phase 3 trước
+    - Supplier 'PHUONGLONG' thiếu — chạy Phase 3 trước
+    - Supplier 'PHUONGNAM' thiếu — chạy Phase 3 trước
+    - Supplier 'POP_LONGTHANH' thiếu — chạy Phase 3 trước
+    - Supplier 'QI' thiếu — chạy Phase 3 trước
+    - Supplier 'QTL' thiếu — chạy Phase 3 trước
+    - Supplier 'QTSC' thiếu — chạy Phase 3 trước
+    - Supplier 'QUYDAN' thiếu — chạy Phase 3 trước
+    - Supplier 'READY TRIP_HNI' thiếu — chạy Phase 3 trước
+    - Supplier 'RIVERSIDETOWER' thiếu — chạy Phase 3 trước
+    - Supplier 'SAOPHUONGNAM' thiếu — chạy Phase 3 trước
+    - Supplier 'SAOTHIENVUONG' thiếu — chạy Phase 3 trước
+    - Supplier 'SC5' thiếu — chạy Phase 3 trước
+    - Supplier 'SCTVIBI' thiếu — chạy Phase 3 trước
+    - Supplier 'SERVERHUB' thiếu — chạy Phase 3 trước
+    - Supplier 'SGIX' thiếu — chạy Phase 3 trước
+    - Supplier 'SIEUSIEUNHO' thiếu — chạy Phase 3 trước
+    - Supplier 'SNEXT' thiếu — chạy Phase 3 trước
+    - Supplier 'SOFTNET' thiếu — chạy Phase 3 trước
+    - Supplier 'SONHAGROUP' thiếu — chạy Phase 3 trước
+    - Supplier 'STV' thiếu — chạy Phase 3 trước
+    - Supplier 'SUPERNET' thiếu — chạy Phase 3 trước
+    - Supplier 'TGMANG' thiếu — chạy Phase 3 trước
+    - Supplier 'THAPH01' thiếu — chạy Phase 3 trước
+    - Supplier 'THE350F' thiếu — chạy Phase 3 trước
+    - Supplier 'THEBALIGRILL' thiếu — chạy Phase 3 trước
+    - Supplier 'TPCOMS' thiếu — chạy Phase 3 trước
+    - Supplier 'TRUONGGIANG' thiếu — chạy Phase 3 trước
+    - Supplier 'TTC' thiếu — chạy Phase 3 trước
+    - Supplier 'TTDAUTHAU' thiếu — chạy Phase 3 trước
+    - Supplier 'TVDVVT_PQH' thiếu — chạy Phase 3 trước
+    - Supplier 'UNGDUNGDIDONG' thiếu — chạy Phase 3 trước
+    - Supplier 'UTUT' thiếu — chạy Phase 3 trước
+    - Supplier 'VANLANGVT' thiếu — chạy Phase 3 trước
+    - Supplier 'VETC' thiếu — chạy Phase 3 trước
+    - Supplier 'VIB' thiếu — chạy Phase 3 trước
+    - Supplier 'VIECLAMCT' thiếu — chạy Phase 3 trước
+    - Supplier 'VIETTELCHT' thiếu — chạy Phase 3 trước
+    - Supplier 'VIETTELILL' thiếu — chạy Phase 3 trước
+    - Supplier 'VIETTELPOST' thiếu — chạy Phase 3 trước
+    - Supplier 'VIETTELTPHCM' thiếu — chạy Phase 3 trước
+    - Supplier 'VNPTTPHCM' thiếu — chạy Phase 3 trước
+    - Supplier 'VNPTTPHCM_HC' thiếu — chạy Phase 3 trước
+    - Supplier 'VPBANK' thiếu — chạy Phase 3 trước
+    - Supplier 'VPBANKQ2' thiếu — chạy Phase 3 trước
+    - Supplier 'VPCCNGOCYEN' thiếu — chạy Phase 3 trước
+    - Supplier 'VPGD HAI DUONG' thiếu — chạy Phase 3 trước
+    - Supplier 'VPH_VANPHATHUNG' thiếu — chạy Phase 3 trước
+    - Supplier 'VPPTOANPHAT' thiếu — chạy Phase 3 trước
+    - Supplier 'VTCHOLON' thiếu — chạy Phase 3 trước
+    - Supplier 'VTDONGNAI' thiếu — chạy Phase 3 trước
+    - Supplier 'VTGIADINH' thiếu — chạy Phase 3 trước
+    - Supplier 'VTHANOI' thiếu — chạy Phase 3 trước
+    - Supplier 'VTHUNGYEN' thiếu — chạy Phase 3 trước
+    - Supplier 'VTMOBIFONE' thiếu — chạy Phase 3 trước
+    - Supplier 'VTNAMSAIGON' thiếu — chạy Phase 3 trước
+    - Supplier 'VTPHUTHO' thiếu — chạy Phase 3 trước
+    - Supplier 'VTSAIGON' thiếu — chạy Phase 3 trước
+    - Supplier 'VTTANBINH' thiếu — chạy Phase 3 trước
+    - Supplier 'VTTHUDUC' thiếu — chạy Phase 3 trước
+    - Supplier 'XANHBD' thiếu — chạy Phase 3 trước
+    - Supplier 'XIAOYING' thiếu — chạy Phase 3 trước
+    - Supplier 'ZAVICO' thiếu — chạy Phase 3 trước
+    - Supplier 'ZCOM' thiếu — chạy Phase 3 trước
+    - Customer 'AGRCN1_CNTTSG' thiếu — chạy Phase 3 trước
+    - Customer 'AGRCN6' thiếu — chạy Phase 3 trước
+    - Customer 'AGR_BACHCM_PGDBINHTAY' thiếu — chạy Phase 3 trước
+    - Customer 'AGR_BACSG' thiếu — chạy Phase 3 trước
+    - Customer 'AGR_KCNTANTAO' thiếu — chạy Phase 3 trước
+    - Customer 'AGR_LYTHUONGKIET' thiếu — chạy Phase 3 trước
+    - Customer 'AGR_MIENDONG' thiếu — chạy Phase 3 trước
+    - Customer 'AGR_NAMHOA' thiếu — chạy Phase 3 trước
+    - Customer 'AGR_TANPHU' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNBC' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNBD' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNBH' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNBINHPHUOC' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNBINHTHANH' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNBSG' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNBT' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNCT' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNCUCHI' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNDONGDA' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNDSG' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNHAIDUONG' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNHCM' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNMYPHUOC' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNNBD' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNNHNI' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNNSG' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNNĐN' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNTANBINH' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNTDM' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNTHONGNHAT' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVCNĐĐN' thiếu — chạy Phase 3 trước
+    - Customer 'BIDVVPĐDHCM' thiếu — chạy Phase 3 trước
+    - Customer 'BOE' thiếu — chạy Phase 3 trước
+    - Customer 'BOE_BRVT' thiếu — chạy Phase 3 trước
+    - Customer 'BTT' thiếu — chạy Phase 3 trước
+    - Customer 'BVCHITO' thiếu — chạy Phase 3 trước
+    - Customer 'CANG HKQT_ACV_CTCP' thiếu — chạy Phase 3 trước
+    - Customer 'CIRCO' thiếu — chạy Phase 3 trước
+    - Customer 'CISBOX' thiếu — chạy Phase 3 trước
+    - Customer 'CNEXT' thiếu — chạy Phase 3 trước
+    - Customer 'CPFOOD_1&2HN' thiếu — chạy Phase 3 trước
+    - Customer 'CPFOOD_CN3DNI' thiếu — chạy Phase 3 trước
+    - Customer 'CPFOOD_NM3HCM' thiếu — chạy Phase 3 trước
+    - Customer 'CPFOOD_NM3HN' thiếu — chạy Phase 3 trước
+    - Customer 'CPFOOD_NMHD' thiếu — chạy Phase 3 trước
+    - Customer 'D229-231.1108.22_OCEAN BANK' thiếu — chạy Phase 3 trước
+    - Customer 'DAEWON' thiếu — chạy Phase 3 trước
+    - Customer 'DBBB.0509.22' thiếu — chạy Phase 3 trước
+    - Customer 'DCCONNECT' thiếu — chạy Phase 3 trước
+    - Customer 'DCMC.2304.24' thiếu — chạy Phase 3 trước
+    - Customer 'DCNET' thiếu — chạy Phase 3 trước
+    - Customer 'DDKVN.230623' thiếu — chạy Phase 3 trước
+    - Customer 'DDVB.0107.22' thiếu — chạy Phase 3 trước
+    - Customer 'DEDUTEST.1206.24' thiếu — chạy Phase 3 trước
+    - Customer 'DEPOT' thiếu — chạy Phase 3 trước
+    - Customer 'DETMAYSG' thiếu — chạy Phase 3 trước
+    - Customer 'DIBPRO.0808.23' thiếu — chạy Phase 3 trước
+    - Customer 'DIDCVIET.2006.25' thiếu — chạy Phase 3 trước
+    - Customer 'DVIETPHU.0611.24' thiếu — chạy Phase 3 trước
+    - Customer 'EDT' thiếu — chạy Phase 3 trước
+    - Customer 'EPSILON_SP' thiếu — chạy Phase 3 trước
+    - Customer 'FFC' thiếu — chạy Phase 3 trước
+    - Customer 'FIMI' thiếu — chạy Phase 3 trước
+    - Customer 'FLC' thiếu — chạy Phase 3 trước
+    - Customer 'FPTFTE-FTI_HNI' thiếu — chạy Phase 3 trước
+    - Customer 'FPTFTICN_HNI' thiếu — chạy Phase 3 trước
+    - Customer 'FWD' thiếu — chạy Phase 3 trước
+    - Customer 'FWD_BHNT' thiếu — chạy Phase 3 trước
+    - Customer 'GAMOTA_ADSOTA' thiếu — chạy Phase 3 trước
+    - Customer 'HANEL' thiếu — chạy Phase 3 trước
+    - Customer 'HITC' thiếu — chạy Phase 3 trước
+    - Customer 'HITCCN' thiếu — chạy Phase 3 trước
+    - Customer 'HOLA' thiếu — chạy Phase 3 trước
+    - Customer 'HUNGSON_KS LASONG' thiếu — chạy Phase 3 trước
+    - Customer 'HUNGVIET_PHUCDAT2_PHUDONG' thiếu — chạy Phase 3 trước
+    - Customer 'INDIENET' thiếu — chạy Phase 3 trước
+    - Customer 'JINJOO INTERNATIONAL' thiếu — chạy Phase 3 trước
+    - Customer 'KTDX' thiếu — chạy Phase 3 trước
+    - Customer 'LCS' thiếu — chạy Phase 3 trước
+    - Customer 'MBBANK_TANBINH' thiếu — chạy Phase 3 trước
+    - Customer 'MFG' thiếu — chạy Phase 3 trước
+    - Customer 'MFG_CNHCM' thiếu — chạy Phase 3 trước
+    - Customer 'MINHTU' thiếu — chạy Phase 3 trước
+    - Customer 'MOBIFONEHCM_CNMN_KV2_KV8' thiếu — chạy Phase 3 trước
+    - Customer 'MURPHY_ (LÔ 15-1+2/05+17)' thiếu — chạy Phase 3 trước
+    - Customer 'NET AGENT' thiếu — chạy Phase 3 trước
+    - Customer 'NETNAMCN' thiếu — chạy Phase 3 trước
+    - Customer 'NETNAM_PHONGLV_ANHDV_HUNGBM' thiếu — chạy Phase 3 trước
+    - Customer 'NO1CL' thiếu — chạy Phase 3 trước
+    - Customer 'NO1HG' thiếu — chạy Phase 3 trước
+    - Customer 'NO1HN' thiếu — chạy Phase 3 trước
+    - Customer 'NTEL' thiếu — chạy Phase 3 trước
+    - Customer 'NV02' thiếu — chạy Phase 3 trước
+    - Customer 'PCG.A2-12A04.0619' thiếu — chạy Phase 3 trước
+    - Customer 'PCG.B1-12B02.0619' thiếu — chạy Phase 3 trước
+    - Customer 'PCG.B1-1709.0619' thiếu — chạy Phase 3 trước
+    - Customer 'PCG.B1-2706.0223' thiếu — chạy Phase 3 trước
+    - Customer 'PCLD.D6.01.0619' thiếu — chạy Phase 3 trước
+    - Customer 'PCLD.D8.07.0619' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.A.0906.1121' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.A.1705.1021' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.A.19A42.1220' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.A.5A41.0221' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.B.10B1.0521' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.B.11B42.0421' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.B.12B41.0621' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.B.14B42.0121' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.B.18B41.0121' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.B.2004.1121' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.B.2B42.0221' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.B.2B5.0521' thiếu — chạy Phase 3 trước
+    - Customer 'PCT.B.3B32.0321' thiếu — chạy Phase 3 trước
+    - Customer 'PGBANK' thiếu — chạy Phase 3 trước
+    - Customer 'PHLC.C1-0305.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PHLC.C3-1802.0720' thiếu — chạy Phase 3 trước
+    - Customer 'PMC' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.0704.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.0908.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.1107.0920' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.12B05.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.12B11.0920' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.2001.1220' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.2003.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.2008.0920' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.2209.0920' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.2311.0920' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.2604.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.3001.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.3305.0421' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.3401.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.A.3409.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.0703.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.0804.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.12A12.1120' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.12B01.0920' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.12B07.0920' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.12B11.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.1603.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.1701.0121' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.1802.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.1803.0920' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.1901.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.2011.1120' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.2101.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.2206.0920' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.2405.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.2406.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.2411.0920' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.2801.0920' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.3401.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PPD.B.3404.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PSA.A2-12A04.0621' thiếu — chạy Phase 3 trước
+    - Customer 'PSGM.12A13.0619' thiếu — chạy Phase 3 trước
+    - Customer 'PSGM.12A22.0619' thiếu — chạy Phase 3 trước
+    - Customer 'PSGM.621.0619' thiếu — chạy Phase 3 trước
+    - Customer 'PSK9.CT1-1433.0619' thiếu — chạy Phase 3 trước
+    - Customer 'PSK9.CT1-914.1121' thiếu — chạy Phase 3 trước
+    - Customer 'PSK9.CT1-922.0619' thiếu — chạy Phase 3 trước
+    - Customer 'PSK9.CT2-822.0619' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.A.0702.1120' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.A.0904.1220' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.A.1206.1121' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.A.2105.0923' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.A.2204.0720' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.A.3205.0320' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B.0402.0820' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B.0506.0720' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B.0608.0321' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B.0805.1120' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B.1409.0423' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B.1508.1221' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B.2008.0623' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B.2507.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B.3308.1020' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B8.0910.0123' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B8.1601.0521' thiếu — chạy Phase 3 trước
+    - Customer 'PTE.B8.2007.0323' thiếu — chạy Phase 3 trước
+    - Customer 'PTED1.A.1008.0922' thiếu — chạy Phase 3 trước
+    - Customer 'PTED1.A.1707.0722' thiếu — chạy Phase 3 trước
+    - Customer 'PTED1.A.1901.0722' thiếu — chạy Phase 3 trước
+    - Customer 'PTED1.A.2606.0722' thiếu — chạy Phase 3 trước
+    - Customer 'PTED1.B.0704.0622' thiếu — chạy Phase 3 trước
+    - Customer 'PTED1.B.2308.0622' thiếu — chạy Phase 3 trước
+    - Customer 'PTED1.B.2309.0423' thiếu — chạy Phase 3 trước
+    - Customer 'PTED1.B.3310.0522' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.A.0704.1121' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.A.0803.0722' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.A.2504.0122' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.A.3010.0523' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.B.1807.0723' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.B.2009.0622' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.B.2601.0324' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.B.2603.1222' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.B.3003.1121' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.B.3201.0722' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.B.3205.1021' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.B.3208.0822' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.C.1105.0723' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.C.1209.0622' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.C.1601.1221' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.C.2307.1222' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.C.2805.0223' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.C.3204.0722' thiếu — chạy Phase 3 trước
+    - Customer 'PTED2.C.3304.0322' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A1.0301.0623' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A1.0503.0823' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A1.0706.1022' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A1.0907.0723' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A1.1205.0123' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A1.12A07.0723' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A1.1501.0723' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A2.0805.0223' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A2.0912.0822' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A3.0809.0823' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A3.12A01.0823' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.A3.1401.0123' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.B1.1005.0621' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.B3.0413.0521' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.B3.0708.0521' thiếu — chạy Phase 3 trước
+    - Customer 'PTH.B3.1203.0721' thiếu — chạy Phase 3 trước
+    - Customer 'PTT.1019.015' thiếu — chạy Phase 3 trước
+    - Customer 'QUOCGIAVN_NATCOM' thiếu — chạy Phase 3 trước
+    - Customer 'ROCHDALE SPEARS' thiếu — chạy Phase 3 trước
+    - Customer 'SAOVANG' thiếu — chạy Phase 3 trước
+    - Customer 'SMARTNET' thiếu — chạy Phase 3 trước
+    - Customer 'SOFTNET' thiếu — chạy Phase 3 trước
+    - Customer 'SONHAGROUP' thiếu — chạy Phase 3 trước
+    - Customer 'STAR' thiếu — chạy Phase 3 trước
+    - Customer 'SUPERNET' thiếu — chạy Phase 3 trước
+    - Customer 'TECH3C_HNI' thiếu — chạy Phase 3 trước
+    - Customer 'TEPAYLINK' thiếu — chạy Phase 3 trước
+    - Customer 'TITAN_DTITAN.0221.066+2206.23+0307.23' thiếu — chạy Phase 3 trước
+    - Customer 'TMA' thiếu — chạy Phase 3 trước
+    - Customer 'TPCOMS' thiếu — chạy Phase 3 trước
+    - Customer 'TTC' thiếu — chạy Phase 3 trước
+    - Customer 'VFC_TAUTHUY' thiếu — chạy Phase 3 trước
+    - Customer 'VIECLAMCT' thiếu — chạy Phase 3 trước
+    - Customer 'VIETTELCHT' thiếu — chạy Phase 3 trước
+    - Customer 'VIETTELCHT_CNMN' thiếu — chạy Phase 3 trước
+    - Customer 'VIETTELHCM_PHUDONG_PHUCDAT' thiếu — chạy Phase 3 trước
+    - Customer 'VINA_VNDT_VNG' thiếu — chạy Phase 3 trước
+    - Customer 'VPBANKQ2' thiếu — chạy Phase 3 trước
+    - Customer 'VTTPHCM_LONGTOWER_TSA' thiếu — chạy Phase 3 trước
+    - Customer 'VTVCAB' thiếu — chạy Phase 3 trước
+    - Customer 'ZCOM' thiếu — chạy Phase 3 trước
+
+---- Phase 4 readiness ----
+BLOCKED: fix the block-level checks above before Phase 4 post.

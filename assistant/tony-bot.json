@@ -1,0 +1,16 @@
+{
+  "telegram": {
+    "token": "8274808645:AAEbJeYyz4ciJZBCB_BE2hB6KMQxrbs0ubs",
+    "allowedUsers": [],
+    "enableInlineButtons": true,
+    "topicFilter": "🤖 Tony AI Assistant"
+  },
+  "agent": {
+    "model": "anthropic/claude-sonnet-4-20250514",
+    "workspace": "/Users/vovanduc/Code/dcnet/flow_next/assistant"
+  },
+  "botInfo": {
+    "username": "DcnetTonyBot",
+    "link": "t.me/DcnetTonyBot"
+  }
+}

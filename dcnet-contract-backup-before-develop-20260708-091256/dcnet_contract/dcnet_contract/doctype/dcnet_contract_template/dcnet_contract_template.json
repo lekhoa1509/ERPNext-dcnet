@@ -1,0 +1,249 @@
+{
+ "actions": [],
+ "autoname": "field:template_name",
+ "creation": "2026-04-13 16:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "template_category",
+  "service_type",
+  "contract_type",
+  "column_break_type",
+  "payment_mode",
+  "package_term_months",
+  "template_file_section",
+  "template_file",
+  "template_html",
+  "placeholder_guide_html",
+  "placeholders",
+  "version_section",
+  "version",
+  "status",
+  "change_log",
+  "column_break_approval",
+  "reviewed_by",
+  "reviewed_date",
+  "approved_by",
+  "approved_date",
+  "items_section",
+  "default_items",
+  "terms_section",
+  "default_terms",
+  "boilerplate_text"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "T\u00ean m\u1eabu",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "template_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Lo\u1ea1i m\u1eabu",
+   "options": "\nH\u1ee3p \u0111\u1ed3ng\nPh\u1ee5 l\u1ee5c"
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Lo\u1ea1i d\u1ecbch v\u1ee5",
+   "options": "\nP2P\nMPLS\nILL\nFTTH DN\nIT Managed\nVTTB\nThi c\u00f4ng"
+  },
+  {
+   "fieldname": "contract_type",
+   "fieldtype": "Select",
+   "label": "Lo\u1ea1i h\u1ee3p \u0111\u1ed3ng",
+   "options": "\nRecurring\nOne-off"
+  },
+  {
+   "fieldname": "column_break_type",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Select",
+   "label": "H\u00ecnh th\u1ee9c thanh to\u00e1n",
+   "options": "\nPrepay\nMonthly\nOneOff"
+  },
+  {
+   "fieldname": "package_term_months",
+   "fieldtype": "Int",
+   "label": "Th\u1eddi h\u1ea1n (th\u00e1ng)"
+  },
+  {
+   "fieldname": "template_file_section",
+   "fieldtype": "Section Break",
+   "label": "M\u1eabu v\u0103n b\u1ea3n"
+  },
+  {
+   "fieldname": "template_file",
+   "fieldtype": "Attach",
+   "label": "File m\u1eabu .docx"
+  },
+  {
+   "fieldname": "template_html",
+   "fieldtype": "Long Text",
+   "label": "Template HTML",
+   "hidden": 1
+  },
+  {
+   "fieldname": "placeholder_guide_html",
+   "fieldtype": "Long Text",
+   "label": "Placeholder Guide HTML",
+   "read_only": 1
+  },
+  {
+   "fieldname": "placeholders",
+   "fieldtype": "Table",
+   "label": "Bi\u1ebfn trong m\u1eabu",
+   "options": "DCNet Contract Template Placeholder",
+   "read_only": 1
+  },
+  {
+   "fieldname": "version_section",
+   "fieldtype": "Section Break",
+   "label": "Version & Approval"
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Int",
+   "label": "Version",
+   "default": "1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPending Review\nApproved\nArchived",
+   "default": "Draft",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "change_log",
+   "fieldtype": "Small Text",
+   "label": "Change Log"
+  },
+  {
+   "fieldname": "column_break_approval",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reviewed_date",
+   "fieldtype": "Datetime",
+   "label": "Reviewed Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_date",
+   "fieldtype": "Datetime",
+   "label": "Approved Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "H\u1ea1ng m\u1ee5c m\u1eb7c \u0111\u1ecbnh"
+  },
+  {
+   "fieldname": "default_items",
+   "fieldtype": "Table",
+   "label": "H\u1ea1ng m\u1ee5c",
+   "options": "DCNet Contract Template Item"
+  },
+  {
+   "fieldname": "terms_section",
+   "fieldtype": "Section Break",
+   "label": "\u0110i\u1ec1u kho\u1ea3n"
+  },
+  {
+   "fieldname": "default_terms",
+   "fieldtype": "Text",
+   "label": "\u0110i\u1ec1u kho\u1ea3n m\u1eb7c \u0111\u1ecbnh"
+  },
+  {
+   "fieldname": "boilerplate_text",
+   "fieldtype": "Text Editor",
+   "label": "N\u1ed9i dung m\u1eabu h\u1ee3p \u0111\u1ed3ng"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-04-16 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet Contract",
+ "name": "DCNet Contract Template",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Contract Template Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "DCNet Sales Rep"
+  },
+  {
+   "read": 1,
+   "role": "DCNet Sales Manager"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": []
+}

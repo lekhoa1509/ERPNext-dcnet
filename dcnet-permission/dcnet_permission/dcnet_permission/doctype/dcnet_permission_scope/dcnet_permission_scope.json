@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "autoname": "field:scope_name",
+ "creation": "2026-05-29 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "scope_name",
+  "enabled",
+  "department",
+  "column_break_manager",
+  "manager_role",
+  "manager_user",
+  "user_type",
+  "section_roles",
+  "allowed_roles",
+  "section_extra_profiles",
+  "extra_permission_profiles",
+  "section_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "scope_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Scope Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Department",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_manager",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manager_role",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Manager Role",
+   "options": "Role"
+  },
+  {
+   "fieldname": "manager_user",
+   "fieldtype": "Link",
+   "label": "Manager User",
+   "options": "User"
+  },
+  {
+   "default": "System User",
+   "fieldname": "user_type",
+   "fieldtype": "Select",
+   "label": "Created User Type",
+   "options": "System User\nWebsite User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_roles",
+   "fieldtype": "Section Break",
+   "label": "Allowed Roles"
+  },
+  {
+   "fieldname": "allowed_roles",
+   "fieldtype": "Table",
+   "label": "Allowed Roles",
+   "options": "DCNET Permission Scope Role",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_extra_profiles",
+   "fieldtype": "Section Break",
+   "label": "Extra Permission Profiles"
+  },
+  {
+   "description": "Admin can add cross-department permission catalogs here, for example HR into Accounting.",
+   "fieldname": "extra_permission_profiles",
+   "fieldtype": "Table",
+   "label": "Extra Permission Profiles",
+   "options": "DCNET Permission Scope Profile"
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNET Permission",
+ "name": "DCNET Permission Scope",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DCNET Permission Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "scope_name",
+ "track_changes": 1
+}

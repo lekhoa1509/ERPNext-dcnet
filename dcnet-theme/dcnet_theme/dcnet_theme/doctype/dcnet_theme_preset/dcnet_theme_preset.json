@@ -1,0 +1,320 @@
+{
+  "actions": [],
+  "allow_rename": 0,
+  "autoname": "field:preset_key",
+  "creation": "2026-03-22 17:00:00",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "identity_tab",
+    "preset_name",
+    "preset_key",
+    "column_break_id1",
+    "description",
+    "flag_colors",
+    "is_system",
+    "google_font_url",
+    "colors_tab",
+    "preview_section",
+    "preview_html",
+    "colors_section",
+    "primary_color",
+    "accent_color",
+    "secondary_color",
+    "column_break_colors1",
+    "dark_color",
+    "light_bg_color",
+    "text_color",
+    "column_break_colors2",
+    "muted_text_color",
+    "link_color",
+    "border_color",
+    "highlight_color",
+    "typography_tab",
+    "font_family",
+    "heading_font_family",
+    "column_break_typo1",
+    "font_size_base",
+    "heading_weight",
+    "line_height",
+    "layout_tab",
+    "border_radius",
+    "card_shadow",
+    "column_break_layout1",
+    "spacing_unit",
+    "components_tab",
+    "component_styles",
+    "section_break_dark",
+    "dark_component_styles",
+    "dark_vars",
+    "custom_css_tab",
+    "custom_css"
+  ],
+  "fields": [
+    {
+      "fieldname": "identity_tab",
+      "fieldtype": "Tab Break",
+      "label": "Identity"
+    },
+    {
+      "fieldname": "preset_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Preset Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "preset_key",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Preset Key",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "column_break_id1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Small Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "flag_colors",
+      "fieldtype": "Data",
+      "label": "Flag Colors",
+      "description": "CSS gradient string for visual indicator"
+    },
+    {
+      "default": "0",
+      "fieldname": "is_system",
+      "fieldtype": "Check",
+      "label": "System Preset",
+      "description": "System presets cannot be deleted"
+    },
+    {
+      "fieldname": "google_font_url",
+      "fieldtype": "Data",
+      "label": "Google Font URL",
+      "description": "Full Google Fonts URL (e.g., https://fonts.googleapis.com/css2?family=Inter&display=swap)"
+    },
+    {
+      "fieldname": "colors_tab",
+      "fieldtype": "Tab Break",
+      "label": "Colors"
+    },
+    {
+      "fieldname": "preview_section",
+      "fieldtype": "Section Break",
+      "label": "Live Preview",
+      "collapsible": 0
+    },
+    {
+      "fieldname": "preview_html",
+      "fieldtype": "HTML",
+      "label": "Preview"
+    },
+    {
+      "fieldname": "colors_section",
+      "fieldtype": "Section Break",
+      "label": "Color Values"
+    },
+    {
+      "fieldname": "primary_color",
+      "fieldtype": "Color",
+      "label": "Primary Color"
+    },
+    {
+      "fieldname": "accent_color",
+      "fieldtype": "Color",
+      "label": "Accent Color"
+    },
+    {
+      "fieldname": "secondary_color",
+      "fieldtype": "Color",
+      "label": "Secondary Color"
+    },
+    {
+      "fieldname": "column_break_colors1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "dark_color",
+      "fieldtype": "Color",
+      "label": "Dark Color"
+    },
+    {
+      "fieldname": "light_bg_color",
+      "fieldtype": "Color",
+      "label": "Light Background"
+    },
+    {
+      "fieldname": "text_color",
+      "fieldtype": "Color",
+      "label": "Text Color"
+    },
+    {
+      "fieldname": "column_break_colors2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "muted_text_color",
+      "fieldtype": "Color",
+      "label": "Muted Text Color"
+    },
+    {
+      "fieldname": "link_color",
+      "fieldtype": "Color",
+      "label": "Link Color"
+    },
+    {
+      "fieldname": "border_color",
+      "fieldtype": "Color",
+      "label": "Border Color"
+    },
+    {
+      "fieldname": "highlight_color",
+      "fieldtype": "Color",
+      "label": "Highlight Color"
+    },
+    {
+      "fieldname": "typography_tab",
+      "fieldtype": "Tab Break",
+      "label": "Typography"
+    },
+    {
+      "fieldname": "font_family",
+      "fieldtype": "Data",
+      "label": "Font Family",
+      "description": "CSS font stack (e.g., 'Inter', -apple-system, sans-serif)"
+    },
+    {
+      "fieldname": "heading_font_family",
+      "fieldtype": "Data",
+      "label": "Heading Font Family"
+    },
+    {
+      "fieldname": "column_break_typo1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "font_size_base",
+      "fieldtype": "Data",
+      "label": "Base Font Size",
+      "description": "CSS length (e.g., 13px)"
+    },
+    {
+      "fieldname": "heading_weight",
+      "fieldtype": "Select",
+      "label": "Heading Weight",
+      "options": "400\n500\n600\n700\n800"
+    },
+    {
+      "fieldname": "line_height",
+      "fieldtype": "Data",
+      "label": "Line Height",
+      "description": "Unitless ratio (e.g., 1.5)"
+    },
+    {
+      "fieldname": "layout_tab",
+      "fieldtype": "Tab Break",
+      "label": "Layout"
+    },
+    {
+      "fieldname": "border_radius",
+      "fieldtype": "Data",
+      "label": "Border Radius",
+      "description": "CSS length (e.g., 6px, 0.5rem)"
+    },
+    {
+      "fieldname": "card_shadow",
+      "fieldtype": "Data",
+      "label": "Card Shadow",
+      "description": "CSS box-shadow value"
+    },
+    {
+      "fieldname": "column_break_layout1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "spacing_unit",
+      "fieldtype": "Data",
+      "label": "Spacing Unit",
+      "description": "Base spacing (e.g., 16px)"
+    },
+    {
+      "fieldname": "components_tab",
+      "fieldtype": "Tab Break",
+      "label": "Component Overrides"
+    },
+    {
+      "fieldname": "component_styles",
+      "fieldtype": "Code",
+      "label": "Component Styles (Light)",
+      "options": "JSON",
+      "description": "Full component-level styling as JSON"
+    },
+    {
+      "fieldname": "section_break_dark",
+      "fieldtype": "Section Break",
+      "label": "Dark Mode Variant"
+    },
+    {
+      "fieldname": "dark_component_styles",
+      "fieldtype": "Code",
+      "label": "Component Styles (Dark)",
+      "options": "JSON",
+      "description": "Dark mode component styling as JSON"
+    },
+    {
+      "fieldname": "dark_vars",
+      "fieldtype": "Code",
+      "label": "CSS Variables (Dark)",
+      "options": "JSON",
+      "description": "CSS variable overrides for dark mode, e.g. {\"--bg-color\": \"#0f0f1e\", \"--text-color\": \"#c8bfa8\"}"
+    },
+    {
+      "fieldname": "custom_css_tab",
+      "fieldtype": "Tab Break",
+      "label": "Custom CSS"
+    },
+    {
+      "fieldname": "custom_css",
+      "fieldtype": "Code",
+      "label": "Custom CSS",
+      "options": "CSS",
+      "description": "Raw CSS appended after generated variables. Ships with preset, overwritten on migrate."
+    }
+  ],
+  "links": [],
+  "modified": "2026-03-25 10:00:00",
+  "modified_by": "Administrator",
+  "module": "DCNET Theme",
+  "name": "DCNET Theme Preset",
+  "naming_rule": "By fieldname",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "read": 1,
+      "role": "All"
+    }
+  ],
+  "sort_field": "preset_name",
+  "sort_order": "ASC",
+  "states": [],
+  "title_field": "preset_name",
+  "track_changes": 0
+}

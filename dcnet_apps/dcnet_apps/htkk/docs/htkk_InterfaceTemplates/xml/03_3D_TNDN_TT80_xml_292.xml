@@ -1,0 +1,63 @@
+<PLuc_03_3D_TNDN>
+	<NoiDungPL03_3D id="String">
+		<uuDai_ma/>
+		<uuDai_ten/>
+		<ct09a_ma/>
+		<ct09a_ten/>
+		<ct09b_ma/>
+		<ct09b_ten/>
+		<ct09c_ma/>
+		<ct09c_ten/>
+		<ct10a_ma/>
+		<ct10a_ten/>
+		<dn_chuyenGiao/>
+		<ct10/>
+		<ct11/>
+		<ct12/>
+		<ct13/>
+		<ct14/>
+		<dn_khoaHocCN/>
+		<so_gcn/>
+		<ngayCap/>
+		<noiCap/>
+		<congNghe_sanPham id="String">
+			<ma/>
+			<ten/>
+		</congNghe_sanPham>
+		<ct15/>
+		<ct16/>
+		<ct17/>
+		<ct18/>
+		<thueTNDN_uuDai>
+			<ChiTiet_Pluc id="String">
+				<ct2/>
+				<ct3/>
+				<ct4_ma/>
+				<ct4_ten/>
+				<ct5/>
+				<ct6/>
+				<ct7/>
+				<ct8/>
+				<ct9/>
+				<ct10/>
+				<ct11/>
+				<ct12/>
+				<ct13/>
+				<ct14/>
+				<ct15/>
+				<ct16/>
+			</ChiTiet_Pluc>
+			<tong19/>
+			<tong20/>
+			<tong21/>
+			<tong22/>
+		</thueTNDN_uuDai>
+		<thueTNDN_phaiNop>
+			<ct23/>
+			<ct24/>
+			<ct25/>
+			<ct26/>
+			<ct27/>
+		</thueTNDN_phaiNop>
+	</NoiDungPL03_3D>
+</PLuc_03_3D_TNDN>

@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "creation": "2026-05-11 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "guidance_html",
+  "expense_types_section",
+  "expense_types",
+  "inventory_split_section",
+  "default_landed_cost_inventory_account",
+  "column_break_inventory_split",
+  "auto_create_inventory_split_je",
+  "settings_section",
+  "auto_apply_settings_on_new_lcv",
+  "column_break_settings",
+  "import_vat_default_deductible_pct"
+ ],
+ "fields": [
+  {
+   "fieldname": "guidance_html",
+   "fieldtype": "HTML",
+   "label": "Guidance",
+   "options": "<div style=\"background:#f0f7fa; border:1px solid #d0e3ed; border-radius:8px; padding:16px 20px; margin-bottom:12px; font-size:13px; line-height:1.7; color:#1a3a4a\">\n<div style=\"font-size:15px; font-weight:600; margin-bottom:8px\">\ud83d\udcca Ph\u00e2n b\u1ed5 chi ph\u00ed v\u00e0o gi\u00e1 v\u1ed1n h\u00e0ng t\u1ed3n kho</div>\n<p style=\"margin:0 0 8px\">Ch\u1ee9c n\u0103ng n\u00e0y gi\u00fap ph\u00e2n b\u1ed5 c\u00e1c chi ph\u00ed ph\u00e1t sinh (v\u1eadn chuy\u1ec3n, b\u1ea3o hi\u1ec3m, thu\u1ebf NK\u2026) v\u00e0o gi\u00e1 v\u1ed1n h\u00e0ng t\u1ed3n kho, theo \u0111\u00fang quy \u0111\u1ecbnh VAS TT99/2025.</p>\n<div style=\"margin-bottom:6px\"><strong>2 tr\u01b0\u1eddng h\u1ee3p s\u1eed d\u1ee5ng:</strong></div>\n<table style=\"width:100%; border-collapse:collapse; font-size:12.5px\">\n<tr style=\"background:#e3eef5\"><td style=\"padding:6px 10px; border:1px solid #c8d8e4; width:50%\"><strong>Mua h\u00e0ng</strong><br>Ch\u1ecdn Phi\u1ebfu nh\u1eadp kho mua h\u00e0ng (Purchase Receipt) l\u00e0m ngu\u1ed3n<br>CP \u2192 t\u0103ng gi\u00e1 v\u1ed1n h\u00e0ng mua (TK 1562)<br><em>V\u00ed d\u1ee5: v\u1eadn chuy\u1ec3n, b\u1ea3o hi\u1ec3m, thu\u1ebf NK cho l\u00f4 h\u00e0ng nh\u1eadp</em></td><td style=\"padding:6px 10px; border:1px solid #c8d8e4\"><strong>S\u1ea3n xu\u1ea5t</strong><br>Ch\u1ecdn Phi\u1ebfu nh\u1eadp kho s\u1ea3n xu\u1ea5t (Stock Entry) l\u00e0m ngu\u1ed3n<br>CP \u2192 t\u0103ng gi\u00e1 th\u00e0nh s\u1ea3n ph\u1ea9m (TK 155/152)<br><em>V\u00ed d\u1ee5: CP v\u1eadn chuy\u1ec3n NVL, CP kh\u00f4ng \u0111\u01b0a \u0111\u01b0\u1ee3c v\u00e0o BOM</em></td></tr>\n</table>\n<div style=\"margin-top:8px\"><strong>B\u00fat to\u00e1n:</strong> N\u1ee3 TK h\u00e0ng t\u1ed3n kho (1562/155/152) / C\u00f3 TK ghi C\u00f3 m\u1eb7c \u0111\u1ecbnh (b\u1ea3ng d\u01b0\u1edbi). Ph\u00e2n b\u1ed5 theo ti\u00eau th\u1ee9c: gi\u00e1 tr\u1ecb, kh\u1ed1i l\u01b0\u1ee3ng, ho\u1eb7c s\u1ed1 l\u01b0\u1ee3ng.</div>\n</div>"
+  },
+  {
+   "fieldname": "expense_types_section",
+   "fieldtype": "Section Break",
+   "label": "Danh s\u00e1ch lo\u1ea1i ph\u1ee5 ph\u00ed",
+   "description": "12 lo\u1ea1i ph\u1ee5 ph\u00ed theo th\u00f4ng l\u1ec7 VN (TT99/2025). M\u1ed7i lo\u1ea1i c\u00f3 TK ghi C\u00f3 m\u1eb7c \u0111\u1ecbnh v\u00e0 ti\u00eau th\u1ee9c ph\u00e2n b\u1ed5 g\u1ee3i \u00fd. K\u1ebf to\u00e1n c\u00f3 th\u1ec3 th\u00eam/b\u1ecf/s\u1eeda t\u1eebng d\u00f2ng \u0111\u1ec3 ph\u00f9 h\u1ee3p v\u1edbi \u0111\u1eb7c th\u00f9 C\u00f4ng ty."
+  },
+  {
+   "fieldname": "expense_types",
+   "fieldtype": "Table",
+   "label": "Expense Types",
+   "options": "LCV Expense Type Setting",
+   "reqd": 1,
+   "description": "Danh s\u00e1ch lo\u1ea1i ph\u1ee5 ph\u00ed + TK ghi C\u00f3 m\u1eb7c \u0111\u1ecbnh + ti\u00eau th\u1ee9c ph\u00e2n b\u1ed5. Khi t\u1ea1o phi\u1ebfu ph\u00e2n b\u1ed5 m\u1edbi, h\u1ec7 th\u1ed1ng t\u1ef1 \u0111i\u1ec1n TK theo key kh\u1edbp. C\u1ed9t \"Ch\u1ec9 h\u00e0ng NK\" \u0111\u00e1nh d\u1ea5u ph\u1ee5 ph\u00ed ch\u1ec9 d\u00f9ng cho h\u00e0ng nh\u1eadp kh\u1ea9u."
+  },
+  {
+   "fieldname": "inventory_split_section",
+   "fieldtype": "Section Break",
+   "label": "Tách TK kho cho phụ phí (VAS TT99/2025)",
+   "description": "Khi LCV submit, ERPNext mặc định cộng phụ phí vào TK kho của Item (1561 — Giá mua hàng hoá). Theo VAS TT99/2025, phụ phí thu mua nên hạch toán riêng vào TK 1562. Bật cơ chế dưới để hệ thống tự lập 1 Bút toán bù: Dr 1562 / Cr 1561 sau mỗi LCV — giữ Sổ kho không đổi nhưng tách TK con đúng chuẩn."
+  },
+  {
+   "fieldname": "default_landed_cost_inventory_account",
+   "fieldtype": "Link",
+   "options": "Account",
+   "label": "TK kho mặc định cho phụ phí mua hàng",
+   "description": "Mặc định TK 1562 — Chi phí thu mua hàng hoá. Khi tạo LCV mới, hệ thống copy TK này vào header LCV. Kế toán có thể đổi per phiếu hoặc per dòng chi phí khi cần (vd: 1561 nếu DN không tách, 1567 cho hàng hoá BĐS). Yêu cầu: là leaf account thuộc nhóm 156, account_type = Stock."
+  },
+  {
+   "fieldname": "column_break_inventory_split",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_create_inventory_split_je",
+   "fieldtype": "Check",
+   "label": "Tự lập Bút toán bù phụ phí khi submit LCV",
+   "description": "Khi bật: mỗi LCV submit → tự lập + submit JE: Dr <TK ở header LCV> / Cr <TK kho của Item>, amount = tổng phụ phí. JE link tham chiếu LCV. Khi tắt: kế toán phải tự lập JE thủ công nếu muốn tách 1561/1562. Khuyến nghị BẬT theo VAS."
+  },
+  {
+   "fieldname": "settings_section",
+   "fieldtype": "Section Break",
+   "label": "Cài đặt tự động khác",
+   "description": "Kiểm soát hành vi tự động khi kế toán tạo Phiếu phân bổ chi phí mua hàng mới."
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_apply_settings_on_new_lcv",
+   "fieldtype": "Check",
+   "label": "T\u1ef1 \u0111i\u1ec1n TK khi t\u1ea1o phi\u1ebfu ph\u00e2n b\u1ed5 m\u1edbi",
+   "description": "Khi b\u1eadt: m\u1ed7i l\u1ea7n t\u1ea1o Phi\u1ebfu ph\u00e2n b\u1ed5 m\u1edbi, h\u1ec7 th\u1ed1ng t\u1ef1 \u0111i\u1ec1n TK ghi C\u00f3 theo danh s\u00e1ch tr\u00ean. Khi t\u1eaft: k\u1ebf to\u00e1n nh\u1eadp TK th\u1ee7 c\u00f4ng. N\u00ean b\u1eadt \u0111\u1ec3 ti\u1ebft ki\u1ec7m th\u1eddi gian."
+  },
+  {
+   "fieldname": "column_break_settings",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "100",
+   "fieldname": "import_vat_default_deductible_pct",
+   "fieldtype": "Float",
+   "label": "% VAT NK m\u1eb7c \u0111\u1ecbnh \u0111\u01b0\u1ee3c kh\u1ea5u tr\u1eeb",
+   "reqd": 1,
+   "description": "Ph\u1ea7n tr\u0103m VAT nh\u1eadp kh\u1ea9u \u0111\u01b0\u1ee3c kh\u1ea5u tr\u1eeb theo m\u1eb7c \u0111\u1ecbnh. Th\u00f4ng th\u01b0\u1eddng: 100% (DN kh\u1ea5u tr\u1eeb to\u00e0n b\u1ed9). N\u1ebfu DN v\u1eeba kinh doanh ch\u1ecbu VAT v\u1eeba mi\u1ec5n VAT: \u0111\u1eb7t theo t\u1ef7 l\u1ec7 ph\u00e2n b\u1ed5. Range: 0\u2013100. TK 1331 nh\u1eadn ph\u1ea7n kh\u1ea5u tr\u1eeb; ph\u1ea7n c\u00f2n l\u1ea1i c\u1ed9ng v\u00e0o gi\u00e1 v\u1ed1n."
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-05-15 16:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "LCV Allocation Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 0,
+   "read": 1,
+   "role": "Accounts User",
+   "write": 0,
+   "delete": 0
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//tmp/misa_crm_frames/phan4/**)",
+      "Read(//private/tmp/misa_crm_frames/phan4/**)",
+      "Read(//tmp/misa_crm_frames/phan7/**)",
+      "Read(//private/tmp/misa_crm_frames/phan7/**)",
+      "Read(//tmp/misa_crm_frames/phan8/**)",
+      "Read(//private/tmp/misa_crm_frames/phan8/**)",
+       "Bash(*)",
+      "Edit(*)",
+      "Write(*)",
+      "Bash(docker exec devcontainer-frappe-1 bash -c 'cd /workspace/development/frappe-bench && bench pip install openpyxl -q && python -c \" *)"
+    ]
+  },
+  "enabledPlugins": {
+    "superpowers@superpowers-marketplace": true
+  }
+}

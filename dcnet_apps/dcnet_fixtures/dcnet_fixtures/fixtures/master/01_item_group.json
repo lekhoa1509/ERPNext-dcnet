@@ -1,0 +1,146 @@
+[
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Golf Equipment",
+    "parent_item_group": "All Item Groups",
+    "is_group": 1
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Gậy Golf",
+    "parent_item_group": "Golf Equipment",
+    "is_group": 1
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Driver",
+    "parent_item_group": "Gậy Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Fairway Wood",
+    "parent_item_group": "Gậy Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Hybrid",
+    "parent_item_group": "Gậy Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Iron Set",
+    "parent_item_group": "Gậy Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Wedge",
+    "parent_item_group": "Gậy Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Putter",
+    "parent_item_group": "Gậy Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Bóng Golf",
+    "parent_item_group": "Golf Equipment",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Phụ kiện Golf",
+    "parent_item_group": "Golf Equipment",
+    "is_group": 1
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Grip",
+    "parent_item_group": "Phụ kiện Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Shaft",
+    "parent_item_group": "Phụ kiện Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Golf Bag",
+    "parent_item_group": "Phụ kiện Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Găng tay",
+    "parent_item_group": "Phụ kiện Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Thiết bị đo",
+    "parent_item_group": "Phụ kiện Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Quần áo Golf",
+    "parent_item_group": "Golf Equipment",
+    "is_group": 1
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Áo Polo",
+    "parent_item_group": "Quần áo Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Quần Golf",
+    "parent_item_group": "Quần áo Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Giày Golf",
+    "parent_item_group": "Quần áo Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Mũ Golf",
+    "parent_item_group": "Quần áo Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Dịch vụ Golf",
+    "parent_item_group": "All Item Groups",
+    "is_group": 1
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Fitting Service",
+    "parent_item_group": "Dịch vụ Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Coaching Service",
+    "parent_item_group": "Dịch vụ Golf",
+    "is_group": 0
+  },
+  {
+    "doctype": "Item Group",
+    "item_group_name": "Trade-in Service",
+    "parent_item_group": "Dịch vụ Golf",
+    "is_group": 0
+  }
+]

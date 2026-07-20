@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "creation": "2026-04-13 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "billing_schedule_idx", "component", "amount", "state",
+  "override_rate", "posted_by_cell", "skip_reason",
+  "column_break_links",
+  "payroll_month", "additional_salary", "journal_entry", "payment_entry"
+ ],
+ "fields": [
+  {
+   "fieldname": "billing_schedule_idx",
+   "fieldtype": "Int",
+   "label": "K\u1ef3 l\u1ecbch thu ti\u1ec1n",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "component",
+   "fieldtype": "Select",
+   "label": "Component",
+   "options": "Sales Commission\nLicense Fee",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "S\u1ed1 ti\u1ec1n",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Select",
+   "label": "Tr\u1ea1ng th\u00e1i",
+   "options": "Pending\nPosted\nCancelled\nSkipped",
+   "default": "Pending",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "override_rate",
+   "fieldtype": "Percent",
+   "label": "Tỷ lệ override dòng",
+   "precision": "2",
+   "description": "Để trống = dùng tỷ lệ PAKD-wide hoặc mẫu. Chỉ áp dụng cho dòng này."
+  },
+  {
+   "fieldname": "posted_by_cell",
+   "fieldtype": "Check",
+   "label": "Đăng theo cell",
+   "default": "0",
+   "description": "1 = JE được tạo bằng nút 'Chỉ đăng dòng này' (2 legs); 0 = JE gộp toàn kỳ."
+  },
+  {
+   "fieldname": "skip_reason",
+   "fieldtype": "Small Text",
+   "label": "Lý do bỏ qua",
+   "depends_on": "eval:doc.state==\"Skipped\""
+  },
+  {
+   "fieldname": "column_break_links",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payroll_month",
+   "fieldtype": "Data",
+   "label": "Th\u00e1ng l\u01b0\u01a1ng",
+   "description": "YYYY-MM format"
+  },
+  {
+   "fieldname": "additional_salary",
+   "fieldtype": "Link",
+   "label": "L\u01b0\u01a1ng b\u1ed5 sung",
+   "options": "Additional Salary"
+  },
+  {
+   "fieldname": "journal_entry",
+   "fieldtype": "Link",
+   "label": "B\u00fat to\u00e1n",
+   "options": "Journal Entry"
+  },
+  {
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "Phi\u1ebfu thu",
+   "options": "Payment Entry"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-14 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet PAKD",
+ "name": "PAKD Commission Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

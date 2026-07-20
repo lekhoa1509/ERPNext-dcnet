@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{MODULE_TITLE}} - Quy trình Nghiệp vụ - Nhật Minh Sports</title>
+    <style>
+        /* Print settings */
+        @page { size: A4; margin: 15mm; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            padding: 20px;
+            max-width: 210mm;
+            margin: 0 auto;
+        }
+
+        /* Cover page */
+        .cover-page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            page-break-after: always;
+            border: 3px solid #2563eb;
+            padding: 40px;
+        }
+        .cover-page h1 { font-size: 36px; color: #1e40af; margin-bottom: 20px; }
+        .cover-page h2 { font-size: 24px; color: #64748b; margin-bottom: 40px; }
+
+        /* Section styling */
+        .section { margin-bottom: 30px; page-break-inside: avoid; }
+        .section-title {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Source attribution */
+        .source {
+            background: #f1f5f9;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #64748b;
+        }
+        .source strong { color: #1e40af; }
+
+        /* Tables */
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        .matrix-table th, .matrix-table td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: left;
+        }
+        .matrix-table th {
+            background: #1e40af;
+            color: white;
+            font-weight: 600;
+        }
+        .matrix-table tr:nth-child(even) { background: #f8fafc; }
+
+        /* Highlight boxes */
+        .highlight-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        /* Acceptance section */
+        .acceptance-section {
+            background: #f0f9ff;
+            border: 3px solid #3b82f6;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+            page-break-before: always;
+        }
+
+        /* Signature */
+        .signature-box { margin-top: 50px; padding-top: 30px; border-top: 2px solid #cbd5e1; }
+        .signature-row { display: flex; justify-content: space-between; margin-top: 80px; }
+        .signature-item { text-align: center; width: 45%; }
+        .signature-line { border-top: 2px solid #333; margin-top: 60px; padding-top: 10px; font-weight: 600; }
+
+        /* Print styles */
+        @media print {
+            body { padding: 0; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover-page">
+        <h1>QUY TRÌNH NGHIỆP VỤ</h1>
+        <h2>MODULE {{MODULE_TITLE_UPPER}}</h2>
+        <div style="margin: 40px 0;">
+            <p style="font-size: 20px; color: #1e40af; font-weight: 600;">{{MODULE_SUBTITLE}}</p>
+            <p style="font-size: 18px; color: #64748b; margin-top: 10px;">Nhật Minh Sports</p>
+        </div>
+        <div style="font-size: 18px; color: #475569; margin: 20px 0;">
+            <strong>Phiên bản:</strong> 1.0<br>
+            <strong>Mã tài liệu:</strong> NM-MODULE-{{MODULE_CODE}}-v1.0
+        </div>
+        <div style="font-size: 16px; color: #94a3b8;">
+            <strong>Ngày:</strong> {{DATE}}
+        </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="section" style="padding-top: 100px;">
+        <div class="section-title" style="font-size: 28px; padding: 20px; text-align: center;">MỤC LỤC</div>
+        <ol style="margin-left: 80px; margin-top: 60px; line-height: 3.5; font-size: 18px;">
+            <li><strong>Tổng quan</strong></li>
+            <li><strong>Quy trình Nghiệp vụ</strong></li>
+            <li><strong>Thông tin cần có</strong></li>
+            <li><strong>Tính năng hệ thống</strong></li>
+            <li><strong>Business Rules</strong></li>
+            <li><strong>Validations</strong></li>
+            <li><strong>Báo cáo</strong></li>
+            <li><strong>Tích hợp</strong></li>
+            <li><strong>Phân quyền</strong></li>
+            <li><strong>Test Cases</strong></li>
+            <li><strong>Tiêu chí Nghiệm thu</strong></li>
+        </ol>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Section 1: Overview -->
+    <div class="section">
+        <div class="section-title">1. Tổng quan</div>
+        <div class="source"><strong>Nguồn:</strong> {{SOURCE_FILE}} {{SOURCE_SECTION}}</div>
+        <!-- Content from spec -->
+    </div>
+
+    <!-- Section 2: Business Process -->
+    <div class="section">
+        <div class="section-title">2. Quy trình Nghiệp vụ</div>
+        <div class="source"><strong>Nguồn:</strong> {{SOURCE_FILE}} {{SOURCE_SECTION}}</div>
+        <!-- Business process steps from spec -->
+    </div>
+
+    <!-- Section 3: Required Information -->
+    <div class="section">
+        <div class="section-title">3. Thông tin cần có</div>
+        <div class="source"><strong>Nguồn:</strong> {{SOURCE_FILE}} {{SOURCE_SECTION}}</div>
+        <table class="matrix-table">
+            <thead>
+                <tr>
+                    <th>Trường</th>
+                    <th>Kiểu</th>
+                    <th>Bắt buộc</th>
+                    <th>Mô tả</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Fields from spec -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Section 4: System Features -->
+    <div class="section">
+        <div class="section-title">4. Tính năng hệ thống</div>
+        <div class="source"><strong>Nguồn:</strong> {{SOURCE_FILE}} {{SOURCE_SECTION}}</div>
+        <table class="matrix-table">
+            <thead>
+                <tr>
+                    <th>Tính năng</th>
+                    <th>Mô tả</th>
+                    <th>Ai được làm?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Features from spec -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Section 5: Business Rules -->
+    <div class="section">
+        <div class="section-title">5. Business Rules</div>
+        <div class="source"><strong>Nguồn:</strong> {{SOURCE_FILE}} {{SOURCE_SECTION}}</div>
+        <ul>
+            <!-- Rules from spec -->
+        </ul>
+    </div>
+
+    <!-- Section 6: Validations -->
+    <div class="section">
+        <div class="section-title">6. Validations</div>
+        <div class="source"><strong>Nguồn:</strong> {{SOURCE_FILE}} {{SOURCE_SECTION}}</div>
+        <table class="matrix-table">
+            <thead>
+                <tr>
+                    <th>Trường/Action</th>
+                    <th>Validation</th>
+                    <th>Thông báo lỗi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Validations from spec -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Section 7: Reports -->
+    <div class="section">
+        <div class="section-title">7. Báo cáo</div>
+        <div class="source"><strong>Nguồn:</strong> {{SOURCE_FILE}} {{SOURCE_SECTION}}</div>
+        <!-- Reports from spec -->
+    </div>
+
+    <!-- Section 8: Integrations -->
+    <div class="section">
+        <div class="section-title">8. Tích hợp</div>
+        <div class="source"><strong>Nguồn:</strong> {{SOURCE_FILE}} {{SOURCE_SECTION}}</div>
+        <!-- Integration points from spec -->
+    </div>
+
+    <!-- Section 9: Permissions -->
+    <div class="section">
+        <div class="section-title">9. Phân quyền</div>
+        <div class="source"><strong>Nguồn:</strong> {{SOURCE_FILE}} {{SOURCE_SECTION}}</div>
+        <table class="matrix-table">
+            <thead>
+                <tr>
+                    <th>Chức năng</th>
+                    <th>Admin</th>
+                    <th>Manager</th>
+                    <th>Staff</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Permissions from spec -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Section 10: Test Cases -->
+    <div class="section">
+        <div class="section-title">10. Test Cases</div>
+        <ul>
+            <!-- Test cases derived from spec -->
+        </ul>
+    </div>
+
+    <!-- Section 11: Acceptance Criteria -->
+    <div class="acceptance-section">
+        <h3 style="color: #1e40af; margin-bottom: 20px; font-size: 20px; text-align: center;">TIÊU CHÍ NGHIỆM THU</h3>
+
+        <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <h4 style="color: #1e40af; margin-bottom: 15px;">Chức năng bắt buộc</h4>
+            <ul style="margin-left: 25px;">
+                <!-- Acceptance criteria from spec -->
+            </ul>
+        </div>
+
+        <!-- Signature -->
+        <div class="signature-box">
+            <p style="font-size: 14px; color: #64748b; margin-bottom: 20px;">
+                <strong>Ngày xác nhận:</strong> ______ / ______ / {{YEAR}}
+            </p>
+
+            <div class="signature-row">
+                <div class="signature-item">
+                    <strong style="color: #1e40af;">ĐẠI DIỆN NHẬT MINH SPORTS</strong>
+                    <div style="color: #64748b; font-size: 13px; margin-top: 5px;">(Người có thẩm quyền)</div>
+                    <div class="signature-line">
+                        (Ký, ghi rõ họ tên)
+                    </div>
+                </div>
+                <div class="signature-item">
+                    <strong style="color: #1e40af;">ĐẠI DIỆN DCNET</strong>
+                    <div style="color: #64748b; font-size: 13px; margin-top: 5px;">(Project Lead)</div>
+                    <div class="signature-line">
+                        (Ký, ghi rõ họ tên)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

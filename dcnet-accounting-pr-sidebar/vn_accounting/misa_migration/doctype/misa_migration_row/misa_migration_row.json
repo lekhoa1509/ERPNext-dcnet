@@ -1,0 +1,175 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-05-19 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "batch",
+  "file_type",
+  "entity_type",
+  "row_index",
+  "voucher_no",
+  "voucher_prefix",
+  "status",
+  "column_break_1",
+  "target_doctype",
+  "target_name",
+  "is_reversed",
+  "section_break_error",
+  "error_message",
+  "undo_error",
+  "section_break_payload",
+  "raw_payload",
+  "parsed_payload"
+ ],
+ "fields": [
+  {
+   "fieldname": "batch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Batch",
+   "options": "Misa Migration Batch",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "file_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Loại file",
+   "options": "Unknown\nNKC\nBang ke BR\nBang ke MV\nSCT\nAccount\nMisa Default Account\nMisa Closing Rule\nItem\nItem Group\nCustomer\nCustomer Group\nSupplier\nSupplier Group\nEmployee\nUOM\nBank\nBank Account\nWarehouse\nDepartment\nCost Center\nProject\nAsset Category\nCCDC Category\nOB Account Balance\nOB Bank Balance\nOB Customer AR\nOB Supplier AP\nOB Employee Advance\nOB Inventory\nOB Fixed Asset\nOB CCDC\nOB Prepaid Expense",
+   "search_index": 1
+  },
+  {
+   "fieldname": "entity_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Loại entity",
+   "options": "\nAccount\nDefault Account\nClosing Rule\nItem\nItem Group\nCustomer\nCustomer Group\nSupplier\nSupplier Group\nEmployee\nUOM\nBank\nBank Account\nWarehouse\nDepartment\nCost Center\nProject\nAsset Category\nCCDC Category\nVoucher\nVoucher Line",
+   "search_index": 1
+  },
+  {
+   "fieldname": "row_index",
+   "fieldtype": "Int",
+   "label": "Số dòng"
+  },
+  {
+   "fieldname": "voucher_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Số chứng từ Misa",
+   "search_index": 1
+  },
+  {
+   "fieldname": "voucher_prefix",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Tiền tố chứng từ",
+   "search_index": 1
+  },
+  {
+   "default": "New",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Trạng thái",
+   "options": "New\nExists\nConflict\nInvalid\nSkipped\nReady\nPosted\nFailed\nReversed",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Data",
+   "label": "Loại DocType đích"
+  },
+  {
+   "fieldname": "target_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tên doc đích"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_reversed",
+   "fieldtype": "Check",
+   "label": "Đã hoàn tác"
+  },
+  {
+   "fieldname": "section_break_error",
+   "fieldtype": "Section Break",
+   "label": "Lỗi"
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Long Text",
+   "label": "Lỗi"
+  },
+  {
+   "fieldname": "undo_error",
+   "fieldtype": "Long Text",
+   "label": "Lỗi Undo"
+  },
+  {
+   "fieldname": "section_break_payload",
+   "fieldtype": "Section Break",
+   "label": "Payload",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "raw_payload",
+   "fieldtype": "Long Text",
+   "label": "Payload gốc (JSON)"
+  },
+  {
+   "fieldname": "parsed_payload",
+   "fieldtype": "Long Text",
+   "label": "Payload đã chuẩn hóa (JSON)"
+  }
+ ],
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2026-05-21 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Misa Migration",
+ "name": "Misa Migration Row",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 0
+}

@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "creation": "2026-07-14 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "total_taxable_income",
+  "total_deductions",
+  "tax_withheld",
+  "tax_payable_annual",
+  "difference"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_taxable_income",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Taxable Income",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_deductions",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Deductions",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tax_withheld",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Tax Withheld (Monthly Sum)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tax_payable_annual",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Annual Tax Payable",
+   "read_only": 1
+  },
+  {
+   "description": "Dương = truy thu thêm; Âm = được hoàn thuế",
+   "fieldname": "difference",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Difference",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet HRM",
+ "name": "PIT Annual Settlement Employee",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": []
+}

@@ -1,0 +1,29 @@
+/*
+ * VN Accounting Styling
+ * Professional look for Vietnamese accountants, Misa-like density
+ */
+
+/* ── Dashboard Charts ── */
+
+/* Hide redundant VND amounts in chart legends — values visible on hover tooltip */
+text.legend-dataset-value,
+.legend-dataset-value {
+  display: none !important;
+}
+
+/* Reduce legend item row height since values are hidden */
+.chart-legend g > text.legend-dataset-label {
+  font-size: 11px;
+}
+
+/* Allow donut/pie chart legends to overflow the fixed-height container */
+.widget.chart-widget .frappe-chart {
+  overflow: visible !important;
+}
+
+/* ── Sidebar ── */
+/* Sidebar styling intentionally removed — defer to dcnet_theme + Frappe
+   default styles so the sidebar stays consistent with the rest of the site
+   (and icons remain visible when collapsed). Accordion behavior lives in
+   sidebar_accordion.bundle.js — the cue arrows come from that JS adding
+   .vna-collapsed; we don't paint them. */

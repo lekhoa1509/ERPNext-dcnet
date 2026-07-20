@@ -1,0 +1,673 @@
+{
+  "nodes": [
+    {
+      "file": "__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "default_success_action.py",
+      "language": "Python"
+    },
+    {
+      "file": "demo.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/authorization_control/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/authorization_control/authorization_control.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/authorization_rule/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/authorization_rule/authorization_rule.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/authorization_rule/authorization_rule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/authorization_rule/test_authorization_rule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/branch/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/branch/branch.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/branch/branch.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/branch/test_branch.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/brand/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/brand/brand.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/brand/brand.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/brand/test_brand.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/company/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/company/company.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/company/company.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/company/company_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/company/company_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/company/company_tree.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/company/fixtures/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/company/test_company.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/currency_exchange/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/currency_exchange/currency_exchange.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/currency_exchange/currency_exchange.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/currency_exchange/test_currency_exchange.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer_group/customer_group.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/customer_group/customer_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer_group/customer_group_tree.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/customer_group/test_customer_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/department/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/department/department.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/department/department.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/department/department_tree.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/department/test_department.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/designation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/designation/designation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/designation/designation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/designation/test_designation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/driver/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/driver/driver.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/driver/driver.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/driver/test_driver.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/driving_license_category/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/driving_license_category/driving_license_category.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/email_digest/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/email_digest/email_digest.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/email_digest/email_digest.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/email_digest/quotes.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/email_digest/test_email_digest.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/email_digest_recipient/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/email_digest_recipient/email_digest_recipient.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee/employee.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/employee/employee.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee/employee_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/employee/employee_tree.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/employee/test_employee.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee_education/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee_education/employee_education.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee_external_work_history/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee_external_work_history/employee_external_work_history.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee_group/employee_group.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/employee_group/employee_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee_group/test_employee_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee_group_table/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee_group_table/employee_group_table.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee_internal_work_history/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/employee_internal_work_history/employee_internal_work_history.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/global_defaults/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/global_defaults/global_defaults.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/global_defaults/global_defaults.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/global_defaults/test_global_defaults.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/holiday/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/holiday/holiday.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/holiday_list/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/holiday_list/holiday_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/holiday_list/holiday_list.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/holiday_list/holiday_list_calendar.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/holiday_list/holiday_list_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/holiday_list/test_holiday_list.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/incoterm/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/incoterm/incoterm.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/incoterm/incoterm.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/incoterm/test_incoterm.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/item_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/item_group/item_group.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/item_group/item_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/item_group/item_group_tree.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/item_group/test_item_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/party_type/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/party_type/party_type.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/party_type/party_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/party_type/test_party_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/quotation_lost_reason/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/quotation_lost_reason/quotation_lost_reason.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/quotation_lost_reason/quotation_lost_reason.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/quotation_lost_reason/test_quotation_lost_reason.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/quotation_lost_reason_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/quotation_lost_reason_detail/quotation_lost_reason_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_partner/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_partner/sales_partner.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_partner/sales_partner.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_partner/test_sales_partner.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_person/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_person/sales_person.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_person/sales_person.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_person/sales_person_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_person/sales_person_tree.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_group/supplier_group.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier_group/supplier_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_group/supplier_group_tree.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier_group/test_supplier_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/target_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/target_detail/target_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/terms_and_conditions/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/terms_and_conditions/terms_and_conditions.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/terms_and_conditions/terms_and_conditions.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/terms_and_conditions/test_terms_and_conditions.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/territory/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/territory/territory.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/territory/territory.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/territory/territory_tree.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/territory/test_territory.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/transaction_deletion_record/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/transaction_deletion_record/transaction_deletion_record.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/transaction_deletion_record/transaction_deletion_record.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/transaction_deletion_record/transaction_deletion_record_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/transaction_deletion_record_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/transaction_deletion_record_item/transaction_deletion_record_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/transaction_deletion_record_to_delete/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/uom/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/uom/test_uom.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/uom/uom.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/uom/uom.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/uom_conversion_factor/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/uom_conversion_factor/test_uom_conversion_factor.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/uom_conversion_factor/uom_conversion_factor.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/uom_conversion_factor/uom_conversion_factor.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/vehicle/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/vehicle/test_vehicle.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/vehicle/vehicle.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/vehicle/vehicle.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/vehicle/vehicle_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/website_item_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/website_item_group/website_item_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "install.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "setup_wizard/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "setup_wizard/data/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "setup_wizard/data/dashboard_charts.py",
+      "language": "Python"
+    },
+    {
+      "file": "setup_wizard/operations/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "setup_wizard/operations/company_setup.py",
+      "language": "Python"
+    },
+    {
+      "file": "setup_wizard/operations/defaults_setup.py",
+      "language": "Python"
+    },
+    {
+      "file": "setup_wizard/operations/install_fixtures.py",
+      "language": "Python"
+    },
+    {
+      "file": "setup_wizard/operations/taxes_setup.py",
+      "language": "Python"
+    },
+    {
+      "file": "setup_wizard/setup_wizard.py",
+      "language": "Python"
+    },
+    {
+      "file": "utils.py",
+      "language": "Python"
+    }
+  ],
+  "edges": []
+}

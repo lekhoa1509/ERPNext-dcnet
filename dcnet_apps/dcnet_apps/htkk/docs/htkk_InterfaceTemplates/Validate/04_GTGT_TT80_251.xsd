@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.2">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="Header">
+							<xs:annotation>
+								<xs:documentation>Thông tin chung</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="khaiRiengThuHo" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Khai riêng đối với khoản thu hộ do cơ quan nhà nước có thẩm quyền giao</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[09] Tên đơn vị phụ thuộc/địa điểm kinh doanh của hoạt động sản xuất kinh doanh khác tỉnh nơi đóng trụ sở chính:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct10" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[10]Mã số thuế đơn vị phụ thuộc/Mã số địa điểm kinh doanh</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Địa chỉ nơi có hoạt động sản xuất kinh doanh khác tỉnh nơi đóng trụ sở chính:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11a_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>mã Phường/xã</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11a_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên Phường/xã</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11b_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>mã Quận/Huyện  </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11b_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên Quận/Huyện  </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11c_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>mã Tỉnh/Tp </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11c_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên Tỉnh/Tp </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="KhaiThueTPPTTTDT">
+							<xs:annotation>
+								<xs:documentation>A. Khai thuế theo phương pháp trực tiếp trên doanh thu:</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct21" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Doanh thu hàng hoá, dịch vụ chịu thuế suất 0% và không chịu thuế </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="PPhoiCCapHHoa">
+										<xs:annotation>
+											<xs:documentation>1.Phân phối, cung cấp hàng hoá ([23]=[22]x1%)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct22" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu hàng hoá, dịch vụ chịu thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct23" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế GTGT phải nộp [23]=[22]x1%</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="DVuXDungKoBaoThauNVL">
+										<xs:annotation>
+											<xs:documentation>2.Dịch vụ, xây dựng không bao thầu nguyên vật liệu
+([25]=[24]x5%</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct24" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu chịu thuế giá trị gia tăng (trừ thuế suất 0%)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct25" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế giá trị gia tăng phải nộp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="HHoaXDungCoBaoThauNVL">
+										<xs:annotation>
+											<xs:documentation>3.Sản xuất, vận tải, dịch vụ có gắn với hàng hoá, xây dựng có bao thầu nguyên vật liệu ([27]=[26]x3%)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct26" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu chịu thuế giá trị gia tăng (trừ thuế suất 0%)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct27" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế giá trị gia tăng phải nộp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="HDongKDoanhKhac">
+										<xs:annotation>
+											<xs:documentation>4.Hoạt động kinh doanh khác ([29]=[28]x2%)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct28" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu chịu thuế giá trị gia tăng (trừ thuế suất 0%)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct29" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế giá trị gia tăng phải nộp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="DoanhThuVaSoThuePNop">
+										<xs:annotation>
+											<xs:documentation>5.Doanh thu và số thuế phải nộp ([30]=[22]+[24]+[26]+[28]; [31]=[23]+[25]+[27]+[29])</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct30" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu chịu thuế giá trị gia tăng (trừ thuế suất 0%)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct31" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế giá trị gia tăng phải nộp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ct32" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng doanh thu [32]=[21]+[30]...... Đồng Việt Nam.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="KhaiRiengDoiVoiKhoanThuHo">
+							<xs:annotation>
+								<xs:documentation>B. Khai riêng đối với khoản thu hộ do cơ quan nhà nước có thẩm quyền giao:</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="KhoanThuHoCTGTGT" nillable="true" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Khoản thu hộ chịu thuế giá trị gia tăng</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="khoanThuHoChiuThueGTGT" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Khoản thu hộ chịu thuế giá trị gia tăng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct33" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu chưa có thuế giá trị gia tăng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct34" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế suất</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct35" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế giá trị gia tăng phải nộp
+[35]= [33]x[34]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="DoanhThuVaSoThuePhaiNop">
+										<xs:annotation>
+											<xs:documentation>Doanh thu và số thuế phải nộp
+([36]=∑[33]]; [37]=∑[35])</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct36" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu chưa có thuế giá trị gia tăng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct37" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế giá trị gia tăng phải nộp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="PLucType">
+			<xs:complexContent>
+				<xs:extension base="PLucType">
+					<xs:sequence>
+						<xs:element name="PL_NQ43_GTGT" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="BangKeTenHHDV" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tenHHDV" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên hàng hóa, dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="giaTriHHDV" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Giá trị hàng hóa, dịch vụ chưa có thuế GTGT/Doanh thu hàng hoá, dịch vụ chịu thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thueSuatTheoQuyDinh" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế suất/Tỷ lệ tính thuế GTGT theo quy định</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thueSuatSauGiam" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế suất/Tỷ lệ tính thuế GTGT sau giảm</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thueGTGTDuocGiam" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế GTGT được giảm</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="ID" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="tongCongGiaTriHHDV" type="xs:nonNegativeInteger" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng cộng Giá trị hàng hóa, dịch vụ chưa có thuế GTGT/Doanh thu hàng hoá, dịch vụ chịu thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongCongThueGTGTDuocGiam" type="xs:nonNegativeInteger" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng cộng Thuế GTGT được giảm</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

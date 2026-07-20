@@ -1,0 +1,46 @@
+<PLuc_03_8C_TNDN>
+	<ct04/>
+	<ct05/>
+	<PhanBoThueTNDN>
+		<NoiDungBangPhanBo id="String">
+			<stt/>
+			<loai/>
+			<ct07/>
+			<ct08/>
+			<ct09_ma/>
+			<ct09_ten/>
+			<ct10_ma/>
+			<ct10_ten/>
+			<ct11_ma/>
+			<ct11_ten/>
+			<ct12/>
+			<ct13/>
+			<ct14/>
+			<ct15/>
+			<ct16/>
+			<ct17/>
+			<ct18/>
+		</NoiDungBangPhanBo>
+	</PhanBoThueTNDN>
+	<Tong19_tungTinh>
+		<CTietTheoTinh id="String">
+			<ct19_ma/>
+			<ct19_ten/>
+			<tong14/>
+			<tong15/>
+			<tong16/>
+			<tong17/>
+			<tong18/>
+		</CTietTheoTinh>
+	</Tong19_tungTinh>
+	<Tong20_cacTinh>
+		<tong14/>
+		<tong15/>
+		<tong16/>
+		<tong17/>
+		<tong18/>
+	</Tong20_cacTinh>
+	<Tong21_TruSoChinh>
+		<tong14/>
+	</Tong21_TruSoChinh>
+</PLuc_03_8C_TNDN>

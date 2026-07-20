@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTKK - Hỗ trợ kê khai thuế</title>
+    <link rel="stylesheet" href="/assets/dcnet_apps/htkk/index.css">
+    <style>
+        body { margin: 0; padding: 0; }
+        #app { min-height: 100vh; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div style="display:flex;justify-content:center;align-items:center;height:100vh;">
+            <p>Đang tải HTKK...</p>
+        </div>
+    </div>
+    <script>
+        window.HTKK_CONFIG = {
+            declarationId: {{ declaration_id | tojson }}
+        };
+    </script>
+    <script type="module" src="/assets/dcnet_apps/htkk/index.js"></script>
+</body>
+</html>

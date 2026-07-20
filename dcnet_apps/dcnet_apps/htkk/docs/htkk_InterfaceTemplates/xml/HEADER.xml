@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sections Version="NCKT-1.0">
+  <Section Dynamic="0" MaxRows="0">
+    <Cells>
+      <Cell  CellID="C_2" 	CellID2="C_2" 	Path="p1"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="D_2" 	CellID2="D_2" 	Path="p2"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="E_2" 	CellID2="E_2" 	Path="p3"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="F_2" 	CellID2="F_2" 	Path="p4"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="G_2" 	CellID2="G_2" 	Path="p5"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="H_2" 	CellID2="H_2" 	Path="p6"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="I_2" 	CellID2="I_2" 	Path="p7"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="J_2" 	CellID2="J_2" 	Path="p8"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="K_2" 	CellID2="K_2" 	Path="p9"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="L_2" 	CellID2="L_2" 	Path="p10"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="N_2" 	CellID2="N_2" 	Path="p11"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="O_2" 	CellID2="O_2" 	Path="p12"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="P_2" 	CellID2="P_2" 	Path="p13"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 			StatusID="0001" Controltype="0" />
+      <Cell  CellID="T_2" 	CellID2="P_2" 	Path="p14"	PropertyInfo="mst" 						MaxLen="200" MinValue="" MaxValue=""  Value="" 	StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_4" 	CellID2="C_3" 	Path="p15"	PropertyInfo="tenNNT" 					MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_16" 	CellID2="C_4" 	Path="p16"	PropertyInfo="dchiNNT" 					MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_8" 	CellID2="" 		Path="p17"	PropertyInfo="tenHuyenNNT" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="6" SelectedValue="S_8" ParentCell="S_6"/>
+      <Cell  CellID="C_10" 	CellID2="C_5" 	Path="p54"	PropertyInfo="tenXaPhuongNNT" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="101" SelectedValue="S_10" ParentCell="S_6"/>
+	  <Cell  CellID="C_6" 	CellID2="C_6" 	Path="p18"	PropertyInfo="tenTinhNNT" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="100" SelectedValue="S_6" ChildCell="C_10" />
+      <Cell  CellID="C_18" 	CellID2="C_7" 	Path="p19"	PropertyInfo="dthoaiNNT" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_20" 	CellID2="C_8" 	Path="p20"	PropertyInfo="faxNNT" 					MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_22" 	CellID2="C_9" 	Path="p21"	PropertyInfo="emailNNT" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_24" 	CellID2="T_9" 	Path="p22"	PropertyInfo="nganhNgheKD" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_26" 	CellID2="V_2" 	Path="p23"	PropertyInfo="SoTKNganHang" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_22" 	CellID2="" 		Path="p25"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_30" 	CellID2="T_10" 	Path="p26"	PropertyInfo="NgayBatDauNamTaiChinh" 	MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="18" />
+      <Cell  CellID="C_32" 	CellID2="V_41" 	Path="p27"	PropertyInfo="nguoiKy" 					MaxLen="50" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_34" 	CellID2="R_8" 	Path="p28"	PropertyInfo="tenCQTCapCuc" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="8" ChildCell="C_36" SelectedValue="T_34" />
+      <Cell  CellID="C_36" 	CellID2="R_9" 	Path="p29"	PropertyInfo="tenCQTNoiNop" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="9" ParentCell="T_34" SelectedValue="T_36" />
+      <Cell  CellID="Q_28" 	CellID2="" 		Path="p30"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="" ParentCell="" SelectedValue="" />
+      <Cell  CellID="Q_30" 	CellID2="" 		Path="p31"	PropertyInfo="" 						MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="" ParentCell="" SelectedValue="" />
+      <Cell  CellID="T_34" 	CellID2="R_6" 	Path="p32"	PropertyInfo="maCQTCapCuc" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0002" Controltype="0" />
+      <Cell  CellID="T_36" 	CellID2="R_7" 	Path="p33"	PropertyInfo="maCQTNoiNop" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0002" Controltype="0" />
+      <Cell  CellID="C_38" 	CellID2="V_3" 	Path="p34"	PropertyInfo="TenDonViChuQuan" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_40" 	CellID2="V_4" 	Path="p35"	PropertyInfo="MaSoThueDonViChuQuan" 	MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_43" 	CellID2="R_12" 	Path="p36"	PropertyInfo="ThongTinDaiLy" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="2" LockReference="C_39###C_41###C_43###C_45###C_47###C_49###C_51###C_53###C_55###C_57###C_59###C_61" />
+      <Cell  CellID="C_45" 	CellID2="V_5" 	Path="p37"	PropertyInfo="mstDLyThue" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_47" 	CellID2="V_6" 	Path="p38"	PropertyInfo="tenDLyThue" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_59" 	CellID2="V_7" 	Path="p39"	PropertyInfo="dchiDLyThue" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_51" 	CellID2="" 		Path="p40"	PropertyInfo="tenHuyenDLyThue" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="6" SelectedValue="S_45" ParentCell="S_43" />
+      <Cell  CellID="C_53" 	CellID2="V_8" 	Path="p55"	PropertyInfo="tenXaPhuongDLyThue" 		MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="101" SelectedValue="S_53" ParentCell="S_49"/>
+	  <Cell  CellID="C_49" 	CellID2="V_9" 	Path="p41"	PropertyInfo="tenTinhDLyThue" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="100" SelectedValue="S_49" ChildCell="C_53"/>
+      <Cell  CellID="C_61" 	CellID2="V_10" 	Path="p42"	PropertyInfo="dthoaiDLyThue" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_63" 	CellID2="V_11" 	Path="p43"	PropertyInfo="faxDLyThue" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_65" 	CellID2="V_12" 	Path="p44"	PropertyInfo="emailDLyThue" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_67" 	CellID2="V_13" 	Path="p45"	PropertyInfo="soHDongDLyThue" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_69" 	CellID2="V_14" 	Path="p46"	PropertyInfo="ngayKyHDDLyThue" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="14" />
+      <Cell  CellID="C_71" 	CellID2="V_15" 	Path="p47"	PropertyInfo="tenNVienDLyThue" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="C_73" 	CellID2="V_16" 	Path="p48"	PropertyInfo="cchiHNghe" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+      <Cell  CellID="P_38" 	CellID2="AI_3" 	Path="p49"	PropertyInfo="ThongTinDonViChuQuan" 	MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="2" LockReference="C_32###C_34" />
+	  
+	  <Cell  CellID="S_6" 	CellID2="V_51" 	Path="p50"	PropertyInfo="maTinhNNT" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+	  <Cell  CellID="S_8" 	CellID2="V_52" 	Path="p51"	PropertyInfo="maHuyenNNT" 				MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />	  
+	  <Cell  CellID="S_49" 	CellID2="V_53" 	Path="p52"	PropertyInfo="maTinhDLyThue" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+	  <Cell  CellID="S_51" 	CellID2="V_54" 	Path="p53"	PropertyInfo="maHuyenDLyThue" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+	  <Cell  CellID="S_10" 	CellID2="V_52" 	Path="p56"	PropertyInfo="maXaPhuongNNT" 			MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+	  <Cell  CellID="S_53" 	CellID2="V_52" 	Path="p57"	PropertyInfo="maXaPhuongDLyThue" 		MaxLen="200" MinValue="" MaxValue=""  Value="" StatusID="0001" Controltype="0" />
+		
+    </Cells>                                
+  </Section>                                
+</Sections>                                 

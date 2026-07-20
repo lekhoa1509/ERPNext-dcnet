@@ -1,0 +1,362 @@
+[
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/data_import.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/data_import.py",
+        "class_name": "DataImport",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Parameterized factory method: get_preview_from_template",
+          "Factory method: get_importer",
+          "Multiple factory methods: get_preview_from_template, get_importer",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/data_import.py",
+        "class_name": "DataImport",
+        "method_name": "get_preview_from_template",
+        "line_number": 105,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/data_import.py",
+        "class_name": "DataImport",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 12 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 14,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/exporter.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/exporter.py",
+        "class_name": "Exporter",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Factory method: get_all_exportable_fields",
+          "Parameterized factory method: get_exportable_fields",
+          "Factory method: get_data_to_export",
+          "Factory method: get_data_as_docs",
+          "Factory method: get_csv_array",
+          "Factory method: get_csv_array_for_export",
+          "Factory method: build_response",
+          "Multiple factory methods: get_all_exportable_fields, get_exportable_fields, get_data_to_export"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/exporter.py",
+        "class_name": "Exporter",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Has terminal build/create method",
+          "Has 3 configuration methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/exporter.py",
+        "class_name": "Exporter",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Attach method: add_data_row",
+          "Attach method: add_header",
+          "Attach method: add_data"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/importer.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/importer.py",
+        "class_name": "Importer",
+        "method_name": null,
+        "line_number": 28,
+        "evidence": [
+          "Factory method: get_data_for_import_preview",
+          "Parameterized factory method: get_eta",
+          "Multiple factory methods: get_data_for_import_preview, get_eta"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/importer.py",
+        "class_name": "Importer",
+        "method_name": "update_record",
+        "line_number": 279,
+        "evidence": [
+          "Observer method detected: update_record"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/importer.py",
+        "class_name": "Importer",
+        "method_name": null,
+        "line_number": 28,
+        "evidence": [
+          "Has hook methods: get_data_for_import_preview, before_import, after_import",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/importer.py",
+        "class_name": "ImportFile",
+        "method_name": null,
+        "line_number": 408,
+        "evidence": [
+          "Factory method: get_data_from_template_file",
+          "Factory method: get_data_for_import_preview",
+          "Factory method: get_payloads_for_import",
+          "Factory method: get_warnings",
+          "Multiple factory methods: get_data_from_template_file, get_data_for_import_preview, get_payloads_for_import"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/importer.py",
+        "class_name": "Row",
+        "method_name": null,
+        "line_number": 623,
+        "evidence": [
+          "Parameterized factory method: get_date",
+          "Parameterized factory method: get_datetime",
+          "Parameterized factory method: get_values",
+          "Parameterized factory method: get",
+          "Multiple factory methods: get_date, get_datetime, get_values"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.6000000000000001,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/importer.py",
+        "class_name": "Row",
+        "method_name": null,
+        "line_number": 623,
+        "evidence": [
+          "Base class with 1 implementations",
+          "Has abstract methods: __init__, _parse_doc"
+        ],
+        "related_classes": [
+          "Header"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/importer.py",
+        "class_name": "Header",
+        "method_name": null,
+        "line_number": 847,
+        "evidence": [
+          "Parameterized factory method: get_column_indexes",
+          "Parameterized factory method: get_columns",
+          "Multiple factory methods: get_column_indexes, get_columns",
+          "Inherits from: Row"
+        ],
+        "related_classes": [
+          "Row"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/importer.py",
+        "class_name": "Header",
+        "method_name": null,
+        "line_number": 847,
+        "evidence": [
+          "Implements interface: Row",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 5,
+    "total_functions": 13,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 4,
+      "Observer": 1,
+      "TemplateMethod": 2,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_exporter.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_exporter.py",
+        "class_name": "TestExporter",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+        "class_name": "TestImporter",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Parameterized factory method: get_importer",
+          "Parameterized factory method: get_importer_semicolon",
+          "Multiple factory methods: get_importer, get_importer_semicolon",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+        "class_name": "TestImporter",
+        "method_name": "setUpClass",
+        "line_number": 14,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+        "class_name": "TestImporter",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 10 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+        "class_name": "TestImporter",
+        "method_name": "test_data_import_update",
+        "line_number": 116,
+        "evidence": [
+          "Observer method detected: test_data_import_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  }
+]

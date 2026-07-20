@@ -1,0 +1,60 @@
+{
+ "app": "dcnet_apps",
+ "charts": [],
+ "content": "[{\"id\":\"hdr1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Qu\u1ea3n l\u00fd S\u00e0n TM\u0110T</b></span>\",\"col\":12}},{\"id\":\"c1\",\"type\":\"card\",\"data\":{\"card_name\":\"K\u1ebft n\u1ed1i & L\u1ecbch s\u1eed\",\"col\":12}}]",
+ "creation": "2026-03-16 10:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "shopping-bag",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "DCNet Ecommerce",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "K\u1ebft n\u1ed1i & L\u1ecbch s\u1eed",
+   "link_count": 1,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "K\u1ebft n\u1ed1i s\u00e0n TM\u0110T",
+   "link_count": 0,
+   "link_to": "DCNet Marketplace Connection",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-03-17 11:14:13.293037",
+ "modified_by": "Administrator",
+ "module": "DCNet Ecommerce",
+ "name": "DCNet Ecommerce",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 35.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "format": "",
+   "label": "K\u1ebft n\u1ed1i",
+   "link_to": "DCNet Marketplace Connection",
+   "stats_filter": "{\"enabled\": 1}",
+   "type": "DocType"
+  }
+ ],
+ "title": "DCNet Ecommerce",
+ "type": "Workspace"
+}

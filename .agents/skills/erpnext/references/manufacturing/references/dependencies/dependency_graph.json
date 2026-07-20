@@ -1,0 +1,945 @@
+{
+  "nodes": [
+    {
+      "file": "__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "dashboard_fixtures.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/blanket_order/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/blanket_order/blanket_order.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/blanket_order/blanket_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/blanket_order/blanket_order_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/blanket_order/test_blanket_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/blanket_order_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/blanket_order_item/blanket_order_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom/bom.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bom/bom.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom/bom_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom/bom_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bom/bom_tree.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bom/test_bom.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_creator/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_creator/bom_creator.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bom_creator/bom_creator.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_creator/bom_creator_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bom_creator/test_bom_creator.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_creator_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_creator_item/bom_creator_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_explosion_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_explosion_item/bom_explosion_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_item/bom_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_operation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_operation/bom_operation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_scrap_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_scrap_item/bom_scrap_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_update_batch/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_update_batch/bom_update_batch.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_update_log/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_update_log/bom_update_log.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bom_update_log/bom_update_log.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_update_log/bom_update_log_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bom_update_log/bom_updation_utils.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_update_log/test_bom_update_log.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_update_tool/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_update_tool/bom_update_tool.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bom_update_tool/bom_update_tool.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_update_tool/test_bom_update_tool.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_website_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_website_item/bom_website_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_website_operation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bom_website_operation/bom_website_operation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/downtime_entry/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/downtime_entry/downtime_entry.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/downtime_entry/downtime_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/downtime_entry/test_downtime_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card/job_card.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/job_card/job_card.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card/job_card_calendar.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/job_card/job_card_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card/job_card_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/job_card/test_job_card.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card_item/job_card_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card_operation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card_operation/job_card_operation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card_scheduled_time/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card_scheduled_time/job_card_scheduled_time.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card_scrap_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card_scrap_item/job_card_scrap_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card_time_log/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/job_card_time_log/job_card_time_log.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/manufacturing_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/manufacturing_settings/manufacturing_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/manufacturing_settings/manufacturing_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/manufacturing_settings/test_manufacturing_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/master_production_schedule/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/master_production_schedule/master_production_schedule.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/master_production_schedule/master_production_schedule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/master_production_schedule/test_master_production_schedule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/master_production_schedule_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/master_production_schedule_item/master_production_schedule_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/material_request_plan_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/material_request_plan_item/material_request_plan_item.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/material_request_plan_item/material_request_plan_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/material_request_plan_item/test_material_request_plan_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/operation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/operation/operation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/operation/operation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/operation/operation_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/operation/test_operation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/plant_floor/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/plant_floor/plant_floor.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/plant_floor/plant_floor.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/plant_floor/test_plant_floor.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan/production_plan.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/production_plan/production_plan.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan/production_plan_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan/production_plan_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/production_plan/test_production_plan.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_item/production_plan_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_item_reference/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_item_reference/production_plan_item_reference.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_material_request/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_material_request/production_plan_material_request.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_material_request_warehouse/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_material_request_warehouse/production_plan_material_request_warehouse.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/production_plan_material_request_warehouse/production_plan_material_request_warehouse.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_material_request_warehouse/test_production_plan_material_request_warehouse.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_sales_order/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_sales_order/production_plan_sales_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_sub_assembly_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/routing/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/routing/routing.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/routing/routing.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/routing/routing_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/routing/test_routing.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_forecast/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_forecast/sales_forecast.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_forecast/sales_forecast.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_forecast/sales_forecast_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_forecast/sales_forecast_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_forecast/test_sales_forecast.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_forecast_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_forecast_item/sales_forecast_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sub_operation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sub_operation/sub_operation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sub_operation/sub_operation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sub_operation/test_sub_operation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/work_order/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/work_order/test_work_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/work_order/work_order.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/work_order/work_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/work_order/work_order_calendar.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/work_order/work_order_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/work_order/work_order_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/work_order_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/work_order_item/work_order_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/work_order_operation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/work_order_operation/work_order_operation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation/_test_workstation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/workstation/test_workstation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation/workstation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/workstation/workstation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation/workstation_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation/workstation_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/workstation_cost/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_cost/test_workstation_cost.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_cost/workstation_cost.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/workstation_cost/workstation_cost.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_operating_component/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_operating_component/test_workstation_operating_component.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_operating_component/workstation_operating_component.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/workstation_operating_component/workstation_operating_component.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_operating_component_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_operating_component_account/test_workstation_operating_component_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_operating_component_account/workstation_operating_component_account.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/workstation_operating_component_account/workstation_operating_component_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_type/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_type/test_workstation_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_type/workstation_type.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/workstation_type/workstation_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_working_hour/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/workstation_working_hour/workstation_working_hour.py",
+      "language": "Python"
+    },
+    {
+      "file": "notification/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "notification/material_request_receipt_notification/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "notification/material_request_receipt_notification/material_request_receipt_notification.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/bom_comparison_tool/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/bom_comparison_tool/bom_comparison_tool.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "page/visual_plant_floor/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/visual_plant_floor/visual_plant_floor.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_explorer/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_explorer/bom_explorer.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/bom_explorer/bom_explorer.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_operations_time/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_operations_time/bom_operations_time.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/bom_operations_time/bom_operations_time.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_stock_calculated/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_stock_calculated/bom_stock_calculated.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/bom_stock_calculated/bom_stock_calculated.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_stock_calculated/test_bom_stock_calculated.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_stock_report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_stock_report/bom_stock_report.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/bom_stock_report/bom_stock_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_stock_report/test_bom_stock_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_variance_report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bom_variance_report/bom_variance_report.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/bom_variance_report/bom_variance_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/completed_work_orders/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/cost_of_poor_quality_report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/cost_of_poor_quality_report/cost_of_poor_quality_report.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/cost_of_poor_quality_report/cost_of_poor_quality_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/downtime_analysis/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/downtime_analysis/downtime_analysis.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/downtime_analysis/downtime_analysis.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/exponential_smoothing_forecasting/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/exponential_smoothing_forecasting/exponential_smoothing_forecasting.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/exponential_smoothing_forecasting/exponential_smoothing_forecasting.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/issued_items_against_work_order/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/job_card_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/job_card_summary/job_card_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/job_card_summary/job_card_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/material_requirements_planning_report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/material_requirements_planning_report/material_requirements_planning_report.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/material_requirements_planning_report/material_requirements_planning_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/open_work_orders/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/process_loss_report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/process_loss_report/process_loss_report.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/process_loss_report/process_loss_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/production_analytics/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/production_analytics/production_analytics.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/production_analytics/production_analytics.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/production_plan_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/production_plan_summary/production_plan_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/production_plan_summary/production_plan_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/production_planning_report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/production_planning_report/production_planning_report.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/production_planning_report/production_planning_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/quality_inspection_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/quality_inspection_summary/quality_inspection_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/quality_inspection_summary/quality_inspection_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/test_reports.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/work_order_consumed_materials/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/work_order_consumed_materials/work_order_consumed_materials.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/work_order_consumed_materials/work_order_consumed_materials.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/work_order_stock_report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/work_order_stock_report/work_order_stock_report.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/work_order_stock_report/work_order_stock_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/work_order_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/work_order_summary/work_order_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/work_order_summary/work_order_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/work_orders_in_progress/__init__.py",
+      "language": "Python"
+    }
+  ],
+  "edges": []
+}

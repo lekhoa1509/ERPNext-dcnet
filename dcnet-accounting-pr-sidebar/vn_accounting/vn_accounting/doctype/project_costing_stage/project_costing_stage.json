@@ -1,0 +1,197 @@
+{
+ "actions": [],
+ "autoname": "",
+ "creation": "2026-05-15 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "parent_costing",
+  "stage_order",
+  "stage_name",
+  "column_break_header",
+  "expected_invoice_date",
+  "status",
+  "markup_section",
+  "markup_method",
+  "markup_value",
+  "column_break_markup",
+  "planned_amount",
+  "cost_pinned",
+  "price_section",
+  "price_suggested",
+  "price_override",
+  "column_break_price",
+  "override_reason",
+  "override_by",
+  "override_on",
+  "invoice_section",
+  "sales_invoice",
+  "cogs_je"
+ ],
+ "fields": [
+  {
+   "fieldname": "parent_costing",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project Costing",
+   "options": "Project Costing",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "stage_order",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Stage Order",
+   "reqd": 1
+  },
+  {
+   "fieldname": "stage_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Stage Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_header",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_invoice_date",
+   "fieldtype": "Date",
+   "label": "Expected Invoice Date"
+  },
+  {
+   "default": "Dự kiến",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Dự kiến\nĐang thi công\nChờ xuất HĐ\nĐã có SI draft\nĐã xuất HĐ\nĐã thu tiền\nĐã hủy",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "markup_section",
+   "fieldtype": "Section Break",
+   "label": "Markup"
+  },
+  {
+   "default": "Coefficient",
+   "fieldname": "markup_method",
+   "fieldtype": "Select",
+   "label": "Markup Method",
+   "options": "Coefficient\nPercent on Cost\nFixed Amount\nFrom Contract\nPercent of Contract\nCost-to-Date Uplift",
+   "reqd": 1
+  },
+  {
+   "fieldname": "markup_value",
+   "fieldtype": "Float",
+   "label": "Markup Value",
+   "precision": "4"
+  },
+  {
+   "fieldname": "column_break_markup",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "planned_amount",
+   "fieldtype": "Currency",
+   "label": "Planned Amount"
+  },
+  {
+   "fieldname": "cost_pinned",
+   "fieldtype": "Currency",
+   "label": "Cost Pinned",
+   "read_only": 1
+  },
+  {
+   "fieldname": "price_section",
+   "fieldtype": "Section Break",
+   "label": "Price"
+  },
+  {
+   "fieldname": "price_suggested",
+   "fieldtype": "Currency",
+   "label": "Suggested Price",
+   "read_only": 1
+  },
+  {
+   "fieldname": "price_override",
+   "fieldtype": "Currency",
+   "label": "Override Price (KTT)"
+  },
+  {
+   "fieldname": "column_break_price",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "override_reason",
+   "fieldtype": "Small Text",
+   "label": "Override Reason"
+  },
+  {
+   "fieldname": "override_by",
+   "fieldtype": "Link",
+   "label": "Override By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "override_on",
+   "fieldtype": "Datetime",
+   "label": "Override At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice_section",
+   "fieldtype": "Section Break",
+   "label": "Invoice"
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "options": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cogs_je",
+   "fieldtype": "Link",
+   "label": "COGS Journal Entry",
+   "options": "Journal Entry",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-15 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "Project Costing Stage",
+ "naming_rule": "By script",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 0,
+   "cancel": 0,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 0,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 0,
+   "write": 1
+  }
+ ],
+ "sort_field": "stage_order",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 1
+}

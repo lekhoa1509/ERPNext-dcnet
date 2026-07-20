@@ -1,0 +1,494 @@
+{
+    "actions": [],
+    "autoname": "format:EINV-IN-{####}",
+    "creation": "2026-03-03 14:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "source_section",
+        "company",
+        "provider",
+        "provider_type",
+        "provider_invoice_id",
+        "lookup_code",
+        "invoice_section",
+        "invoice_number",
+        "invoice_pattern",
+        "invoice_serial",
+        "column_break_inv",
+        "invoice_date",
+        "signed_date",
+        "invoice_type",
+        "legal_section",
+        "tct_status",
+        "lifecycle_status",
+        "e_invoice_type",
+        "column_break_legal",
+        "profile_code",
+        "tvan_tax_code",
+        "validation_section",
+        "validation_summary",
+        "validation_issues_json",
+        "validation_checked_at",
+        "attach_section",
+        "pdf_file",
+        "xml_file",
+        "attach_col_break",
+        "attach_status",
+        "attach_error",
+        "attach_retry_count",
+        "supplier_section",
+        "supplier_name",
+        "supplier_tax_code",
+        "column_break_sup",
+        "supplier_address",
+        "items_section",
+        "items",
+        "amount_section",
+        "total_before_tax",
+        "tax_rate",
+        "exchange_rate",
+        "column_break_amt",
+        "tax_amount",
+        "total_amount",
+        "currency",
+        "amount_extra_section",
+        "payment_method",
+        "trade_discount",
+        "column_break_amt2",
+        "other_reduce",
+        "total_in_words",
+        "processing_section",
+        "status",
+        "linked_purchase_invoice",
+        "column_break_proc",
+        "error_message",
+        "sync_batch_id",
+        "raw_data_section",
+        "raw_data",
+        "pdf_url",
+        "xml_url"
+    ],
+    "fields": [
+        {
+            "fieldname": "source_section",
+            "fieldtype": "Section Break",
+            "label": "Nguồn dữ liệu"
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Công ty",
+            "options": "Company",
+            "fetch_from": "provider.company",
+            "read_only": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "provider",
+            "fieldtype": "Link",
+            "label": "Nhà cung cấp HĐĐT",
+            "options": "EInvoice Provider",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "provider_type",
+            "fieldtype": "Data",
+            "label": "Loại provider",
+            "fetch_from": "provider.provider_type",
+            "read_only": 1
+        },
+        {
+            "fieldname": "provider_invoice_id",
+            "fieldtype": "Data",
+            "label": "ID trên hệ thống provider"
+        },
+        {
+            "fieldname": "lookup_code",
+            "fieldtype": "Data",
+            "label": "Mã tra cứu",
+            "unique": 1,
+            "in_list_view": 1,
+            "reqd": 1
+        },
+        {
+            "fieldname": "invoice_section",
+            "fieldtype": "Section Break",
+            "label": "Thông tin hóa đơn"
+        },
+        {
+            "fieldname": "invoice_number",
+            "fieldtype": "Data",
+            "label": "Số hóa đơn",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "invoice_pattern",
+            "fieldtype": "Data",
+            "label": "Ký hiệu mẫu số"
+        },
+        {
+            "fieldname": "invoice_serial",
+            "fieldtype": "Data",
+            "label": "Ký hiệu hóa đơn"
+        },
+        {
+            "fieldname": "column_break_inv",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "invoice_date",
+            "fieldtype": "Date",
+            "label": "Ngày lập",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "signed_date",
+            "fieldtype": "Datetime",
+            "label": "Ngày ký",
+            "description": "Thời điểm ký số HĐ — căn cứ pháp lý theo NĐ 123/2020"
+        },
+        {
+            "fieldname": "invoice_type",
+            "fieldtype": "Select",
+            "label": "Loại hóa đơn",
+            "options": "GTGT\nBán hàng\nKhác"
+        },
+        {
+            "fieldname": "legal_section",
+            "fieldtype": "Section Break",
+            "label": "Thông tin pháp lý"
+        },
+        {
+            "fieldname": "tct_status",
+            "fieldtype": "Select",
+            "label": "Kết quả phân tích",
+            "options": "\nHóa đơn hợp lệ\nHóa đơn có sai sót\nUnknown",
+            "description": "KQPhanTich — kết luận từ Mắt Bão: hợp lệ hoặc có sai sót (cần kế toán review)",
+            "in_list_view": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "lifecycle_status",
+            "fieldtype": "Data",
+            "label": "Trạng thái HĐ",
+            "description": "TenTThai — vòng đời HĐ (Mới / Thay thế / Bị thay thế / Điều chỉnh / Bị điều chỉnh)",
+            "in_list_view": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "e_invoice_type",
+            "fieldtype": "Select",
+            "label": "Loại HĐĐT",
+            "options": "\nCoded\nUncoded\nCashier\nOther",
+            "description": "Loại hóa đơn điện tử: Coded (có mã CQT), Uncoded (không có mã), Cashier (máy tính tiền)."
+        },
+        {
+            "fieldname": "column_break_legal",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "profile_code",
+            "fieldtype": "Data",
+            "label": "Mã hồ sơ",
+            "description": "MHSo — phân loại hồ sơ TCT"
+        },
+        {
+            "fieldname": "tvan_tax_code",
+            "fieldtype": "Data",
+            "label": "MST TVAN",
+            "description": "MSTTCGP — Mã số thuế đơn vị TVAN cung cấp giải pháp HĐĐT"
+        },
+        {
+            "fieldname": "validation_section",
+            "fieldtype": "Section Break",
+            "label": "Chi tiết phân tích sai sót",
+            "depends_on": "eval:doc.tct_status === 'Hóa đơn có sai sót'",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "validation_summary",
+            "fieldtype": "Small Text",
+            "label": "Các sai sót phát hiện",
+            "description": "Danh sách check fail từ KTra (auto-fetch khi tct_status=Có sai sót)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "validation_issues_json",
+            "fieldtype": "Long Text",
+            "label": "KTra raw (JSON)",
+            "hidden": 1
+        },
+        {
+            "fieldname": "validation_checked_at",
+            "fieldtype": "Datetime",
+            "label": "Lần kiểm tra cuối",
+            "read_only": 1
+        },
+        {
+            "fieldname": "attach_section",
+            "fieldtype": "Section Break",
+            "label": "Tài liệu đính kèm",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "pdf_file",
+            "fieldtype": "Attach",
+            "label": "File PDF",
+            "read_only": 1
+        },
+        {
+            "fieldname": "xml_file",
+            "fieldtype": "Attach",
+            "label": "File XML",
+            "read_only": 1
+        },
+        {
+            "fieldname": "attach_col_break",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "attach_status",
+            "fieldtype": "Select",
+            "label": "Trạng thái đính kèm",
+            "options": "\nChưa tải\nĐang tải\nĐã đính kèm\nMột phần\nLỗi",
+            "read_only": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "attach_error",
+            "fieldtype": "Small Text",
+            "label": "Lỗi đính kèm",
+            "read_only": 1,
+            "depends_on": "eval:in_list(['Lỗi','Một phần'], doc.attach_status)"
+        },
+        {
+            "fieldname": "attach_retry_count",
+            "fieldtype": "Int",
+            "label": "Số lần retry",
+            "read_only": 1,
+            "default": "0",
+            "hidden": 1
+        },
+        {
+            "fieldname": "supplier_section",
+            "fieldtype": "Section Break",
+            "label": "Nhà cung cấp"
+        },
+        {
+            "fieldname": "supplier_name",
+            "fieldtype": "Data",
+            "label": "Tên NCC",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "supplier_tax_code",
+            "fieldtype": "Data",
+            "label": "MST NCC"
+        },
+        {
+            "fieldname": "column_break_sup",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "supplier_address",
+            "fieldtype": "Data",
+            "label": "Địa chỉ NCC"
+        },
+        {
+            "fieldname": "items_section",
+            "fieldtype": "Section Break",
+            "label": "Hàng hóa, dịch vụ",
+            "collapsible": 1,
+            "collapsible_depends_on": "eval:!doc.items || !doc.items.length"
+        },
+        {
+            "fieldname": "items",
+            "fieldtype": "Table",
+            "label": "Dòng hàng hóa",
+            "options": "EInvoice Inward Item",
+            "description": "DSHHDVu — danh sách hàng hóa, dịch vụ từ XML HĐ"
+        },
+        {
+            "fieldname": "amount_section",
+            "fieldtype": "Section Break",
+            "label": "Số tiền"
+        },
+        {
+            "fieldname": "total_before_tax",
+            "fieldtype": "Currency",
+            "label": "Tổng trước thuế",
+            "options": "currency"
+        },
+        {
+            "fieldname": "tax_rate",
+            "fieldtype": "Percent",
+            "label": "Thuế suất"
+        },
+        {
+            "fieldname": "exchange_rate",
+            "fieldtype": "Float",
+            "label": "Tỷ giá",
+            "default": 1.0,
+            "precision": "6",
+            "description": "TGia — chỉ khác 1.0 khi HĐ ngoại tệ"
+        },
+        {
+            "fieldname": "column_break_amt",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "tax_amount",
+            "fieldtype": "Currency",
+            "label": "Tiền thuế",
+            "options": "currency"
+        },
+        {
+            "fieldname": "total_amount",
+            "fieldtype": "Currency",
+            "label": "Tổng thanh toán",
+            "options": "currency",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "currency",
+            "fieldtype": "Link",
+            "label": "Tiền tệ",
+            "options": "Currency",
+            "default": "VND"
+        },
+        {
+            "fieldname": "amount_extra_section",
+            "fieldtype": "Section Break",
+            "label": "Chiết khấu & thanh toán",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "payment_method",
+            "fieldtype": "Data",
+            "label": "Hình thức thanh toán",
+            "description": "HTTToan — Tiền mặt / Chuyển khoản / TM/CK ..."
+        },
+        {
+            "fieldname": "trade_discount",
+            "fieldtype": "Currency",
+            "label": "Chiết khấu thương mại",
+            "options": "currency",
+            "description": "TTCKTMai"
+        },
+        {
+            "fieldname": "column_break_amt2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "other_reduce",
+            "fieldtype": "Currency",
+            "label": "Giảm trừ khác",
+            "options": "currency",
+            "description": "TGTKhac"
+        },
+        {
+            "fieldname": "total_in_words",
+            "fieldtype": "Small Text",
+            "label": "Tổng tiền bằng chữ",
+            "description": "TgTTTBChu"
+        },
+        {
+            "fieldname": "processing_section",
+            "fieldtype": "Section Break",
+            "label": "Xử lý"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Trạng thái",
+            "options": "New\nMatched\nPI Created\nIgnored\nError",
+            "default": "New",
+            "in_list_view": 1,
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "linked_purchase_invoice",
+            "fieldtype": "Link",
+            "label": "Purchase Invoice đã ghép",
+            "options": "Purchase Invoice"
+        },
+        {
+            "fieldname": "column_break_proc",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "error_message",
+            "fieldtype": "Small Text",
+            "label": "Lỗi"
+        },
+        {
+            "fieldname": "sync_batch_id",
+            "fieldtype": "Data",
+            "label": "Batch ID"
+        },
+        {
+            "fieldname": "raw_data_section",
+            "fieldtype": "Section Break",
+            "label": "Dữ liệu gốc",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "raw_data",
+            "fieldtype": "Long Text",
+            "label": "JSON/XML gốc",
+            "hidden": 1
+        },
+        {
+            "fieldname": "pdf_url",
+            "fieldtype": "Data",
+            "label": "Link PDF",
+            "options": "URL"
+        },
+        {
+            "fieldname": "xml_url",
+            "fieldtype": "Data",
+            "label": "Link XML",
+            "options": "URL",
+            "description": "LinkDownloadXML — XML là source-of-truth pháp lý cho HĐĐT"
+        }
+    ],
+    "index_web_pages_for_search": 0,
+    "links": [],
+    "modified": "2026-05-06 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "EInvoice",
+    "name": "EInvoice Inward",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Accounts Manager",
+            "write": 1
+        },
+        {
+            "read": 1,
+            "report": 1,
+            "role": "Accounts User"
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

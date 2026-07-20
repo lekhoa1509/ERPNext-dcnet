@@ -1,0 +1,3365 @@
+{
+  "nodes": [
+    {
+      "file": "__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "custom/address.py",
+      "language": "Python"
+    },
+    {
+      "file": "dashboard_chart_source/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "dashboard_chart_source/account_balance_timeline/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "dashboard_chart_source/account_balance_timeline/account_balance_timeline.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "dashboard_chart_source/account_balance_timeline/account_balance_timeline.py",
+      "language": "Python"
+    },
+    {
+      "file": "deferred_revenue.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account/account.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/account/account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account/account_tree.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/account/chart_of_accounts/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account/chart_of_accounts/chart_of_accounts.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account/chart_of_accounts/verified/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account/chart_of_accounts/verified/syscohada_chart_of_accounts.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account/test_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account_category/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account_category/account_category.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/account_category/account_category.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account_category/test_account_category.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account_closing_balance/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account_closing_balance/account_closing_balance.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/account_closing_balance/account_closing_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/account_closing_balance/test_account_closing_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounting_dimension/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounting_dimension/accounting_dimension.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/accounting_dimension/accounting_dimension.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounting_dimension/test_accounting_dimension.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounting_dimension_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounting_dimension_detail/accounting_dimension_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounting_dimension_filter/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounting_dimension_filter/accounting_dimension_filter.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/accounting_dimension_filter/accounting_dimension_filter.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounting_dimension_filter/test_accounting_dimension_filter.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounting_period/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounting_period/accounting_period.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/accounting_period/accounting_period.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounting_period/test_accounting_period.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounts_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounts_settings/accounts_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/accounts_settings/accounts_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/accounts_settings/regional/united_states.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/accounts_settings/test_accounts_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/advance_payment_ledger_entry/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/advance_payment_ledger_entry/advance_payment_ledger_entry.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/advance_payment_ledger_entry/advance_payment_ledger_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/advance_payment_ledger_entry/test_advance_payment_ledger_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/advance_taxes_and_charges/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/advance_taxes_and_charges/advance_taxes_and_charges.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/allowed_dimension/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/allowed_dimension/allowed_dimension.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/allowed_to_transact_with/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/allowed_to_transact_with/allowed_to_transact_with.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/applicable_on_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/applicable_on_account/applicable_on_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank/bank.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bank/bank.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank/bank_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank/test_bank.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_account/bank_account.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bank_account/bank_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_account/test_bank_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_account_subtype/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_account_subtype/bank_account_subtype.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bank_account_subtype/bank_account_subtype.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_account_subtype/test_bank_account_subtype.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_account_type/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_account_type/bank_account_type.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bank_account_type/bank_account_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_account_type/test_bank_account_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_clearance/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_clearance/bank_clearance.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bank_clearance/bank_clearance.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_clearance/test_bank_clearance.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_clearance_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_clearance_detail/bank_clearance_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_guarantee/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_guarantee/bank_guarantee.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bank_guarantee/bank_guarantee.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_guarantee/test_bank_guarantee.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_reconciliation_tool/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_reconciliation_tool/bank_reconciliation_tool.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bank_reconciliation_tool/bank_reconciliation_tool.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_reconciliation_tool/test_bank_reconciliation_tool.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_statement_import/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_statement_import/bank_statement_import.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bank_statement_import/bank_statement_import.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_statement_import/bank_statement_import_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bank_statement_import/test_bank_statement_import.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_transaction/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_transaction/auto_match_party.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_transaction/bank_transaction.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bank_transaction/bank_transaction.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_transaction/bank_transaction_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bank_transaction/bank_transaction_upload.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_transaction/test_auto_match_party.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_transaction/test_bank_transaction.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_transaction/test_bank_transaction_fees.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_transaction_mapping/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_transaction_mapping/bank_transaction_mapping.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_transaction_payments/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bank_transaction_payments/bank_transaction_payments.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bisect_accounting_statements/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bisect_accounting_statements/bisect_accounting_statements.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bisect_accounting_statements/bisect_accounting_statements.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bisect_accounting_statements/test_bisect_accounting_statements.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bisect_nodes/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bisect_nodes/bisect_nodes.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/bisect_nodes/bisect_nodes.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/bisect_nodes/test_bisect_nodes.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/budget/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/budget/budget.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/budget/budget.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/budget/test_budget.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/budget_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/budget_account/budget_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/budget_distribution/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/budget_distribution/budget_distribution.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/campaign_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/campaign_item/campaign_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cashier_closing/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cashier_closing/cashier_closing.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/cashier_closing/cashier_closing.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cashier_closing/test_cashier_closing.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cashier_closing_payments/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cashier_closing_payments/cashier_closing_payments.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/chart_of_accounts_importer/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/chart_of_accounts_importer/chart_of_accounts_importer.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/chart_of_accounts_importer/chart_of_accounts_importer.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/chart_of_accounts_importer/test_chart_of_accounts_importer.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cheque_print_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cheque_print_template/cheque_print_template.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/cheque_print_template/cheque_print_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cheque_print_template/test_cheque_print_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/closed_document/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/closed_document/closed_document.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cost_center/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cost_center/cost_center.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/cost_center/cost_center.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cost_center/cost_center_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cost_center/cost_center_tree.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/cost_center/test_cost_center.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cost_center_allocation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cost_center_allocation/cost_center_allocation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/cost_center_allocation/cost_center_allocation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cost_center_allocation/test_cost_center_allocation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cost_center_allocation_percentage/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/cost_center_allocation_percentage/cost_center_allocation_percentage.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/coupon_code/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/coupon_code/coupon_code.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/coupon_code/coupon_code.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/coupon_code/test_coupon_code.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/currency_exchange_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/currency_exchange_settings/currency_exchange_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/currency_exchange_settings/currency_exchange_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/currency_exchange_settings/test_currency_exchange_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/currency_exchange_settings_details/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/currency_exchange_settings_details/currency_exchange_settings_details.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/currency_exchange_settings_result/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/currency_exchange_settings_result/currency_exchange_settings_result.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer_group_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer_group_item/customer_group_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer_item/customer_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/discounted_invoice/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/discounted_invoice/discounted_invoice.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/dunning/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/dunning/dunning.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/dunning/dunning.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/dunning/dunning_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/dunning/test_dunning.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/dunning_letter_text/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/dunning_letter_text/dunning_letter_text.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/dunning_type/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/dunning_type/dunning_type.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/dunning_type/dunning_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/dunning_type/test_dunning_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/exchange_rate_revaluation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/exchange_rate_revaluation/exchange_rate_revaluation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/exchange_rate_revaluation/exchange_rate_revaluation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/exchange_rate_revaluation/exchange_rate_revaluation_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/exchange_rate_revaluation/test_exchange_rate_revaluation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/exchange_rate_revaluation_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/exchange_rate_revaluation_account/exchange_rate_revaluation_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/finance_book/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/finance_book/finance_book.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/finance_book/finance_book.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/finance_book/finance_book_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/finance_book/test_finance_book.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/financial_report_row/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/financial_report_row/financial_report_row.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/financial_report_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/financial_report_template/financial_report_engine.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/financial_report_template/financial_report_template.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/financial_report_template/financial_report_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/financial_report_template/financial_report_validation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/financial_report_template/test_financial_report_engine.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/financial_report_template/test_financial_report_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/fiscal_year/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/fiscal_year/fiscal_year.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/fiscal_year/fiscal_year.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/fiscal_year/fiscal_year_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/fiscal_year/test_fiscal_year.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/fiscal_year_company/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/fiscal_year_company/fiscal_year_company.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/gl_entry/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/gl_entry/gl_entry.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/gl_entry/gl_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/gl_entry/test_gl_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/invoice_discounting/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/invoice_discounting/invoice_discounting.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/invoice_discounting/invoice_discounting.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/invoice_discounting/invoice_discounting_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/invoice_discounting/invoice_discounting_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/invoice_discounting/test_invoice_discounting.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/item_tax_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/item_tax_template/item_tax_template.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/item_tax_template/item_tax_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/item_tax_template/item_tax_template_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/item_tax_template/test_item_tax_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/item_tax_template_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/item_tax_template_detail/item_tax_template_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/item_wise_tax_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/item_wise_tax_detail/item_wise_tax_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/journal_entry/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/journal_entry/journal_entry.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/journal_entry/journal_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/journal_entry/journal_entry_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/journal_entry/test_journal_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/journal_entry_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/journal_entry_account/journal_entry_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/journal_entry_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/journal_entry_template/journal_entry_template.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/journal_entry_template/journal_entry_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/journal_entry_template/test_journal_entry_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/journal_entry_template_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/journal_entry_template_account/journal_entry_template_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_health/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_health/ledger_health.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/ledger_health/ledger_health.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_health/test_ledger_health.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_health_monitor/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_health_monitor/ledger_health_monitor.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/ledger_health_monitor/ledger_health_monitor.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_health_monitor/test_ledger_health_monitor.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_health_monitor_company/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_health_monitor_company/ledger_health_monitor_company.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_merge/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_merge/ledger_merge.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/ledger_merge/ledger_merge.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_merge/test_ledger_merge.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_merge_accounts/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ledger_merge_accounts/ledger_merge_accounts.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/loyalty_point_entry/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/loyalty_point_entry/loyalty_point_entry.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/loyalty_point_entry/loyalty_point_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/loyalty_point_entry/test_loyalty_point_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/loyalty_point_entry_redemption/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/loyalty_point_entry_redemption/loyalty_point_entry_redemption.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/loyalty_program/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/loyalty_program/loyalty_program.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/loyalty_program/loyalty_program.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/loyalty_program/loyalty_program_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/loyalty_program/test_loyalty_program.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/loyalty_program_collection/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/loyalty_program_collection/loyalty_program_collection.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/mode_of_payment/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/mode_of_payment/mode_of_payment.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/mode_of_payment/mode_of_payment.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/mode_of_payment/test_mode_of_payment.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/mode_of_payment_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/mode_of_payment_account/mode_of_payment_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/monthly_distribution/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/monthly_distribution/monthly_distribution.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/monthly_distribution/monthly_distribution.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/monthly_distribution/monthly_distribution_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/monthly_distribution/test_monthly_distribution.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/monthly_distribution_percentage/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/monthly_distribution_percentage/monthly_distribution_percentage.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opening_invoice_creation_tool/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opening_invoice_creation_tool/test_opening_invoice_creation_tool.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opening_invoice_creation_tool_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opening_invoice_creation_tool_item/opening_invoice_creation_tool_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/overdue_payment/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/overdue_payment/overdue_payment.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/party_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/party_account/party_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/party_link/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/party_link/party_link.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/party_link/party_link.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/party_link/test_party_link.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_entry/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_entry/payment_entry.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/payment_entry/payment_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_entry/payment_entry_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/payment_entry/test_payment_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_entry_deduction/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_entry_deduction/payment_entry_deduction.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_entry_reference/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_entry_reference/payment_entry_reference.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_gateway_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_gateway_account/payment_gateway_account.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/payment_gateway_account/payment_gateway_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_gateway_account/payment_gateway_account_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_gateway_account/test_payment_gateway_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_ledger_entry/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_ledger_entry/payment_ledger_entry.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/payment_ledger_entry/payment_ledger_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_ledger_entry/test_payment_ledger_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_order/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_order/payment_order.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/payment_order/payment_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_order/payment_order_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_order/test_payment_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_order_reference/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_order_reference/payment_order_reference.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_reconciliation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_reconciliation/payment_reconciliation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/payment_reconciliation/payment_reconciliation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_reconciliation/test_payment_reconciliation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_reconciliation_allocation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_reconciliation_allocation/payment_reconciliation_allocation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_reconciliation_invoice/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_reconciliation_invoice/payment_reconciliation_invoice.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_reconciliation_payment/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_reconciliation_payment/payment_reconciliation_payment.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_request/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_request/payment_request.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/payment_request/payment_request.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_request/payment_request_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_request/payment_request_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/payment_request/test_payment_request.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_schedule/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_schedule/payment_schedule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_term/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_term/payment_term.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/payment_term/payment_term.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_term/payment_term_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_term/test_payment_term.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_terms_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_terms_template/payment_terms_template.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/payment_terms_template/payment_terms_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_terms_template/payment_terms_template_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_terms_template/test_payment_terms_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_terms_template_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/payment_terms_template_detail/payment_terms_template_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pegged_currencies/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pegged_currencies/pegged_currencies.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pegged_currencies/pegged_currencies.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pegged_currencies/test_pegged_currencies.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pegged_currency_details/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pegged_currency_details/pegged_currency_details.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/period_closing_voucher/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/period_closing_voucher/period_closing_voucher.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/period_closing_voucher/period_closing_voucher.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/period_closing_voucher/test_period_closing_voucher.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_closing_entry/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_closing_entry/pos_closing_entry.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pos_closing_entry/pos_closing_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_closing_entry/pos_closing_entry_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pos_closing_entry/test_pos_closing_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_closing_entry_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_closing_entry_detail/pos_closing_entry_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_closing_entry_taxes/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_closing_entry_taxes/pos_closing_entry_taxes.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_customer_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_customer_group/pos_customer_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_field/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_field/pos_field.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_invoice/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_invoice/pos_invoice.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pos_invoice/pos_invoice.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_invoice/pos_invoice_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pos_invoice/test_pos_invoice.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_invoice_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_invoice_item/pos_invoice_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_invoice_merge_log/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_invoice_merge_log/pos_invoice_merge_log.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pos_invoice_merge_log/pos_invoice_merge_log.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_invoice_merge_log/test_pos_invoice_merge_log.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_invoice_reference/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_invoice_reference/pos_invoice_reference.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_item_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_item_group/pos_item_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_opening_entry/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_opening_entry/pos_opening_entry.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pos_opening_entry/pos_opening_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_opening_entry/pos_opening_entry_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pos_opening_entry/test_pos_opening_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_opening_entry_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_opening_entry_detail/pos_opening_entry_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_payment_method/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_payment_method/pos_payment_method.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_profile/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_profile/pos_profile.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pos_profile/pos_profile.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_profile/test_pos_profile.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_profile_user/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_profile_user/pos_profile_user.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pos_profile_user/pos_profile_user.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_profile_user/test_pos_profile_user.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_search_fields/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_search_fields/pos_search_fields.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_settings/pos_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pos_settings/pos_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pos_settings/test_pos_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule/pricing_rule.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/pricing_rule/pricing_rule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule/test_pricing_rule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule/utils.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule_brand/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule_brand/pricing_rule_brand.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule_detail/pricing_rule_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule_item_code/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule_item_code/pricing_rule_item_code.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule_item_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/pricing_rule_item_group/pricing_rule_item_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_deferred_accounting/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_deferred_accounting/process_deferred_accounting.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/process_deferred_accounting/process_deferred_accounting.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_deferred_accounting/test_process_deferred_accounting.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation/process_payment_reconciliation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation/process_payment_reconciliation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation/process_payment_reconciliation_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation/process_payment_reconciliation_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation/test_process_payment_reconciliation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation_log/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation_log/process_payment_reconciliation_log.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation_log/process_payment_reconciliation_log.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation_log/process_payment_reconciliation_log_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation_log/test_process_payment_reconciliation_log.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation_log_allocations/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_payment_reconciliation_log_allocations/process_payment_reconciliation_log_allocations.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_period_closing_voucher/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_period_closing_voucher/process_period_closing_voucher.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/process_period_closing_voucher/process_period_closing_voucher.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_period_closing_voucher/test_process_period_closing_voucher.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_period_closing_voucher_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_period_closing_voucher_detail/process_period_closing_voucher_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_statement_of_accounts/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_statement_of_accounts/process_statement_of_accounts.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/process_statement_of_accounts/process_statement_of_accounts.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_statement_of_accounts/test_process_statement_of_accounts.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_statement_of_accounts_cc/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_statement_of_accounts_cc/process_statement_of_accounts_cc.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_statement_of_accounts_customer/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_statement_of_accounts_customer/process_statement_of_accounts_customer.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_subscription/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_subscription/process_subscription.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/process_subscription/process_subscription.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/process_subscription/test_process_subscription.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/promotional_scheme/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/promotional_scheme/promotional_scheme.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/promotional_scheme/promotional_scheme.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/promotional_scheme/promotional_scheme_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/promotional_scheme/test_promotional_scheme.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/promotional_scheme_price_discount/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/promotional_scheme_price_discount/promotional_scheme_price_discount.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/promotional_scheme_product_discount/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/promotional_scheme_product_discount/promotional_scheme_product_discount.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/psoa_cost_center/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/psoa_cost_center/psoa_cost_center.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/psoa_project/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/psoa_project/psoa_project.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_invoice/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_invoice/purchase_invoice.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/purchase_invoice/purchase_invoice.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_invoice/purchase_invoice_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_invoice/purchase_invoice_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/purchase_invoice/test_purchase_invoice.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_invoice_advance/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_invoice_advance/purchase_invoice_advance.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_invoice_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_invoice_item/purchase_invoice_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_taxes_and_charges/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_taxes_and_charges_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_taxes_and_charges_template/purchase_taxes_and_charges_template.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/purchase_taxes_and_charges_template/purchase_taxes_and_charges_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_taxes_and_charges_template/purchase_taxes_and_charges_template_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_taxes_and_charges_template/test_purchase_taxes_and_charges_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_accounting_ledger/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_accounting_ledger/repost_accounting_ledger.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/repost_accounting_ledger/repost_accounting_ledger.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_accounting_ledger/test_repost_accounting_ledger.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_accounting_ledger_items/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_accounting_ledger_items/repost_accounting_ledger_items.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_accounting_ledger_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_accounting_ledger_settings/repost_accounting_ledger_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/repost_accounting_ledger_settings/repost_accounting_ledger_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_accounting_ledger_settings/test_repost_accounting_ledger_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_allowed_types/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_allowed_types/repost_allowed_types.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_payment_ledger/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_payment_ledger/repost_payment_ledger.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/repost_payment_ledger/repost_payment_ledger.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_payment_ledger/repost_payment_ledger_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/repost_payment_ledger/test_repost_payment_ledger.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_payment_ledger_items/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/repost_payment_ledger_items/repost_payment_ledger_items.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice/regional/italy.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_invoice/sales_invoice.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_invoice/sales_invoice.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice/sales_invoice_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice/sales_invoice_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_invoice/test_sales_invoice.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice_advance/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice_advance/sales_invoice_advance.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice_item/sales_invoice_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice_payment/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice_payment/sales_invoice_payment.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice_reference/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice_reference/sales_invoice_reference.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice_timesheet/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_invoice_timesheet/sales_invoice_timesheet.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_partner_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_partner_item/sales_partner_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_taxes_and_charges/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_taxes_and_charges/sales_taxes_and_charges.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_taxes_and_charges_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_taxes_and_charges_template/sales_taxes_and_charges_template.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_taxes_and_charges_template/sales_taxes_and_charges_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_taxes_and_charges_template/sales_taxes_and_charges_template_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_taxes_and_charges_template/test_sales_taxes_and_charges_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/share_balance/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/share_balance/share_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/share_transfer/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/share_transfer/share_transfer.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/share_transfer/share_transfer.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/share_transfer/test_share_transfer.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/share_type/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/share_type/share_type.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/share_type/share_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/share_type/share_type_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/share_type/test_share_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shareholder/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shareholder/shareholder.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/shareholder/shareholder.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shareholder/shareholder_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shareholder/test_shareholder.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shipping_rule/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shipping_rule/shipping_rule.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/shipping_rule/shipping_rule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shipping_rule/shipping_rule_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shipping_rule/test_shipping_rule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shipping_rule_condition/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shipping_rule_condition/shipping_rule_condition.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shipping_rule_country/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/shipping_rule_country/shipping_rule_country.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/south_africa_vat_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/south_africa_vat_account/south_africa_vat_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription/subscription.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/subscription/subscription.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription/subscription_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/subscription/test_subscription.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_invoice/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_invoice/subscription_invoice.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/subscription_invoice/subscription_invoice.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_invoice/test_subscription_invoice.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_plan/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_plan/subscription_plan.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/subscription_plan/subscription_plan.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_plan/subscription_plan_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_plan/test_subscription_plan.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_plan_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_plan_detail/subscription_plan_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_settings/subscription_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/subscription_settings/subscription_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/subscription_settings/test_subscription_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_group_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_group_item/supplier_group_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_item/supplier_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_category/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_category/tax_category.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/tax_category/tax_category.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_category/tax_category_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_category/test_tax_category.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_rule/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_rule/tax_rule.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/tax_rule/tax_rule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_rule/test_tax_rule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_account/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_account/tax_withholding_account.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_category/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_category/tax_withholding_category.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/tax_withholding_category/tax_withholding_category.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_category/tax_withholding_category_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_category/test_tax_withholding_category.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_entry/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_entry/tax_withholding_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_entry/test_tax_withholding_entry.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_group/tax_withholding_group.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/tax_withholding_group/tax_withholding_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_group/test_tax_withholding_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_rate/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/tax_withholding_rate/tax_withholding_rate.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/territory_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/territory_item/territory_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/transaction_deletion_record_details/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/transaction_deletion_record_details/transaction_deletion_record_details.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/unreconcile_payment/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/unreconcile_payment/test_unreconcile_payment.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/unreconcile_payment/unreconcile_payment.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/unreconcile_payment/unreconcile_payment.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/unreconcile_payment_entries/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/unreconcile_payment_entries/unreconcile_payment_entries.py",
+      "language": "Python"
+    },
+    {
+      "file": "financial_report_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "financial_report_template/financial_ratios_analysis/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "financial_report_template/horizontal_balance_sheet_(columnar)/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "financial_report_template/horizontal_profit_and_loss_(columnar)/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "financial_report_template/standard_balance_sheet_(ifrs)/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "financial_report_template/standard_cash_flow_statement_(ifrs)/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "financial_report_template/standard_profit_and_loss_(ifrs)/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "general_ledger.py",
+      "language": "Python"
+    },
+    {
+      "file": "notification/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "notification/notification_for_new_fiscal_year/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "party.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/bank_and_cash_payment_voucher/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/cheque_printing_format/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/credit_note/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/dunning_letter/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/journal_auditing_voucher/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/payment_receipt_voucher/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/point_of_sale/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/pos_invoice/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/pos_invoice_standard/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/pos_invoice_with_item_image/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/purchase_auditing_voucher/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/sales_auditing_voucher/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/sales_invoice_print/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/sales_invoice_return/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/sales_invoice_standard/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/sales_invoice_with_item_image/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format_field_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format_field_template/purchase_invoice_taxes/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format_field_template/sales_invoice_taxes/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/account_balance/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/account_balance/account_balance.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/account_balance/account_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/account_balance/test_account_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/accounts_payable/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/accounts_payable/accounts_payable.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/accounts_payable/accounts_payable.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/accounts_payable/test_accounts_payable.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/accounts_payable_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/accounts_payable_summary/accounts_payable_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/accounts_payable_summary/accounts_payable_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/accounts_receivable/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/accounts_receivable/accounts_receivable.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/accounts_receivable/accounts_receivable.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/accounts_receivable/test_accounts_receivable.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/accounts_receivable_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/accounts_receivable_summary/accounts_receivable_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/accounts_receivable_summary/accounts_receivable_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/accounts_receivable_summary/test_accounts_receivable_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/asset_depreciation_ledger/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/asset_depreciation_ledger/asset_depreciation_ledger.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/asset_depreciation_ledger/asset_depreciation_ledger.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/asset_depreciations_and_balances/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/asset_depreciations_and_balances/asset_depreciations_and_balances.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/asset_depreciations_and_balances/asset_depreciations_and_balances.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/balance_sheet/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/balance_sheet/balance_sheet.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/balance_sheet/balance_sheet.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/balance_sheet/test_balance_sheet.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bank_clearance_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bank_clearance_summary/bank_clearance_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/bank_clearance_summary/bank_clearance_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bank_reconciliation_statement/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bank_reconciliation_statement/bank_reconciliation_statement.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/bank_reconciliation_statement/bank_reconciliation_statement.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/bank_reconciliation_statement/test_bank_reconciliation_statement.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/billed_items_to_be_received/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/billed_items_to_be_received/billed_items_to_be_received.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/billed_items_to_be_received/billed_items_to_be_received.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/budget_variance_report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/budget_variance_report/budget_variance_report.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/budget_variance_report/budget_variance_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/calculated_discount_mismatch/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/calculated_discount_mismatch/calculated_discount_mismatch.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/calculated_discount_mismatch/calculated_discount_mismatch.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/cash_flow/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/cash_flow/cash_flow.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/cash_flow/cash_flow.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/cheques_and_deposits_incorrectly_cleared/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/cheques_and_deposits_incorrectly_cleared/cheques_and_deposits_incorrectly_cleared.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/cheques_and_deposits_incorrectly_cleared/cheques_and_deposits_incorrectly_cleared.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/consolidated_financial_statement/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/consolidated_financial_statement/consolidated_financial_statement.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/consolidated_financial_statement/consolidated_financial_statement.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/consolidated_trial_balance/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/consolidated_trial_balance/consolidated_trial_balance.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/consolidated_trial_balance/consolidated_trial_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/consolidated_trial_balance/test_consolidated_trial_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/custom_financial_statement/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/custom_financial_statement/custom_financial_statement.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/custom_financial_statement/custom_financial_statement.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/customer_ledger_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/customer_ledger_summary/customer_ledger_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/customer_ledger_summary/customer_ledger_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/customer_ledger_summary/test_customer_ledger_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/deferred_revenue_and_expense/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/deferred_revenue_and_expense/deferred_revenue_and_expense.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/deferred_revenue_and_expense/deferred_revenue_and_expense.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/deferred_revenue_and_expense/test_deferred_revenue_and_expense.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/delivered_items_to_be_billed/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/delivered_items_to_be_billed/delivered_items_to_be_billed.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/delivered_items_to_be_billed/delivered_items_to_be_billed.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/dimension_wise_accounts_balance_report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/dimension_wise_accounts_balance_report/dimension_wise_accounts_balance_report.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/dimension_wise_accounts_balance_report/dimension_wise_accounts_balance_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/financial_ratios/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/financial_ratios/financial_ratios.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/financial_ratios/financial_ratios.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/financial_statements.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/general_and_payment_ledger_comparison/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/general_and_payment_ledger_comparison/general_and_payment_ledger_comparison.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/general_and_payment_ledger_comparison/general_and_payment_ledger_comparison.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/general_and_payment_ledger_comparison/test_general_and_payment_ledger_comparison.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/general_ledger/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/general_ledger/general_ledger.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/general_ledger/general_ledger.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/general_ledger/test_general_ledger.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/gross_and_net_profit_report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/gross_and_net_profit_report/gross_and_net_profit_report.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/gross_and_net_profit_report/gross_and_net_profit_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/gross_profit/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/gross_profit/gross_profit.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/gross_profit/gross_profit.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/gross_profit/test_gross_profit.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/inactive_sales_items/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/inactive_sales_items/inactive_sales_items.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/inactive_sales_items/inactive_sales_items.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/invalid_ledger_entries/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/invalid_ledger_entries/invalid_ledger_entries.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/invalid_ledger_entries/invalid_ledger_entries.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/item_wise_purchase_register/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/item_wise_purchase_register/item_wise_purchase_register.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/item_wise_purchase_register/item_wise_purchase_register.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/item_wise_purchase_register/test_item_wise_purchase_register.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/item_wise_sales_register/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/item_wise_sales_register/item_wise_sales_register.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/item_wise_sales_register/item_wise_sales_register.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/item_wise_sales_register/test_item_wise_sales_register.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/non_billed_report.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/payment_ledger/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/payment_ledger/payment_ledger.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/payment_ledger/payment_ledger.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/payment_ledger/test_payment_ledger.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/payment_period_based_on_invoice_date/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/payment_period_based_on_invoice_date/payment_period_based_on_invoice_date.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/payment_period_based_on_invoice_date/payment_period_based_on_invoice_date.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/pos_register/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/pos_register/pos_register.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/pos_register/pos_register.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/profit_and_loss_statement/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/profit_and_loss_statement/profit_and_loss_statement.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/profit_and_loss_statement/profit_and_loss_statement.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/profit_and_loss_statement/test_profit_and_loss_statement.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/profitability_analysis/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/profitability_analysis/profitability_analysis.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/profitability_analysis/profitability_analysis.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/purchase_invoice_trends/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/purchase_invoice_trends/purchase_invoice_trends.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/purchase_invoice_trends/purchase_invoice_trends.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/purchase_register/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/purchase_register/purchase_register.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/purchase_register/purchase_register.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/purchase_register/test_purchase_register.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/received_items_to_be_billed/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/received_items_to_be_billed/received_items_to_be_billed.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/received_items_to_be_billed/received_items_to_be_billed.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_invoice_trends/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_invoice_trends/sales_invoice_trends.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_invoice_trends/sales_invoice_trends.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_partners_commission/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_payment_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_payment_summary/sales_payment_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_payment_summary/sales_payment_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_payment_summary/test_sales_payment_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_register/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_register/sales_register.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_register/sales_register.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_register/test_sales_register.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/share_balance/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/share_balance/share_balance.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/share_balance/share_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/share_ledger/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/share_ledger/share_ledger.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/share_ledger/share_ledger.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/supplier_ledger_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/supplier_ledger_summary/supplier_ledger_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/supplier_ledger_summary/supplier_ledger_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/supplier_ledger_summary/test_supplier_ledger_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/tax_withholding_details/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/tax_withholding_details/tax_withholding_details.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/tax_withholding_details/tax_withholding_details.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/tax_withholding_details/test_tax_withholding_details.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/tds_computation_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/tds_computation_summary/tds_computation_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/tds_computation_summary/tds_computation_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/trial_balance/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/trial_balance/test_trial_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/trial_balance/trial_balance.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/trial_balance/trial_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/trial_balance_for_party/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/trial_balance_for_party/trial_balance_for_party.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/trial_balance_for_party/trial_balance_for_party.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/trial_balance_simple/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/utils.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/voucher_wise_balance/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/voucher_wise_balance/voucher_wise_balance.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/voucher_wise_balance/voucher_wise_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "test/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "test/accounts_mixin.py",
+      "language": "Python"
+    },
+    {
+      "file": "test/test_reports.py",
+      "language": "Python"
+    },
+    {
+      "file": "test/test_utils.py",
+      "language": "Python"
+    },
+    {
+      "file": "test_party.py",
+      "language": "Python"
+    },
+    {
+      "file": "utils.py",
+      "language": "Python"
+    }
+  ],
+  "edges": []
+}

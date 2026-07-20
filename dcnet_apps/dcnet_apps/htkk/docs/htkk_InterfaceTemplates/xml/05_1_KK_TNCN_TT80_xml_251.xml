@@ -1,0 +1,43 @@
+<PLuc_05_1_PBT_KK_TNCN>
+	<PhanBoTuTienLuong>
+		<NDungPhanBoTuTienLuong id="String">
+			<stt/>
+			<loai/>
+			<ct07/>
+			<ct08/>
+			<ct08a_huyen_ma/>
+			<ct08a_huyen_ten/>
+			<ct08b_tinh_ma/>
+			<ct08b_tinh_ten/>
+			<ct09_cqt_ma/>
+			<ct09_cqt_ten/>
+			<ct10/>
+			<ct11/>
+			<ct12/>
+			<ct13/>
+			<ct14/>
+		</NDungPhanBoTuTienLuong>
+		<ct15/>
+		<ct16/>
+		<ct17/>
+		<ct18/>
+		<ct19/>
+	</PhanBoTuTienLuong>
+	<PhanBoTuTrungThuong>
+		<NDungPhanBoTuTrungThuong id="String">
+			<stt/>
+			<loai/>
+			<ct21/>
+			<ct21a_huyen_ma/>
+			<ct21a_huyen_ten/>
+			<ct21b_tinh_ma/>
+			<ct21b_tinh_ten/>
+			<ct22_cqt_ma/>
+			<ct22_cqt_ten/>
+			<ct23/>
+			<ct24/>
+		</NDungPhanBoTuTrungThuong>
+		<ct25/>
+		<ct26/>
+	</PhanBoTuTrungThuong>
+</PLuc_05_1_PBT_KK_TNCN>

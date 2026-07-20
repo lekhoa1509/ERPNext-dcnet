@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by ThanhDX (FSS - HN) -->
+<!ATTLIST Cell
+	CellID ID #REQUIRED
+	CellID2 CDATA #REQUIRED
+	FirstCell CDATA #IMPLIED
+	MCT CDATA #IMPLIED
+	Caption CDATA #IMPLIED
+	Value CDATA #REQUIRED
+	StatusID CDATA #IMPLIED
+	Encode CDATA #IMPLIED
+	Receive CDATA #IMPLIED
+	PageBreak CDATA #IMPLIED
+>
+<!ELEMENT Dynamic (#PCDATA)>
+<!ELEMENT First (#PCDATA)>
+<!ELEMENT Cell (#PCDATA)>
+<!ELEMENT Cells (Cell+)>
+<!ATTLIST Sections
+	Version CDATA #IMPLIED
+>
+<!ATTLIST Section
+	Dynamic CDATA #REQUIRED
+	MaxRows CDATA #REQUIRED
+	Receive CDATA #IMPLIED
+	DateKHBS CDATA #IMPLIED
+	loaiKHBS CDATA #IMPLIED
+>
+<!ELEMENT Section (Cells+)>
+<!ELEMENT Sections (Section+)>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>So Sánh Số Liệu Đầu Kỳ — DCNET vs MISA</title>
+<style>
+  :root {
+    --ground: #0F1923;
+    --surface: #162030;
+    --card: #1C2B3A;
+    --border: #253545;
+    --text: #E8F0F7;
+    --muted: #7A94A8;
+    --accent: #00C2B2;
+    --success: #2ECC71;
+    --warn: #F5A623;
+    --danger: #E84040;
+    --dcnet: #00C2B2;
+    --misa: #8B63C9;
+    --file: #4A90D9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--ground); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+
+  .header { background: linear-gradient(135deg, #0A2540 0%, #162030 100%); border-bottom: 1px solid var(--border); padding: 28px 36px 22px; }
+  .header-badge { background: rgba(0,194,178,.15); border: 1px solid rgba(0,194,178,.3); color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+  .header h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .header p { color: var(--muted); font-size: 13px; }
+  .header-meta { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
+  .meta-chip { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 20px; padding: 4px 11px; font-size: 12px; color: var(--muted); }
+  .meta-chip strong { color: var(--text); }
+
+  .verdict { display: grid; grid-template-columns: 1fr 1fr; margin: 0 36px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--border); gap: 1px; }
+  .verdict-panel { background: var(--card); padding: 18px 22px; display: flex; align-items: center; gap: 14px; }
+  .verdict-icon { font-size: 28px; flex-shrink: 0; }
+  .verdict-label { font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 3px; }
+  .verdict-value { font-size: 20px; font-weight: 700; }
+  .verdict-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .win .verdict-value { color: var(--success); }
+  .lose .verdict-value { color: var(--danger); }
+
+  .main { padding: 28px 36px; }
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
+  .compare-table thead th { padding: 12px 16px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: rgba(255,255,255,.03); border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .compare-table thead th:not(:first-child) { text-align: right; }
+  .col-file { color: var(--file); }
+  .col-dcnet { color: var(--dcnet); }
+  .col-misa { color: var(--misa); }
+
+  .data-row { border-bottom: 1px solid rgba(255,255,255,.04); cursor: pointer; transition: background .15s; }
+  .data-row:hover { background: rgba(0,194,178,.05); }
+  .data-row:last-child { border-bottom: none; }
+  .data-row.active { background: rgba(0,194,178,.07); }
+  .data-row td { padding: 14px 16px; vertical-align: top; }
+  .data-row td:not(:first-child) { text-align: right; }
+  .row-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; display: flex; align-items: center; gap: 6px; }
+  .row-chevron { font-size: 10px; color: var(--muted); transition: transform .2s; display: inline-block; }
+  .data-row.active .row-chevron { transform: rotate(90deg); color: var(--dcnet); }
+  .row-account { font-size: 11px; color: var(--muted); }
+  .field-file { display: inline-flex; align-items: center; gap: 4px; background: rgba(90,58,138,.15); border: 1px solid rgba(90,58,138,.3); color: #9B77D3; font-size: 10px; padding: 2px 7px; border-radius: 3px; margin-top: 4px; font-family: monospace; }
+  .amount { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .amount-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .match-ok   { color: var(--success); font-size: 11px; font-weight: 700; margin-top: 3px; }
+  .match-warn { color: var(--warn);    font-size: 11px; font-weight: 700; margin-top: 3px; }
+  .match-bad  { color: var(--danger);  font-size: 11px; font-weight: 700; margin-top: 3px; }
+  .match-na   { color: var(--muted);   font-size: 11px; margin-top: 3px; }
+  .capture-bar { margin-top: 5px; height: 3px; background: rgba(255,255,255,.08); border-radius: 2px; overflow: hidden; }
+  .capture-fill { height: 100%; border-radius: 2px; }
+  .fill-dcnet { background: var(--dcnet); }
+  .fill-misa  { background: var(--misa); }
+
+  .detail-row { display: none; }
+  .detail-row.open { display: table-row; }
+  .detail-row td { padding: 0 16px 14px; }
+  .detail-inner { background: rgba(0,0,0,.25); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .detail-inner .dtab { width: 100%; border-collapse: collapse; }
+  .detail-inner .dtab thead th { padding: 8px 12px; font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); background: rgba(255,255,255,.03); border-bottom: 1px solid var(--border); text-align: right; }
+  .detail-inner .dtab thead th:first-child { text-align: left; }
+  .detail-inner .dtab tbody td { padding: 6px 12px; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,.03); text-align: right; font-variant-numeric: tabular-nums; }
+  .detail-inner .dtab tbody td:first-child { text-align: left; color: var(--text); }
+  .detail-inner .dtab tbody tr:last-child td { border-bottom: none; }
+  .detail-inner .dtab tbody tr:hover { background: rgba(255,255,255,.02); }
+  .dtab-credit { color: var(--muted); }
+  .dtab-debit  { color: var(--dcnet); }
+  .detail-link { display: inline-flex; align-items: center; gap: 5px; margin: 8px 12px; padding: 5px 10px; background: rgba(0,194,178,.1); border: 1px solid rgba(0,194,178,.25); border-radius: 5px; color: var(--dcnet); font-size: 11px; font-weight: 600; text-decoration: none; cursor: pointer; }
+  .detail-link:hover { background: rgba(0,194,178,.18); }
+
+  .score-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  .score-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; position: relative; overflow: hidden; }
+  .score-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .score-card.dcnet::before { background: var(--dcnet); }
+  .score-card.misa::before  { background: var(--misa); }
+  .score-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 10px; }
+  .score-name.dcnet { color: var(--dcnet); }
+  .score-name.misa  { color: var(--misa); }
+  .score-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+  .score-metric { font-size: 12px; color: var(--muted); }
+  .sv-ok { color: var(--success); font-size: 13px; font-weight: 700; }
+  .sv-warn { color: var(--warn); font-size: 13px; font-weight: 700; }
+  .sv-bad { color: var(--danger); font-size: 13px; font-weight: 700; }
+  .score-divider { height: 1px; background: var(--border); margin: 7px 0; }
+
+  .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  .analysis-card { background: var(--card); border: 1px solid var(--border); border-left: 3px solid; border-radius: 0 8px 8px 0; padding: 14px 16px; }
+  .analysis-card.warn   { border-left-color: var(--warn); }
+  .analysis-card.info   { border-left-color: var(--dcnet); }
+  .analysis-card.danger { border-left-color: var(--danger); }
+  .analysis-card.ok     { border-left-color: var(--success); }
+  .ac-title { font-size: 12px; font-weight: 700; margin-bottom: 5px; }
+  .ac-body  { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .ac-body strong { color: var(--text); }
+
+  .rec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .rec-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+  .rec-num   { font-size: 22px; font-weight: 900; color: rgba(255,255,255,.07); line-height: 1; margin-bottom: 6px; }
+  .rec-title { font-size: 12px; font-weight: 700; margin-bottom: 5px; }
+  .rec-body  { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  .notes { background: rgba(255,255,255,.02); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; font-size: 12px; color: var(--muted); line-height: 1.7; }
+  .notes strong { color: var(--text); }
+  .notes code { background: rgba(255,255,255,.07); padding: 1px 5px; border-radius: 3px; font-size: 11px; }
+
+  .faq-box { background: #0D1F35; border: 1px solid #1E3A55; border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
+  .faq-header { background: rgba(245,166,35,.08); border-bottom: 1px solid #1E3A55; padding: 14px 20px; display: flex; align-items: center; gap: 10px; }
+  .faq-header-icon { font-size: 20px; }
+  .faq-header-text { font-size: 13px; font-weight: 700; color: var(--warn); }
+  .faq-body { padding: 20px; }
+  .faq-q { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 14px; }
+  .faq-answer { display: flex; flex-direction: column; gap: 10px; }
+
+  .flow { display: flex; align-items: center; gap: 0; margin: 16px 0; flex-wrap: wrap; }
+  .flow-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; min-width: 160px; }
+  .flow-box.highlight  { border-color: var(--dcnet); background: rgba(0,194,178,.08); }
+  .flow-box.highlight2 { border-color: var(--warn);  background: rgba(245,166,35,.08); }
+  .flow-box.result     { border-color: #4A90D9;       background: rgba(74,144,217,.08); }
+  .flow-label { font-size: 10px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 4px; }
+  .flow-val { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .flow-sub { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .flow-arrow { font-size: 22px; color: var(--border); padding: 0 12px; flex-shrink: 0; }
+  .flow-eq    { font-size: 22px; color: var(--muted);  padding: 0 12px; flex-shrink: 0; font-weight: 300; }
+
+  .explain-row { display: flex; gap: 8px; align-items: flex-start; }
+  .explain-num { background: rgba(245,166,35,.15); color: var(--warn); border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .explain-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .explain-text strong { color: var(--text); }
+
+  @media (max-width: 900px) {
+    .header, .main { padding-left: 16px; padding-right: 16px; }
+    .verdict { margin-left: 16px; margin-right: 16px; grid-template-columns: 1fr; }
+    .score-grid, .analysis-grid, .rec-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">Nội bộ · DCNET Flow</div>
+  <h1>So Sánh Số Liệu Đầu Kỳ</h1>
+  <p>Phân tích kết quả import opening balance từ MISA Migrate Hub và DCNET Import Tool — cùng bộ file Excel gốc</p>
+  <div class="header-meta">
+    <div class="meta-chip">📅 Ngày phân tích <strong>24/06/2026</strong></div>
+    <div class="meta-chip">📁 Nguồn <strong>/File migrate/</strong></div>
+    <div class="meta-chip">🖥️ Site <strong>flow.local (ERPNext v16)</strong></div>
+    <div class="meta-chip">📆 Kỳ <strong>01/01/2026</strong></div>
+    <div class="meta-chip">💡 <strong>Click vào dòng để xem chi tiết</strong></div>
+  </div>
+</div>
+
+<div class="verdict">
+  <div class="verdict-panel win">
+    <div class="verdict-icon">✅</div>
+    <div>
+      <div class="verdict-label">DCNET Import Tool</div>
+      <div class="verdict-value">Chính xác 100%</div>
+      <div class="verdict-sub">Khớp hoàn toàn với file gốc — AR, AP, Tạm ứng, Tồn quỹ đều đúng</div>
+    </div>
+  </div>
+  <div class="verdict-panel lose">
+    <div class="verdict-icon">⚠️</div>
+    <div>
+      <div class="verdict-label">MISA Migrate Hub</div>
+      <div class="verdict-value">Thiếu 7.85 tỷ</div>
+      <div class="verdict-sub">Bỏ sót 11.8% AR (586M) và 70.1% AP (7.27B) so với file gốc</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="section-label">So sánh chi tiết <span style="color:var(--accent);font-size:10px;text-transform:none;letter-spacing:0">▶ click dòng để drill-down</span></div>
+
+  <table class="compare-table" id="mainTable">
+    <thead>
+      <tr>
+        <th style="width:30%">Chỉ tiêu</th>
+        <th class="col-file" style="width:22%">📄 File Gốc (Excel)</th>
+        <th class="col-dcnet" style="width:24%">🔵 DCNET Import Tool</th>
+        <th class="col-misa" style="width:24%">🟣 MISA Migrate Hub</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <div class="section-label">❓ Giải thích — Tại sao Sổ Cái hiển thị 30.4 tỷ?</div>
+  <div class="faq-box">
+    <div class="faq-header">
+      <div class="faq-header-icon">⚠️</div>
+      <div class="faq-header-text">Câu hỏi thường gặp khi trình bày cho sếp: "HTML nói 4.96B nhưng vào ERPNext Sổ Chi Tiết TK 131 thấy 30.4B — số nào đúng?"</div>
+    </div>
+    <div class="faq-body">
+      <div class="faq-q">📌 Cả hai số đều đúng — chúng đo hai thứ khác nhau</div>
+
+      <div class="flow">
+        <div class="flow-box highlight">
+          <div class="flow-label">Số dư đầu kỳ (từ file)</div>
+          <div class="flow-val" style="color:var(--dcnet)">4,962,368,024 đ</div>
+          <div class="flow-sub">Công nợ tồn từ năm 2025<br>→ 69 KH chưa trả tiền cũ<br>→ Nhập qua JE 01/01/2026</div>
+        </div>
+        <div class="flow-arrow">＋</div>
+        <div class="flow-box highlight2">
+          <div class="flow-label">Phát sinh trong năm 2026</div>
+          <div class="flow-val" style="color:var(--warn)">~30,335,147,465 đ</div>
+          <div class="flow-sub">Doanh thu bán hàng mới<br>→ 1,418 hóa đơn (Jan–Apr)<br>→ KH chưa thanh toán</div>
+        </div>
+        <div class="flow-arrow">－</div>
+        <div class="flow-box" style="border-color:var(--muted)">
+          <div class="flow-label">KH ứng trước (131 Có)</div>
+          <div class="flow-val" style="color:var(--muted)">4,883,956,820 đ</div>
+          <div class="flow-sub">4 KH trả dư<br>(INDIENET + KT DX)</div>
+        </div>
+        <div class="flow-eq">＝</div>
+        <div class="flow-box result">
+          <div class="flow-label">Sổ cái TK 131 (24/06/2026)</div>
+          <div class="flow-val" style="color:#4A90D9">30,413,558,669 đ</div>
+          <div class="flow-sub">Tổng AR hiện tại<br>= cả cũ lẫn mới chưa thu</div>
+        </div>
+      </div>
+
+      <div class="faq-answer">
+        <div class="explain-row">
+          <div class="explain-num">1</div>
+          <div class="explain-text"><strong>4,962,368,024 đ</strong> trong báo cáo này = số dư công nợ KH <strong>tồn đọng từ trước 01/01/2026</strong> (năm 2025 trở về trước chưa thu). Đây là con số cần import đầu kỳ — mục tiêu của bảng so sánh này. DCNET nhập đúng 100%, MISA thiếu 586M.</div>
+        </div>
+        <div class="explain-row">
+          <div class="explain-num">2</div>
+          <div class="explain-text"><strong>30,413,558,669 đ</strong> trong Sổ chi tiết TK 131 = tổng AR cộng dồn <strong>tính đến ngày xem báo cáo</strong>. Bao gồm cả nợ cũ (4.96B) lẫn 1,418 hóa đơn bán hàng mới phát sinh từ Jan–Apr 2026 (~30.3B) trừ đi 4.88B KH ứng trước.</div>
+        </div>
+        <div class="explain-row">
+          <div class="explain-num">3</div>
+          <div class="explain-text">Để <strong>kiểm tra chỉ phần đầu kỳ</strong> trong ERPNext: mở thẳng Journal Entry đầu kỳ → xem từng dòng → đối chiếu với cột "File Gốc" trong bảng trên. Tổng Nợ TK 131 = 4,962,368,024 đ sẽ khớp chính xác.</div>
+        </div>
+        <div class="explain-row">
+          <div class="explain-num">4</div>
+          <div class="explain-text">Hoặc chạy báo cáo <strong>Aged Receivable đặt ngày = 31/12/2025</strong> → chỉ thấy công nợ cũ, không lẫn hóa đơn năm 2026.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;padding:12px 14px;background:rgba(0,194,178,.06);border:1px solid rgba(0,194,178,.2);border-radius:7px;font-size:12px;line-height:1.7">
+        <strong style="color:var(--dcnet)">🔗 Link kiểm tra nhanh:</strong><br>
+        • <a href="http://127.0.0.1:8000/desk/query-report/Accounts%20Receivable?company=C%C3%94NG%20TY%20C%E1%BB%94%20PH%E1%BA%A6N%20VI%E1%BB%84N%20TH%C3%94NG%20DCNET&report_date=2026-01-01" target="_blank" style="color:var(--dcnet)">Aged Receivable ngày 01/01/2026</a> — xem AR đầu kỳ theo từng khách hàng<br>
+        • <a href="http://127.0.0.1:8000/desk/query-report/Accounts%20Payable?company=C%C3%94NG%20TY%20C%E1%BB%94%20PH%E1%BA%A6N%20VI%E1%BB%84N%20TH%C3%94NG%20DCNET&report_date=2026-01-01" target="_blank" style="color:var(--dcnet)">Aged Payable ngày 01/01/2026</a> — xem AP đầu kỳ theo từng nhà cung cấp
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Đánh giá tổng hợp</div>
+  <div class="score-grid">
+    <div class="score-card dcnet">
+      <div class="score-name dcnet">🔵 DCNET Import Tool</div>
+      <div class="score-row"><span class="score-metric">Phải thu KH (TK 131 DR)</span><span class="sv-ok">100% ✓</span></div>
+      <div class="score-row"><span class="score-metric">KH ứng trước (TK 131 CR)</span><span class="sv-ok">100% ✓</span></div>
+      <div class="score-row"><span class="score-metric">Phải trả NCC (TK 331 CR)</span><span class="sv-ok">100% ✓</span></div>
+      <div class="score-row"><span class="score-metric">Tạm ứng NCC (TK 331 DR)</span><span class="sv-ok">100% ✓</span></div>
+      <div class="score-row"><span class="score-metric">Tồn quỹ (TK 111+112)</span><span class="sv-ok">100% ✓</span></div>
+      <div class="score-divider"></div>
+      <div class="score-row"><span class="score-metric">Chênh lệch với file gốc</span><span class="sv-ok">0 đồng</span></div>
+      <div class="score-row"><span class="score-metric">GL rows (131 + 331 + tiền)</span><span class="sv-ok">73 + 106 + 6 = 185</span></div>
+    </div>
+    <div class="score-card misa">
+      <div class="score-name misa">🟣 MISA Migrate Hub</div>
+      <div class="score-row"><span class="score-metric">Phải thu KH (TK 131 DR)</span><span class="sv-warn">88.2% ▲ thiếu 586M</span></div>
+      <div class="score-row"><span class="score-metric">KH ứng trước (TK 131 CR)</span><span class="sv-warn">Không xác định</span></div>
+      <div class="score-row"><span class="score-metric">Phải trả NCC (TK 331 CR)</span><span class="sv-bad">29.9% ▲ thiếu 7.27B</span></div>
+      <div class="score-row"><span class="score-metric">Tạm ứng NCC (TK 331 DR)</span><span class="sv-warn">Không xác định</span></div>
+      <div class="score-row"><span class="score-metric">Tồn quỹ (TK 111+112)</span><span class="sv-warn">Không xác định</span></div>
+      <div class="score-divider"></div>
+      <div class="score-row"><span class="score-metric">Chênh lệch tối thiểu</span><span class="sv-bad">≥ 7,852,494,837 đ</span></div>
+      <div class="score-row"><span class="score-metric">Tổng docs import</span><span class="sv-warn">6,340 docs (31 files)</span></div>
+    </div>
+  </div>
+
+  <div class="section-label">Phân tích nguyên nhân lệch số</div>
+  <div class="analysis-grid">
+    <div class="analysis-card danger">
+      <div class="ac-title">⚠️ MISA AP: Chỉ import ~30% nhà cung cấp</div>
+      <div class="ac-body">File gốc có <strong>93 NCC</strong> với tổng phải trả <strong>10.37 tỷ</strong>. MISA Migrate Hub chỉ import được <strong>~30 NCC (~3.1 tỷ)</strong>. Khả năng nhất: MISA chỉ tạo Supplier từ file PI (hóa đơn mua vào), bỏ qua NCC chỉ có số dư đầu kỳ.</div>
+    </div>
+    <div class="analysis-card warn">
+      <div class="ac-title">🔍 MISA AR: 5 khách hàng không mapping được</div>
+      <div class="ac-body">5 KH bị lỗi <strong>Missing Mapping</strong>: DCCONSNT, DKH.0811.22, GOLDENWAY, MOBIFONEHAIDUONG, NAMKHANG. MISA không tạo được Customer record → không có GL entry → thiếu <strong>586,403,180 đ</strong>.</div>
+    </div>
+    <div class="analysis-card info">
+      <div class="ac-title">✅ DCNET: Đọc trực tiếp từ file, không filter</div>
+      <div class="ac-body">DCNET Import Tool đọc từng dòng Excel, tính <strong>net = Dư Nợ − Dư Có</strong> per party, tạo 1 JE với 185 dòng GL. Không có logic filter → không bỏ sót. 69 KH và 93 NCC đều ghi đầy đủ.</div>
+    </div>
+    <div class="analysis-card ok">
+      <div class="ac-title">💡 Dư Có TK 131: 4.88B — 4 KH trả dư</div>
+      <div class="ac-body">4 KH có Dư Có trong TK 131: <strong>INDIENET INC. (2.86B)</strong> và <strong>KT DX VIỆT NAM (2.01B)</strong>. Đây là khoản DCNET nợ lại KH đã ứng trước. Cần xem xét reclassify hoặc hoàn tiền.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Khuyến nghị</div>
+  <div class="rec-grid">
+    <div class="rec-card"><div class="rec-num">01</div><div class="rec-title">Dùng DCNET cho opening balance</div><div class="rec-body">DCNET Import Tool đạt 100% accuracy. Nên dùng DCNET để import công nợ đầu kỳ, không dùng MISA Migrate Hub cho bước này.</div></div>
+    <div class="rec-card"><div class="rec-num">02</div><div class="rec-title">Tạo 5 Customer record thiếu</div><div class="rec-body">Tạo thủ công 5 Customer: DCCONSNT, DKH.0811.22, GOLDENWAY, MOBIFONEHAIDUONG, NAMKHANG để bổ sung 586M AR còn thiếu nếu cần.</div></div>
+    <div class="rec-card"><div class="rec-num">03</div><div class="rec-title">Xử lý Tạm ứng NCC 371M</div><div class="rec-body">371M Dư Nợ TK 331 đã vào JE. Cần xem xét reclassify sang TK 141 để phản ánh đúng bản chất tạm ứng cho nhà cung cấp.</div></div>
+    <div class="rec-card"><div class="rec-num">04</div><div class="rec-title">Kiểm tra 4.88B KH ứng trước</div><div class="rec-body">4 KH Dư Có lớn (INDIENET 2.86B, KT DX 2.01B). Cần xác nhận tính hợp lệ và cân nhắc reclassify hoặc hoàn tiền.</div></div>
+    <div class="rec-card"><div class="rec-num">05</div><div class="rec-title">Điều tra MISA AP filter logic</div><div class="rec-body">Trace code MISA Migrate Hub để hiểu tại sao 70% NCC bị bỏ qua. Nếu phụ thuộc file PI/SI thì cần import đầy đủ trước khi chạy opening balance.</div></div>
+    <div class="rec-card"><div class="rec-num">06</div><div class="rec-title">Test end-to-end với kế toán</div><div class="rec-body">Submit 1,418 SI và 2,354 PI trong DB để verify GL TK 5xxx/6xxx. Sau đó chạy Aged Receivable / Payable report kiểm tra tổng thể.</div></div>
+  </div>
+
+  <div class="section-label">Phương pháp &amp; Ghi chú</div>
+  <div class="notes">
+    <strong>Nguồn dữ liệu:</strong> File gốc đọc bằng Python/openpyxl từ <code>/workspace/File migrate/</code>. Số liệu DCNET GL query từ <code>tabGL Entry</code> (flow.local) — chỉ có Opening Balance ngày 01/01/2026 (chưa import hóa đơn). Số liệu MISA GL ghi nhận từ phiên phân tích sau khi MISA Migrate Hub import 6,340 documents.<br><br>
+    <strong>Phạm vi:</strong> Chỉ so sánh số liệu đầu kỳ (opening balance) — TK 131, 331, 111, 112. DB hiện có thêm 1,418 SI và 2,354 PI từ MISA invoice migration (Jan–May 2026) — là giao dịch thường, không thuộc phạm vi này.<br><br>
+    <strong>Net TK 131:</strong> DR = 4.96B (69 KH có phải thu) | CR = 4.88B (4 KH ứng trước) | Net GL = 78,411,204 đ. Để đánh giá AR thực tế dùng DR side (4.96B), không phải net.
+  </div>
+</div>
+
+<script>
+// ── DATA từ ERPNext DB (flow.local · GL Entry · 01/01/2026) ───────────────
+const RAW = {"ar":[{"party":"CÔNG TY TNHH MẠNG LƯỚI SOFTNET","debit":1385788405,"credit":0},{"party":"CÔNG TY TNHH ROCHDALE SPEARS","debit":401040000,"credit":0},{"party":"CÔNG TY CỔ PHẦN CÔNG NGHỆ MOBIFONE TOÀN CẦU","debit":345088678,"credit":0},{"party":"CÔNG TY CỔ PHẦN SÁNG TẠO TRUYỀN THÔNG VIỆT NAM","debit":311244475,"credit":0},{"party":"CÔNG TY CỔ PHẦN CÔNG NGHỆ SỐ 3C","debit":257695002,"credit":0},{"party":"CÔNG TY CỔ PHẦN HẠ TẦNG VIỄN THÔNG CMC","debit":200200000,"credit":0},{"party":"CHI NHÁNH TẠI TP HỒ CHÍ MINH CÔNG TY CỔ PHẦN CÔNG NGHỆ MOBIFONE TOÀN CẦU (TP HÀ NỘI)","debit":129360000,"credit":0},{"party":"CÔNG TY CỔ PHẦN SONHAGROUP","debit":128480000,"credit":0},{"party":"CÔNG TY TNHH KHU DU LỊCH SINH THÁI BIỂN BÃI BẮC","debit":122210000,"credit":0},{"party":"CÔNG TY CỔ PHẦN TRUYỀN THÔNG HANEL","debit":104967500,"credit":0},{"party":"CÔNG TY CỔ PHẦN HẠ TẦNG VIỄN THÔNG SAO VÀNG","debit":97796464,"credit":0},{"party":"CÔNG TY TNHH VIỄN THÔNG MINH TÚ","debit":91300000,"credit":0},{"party":"CÔNG TY CỔ PHẦN NETNAM","debit":86350000,"credit":0},{"party":"CÔNG TY TNHH NUMBER ONE HÀ NAM","debit":82744200,"credit":0},{"party":"CÔNG TY TNHH NUMBER ONE HẬU GIANG","debit":82744200,"credit":0},{"party":"CÔNG TY TNHH NUMBER ONE CHU LAI","debit":82744200,"credit":0},{"party":"CÔNG TY CỔ PHẦN DỊCH VỤ - DỮ LIỆU CÔNG NGHỆ THÔNG TIN VI NA","debit":50710000,"credit":0},{"party":"CHI NHÁNH CÔNG TY CỔ PHẦN CHĂN NUÔI C.P. VIỆT NAM - NHÀ MÁY CHẾ BIẾN SẢN PHẨM THỊT HÀ NỘI","debit":44000000,"credit":0},{"party":"CÔNG TY TNHH ĐẦU TƯ VÀ PHÁT TRIỂN FLC HẠ LONG","debit":44000000,"credit":0},{"party":"CÔNG TY TNHH DAEWON CHEMICAL VINA.","debit":39600000,"credit":0},{"party":"CÔNG TY TRÁCH NHIỆM HỮU HẠN L.C.S","debit":38527444,"credit":0},{"party":"CÔNG TY TNHH ĐIỆN TỬ - NGHE NHÌN BOE VIỆT NAM","debit":38500000,"credit":0},{"party":"CÔNG TY CỔ PHẦN CHĂN NUÔI C.P. VIỆT NAM - CHI NHÁNH NM TẠI HẢI DƯƠNG","debit":38500000,"credit":0},{"party":"CÔNG TY CỔ PHẦN HTC VIỄN THÔNG QUỐC TẾ","debit":36960000,"credit":0},{"party":"VIỄN THÔNG BÌNH DƯƠNG","debit":36693509,"credit":0},{"party":"CÔNG TY TNHH ĐẦU TƯ XÂY DỰNG VIỄN THÔNG NAM KHANG","debit":35684652,"credit":0},{"party":"CÔNG TY TNHH DỊCH VỤ PHÁT TRIỂN PHẦN MỀM QUỐC TẾ","debit":33000000,"credit":0},{"party":"BÁO TUỔI TRẺ","debit":31900000,"credit":0},{"party":"CÔNG TY CỔ PHẦN ĐẦU TƯ VÀ PHÁT TRIỂN DỊCH VỤ HẠ TẦNG VIỄN THÔNG","debit":31591065,"credit":0},{"party":"CÔNG TY TNHH VIỄN THÔNG DI ĐỘNG TOÀN CẦU","debit":31350000,"credit":0},{"party":"CÔNG TY TNHH GIẢI PHÁP PHẦN MỀM TƯỜNG MINH","debit":27500000,"credit":0},{"party":"CÔNG TY TNHH CISBOX","debit":27264600,"credit":0},{"party":"CÔNG TY CỔ PHẦN VIỄN THÔNG QUỐC GIA VIỆT NAM","debit":26400000,"credit":0},{"party":"CÔNG TY CỔ PHẦN CHĂN NUÔI C.P.VIỆT NAM - CHI NHÁNH 3 TẠI ĐỒNG NAI","debit":26400000,"credit":0},{"party":"CÔNG TY TRÁCH NHIỆM HỮU HẠN DK VINA","debit":26400000,"credit":0},{"party":"CÔNG TY TNHH CÔNG NGHỆ ĐIỆN TỬ - NGHE NHÌN BOE (VIỆT NAM)","debit":25940200,"credit":0},{"party":"CÔNG TY TNHH BẢO HIỂM NHÂN THỌ FWD VIỆT NAM","debit":25850000,"credit":0},{"party":"CÔNG TY CỔ PHẦN NAM TRƯỜNG SƠN HÀ NỘI","debit":24138000,"credit":0},{"party":"NGÂN HÀNG THƯƠNG MẠI CỔ PHẦN ĐẦU TƯ VÀ PHÁT TRIỂN VIỆT NAM - CHI NHÁNH THÀNH PHỐ HỒ CHÍ MINH","debit":23540000,"credit":0},{"party":"CÔNG TY CỔ PHẦN CHĂN NUÔI C.P. VIỆT NAM - CHI NHÁNH NM 3 TẠI HÀ NỘI","debit":22000000,"credit":0},{"party":"TRUNG TÂM MẠNG LƯỚI MOBIFONE MIỀN NAM-CHI NHÁNH TỔNG CÔNG TY VIỄN THÔNG MOBIFONE","debit":20590580,"credit":0},{"party":"CÔNG TY CỔ PHẦN CÔNG NGHỆ TIÊN PHÁT","debit":17650380,"credit":0},{"party":"VĂN PHÒNG ĐIỀU HÀNH MURPHY CUU LONG TAY OIL CO., LTD TẠI THÀNH PHỐ HỒ CHÍ MINH (LÔ 15-2/17)","debit":17600000,"credit":0},{"party":"CÔNG TY CỔ PHẦN XÂY DỰNG VÀ NỘI THẤT DCCONS","debit":17424000,"credit":0},{"party":"VNPT thành phố Hồ Chí Minh","debit":17160000,"credit":0},{"party":"CÔNG TY CỔ PHẦN CHĂN NUÔI C.P. VIỆT NAM - CHI NHÁNH 3 TẠI THÀNH PHỐ HỒ CHÍ MINH","debit":16555000,"credit":0},{"party":"MOBIFONE THÀNH PHỐ HỒ CHÍ MINH - CHI NHÁNH TỔNG CÔNG TY VIỄN THÔNG MOBIFONE","debit":13750000,"credit":0},{"party":"TRUNG TÂM DỊCH VỤ VIỄN THÔNG - CHI NHÁNH TỔNG CÔNG TY CÔNG NGHỆ - VIỄN THÔNG TOÀN CẦU","debit":13200000,"credit":0},{"party":"CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ MẠNG LƯỚI THÔNG MINH","debit":13200000,"credit":0},{"party":"CÔNG TY CỔ PHẦN CÔNG NGHỆ ZCOM VIỆT NAM","debit":11880000,"credit":0},{"party":"TRUNG TÂM TRUYỀN HÌNH KHÁCH SẠN - CÔNG TY CỔ PHẦN TỔNG CÔNG TY TRUYỀN HÌNH CÁP VIỆT NAM","debit":11550000,"credit":0},{"party":"MOBIFONE TỈNH HẢI DƯƠNG","debit":10277410,"credit":0},{"party":"CÔNG TY CỔ PHẦN DỆT MAY SÀI GÒN","debit":8712000,"credit":0},{"party":"CÔNG TY TNHH GIẢI PHÁP MẠNG EDT","debit":8250000,"credit":0},{"party":"CÔNG TY TNHH UNICO LOGISTICS VIETNAM","debit":7560000,"credit":0},{"party":"CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VIỄN THÔNG CÔNG NGHỆ MỚI","debit":6820000,"credit":0},{"party":"CÔNG TY CỔ PHẦN ĐẦU TƯ PHÁT TRIỂN HẠ TẦNG VÀ DỊCH VỤ VIỄN THÔNG KINH BẮC","debit":6600000,"credit":0},{"party":"VIETTEL THÀNH PHỐ HỒ CHÍ MINH - CHI NHÁNH TẬP ĐOÀN CÔNG NGHIỆP - VIỄN THÔNG QUÂN ĐỘI","debit":6600000,"credit":0},{"party":"CÔNG TY CỔ PHẦN DỊCH VỤ CIRCO","debit":5500000,"credit":0},{"party":"CÔNG TY CỔ PHẦN BỆNH VIỆN QUỐC TẾ CHẤN THƯƠNG CHỈNH HÌNH SÀI GÒN","debit":5500000,"credit":0},{"party":"CHI NHÁNH CÔNG TY CỔ PHẦN HTC VIỄN THÔNG QUỐC TẾ","debit":5119000,"credit":0},{"party":"CÔNG TY CỔ PHẦN FFC","debit":4950000,"credit":0},{"party":"CHI NHÁNH - CÔNG TY TNHH MỘT THÀNH VIÊN VIỄN THÔNG QUỐC TẾ FPT","debit":4400000,"credit":0},{"party":"CÔNG TY TNHH MỘT THÀNH VIÊN ĐẦU TƯ HÙNG SƠN","debit":4400000,"credit":0},{"party":"CÔNG TY CỔ PHẦN GIẢI PHÁP CNEXT","debit":4368100,"credit":0},{"party":"CÔNG TY CỔ PHẦN DEPOT SÀI GÒN","debit":2750000,"credit":0},{"party":"CÔNG TY CỔ PHẦN ĐẦU TƯ GIÁO DỤC QUỐC TẾ EDU TEST","debit":1650000,"credit":0},{"party":"CÔNG TY CỔ PHẦN XÂY DỰNG KIDSHOUSE","debit":1488960,"credit":0},{"party":"CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VIỄN THÔNG TTC","debit":660000,"credit":0},{"party":"HỒ LÊ THÁI ANH / NGUYỄN HỒNG PHÁT","debit":0,"credit":1000},{"party":"CÔNG TY CỔ PHẦN PHÁT TRIỂN VÀ ĐẦU TƯ QHOME","debit":0,"credit":14421000},{"party":"CÔNG TY TNHH KT DX VIỆT NAM","debit":0,"credit":2007937460},{"party":"INDIENET INC.","debit":0,"credit":2861597360}],"ap":[{"party":"CHI NHÁNH TẬP ĐOÀN BƯU CHÍNH VIỄN THÔNG VIỆT NAM (LOẠI HÌNH DOANH NGHIỆP: CÔNG TY TNHH) - VIỄN THÔNG THÀNH PHỐ HỒ CHÍ MINH","debit":0,"credit":1970355541},{"party":"CÔNG TY CỔ PHẦN GIẢI PHÁP TÍCH HỢP GNET","debit":0,"credit":1865358000},{"party":"CÔNG TY TNHH MẠNG LƯỚI SOFTNET","debit":0,"credit":1205136420},{"party":"CÔNG TY CỔ PHẦN HTC VIỄN THÔNG QUỐC TẾ","debit":0,"credit":655103464},{"party":"VIỄN THÔNG BÌNH DƯƠNG","debit":0,"credit":482492262},{"party":"CÔNG TY CỔ PHẦN HẠ TẦNG VIỄN THÔNG CMC","debit":0,"credit":397449842},{"party":"CÔNG TY TNHH CÔNG NGHỆ DỊCH VỤ THẾ KỶ 21","debit":0,"credit":360613387},{"party":"VIETTEL THÀNH PHỐ HỒ CHÍ MINH - CHI NHÁNH TẬP ĐOÀN CÔNG NGHIỆP - VIỄN THÔNG QUÂN ĐỘI","debit":0,"credit":257257609},{"party":"CÔNG TY TNHH CÔNG NGHỆ MẠNG THÀNH CÔNG","debit":0,"credit":248196960},{"party":"CÔNG TY CỔ PHẦN VIỄN THÔNG FPT","debit":0,"credit":243507309},{"party":"CÔNG TY CỔ PHẦN FFC","debit":0,"credit":202180000},{"party":"CÔNG TY CỔ PHẦN ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ NAM THỊNH PHÁT","debit":0,"credit":184889143},{"party":"CÔNG TY TNHH PHÚC ĐẠT CONNECT 2","debit":0,"credit":181639763},{"party":"CÔNG TY CỔ PHẦN ĐẦU TƯ VÀ KINH DOANH THƯƠNG MẠI MINH ĐỨC","debit":0,"credit":129850000},{"party":"CÔNG TY CỔ PHẦN VIỄN THÔNG QUỐC GIA VIỆT NAM","debit":0,"credit":109824000},{"party":"CÔNG TY CỔ PHẦN SERVERHUB","debit":0,"credit":106920000},{"party":"CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VÀ XÂY DỰNG NAM SAN","debit":0,"credit":97200000},{"party":"CÔNG TY TNHH METASERV","debit":0,"credit":96556935},{"party":"TRUNG TÂM CHUYỂN ĐỔI SỐ VÀ CÔNG NGHỆ CHIẾN LƯỢC ĐÀ NẴNG","debit":0,"credit":96387500},{"party":"CÔNG TY CỔ PHẦN XÂY DỰNG SỐ 5","debit":0,"credit":93246890},{"party":"CÔNG TY TNHH VIETTEL-CHT","debit":0,"credit":76570000},{"party":"CÔNG TY TNHH ĐẦU TƯ KINH DOANH HẠ TẦNG SCTV","debit":0,"credit":66000000},{"party":"TRUNG TÂM PHÁT TRIỂN HẠ TẦNG CÔNG NGHỆ THÔNG TIN ĐÀ NẴNG","debit":0,"credit":65587500},{"party":"CÔNG TY CỔ PHẦN SONHAGROUP","debit":0,"credit":52800000},{"party":"CHI NHÁNH CÔNG TY CỔ PHẦN DỊCH VỤ BƯU CHÍNH VIỄN THÔNG SÀI GÒN - TRUNG TÂM ĐIỆN THOẠI SPT","debit":0,"credit":48510000},{"party":"CÔNG TY CỔ PHẦN VIỄN THÔNG ĐÔNG ĐÔ","debit":0,"credit":48460752},{"party":"CHI NHÁNH TỔNG CÔNG TY ĐIỆN LỰC THÀNH PHỐ HỒ CHÍ MINH TNHH - CÔNG TY ĐIỆN LỰC SÀI GÒN","debit":0,"credit":47737734},{"party":"EPSILON TELECOMMUNICATIONS (SP) PTE. LTD.","debit":0,"credit":47488500},{"party":"CÔNG TY TNHH ĐẦU TƯ SÀI GÒN VIỆT MỸ","debit":0,"credit":47272001},{"party":"CÔNG TY CỔ PHẦN XÂY DỰNG CÔNG TRÌNH 545","debit":0,"credit":46570200},{"party":"TRUNG TÂM DỊCH VỤ VIỄN THÔNG - CHI NHÁNH TỔNG CÔNG TY CÔNG NGHỆ - VIỄN THÔNG TOÀN CẦU","debit":0,"credit":42680000},{"party":"CHI NHÁNH CÔNG TY CỔ PHẦN VIỄN THÔNG FPT","debit":0,"credit":40897257},{"party":"CÔNG TY CỔ PHẦN THƯƠNG MẠI - DỊCH VỤ ỨNG DỤNG DI ĐỘNG","debit":0,"credit":40031954},{"party":"CHI NHÁNH ĐÀ NẴNG - CÔNG TY CỔ PHẦN GIẢI PHÁP SỐ VÀ DỊCH VỤ VIỄN THÔNG","debit":0,"credit":38940000},{"party":"CÔNG TY CỔ PHẦN TRUYỀN HÌNH CÁP HÀ NỘI","debit":0,"credit":35700344},{"party":"CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ KHỞI NGHIỆP","debit":0,"credit":35200000},{"party":"CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ VIỄN THÔNG TTC","debit":0,"credit":32978603},{"party":"CÔNG TY TNHH SẢN XUẤT VÀ DỊCH VỤ THƯƠNG MẠI TRƯỜNG GIANG","debit":0,"credit":29937600},{"party":"CHI NHÁNH - CÔNG TY TNHH MỘT THÀNH VIÊN VIỄN THÔNG QUỐC TẾ FPT","debit":0,"credit":28930000},{"party":"CÔNG TY CỔ PHẦN CÔNG NGHỆ TIÊN PHÁT","debit":0,"credit":27854190},{"party":"CÔNG TY CỔ PHẦN CÔNG NGHỆ QI","debit":0,"credit":26400000},{"party":"BBIX HONG KONG PTE. LIMITED","debit":0,"credit":24622579},{"party":"CÔNG TY TNHH VIỄN THÔNG AD","debit":0,"credit":24189165},{"party":"HGC GLOBAL COMMUNICATIONS LIMITED","debit":0,"credit":22006579},{"party":"TỔNG CÔNG TY VIỄN THÔNG MOBIFONE","debit":0,"credit":21796033},{"party":"CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VIỄN THÔNG PHÚ HƯNG","debit":0,"credit":21264454},{"party":"CÔNG TY CỔ PHẦN CÔNG NGHỆ MẠNG VIỆT THÀNH CÔNG","debit":0,"credit":21183480},{"party":"CHI NHÁNH CÔNG TY CỔ PHẦN HẠ TẦNG VIỄN THÔNG CMC (TP. HÀ NỘI)","debit":0,"credit":20665510},{"party":"CÔNG TY TNHH XÂY DỰNG THƯƠNG MẠI HỒNG VIỆT","debit":0,"credit":19077300},{"party":"CÔNG TY TNHH MỘT THÀNH VIÊN PHÁT TRIỂN CÔNG VIÊN PHẦN MỀM QUANG TRUNG","debit":0,"credit":18370000},{"party":"NTT COM ASIA LIMITED","debit":0,"credit":17724048},{"party":"CÔNG TY CỔ PHẦN VIỄN THÔNG ACT","debit":0,"credit":17584234},{"party":"CÔNG TY CỔ PHẦN ĐẦU TƯ VÀ THƯƠNG MẠI G-TECH","debit":0,"credit":17449000},{"party":"CÔNG TY CỔ PHẦN THƯƠNG HIỆU VÀ TRUYỀN THÔNG QUỐC TẾ IBC","debit":0,"credit":16200000},{"party":"CÔNG TY CỔ PHẦN ĐỊA ỐC PHÚ ĐÔNG","debit":0,"credit":13770570},{"party":"DE-CIX MANAGEMENT GMBH","debit":0,"credit":13182774},{"party":"CÔNG TY CỔ PHẦN CÔNG NGHỆ VIỄN THÔNG VĂN LANG","debit":0,"credit":12119210},{"party":"CÔNG TY CỔ PHẦN DỊCH VỤ KỸ THUẬT BỒ CÂU","debit":0,"credit":10986768},{"party":"TRUNG TÂM DỊCH VỤ VIỆC LÀM THANH NIÊN CẦN THƠ","debit":0,"credit":9846600},{"party":"SINGAPORE INTERNET EXCHANGE LIMITED","debit":0,"credit":9844624},{"party":"CÔNG TY TNHH XÂY DỰNG VÀ THƯƠNG MẠI PHƯỢNG LONG","debit":0,"credit":9801000},{"party":"CÔNG TY TNHH DỊCH VỤ VÀ GIẢI PHÁP CÔNG NGHỆ THÔNG TIN J-TECH","debit":0,"credit":9240000},{"party":"CÔNG TY CỔ PHẦN ĐẦU TƯ VÔ TUYẾN TIÊN TIẾN","debit":0,"credit":9196000},{"party":"VIỄN THÔNG HÀ NỘI - CHI NHÁNH TẬP ĐOÀN BƯU CHÍNH VIỄN THÔNG VIỆT NAM","debit":0,"credit":9032541},{"party":"VIỄN THÔNG HƯNG YÊN - TẬP ĐOÀN BƯU CHÍNH VIỄN THÔNG VIỆT NAM","debit":0,"credit":8550000},{"party":"CÔNG TY CỔ PHẦN CÔNG NGHỆ ZCOM VIỆT NAM","debit":0,"credit":8250000},{"party":"HURRICANE ELECTRIC INTERNET SERVICE","debit":0,"credit":6443817},{"party":"CÔNG TY CỔ PHẦN TRUYỀN THÔNG VEGA","debit":0,"credit":5928000},{"party":"CÔNG TY CỔ PHẦN HAI BỐN BẢY","debit":0,"credit":5546627},{"party":"CÔNG TY CỔ PHẦN BẤT ĐỘNG SẢN THƯƠNG MẠI VÀ DỊCH VỤ THIÊN LỘC","debit":0,"credit":5354116},{"party":"CÔNG TY TÀI CHÍNH TỔNG HỢP CỔ PHẦN ĐIỆN LỰC","debit":0,"credit":5269000},{"party":"CHI NHÁNH TỔNG CÔNG TY ĐIỆN LỰC THÀNH PHỐ HỒ CHÍ MINH TNHH - CÔNG TY ĐIỆN LỰC TÂN THUẬN","debit":0,"credit":5258348},{"party":"CÔNG TY CỔ PHẦN DỊCH VỤ BỒ CÂU","debit":0,"credit":4774508},{"party":"CÔNG TY CỔ PHẦN THIẾT BỊ VIỄN THÔNG SAO PHƯƠNG NAM","debit":0,"credit":4190400},{"party":"CÔNG TY CỔ PHẦN ĐẦU TƯ KINH DOANH SÁNG TẠO VIỆT","debit":0,"credit":3496124},{"party":"CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ PHÁT TIẾN","debit":0,"credit":3435000},{"party":"TRUNG TÂM KINH DOANH VNPT THÀNH PHỐ HỒ CHÍ MINH - CHI NHÁNH TỔNG CÔNG TY DỊCH VỤ VIỄN THÔNG","debit":0,"credit":3109115},{"party":"CÔNG TY TNHH ASP Á CHÂU","debit":0,"credit":2677920},{"party":"CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI DỊCH VỤ TTP","debit":0,"credit":2420000},{"party":"CÔNG TY CỔ PHẦN CƠ ĐIỆN LẠNH","debit":0,"credit":2138400},{"party":"CÔNG TY TNHH THỊNH ĐIỀN","debit":0,"credit":2090000},{"party":"CÔNG TY CỔ PHẦN THƯƠNG MẠI & DỊCH VỤ KỸ THUẬT PHÚ GIA KHÁNH","debit":0,"credit":1798366},{"party":"CÔNG TY TNHH MỘT THÀNH VIÊN KINH DOANH Ô TÔ THANH XUÂN","debit":0,"credit":1500000},{"party":"CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ TIN HỌC GIA NGHI","debit":0,"credit":1404000},{"party":"TỔNG CÔNG TY CỔ PHẦN BƯU CHÍNH VIETTEL","debit":0,"credit":1329809},{"party":"CÔNG TY TNHH ĐẦU TƯ XÂY DỰNG VIỄN THÔNG NAM KHANG","debit":0,"credit":950400},{"party":"CÔNG TY TNHH TRUYỀN THÔNG VEGA","debit":0,"credit":900000},{"party":"CÔNG TY TNHH CUNG ỨNG GIẢI PHÁP VẬN TẢI NEWLINKS","debit":0,"credit":799200},{"party":"CÔNG TY TNHH TRUNG TÂM THƯƠNG MẠI RIVERSIDE TOWER","debit":0,"credit":588435},{"party":"VIỄN THÔNG ĐỒNG NAI - TẬP ĐOÀN BƯU CHÍNH VIỄN THÔNG VIỆT NAM","debit":0,"credit":568334},{"party":"CÔNG TY TNHH P.A VIỆT NAM","debit":0,"credit":418727},{"party":"CÔNG TY TNHH CÔNG NGHỆ VPH","debit":0,"credit":250000},{"party":"CÔNG TY CỔ PHẦN MACH","debit":0,"credit":166920},{"party":"CÔNG TY TNHH PHÁT TRIỂN CÔNG NGHỆ THÔNG TIN HOÀNG ANH","debit":13710000,"credit":0},{"party":"MOBIFONE HẢI PHÒNG - CHI NHÁNH TỔNG CÔNG TY VIỄN THÔNG MOBIFONE","debit":19800000,"credit":0},{"party":"CÔNG TY TNHH CÔNG NGHỆ THÔNG TIN AN PHÁT","debit":25641000,"credit":0},{"party":"TẬP ĐOÀN CÔNG NGHIỆP - VIỄN THÔNG QUÂN ĐỘI","debit":76362500,"credit":0},{"party":"CÔNG TY CỔ PHẦN PHÂN PHỐI CÔNG NGHỆ QUANG DŨNG","debit":235677600,"credit":0}]};
+
+function aggregate(rows) {
+  const m = {};
+  rows.forEach(r => {
+    if (!m[r.party]) m[r.party] = {party: r.party, debit: 0, credit: 0};
+    m[r.party].debit  += r.debit;
+    m[r.party].credit += r.credit;
+  });
+  return Object.values(m);
+}
+const AR = aggregate(RAW.ar);
+const AP = aggregate(RAW.ap);
+
+const fmt = n => n.toLocaleString('vi-VN') + ' đ';
+const pct = (a,b) => b ? Math.round(a/b*100) : 0;
+
+// ── ROW DEFINITIONS ───────────────────────────────────────────────────
+const ROWS = [
+  {
+    id: 'ar',
+    title: 'Công Nợ Phải Thu KH',
+    account: 'TK 131 – Dư Nợ (69 khách hàng)',
+    file: 'Danh_sach_cong_no_khach_hang.xlsx',
+    fileVal: 4962368024,
+    dcnetVal: 4962368024, dcnetNote: '73 GL rows · 69 KH dư Nợ',
+    dcnetOk: true,
+    misaVal: 4375964844, misaNote: '5 KH không mapping được',
+    misaPct: 88.2,
+    detailKey: 'ar_dr',
+    erpLink: '131 - Phải thu của khách hàng - DCNET',
+  },
+  {
+    id: 'ar_cr',
+    title: 'Khách Hàng Ứng Trước',
+    account: 'TK 131 – Dư Có (4 khách hàng trả dư)',
+    file: 'Danh_sach_so_du_tai_khoan.xlsx',
+    fileVal: 4883956820,
+    dcnetVal: 4883956820, dcnetNote: '4 GL rows (INDIENET 2.86B + KT DX 2.01B)',
+    dcnetOk: true,
+    misaVal: null, misaNote: 'Không xác định',
+    detailKey: 'ar_cr',
+    erpLink: '131 - Phải thu của khách hàng - DCNET',
+  },
+  {
+    id: 'ap',
+    title: 'Công Nợ Phải Trả NCC',
+    account: 'TK 331 – Dư Có (93 nhà cung cấp)',
+    file: 'Danh_sach_cong_no_nha_cung_cap.xlsx',
+    fileVal: 10369469695,
+    dcnetVal: 10369469695, dcnetNote: '106 GL rows · 93 NCC dư Có',
+    dcnetOk: true,
+    misaVal: 3103378038, misaNote: '~76 NCC bị lọc, không import',
+    misaPct: 29.9,
+    detailKey: 'ap_cr',
+    erpLink: '331 - Phải trả cho người bán - DCNET',
+  },
+  {
+    id: 'ap_dr',
+    title: 'Tạm Ứng Nhà Cung Cấp',
+    account: 'TK 331 – Dư Nợ (NCC nợ lại DCNET)',
+    file: 'Danh_sach_cong_no_nha_cung_cap.xlsx',
+    fileVal: 371191100,
+    dcnetVal: 371191100, dcnetNote: '5 GL rows',
+    dcnetOk: true,
+    misaVal: null, misaNote: 'Không xác định',
+    detailKey: 'ap_dr',
+    erpLink: '331 - Phải trả cho người bán - DCNET',
+  },
+  {
+    id: 'cash',
+    title: 'Tồn Quỹ (Tiền Mặt + NH)',
+    account: 'TK 111 + TK 112',
+    file: 'Danh_sach_so_du_tai_khoan.xlsx',
+    fileVal: 1879497634,
+    dcnetVal: 1879497634, dcnetNote: 'JE: 1 tiền mặt + 5 ngân hàng',
+    dcnetOk: true,
+    misaVal: null, misaNote: 'Không xác định',
+    detailKey: null,
+  },
+  {
+    id: 'net',
+    title: 'Net TK 131 (DR − CR)',
+    account: 'Sau khi trừ KH ứng trước',
+    file: null,
+    fileVal: 78411204,
+    dcnetVal: 78411204, dcnetNote: 'Khớp GL net',
+    dcnetOk: true,
+    misaVal: null, misaNote: '—',
+    detailKey: null,
+    dim: true,
+  },
+];
+
+// ── DETAIL DATA ────────────────────────────────────────────────────────
+function getDetail(key) {
+  if (key === 'ar_dr') return AR.filter(r => r.debit  > 0).sort((a,b) => b.debit  - a.debit);
+  if (key === 'ar_cr') return AR.filter(r => r.credit > 0).sort((a,b) => b.credit - a.credit);
+  if (key === 'ap_cr') return AP.filter(r => r.credit > 0).sort((a,b) => b.credit - a.credit);
+  if (key === 'ap_dr') return AP.filter(r => r.debit  > 0).sort((a,b) => b.debit  - a.debit);
+  return [];
+}
+
+// ── BUILD TABLE ────────────────────────────────────────────────────────
+const tbody = document.getElementById('tableBody');
+
+ROWS.forEach(row => {
+  const isDim    = row.dim;
+  const hasDrill = row.detailKey && getDetail(row.detailKey).length > 0;
+
+  const tr = document.createElement('tr');
+  tr.className = 'data-row';
+  if (hasDrill) tr.style.cursor = 'pointer';
+
+  const chevron = hasDrill ? `<span class="row-chevron">▶</span>` : '';
+  const fileTag = row.file ? `<div class="field-file">📎 ${row.file}</div>` : '';
+
+  let dcHtml = `<div class="amount" style="color:var(--${isDim?'muted':'dcnet'})">${fmt(row.dcnetVal)}</div>`;
+  if (row.dcnetOk) {
+    dcHtml += `<div class="match-ok">✓ Khớp 100%${row.dcnetNote ? ' (' + row.dcnetNote + ')' : ''}</div>`;
+    dcHtml += `<div class="capture-bar"><div class="capture-fill fill-dcnet" style="width:100%"></div></div>`;
+  }
+
+  let miHtml = '';
+  if (row.misaVal !== null && row.misaVal !== undefined) {
+    miHtml = `<div class="amount" style="color:var(--misa)">${fmt(row.misaVal)}</div>`;
+    const diff = fmt(row.fileVal - row.misaVal);
+    if (row.misaPct >= 90) miHtml += `<div class="match-ok">▲ Thiếu ${diff}</div>`;
+    else if (row.misaPct >= 50) miHtml += `<div class="match-warn">▲ Chỉ ${row.misaPct}% — Thiếu ${diff}</div>`;
+    else miHtml += `<div class="match-bad">▲ Chỉ ${row.misaPct}% — Thiếu ${diff}</div>`;
+    if (row.misaNote) {
+      miHtml += `<div class="capture-bar"><div class="capture-fill fill-misa" style="width:${row.misaPct||0}%"></div></div>`;
+      miHtml += `<div class="amount-sub">${row.misaNote}</div>`;
+    }
+  } else {
+    miHtml = `<div class="amount" style="color:var(--muted)">—</div>`;
+    miHtml += `<div class="match-na">${row.misaNote || 'Không xác định'}</div>`;
+  }
+
+  tr.innerHTML = `
+    <td>
+      <div class="row-title">${chevron} ${row.title}</div>
+      <div class="row-account">${row.account}</div>
+      ${fileTag}
+    </td>
+    <td><div class="amount" style="color:var(--${isDim?'muted':'file'})">${fmt(row.fileVal)}</div></td>
+    <td>${dcHtml}</td>
+    <td>${miHtml}</td>
+  `;
+  tbody.appendChild(tr);
+
+  // Detail row
+  if (hasDrill) {
+    const detail   = getDetail(row.detailKey);
+    const isCredit = row.detailKey.endsWith('_cr');
+    const colLabel = isCredit ? 'Dư Có' : 'Dư Nợ';
+    const total    = detail.reduce((s,r) => s + (isCredit ? r.credit : r.debit), 0);
+
+    const erpUrl = row.erpLink
+      ? `http://127.0.0.1:8000/desk/query-report/S03b-DN%20So%20Cai?company=C%C3%94NG%20TY%20C%E1%BB%94%20PH%E1%BA%A6N%20VI%E1%BB%84N%20TH%C3%94NG%20DCNET&account=${encodeURIComponent(row.erpLink)}&from_date=2026-01-01&to_date=2026-12-31`
+      : null;
+
+    const maxVal = detail[0] ? (isCredit ? detail[0].credit : detail[0].debit) : 1;
+    const rowsHtml = detail.slice(0, 100).map((r, i) => {
+      const val = isCredit ? r.credit : r.debit;
+      const bar = Math.round(val / maxVal * 100);
+      return `<tr>
+        <td style="color:var(--muted);width:28px;text-align:right;padding-right:8px">${i+1}</td>
+        <td>${r.party}</td>
+        <td class="${isCredit?'dtab-credit':'dtab-debit'}">${val.toLocaleString('vi-VN')}</td>
+        <td style="width:80px;padding-left:8px">
+          <div style="height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden">
+            <div style="height:100%;width:${bar}%;background:var(--${isCredit?'warn':'dcnet'});border-radius:2px"></div>
+          </div>
+        </td>
+      </tr>`;
+    }).join('');
+
+    const moreNote = detail.length > 100
+      ? `<div style="padding:6px 12px;font-size:11px;color:var(--muted)">... và ${detail.length-100} đơn vị khác</div>`
+      : '';
+
+    const dtr = document.createElement('tr');
+    dtr.className = 'detail-row';
+    dtr.id = 'detail-' + row.id;
+    dtr.innerHTML = `<td colspan="4">
+      <div class="detail-inner">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          ${erpUrl ? `<a class="detail-link" href="${erpUrl}" target="_blank">📊 Xem Sổ Cái ERPNext</a>` : '<div></div>'}
+          <div style="padding:6px 12px;font-size:11px;color:var(--muted)">${detail.length} đơn vị · Tổng: <strong style="color:var(--text)">${fmt(total)}</strong></div>
+        </div>
+        <table class="dtab">
+          <thead><tr>
+            <th style="width:28px;text-align:right">#</th>
+            <th style="text-align:left">Tên</th>
+            <th>${colLabel}</th>
+            <th style="width:80px"></th>
+          </tr></thead>
+          <tbody>${rowsHtml}</tbody>
+        </table>
+        ${moreNote}
+      </div>
+    </td>`;
+    tbody.appendChild(dtr);
+
+    tr.addEventListener('click', () => {
+      const isOpen = dtr.classList.contains('open');
+      dtr.classList.toggle('open', !isOpen);
+      tr.classList.toggle('active', !isOpen);
+    });
+  }
+});
+</script>
+</body>
+</html>

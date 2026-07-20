@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+.env
+.venv
+node_modules/
+.DS_Store
+*.log
+
+# Generated schemas
+einvoice/number_card/
+
+# Claude Code session files
+.multi-session/
+docs/specs/2026-05-*
+
+# QA screenshots
+qa-screenshots/

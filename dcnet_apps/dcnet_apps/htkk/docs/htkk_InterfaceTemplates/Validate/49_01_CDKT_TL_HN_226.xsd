@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ThuyetMinh">
+							<xs:annotation>
+								<xs:documentation>Thuyết minh</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ctA_I_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I. Tiền mặt, vàng bạc, đá quý</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_II_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II. Tiền gửi tại NHNN</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_III_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>III.Tiền, vàng gửi tại các TCTD khác và cho vay các TCTD khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_IV_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IV. Chứng khoán kinh doanh</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_V_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>V. Các công cụ tài chính phát sinh và các tài sản chính khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_VI_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VI. Cho vay khách hàng</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_VII_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VII. Chứng khoán đầu tư</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_VIII_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VIII. Góp vốn, đầu tư dài hạn</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_IX_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IX. Tài sản cố định</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_X_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>X. Bất động sản đầu tư (Báo cáo tài chính hợp nhất)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_XI_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>XI. Tài sản có khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongTsan_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng tài sản có</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_I_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I. Các khoản nợ Chính phủ và NHNN</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_II_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II. Tiền gửi và vay các TCTD khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_III_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>III. Tiền gửi của khách hàng</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_IV_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IV. Các công cụ tài chính phái sinh và các khoản nợ tài chính khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_V_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>V. Vốn tài trợ, ủy thác đầu tư, cho vay TCTD chịu rủi ro</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_VI_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VI. Phát hành giấy tờ có giá</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_VII_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VII. Các khoản nợ khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongNoPTRa_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng nợ phải trả</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_VIII_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VIII. Vốn và các quỹ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_IX_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IX.Lợi ích của cổ đông thiểu số</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongNoVon_tMinh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng nợ phải trả và vốn chủ sở hữu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="SoCuoiQuy">
+							<xs:annotation>
+								<xs:documentation>Số cuối quý</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ctA_I_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I. Tiền mặt, vàng bạc, đá quý</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_II_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II. Tiền gửi tại NHNN</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_III_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>III.Tiền, vàng gửi tại các TCTD khác và cho vay các TCTD khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_IV_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IV. Chứng khoán kinh doanh</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_V_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>V. Các công cụ tài chính phát sinh và các tài sản chính khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_VI_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VI. Cho vay khách hàng</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_VII_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VII. Chứng khoán đầu tư</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_VIII_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VIII. Góp vốn, đầu tư dài hạn</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_IX_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IX. Tài sản cố định</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_X_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>X. Bất động sản đầu tư (Báo cáo tài chính hợp nhất)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_XI_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>XI. Tài sản có khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongTsan_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng tài sản có</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_I_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I. Các khoản nợ Chính phủ và NHNN</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_II_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II. Tiền gửi và vay các TCTD khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_III_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>III. Tiền gửi của khách hàng</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_IV_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IV. Các công cụ tài chính phái sinh và các khoản nợ tài chính khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_V_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>V. Vốn tài trợ, ủy thác đầu tư, cho vay TCTD chịu rủi ro</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_VI_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VI. Phát hành giấy tờ có giá</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_VII_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VII. Các khoản nợ khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongNoPTRa_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng nợ phải trả</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_VIII_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VIII. Vốn và các quỹ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_IX_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IX.Lợi ích của cổ đông thiểu số</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongNoVon_cuoiQuy" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng nợ phải trả và vốn chủ sở hữu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="SoDauNam">
+							<xs:annotation>
+								<xs:documentation>Số đầu năm</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ctA_I_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I. Tiền mặt, vàng bạc, đá quý</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_II_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II. Tiền gửi tại NHNN</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_III_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>III.Tiền, vàng gửi tại các TCTD khác và cho vay các TCTD khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_IV_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IV. Chứng khoán kinh doanh</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_V_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>V. Các công cụ tài chính phát sinh và các tài sản chính khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_VI_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VI. Cho vay khách hàng</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_VII_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VII. Chứng khoán đầu tư</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_VIII_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VIII. Góp vốn, đầu tư dài hạn</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_IX_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IX. Tài sản cố định</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_X_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>X. Bất động sản đầu tư (Báo cáo tài chính hợp nhất)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctA_XI_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>XI. Tài sản có khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongTsan_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng tài sản có</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_I_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I. Các khoản nợ Chính phủ và NHNN</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_II_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II. Tiền gửi và vay các TCTD khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_III_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>III. Tiền gửi của khách hàng</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_IV_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IV. Các công cụ tài chính phái sinh và các khoản nợ tài chính khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_V_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>V. Vốn tài trợ, ủy thác đầu tư, cho vay TCTD chịu rủi ro</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_VI_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VI. Phát hành giấy tờ có giá</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_VII_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VII. Các khoản nợ khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongNoPTRa_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng nợ phải trả</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_VIII_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>VIII. Vốn và các quỹ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ctB_IX_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IX.Lợi ích của cổ đông thiểu số</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongNoVon_dauNam" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng nợ phải trả và vốn chủ sở hữu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PhanKy">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="nguoiLapBieu" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Người lập biểu </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="keToanTruong" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Kế toán trưởng </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ngayLap" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Lập ngày </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="giamDoc" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Giám đốc </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="PLucType">
+			<xs:complexContent>
+				<xs:extension base="PLucType">
+					<xs:sequence>
+						<xs:element name="PL_KQHDXSKD" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ThuyetMinh">
+										<xs:annotation>
+											<xs:documentation>Thuyết minh</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ctI_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>I. Thu nhập lãi thuần</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctII_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>II. Lãi/Lỗ thuần từ hoạt động dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIII_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>III. Lãi/lỗ thuần từ hoạt động kinh doanh ngoại hối </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIV_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IV. Lãi/lỗ thuần từ  mua bán chứng khoán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctV_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>V. Lãi/ lỗ thuần từ hoạt động kinh doanh khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVI_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VI. Thu nhập từ góp vốn, mua cổ phần</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVII_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VII. Chi phí hoạt động</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVIII_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VIII. Chi phí dự phòng rủi ro tín dụng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIX_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IX. Tổng lợi nhuận trước thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctX_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>X. Lợi nhuận sau thuế TNDN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctXI_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>XI. Lợi nhuận/cổ phiếu trước ngày phân phối</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctXII_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>XII. Lợi nhuận/cổ phiếu sau ngày phân phối</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Quy_nNay">
+										<xs:annotation>
+											<xs:documentation>Số năm nay</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ctI_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>I. Thu nhập lãi thuần</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctII_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>II. Lãi/Lỗ thuần từ hoạt động dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIII_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>III. Lãi/lỗ thuần từ hoạt động kinh doanh ngoại hối </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIV_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IV. Lãi/lỗ thuần từ  mua bán chứng khoán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctV_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>V. Lãi/ lỗ thuần từ hoạt động kinh doanh khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVI_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VI. Thu nhập từ góp vốn, mua cổ phần</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVII_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VII. Chi phí hoạt động</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVIII_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VIII. Chi phí dự phòng rủi ro tín dụng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIX_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IX. Tổng lợi nhuận trước thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctX_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>X. Lợi nhuận sau thuế TNDN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctXI_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>XI. Lợi nhuận/cổ phiếu trước ngày phân phối</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctXII_Quy_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>XII. Lợi nhuận/cổ phiếu sau ngày phân phối</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Quy_nTruoc">
+										<xs:annotation>
+											<xs:documentation>Số năm ngoái</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ctI_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>I. Thu nhập lãi thuần</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctII_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>II. Lãi/Lỗ thuần từ hoạt động dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIII_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>III. Lãi/lỗ thuần từ hoạt động kinh doanh ngoại hối </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIV_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IV. Lãi/lỗ thuần từ  mua bán chứng khoán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctV_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>V. Lãi/ lỗ thuần từ hoạt động kinh doanh khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVI_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VI. Thu nhập từ góp vốn, mua cổ phần</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVII_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VII. Chi phí hoạt động</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVIII_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VIII. Chi phí dự phòng rủi ro tín dụng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIX_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IX. Tổng lợi nhuận trước thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctX_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>X. Lợi nhuận sau thuế TNDN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctXI_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>XI. Lợi nhuận/cổ phiếu trước ngày phân phối</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctXII_Quy_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>XII. Lợi nhuận/cổ phiếu sau ngày phân phối</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="LuyKe_nNay">
+										<xs:annotation>
+											<xs:documentation>Số năm ngoái</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ctI_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>I. Thu nhập lãi thuần</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctII_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>II. Lãi/Lỗ thuần từ hoạt động dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIII_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>III. Lãi/lỗ thuần từ hoạt động kinh doanh ngoại hối </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIV_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IV. Lãi/lỗ thuần từ  mua bán chứng khoán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctV_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>V. Lãi/ lỗ thuần từ hoạt động kinh doanh khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVI_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VI. Thu nhập từ góp vốn, mua cổ phần</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVII_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VII. Chi phí hoạt động</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVIII_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VIII. Chi phí dự phòng rủi ro tín dụng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIX_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IX. Tổng lợi nhuận trước thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctX_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>X. Lợi nhuận sau thuế TNDN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctXI_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>XI. Lợi nhuận/cổ phiếu trước ngày phân phối</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctXII_LuyKe_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>XII. Lợi nhuận/cổ phiếu sau ngày phân phối</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="LuyKe_nTruoc">
+										<xs:annotation>
+											<xs:documentation>Số năm ngoái</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ctI_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>I. Thu nhập lãi thuần</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctII_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>II. Lãi/Lỗ thuần từ hoạt động dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIII_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>III. Lãi/lỗ thuần từ hoạt động kinh doanh ngoại hối </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIV_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IV. Lãi/lỗ thuần từ  mua bán chứng khoán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctV_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>V. Lãi/ lỗ thuần từ hoạt động kinh doanh khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVI_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VI. Thu nhập từ góp vốn, mua cổ phần</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVII_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VII. Chi phí hoạt động</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVIII_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VIII. Chi phí dự phòng rủi ro tín dụng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIX_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IX. Tổng lợi nhuận trước thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctX_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>X. Lợi nhuận sau thuế TNDN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctXI_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>XI. Lợi nhuận/cổ phiếu trước ngày phân phối</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctXII_LuyKe_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>XII. Lợi nhuận/cổ phiếu sau ngày phân phối</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="PhanKy">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="nguoiLapBieu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Người lập biểu </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="keToanTruong" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Kế toán trưởng </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ngayLap" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Lập ngày </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="giamDoc" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Giám đốc </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PL_LCTT" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ThuyetMinh">
+										<xs:annotation>
+											<xs:documentation>Thuyết minh</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ctI_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>I. Lưu chuyển tiền thuần từ hoạt động kinh doanh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctII_tMinh_PLLCTT" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>II. Lưu chuyển tiền từ hoạt động đầu tư</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIII_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>III. Lưu chuyển tiền từ hoạt động tài chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIV_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IV.Lưu chuyển tiền thuần trong kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctV_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>V. Tiền và các khoản tương đương tiền tại thời điểm đầu kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVI_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VI. Điều chỉnh ảnh hưởng của thay đổi tỷ giá</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVII_tMinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VII. Tiền và các khoản tương đương tiền tại thời điểm cuối kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="NamNay">
+										<xs:annotation>
+											<xs:documentation>Năm nay</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ctI_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>I. Lưu chuyển tiền thuần từ hoạt động kinh doanh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctII_nNay_PLLCTT" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>II. Lưu chuyển tiền từ hoạt động đầu tư</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIII_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>III. Lưu chuyển tiền từ hoạt động tài chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIV_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IV.Lưu chuyển tiền thuần trong kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctV_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>V. Tiền và các khoản tương đương tiền tại thời điểm đầu kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVI_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VI. Điều chỉnh ảnh hưởng của thay đổi tỷ giá</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVII_nNay" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VII. Tiền và các khoản tương đương tiền tại thời điểm cuối kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="NamTruoc">
+										<xs:annotation>
+											<xs:documentation>Năm trước</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ctI_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>I. Lưu chuyển tiền thuần từ hoạt động kinh doanh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctII_nTruoc_PLLCTT" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>II. Lưu chuyển tiền từ hoạt động đầu tư</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIII_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>III. Lưu chuyển tiền từ hoạt động tài chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctIV_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>IV.Lưu chuyển tiền thuần trong kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctV_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>V. Tiền và các khoản tương đương tiền tại thời điểm đầu kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVI_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VI. Điều chỉnh ảnh hưởng của thay đổi tỷ giá</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ctVII_nTruoc" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>VII. Tiền và các khoản tương đương tiền tại thời điểm cuối kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="PhanKy">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="nguoiLapBieu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Người lập biểu </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="keToanTruong" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Kế toán trưởng </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ngayLap" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Lập ngày </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="giamDoc" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Giám đốc </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

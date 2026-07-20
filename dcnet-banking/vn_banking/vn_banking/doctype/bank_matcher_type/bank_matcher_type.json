@@ -1,0 +1,24 @@
+{
+ "actions": [],
+ "autoname": "field:matcher_key",
+ "creation": "2026-04-10 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": ["matcher_key", "matcher_label", "handler_path", "default_confidence", "description"],
+ "fields": [
+  {"fieldname": "matcher_key", "fieldtype": "Data", "label": "Matcher Key", "reqd": 1, "unique": 1, "in_list_view": 1},
+  {"fieldname": "matcher_label", "fieldtype": "Data", "label": "Label", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "handler_path", "fieldtype": "Data", "label": "Handler Dotted Path", "reqd": 1},
+  {"fieldname": "default_confidence", "fieldtype": "Select", "options": "High\nMedium\nLow", "default": "Medium", "label": "Default Confidence"},
+  {"fieldname": "description", "fieldtype": "Small Text", "label": "Description"}
+ ],
+ "istable": 0,
+ "module": "VN Banking",
+ "name": "Bank Matcher Type",
+ "owner": "Administrator",
+ "permissions": [
+  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "export": 1}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

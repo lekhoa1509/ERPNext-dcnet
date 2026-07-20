@@ -1,0 +1,85 @@
+:root {
+    --sidebar-active-color: #dc2626;
+    --sidebar-active-text: #ffffff;
+    --highlight-color: #DBE9FF;
+    --control-bg: #edeff5;
+    --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    --page-head-height: 55px;
+    --btn-height: 30px;
+    --input-height: 30px;
+    --sidebar-hover-color: #DBE9FF;
+    --sidebar-border-color: #ededed;
+    --divider-color: rgba(237, 237, 237, 1);
+}
+
+.body-sidebar .standard-sidebar-item {
+    margin-bottom: 2px !important;
+    height: 35px !important;
+}
+
+.body-sidebar .standard-sidebar-item.active-sidebar .item-anchor {
+    color: var(--sidebar-active-text) !important;
+    height: 100% !important;
+}
+
+.body-sidebar .standard-sidebar-item .item-anchor .sidebar-item-icon {
+    color: var(--sidebar-active-text) !important;
+}
+.sidebar-item-container{
+    margin-bottom: 5px;
+}
+.widget[class*="-widget-box"] {
+    box-shadow: var(--box-shadow) !important;
+    border: none !important;
+}
+/* table */
+.report-wrapper{
+    min-height: 200px;
+}
+.report-wrapper .dt-scrollable{
+    width: 100%;
+}
+.tree-footer .input-group{
+    gap: 5px
+}
+/* giau banner sidebar */
+.promotional-banners{
+    display: none !important;
+}
+
+.dcnet-notification-anchor {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.dcnet-notification-badge {
+    align-items: center;
+    background: #dc2626;
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.22);
+    color: #ffffff;
+    display: none;
+    font-size: 10px;
+    font-weight: 700;
+    height: 18px;
+    justify-content: center;
+    line-height: 1;
+    min-width: 18px;
+    padding: 0 5px;
+    pointer-events: none;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    z-index: 5;
+}
+
+.desktop-notifications .dcnet-notification-badge {
+    right: -8px;
+    top: -6px;
+}
+
+.sidebar-notification .dcnet-notification-badge {
+    right: 3px;
+    top: 2px;
+}

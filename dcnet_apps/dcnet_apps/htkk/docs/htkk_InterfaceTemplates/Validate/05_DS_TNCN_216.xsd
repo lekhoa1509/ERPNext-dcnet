@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.7">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="DSachCNNhanTN" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Danh sach cá nhân nhận thu nhập</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct07" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Họ và tên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct08" type="TINType" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Mã số thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Số CMND/Hộ chiếu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct10" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thu nhập chịu thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng số tiền  giảm trừ gia cảnh</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct12" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Từ thiện, nhân đạo, khuyến học</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct13" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Bảo hiểm được trừ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct14" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Quĩ hưu trí tự nguyện được trừ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct15" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thu nhập tính thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="id" type="xs:string"/>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ct16" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng thu nhập chịu thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct17" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng số tiền  giảm trừ gia cảnh</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct18" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng từ thiện, nhân đạo, khuyến học</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct19" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng bảo hiểm được trừ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct20" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng quĩ hưu trí tự nguyện được trừ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct21" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng thu nhập tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

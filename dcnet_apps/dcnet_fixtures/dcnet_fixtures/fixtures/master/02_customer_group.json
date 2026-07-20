@@ -1,0 +1,32 @@
+[
+  {
+    "doctype": "Customer Group",
+    "customer_group_name": "Golf Retail",
+    "parent_customer_group": "All Customer Groups",
+    "is_group": 0
+  },
+  {
+    "doctype": "Customer Group",
+    "customer_group_name": "Golf Wholesale",
+    "parent_customer_group": "All Customer Groups",
+    "is_group": 0
+  },
+  {
+    "doctype": "Customer Group",
+    "customer_group_name": "Golf Club Members",
+    "parent_customer_group": "All Customer Groups",
+    "is_group": 0
+  },
+  {
+    "doctype": "Customer Group",
+    "customer_group_name": "Training Centers",
+    "parent_customer_group": "All Customer Groups",
+    "is_group": 0
+  },
+  {
+    "doctype": "Customer Group",
+    "customer_group_name": "VIP Distributor",
+    "parent_customer_group": "All Customer Groups",
+    "is_group": 0
+  }
+]

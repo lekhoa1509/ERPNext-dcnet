@@ -1,0 +1,13 @@
+<PL01_7_GTGT>
+	<PBoChoDiaPhuongLienTinh ID="String">
+		<tenCongTrinh/>
+		<doanhThu/>
+		<maCQTQLy_CCT/>
+		<cqtQLy_CCT/>
+		<maCQTQLy_CT/>
+		<cqtQLy_CT/>
+		<tyLePhanBo/>
+		<soThueGTGTPNop/>
+	</PBoChoDiaPhuongLienTinh>
+	<tongCong/>
+</PL01_7_GTGT>

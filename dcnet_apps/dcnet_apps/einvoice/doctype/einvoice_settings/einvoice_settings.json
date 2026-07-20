@@ -1,0 +1,200 @@
+{
+    "actions": [],
+    "allow_rename": 0,
+    "creation": "2026-03-03 14:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "connection_section",
+        "default_provider",
+        "column_break_conn",
+        "sync_section",
+        "enable_auto_sync",
+        "sync_frequency",
+        "sync_start_time",
+        "default_date_range_days",
+        "column_break_sync",
+        "last_sync_datetime",
+        "last_sync_status",
+        "last_sync_error",
+        "matching_section",
+        "match_total_tolerance_pct",
+        "column_break_match",
+        "match_date_tolerance_days",
+        "issuance_section",
+        "default_issue_mode",
+        "default_payment_method",
+        "column_break_iss",
+        "bulk_issuance_limit",
+        "actions_section",
+        "sync_now_btn",
+        "test_connection_btn"
+    ],
+    "fields": [
+        {
+            "fieldname": "connection_section",
+            "fieldtype": "Section Break",
+            "label": "Thông tin chung"
+        },
+        {
+            "fieldname": "default_provider",
+            "fieldtype": "Link",
+            "label": "Provider mặc định (dự phòng khi không xác định được)",
+            "options": "EInvoice Provider"
+        },
+        {
+            "fieldname": "column_break_conn",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "sync_section",
+            "fieldtype": "Section Break",
+            "label": "Cấu hình Background Job (Sync hóa đơn mua vào)"
+        },
+        {
+            "fieldname": "enable_auto_sync",
+            "fieldtype": "Check",
+            "label": "Bật tự động đồng bộ",
+            "default": "0"
+        },
+        {
+            "fieldname": "sync_frequency",
+            "fieldtype": "Select",
+            "label": "Tần suất đồng bộ",
+            "options": "\nEvery 15 Min\nHourly\nEvery 6 Hours\nDaily\nWeekly",
+            "default": "Daily",
+            "depends_on": "enable_auto_sync"
+        },
+        {
+            "fieldname": "sync_start_time",
+            "fieldtype": "Time",
+            "label": "Giờ bắt đầu",
+            "description": "Áp dụng cho Daily/Weekly",
+            "depends_on": "enable_auto_sync"
+        },
+        {
+            "fieldname": "default_date_range_days",
+            "fieldtype": "Int",
+            "label": "Số ngày lùi lại",
+            "default": "30",
+            "description": "Khoảng ngày mặc định khi sync"
+        },
+        {
+            "fieldname": "column_break_sync",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "last_sync_datetime",
+            "fieldtype": "Datetime",
+            "label": "Lần sync gần nhất",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_sync_status",
+            "fieldtype": "Select",
+            "label": "Trạng thái sync",
+            "options": "\nSuccess\nFailed\nPartial",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_sync_error",
+            "fieldtype": "Small Text",
+            "label": "Lỗi gần nhất",
+            "read_only": 1
+        },
+        {
+            "fieldname": "matching_section",
+            "fieldtype": "Section Break",
+            "label": "Cấu hình ghép nối (Matching)"
+        },
+        {
+            "fieldname": "match_total_tolerance_pct",
+            "fieldtype": "Percent",
+            "label": "Sai lệch total cho phép (%)",
+            "default": "1",
+            "description": "Auto-match: PI có total sai lệch trong khoảng này sẽ được ghép tự động"
+        },
+        {
+            "fieldname": "column_break_match",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "match_date_tolerance_days",
+            "fieldtype": "Int",
+            "label": "Khoảng ngày lệch cho phép",
+            "default": "3",
+            "description": "Auto-match: PI có ngày sai lệch trong khoảng ±N ngày"
+        },
+        {
+            "fieldname": "issuance_section",
+            "fieldtype": "Section Break",
+            "label": "Cấu hình phát hành hóa đơn đỏ"
+        },
+        {
+            "fieldname": "default_issue_mode",
+            "fieldtype": "Select",
+            "label": "Chế độ phát hành mặc định",
+            "options": "Draft\nPublish",
+            "default": "Draft"
+        },
+        {
+            "fieldname": "default_payment_method",
+            "fieldtype": "Data",
+            "label": "Hình thức thanh toán mặc định",
+            "default": "Chuyển khoản"
+        },
+        {
+            "fieldname": "column_break_iss",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "bulk_issuance_limit",
+            "fieldtype": "Int",
+            "label": "Số HĐ tối đa / lần xuất hàng loạt",
+            "default": "50"
+        },
+        {
+            "fieldname": "actions_section",
+            "fieldtype": "Section Break",
+            "label": "Thao tác"
+        },
+        {
+            "fieldname": "sync_now_btn",
+            "fieldtype": "Button",
+            "label": "Sync ngay"
+        },
+        {
+            "fieldname": "test_connection_btn",
+            "fieldtype": "Button",
+            "label": "Kiểm tra kết nối"
+        }
+    ],
+    "index_web_pages_for_search": 0,
+    "issingle": 1,
+    "links": [],
+    "modified": "2026-03-03 14:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "EInvoice",
+    "name": "EInvoice Settings",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Accounts Manager",
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

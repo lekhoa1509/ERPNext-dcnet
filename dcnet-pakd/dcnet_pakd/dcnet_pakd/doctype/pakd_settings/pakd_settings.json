@@ -1,0 +1,249 @@
+{
+ "actions": [],
+ "creation": "2026-04-13 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_general",
+  "cutoff_day_of_month",
+  "default_commission_template",
+  "column_break_accounts",
+  "use_hrms_for_commission",
+  "salary_component_luong_kd",
+  "section_accounts",
+  "account_manager_services",
+  "account_add_costs",
+  "account_gpvt",
+  "account_sales_commission",
+  "column_break_counter",
+  "counter_account_manager_services",
+  "counter_account_add_costs",
+  "counter_account_gpvt",
+  "account_employee_payable",
+  "section_external_commission",
+  "account_external_commission",
+  "account_external_payable",
+  "column_break_external",
+  "account_pit_withholding",
+  "default_external_tax_pct",
+  "section_header_card",
+  "margin_green_threshold",
+  "margin_amber_threshold",
+  "commission_post_on_approval",
+  "column_break_reminder",
+  "reminder_throttle_hours",
+  "reminder_email_template"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_general",
+   "fieldtype": "Section Break",
+   "label": "C\u00e0i \u0111\u1eb7t chung"
+  },
+  {
+   "fieldname": "cutoff_day_of_month",
+   "fieldtype": "Int",
+   "label": "Ng\u00e0y ch\u1ed1t h\u00e0ng th\u00e1ng",
+   "default": "5",
+   "description": "Thanh to\u00e1n nh\u1eadn tr\u01b0\u1edbc ho\u1eb7c \u0111\u00fang ng\u00e0y n\u00e0y \u0111\u01b0\u1ee3c t\u00ednh v\u00e0o k\u1ef3 ch\u1ed1t th\u00e1ng hi\u1ec7n t\u1ea1i"
+  },
+  {
+   "fieldname": "default_commission_template",
+   "fieldtype": "Link",
+   "label": "M\u1eabu hoa h\u1ed3ng m\u1eb7c \u0111\u1ecbnh",
+   "options": "PAKD Commission Rule Template"
+  },
+  {
+   "fieldname": "column_break_accounts",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "use_hrms_for_commission",
+   "fieldtype": "Check",
+   "label": "D\u00f9ng HRMS \u0111\u1ec3 chi hoa h\u1ed3ng",
+   "default": "0",
+   "description": "B\u1eadt: chi Hoa h\u1ed3ng qua Additional Salary (c\u1ea7n module HRMS + c\u1ea5u h\u00ecnh Salary Component d\u01b0\u1edbi \u0111\u00e2y). T\u1eaft (m\u1eb7c \u0111\u1ecbnh DCNet): ghi th\u1eb3ng Journal Entry v\u1edbi party=Employee \u2014 kh\u00f4ng c\u1ea7n HRMS."
+  },
+  {
+   "fieldname": "salary_component_luong_kd",
+   "fieldtype": "Link",
+   "label": "Kho\u1ea3n l\u01b0\u01a1ng kinh doanh (HRMS)",
+   "options": "Salary Component",
+   "depends_on": "use_hrms_for_commission",
+   "mandatory_depends_on": "use_hrms_for_commission"
+  },
+  {
+   "fieldname": "section_accounts",
+   "fieldtype": "Section Break",
+   "label": "T\u00e0i kho\u1ea3n k\u1ebf to\u00e1n"
+  },
+  {
+   "fieldname": "account_manager_services",
+   "fieldtype": "Link",
+   "label": "TK - DV qu\u1ea3n l\u00fd",
+   "options": "Account"
+  },
+  {
+   "fieldname": "account_add_costs",
+   "fieldtype": "Link",
+   "label": "TK - Chi ph\u00ed ngo\u00e0i",
+   "options": "Account"
+  },
+  {
+   "fieldname": "account_gpvt",
+   "fieldtype": "Link",
+   "label": "TK - Ph\u00ed GPVT",
+   "options": "Account"
+  },
+  {
+   "fieldname": "account_sales_commission",
+   "fieldtype": "Link",
+   "label": "TK - Hoa h\u1ed3ng NVKD (chi ph\u00ed)",
+   "options": "Account",
+   "description": "Ch\u1ec9 d\u00f9ng khi 'D\u00f9ng HRMS' t\u1eaft. TK chi ph\u00ed Hoa h\u1ed3ng (vd 6427 - Chi ph\u00ed b\u00e1n h\u00e0ng kh\u00e1c). DR khi \u0111\u0103ng hoa h\u1ed3ng."
+  },
+  {
+   "fieldname": "column_break_counter",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "counter_account_manager_services",
+   "fieldtype": "Link",
+   "label": "TK \u0111\u1ed1i \u1ee9ng - DV qu\u1ea3n l\u00fd",
+   "options": "Account"
+  },
+  {
+   "fieldname": "counter_account_add_costs",
+   "fieldtype": "Link",
+   "label": "TK \u0111\u1ed1i \u1ee9ng - Chi ph\u00ed ngo\u00e0i",
+   "options": "Account"
+  },
+  {
+   "fieldname": "counter_account_gpvt",
+   "fieldtype": "Link",
+   "label": "TK \u0111\u1ed1i \u1ee9ng - Ph\u00ed GPVT",
+   "options": "Account",
+   "description": "TK ph\u1ea3i n\u1ed9p / ph\u1ea3i tr\u1ea3 cho Ph\u00ed GPVT (vd 3338 - Ph\u00ed, l\u1ec7 ph\u00ed v\u00e0 c\u00e1c kho\u1ea3n ph\u1ea3i n\u1ed9p NN kh\u00e1c). CR khi \u0111\u0103ng h\u00f3a h\u00f3a h\u1ed3ng \u2014 t\u1ea1m gi\u1eef ph\u00ed GPVT \u0111\u1ec3 n\u1ed9p NN."
+  },
+  {
+   "fieldname": "account_employee_payable",
+   "fieldtype": "Link",
+   "label": "TK \u0111\u1ed1i \u1ee9ng - Ph\u1ea3i tr\u1ea3 NVKD",
+   "options": "Account",
+   "description": "Ch\u1ec9 d\u00f9ng khi 'D\u00f9ng HRMS' t\u1eaft. TK Ph\u1ea3i tr\u1ea3 ng\u01b0\u1eddi lao \u0111\u1ed9ng (vd 334). CR khi \u0111\u0103ng hoa h\u1ed3ng + party_type=Employee, party=NVKD."
+  },
+  {
+   "fieldname": "section_external_commission",
+   "fieldtype": "Section Break",
+   "label": "Hoa h\u1ed3ng ngo\u00e0i (kh\u00e1ch gi\u1edbi thi\u1ec7u)",
+   "description": "C\u1ea5u h\u00ecnh t\u00e0i kho\u1ea3n d\u00f9ng khi \u0111\u0103ng Hoa h\u1ed3ng ngo\u00e0i \u2014 kho\u1ea3n tr\u1ea3 cho ng\u01b0\u1eddi (kh\u00f4ng ph\u1ea3i NVKD) gi\u1edbi thi\u1ec7u h\u1ee3p \u0111\u1ed3ng. Kh\u1ea5u tr\u1eeb TNCN t\u1ea1i ngu\u1ed3n."
+  },
+  {
+   "fieldname": "account_external_commission",
+   "fieldtype": "Link",
+   "label": "TK - Hoa h\u1ed3ng ngo\u00e0i (chi ph\u00ed)",
+   "options": "Account",
+   "description": "TK chi ph\u00ed hoa h\u1ed3ng cho kh\u00e1ch gi\u1edbi thi\u1ec7u (vd 6427 - Chi ph\u00ed d\u1ecbch v\u1ee5 mua ngo\u00e0i). DR to\u00e0n b\u1ed9 s\u1ed1 g\u1ed1c khi \u0111\u0103ng."
+  },
+  {
+   "fieldname": "account_external_payable",
+   "fieldtype": "Link",
+   "label": "TK \u0111\u1ed1i \u1ee9ng - Ph\u1ea3i tr\u1ea3 ng\u01b0\u1eddi ngo\u00e0i",
+   "options": "Account",
+   "description": "TK ph\u1ea3i tr\u1ea3 ng\u01b0\u1eddi nh\u1eadn hoa h\u1ed3ng ngo\u00e0i (vd 3388 - Ph\u1ea3i tr\u1ea3 kh\u00e1c). CR ph\u1ea7n r\u00f2ng (g\u1ed1c tr\u1eeb thu\u1ebf TNCN)."
+  },
+  {
+   "fieldname": "column_break_external",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "account_pit_withholding",
+   "fieldtype": "Link",
+   "label": "TK - Thu\u1ebf TNCN t\u1ea1m gi\u1eef",
+   "options": "Account",
+   "description": "TK thu\u1ebf TNCN kh\u1ea5u tr\u1eeb t\u1ea1i ngu\u1ed3n (vd 3335 - Thu\u1ebf TNCN ph\u1ea3i n\u1ed9p). CR ph\u1ea7n thu\u1ebf \u0111\u00e3 kh\u1ea5u tr\u1eeb."
+  },
+  {
+   "fieldname": "default_external_tax_pct",
+   "fieldtype": "Percent",
+   "label": "T\u1ef7 l\u1ec7 TNCN m\u1eb7c \u0111\u1ecbnh (%)",
+   "default": "10",
+   "precision": "1",
+   "description": "T\u1ef7 l\u1ec7 kh\u1ea5u tr\u1eeb TNCN m\u1eb7c \u0111\u1ecbnh cho hoa h\u1ed3ng ngo\u00e0i. 10% n\u1ebfu ng\u01b0\u1eddi nh\u1eadn c\u00f3 m\u00e3 s\u1ed1 thu\u1ebf. 20% n\u1ebfu ch\u01b0a c\u00f3. PAKD c\u00f3 th\u1ec3 ghi \u0111\u00e8."
+  },
+  {
+   "fieldname": "section_header_card",
+   "fieldtype": "Section Break",
+   "label": "Th\u1ebb t\u00f3m t\u1eaft & duy\u1ec7t",
+   "description": "C\u00e0i \u0111\u1eb7t ng\u01b0\u1ee1ng hi\u1ec3n th\u1ecb bi\u00ean l\u00e3i tr\u00ean th\u1ebb t\u00f3m t\u1eaft PAKD v\u00e0 h\u00e0nh vi t\u1ef1 \u0111\u1ed9ng \u0111\u0103ng hoa h\u1ed3ng khi duy\u1ec7t"
+  },
+  {
+   "fieldname": "margin_green_threshold",
+   "fieldtype": "Percent",
+   "label": "Ng\u01b0\u1ee1ng bi\u00ean l\u00e3i xanh",
+   "default": "25",
+   "description": "Bi\u00ean l\u00e3i % >= ng\u01b0\u1ee1ng n\u00e0y -> m\u00e0u xanh trong th\u1ebb T\u00f3m t\u1eaft PAKD"
+  },
+  {
+   "fieldname": "margin_amber_threshold",
+   "fieldtype": "Percent",
+   "label": "Ng\u01b0\u1ee1ng bi\u00ean l\u00e3i v\u00e0ng",
+   "default": "15",
+   "description": "Bi\u00ean l\u00e3i % gi\u1eefa ng\u01b0\u1ee1ng n\u00e0y v\u00e0 ng\u01b0\u1ee1ng xanh -> m\u00e0u v\u00e0ng; b\u00ean d\u01b0\u1edbi ng\u01b0\u1ee1ng v\u00e0ng -> m\u00e0u \u0111\u1ecf"
+  },
+  {
+   "fieldname": "commission_post_on_approval",
+   "fieldtype": "Check",
+   "label": "T\u1ef1 \u0111\u1ed9ng \u0111\u0103ng hoa h\u1ed3ng khi duy\u1ec7t",
+   "default": "1",
+   "description": "N\u1ebfu b\u1eadt: t\u1ef1 \u0111\u0103ng phi\u1ebfu l\u01b0\u01a1ng b\u1ed5 sung + b\u00fat to\u00e1n ngay khi PAKD \u0111\u01b0\u1ee3c duy\u1ec7t. T\u1eaft \u0111\u1ec3 y\u00eau c\u1ea7u k\u1ebf to\u00e1n b\u1ea5m '\u0110\u0103ng hoa h\u1ed3ng' th\u1ee7 c\u00f4ng."
+  },
+  {
+   "fieldname": "column_break_reminder",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reminder_throttle_hours",
+   "fieldtype": "Int",
+   "label": "Kho\u1ea3ng c\u00e1ch t\u1ed1i thi\u1ec3u gi\u1eefa 2 l\u1ea7n nh\u1eafc (gi\u1edd)",
+   "default": "24",
+   "description": "S\u1ed1 gi\u1edd t\u1ed1i thi\u1ec3u gi\u1eefa 2 l\u1ea7n nh\u1eafc duy\u1ec7t t\u1eeb c\u00f9ng m\u1ed9t ng\u01b0\u1eddi cho c\u00f9ng m\u1ed9t PAKD"
+  },
+  {
+   "fieldname": "reminder_email_template",
+   "fieldtype": "Text Editor",
+   "label": "M\u1eabu email nh\u1eafc duy\u1ec7t",
+   "description": "N\u1ed9i dung email HTML. Bi\u1ebfn thay th\u1ebf: {{pakd_name}}, {{pakd_url}}, {{customer_name}}, {{total_revenue}}, {{days_waiting}}, {{reminded_by}}"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-05-13 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet PAKD",
+ "name": "PAKD Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "role": "Accounts Manager"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

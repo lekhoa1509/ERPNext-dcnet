@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Xuân (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:annotation>
+				<xs:documentation>Thông tư 244 điều chỉnh bổ sung quyết định 15</xs:documentation>
+			</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="bctcDaKiemToan" type="xs:boolean" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Báo cáo tài chính đã được kiểm toán</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="maYKienKToan" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Mã ý kiến kiểm toán</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tenYKienKToan" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tên ý kiến kiểm toán</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ThuyetMinh">
+							<xs:annotation>
+								<xs:documentation>Thuyết minh</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct01" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I.Tiền</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct03" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II.Các khoản phải thu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct05" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>III.Hàng tồn kho</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct10" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IV.Tài sản cố định</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>1.Tài sản cố định hữu hình</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct12" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Nguyên giá</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct13" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Hao mòn lũy kế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct15" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>2.Tài sản cố định vô hình</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Nguyên giá</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct17" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Hao mòn lũy kế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct20" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>V.Tài sản khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct30" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>TỔNG CỘNG TÀI SẢN (30= 01+03+05+10+20)trừ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct40" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I.Nợ phải trả</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct45" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II.Tài sản thuần</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct46" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>1.Thặng dư/ thâm hụt lũy kế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct47" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>2.Các quỹ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct48" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>3.Tài sản thuần khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct50" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>TỔNG CỘNG NGUỒN VỐN (50=40+45)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="SoCuoiNam">
+							<xs:annotation>
+								<xs:documentation>Số cuối năm</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct01" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I.Tiền</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct03" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II.Các khoản phải thu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct05" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>III.Hàng tồn kho</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct10" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IV.Tài sản cố định</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>1.Tài sản cố định hữu hình</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct12" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Nguyên giá</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct13" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Hao mòn lũy kế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct15" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>2.Tài sản cố định vô hình</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Nguyên giá</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct17" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Hao mòn lũy kế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct20" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>V.Tài sản khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct30" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>TỔNG CỘNG TÀI SẢN (30= 01+03+05+10+20)trừ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct40" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I.Nợ phải trả</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct45" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II.Tài sản thuần</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct46" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>1.Thặng dư/ thâm hụt lũy kế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct47" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>2.Các quỹ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct48" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>3.Tài sản thuần khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct50" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>TỔNG CỘNG NGUỒN VỐN (50=40+45)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="SoDauNam">
+							<xs:annotation>
+								<xs:documentation>Số đầu năm</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct01" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I.Tiền</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct03" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II.Các khoản phải thu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct05" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>III.Hàng tồn kho</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct10" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>IV.Tài sản cố định</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>1.Tài sản cố định hữu hình</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct12" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Nguyên giá</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct13" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Hao mòn lũy kế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct15" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>2.Tài sản cố định vô hình</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Nguyên giá</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct17" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>- Hao mòn lũy kế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct20" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>V.Tài sản khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct30" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>TỔNG CỘNG TÀI SẢN (30= 01+03+05+10+20)trừ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct40" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>I.Nợ phải trả</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct45" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>II.Tài sản thuần</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct46" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>1.Thặng dư/ thâm hụt lũy kế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct47" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>2.Các quỹ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct48" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>3.Tài sản thuần khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct50" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>TỔNG CỘNG NGUỒN VỐN (50=40+45)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="nguoiLapBieu" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Người lập biểu </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="keToanTruong" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Kế toán trưởng </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ngayLap" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Lập ngày </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="thuTruongdonVi" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thủ trưởng đơn vị</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="PLucType">
+			<xs:complexContent>
+				<xs:extension base="PLucType">
+					<xs:sequence>
+						<xs:element name="PL_KQHD" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ThuyetMinh">
+										<xs:annotation>
+											<xs:documentation>Thuyết minh</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct60" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Doanh thu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct61" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Chi phí</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct62" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Thặng dư/thâm hụt (62= 60-61)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct65" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.Thu nhập khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct66" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.Chi phí khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct67" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3.Thặng dư/thâm hụt (67=65-66)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct70" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>III.Thặng dư/thâm hụt trong năm (70=62+67)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct71" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.Sử dụng kinh phí tiết kiệm của ĐV hành chính </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct72" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.Phân phối cho các quỹ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct73" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3.Kinh phí cải cách tiền lương</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="NamNay">
+										<xs:annotation>
+											<xs:documentation>Năm nay</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct60" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Doanh thu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct61" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Chi phí</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct62" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Thặng dư/thâm hụt (62= 60-61)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct65" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.Thu nhập khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct66" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.Chi phí khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct67" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3.Thặng dư/thâm hụt (67=65-66)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct70" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>III.Thặng dư/thâm hụt trong năm (70=62+67)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct71" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.Sử dụng kinh phí tiết kiệm của ĐV hành chính </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct72" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.Phân phối cho các quỹ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct73" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3.Kinh phí cải cách tiền lương</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="NamTruoc">
+										<xs:annotation>
+											<xs:documentation>Năm trước</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct60" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Doanh thu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct61" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Chi phí</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct62" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Thặng dư/thâm hụt (62= 60-61)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct65" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.Thu nhập khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct66" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.Chi phí khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct67" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3.Thặng dư/thâm hụt (67=65-66)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct70" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>III.Thặng dư/thâm hụt trong năm (70=62+67)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct71" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.Sử dụng kinh phí tiết kiệm của ĐV hành chính </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct72" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.Phân phối cho các quỹ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct73" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3.Kinh phí cải cách tiền lương</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PL_LCTT" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ThuyetMinh">
+										<xs:annotation>
+											<xs:documentation>Thuyết minh</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct80" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation> 1.Các khoản thu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct81" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền Ngân sách nhà nước cấp vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct84" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền thu khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct85" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.Các khoản chi</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct86" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền chi lương, tiền công và chi khác cho nhân viên</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct87" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền chi trả cho người cung cấp hàng hóa, dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct88" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền chi khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct89" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3.Lưu chuyển tiền thuần từ hoạt động chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct90" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4.Số dư tiền đầu kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct91" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>5.Số dư tiền cuối kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="NamNay">
+										<xs:annotation>
+											<xs:documentation>Năm nay</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct80" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation> 1.Các khoản thu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct81" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền Ngân sách nhà nước cấp vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct84" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền thu khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct85" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.Các khoản chi</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct86" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền chi lương, tiền công và chi khác cho nhân viên</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct87" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền chi trả cho người cung cấp hàng hóa, dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct88" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền chi khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct89" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3.Lưu chuyển tiền thuần từ hoạt động chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct90" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4.Số dư tiền đầu kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct91" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>5.Số dư tiền cuối kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="NamTruoc">
+										<xs:annotation>
+											<xs:documentation>Năm trước</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct80" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation> 1.Các khoản thu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct81" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền Ngân sách nhà nước cấp vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct84" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền thu khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct85" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.Các khoản chi</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct86" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền chi lương, tiền công và chi khác cho nhân viên</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct87" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền chi trả cho người cung cấp hàng hóa, dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct88" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>- Tiền chi khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct89" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3.Lưu chuyển tiền thuần từ hoạt động chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct90" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4.Số dư tiền đầu kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct91" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>5.Số dư tiền cuối kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

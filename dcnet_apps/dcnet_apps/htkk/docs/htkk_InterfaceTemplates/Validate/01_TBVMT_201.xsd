@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by mennt (ST) -->
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ChiTietThueBVMT">
+							<xs:annotation>
+								<xs:documentation>Bảng kê thuế bảo vệ môi trường</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ThueBVMT" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct2" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên hàng hoá</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct3" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đơn vị tính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct4" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lượng tính thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct5" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mức thuế </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct6" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế bảo vệ môi trường phải nộp trong kỳ (6) = (4) x (5)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="ID" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="tong_ct6" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng thuế bảo vệ môi trường phải nộp trong kỳ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="PLucType">
+			<xs:complexContent>
+				<xs:extension base="PLucType">
+					<xs:sequence>
+						<xs:element name="PLuc_01_1_BVMT" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="PBoSoThueBVMTChoDPhuong">
+										<xs:annotation>
+											<xs:documentation>Bảng phân bổ số thuế BVMT phải nộp cho các địa phương</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietThueBVMTCuaDPhuong" minOccurs="0" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="maHangHoa" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mã hàng hóa</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct2" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên hàng hóa</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct3" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên doanh nghiệp/cơ sở khai thác</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct4" type="TINType" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>MST doanh nghiệp/cơ sở khai thác</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct5_cct" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Cơ quan thuế trực tiếp quản lý- chi cục thuế</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct5_ct" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Cơ quan thuế trực tiếp quản lý-  cục thuế</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct6" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Số than tiêu thụ nội địa trong kỳ (tấn)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct7" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tổng số than tiêu thụ trong kỳ (tấn)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct8" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tỷ lệ phân bổ (%) (8)=(6)/(7)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct9" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Sản lượng than mua của địa phương nơi có than khai thác trong kỳ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct10" type="xs:nonNegativeInteger" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mức thuế bảo vệ môi trường (đồng/tấn)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct11" type="xs:nonNegativeInteger" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Số thuế phát sinh phải nộp (11)=(8)*(9)*(10)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string"/>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="tongSoThuePSinhPNop" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng số thuế phát sinh phải nộp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

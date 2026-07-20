@@ -1,0 +1,268 @@
+{
+    "actions": [],
+    "autoname": "field:connection_name",
+    "creation": "2026-03-16 10:00:00.000000",
+    "custom": 0,
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "connection_name",
+        "platform",
+        "column_break_basic",
+        "enabled",
+        "is_sandbox",
+        "token_section",
+        "access_token",
+        "refresh_token",
+        "column_break_token",
+        "token_expires_at",
+        "state",
+        "shopee_section",
+        "shop_id",
+        "partner_id",
+        "api_key",
+        "api_secret",
+        "connect_shopee",
+        "lazada_section",
+        "api_key_lazada",
+        "api_secret_lazada",
+        "connect_lazada",
+        "tiktok_section",
+        "service_id",
+        "api_key_tiktok",
+        "api_secret_tiktok",
+        "connect_tiktok",
+        "woocommerce_section",
+        "store_url",
+        "consumer_key",
+        "consumer_secret",
+        "connect_woocommerce"
+    ],
+    "fields": [
+        {
+            "fieldname": "connection_name",
+            "fieldtype": "Data",
+            "label": "Connection Name",
+            "reqd": 1,
+            "unique": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "platform",
+            "fieldtype": "Select",
+            "label": "Marketplace Type",
+            "options": "Shopee\nLazada\nTikTok Shop\nWoocommerce",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "column_break_basic",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "enabled",
+            "fieldtype": "Check",
+            "label": "Active",
+            "default": "1",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "is_sandbox",
+            "fieldtype": "Check",
+            "label": "Sandbox Mode",
+            "default": "0"
+        },
+        {
+            "fieldname": "shopee_section",
+            "fieldtype": "Section Break",
+            "label": "Shopee Configuration",
+            "depends_on": "eval:doc.platform=='Shopee'"
+        },
+        {
+            "fieldname": "shop_id",
+            "fieldtype": "Data",
+            "label": "Shop ID",
+            "depends_on": "eval:doc.platform=='Shopee'",
+            "placeholder": "Enter Shopee shop ID"
+        },
+        {
+            "fieldname": "partner_id",
+            "fieldtype": "Data",
+            "label": "Partner ID",
+            "depends_on": "eval:doc.platform=='Shopee'",
+            "placeholder": "Enter Shopee partner ID"
+        },
+        {
+            "fieldname": "api_key",
+            "fieldtype": "Password",
+            "label": "API Key",
+            "depends_on": "eval:doc.platform=='Shopee'",
+            "placeholder": "Enter Shopee API key"
+        },
+        {
+            "fieldname": "api_secret",
+            "fieldtype": "Password",
+            "label": "API Secret",
+            "depends_on": "eval:doc.platform=='Shopee'",
+            "placeholder": "Enter Shopee API secret"
+        },
+        {
+            "fieldname": "connect_shopee",
+            "fieldtype": "Button",
+            "label": "Connect Shopee",
+            "depends_on": "eval:doc.platform=='Shopee'"
+        },
+        {
+            "fieldname": "token_section",
+            "fieldtype": "Section Break",
+            "label": "Authentication Details"
+        },
+        {
+            "fieldname": "access_token",
+            "fieldtype": "Password",
+            "label": "Access Token",
+            "read_only": 1,
+            "placeholder": "Auto-generated after authentication"
+        },
+        {
+            "fieldname": "refresh_token",
+            "fieldtype": "Password",
+            "label": "Refresh Token",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_token",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "token_expires_at",
+            "fieldtype": "Datetime",
+            "label": "Token Expires At",
+            "read_only": 1
+        },
+        {
+            "fieldname": "state",
+            "fieldtype": "Data",
+            "label": "OAuth State",
+            "hidden": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "lazada_section",
+            "fieldtype": "Section Break",
+            "label": "Lazada Configuration",
+            "depends_on": "eval:doc.platform=='Lazada'"
+        },
+        {
+            "fieldname": "api_key_lazada",
+            "fieldtype": "Password",
+            "label": "App Key",
+            "depends_on": "eval:doc.platform=='Lazada'",
+            "placeholder": "Enter Lazada App key"
+        },
+        {
+            "fieldname": "api_secret_lazada",
+            "fieldtype": "Password",
+            "label": "App Secret",
+            "depends_on": "eval:doc.platform=='Lazada'",
+            "placeholder": "Enter Lazada App secret"
+        },
+        {
+            "fieldname": "connect_lazada",
+            "fieldtype": "Button",
+            "label": "Connect Lazada",
+            "depends_on": "eval:doc.platform=='Lazada'"
+        },
+        {
+            "fieldname": "tiktok_section",
+            "fieldtype": "Section Break",
+            "label": "TikTok Shop Configuration",
+            "depends_on": "eval:doc.platform=='TikTok Shop'"
+        },
+        {
+            "fieldname": "service_id",
+            "fieldtype": "Data",
+            "label": "Service ID",
+            "depends_on": "eval:doc.platform=='TikTok Shop'",
+            "placeholder": "Enter TikTok Service ID"
+        },
+        {
+            "fieldname": "api_key_tiktok",
+            "fieldtype": "Password",
+            "label": "API Key",
+            "depends_on": "eval:doc.platform=='TikTok Shop'",
+            "placeholder": "Enter TikTok API key"
+        },
+        {
+            "fieldname": "api_secret_tiktok",
+            "fieldtype": "Password",
+            "label": "API Secret",
+            "depends_on": "eval:doc.platform=='TikTok Shop'",
+            "placeholder": "Enter TikTok API secret"
+        },
+        {
+            "fieldname": "connect_tiktok",
+            "fieldtype": "Button",
+            "label": "Connect TikTok Shop",
+            "depends_on": "eval:doc.platform=='TikTok Shop'"
+        },
+        {
+            "fieldname": "woocommerce_section",
+            "fieldtype": "Section Break",
+            "label": "Woocommerce Shop Configuration",
+            "depends_on": "eval:doc.platform=='Woocommerce'"
+        },
+        {
+            "fieldname": "store_url",
+            "fieldtype": "Data",
+            "label": "Store Url",
+            "depends_on": "eval:doc.platform=='Woocommerce'",
+            "placeholder": "Enter Woocommerce Store Url"
+        },
+        {
+            "fieldname": "consumer_key",
+            "fieldtype": "Password",
+            "label": "Consumer Key",
+            "depends_on": "eval:doc.platform=='Woocommerce'",
+            "placeholder": "Enter Woocommerce Consumer Key"
+        },
+        {
+            "fieldname": "consumer_secret",
+            "fieldtype": "Password",
+            "label": "Consumer Secret",
+            "depends_on": "eval:doc.platform=='Woocommerce'",
+            "placeholder": "Enter Woocommerce Consumer Secret"
+        },
+        {
+            "fieldname": "connect_woocommerce",
+            "fieldtype": "Button",
+            "label": "Connect WooCommerce",
+            "depends_on": "eval:doc.platform=='Woocommerce'"
+        }
+    ],
+    "index_web_pages_for_search": 0,
+    "modified": "2026-03-17 16:10:00.000000",
+    "modified_by": "Administrator",
+    "module": "DCNet Ecommerce",
+    "name": "DCNet Marketplace Connection",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "title_field": "connection_name",
+    "track_changes": 1
+}

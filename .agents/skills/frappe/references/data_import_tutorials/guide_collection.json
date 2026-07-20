@@ -1,0 +1,2318 @@
+{
+  "total_guides": 5,
+  "guides_by_complexity": {
+    "advanced": 5
+  },
+  "guides_by_use_case": {
+    "Data Import From File": [
+      {
+        "guide_id": "056078b027b8",
+        "title": "Data Import From File",
+        "overview": "Workflow: test data import from file",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "frappe",
+          "frappe.core.doctype.data_import.importer",
+          "frappe.tests",
+          "frappe.tests.test_query_builder",
+          "frappe.utils"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "a2934e23",
+            "test_name": "test_data_import_from_file",
+            "category": "workflow",
+            "code": "import_file = get_import_file('sample_import_file')\ndata_import = self.get_importer(doctype_name, import_file)\ndata_import.start_import()\ndoc1 = frappe.get_doc(doctype_name, 'Test')\ndoc2 = frappe.get_doc(doctype_name, 'Test 2')\ndoc3 = frappe.get_doc(doctype_name, 'Test 3')\nself.assertEqual(doc1.description, 'test description')\nself.assertEqual(doc1.number, 1)\nself.assertEqual(format_duration(doc1.duration), '3h')\nself.assertEqual(doc1.table_field_1[0].child_title, 'child title')\nself.assertEqual(doc1.table_field_1[0].child_description, 'child description')\nself.assertEqual(doc1.table_field_1[1].child_title, 'child title 2')\nself.assertEqual(doc1.table_field_1[1].child_description, 'child description 2')\nself.assertEqual(doc1.table_field_2[1].child_2_title, 'title child')\nself.assertEqual(doc1.table_field_2[1].child_2_date, getdate('2019-10-30'))\nself.assertEqual(doc1.table_field_2[1].child_2_another_number, 5)\nself.assertEqual(doc1.table_field_1_again[0].child_title, 'child title again')\nself.assertEqual(doc1.table_field_1_again[1].child_title, 'child title again 2')\nself.assertEqual(doc1.table_field_1_again[1].child_date, getdate('2021-09-22'))\nself.assertEqual(doc2.description, 'test description 2')\nself.assertEqual(format_duration(doc2.duration), '4d 3h')\nself.assertEqual(doc3.another_number, 5)\nself.assertEqual(format_duration(doc3.duration), '5d 5h 45m')",
+            "language": "Python",
+            "description": "Workflow: test data import from file",
+            "expected_behavior": "self.assertEqual(format_duration(doc3.duration), '5d 5h 45m')",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+            "line_start": 20,
+            "line_end": 51,
+            "complexity_score": 1.0,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "frappe",
+              "frappe.core.doctype.data_import.importer",
+              "frappe.tests",
+              "frappe.tests.test_query_builder",
+              "frappe.utils"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "import_file = get_import_file('sample_import_file')",
+            "description": "Assign import_file = get_import_file(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "data_import = self.get_importer(doctype_name, import_file)",
+            "description": "Assign data_import = self.get_importer(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "data_import.start_import()",
+            "description": "Call data_import.start_import()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "doc1 = frappe.get_doc(doctype_name, 'Test')",
+            "description": "Assign doc1 = frappe.get_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "doc2 = frappe.get_doc(doctype_name, 'Test 2')",
+            "description": "Assign doc2 = frappe.get_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "doc3 = frappe.get_doc(doctype_name, 'Test 3')",
+            "description": "Assign doc3 = frappe.get_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "self.assertEqual(doc1.description, 'test description')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "self.assertEqual(doc1.number, 1)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 9,
+            "code": "self.assertEqual(format_duration(doc1.duration), '3h')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 10,
+            "code": "self.assertEqual(doc1.table_field_1[0].child_title, 'child title')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 11,
+            "code": "self.assertEqual(doc1.table_field_1[0].child_description, 'child description')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 12,
+            "code": "self.assertEqual(doc1.table_field_1[1].child_title, 'child title 2')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 13,
+            "code": "self.assertEqual(doc1.table_field_1[1].child_description, 'child description 2')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 14,
+            "code": "self.assertEqual(doc1.table_field_2[1].child_2_title, 'title child')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 15,
+            "code": "self.assertEqual(doc1.table_field_2[1].child_2_date, getdate('2019-10-30'))",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 16,
+            "code": "self.assertEqual(doc1.table_field_2[1].child_2_another_number, 5)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 17,
+            "code": "self.assertEqual(doc1.table_field_1_again[0].child_title, 'child title again')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 18,
+            "code": "self.assertEqual(doc1.table_field_1_again[1].child_title, 'child title again 2')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 19,
+            "code": "self.assertEqual(doc1.table_field_1_again[1].child_date, getdate('2021-09-22'))",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 20,
+            "code": "self.assertEqual(doc2.description, 'test description 2')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 21,
+            "code": "self.assertEqual(format_duration(doc2.duration), '4d 3h')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 22,
+            "code": "self.assertEqual(doc3.another_number, 5)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 23,
+            "code": "self.assertEqual(format_duration(doc3.duration), '5d 5h 45m')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Data Import From File",
+        "tags": [
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "20 minutes",
+        "source_files": [
+          "test_importer.py:20"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Data Import Without Mandatory Values": [
+      {
+        "guide_id": "bdd43dde93c4",
+        "title": "Data Import Without Mandatory Values",
+        "overview": "Workflow: test data import without mandatory values",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "frappe",
+          "frappe.core.doctype.data_import.importer",
+          "frappe.tests",
+          "frappe.tests.test_query_builder",
+          "frappe.utils"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "fecaf395",
+            "test_name": "test_data_import_without_mandatory_values",
+            "category": "workflow",
+            "code": "import_file = get_import_file('sample_import_file_without_mandatory')\ndata_import = self.get_importer(doctype_name, import_file)\nfrappe.clear_messages()\ndata_import.start_import()\ndata_import.reload()\nimport_log = frappe.get_all('Data Import Log', fields=['row_indexes', 'success', 'messages', 'exception', 'docname'], filters={'data_import': data_import.name}, order_by='log_index')\nself.assertEqual(frappe.parse_json(import_log[0]['row_indexes']), [2, 3])\nexpected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #1: Value missing for: Child Title'\nself.assertEqual(frappe.parse_json(frappe.parse_json(import_log[0]['messages'])[0])['message'], expected_error)\nexpected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #2: Value missing for: Child Title'\nself.assertEqual(frappe.parse_json(frappe.parse_json(import_log[0]['messages'])[1])['message'], expected_error)\nself.assertEqual(frappe.parse_json(import_log[1]['row_indexes']), [4])\nself.assertEqual(frappe.parse_json(frappe.parse_json(import_log[1]['messages'])[0])['message'], 'Title is required')",
+            "language": "Python",
+            "description": "Workflow: test data import without mandatory values",
+            "expected_behavior": "self.assertEqual(frappe.parse_json(frappe.parse_json(import_log[1]['messages'])[0])['message'], 'Title is required')",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+            "line_start": 82,
+            "line_end": 114,
+            "complexity_score": 1.0,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "frappe",
+              "frappe.core.doctype.data_import.importer",
+              "frappe.tests",
+              "frappe.tests.test_query_builder",
+              "frappe.utils"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "import_file = get_import_file('sample_import_file_without_mandatory')",
+            "description": "Assign import_file = get_import_file(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "data_import = self.get_importer(doctype_name, import_file)",
+            "description": "Assign data_import = self.get_importer(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "frappe.clear_messages()",
+            "description": "Call frappe.clear_messages()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "data_import.start_import()",
+            "description": "Call data_import.start_import()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "data_import.reload()",
+            "description": "Call data_import.reload()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "import_log = frappe.get_all('Data Import Log', fields=['row_indexes', 'success', 'messages', 'exception', 'docname'], filters={'data_import': data_import.name}, order_by='log_index')",
+            "description": "Assign import_log = frappe.get_all(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "self.assertEqual(frappe.parse_json(import_log[0]['row_indexes']), [2, 3])",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "expected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #1: Value missing for: Child Title'",
+            "description": "Assign expected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #1: Value missing for: Child Title'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 9,
+            "code": "self.assertEqual(frappe.parse_json(frappe.parse_json(import_log[0]['messages'])[0])['message'], expected_error)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 10,
+            "code": "expected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #2: Value missing for: Child Title'",
+            "description": "Assign expected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #2: Value missing for: Child Title'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 11,
+            "code": "self.assertEqual(frappe.parse_json(frappe.parse_json(import_log[0]['messages'])[1])['message'], expected_error)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 12,
+            "code": "self.assertEqual(frappe.parse_json(import_log[1]['row_indexes']), [4])",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 13,
+            "code": "self.assertEqual(frappe.parse_json(frappe.parse_json(import_log[1]['messages'])[0])['message'], 'Title is required')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Data Import Without Mandatory Values",
+        "tags": [
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "20 minutes",
+        "source_files": [
+          "test_importer.py:82"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Data Import Update": [
+      {
+        "guide_id": "0fe68c1e8929",
+        "title": "Data Import Update",
+        "overview": "Workflow: test data import update",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "frappe",
+          "frappe.core.doctype.data_import.importer",
+          "frappe.tests",
+          "frappe.tests.test_query_builder",
+          "frappe.utils"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "b6f35785",
+            "test_name": "test_data_import_update",
+            "category": "workflow",
+            "code": "existing_doc = frappe.get_doc(doctype=doctype_name, title=frappe.generate_hash(length=8), table_field_1=[{'child_title': 'child title to update'}])\nexisting_doc.save()\nfrappe.db.commit()\nimport_file = get_import_file('sample_import_file_for_update')\ndata_import = self.get_importer(doctype_name, import_file, update=True)\ni = Importer(data_import.reference_doctype, data_import=data_import)\ni.import_file.raw_data[1][4] = existing_doc.table_field_1[0].name\nif frappe.db.db_type == 'mariadb':\n    i.import_file.raw_data[1][0] = existing_doc.name.upper()\nelse:\n    i.import_file.raw_data[1][0] = existing_doc.name\ni.import_file.parse_data_from_template()\ni.import_data()\nupdated_doc = frappe.get_doc(doctype_name, existing_doc.name)\nself.assertEqual(existing_doc.title, updated_doc.title)\nself.assertEqual(updated_doc.description, 'test description')\nself.assertEqual(updated_doc.table_field_1[0].child_title, 'child title')\nself.assertEqual(updated_doc.table_field_1[0].name, existing_doc.table_field_1[0].name)\nself.assertEqual(updated_doc.table_field_1[0].child_description, 'child description')\nself.assertEqual(updated_doc.table_field_1_again[0].child_title, 'child title again')",
+            "language": "Python",
+            "description": "Workflow: test data import update",
+            "expected_behavior": "self.assertEqual(updated_doc.table_field_1_again[0].child_title, 'child title again')",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+            "line_start": 116,
+            "line_end": 147,
+            "complexity_score": 1.0,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "frappe",
+              "frappe.core.doctype.data_import.importer",
+              "frappe.tests",
+              "frappe.tests.test_query_builder",
+              "frappe.utils"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "existing_doc = frappe.get_doc(doctype=doctype_name, title=frappe.generate_hash(length=8), table_field_1=[{'child_title': 'child title to update'}])",
+            "description": "Assign existing_doc = frappe.get_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "existing_doc.save()",
+            "description": "Call existing_doc.save()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "frappe.db.commit()",
+            "description": "Call frappe.db.commit()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "import_file = get_import_file('sample_import_file_for_update')",
+            "description": "Assign import_file = get_import_file(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "data_import = self.get_importer(doctype_name, import_file, update=True)",
+            "description": "Assign data_import = self.get_importer(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "i = Importer(data_import.reference_doctype, data_import=data_import)",
+            "description": "Assign i = Importer(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "i.import_file.raw_data[1][4] = existing_doc.table_field_1[0].name",
+            "description": "Assign unknown = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "i.import_file.parse_data_from_template()",
+            "description": "Call i.import_file.parse_data_from_template()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 9,
+            "code": "i.import_data()",
+            "description": "Call i.import_data()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 10,
+            "code": "updated_doc = frappe.get_doc(doctype_name, existing_doc.name)",
+            "description": "Assign updated_doc = frappe.get_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 11,
+            "code": "self.assertEqual(existing_doc.title, updated_doc.title)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 12,
+            "code": "self.assertEqual(updated_doc.description, 'test description')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 13,
+            "code": "self.assertEqual(updated_doc.table_field_1[0].child_title, 'child title')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 14,
+            "code": "self.assertEqual(updated_doc.table_field_1[0].name, existing_doc.table_field_1[0].name)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 15,
+            "code": "self.assertEqual(updated_doc.table_field_1[0].child_description, 'child description')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 16,
+            "code": "self.assertEqual(updated_doc.table_field_1_again[0].child_title, 'child title again')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 17,
+            "code": "i.import_file.raw_data[1][0] = existing_doc.name.upper()",
+            "description": "Assign unknown = existing_doc.name.upper(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 18,
+            "code": "i.import_file.raw_data[1][0] = existing_doc.name",
+            "description": "Assign unknown = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Data Import Update",
+        "tags": [
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "20 minutes",
+        "source_files": [
+          "test_importer.py:116"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Data Import Without Label": [
+      {
+        "guide_id": "cfeb0595dcb8",
+        "title": "Data Import Without Label",
+        "overview": "Workflow: Test fallback to fieldname when label is not set for a table.",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "frappe",
+          "frappe.core.doctype.data_import.importer",
+          "frappe.tests",
+          "frappe.tests.test_query_builder",
+          "frappe.utils"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "f43d663b",
+            "test_name": "test_data_import_without_label",
+            "category": "workflow",
+            "code": "'Test fallback to fieldname when label is not set for a table.'\nmeta = frappe.get_meta(doctype_name)\ntable_field = meta.get_field('table_field_1')\noriginal_label = table_field.label\ntable_field.label = None\nfields_dict = build_fields_dict_for_column_matching(doctype_name)\nexpected_key = 'Child Title (table_field_1)'\nself.assertIn(expected_key, fields_dict, f\"Fallback failed: '{expected_key}' not found in mapping dict\")\nexpected_id_key = 'ID (table_field_1)'\nself.assertIn(expected_id_key, fields_dict, 'ID fallback failed')\ntable_field.label = original_label",
+            "language": "Python",
+            "description": "Workflow: Test fallback to fieldname when label is not set for a table.",
+            "expected_behavior": "self.assertIn(expected_id_key, fields_dict, 'ID fallback failed')",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+            "line_start": 149,
+            "line_end": 163,
+            "complexity_score": 1.0,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "frappe",
+              "frappe.core.doctype.data_import.importer",
+              "frappe.tests",
+              "frappe.tests.test_query_builder",
+              "frappe.utils"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "'Test fallback to fieldname when label is not set for a table.'",
+            "description": "'Test fallback to fieldname when label is not set for a table.'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "meta = frappe.get_meta(doctype_name)",
+            "description": "Assign meta = frappe.get_meta(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "table_field = meta.get_field('table_field_1')",
+            "description": "Assign table_field = meta.get_field(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "original_label = table_field.label",
+            "description": "Assign original_label = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "table_field.label = None",
+            "description": "Assign table_field.label = None",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "fields_dict = build_fields_dict_for_column_matching(doctype_name)",
+            "description": "Assign fields_dict = build_fields_dict_for_column_matching(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "expected_key = 'Child Title (table_field_1)'",
+            "description": "Assign expected_key = 'Child Title (table_field_1)'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "self.assertIn(expected_key, fields_dict, f\"Fallback failed: '{expected_key}' not found in mapping dict\")",
+            "description": "Call self.assertIn()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 9,
+            "code": "expected_id_key = 'ID (table_field_1)'",
+            "description": "Assign expected_id_key = 'ID (table_field_1)'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 10,
+            "code": "self.assertIn(expected_id_key, fields_dict, 'ID fallback failed')",
+            "description": "Call self.assertIn()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 11,
+            "code": "table_field.label = original_label",
+            "description": "Assign table_field.label = original_label",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Data Import Without Label",
+        "tags": [
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "20 minutes",
+        "source_files": [
+          "test_importer.py:149"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Exports Specified Fields": [
+      {
+        "guide_id": "aa373740ad5a",
+        "title": "Exports Specified Fields",
+        "overview": "Workflow: test exports specified fields",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "frappe",
+          "frappe.core.doctype.data_import.exporter",
+          "frappe.core.doctype.data_import.test_importer",
+          "frappe.tests"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "f1c4001b",
+            "test_name": "test_exports_specified_fields",
+            "category": "workflow",
+            "code": "if not frappe.db.exists(doctype_name, 'Test'):\n    doc = frappe.get_doc(doctype=doctype_name, title='Test', description='Test Description', table_field_1=[{'child_title': 'Child Title 1', 'child_description': 'Child Description 1'}, {'child_title': 'Child Title 2', 'child_description': 'Child Description 2'}], table_field_2=[{'child_2_title': 'Child Title 1', 'child_2_description': 'Child Description 1'}], table_field_1_again=[{'child_title': 'Child Title 1 Again', 'child_description': 'Child Description 1 Again'}]).insert()\nelse:\n    doc = frappe.get_doc(doctype_name, 'Test')\ne = Exporter(doctype_name, export_fields={doctype_name: ['title', 'description', 'number', 'another_number'], 'table_field_1': ['name', 'child_title', 'child_description'], 'table_field_2': ['child_2_date', 'child_2_number'], 'table_field_1_again': ['child_title', 'child_date', 'child_number', 'child_another_number']}, export_data=True)\ncsv_array = e.get_csv_array()\nheader_row = csv_array[0]\nself.assertEqual(header_row, ['Title', 'Description', 'Number', 'another_number', 'ID (Table Field 1)', 'Child Title (Table Field 1)', 'Child Description (Table Field 1)', 'Child 2 Date (Table Field 2)', 'Child 2 Number (Table Field 2)', 'Child Title (Table Field 1 Again)', 'Child Date (Table Field 1 Again)', 'Child Number (Table Field 1 Again)', 'table_field_1_again.child_another_number'])\ntable_field_1_row_1_name = doc.table_field_1[0].name\ntable_field_1_row_2_name = doc.table_field_1[1].name\nself.assertEqual(csv_array[1], ['Test', 'Test Description', 0, 0, table_field_1_row_1_name, 'Child Title 1', 'Child Description 1', None, 0, 'Child Title 1 Again', None, 0, 0])\nself.assertEqual(csv_array[2], ['', '', '', '', table_field_1_row_2_name, 'Child Title 2', 'Child Description 2', '', '', '', '', '', ''])\nself.assertEqual(len(csv_array), 3)",
+            "language": "Python",
+            "description": "Workflow: test exports specified fields",
+            "expected_behavior": "self.assertEqual(len(csv_array), 3)",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_exporter.py",
+            "line_start": 15,
+            "line_end": 87,
+            "complexity_score": 1.0,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "frappe",
+              "frappe.core.doctype.data_import.exporter",
+              "frappe.core.doctype.data_import.test_importer",
+              "frappe.tests"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "e = Exporter(doctype_name, export_fields={doctype_name: ['title', 'description', 'number', 'another_number'], 'table_field_1': ['name', 'child_title', 'child_description'], 'table_field_2': ['child_2_date', 'child_2_number'], 'table_field_1_again': ['child_title', 'child_date', 'child_number', 'child_another_number']}, export_data=True)",
+            "description": "Assign e = Exporter(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "csv_array = e.get_csv_array()",
+            "description": "Assign csv_array = e.get_csv_array(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "header_row = csv_array[0]",
+            "description": "Assign header_row = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "self.assertEqual(header_row, ['Title', 'Description', 'Number', 'another_number', 'ID (Table Field 1)', 'Child Title (Table Field 1)', 'Child Description (Table Field 1)', 'Child 2 Date (Table Field 2)', 'Child 2 Number (Table Field 2)', 'Child Title (Table Field 1 Again)', 'Child Date (Table Field 1 Again)', 'Child Number (Table Field 1 Again)', 'table_field_1_again.child_another_number'])",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "table_field_1_row_1_name = doc.table_field_1[0].name",
+            "description": "Assign table_field_1_row_1_name = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "table_field_1_row_2_name = doc.table_field_1[1].name",
+            "description": "Assign table_field_1_row_2_name = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "self.assertEqual(csv_array[1], ['Test', 'Test Description', 0, 0, table_field_1_row_1_name, 'Child Title 1', 'Child Description 1', None, 0, 'Child Title 1 Again', None, 0, 0])",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "self.assertEqual(csv_array[2], ['', '', '', '', table_field_1_row_2_name, 'Child Title 2', 'Child Description 2', '', '', '', '', '', ''])",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 9,
+            "code": "self.assertEqual(len(csv_array), 3)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 10,
+            "code": "doc = frappe.get_doc(doctype=doctype_name, title='Test', description='Test Description', table_field_1=[{'child_title': 'Child Title 1', 'child_description': 'Child Description 1'}, {'child_title': 'Child Title 2', 'child_description': 'Child Description 2'}], table_field_2=[{'child_2_title': 'Child Title 1', 'child_2_description': 'Child Description 1'}], table_field_1_again=[{'child_title': 'Child Title 1 Again', 'child_description': 'Child Description 1 Again'}]).insert()",
+            "description": "Assign doc = frappe.get_doc.insert(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 11,
+            "code": "doc = frappe.get_doc(doctype_name, 'Test')",
+            "description": "Assign doc = frappe.get_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Exports Specified Fields",
+        "tags": [
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "20 minutes",
+        "source_files": [
+          "test_exporter.py:15"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ]
+  },
+  "guides": [
+    {
+      "guide_id": "056078b027b8",
+      "title": "Data Import From File",
+      "overview": "Workflow: test data import from file",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "frappe",
+        "frappe.core.doctype.data_import.importer",
+        "frappe.tests",
+        "frappe.tests.test_query_builder",
+        "frappe.utils"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "a2934e23",
+          "test_name": "test_data_import_from_file",
+          "category": "workflow",
+          "code": "import_file = get_import_file('sample_import_file')\ndata_import = self.get_importer(doctype_name, import_file)\ndata_import.start_import()\ndoc1 = frappe.get_doc(doctype_name, 'Test')\ndoc2 = frappe.get_doc(doctype_name, 'Test 2')\ndoc3 = frappe.get_doc(doctype_name, 'Test 3')\nself.assertEqual(doc1.description, 'test description')\nself.assertEqual(doc1.number, 1)\nself.assertEqual(format_duration(doc1.duration), '3h')\nself.assertEqual(doc1.table_field_1[0].child_title, 'child title')\nself.assertEqual(doc1.table_field_1[0].child_description, 'child description')\nself.assertEqual(doc1.table_field_1[1].child_title, 'child title 2')\nself.assertEqual(doc1.table_field_1[1].child_description, 'child description 2')\nself.assertEqual(doc1.table_field_2[1].child_2_title, 'title child')\nself.assertEqual(doc1.table_field_2[1].child_2_date, getdate('2019-10-30'))\nself.assertEqual(doc1.table_field_2[1].child_2_another_number, 5)\nself.assertEqual(doc1.table_field_1_again[0].child_title, 'child title again')\nself.assertEqual(doc1.table_field_1_again[1].child_title, 'child title again 2')\nself.assertEqual(doc1.table_field_1_again[1].child_date, getdate('2021-09-22'))\nself.assertEqual(doc2.description, 'test description 2')\nself.assertEqual(format_duration(doc2.duration), '4d 3h')\nself.assertEqual(doc3.another_number, 5)\nself.assertEqual(format_duration(doc3.duration), '5d 5h 45m')",
+          "language": "Python",
+          "description": "Workflow: test data import from file",
+          "expected_behavior": "self.assertEqual(format_duration(doc3.duration), '5d 5h 45m')",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+          "line_start": 20,
+          "line_end": 51,
+          "complexity_score": 1.0,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "frappe",
+            "frappe.core.doctype.data_import.importer",
+            "frappe.tests",
+            "frappe.tests.test_query_builder",
+            "frappe.utils"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "import_file = get_import_file('sample_import_file')",
+          "description": "Assign import_file = get_import_file(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "data_import = self.get_importer(doctype_name, import_file)",
+          "description": "Assign data_import = self.get_importer(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "data_import.start_import()",
+          "description": "Call data_import.start_import()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "doc1 = frappe.get_doc(doctype_name, 'Test')",
+          "description": "Assign doc1 = frappe.get_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "doc2 = frappe.get_doc(doctype_name, 'Test 2')",
+          "description": "Assign doc2 = frappe.get_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "doc3 = frappe.get_doc(doctype_name, 'Test 3')",
+          "description": "Assign doc3 = frappe.get_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "self.assertEqual(doc1.description, 'test description')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "self.assertEqual(doc1.number, 1)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 9,
+          "code": "self.assertEqual(format_duration(doc1.duration), '3h')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 10,
+          "code": "self.assertEqual(doc1.table_field_1[0].child_title, 'child title')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 11,
+          "code": "self.assertEqual(doc1.table_field_1[0].child_description, 'child description')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 12,
+          "code": "self.assertEqual(doc1.table_field_1[1].child_title, 'child title 2')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 13,
+          "code": "self.assertEqual(doc1.table_field_1[1].child_description, 'child description 2')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 14,
+          "code": "self.assertEqual(doc1.table_field_2[1].child_2_title, 'title child')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 15,
+          "code": "self.assertEqual(doc1.table_field_2[1].child_2_date, getdate('2019-10-30'))",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 16,
+          "code": "self.assertEqual(doc1.table_field_2[1].child_2_another_number, 5)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 17,
+          "code": "self.assertEqual(doc1.table_field_1_again[0].child_title, 'child title again')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 18,
+          "code": "self.assertEqual(doc1.table_field_1_again[1].child_title, 'child title again 2')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 19,
+          "code": "self.assertEqual(doc1.table_field_1_again[1].child_date, getdate('2021-09-22'))",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 20,
+          "code": "self.assertEqual(doc2.description, 'test description 2')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 21,
+          "code": "self.assertEqual(format_duration(doc2.duration), '4d 3h')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 22,
+          "code": "self.assertEqual(doc3.another_number, 5)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 23,
+          "code": "self.assertEqual(format_duration(doc3.duration), '5d 5h 45m')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Data Import From File",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "20 minutes",
+      "source_files": [
+        "test_importer.py:20"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "bdd43dde93c4",
+      "title": "Data Import Without Mandatory Values",
+      "overview": "Workflow: test data import without mandatory values",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "frappe",
+        "frappe.core.doctype.data_import.importer",
+        "frappe.tests",
+        "frappe.tests.test_query_builder",
+        "frappe.utils"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "fecaf395",
+          "test_name": "test_data_import_without_mandatory_values",
+          "category": "workflow",
+          "code": "import_file = get_import_file('sample_import_file_without_mandatory')\ndata_import = self.get_importer(doctype_name, import_file)\nfrappe.clear_messages()\ndata_import.start_import()\ndata_import.reload()\nimport_log = frappe.get_all('Data Import Log', fields=['row_indexes', 'success', 'messages', 'exception', 'docname'], filters={'data_import': data_import.name}, order_by='log_index')\nself.assertEqual(frappe.parse_json(import_log[0]['row_indexes']), [2, 3])\nexpected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #1: Value missing for: Child Title'\nself.assertEqual(frappe.parse_json(frappe.parse_json(import_log[0]['messages'])[0])['message'], expected_error)\nexpected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #2: Value missing for: Child Title'\nself.assertEqual(frappe.parse_json(frappe.parse_json(import_log[0]['messages'])[1])['message'], expected_error)\nself.assertEqual(frappe.parse_json(import_log[1]['row_indexes']), [4])\nself.assertEqual(frappe.parse_json(frappe.parse_json(import_log[1]['messages'])[0])['message'], 'Title is required')",
+          "language": "Python",
+          "description": "Workflow: test data import without mandatory values",
+          "expected_behavior": "self.assertEqual(frappe.parse_json(frappe.parse_json(import_log[1]['messages'])[0])['message'], 'Title is required')",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+          "line_start": 82,
+          "line_end": 114,
+          "complexity_score": 1.0,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "frappe",
+            "frappe.core.doctype.data_import.importer",
+            "frappe.tests",
+            "frappe.tests.test_query_builder",
+            "frappe.utils"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "import_file = get_import_file('sample_import_file_without_mandatory')",
+          "description": "Assign import_file = get_import_file(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "data_import = self.get_importer(doctype_name, import_file)",
+          "description": "Assign data_import = self.get_importer(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "frappe.clear_messages()",
+          "description": "Call frappe.clear_messages()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "data_import.start_import()",
+          "description": "Call data_import.start_import()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "data_import.reload()",
+          "description": "Call data_import.reload()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "import_log = frappe.get_all('Data Import Log', fields=['row_indexes', 'success', 'messages', 'exception', 'docname'], filters={'data_import': data_import.name}, order_by='log_index')",
+          "description": "Assign import_log = frappe.get_all(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "self.assertEqual(frappe.parse_json(import_log[0]['row_indexes']), [2, 3])",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "expected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #1: Value missing for: Child Title'",
+          "description": "Assign expected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #1: Value missing for: Child Title'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 9,
+          "code": "self.assertEqual(frappe.parse_json(frappe.parse_json(import_log[0]['messages'])[0])['message'], expected_error)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 10,
+          "code": "expected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #2: Value missing for: Child Title'",
+          "description": "Assign expected_error = 'Error: <strong>Child 1 of DocType for Import</strong> Row #2: Value missing for: Child Title'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 11,
+          "code": "self.assertEqual(frappe.parse_json(frappe.parse_json(import_log[0]['messages'])[1])['message'], expected_error)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 12,
+          "code": "self.assertEqual(frappe.parse_json(import_log[1]['row_indexes']), [4])",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 13,
+          "code": "self.assertEqual(frappe.parse_json(frappe.parse_json(import_log[1]['messages'])[0])['message'], 'Title is required')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Data Import Without Mandatory Values",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "20 minutes",
+      "source_files": [
+        "test_importer.py:82"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "0fe68c1e8929",
+      "title": "Data Import Update",
+      "overview": "Workflow: test data import update",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "frappe",
+        "frappe.core.doctype.data_import.importer",
+        "frappe.tests",
+        "frappe.tests.test_query_builder",
+        "frappe.utils"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "b6f35785",
+          "test_name": "test_data_import_update",
+          "category": "workflow",
+          "code": "existing_doc = frappe.get_doc(doctype=doctype_name, title=frappe.generate_hash(length=8), table_field_1=[{'child_title': 'child title to update'}])\nexisting_doc.save()\nfrappe.db.commit()\nimport_file = get_import_file('sample_import_file_for_update')\ndata_import = self.get_importer(doctype_name, import_file, update=True)\ni = Importer(data_import.reference_doctype, data_import=data_import)\ni.import_file.raw_data[1][4] = existing_doc.table_field_1[0].name\nif frappe.db.db_type == 'mariadb':\n    i.import_file.raw_data[1][0] = existing_doc.name.upper()\nelse:\n    i.import_file.raw_data[1][0] = existing_doc.name\ni.import_file.parse_data_from_template()\ni.import_data()\nupdated_doc = frappe.get_doc(doctype_name, existing_doc.name)\nself.assertEqual(existing_doc.title, updated_doc.title)\nself.assertEqual(updated_doc.description, 'test description')\nself.assertEqual(updated_doc.table_field_1[0].child_title, 'child title')\nself.assertEqual(updated_doc.table_field_1[0].name, existing_doc.table_field_1[0].name)\nself.assertEqual(updated_doc.table_field_1[0].child_description, 'child description')\nself.assertEqual(updated_doc.table_field_1_again[0].child_title, 'child title again')",
+          "language": "Python",
+          "description": "Workflow: test data import update",
+          "expected_behavior": "self.assertEqual(updated_doc.table_field_1_again[0].child_title, 'child title again')",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+          "line_start": 116,
+          "line_end": 147,
+          "complexity_score": 1.0,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "frappe",
+            "frappe.core.doctype.data_import.importer",
+            "frappe.tests",
+            "frappe.tests.test_query_builder",
+            "frappe.utils"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "existing_doc = frappe.get_doc(doctype=doctype_name, title=frappe.generate_hash(length=8), table_field_1=[{'child_title': 'child title to update'}])",
+          "description": "Assign existing_doc = frappe.get_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "existing_doc.save()",
+          "description": "Call existing_doc.save()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "frappe.db.commit()",
+          "description": "Call frappe.db.commit()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "import_file = get_import_file('sample_import_file_for_update')",
+          "description": "Assign import_file = get_import_file(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "data_import = self.get_importer(doctype_name, import_file, update=True)",
+          "description": "Assign data_import = self.get_importer(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "i = Importer(data_import.reference_doctype, data_import=data_import)",
+          "description": "Assign i = Importer(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "i.import_file.raw_data[1][4] = existing_doc.table_field_1[0].name",
+          "description": "Assign unknown = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "i.import_file.parse_data_from_template()",
+          "description": "Call i.import_file.parse_data_from_template()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 9,
+          "code": "i.import_data()",
+          "description": "Call i.import_data()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 10,
+          "code": "updated_doc = frappe.get_doc(doctype_name, existing_doc.name)",
+          "description": "Assign updated_doc = frappe.get_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 11,
+          "code": "self.assertEqual(existing_doc.title, updated_doc.title)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 12,
+          "code": "self.assertEqual(updated_doc.description, 'test description')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 13,
+          "code": "self.assertEqual(updated_doc.table_field_1[0].child_title, 'child title')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 14,
+          "code": "self.assertEqual(updated_doc.table_field_1[0].name, existing_doc.table_field_1[0].name)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 15,
+          "code": "self.assertEqual(updated_doc.table_field_1[0].child_description, 'child description')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 16,
+          "code": "self.assertEqual(updated_doc.table_field_1_again[0].child_title, 'child title again')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 17,
+          "code": "i.import_file.raw_data[1][0] = existing_doc.name.upper()",
+          "description": "Assign unknown = existing_doc.name.upper(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 18,
+          "code": "i.import_file.raw_data[1][0] = existing_doc.name",
+          "description": "Assign unknown = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Data Import Update",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "20 minutes",
+      "source_files": [
+        "test_importer.py:116"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "cfeb0595dcb8",
+      "title": "Data Import Without Label",
+      "overview": "Workflow: Test fallback to fieldname when label is not set for a table.",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "frappe",
+        "frappe.core.doctype.data_import.importer",
+        "frappe.tests",
+        "frappe.tests.test_query_builder",
+        "frappe.utils"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "f43d663b",
+          "test_name": "test_data_import_without_label",
+          "category": "workflow",
+          "code": "'Test fallback to fieldname when label is not set for a table.'\nmeta = frappe.get_meta(doctype_name)\ntable_field = meta.get_field('table_field_1')\noriginal_label = table_field.label\ntable_field.label = None\nfields_dict = build_fields_dict_for_column_matching(doctype_name)\nexpected_key = 'Child Title (table_field_1)'\nself.assertIn(expected_key, fields_dict, f\"Fallback failed: '{expected_key}' not found in mapping dict\")\nexpected_id_key = 'ID (table_field_1)'\nself.assertIn(expected_id_key, fields_dict, 'ID fallback failed')\ntable_field.label = original_label",
+          "language": "Python",
+          "description": "Workflow: Test fallback to fieldname when label is not set for a table.",
+          "expected_behavior": "self.assertIn(expected_id_key, fields_dict, 'ID fallback failed')",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_importer.py",
+          "line_start": 149,
+          "line_end": 163,
+          "complexity_score": 1.0,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "frappe",
+            "frappe.core.doctype.data_import.importer",
+            "frappe.tests",
+            "frappe.tests.test_query_builder",
+            "frappe.utils"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "'Test fallback to fieldname when label is not set for a table.'",
+          "description": "'Test fallback to fieldname when label is not set for a table.'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "meta = frappe.get_meta(doctype_name)",
+          "description": "Assign meta = frappe.get_meta(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "table_field = meta.get_field('table_field_1')",
+          "description": "Assign table_field = meta.get_field(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "original_label = table_field.label",
+          "description": "Assign original_label = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "table_field.label = None",
+          "description": "Assign table_field.label = None",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "fields_dict = build_fields_dict_for_column_matching(doctype_name)",
+          "description": "Assign fields_dict = build_fields_dict_for_column_matching(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "expected_key = 'Child Title (table_field_1)'",
+          "description": "Assign expected_key = 'Child Title (table_field_1)'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "self.assertIn(expected_key, fields_dict, f\"Fallback failed: '{expected_key}' not found in mapping dict\")",
+          "description": "Call self.assertIn()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 9,
+          "code": "expected_id_key = 'ID (table_field_1)'",
+          "description": "Assign expected_id_key = 'ID (table_field_1)'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 10,
+          "code": "self.assertIn(expected_id_key, fields_dict, 'ID fallback failed')",
+          "description": "Call self.assertIn()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 11,
+          "code": "table_field.label = original_label",
+          "description": "Assign table_field.label = original_label",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Data Import Without Label",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "20 minutes",
+      "source_files": [
+        "test_importer.py:149"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "aa373740ad5a",
+      "title": "Exports Specified Fields",
+      "overview": "Workflow: test exports specified fields",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "frappe",
+        "frappe.core.doctype.data_import.exporter",
+        "frappe.core.doctype.data_import.test_importer",
+        "frappe.tests"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "f1c4001b",
+          "test_name": "test_exports_specified_fields",
+          "category": "workflow",
+          "code": "if not frappe.db.exists(doctype_name, 'Test'):\n    doc = frappe.get_doc(doctype=doctype_name, title='Test', description='Test Description', table_field_1=[{'child_title': 'Child Title 1', 'child_description': 'Child Description 1'}, {'child_title': 'Child Title 2', 'child_description': 'Child Description 2'}], table_field_2=[{'child_2_title': 'Child Title 1', 'child_2_description': 'Child Description 1'}], table_field_1_again=[{'child_title': 'Child Title 1 Again', 'child_description': 'Child Description 1 Again'}]).insert()\nelse:\n    doc = frappe.get_doc(doctype_name, 'Test')\ne = Exporter(doctype_name, export_fields={doctype_name: ['title', 'description', 'number', 'another_number'], 'table_field_1': ['name', 'child_title', 'child_description'], 'table_field_2': ['child_2_date', 'child_2_number'], 'table_field_1_again': ['child_title', 'child_date', 'child_number', 'child_another_number']}, export_data=True)\ncsv_array = e.get_csv_array()\nheader_row = csv_array[0]\nself.assertEqual(header_row, ['Title', 'Description', 'Number', 'another_number', 'ID (Table Field 1)', 'Child Title (Table Field 1)', 'Child Description (Table Field 1)', 'Child 2 Date (Table Field 2)', 'Child 2 Number (Table Field 2)', 'Child Title (Table Field 1 Again)', 'Child Date (Table Field 1 Again)', 'Child Number (Table Field 1 Again)', 'table_field_1_again.child_another_number'])\ntable_field_1_row_1_name = doc.table_field_1[0].name\ntable_field_1_row_2_name = doc.table_field_1[1].name\nself.assertEqual(csv_array[1], ['Test', 'Test Description', 0, 0, table_field_1_row_1_name, 'Child Title 1', 'Child Description 1', None, 0, 'Child Title 1 Again', None, 0, 0])\nself.assertEqual(csv_array[2], ['', '', '', '', table_field_1_row_2_name, 'Child Title 2', 'Child Description 2', '', '', '', '', '', ''])\nself.assertEqual(len(csv_array), 3)",
+          "language": "Python",
+          "description": "Workflow: test exports specified fields",
+          "expected_behavior": "self.assertEqual(len(csv_array), 3)",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/core/doctype/data_import/test_exporter.py",
+          "line_start": 15,
+          "line_end": 87,
+          "complexity_score": 1.0,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "frappe",
+            "frappe.core.doctype.data_import.exporter",
+            "frappe.core.doctype.data_import.test_importer",
+            "frappe.tests"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "e = Exporter(doctype_name, export_fields={doctype_name: ['title', 'description', 'number', 'another_number'], 'table_field_1': ['name', 'child_title', 'child_description'], 'table_field_2': ['child_2_date', 'child_2_number'], 'table_field_1_again': ['child_title', 'child_date', 'child_number', 'child_another_number']}, export_data=True)",
+          "description": "Assign e = Exporter(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "csv_array = e.get_csv_array()",
+          "description": "Assign csv_array = e.get_csv_array(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "header_row = csv_array[0]",
+          "description": "Assign header_row = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "self.assertEqual(header_row, ['Title', 'Description', 'Number', 'another_number', 'ID (Table Field 1)', 'Child Title (Table Field 1)', 'Child Description (Table Field 1)', 'Child 2 Date (Table Field 2)', 'Child 2 Number (Table Field 2)', 'Child Title (Table Field 1 Again)', 'Child Date (Table Field 1 Again)', 'Child Number (Table Field 1 Again)', 'table_field_1_again.child_another_number'])",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "table_field_1_row_1_name = doc.table_field_1[0].name",
+          "description": "Assign table_field_1_row_1_name = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "table_field_1_row_2_name = doc.table_field_1[1].name",
+          "description": "Assign table_field_1_row_2_name = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "self.assertEqual(csv_array[1], ['Test', 'Test Description', 0, 0, table_field_1_row_1_name, 'Child Title 1', 'Child Description 1', None, 0, 'Child Title 1 Again', None, 0, 0])",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "self.assertEqual(csv_array[2], ['', '', '', '', table_field_1_row_2_name, 'Child Title 2', 'Child Description 2', '', '', '', '', '', ''])",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 9,
+          "code": "self.assertEqual(len(csv_array), 3)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 10,
+          "code": "doc = frappe.get_doc(doctype=doctype_name, title='Test', description='Test Description', table_field_1=[{'child_title': 'Child Title 1', 'child_description': 'Child Description 1'}, {'child_title': 'Child Title 2', 'child_description': 'Child Description 2'}], table_field_2=[{'child_2_title': 'Child Title 1', 'child_2_description': 'Child Description 1'}], table_field_1_again=[{'child_title': 'Child Title 1 Again', 'child_description': 'Child Description 1 Again'}]).insert()",
+          "description": "Assign doc = frappe.get_doc.insert(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 11,
+          "code": "doc = frappe.get_doc(doctype_name, 'Test')",
+          "description": "Assign doc = frappe.get_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Exports Specified Fields",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "20 minutes",
+      "source_files": [
+        "test_exporter.py:15"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    }
+  ]
+}

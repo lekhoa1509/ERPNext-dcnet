@@ -1,0 +1,242 @@
+{
+ "actions": [],
+ "autoname": "field:project",
+ "creation": "2026-05-15 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "main_tab",
+  "summary_html",
+  "info_section",
+  "project",
+  "project_name",
+  "customer",
+  "contract",
+  "column_break_header",
+  "company",
+  "status",
+  "advanced_section",
+  "markup_default_method",
+  "closed_on",
+  "writeoff_je",
+  "stages_tab",
+  "stages_html",
+  "si_tab",
+  "si_html",
+  "pi_tab",
+  "pi_html",
+  "se_tab",
+  "se_html",
+  "tk154_tab",
+  "tk154_html",
+  "pnl_tab",
+  "pnl_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "main_tab",
+   "fieldtype": "Tab Break",
+   "label": "Thông tin chính"
+  },
+  {
+   "fieldname": "summary_html",
+   "fieldtype": "HTML",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "info_section",
+   "fieldtype": "Section Break",
+   "label": "Thông tin dự án"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fetch_from": "project.project_name",
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Project Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Framework Contract",
+   "options": "DCNet Contract"
+  },
+  {
+   "fieldname": "column_break_header",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "project.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "Đang thi công",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Đang thi công\nĐã hoàn thành\nĐã hủy",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "advanced_section",
+   "fieldtype": "Section Break",
+   "label": "Cấu hình"
+  },
+  {
+   "fieldname": "markup_default_method",
+   "fieldtype": "Select",
+   "label": "Markup mặc định cho các giai đoạn",
+   "options": "\nCoefficient\nPercent on Cost\nFixed Amount\nFrom Contract\nPercent of Contract\nCost-to-Date Uplift",
+   "description": "Phương pháp markup áp dụng cho giai đoạn mới (có thể override per giai đoạn)."
+  },
+  {
+   "fieldname": "closed_on",
+   "fieldtype": "Date",
+   "label": "Ngày đóng công trình",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "writeoff_je",
+   "fieldtype": "Link",
+   "label": "Bút toán write-off khi đóng",
+   "options": "Journal Entry",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "stages_tab",
+   "fieldtype": "Tab Break",
+   "label": "Giai đoạn & Gắn chi phí"
+  },
+  {
+   "fieldname": "stages_html",
+   "fieldtype": "HTML",
+   "label": "Stages",
+   "read_only": 1
+  },
+  {
+   "fieldname": "si_tab",
+   "fieldtype": "Tab Break",
+   "label": "Hóa đơn đầu ra"
+  },
+  {
+   "fieldname": "si_html",
+   "fieldtype": "HTML",
+   "label": "Sales Invoices",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pi_tab",
+   "fieldtype": "Tab Break",
+   "label": "Hóa đơn đầu vào"
+  },
+  {
+   "fieldname": "pi_html",
+   "fieldtype": "HTML",
+   "label": "Purchase Invoices",
+   "read_only": 1
+  },
+  {
+   "fieldname": "se_tab",
+   "fieldtype": "Tab Break",
+   "label": "Điều chuyển kho"
+  },
+  {
+   "fieldname": "se_html",
+   "fieldtype": "HTML",
+   "label": "Stock Entries",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tk154_tab",
+   "fieldtype": "Tab Break",
+   "label": "TK 154 — Bút toán"
+  },
+  {
+   "fieldname": "tk154_html",
+   "fieldtype": "HTML",
+   "label": "TK 154 entries",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pnl_tab",
+   "fieldtype": "Tab Break",
+   "label": "Lãi/lỗ dự án"
+  },
+  {
+   "fieldname": "pnl_html",
+   "fieldtype": "HTML",
+   "label": "Project PnL",
+   "read_only": 1
+  }
+ ],
+ "links": [
+  {
+   "group": "Stages",
+   "link_doctype": "Project Costing Stage",
+   "link_fieldname": "parent_costing"
+  },
+  {
+   "group": "Allocation",
+   "link_doctype": "Cost Allocation Share",
+   "link_fieldname": "project"
+  }
+ ],
+ "modified": "2026-05-18 15:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "Project Costing",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 0,
+   "cancel": 0,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 0,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 0,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

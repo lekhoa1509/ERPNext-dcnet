@@ -1,0 +1,105 @@
+.vna-dashboard {
+	padding: 20px;
+}
+
+.vna-kpi-row {
+	display: flex;
+	gap: 16px;
+	margin-bottom: 24px;
+	flex-wrap: wrap;
+	align-items: stretch;
+}
+
+.vna-kpi-card {
+	flex: 1;
+	min-width: 150px;
+	min-height: 100px;
+	padding: 14px 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/* Background / radius / shadow come from .widget.widget-box (Frappe theme) */
+}
+
+.vna-kpi-title {
+	font-size: 11px;
+	color: var(--text-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin-bottom: 4px;
+}
+
+.vna-kpi-value {
+	font-size: 24px;
+	font-weight: 700;
+	color: var(--text-color);
+	margin-bottom: 2px;
+}
+
+.vna-kpi-delta {
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.vna-kpi-delta.up {
+	color: var(--green-600);
+}
+
+.vna-kpi-delta.down {
+	color: var(--red-600);
+}
+
+.vna-kpi-delta.neutral {
+	color: var(--text-muted);
+}
+
+.vna-chart-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+.vna-chart-card {
+	padding: 16px;
+	/* Background / radius / shadow come from .widget.widget-box (Frappe theme) */
+}
+
+.vna-chart-title {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--text-color);
+	margin-bottom: 2px;
+}
+
+.vna-chart-subtitle {
+	font-size: 12px;
+	color: var(--text-muted);
+	margin-bottom: 12px;
+}
+
+/* Legend: prevent truncation */
+.vna-chart-card .chart-legend {
+	flex-wrap: wrap;
+	gap: 4px 12px;
+}
+
+.vna-chart-card .chart-legend .legend-dataset-text {
+	max-width: 160px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* Y-axis label sizing */
+.vna-chart-card .y-axis text {
+	font-size: 11px;
+}
+
+@media (max-width: 768px) {
+	.vna-kpi-row {
+		flex-direction: column;
+	}
+	.vna-chart-grid {
+		grid-template-columns: 1fr;
+	}
+}

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kế Toán Việt Nam – ERPNext Core vs Giải Pháp Tùy Chỉnh</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      padding: 52px 48px 72px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .brand {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .brand .red { color: #c0392b; }
+
+    .title {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 44px;
+    }
+    .title .highlight { color: #c0392b; }
+
+    /* ── Score summary strip ── */
+    .scores {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 44px;
+    }
+    .score-card {
+      border-radius: 12px;
+      padding: 20px 18px;
+      text-align: center;
+    }
+    .score-card.bad   { background: #fef2f2; border: 1.5px solid #fca5a5; }
+    .score-card.warn  { background: #fffbeb; border: 1.5px solid #fcd34d; }
+    .score-card.good  { background: #f0fdf4; border: 1.5px solid #86efac; }
+    .score-num {
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .score-num.red    { color: #dc2626; }
+    .score-num.amber  { color: #d97706; }
+    .score-num.green  { color: #16a34a; }
+    .score-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+    .score-sub   { font-size: 12px; color: #666; line-height: 1.4; }
+
+    /* ── Comparison columns ── */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 44px;
+      align-items: start;
+    }
+
+    .col {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+    }
+
+    .col-header {
+      background: #c0392b;
+      color: #fff;
+      text-align: center;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.8px;
+      padding: 16px 14px;
+    }
+
+    .col-body {
+      background: #ffffff;
+      border: 1.5px solid #e8e8e8;
+      border-top: none;
+      border-radius: 0 0 14px 14px;
+    }
+
+    /* Group separator inside column */
+    .grp {
+      background: #f5f5f5;
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 6px 18px;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: #888;
+      text-transform: uppercase;
+    }
+    .grp:first-child { border-top: none; }
+
+    .grp-items { padding: 16px 18px 20px; }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      margin-bottom: 16px;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+    .item:last-child { margin-bottom: 0; }
+
+    .icon       { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+    .icon.ok    { color: #16a34a; }
+    .icon.no    { color: #c0392b; }
+    .icon.warn  { color: #d97706; }
+
+    .item-label { font-weight: 700; display: block; margin-bottom: 2px; font-size: 13.5px; }
+    .item-note  { font-size: 12px; color: #666; line-height: 1.5; }
+
+    /* ── Flow section label ── */
+    .section-label {
+      display: inline-block;
+      background: #c0392b;
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      padding: 9px 22px;
+      border-radius: 7px;
+      margin-bottom: 18px;
+    }
+
+    /* ── Flow diagram ── */
+    .flow-wrap {
+      background: #fff9f9;
+      border: 1.5px solid #f0c0c0;
+      border-radius: 14px;
+      padding: 28px 36px;
+      margin-bottom: 32px;
+    }
+
+    .flow-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .fbox {
+      background: #fff;
+      border: 2px solid #c0392b;
+      border-radius: 9px;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      min-width: 145px;
+    }
+    .fbox .sub {
+      font-size: 11px;
+      color: #888;
+      font-weight: 400;
+      margin-top: 4px;
+      display: block;
+      line-height: 1.4;
+    }
+
+    .arrow { color: #c0392b; font-size: 24px; padding: 0 10px; flex-shrink: 0; }
+
+    .flow-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: #b91c1c;
+      text-align: center;
+      background: #fff1f1;
+      border-radius: 6px;
+      padding: 8px 14px;
+      border: 1px solid #fca5a5;
+    }
+
+    /* Custom flow — 4-column grid */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .flow-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tag-auto, .tag-manual {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-align: center;
+      border-radius: 4px;
+      padding: 3px 8px;
+      margin-bottom: 4px;
+      align-self: center;
+    }
+    .tag-auto   { background: #dcfce7; color: #15803d; }
+    .tag-manual { background: #fef9c3; color: #a16207; }
+
+    .fbox-sm {
+      background: #fff;
+      border: 2px solid #c0392b;
+      border-radius: 9px;
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 700;
+      min-width: 165px;
+    }
+    .fbox-sm .sub {
+      font-size: 10.5px;
+      color: #888;
+      font-weight: 400;
+      margin-top: 3px;
+      display: block;
+    }
+
+    .fbox-out {
+      background: #f0fdf4;
+      border: 2px solid #22c55e;
+      border-radius: 9px;
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 700;
+      min-width: 150px;
+    }
+    .fbox-out .sub {
+      font-size: 10.5px;
+      color: #888;
+      font-weight: 400;
+      margin-top: 3px;
+      display: block;
+    }
+
+    .arrow-v {
+      color: #c0392b;
+      font-size: 22px;
+      padding: 0 10px;
+      align-self: center;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <div class="brand"><span class="red">DCNET</span> Flow</div>
+  <div class="title">
+    KẾ TOÁN VIỆT NAM<br>
+    <span class="highlight">TẠI SAO CẦN NÂNG CẤP ERPNEXT CORE?</span>
+  </div>
+
+  <!-- ── Score Summary ── -->
+  <div class="scores">
+    <div class="score-card bad">
+      <div class="score-num red">5 / 9</div>
+      <div class="score-title">ERPNext Core chưa có</div>
+      <div class="score-sub">COA, phân loại DT, HTKK, HĐDT, thuế TNDN</div>
+    </div>
+    <div class="score-card warn">
+      <div class="score-num amber">4 / 9</div>
+      <div class="score-title">Có nhưng chưa đủ</div>
+      <div class="score-sub">Chiết khấu, báo cáo TC, phiếu thu/chi, giá vốn</div>
+    </div>
+    <div class="score-card good">
+      <div class="score-num green">9 / 9</div>
+      <div class="score-title">Giải pháp tùy chỉnh</div>
+      <div class="score-sub">Phủ đầy đủ 9 nghiệp vụ kế toán Việt Nam</div>
+    </div>
+  </div>
+
+  <!-- ── Three-column comparison ── -->
+  <div class="comparison">
+
+    <!-- ── Col 1: VAS ── -->
+    <div class="col">
+      <div class="col-header">NGHIỆP VỤ THỰC TẾ / VAS</div>
+      <div class="col-body">
+
+        <div class="grp">Hạ tầng kế toán</div>
+        <div class="grp-items">
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Hệ thống tài khoản TT200</span>
+              <span class="item-note">254 TK theo TT200/2014/TT-BTC, phân Loại 1–9, Account Type đúng theo từng nhóm TS/NV</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Phân loại doanh thu</span>
+              <span class="item-note">TK 5111 (hàng hóa bán buôn) · 5112 (bán lẻ) · 5113 (xuất khẩu) — GL riêng từng kênh</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Chiết khấu & hàng trả lại</span>
+              <span class="item-note">TK 521 (chiết khấu TM) · 531 (hàng trả lại) · 532 (giảm giá HB) — bút toán riêng biệt</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grp">Thuế &amp; Hóa đơn</div>
+        <div class="grp-items">
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Kê khai thuế GTGT (HTKK)</span>
+              <span class="item-note">Mẫu 01/GTGT + bảng kê 01-1, 01-2 — nộp file XML qua phần mềm HTKK của TCT</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Hóa đơn điện tử (HĐDT)</span>
+              <span class="item-note">NĐ 123/2020 + TT 78/2021: ký số CTS, gửi CQT, tra cứu hợp lệ, lưu PDF + XML</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Thuế TNDN tạm tính</span>
+              <span class="item-note">Tạm tính 25% lợi nhuận chịu thuế (TK 821 / 3334), quyết toán năm theo CIT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grp">Báo cáo &amp; Sổ sách</div>
+        <div class="grp-items">
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Báo cáo tài chính VAS</span>
+              <span class="item-note">B01-DN (CĐKT) · B02-DN (KQKD) · B03-DN (Lưu chuyển) · B09-DN (Thuyết minh)</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Phiếu thu/chi & sổ kế toán</span>
+              <span class="item-note">Mẫu PC01 (phiếu thu), PC02 (phiếu chi), sổ nhật ký chung, sổ cái theo mẫu BTC</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Giá vốn "trung bình tháng"</span>
+              <span class="item-note">Theo TT200: phương pháp trung bình trọng gia quyền cuối kỳ (tháng), không realtime</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Col 2: ERPNext Core ── -->
+    <div class="col">
+      <div class="col-header">ERPNEXT CORE</div>
+      <div class="col-body">
+
+        <div class="grp">Hạ tầng kế toán</div>
+        <div class="grp-items">
+          <div class="item">
+            <span class="icon no">✘</span>
+            <div>
+              <span class="item-label">COA quốc tế (IFRS)</span>
+              <span class="item-note">Không có TT200 sẵn; 14+ Account Type sai → Stock, Fixed Asset, Depreciation bị nhầm loại</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon no">✘</span>
+            <div>
+              <span class="item-label">1 tài khoản doanh thu chung</span>
+              <span class="item-note">Mặc định dùng 1 TK "Sales" — không tách bán buôn / bán lẻ / xuất khẩu theo TT200</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon warn">⚠</span>
+            <div>
+              <span class="item-label">Discount là field, không tạo GL</span>
+              <span class="item-note">Chiết khấu trừ thẳng vào giá — không tạo bút toán riêng cho TK 521 / 531 / 532</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grp">Thuế &amp; Hóa đơn</div>
+        <div class="grp-items">
+          <div class="item">
+            <span class="icon no">✘</span>
+            <div>
+              <span class="item-label">Tax report chung chung</span>
+              <span class="item-note">Không xuất XML HTKK; không có bảng kê 01-1, 01-2; không đúng format kê khai TCT</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon no">✘</span>
+            <div>
+              <span class="item-label">Không tích hợp HĐDT VN</span>
+              <span class="item-note">Không có connector VNPT / Viettel / MISA eInvoice; không ký số CTS; không gửi CQT</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon no">✘</span>
+            <div>
+              <span class="item-label">Không có module thuế TNDN</span>
+              <span class="item-note">Không có workflow tạm tính / quyết toán CIT; kế toán phải làm thủ công Journal Entry</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grp">Báo cáo &amp; Sổ sách</div>
+        <div class="grp-items">
+          <div class="item">
+            <span class="icon warn">⚠</span>
+            <div>
+              <span class="item-label">Báo cáo chuẩn IFRS</span>
+              <span class="item-note">Balance Sheet &amp; P&L format quốc tế — không đúng mẫu BTC, không dùng được cho kiểm toán VN</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon warn">⚠</span>
+            <div>
+              <span class="item-label">Voucher &amp; sổ cái format quốc tế</span>
+              <span class="item-note">Có Payment Entry nhưng print format không đúng mẫu PC01/PC02; sổ kế toán không theo BTC</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon warn">⚠</span>
+            <div>
+              <span class="item-label">Moving Average (realtime)</span>
+              <span class="item-note">Giá vốn cập nhật liên tục theo từng giao dịch — không phải "trung bình tháng" theo TT200</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Col 3: Giải pháp tùy chỉnh ── -->
+    <div class="col">
+      <div class="col-header">GIẢI PHÁP TÙY CHỈNH</div>
+      <div class="col-body">
+
+        <div class="grp">Hạ tầng kế toán</div>
+        <div class="grp-items">
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">COA TT200 — import 1 lần</span>
+              <span class="item-note">254 TK sẵn sàng, Account Type đúng (14 TK đã fix), tự động setup khi cài ứng dụng</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Tự động map TK 511x theo kênh</span>
+              <span class="item-note">Custom field "Loại bán hàng" trên SO/Invoice → server script chọn đúng TK 5111/5112/5113</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">GL Entry riêng cho TK 521/531/532</span>
+              <span class="item-note">Server script tự tạo bút toán chiết khấu (521), hàng trả lại (531), giảm giá (532) khi submit</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grp">Thuế &amp; Hóa đơn</div>
+        <div class="grp-items">
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Module HTKK tích hợp</span>
+              <span class="item-note">Kỳ kê khai → mapping TK tự động → xuất XML đúng chuẩn TCT → bảng kê 01-1, 01-2 đầy đủ</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Module EInvoice (VNPT / Viettel)</span>
+              <span class="item-note">Ký số CTS tự động khi submit → gửi CQT → tra cứu hợp lệ → lưu PDF + XML trên hóa đơn</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Nhắc tạm tính thuế TNDN</span>
+              <span class="item-note">Scheduled job hàng tháng nhắc kế toán; template Journal Entry TK 821 / 3334 sẵn sàng điền số</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grp">Báo cáo &amp; Sổ sách</div>
+        <div class="grp-items">
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Báo cáo TC đúng mẫu BTC</span>
+              <span class="item-note">Report Builder map chỉ tiêu B01–B09 → xuất Excel/PDF, đủ cột kiểm toán &amp; quyết toán thuế TNDN</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon ok">✔</span>
+            <div>
+              <span class="item-label">Print format VN + sổ kế toán</span>
+              <span class="item-note">Phiếu thu PC01, phiếu chi PC02, sổ nhật ký chung, sổ cái theo đúng mẫu Bộ Tài chính</span>
+            </div>
+          </div>
+          <div class="item">
+            <span class="icon warn">⚠</span>
+            <div>
+              <span class="item-label">Giá vốn — cần clarify</span>
+              <span class="item-note">Tạm dùng Moving Average; đang đánh giá cron job tính lại COGS cuối tháng theo TT200</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /comparison -->
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--  Flow diagrams                            -->
+  <!-- ══════════════════════════════════════════ -->
+
+  <!-- ── ERPNext Core flow ── -->
+  <div style="margin-bottom: 32px;">
+    <div class="section-label">LUỒNG ERPNEXT CORE</div>
+    <div class="flow-wrap">
+      <div class="flow-row">
+        <div class="fbox">
+          Đơn hàng bán<br>
+          <span class="sub">(Sales Order)</span>
+        </div>
+        <span class="arrow">→</span>
+        <div class="fbox">
+          Hóa đơn bán<br>
+          <span class="sub">(Sales Invoice)</span>
+        </div>
+        <span class="arrow">→</span>
+        <div class="fbox">
+          Bút toán GL<br>
+          <span class="sub">IFRS · sai Account Type</span>
+        </div>
+        <span class="arrow">→</span>
+        <div class="fbox">
+          Báo cáo tài chính<br>
+          <span class="sub">Balance Sheet / P&amp;L</span>
+        </div>
+      </div>
+      <div class="flow-note">
+        ✘ Sai Account Type TT200 &nbsp;·&nbsp; ✘ Không HĐDT &nbsp;·&nbsp; ✘ Không bảng kê GTGT &nbsp;·&nbsp; ✘ Không xuất HTKK &nbsp;·&nbsp; ✘ Báo cáo không đúng mẫu BTC
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Custom solution flow ── -->
+  <div>
+    <div class="section-label">LUỒNG NÂNG CẤP – GIẢI PHÁP TÙY CHỈNH</div>
+    <div class="flow-wrap">
+
+      <div style="display:flex; align-items:center; justify-content:center; gap:0;">
+
+        <!-- Input -->
+        <div class="fbox" style="min-width:130px;">
+          Đơn hàng bán<br>
+          <span class="sub">(Sales Order)</span>
+        </div>
+
+        <span class="arrow">→</span>
+
+        <div class="fbox" style="min-width:130px;">
+          Hóa đơn bán<br>
+          <span class="sub">(Sales Invoice)</span>
+        </div>
+
+        <span class="arrow">→</span>
+
+        <!-- Middle stack (auto) -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div class="tag-auto">tự động khi submit</div>
+          <div class="fbox-sm">
+            Bút toán GL TT200
+            <span class="sub">Nợ 131 / Có 5111 / Có 33311</span>
+          </div>
+          <div class="fbox-sm">
+            Hóa đơn điện tử
+            <span class="sub">Ký số CTS → VNPT / Viettel</span>
+          </div>
+          <div class="fbox-sm">
+            Bảng kê thuế GTGT
+            <span class="sub">01-1/GTGT tổng hợp tự động</span>
+          </div>
+          <div class="fbox-sm">
+            GL TK 521 (chiết khấu)
+            <span class="sub">Nếu có chiết khấu TM</span>
+          </div>
+        </div>
+
+        <span class="arrow">→</span>
+
+        <!-- Outcomes -->
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div class="fbox-out">
+            Báo cáo TC VAS<br>
+            <span class="sub">B01 / B02 / B03-DN</span>
+          </div>
+          <div class="fbox-out">
+            File XML HTKK<br>
+            <span class="sub">Nộp online thuế GTGT</span>
+          </div>
+          <div class="fbox-out">
+            PDF Phiếu thu/chi<br>
+            <span class="sub">Mẫu chuẩn BTC</span>
+          </div>
+          <div class="fbox-out">
+            Phiếu xuất kho<br>
+            <span class="sub">(Delivery Note)</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

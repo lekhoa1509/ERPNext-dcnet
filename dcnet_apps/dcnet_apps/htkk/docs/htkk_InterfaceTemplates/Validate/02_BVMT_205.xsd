@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.5">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="KSCSTuKhaiThac">
+							<xs:annotation>
+								<xs:documentation>Khoáng sản do cơ sở tự khai thác</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CTietKSCSTuKhaiThac" type="NoiDungKSType" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Chi tiết bảng kê Khoáng sản do cơ sở tự khai thác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="KSCSThuMua">
+							<xs:annotation>
+								<xs:documentation>Khoáng sản do cơ sở thu mua nộp thay người khai thác</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CTietKSCSThuMua" type="NoiDungKSType" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Chi tiết bảng kê Khoáng sản do cơ sở thu mua nộp thay người khai thác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="tong_ct6" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng số phí phải nộp trong kỳ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tong_ct7" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng số phí đã kê khai trong kỳ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tong_ct8" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng Chênh lệch giữa số quyết toán và kê khai</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+	<xs:complexType name="NoiDungKSType">
+		<xs:annotation>
+			<xs:documentation>Nội dung khoáng sản do cơ sở tự khai thác</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ct1" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Mã khoáng sản</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct2" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tên khoáng sản</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct3" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Đơn vị tính </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct4" type="xs:decimal" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Sản lượng khoáng sản tính phí trong kỳ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct5" type="xs:decimal" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Mức phí</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct6" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Số phí phải nộp trong kỳ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct7" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Số phí đã kê khai trong kỳ </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct8" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Chênh lệch giữa số quyết toán và kê khai</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,1327 @@
+[
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/asset.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/asset.py",
+        "class_name": "Asset",
+        "method_name": null,
+        "line_number": 41,
+        "evidence": [
+          "Factory method: create_asset_depreciation_schedule",
+          "Parameterized factory method: evaluate_and_recreate_depreciation_schedule",
+          "Parameterized factory method: get_linked_item",
+          "Factory method: make_asset_movement",
+          "Factory method: get_status",
+          "Parameterized factory method: get_value_after_depreciation",
+          "Factory method: get_default_finance_book_idx",
+          "Factory method: get_manual_depreciation_entries",
+          "Factory method: validate_make_gl_entry",
+          "Factory method: get_purchase_document",
+          "Factory method: get_fixed_asset_account",
+          "Parameterized factory method: get_cwip_account",
+          "Factory method: make_gl_entries",
+          "Parameterized factory method: get_depreciation_rate",
+          "Parameterized factory method: get_double_declining_balance_rate",
+          "Parameterized factory method: get_written_down_value_rate",
+          "Multiple factory methods: create_asset_depreciation_schedule, evaluate_and_recreate_depreciation_schedule, get_linked_item",
+          "Inherits from: AccountsController"
+        ],
+        "related_classes": [
+          "AccountsController"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/asset.py",
+        "class_name": "Asset",
+        "method_name": null,
+        "line_number": 41,
+        "evidence": [
+          "Has 6 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/asset.py",
+        "class_name": "Asset",
+        "method_name": "get_manual_depreciation_entries",
+        "line_number": 825,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/asset.py",
+        "class_name": "Asset",
+        "method_name": null,
+        "line_number": 41,
+        "evidence": [
+          "Implements interface: AccountsController",
+          "Has 54 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/asset.py",
+        "class_name": "Asset",
+        "method_name": "on_update",
+        "line_number": 240,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 34,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+        "class_name": "AssetSetup",
+        "method_name": "setUpClass",
+        "line_number": 43,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.8,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+        "class_name": "AssetSetup",
+        "method_name": null,
+        "line_number": 41,
+        "evidence": [
+          "Strategy base with implementations: TestAsset, TestDepreciationMethods, TestDepreciationBasics",
+          "Strategy interface method: setUpClass"
+        ],
+        "related_classes": [
+          "IntegrationTestCase",
+          "TestAsset",
+          "TestDepreciationMethods",
+          "TestDepreciationBasics"
+        ]
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.7,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+        "class_name": "AssetSetup",
+        "method_name": null,
+        "line_number": 41,
+        "evidence": [
+          "Base class with 3 implementations",
+          "Has hook methods: setUpClass, tearDownClass"
+        ],
+        "related_classes": [
+          "TestAsset",
+          "TestDepreciationMethods",
+          "TestDepreciationBasics"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+        "class_name": "TestAsset",
+        "method_name": null,
+        "line_number": 56,
+        "evidence": [
+          "Implements interface: AssetSetup",
+          "Has 19 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+        "class_name": "TestAsset",
+        "method_name": null,
+        "line_number": 56,
+        "evidence": [
+          "Part of strategy family with: TestDepreciationMethods, TestDepreciationBasics"
+        ],
+        "related_classes": [
+          "AssetSetup"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+        "class_name": "TestDepreciationMethods",
+        "method_name": "setUpClass",
+        "line_number": 829,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+        "class_name": "TestDepreciationMethods",
+        "method_name": null,
+        "line_number": 827,
+        "evidence": [
+          "Implements interface: AssetSetup",
+          "Has 11 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+        "class_name": "TestDepreciationMethods",
+        "method_name": null,
+        "line_number": 827,
+        "evidence": [
+          "Part of strategy family with: TestAsset, TestDepreciationBasics"
+        ],
+        "related_classes": [
+          "AssetSetup"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+        "class_name": "TestDepreciationBasics",
+        "method_name": null,
+        "line_number": 1102,
+        "evidence": [
+          "Factory method: test_get_depreciation_amount",
+          "Factory method: test_make_depr_schedule",
+          "Factory method: test_split_asset_created_via_capitalization",
+          "Multiple factory methods: test_get_depreciation_amount, test_make_depr_schedule, test_split_asset_created_via_capitalization",
+          "Inherits from: AssetSetup"
+        ],
+        "related_classes": [
+          "AssetSetup"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+        "class_name": "TestDepreciationBasics",
+        "method_name": null,
+        "line_number": 1102,
+        "evidence": [
+          "Implements interface: AssetSetup",
+          "Has 31 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset/test_asset.py",
+        "class_name": "TestDepreciationBasics",
+        "method_name": null,
+        "line_number": 1102,
+        "evidence": [
+          "Part of strategy family with: TestAsset, TestDepreciationMethods"
+        ],
+        "related_classes": [
+          "AssetSetup"
+        ]
+      }
+    ],
+    "total_classes": 4,
+    "total_functions": 7,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 2,
+      "Strategy": 4,
+      "TemplateMethod": 1,
+      "Adapter": 3,
+      "Factory": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_capitalization/asset_capitalization.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_capitalization/asset_capitalization.py",
+        "class_name": "AssetCapitalization",
+        "method_name": null,
+        "line_number": 50,
+        "evidence": [
+          "Factory method: validate_target_item",
+          "Factory method: validate_target_asset",
+          "Parameterized factory method: get_asset_for_validation",
+          "Parameterized factory method: get_args_for_incoming_rate",
+          "Parameterized factory method: make_gl_entries",
+          "Parameterized factory method: get_gl_entries",
+          "Factory method: get_target_account",
+          "Parameterized factory method: get_gl_entries_for_consumed_stock_items",
+          "Parameterized factory method: get_gl_entries_for_consumed_asset_items",
+          "Parameterized factory method: get_gl_entries_for_consumed_service_items",
+          "Factory method: get_composite_component_value",
+          "Parameterized factory method: get_gl_entries_for_target_item",
+          "Factory method: update_target_asset",
+          "Multiple factory methods: validate_target_item, validate_target_asset, get_asset_for_validation",
+          "Inherits from: StockController"
+        ],
+        "related_classes": [
+          "StockController"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_capitalization/asset_capitalization.py",
+        "class_name": "AssetCapitalization",
+        "method_name": null,
+        "line_number": 50,
+        "evidence": [
+          "Has 5 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_capitalization/asset_capitalization.py",
+        "class_name": "AssetCapitalization",
+        "method_name": "set_warehouse_details",
+        "line_number": 321,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_capitalization/asset_capitalization.py",
+        "class_name": "AssetCapitalization",
+        "method_name": null,
+        "line_number": 50,
+        "evidence": [
+          "Implements interface: StockController",
+          "Has 31 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_capitalization/asset_capitalization.py",
+        "class_name": "AssetCapitalization",
+        "method_name": null,
+        "line_number": 50,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: update_stock_ledger",
+          "Notify method: update_target_asset"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 9,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_capitalization/test_asset_capitalization.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_capitalization/test_asset_capitalization.py",
+        "class_name": "TestAssetCapitalization",
+        "method_name": null,
+        "line_number": 20,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 6,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_category/asset_category.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_category/asset_category.py",
+        "class_name": "AssetCategory",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/asset_depreciation_schedule.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/asset_depreciation_schedule.py",
+        "class_name": "AssetDepreciationSchedule",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Parameterized factory method: get_finance_book_row",
+          "Inherits from: DepreciationScheduleController"
+        ],
+        "related_classes": [
+          "DepreciationScheduleController"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/asset_depreciation_schedule.py",
+        "class_name": "AssetDepreciationSchedule",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Implements interface: DepreciationScheduleController",
+          "Has 9 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/asset_depreciation_schedule.py",
+        "class_name": "AssetDepreciationSchedule",
+        "method_name": "update_shift_depr_schedule",
+        "line_number": 123,
+        "evidence": [
+          "Observer method detected: update_shift_depr_schedule"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 13,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/deppreciation_schedule_controller.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/deppreciation_schedule_controller.py",
+        "class_name": "DepreciationScheduleController",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Parameterized factory method: create_depreciation_schedule",
+          "Factory method: create",
+          "Factory method: get_final_number_of_depreciations",
+          "Factory method: _get_modified_available_for_use_date_for_existing_assets",
+          "Parameterized factory method: get_total_days",
+          "Parameterized factory method: _get_pro_rata_amt",
+          "Factory method: get_number_of_pending_months",
+          "Factory method: get_last_booked_depreciation_date",
+          "Parameterized factory method: get_booked_depr_for_months_count",
+          "Factory method: get_total_pending_days_or_years",
+          "Parameterized factory method: get_prev_depreciation_amount",
+          "Parameterized factory method: get_next_schedule_date",
+          "Parameterized factory method: get_depreciation_amount",
+          "Parameterized factory method: _get_total_days",
+          "Factory method: get_total_days_in_current_depr_year",
+          "Parameterized factory method: get_fiscal_year",
+          "Multiple factory methods: create_depreciation_schedule, create, get_final_number_of_depreciations",
+          "Inherits from: StraightLineMethod, WDVMethod"
+        ],
+        "related_classes": [
+          "StraightLineMethod",
+          "WDVMethod"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/deppreciation_schedule_controller.py",
+        "class_name": "DepreciationScheduleController",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Has terminal build/create method",
+          "Has 6 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/deppreciation_schedule_controller.py",
+        "class_name": "DepreciationScheduleController",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Implements interface: StraightLineMethod",
+          "Has 30 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/deppreciation_schedule_controller.py",
+        "class_name": "DepreciationScheduleController",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Has hook methods: create_depreciation_schedule, initialize_variables, get_final_number_of_depreciations",
+          "Has abstract methods: __init__, _check_is_pro_rata"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Adapter": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/depreciation_methods.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/depreciation_methods.py",
+        "class_name": "StraightLineMethod",
+        "method_name": null,
+        "line_number": 15,
+        "evidence": [
+          "Parameterized factory method: get_straight_line_depr_amount",
+          "Factory method: get_fixed_depr_amount",
+          "Parameterized factory method: get_daily_prorata_based_depr_amount",
+          "Factory method: get_daily_depr_amount",
+          "Parameterized factory method: get_shift_depr_amount",
+          "Factory method: get_asset_shift_factors_map",
+          "Multiple factory methods: get_straight_line_depr_amount, get_fixed_depr_amount, get_daily_prorata_based_depr_amount",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/depreciation_methods.py",
+        "class_name": "StraightLineMethod",
+        "method_name": null,
+        "line_number": 15,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/depreciation_methods.py",
+        "class_name": "StraightLineMethod",
+        "method_name": null,
+        "line_number": 15,
+        "evidence": [
+          "Part of strategy family with: WDVMethod"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/depreciation_methods.py",
+        "class_name": "WDVMethod",
+        "method_name": null,
+        "line_number": 76,
+        "evidence": [
+          "Parameterized factory method: get_wdv_or_dd_depr_amount",
+          "Factory method: get_wdv_depr_amount",
+          "Parameterized factory method: get_daily_prorata_based_wdv_depr_amount",
+          "Factory method: get_daily_wdv_depr_amount",
+          "Multiple factory methods: get_wdv_or_dd_depr_amount, get_wdv_depr_amount, get_daily_prorata_based_wdv_depr_amount",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/depreciation_methods.py",
+        "class_name": "WDVMethod",
+        "method_name": "get_wdv_or_dd_depr_amount",
+        "line_number": 78,
+        "evidence": [
+          "Method uses decorators: ['erpnext.allow_regional']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/depreciation_methods.py",
+        "class_name": "WDVMethod",
+        "method_name": null,
+        "line_number": 76,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/depreciation_methods.py",
+        "class_name": "WDVMethod",
+        "method_name": null,
+        "line_number": 76,
+        "evidence": [
+          "Part of strategy family with: StraightLineMethod"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 2,
+      "Adapter": 2,
+      "Strategy": 2,
+      "Decorator": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/test_asset_depreciation_schedule.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/test_asset_depreciation_schedule.py",
+        "class_name": "TestAssetDepreciationSchedule",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 22 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_depreciation_schedule/test_asset_depreciation_schedule.py",
+        "class_name": "TestAssetDepreciationSchedule",
+        "method_name": "test_update_total_number_of_booked_depreciations",
+        "line_number": 345,
+        "evidence": [
+          "Observer method detected: test_update_total_number_of_booked_depreciations"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_maintenance/asset_maintenance.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_maintenance/asset_maintenance.py",
+        "class_name": "AssetMaintenance",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_maintenance/asset_maintenance.py",
+        "class_name": "AssetMaintenance",
+        "method_name": "on_update",
+        "line_number": 43,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 5,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_maintenance/test_asset_maintenance.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_maintenance/test_asset_maintenance.py",
+        "class_name": "TestAssetMaintenance",
+        "method_name": "test_create_asset_maintenance_with_log",
+        "line_number": 21,
+        "evidence": [
+          "Factory method detected: test_create_asset_maintenance_with_log"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_maintenance_log/asset_maintenance_log.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_maintenance_log/asset_maintenance_log.py",
+        "class_name": "AssetMaintenanceLog",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_maintenance_log/asset_maintenance_log.py",
+        "class_name": "AssetMaintenanceLog",
+        "method_name": "update_maintenance_task",
+        "line_number": 62,
+        "evidence": [
+          "Observer method detected: update_maintenance_task"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_maintenance_task/asset_maintenance_task.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_maintenance_task/asset_maintenance_task.py",
+        "class_name": "AssetMaintenanceTask",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Class name suggests Command: AssetMaintenanceTask"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_movement/asset_movement.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_movement/asset_movement.py",
+        "class_name": "AssetMovement",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Parameterized factory method: get_latest_location_and_custodian",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_movement/asset_movement.py",
+        "class_name": "AssetMovement",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 12 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_movement/asset_movement.py",
+        "class_name": "AssetMovement",
+        "method_name": "update_asset_location_and_custodian",
+        "line_number": 143,
+        "evidence": [
+          "Observer method detected: update_asset_location_and_custodian"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_movement/test_asset_movement.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_movement/test_asset_movement.py",
+        "class_name": "TestAssetMovement",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_repair/asset_repair.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_repair/asset_repair.py",
+        "class_name": "AssetRepair",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Factory method: get_total_value_of_stock_consumed",
+          "Parameterized factory method: make_gl_entries",
+          "Factory method: get_gl_entries",
+          "Parameterized factory method: get_gl_entries_for_repair_cost",
+          "Parameterized factory method: get_gl_entries_for_consumed_items",
+          "Factory method: get_depreciation_note",
+          "Multiple factory methods: get_total_value_of_stock_consumed, make_gl_entries, get_gl_entries",
+          "Inherits from: AccountsController"
+        ],
+        "related_classes": [
+          "AccountsController"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_repair/asset_repair.py",
+        "class_name": "AssetRepair",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Implements interface: AccountsController",
+          "Has 28 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_repair/asset_repair.py",
+        "class_name": "AssetRepair",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Notify method: update_status",
+          "Notify method: update_asset_value",
+          "Attach method: add_asset_activity"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 7,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_repair/test_asset_repair.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_repair/test_asset_repair.py",
+        "class_name": "TestAssetRepair",
+        "method_name": "setUpClass",
+        "line_number": 32,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_repair/test_asset_repair.py",
+        "class_name": "TestAssetRepair",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 19 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_repair/test_asset_repair.py",
+        "class_name": "TestAssetRepair",
+        "method_name": "test_update_status",
+        "line_number": 68,
+        "evidence": [
+          "Observer method detected: test_update_status"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_shift_allocation/asset_shift_allocation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_shift_allocation/asset_shift_allocation.py",
+        "class_name": "AssetShiftAllocation",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Parameterized factory method: get_finance_book_row",
+          "Factory method: create_new_asset_depr_schedule",
+          "Multiple factory methods: get_finance_book_row, create_new_asset_depr_schedule",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_shift_allocation/asset_shift_allocation.py",
+        "class_name": "AssetShiftAllocation",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 14 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_shift_allocation/asset_shift_allocation.py",
+        "class_name": "AssetShiftAllocation",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Notify method: update_depr_schedule",
+          "Attach method: add_depr_shifts",
+          "Attach method: add_schedule_row"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_shift_allocation/test_asset_shift_allocation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_shift_allocation/test_asset_shift_allocation.py",
+        "class_name": "TestAssetShiftAllocation",
+        "method_name": "setUpClass",
+        "line_number": 16,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_shift_allocation/test_asset_shift_allocation.py",
+        "class_name": "TestAssetShiftAllocation",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_value_adjustment/asset_value_adjustment.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_value_adjustment/asset_value_adjustment.py",
+        "class_name": "AssetValueAdjustment",
+        "method_name": null,
+        "line_number": 21,
+        "evidence": [
+          "Factory method: make_asset_revaluation_entry",
+          "Parameterized factory method: get_entry_for_asset_value_decrease",
+          "Parameterized factory method: get_entry_for_asset_value_increase",
+          "Parameterized factory method: get_adjusted_salvage_value_amount",
+          "Factory method: get_adjustment_note",
+          "Multiple factory methods: make_asset_revaluation_entry, get_entry_for_asset_value_decrease, get_entry_for_asset_value_increase",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_value_adjustment/asset_value_adjustment.py",
+        "class_name": "AssetValueAdjustment",
+        "method_name": null,
+        "line_number": 21,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 15 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_value_adjustment/asset_value_adjustment.py",
+        "class_name": "AssetValueAdjustment",
+        "method_name": null,
+        "line_number": 21,
+        "evidence": [
+          "Notify method: update_accounting_dimensions",
+          "Notify method: update_asset",
+          "Notify method: update_asset_value_after_depreciation"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_value_adjustment/test_asset_value_adjustment.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/asset_value_adjustment/test_asset_value_adjustment.py",
+        "class_name": "TestAssetValueAdjustment",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/location/location.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/location/location.py",
+        "class_name": "Location",
+        "method_name": null,
+        "line_number": 15,
+        "evidence": [
+          "Implements interface: NestedSet",
+          "Has 10 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/assets/doctype/location/location.py",
+        "class_name": "Location",
+        "method_name": null,
+        "line_number": 15,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: update_ancestor_location_features",
+          "Detach method: remove_ancestor_location_features",
+          "Attach method: add_child_property"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 6,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  }
+]

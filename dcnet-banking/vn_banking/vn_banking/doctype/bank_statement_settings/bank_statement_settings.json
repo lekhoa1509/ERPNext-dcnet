@@ -1,0 +1,46 @@
+{
+ "doctype": "DocType",
+ "name": "Bank Statement Settings",
+ "module": "VN Banking",
+ "creation": "2026-04-10 00:00:00",
+ "issingle": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_matchers", "enable_matcher_invoice_no", "enable_matcher_invoice_amount",
+  "enable_matcher_party_amount", "enable_matcher_name_amount", "col_break_1",
+  "enable_multi_invoice_match", "multi_invoice_max_combinations",
+  "amount_date_tolerance_days", "invoice_number_patterns",
+  "section_tolerance", "tolerance_type", "tolerance_fixed_amount", "tolerance_percent",
+  "section_pe", "default_pe_action", "default_mode_of_payment_credit",
+  "default_mode_of_payment_debit", "difference_account",
+  "section_rules", "rules"
+ ],
+ "fields": [
+  {"fieldname": "section_matchers", "fieldtype": "Section Break", "label": "Matchers"},
+  {"fieldname": "enable_matcher_invoice_no", "fieldtype": "Check", "default": 1, "label": "Enable Invoice No Matcher"},
+  {"fieldname": "enable_matcher_invoice_amount", "fieldtype": "Check", "default": 1, "label": "Enable Invoice Amount Matcher"},
+  {"fieldname": "enable_matcher_party_amount", "fieldtype": "Check", "default": 1, "label": "Enable Party+Amount Matcher"},
+  {"fieldname": "enable_matcher_name_amount", "fieldtype": "Check", "default": 1, "label": "Enable Name+Amount Matcher (Low)"},
+  {"fieldname": "col_break_1", "fieldtype": "Column Break"},
+  {"fieldname": "enable_multi_invoice_match", "fieldtype": "Check", "default": 1, "label": "Enable Multi-Invoice Match"},
+  {"fieldname": "multi_invoice_max_combinations", "fieldtype": "Int", "default": 5, "label": "Max Combinations (k)"},
+  {"fieldname": "amount_date_tolerance_days", "fieldtype": "Int", "default": 3, "label": "Date Tolerance (days)"},
+  {"fieldname": "invoice_number_patterns", "fieldtype": "Small Text", "label": "Invoice Number Patterns (one regex per line)",
+   "default": "ACC-SI-\\d{4}-\\d+\nACC-PI-\\d{4}-\\d+\nSI-\\d+\nPINV-\\d+"},
+  {"fieldname": "section_tolerance", "fieldtype": "Section Break", "label": "Tolerance"},
+  {"fieldname": "tolerance_type", "fieldtype": "Select", "options": "Fixed Amount\nPercent", "default": "Fixed Amount", "label": "Tolerance Type"},
+  {"fieldname": "tolerance_fixed_amount", "fieldtype": "Currency", "default": 1000, "label": "Tolerance Fixed Amount"},
+  {"fieldname": "tolerance_percent", "fieldtype": "Float", "default": 0.1, "label": "Tolerance Percent"},
+  {"fieldname": "section_pe", "fieldtype": "Section Break", "label": "Payment Entry Defaults"},
+  {"fieldname": "default_pe_action", "fieldtype": "Select", "options": "Draft\nSubmit", "default": "Draft", "label": "Default PE Action"},
+  {"fieldname": "default_mode_of_payment_credit", "fieldtype": "Link", "options": "Mode of Payment", "label": "Default Mode of Payment (Credit/Receive)"},
+  {"fieldname": "default_mode_of_payment_debit", "fieldtype": "Link", "options": "Mode of Payment", "label": "Default Mode of Payment (Debit/Pay)"},
+  {"fieldname": "difference_account", "fieldtype": "Link", "options": "Account", "label": "Difference Write-Off Account (TK 6415/6425/6427)"},
+  {"fieldname": "section_rules", "fieldtype": "Section Break", "label": "Match Rules (priority order)"},
+  {"fieldname": "rules", "fieldtype": "Table", "options": "Bank Match Rule", "label": "Rules"}
+ ],
+ "permissions": [
+  {"role": "System Manager", "read": 1, "write": 1},
+  {"role": "Accounts Manager", "read": 1, "write": 1}
+ ]
+}

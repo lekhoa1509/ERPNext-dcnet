@@ -1,0 +1,73 @@
+<PLuc_01_1_TBVMT>
+				<DonViTieuThu>
+					<ct2/>
+					<ct3/>
+					<ma_xa/>
+					<ten_xa/>
+					<ct4_ma/>
+					<ct4_ten/>
+					<ct5_ma/>
+					<ct5_ten/>
+					<ct6_ma/>
+					<ct6_ten/>
+					<tong/>
+					<CTietHangHoa id="String">
+						<ct7_ma/>
+						<ct7_ten/>
+						<ct8/>
+						<ct9/>
+						<ct10/>
+						<ct11/>
+						<ct12/>
+						<ct13/>
+						<ct14/>
+					</CTietHangHoa>
+				</DonViTieuThu>
+				<CoSoKhaiThac>
+					<CTietCoSoKhaiThac id="String">
+						<ct2/>
+						<ct3/>
+						<ma_xa/>
+						<ten_xa/>
+						<ct4_ma/>
+						<ct4_ten/>
+						<ct5_ma/>
+						<ct5_ten/>
+						<ct6_ma/>
+						<ct6_ten/>
+						<tong/>
+						<CTietHangHoa id="String">
+							<ct7_ma/>
+							<ct7_ten/>
+							<ct8/>
+							<ct9/>
+							<ct10/>
+							<ct11/>
+							<ct12/>
+							<ct13/>
+							<ct14/>
+						</CTietHangHoa>
+					</CTietCoSoKhaiThac>
+				</CoSoKhaiThac>
+				<TongTheoTinh>
+					<CTietTheoTinh id="String">
+						<ct5_ma/>
+						<ct5_ten/>
+						<tong/>
+						<CTietHangHoa id="String">
+							<ct7_ma/>
+							<ct7_ten/>
+							<tong/>
+						</CTietHangHoa>
+					</CTietTheoTinh>
+				</TongTheoTinh>
+				<TongCong>
+					<CTietHangHoa id="String">
+						<ct7_ma/>
+						<ct7_ten/>
+						<tongSoLuong/>
+						<tongSoThue/>
+					</CTietHangHoa>
+					<tong/>
+				</TongCong>
+			</PLuc_01_1_TBVMT>

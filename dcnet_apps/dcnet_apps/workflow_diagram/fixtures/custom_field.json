@@ -1,0 +1,74 @@
+[
+ {
+  "doctype": "Custom Field",
+  "dt": "Workspace Sidebar Item",
+  "fieldname": "workflow_section",
+  "fieldtype": "Section Break",
+  "label": "Workflow Diagram",
+  "insert_after": "route_options",
+  "collapsible": 1,
+  "depends_on": "eval:doc.type=='Section Break'",
+  "modified": "2026-03-18 12:00:00.000000",
+  "name": "Workspace Sidebar Item-workflow_section"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Workspace Sidebar Item",
+  "fieldname": "is_workflow_node",
+  "fieldtype": "Check",
+  "label": "Is Workflow Node",
+  "description": "Display this item as a node in workflow diagram",
+  "insert_after": "workflow_section",
+  "default": "0",
+  "depends_on": "eval:doc.type=='Section Break'",
+  "modified": "2026-03-18 12:00:00.000000",
+  "name": "Workspace Sidebar Item-is_workflow_node"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Workspace Sidebar Item",
+  "fieldname": "workflow_connects_to",
+  "fieldtype": "Small Text",
+  "label": "Connects To",
+  "description": "JSON array of target node labels, e.g. [\"Nhận hàng\", \"Thanh toán\"]",
+  "insert_after": "is_workflow_node",
+  "depends_on": "eval:doc.is_workflow_node==1",
+  "modified": "2026-03-18 12:00:00.000000",
+  "name": "Workspace Sidebar Item-workflow_connects_to"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Workspace Sidebar Item",
+  "fieldname": "workflow_col",
+  "fieldtype": "Column Break",
+  "insert_after": "workflow_connects_to",
+  "depends_on": "eval:doc.type=='Section Break'",
+  "modified": "2026-03-18 12:00:00.000000",
+  "name": "Workspace Sidebar Item-workflow_col"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Workspace Sidebar Item",
+  "fieldname": "workflow_color",
+  "fieldtype": "Select",
+  "label": "Color",
+  "options": "auto\nblue\ngreen\norange\nred\npurple",
+  "default": "auto",
+  "insert_after": "workflow_col",
+  "depends_on": "eval:doc.is_workflow_node==1",
+  "modified": "2026-03-18 12:00:00.000000",
+  "name": "Workspace Sidebar Item-workflow_color"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Workspace Sidebar Item",
+  "fieldname": "workflow_group",
+  "fieldtype": "Data",
+  "label": "Group",
+  "description": "Group name to cluster related nodes visually",
+  "insert_after": "workflow_color",
+  "depends_on": "eval:doc.is_workflow_node==1",
+  "modified": "2026-03-18 12:00:00.000000",
+  "name": "Workspace Sidebar Item-workflow_group"
+ }
+]

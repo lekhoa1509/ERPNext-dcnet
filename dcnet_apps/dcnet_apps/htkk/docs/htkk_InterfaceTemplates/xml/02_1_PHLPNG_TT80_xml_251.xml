@@ -1,0 +1,31 @@
+<PLuc_02_1_PHLPNG>
+	<NoiDungBang id="String">
+		<ten_CQDaiDien/>
+		<loai_khoanThu/>
+		<ma_KhoanThu/>
+		<tieuMuc/>
+		<ten_DVTien/>
+		<ma_DVTien/>
+		<soTienThuDuoc/>
+		<tyLe/>
+		<soTienTrichDeLai/>
+		<soTienPhaiNop/>
+		<ghiChu/>
+	</NoiDungBang>
+	<TongCongTheoLoaiPhi id="String">
+		<ten_LoaiPhi/>
+		<ma_LoaiPhi/>
+		<ten_DonViTien/>
+		<ma_DonViTien/>
+		<tongCongSTThuDuoc/>
+		<tongCongSTTrichTheoCheDo/>
+		<tongCongSTPhaiNop/>
+	</TongCongTheoLoaiPhi>
+	<TongCongTheoLoaiTien id="String">
+		<ten_DonViTien/>
+		<ma_DonViTien/>
+		<tongCongSTThuDuoc/>
+		<tongCongSTTrichTheoCheDo/>
+		<tongCongSTPhaiNop/>
+	</TongCongTheoLoaiTien>
+</PLuc_02_1_PHLPNG>

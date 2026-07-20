@@ -1,0 +1,35 @@
+<Pluc_01_6_GTGT_DVVT>
+	<ct10a_csxs/>
+	<ct10a_dvvt/>
+	<ct06/>
+	<ct07/>
+	<NoiDungBangPhanBo id="String">
+		<ct09/>
+		<ct10/>
+		<ct11_huyen_ma/>
+		<ct11_huyen_ten/>
+		<ct12_tinh_ma/>
+		<ct12_tinh_ten/>
+		<ct13_cqt_ma/>
+		<ct13_cqt_ten/>
+		<ct14/>
+		<ct15/>
+		<ct16/>
+		<ct17/>
+		<ct21/>
+	</NoiDungBangPhanBo>
+	<cong_ct18 id="text">
+		<ct18/>
+		<ct22/>
+		<ct18_tinh_ma/>
+		<ct18_tinh_ten/>
+	</cong_ct18>
+	<CongCacTinh>
+		<ct19/>
+		<ct23/>
+	</CongCacTinh>
+	<SoThuePhaiNop>
+		<ct20/>
+		<ct24/>
+	</SoThuePhaiNop>
+</Pluc_01_6_GTGT_DVVT>

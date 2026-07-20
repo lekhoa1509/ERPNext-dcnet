@@ -1,0 +1,173 @@
+{
+  "total_files": 9,
+  "categories": {
+    "overview": [
+      "README.md"
+    ],
+    "other": [
+      "doctype/bom/README.md",
+      "doctype/bom_explosion_item/README.md",
+      "doctype/bom_item/README.md",
+      "doctype/bom_operation/README.md",
+      "doctype/production_plan_item/README.md",
+      "doctype/production_plan_sales_order/README.md",
+      "doctype/work_order/README.md",
+      "doctype/workstation/README.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "filename": "README.md",
+      "category": "overview",
+      "size_bytes": 78,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 10,
+        "line_count": 1
+      },
+      "summary": "Plan and manage manufacturing operations, bill of materials for manufacturing.\n(10 words, 0 code blocks)",
+      "content": "Plan and manage manufacturing operations, bill of materials for manufacturing."
+    },
+    {
+      "path": "doctype/bom/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 110,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 18,
+        "line_count": 1
+      },
+      "summary": "Bill of Materials (BOM) is a list of operations and Items required to manufacture a particular product (Item).\n(18 words, 0 code blocks)",
+      "content": "Bill of Materials (BOM) is a list of operations and Items required to manufacture a particular product (Item)."
+    },
+    {
+      "path": "doctype/bom_explosion_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 73,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 14,
+        "line_count": 1
+      },
+      "summary": "Detail of Item required for the main Item by parsing the entire BOM tree.\n(14 words, 0 code blocks)",
+      "content": "Detail of Item required for the main Item by parsing the entire BOM tree."
+    },
+    {
+      "path": "doctype/bom_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 45,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Item required in the parent Bill of Material.\n(8 words, 0 code blocks)",
+      "content": "Item required in the parent Bill of Material."
+    },
+    {
+      "path": "doctype/bom_operation/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 51,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Operation performed in the parent Bill of Material.\n(8 words, 0 code blocks)",
+      "content": "Operation performed in the parent Bill of Material."
+    },
+    {
+      "path": "doctype/production_plan_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 63,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Item being considered for planning in Production Planning Tool.\n(9 words, 0 code blocks)",
+      "content": "Item being considered for planning in Production Planning Tool."
+    },
+    {
+      "path": "doctype/production_plan_sales_order/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 62,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Sales Order being considered for the Production Planning Tool.\n(9 words, 0 code blocks)",
+      "content": "Sales Order being considered for the Production Planning Tool."
+    },
+    {
+      "path": "doctype/work_order/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 76,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 11,
+        "line_count": 1
+      },
+      "summary": "Authorization (order) given to manufacturing unit to produce a certain Item.\n(11 words, 0 code blocks)",
+      "content": "Authorization (order) given to manufacturing unit to produce a certain Item."
+    },
+    {
+      "path": "doctype/workstation/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 45,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Workstation where BOM Operation is performed.\n(6 words, 0 code blocks)",
+      "content": "Workstation where BOM Operation is performed."
+    }
+  ]
+}

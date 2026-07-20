@@ -1,0 +1,47 @@
+<Pluc_01_1_QT_LNCL>
+	<ct04/>
+	<ct05/>
+	<NoiDungBangPhanBo id="String">
+		<loai/>
+		<ct07/>
+		<ct08/>
+		<ct09_huyen_ma/>
+		<ct09_huyen_ten/>
+		<ct10_tinh_ma/>
+		<ct10_tinh_ten/>
+		<ct11_cqt_ma/>
+		<ct11_cqt_ten/>
+		<ct12/>
+		<ct13/>
+		<ct14/>
+		<ct15/>
+		<ct16/>
+		<ct17/>
+		<ct18/>
+	</NoiDungBangPhanBo>
+	<cong_ct19 id="text">
+		<ct19_tinh_ma/>
+		<ct19_tinh_ten/>
+		<ct19_1/>
+		<ct19_2/>
+		<ct19_3/>
+		<ct19_4/>
+		<ct19_5/>
+	</cong_ct19>
+	<CT20>
+		<ct20_1/>
+		<ct20_2/>
+		<ct20_3/>
+		<ct20_4/>
+		<ct20_5/>
+	</CT20>
+	<TruSoChinh>
+		<ct21_tinh_ma/>
+		<ct21_tinh_ten/>
+		<ct21_1/>
+		<ct21_2/>
+		<ct21_3/>
+		<ct21_4/>
+		<ct21_5/>
+	</TruSoChinh>
+</Pluc_01_1_QT_LNCL>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.2">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ChungTu">
+							<xs:annotation>
+								<xs:documentation>Chứng từ</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTiet" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation> Nọi dung chi tiết chứng từ</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="kyHieuCTu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ký hiệu chứng từ </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soCTu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số chứng từ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ngayCTu" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ngày chứng từ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="hoVaTen" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>HỌ VÀ TÊN NGƯỜI BỊ KHẤU TRỪ THUẾ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="mst_CMT_HoChieu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>MÃ SỐ THUẾ (HOẶC SỐ CMND; SỐ HỘ CHIẾU)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soTienThue" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>SỐ TIỀN THUẾ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ghiChu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>GHI CHÚ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="ID" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="tongSoTienThue" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng cộng số tiền thuế đã cấp chứng từ khấu trừ thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="nguoiDaiDien" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Người đại diện theo pháp luật</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

@@ -1,0 +1,264 @@
+{
+ "actions": [],
+ "autoname": "AD-.YYYY.-.#####",
+ "creation": "2026-04-24 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "asset_information_section",
+  "asset",
+  "asset_name",
+  "asset_category",
+  "column_break_asset_info",
+  "company",
+  "disposal_date",
+  "disposal_type",
+  "status",
+  "asset_values_section",
+  "gross_purchase_amount",
+  "column_break_asset_values",
+  "accumulated_depreciation",
+  "book_value",
+  "sale_details_section",
+  "selling_amount",
+  "column_break_sale_details",
+  "buyer",
+  "accounting_entries_section",
+  "fixed_asset_account",
+  "accumulated_depreciation_account",
+  "column_break_accounting",
+  "disposal_loss_account",
+  "disposal_income_account",
+  "details_section",
+  "disposal_reason",
+  "participants",
+  "references_section",
+  "journal_entry",
+  "column_break_references",
+  "sales_invoice"
+ ],
+ "fields": [
+  {
+   "fieldname": "asset_information_section",
+   "fieldtype": "Section Break",
+   "label": "Asset Information"
+  },
+  {
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Asset",
+   "options": "Asset",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "asset.asset_name",
+   "fieldname": "asset_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Asset Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "asset.asset_category",
+   "fieldname": "asset_category",
+   "fieldtype": "Link",
+   "label": "Asset Category",
+   "options": "Asset Category",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_asset_info",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "asset.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "disposal_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Disposal Date",
+   "reqd": 1
+  },
+  {
+   "default": "Scrap",
+   "fieldname": "disposal_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Disposal Type",
+   "options": "Sell\nScrap",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nExecuted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "asset_values_section",
+   "fieldtype": "Section Break",
+   "label": "Asset Values"
+  },
+  {
+   "fieldname": "gross_purchase_amount",
+   "fieldtype": "Currency",
+   "label": "Gross Purchase Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_asset_values",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "accumulated_depreciation",
+   "fieldtype": "Currency",
+   "label": "Accumulated Depreciation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "book_value",
+   "fieldtype": "Currency",
+   "label": "Book Value",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.disposal_type=='Sell'",
+   "fieldname": "sale_details_section",
+   "fieldtype": "Section Break",
+   "label": "Sale Details"
+  },
+  {
+   "fieldname": "selling_amount",
+   "fieldtype": "Currency",
+   "label": "Selling Amount",
+   "mandatory_depends_on": "eval:doc.disposal_type=='Sell'"
+  },
+  {
+   "fieldname": "column_break_sale_details",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "label": "Buyer",
+   "mandatory_depends_on": "eval:doc.disposal_type=='Sell'",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "accounting_entries_section",
+   "fieldtype": "Section Break",
+   "label": "Accounting Entries"
+  },
+  {
+   "fieldname": "fixed_asset_account",
+   "fieldtype": "Link",
+   "label": "Fixed Asset Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "accumulated_depreciation_account",
+   "fieldtype": "Link",
+   "label": "Accumulated Depreciation Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_accounting",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "disposal_loss_account",
+   "fieldtype": "Link",
+   "label": "Disposal Loss Account",
+   "options": "Account"
+  },
+  {
+   "depends_on": "eval:doc.disposal_type=='Sell'",
+   "fieldname": "disposal_income_account",
+   "fieldtype": "Link",
+   "label": "Disposal Income Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "disposal_reason",
+   "fieldtype": "Small Text",
+   "label": "Disposal Reason"
+  },
+  {
+   "fieldname": "participants",
+   "fieldtype": "Table",
+   "label": "Participants",
+   "options": "Asset Disposal Participant"
+  },
+  {
+   "fieldname": "references_section",
+   "fieldtype": "Section Break",
+   "label": "References",
+   "read_only": 1
+  },
+  {
+   "fieldname": "journal_entry",
+   "fieldtype": "Link",
+   "label": "Journal Entry",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_references",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "options": "Sales Invoice",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-04-24 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "Asset Disposal",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Accounts User",
+   "write": 1
+  }
+ ],
+ "default_print_format": "Asset Disposal Report",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

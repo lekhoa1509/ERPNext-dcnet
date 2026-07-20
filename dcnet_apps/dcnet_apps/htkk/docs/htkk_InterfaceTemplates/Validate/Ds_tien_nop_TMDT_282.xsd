@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by DINHDT (SEATECH) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.5">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="Header">
+							<xs:annotation>
+								<xs:documentation>Thông tin chung</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="soChungTu" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Số chứng từ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="soThamChieu" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Số tham chiếu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ngay" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ngày chứng từ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct5_maloai" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Mã loại Số tờ khai/ Số quyết định / Số thông báo/Mã định danh hồ sơ (ID)                
+1: Số tờ khai     
+2: Số quyết định
+3: Số thông báo
+4: Mã định danh hồ sơ                               </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct5" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Gía trị nhập tương ứng của chỉ tiêu 5                              </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct6_kyThue">
+										<xs:annotation>
+											<xs:documentation>Kỳ thuế/ Ngày quyết định/Ngày thông báo:</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="loai">
+													<xs:annotation>
+														<xs:documentation>Chọn kỳ thuế/ngày quyết đinh/Ngày thông báo</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string"/>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="tenKy" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên loại kỳ                             </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="KyKeKhai" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Kỳ thuế: Nếu chỉ tiêu [05] chọn “Số tờ khai” thì bắt buộc nhập kỳ tính thuế tháng theo định dạng mm/yyyy
+- Ngày quyết định: Nếu chỉ tiêu [05] chọn “Số quyết định” thì mở khóa và bắt buộc nhập theo định dạng dd/mm/yyyy
+- Ngày thông báo: Nếu chỉ tiêu [05] chọn “Số thông báo” thì mở khóa và bắt buộc nhập theo định dạng dd/mm/yyyy
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ct6_ngayQD" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ngày quyết định</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct6_ngayTB" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ngày thông báo </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="NoiDungDS">
+							<xs:annotation>
+								<xs:documentation>Nội dung chi tiết danh sách thuế TNCN</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TieuMuc1701">
+										<xs:annotation>
+											<xs:documentation>Tiểu mục 1701 – Thuế GTGT</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="CTietTieuMuc1701" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ct2_ma" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>mã Loại: Mã số thuế/ Số định danh (CCCD)/ Số giấy tờ định danh của hộ kinh doanh, cá nhân kinh doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct2_ten" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên Loại: Mã số thuế/ Số định danh (CCCD)/ Số giấy tờ định danh của hộ kinh doanh, cá nhân kinh doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct2_MST" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mã số thuế/ Số định danh (CCCD)/ Số giấy tờ định danh của hộ kinh doanh, cá nhân kinh doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct3_tenNNT" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên NNT</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct4_noiDungKhoanNop" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Nội dung các khoản nộp NSNN (Tiểu mục )</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct5_soTienNopNSNN" type="xs:long" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Số tiền nộp NSNN</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TieuMuc1003">
+										<xs:annotation>
+											<xs:documentation>Tiểu mục 1003 – Thuế TNCN</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="CTietTieuMuc1003" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ct2_ma" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>mã Loại: Mã số thuế/ Số định danh (CCCD)/ Số giấy tờ định danh của hộ kinh doanh, cá nhân kinh doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct2_ten" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên Loại: Mã số thuế/ Số định danh (CCCD)/ Số giấy tờ định danh của hộ kinh doanh, cá nhân kinh doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct2_MST" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mã số thuế/ Số định danh (CCCD)/ Số giấy tờ định danh của hộ kinh doanh, cá nhân kinh doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct3_tenNNT" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên NNT</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct4_noiDungKhoanNop" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Nội dung các khoản nộp NSNN (Tiểu mục )</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct5_soTienNopNSNN" type="xs:long" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Số tiền nộp NSNN</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="tongCot5_TM1701" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>tổng cộng theo tiểu mục 1701</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tongCot5_TM1003" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>tổng cộng theo tiểu mục 1003</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tongCot5" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng cộng tiểu mục 1701+ tiểu mục 1003</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="nguoiNopTien" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Người nộp tiền</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="keToanTruong" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Kế toán trưởng</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="thuTruongDonVi" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thủ trưởng đơn vị</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

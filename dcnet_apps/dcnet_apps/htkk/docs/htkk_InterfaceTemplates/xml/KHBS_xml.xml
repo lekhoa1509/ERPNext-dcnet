@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PL01_KHBS>
+	<NDUNGKHAIBOSUNGDIEUCHINH>
+		<KHBSDieuChinhTang>
+			<ct2></ct2>
+			<ct3></ct3>
+			<ct4></ct4>
+			<ct5></ct5>
+			<ct6></ct6>
+		</KHBSDieuChinhTang>
+		<KHBSDieuChinhGiam>
+			<ct2></ct2>
+			<ct3></ct3>
+			<ct4></ct4>
+			<ct5></ct5>
+			<ct6></ct6>
+		</KHBSDieuChinhGiam>
+		<TongHopDCTangGiamPNop>
+			<ct2></ct2>
+			<ct3></ct3>
+			<ct4></ct4>
+			<ct5></ct5>
+			<ct6></ct6>
+		</TongHopDCTangGiamPNop>
+	</NDUNGKHAIBOSUNGDIEUCHINH>
+	<PhatChamNop>
+		<soNgayNopCham></soNgayNopCham>
+		<soTienPhatNopCham></soTienPhatNopCham>
+	</PhatChamNop>
+	<NOIDUNGGIAITHICH>
+		<soTienTraNSNN></soTienTraNSNN>
+		<quyetDinhHoanThueSo></quyetDinhHoanThueSo>
+		<ngay></ngay>
+		<coQuanThue></coQuanThue>
+		<soNgayNhanDuocTienHoan></soNgayNhanDuocTienHoan>
+		<soTienChamNop></soTienChamNop>
+		<lyDoKhac></lyDoKhac>
+	</NOIDUNGGIAITHICH>
+</PL01_KHBS>

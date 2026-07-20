@@ -1,0 +1,27 @@
+<PL_03_1_TD_TAIN>
+				<BKePBoThueTNChoDPhuong>
+					<CTietBKePBoThueTNChoDPhuong>
+						<tenNhaMay/>
+						<mstNhaMay/>
+						<tyLePhanBo/>
+						<soThueTNguyenPNop/>
+						<soDaKeKhai_NhaMay/>
+						<chenhLech_NhaMay/>
+						<CQTDiaPhuong>
+							<ChiTietCQTDiaPhuong>
+								<tenCoSo/>
+								<mstCoSo/>
+								<maCQTDPhuong/>
+								<tenCQTDPhuong/>
+								<tyLePBoCQTDPhuong/>
+								<thuePNopCQTDPhuong/>
+								<soDaKeKhai/>
+								<chenhLech/>
+							</ChiTietCQTDiaPhuong>
+						</CQTDiaPhuong>
+					</CTietBKePBoThueTNChoDPhuong>
+				</BKePBoThueTNChoDPhuong>
+				<tongCong/>
+				<tongCong_SoKK/>
+				<tongCong_ChenhLech/>
+			</PL_03_1_TD_TAIN>

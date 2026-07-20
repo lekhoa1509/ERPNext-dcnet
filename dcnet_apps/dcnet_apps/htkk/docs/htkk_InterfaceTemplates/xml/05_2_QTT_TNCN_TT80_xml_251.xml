@@ -1,0 +1,23 @@
+<PLuc_05_2_BK_QTT>
+				<BKeCTietCNhan id="">
+					<coDieuChinhSoLieu/>
+					<ct07/>
+					<ct08/>
+					<ct09a_ma/>
+					<ct09a_ten/>
+					<ct09/>
+					<ct10/>
+					<ct11/>
+					<ct12/>
+					<ct13/>
+					<ct14/>
+					<ct15/>
+					<ct16/>
+				</BKeCTietCNhan>
+				<ct17/>
+				<ct18/>
+				<ct19/>
+				<ct20/>
+				<ct21/>
+				<ct22/>
+			</PLuc_05_2_BK_QTT>

@@ -1,0 +1,46 @@
+<PLuc_01_2_TBVMT>
+	<DN_DVPT>
+		<CTiet_DN_DVPT id="">
+			<loai/>
+			<ct2/>
+			<ct3/>
+			<ct4_ma/>
+			<ct4_ten/>
+			<ct5_ma/>
+			<ct5_ten/>
+			<ct6_ma/>
+			<ct6_ten/>
+			<tong/>
+			<CTietHangHoa id="">
+				<ct7_ma/>
+				<ct7_ten/>
+				<ct8/>
+				<ct9/>
+				<ct10/>
+				<ct11/>
+			</CTietHangHoa>
+		</CTiet_DN_DVPT>
+	</DN_DVPT>
+	<TongTheoTinh>
+		<CTietTheoTinh id="">
+			<ct5_ma/>
+			<ct5_ten/>
+			<tong/>
+			<CTietHangHoa id="">
+				<ct7_ma/>
+				<ct7_ten/>
+				<tong/>
+			</CTietHangHoa>
+		</CTietTheoTinh>
+	</TongTheoTinh>
+	<TongCong>
+		<CTietHangHoa id="">
+			<ct7_ma/>
+			<ct7_ten/>
+			<ct8/>
+			<tongSanLuong/>
+			<tongSoThue/>
+		</CTietHangHoa>
+		<tong/>
+	</TongCong>
+</PLuc_01_2_TBVMT>

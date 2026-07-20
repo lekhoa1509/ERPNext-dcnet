@@ -1,0 +1,2 @@
+dcnet_migrate.patches.v0_0_1.fix_import_auto_settings_single_name
+dcnet_migrate.patches.v0_0_2.run_duplicate_check_for_existing_rows

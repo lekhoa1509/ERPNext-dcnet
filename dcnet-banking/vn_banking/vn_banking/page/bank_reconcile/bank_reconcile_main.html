@@ -1,0 +1,33 @@
+<div class="bank-reconcile-wrapper">
+  <div class="bank-reconcile-toolbar" id="br-toolbar">
+    <div class="br-bank-account-field">
+      <label class="control-label">{{ __("Bank Account") }}</label>
+      <select class="form-control" id="br-bank-account-select">
+        <option value="">-- {{ __("Select Bank Account") }} --</option>
+      </select>
+    </div>
+  </div>
+  <div class="bank-reconcile-stats" id="br-stats"></div>
+  <div class="bank-reconcile-table-wrapper">
+    <table class="table br-txn-table" id="br-txn-table">
+      <thead>
+        <tr>
+          <th class="br-col-check"><input type="checkbox" id="br-select-all"></th>
+          <th class="br-col-status"></th>
+          <th class="br-col-date">{{ __("Date") }}</th>
+          <th class="br-col-desc">{{ __("Description") }}</th>
+          <th class="br-col-amount">{{ __("Amount") }}</th>
+          <th class="br-col-ref">{{ __("Ref") }}</th>
+          <th class="br-col-party">{{ __("Party") }}</th>
+          <th class="br-col-match">{{ __("Invoice / PE") }}</th>
+          <th class="br-col-actions">{{ __("Actions") }}</th>
+        </tr>
+      </thead>
+      <tbody id="br-txn-tbody"></tbody>
+    </table>
+    <div id="br-empty-state" class="text-muted text-center p-5" style="display:none;">
+      {{ __("No import loaded. Click Upload Statement to begin.") }}
+    </div>
+  </div>
+  <div class="bank-reconcile-bulk-bar" id="br-bulk-bar"></div>
+</div>

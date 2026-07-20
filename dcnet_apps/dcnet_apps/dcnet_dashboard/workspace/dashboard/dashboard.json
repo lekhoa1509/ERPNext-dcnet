@@ -1,0 +1,85 @@
+{
+    "charts": [
+        {
+            "chart_name": "Revenue by Customer Source",
+            "label": "Revenue by Customer Source"
+        },
+        {
+            "chart_name": "Revenue by Order Source",
+            "label": "Revenue by Order Source"
+        },
+        {
+            "chart_name": "Top Products by Revenue",
+            "label": "Top Products by Revenue"
+        }
+    ],
+    "content": "[{\"id\":\"hd01\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>T\\u1ed5ng quan doanh s\\u1ed1</b></span>\",\"col\":12}},{\"id\":\"nc01\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Revenue\",\"col\":4}},{\"id\":\"nc02\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Wholesale Revenue\",\"col\":4}},{\"id\":\"nc03\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Retail Revenue\",\"col\":4}},{\"id\":\"sp01\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hd02\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Ph\\u00e2n t\\u00edch doanh s\\u1ed1</b></span>\",\"col\":12}},{\"id\":\"ch01\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Revenue by Customer Source\",\"col\":6}},{\"id\":\"ch02\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Revenue by Order Source\",\"col\":6}},{\"id\":\"sp02\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ch03\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Top Products by Revenue\",\"col\":12}},{\"id\":\"sp03\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hd04\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Module s\\u1eafp ra m\\u1eaft</b></span>\",\"col\":12}},{\"id\":\"pa01\",\"type\":\"paragraph\",\"data\":{\"text\":\"<b>Trade-in (T4 - 30/04/2026)</b> \\u2014 Qu\\u1ea3n l\\u00fd thu c\\u0169 \\u0111\\u1ed5i m\\u1edbi, \\u0111\\u1ecbnh gi\\u00e1 s\\u1ea3n ph\\u1ea9m c\\u0169, t\\u00edch h\\u1ee3p \\u0111\\u01a1n b\\u00e1n h\\u00e0ng.\",\"col\":12}},{\"id\":\"pa02\",\"type\":\"paragraph\",\"data\":{\"text\":\"<b>Fitting (T6 - 30/06/2026)</b> \\u2014 Qu\\u1ea3n l\\u00fd l\\u1ecbch fitting, \\u0111o l\\u01b0\\u1eddng, t\\u01b0 v\\u1ea5n k\\u1ef9 thu\\u1eadt cho kh\\u00e1ch h\\u00e0ng.\",\"col\":12}},{\"id\":\"pa03\",\"type\":\"paragraph\",\"data\":{\"text\":\"<b>Coaching (T6 - 30/06/2026, Th\\u0103ng Long TM)</b> \\u2014 Qu\\u1ea3n l\\u00fd bu\\u1ed5i coaching, hu\\u1ea5n luy\\u1ec7n vi\\u00ean, \\u0111\\u0103ng k\\u00fd v\\u00e0 thanh to\\u00e1n.\",\"col\":12}}]",
+    "creation": "2026-03-01 00:00:00.000000",
+    "custom_blocks": [],
+    "docstatus": 0,
+    "doctype": "Workspace",
+    "type": "Workspace",
+    "for_user": "",
+    "hide_custom": 0,
+    "icon": "chart-line",
+    "idx": 0,
+    "is_hidden": 0,
+    "label": "Dashboard",
+    "links": [
+        {
+            "hidden": 0,
+            "is_query_report": 1,
+            "label": "Doanh so theo nguon KH",
+            "link_count": 0,
+            "link_to": "Revenue by Customer Source",
+            "link_type": "Report",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 1,
+            "label": "Doanh so theo nguon don",
+            "link_count": 0,
+            "link_to": "Revenue by Order Source",
+            "link_type": "Report",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 1,
+            "label": "Top 20 SP ban chay",
+            "link_count": 0,
+            "link_to": "Top Products by Revenue",
+            "link_type": "Report",
+            "onboard": 0,
+            "type": "Link"
+        }
+    ],
+    "modified": "2026-03-02 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "DCNET Dashboard",
+    "name": "Dashboard",
+    "number_cards": [
+        {
+            "number_card_name": "Total Revenue",
+            "label": "Total Revenue"
+        },
+        {
+            "number_card_name": "Wholesale Revenue",
+            "label": "Wholesale Revenue"
+        },
+        {
+            "number_card_name": "Retail Revenue",
+            "label": "Retail Revenue"
+        }
+    ],
+    "owner": "Administrator",
+    "parent_page": "",
+    "public": 1,
+    "restrict_to_domain": "",
+    "roles": [],
+    "sequence_id": 1,
+    "title": "Dashboard"
+}

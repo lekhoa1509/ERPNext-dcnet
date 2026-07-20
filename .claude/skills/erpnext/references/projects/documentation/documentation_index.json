@@ -1,0 +1,81 @@
+{
+  "total_files": 4,
+  "categories": {
+    "other": [
+      "doctype/activity_type/README.md",
+      "doctype/project/README.md",
+      "doctype/project/help.md",
+      "doctype/task/README.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "doctype/activity_type/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 40,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Type of Activity (set in Task, Time Log)\n(8 words, 0 code blocks)",
+      "content": "Type of Activity (set in Task, Time Log)"
+    },
+    {
+      "path": "doctype/project/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 103,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 16,
+        "line_count": 2
+      },
+      "summary": "Project details. Projects can be internal or external and can have Tasks, Milestones associated to it.\n(16 words, 0 code blocks)",
+      "content": "Project details. Projects can be internal or external and can have Tasks, Milestones associated to it.\n"
+    },
+    {
+      "path": "doctype/project/help.md",
+      "filename": "help.md",
+      "category": "other",
+      "size_bytes": 163,
+      "title": "help",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 27,
+        "line_count": 5
+      },
+      "summary": "You can use projects to:\n(27 words, 0 code blocks)",
+      "content": "You can use projects to:\n\n1. Track budgets (Purchase Orders, Invoices).\n2. Track material consumption.\n3. Create and assign tasks (and view them on a Gantt Chart)."
+    },
+    {
+      "path": "doctype/task/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 46,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Task to be completed for a Project (optional).\n(8 words, 0 code blocks)",
+      "content": "Task to be completed for a Project (optional)."
+    }
+  ]
+}

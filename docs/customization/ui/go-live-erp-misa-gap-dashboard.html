@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Go-live ERP | MISA Gap Dashboard</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --ink: #162033;
+      --muted: #667085;
+      --line: #d9e0ea;
+      --primary: #0f766e;
+      --primary-2: #14b8a6;
+      --blue: #2563eb;
+      --amber: #b45309;
+      --red: #b42318;
+      --green: #027a48;
+      --purple: #6d28d9;
+      --shadow: 0 18px 45px rgba(18, 31, 53, .10);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 14px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    .shell { max-width: 1440px; margin: 0 auto; padding: 22px; }
+    .hero {
+      min-height: 340px;
+      color: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(90deg, rgba(13, 50, 63, .94), rgba(13, 74, 82, .84) 48%, rgba(20, 83, 45, .76)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='520' viewBox='0 0 1400 520'%3E%3Cdefs%3E%3Cpattern id='g' width='42' height='42' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 42 0 L 0 0 0 42' fill='none' stroke='%23ffffff' stroke-opacity='.16' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='1400' height='520' fill='%230f172a'/%3E%3Crect width='1400' height='520' fill='url(%23g)'/%3E%3Cpath d='M60 385 C220 245 370 440 540 280 S910 160 1090 290 1300 260 1390 150' fill='none' stroke='%2314b8a6' stroke-opacity='.52' stroke-width='10'/%3E%3Cpath d='M55 415 C250 285 380 475 565 320 S910 205 1110 335 1295 315 1395 205' fill='none' stroke='%2360a5fa' stroke-opacity='.42' stroke-width='6'/%3E%3C/svg%3E") center/cover;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) 420px;
+      gap: 22px;
+      padding: 34px;
+      align-items: end;
+    }
+
+    .eyebrow { display: inline-flex; gap: 8px; align-items: center; font-weight: 700; letter-spacing: 0; text-transform: uppercase; font-size: 12px; opacity: .9; }
+    h1 { margin: 12px 0 12px; font-size: clamp(32px, 5vw, 62px); line-height: 1.02; letter-spacing: 0; max-width: 900px; }
+    .hero p { margin: 0; max-width: 820px; color: rgba(255,255,255,.86); font-size: 17px; }
+    .hero-actions { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
+    button, .btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      height: 36px;
+      padding: 0 13px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .hero button, .hero .btn { border-color: rgba(255,255,255,.34); background: rgba(255,255,255,.12); color: #fff; backdrop-filter: blur(10px); }
+    button:hover, .btn:hover { border-color: var(--primary-2); }
+    .hero .btn.primary { background: #fff; color: #0f3f46; border-color: #fff; }
+
+    .decision {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: var(--radius);
+      padding: 18px;
+      backdrop-filter: blur(12px);
+    }
+    .decision h2 { margin: 0 0 10px; font-size: 18px; }
+    .decision .meter { height: 12px; background: rgba(255,255,255,.2); border-radius: 999px; overflow: hidden; margin: 14px 0; }
+    .decision .meter span { display: block; width: 76%; height: 100%; background: linear-gradient(90deg, #5eead4, #a7f3d0); }
+    .decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .mini { padding: 10px; border-radius: 6px; background: rgba(255,255,255,.13); }
+    .mini strong { display: block; font-size: 20px; }
+    .mini span { color: rgba(255,255,255,.78); font-size: 12px; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      margin: 18px 0;
+      background: rgba(245,247,251,.88);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 8px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+    .nav a { white-space: nowrap; color: var(--muted); text-decoration: none; padding: 8px 10px; border-radius: 5px; font-weight: 700; }
+    .nav a:hover { background: #eaf2ff; color: var(--blue); }
+
+    .section { margin: 18px 0; }
+    .section-title { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
+    h2 { margin: 0; font-size: 24px; letter-spacing: 0; }
+    .section-title p { margin: 4px 0 0; color: var(--muted); max-width: 820px; }
+
+    .grid { display: grid; gap: 14px; }
+    .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(18, 31, 53, .05);
+      padding: 16px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 16px; }
+    .card p { margin: 0; color: var(--muted); }
+    .stat { font-size: 30px; font-weight: 850; letter-spacing: 0; }
+    .tag { display: inline-flex; align-items: center; border-radius: 999px; padding: 3px 8px; font-size: 12px; font-weight: 800; border: 1px solid; }
+    .tag.green { color: var(--green); border-color: #abefc6; background: #ecfdf3; }
+    .tag.amber { color: var(--amber); border-color: #fedf89; background: #fffaeb; }
+    .tag.red { color: var(--red); border-color: #fecdca; background: #fef3f2; }
+    .tag.blue { color: var(--blue); border-color: #bfdbfe; background: #eff6ff; }
+    .tag.purple { color: var(--purple); border-color: #ddd6fe; background: #f5f3ff; }
+
+    .flow { display: grid; grid-template-columns: repeat(6, minmax(110px, 1fr)); gap: 8px; align-items: stretch; }
+    .step {
+      min-height: 72px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      position: relative;
+    }
+    .step:after {
+      content: "→";
+      position: absolute;
+      right: -9px;
+      top: 22px;
+      color: #98a2b3;
+      font-weight: 800;
+    }
+    .step:last-child:after { display: none; }
+    .step b { display: block; font-size: 13px; }
+    .step span { color: var(--muted); font-size: 12px; }
+
+    .matrix {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+    .matrix th, .matrix td { padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .matrix th { background: #f8fafc; color: #475467; font-size: 12px; text-transform: uppercase; letter-spacing: 0; }
+    .matrix tr:last-child td { border-bottom: 0; }
+    .matrix td:nth-child(1) { font-weight: 800; width: 19%; }
+    .matrix td:nth-child(4) { width: 28%; }
+    .muted { color: var(--muted); }
+
+    .tabs { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 12px; }
+    .tab { height: 34px; border-radius: 999px; font-size: 13px; }
+    .tab.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+    .toolbar input, .toolbar select {
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0 10px;
+      min-width: 190px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .roadmap { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .roadmap .card { border-top: 5px solid var(--primary); }
+    .roadmap ul, .checklist { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
+    .checklist li { margin: 6px 0; }
+
+    .dept-card { display: grid; grid-template-columns: 160px 1fr; gap: 12px; align-items: start; }
+    .dept-card h3 { margin: 0; }
+    .owner { font-weight: 800; color: var(--primary); }
+    .bar { height: 8px; border-radius: 999px; background: #e4e7ec; overflow: hidden; margin-top: 10px; }
+    .bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--primary), var(--blue)); }
+
+    .footnote {
+      color: var(--muted);
+      font-size: 12px;
+      padding: 16px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+    .footnote a { color: var(--blue); }
+    .footnote code { color: var(--ink); }
+
+    @media (max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; }
+      .cols-4 { grid-template-columns: repeat(2, 1fr); }
+      .cols-3, .roadmap { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .step:after { display: none; }
+    }
+    @media (max-width: 700px) {
+      .shell { padding: 12px; }
+      .hero { padding: 22px; }
+      .cols-4, .cols-2 { grid-template-columns: 1fr; }
+      .decision-grid { grid-template-columns: 1fr; }
+      .dept-card { grid-template-columns: 1fr; }
+      .matrix { display: block; overflow-x: auto; }
+    }
+    @media print {
+      body { background: #fff; }
+      .nav, .hero-actions, .toolbar, button { display: none !important; }
+      .shell { max-width: none; padding: 0; }
+      .hero, .card, .matrix, .footnote { box-shadow: none; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">ERP Go-live · phòng ban review · bản trình bày nội bộ</div>
+        <h1>Checklist tính năng ERP và khoảng thiếu so với MISA</h1>
+        <p>
+          Mục tiêu không phải thay MISA bằng một bản sao y hệt. Mục tiêu là kiểm soát được vận hành sau go-live:
+          bán hàng, mua hàng, kho, kế toán, thuế, ngân hàng, in chứng từ và dữ liệu chuyển đổi.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#gap">Xem gap chính</a>
+          <a class="btn" href="#departments">Xem theo phòng ban</a>
+          <button id="printBtn" type="button">In / xuất PDF</button>
+          <button id="copyBtn" type="button">Copy tóm tắt</button>
+        </div>
+      </div>
+      <aside class="decision">
+        <h2>Kết luận đề xuất</h2>
+        <p>Go-live được nếu chốt phạm vi: vận hành mới từ tháng 6, dữ liệu tháng 1-6 đi qua staging và đối soát theo ngoại lệ.</p>
+        <div class="meter"><span></span></div>
+        <div class="decision-grid">
+          <div class="mini"><strong>76%</strong><span>Sẵn sàng vận hành lõi</span></div>
+          <div class="mini"><strong>8</strong><span>Gap phải xử lý trước go-live</span></div>
+          <div class="mini"><strong>25</strong><span>DocType đã có mẫu Excel</span></div>
+          <div class="mini"><strong>1-6/2026</strong><span>Dữ liệu nên import theo batch tháng</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <nav class="nav">
+      <a href="#scope">Phạm vi</a>
+      <a href="#flows">Luồng nghiệp vụ</a>
+      <a href="#coverage">ERP hiện có</a>
+      <a href="#gap">So với MISA</a>
+      <a href="#departments">Phòng ban</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#migration">Dữ liệu MISA</a>
+      <a href="#signoff">Ký xác nhận</a>
+    </nav>
+
+    <section id="scope" class="section">
+      <div class="section-title">
+        <div>
+          <h2>1. Phạm Vi Go-live</h2>
+          <p>Chia phạm vi thành Must-have trước go-live và cải tiến sau go-live để tránh ôm quá rộng trong tháng chuyển giao.</p>
+        </div>
+      </div>
+      <div class="grid cols-4">
+        <div class="card">
+          <div class="tag green">Must-have</div>
+          <h3>Vận hành chứng từ mới</h3>
+          <p>Bán hàng, mua hàng, kho, phiếu thu/chi, bút toán kế toán chạy trực tiếp trên ERP từ ngày go-live.</p>
+        </div>
+        <div class="card">
+          <div class="tag green">Must-have</div>
+          <h3>In chứng từ theo mẫu</h3>
+          <p>Excel Print Template đã mở rộng 25 DocType, mỗi mẫu đi theo đúng loại chứng từ, không dùng chung giữa mua/bán.</p>
+        </div>
+        <div class="card">
+          <div class="tag amber">Controlled</div>
+          <h3>Dữ liệu MISA tháng 1-6</h3>
+          <p>Không kiểm từng hóa đơn. Dùng staging, mapping dictionary, AI gợi ý, rule validate và đối soát tổng theo tháng.</p>
+        </div>
+        <div class="card">
+          <div class="tag red">Not for day 1</div>
+          <h3>Thay toàn bộ MISA ngay</h3>
+          <p>Thuế, hóa đơn điện tử, báo cáo pháp lý, kết nối ngân hàng/API cần chạy song song/kiểm soát trước khi tắt MISA.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="flows" class="section">
+      <div class="section-title">
+        <div>
+          <h2>2. Luồng Nghiệp Vụ Cần Chốt</h2>
+          <p>Đây là luồng vận hành chuẩn để các phòng ban xem ERP có đang đi đúng cách làm thực tế hay không.</p>
+        </div>
+      </div>
+      <div class="tabs" data-tabs="flows">
+        <button class="tab active" data-tab="sales">Bán hàng</button>
+        <button class="tab" data-tab="purchase">Mua hàng</button>
+        <button class="tab" data-tab="stock">Kho</button>
+        <button class="tab" data-tab="accounting">Kế toán & thuế</button>
+      </div>
+      <div class="tab-panel active" data-panel="sales">
+        <div class="flow">
+          <div class="step"><b>Quotation</b><span>Báo giá, điều khoản, giá bán</span></div>
+          <div class="step"><b>Sales Order</b><span>Đơn bán, giữ cam kết giao</span></div>
+          <div class="step"><b>Delivery Note</b><span>Xuất kho/giao hàng</span></div>
+          <div class="step"><b>Sales Invoice</b><span>Ghi nhận doanh thu/công nợ</span></div>
+          <div class="step"><b>Payment Entry</b><span>Thu tiền, đối soát ngân hàng</span></div>
+          <div class="step"><b>Sales Return</b><span>Trả hàng, hóa đơn điều chỉnh</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="purchase">
+        <div class="flow">
+          <div class="step"><b>Request for Quotation</b><span>Yêu cầu báo giá NCC</span></div>
+          <div class="step"><b>Supplier Quotation</b><span>Báo giá NCC</span></div>
+          <div class="step"><b>Purchase Order</b><span>Đơn mua</span></div>
+          <div class="step"><b>Purchase Receipt</b><span>Nhập kho</span></div>
+          <div class="step"><b>Purchase Invoice</b><span>Công nợ phải trả</span></div>
+          <div class="step"><b>Payment Entry</b><span>Chi tiền/trả NCC</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="stock">
+        <div class="flow">
+          <div class="step"><b>Material Request</b><span>Nhu cầu vật tư</span></div>
+          <div class="step"><b>Pick List</b><span>Lấy hàng theo vị trí/kho</span></div>
+          <div class="step"><b>Stock Entry</b><span>Nhập/xuất/chuyển kho</span></div>
+          <div class="step"><b>Stock Reconciliation</b><span>Kiểm kê, điều chỉnh tồn</span></div>
+          <div class="step"><b>Packing Slip</b><span>Đóng gói, bàn giao</span></div>
+          <div class="step"><b>Reports</b><span>Tồn kho, giá vốn, lệch kho</span></div>
+        </div>
+      </div>
+      <div class="tab-panel" data-panel="accounting">
+        <div class="flow">
+          <div class="step"><b>Journal Entry</b><span>Bút toán tổng hợp</span></div>
+          <div class="step"><b>Payment Entry</b><span>Thu/chi, cấn trừ công nợ</span></div>
+          <div class="step"><b>Bank Reconcile</b><span>Đối soát sao kê</span></div>
+          <div class="step"><b>Tax Adjustment</b><span>Bút toán điều chỉnh thuế</span></div>
+          <div class="step"><b>E-Invoice</b><span>Phát hành/đối chiếu HĐĐT</span></div>
+          <div class="step"><b>HTKK/XML</b><span>Kê khai thuế</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="coverage" class="section">
+      <div class="section-title">
+        <div>
+          <h2>3. ERP Hiện Có Trong Project</h2>
+          <p>Tổng hợp từ codebase hiện tại: ERPNext lõi + các app tùy biến VN Accounting, VN Banking, E-Invoice, HTKK.</p>
+        </div>
+      </div>
+      <div class="grid cols-3">
+        <div class="card"><div class="stat">25</div><h3>DocType có mẫu in Excel</h3><p>Sales/Purchase/Stock/Accounting/Manufacturing/HR vouchers, có AI auto-map template.</p></div>
+        <div class="card"><div class="stat">4</div><h3>Ngân hàng có parser v1</h3><p>BIDV, MB Bank, Sacombank, PG Bank; có matching hóa đơn và tạo Payment Entry.</p></div>
+        <div class="card"><div class="stat">TT99</div><h3>COA & báo cáo kế toán VN</h3><p>COA DN lớn/nhỏ, B01/B02/B03/B09, sổ tiền mặt/ngân hàng, trial balance, ledger, dashboard dòng tiền.</p></div>
+        <div class="card"><div class="stat">AI</div><h3>Hỗ trợ template/migration</h3><p>AI đã dùng cho đọc/mapping Excel template; có thể mở rộng thành staging import MISA.</p></div>
+        <div class="card"><div class="stat">HĐĐT</div><h3>E-Invoice framework</h3><p>Provider pattern, Mắt Bão production, Viettel/MISA provider còn stub hoặc cần hoàn thiện.</p></div>
+        <div class="card"><div class="stat">HTKK</div><h3>Thuế XML theo PRD</h3><p>PRD có 01/GTGT, TNDN, TNCN, KHBS, audit, compare dữ liệu gốc; cần xác nhận trạng thái build thực tế.</p></div>
+      </div>
+    </section>
+
+    <section id="gap" class="section">
+      <div class="section-title">
+        <div>
+          <h2>4. So Với MISA: ERP Còn Thiếu Gì?</h2>
+          <p>MISA mạnh ở bộ nghiệp vụ kế toán VN đóng gói sẵn. ERP mạnh ở workflow liên phòng ban, tùy biến và dữ liệu hợp nhất. Gap nên quản lý bằng ưu tiên, không làm tất cả cùng lúc.</p>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Tìm gap, phòng ban, hành động..." />
+        <select id="deptFilter">
+          <option value="all">Tất cả phòng ban</option>
+        </select>
+        <select id="priorityFilter">
+          <option value="all">Tất cả ưu tiên</option>
+          <option value="P0">P0 - trước go-live</option>
+          <option value="P1">P1 - 30 ngày</option>
+          <option value="P2">P2 - 90 ngày</option>
+        </select>
+        <select id="statusFilter">
+          <option value="all">Tất cả trạng thái</option>
+          <option value="ready">Sẵn sàng</option>
+          <option value="partial">Cần hoàn thiện</option>
+          <option value="missing">Thiếu</option>
+        </select>
+      </div>
+      <table class="matrix" id="gapTable">
+        <thead>
+          <tr>
+            <th>Nhóm</th>
+            <th>MISA thường có</th>
+            <th>ERP hiện tại</th>
+            <th>Việc cần làm</th>
+            <th>Ưu tiên</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="departments" class="section">
+      <div class="section-title">
+        <div>
+          <h2>5. Góc Nhìn Theo Phòng Ban</h2>
+          <p>Mỗi phòng ban chỉ cần ký vào phần mình dùng hằng ngày, không cần đọc toàn bộ tài liệu kỹ thuật.</p>
+        </div>
+      </div>
+      <div class="grid cols-2" id="departmentCards"></div>
+    </section>
+
+    <section id="roadmap" class="section">
+      <div class="section-title">
+        <div>
+          <h2>6. Roadmap Đề Xuất</h2>
+          <p>Ưu tiên giảm rủi ro go-live: dữ liệu đúng, chứng từ in được, công nợ/tồn kho/sổ cái đối soát được.</p>
+        </div>
+      </div>
+      <div class="roadmap">
+        <div class="card">
+          <div class="tag red">P0 · trước go-live</div>
+          <h3>Chốt vận hành</h3>
+          <ul>
+            <li>Chốt luồng chứng từ và quyền từng vai trò.</li>
+            <li>Hoàn thiện mẫu in cho chứng từ dùng hằng ngày.</li>
+            <li>Import master data sạch: khách hàng, NCC, hàng hóa, kho, tài khoản, thuế.</li>
+            <li>Đối soát opening balance: công nợ, tồn kho, tiền, sổ cái.</li>
+            <li>Chạy UAT 3 ngày liên tục với dữ liệu thật.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="tag amber">P1 · 30 ngày</div>
+          <h3>Ổn định vận hành</h3>
+          <ul>
+            <li>MISA migration staging theo tháng 01-06/2026.</li>
+            <li>Dashboard exception: chứng từ lỗi, lệch tiền, chưa map mã.</li>
+            <li>Mở rộng parser ngân hàng nếu có VCB/TCB/VPBank/ACB.</li>
+            <li>Đối chiếu HĐĐT đầu vào/đầu ra với hóa đơn ERP.</li>
+            <li>Chốt quy trình khóa kỳ và sửa chứng từ sau submit.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="tag blue">P2 · 90 ngày</div>
+          <h3>Tối ưu & thay MISA dần</h3>
+          <ul>
+            <li>HTKK/XML thuế GTGT/TNDN/TNCN hoàn chỉnh.</li>
+            <li>UAT BCTC TT99: B01, B02, B03, B09, sổ nhật ký chung, sổ cái bằng số liệu thật.</li>
+            <li>MISA API/file connector production-grade.</li>
+            <li>Rule learning cho mapping và ngân hàng.</li>
+            <li>Management dashboard theo lợi nhuận, dòng tiền, tồn kho.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="migration" class="section">
+      <div class="section-title">
+        <div>
+          <h2>7. Cách Kiểm Soát Dữ Liệu MISA Tháng 1-6</h2>
+          <p>Với nhiều hóa đơn, con người không thể kiểm hết. Tool phải chạy theo ngoại lệ và đối soát tổng.</p>
+        </div>
+      </div>
+      <table class="matrix">
+        <thead><tr><th>Bước</th><th>Mục tiêu</th><th>Ai kiểm</th><th>Pass/Fail</th></tr></thead>
+        <tbody>
+          <tr><td>1. Kéo dữ liệu</td><td>API MISA nếu có quyền; nếu không, dùng file export theo tháng.</td><td>IT + Kế toán trưởng</td><td>Không thiếu số chứng từ, có raw file/raw JSON lưu lại.</td></tr>
+          <tr><td>2. Staging</td><td>Lưu chứng từ vào bảng trung gian, không tạo ERP document ngay.</td><td>IT</td><td>Có dedupe key MISA, chạy lại không duplicate.</td></tr>
+          <tr><td>3. Mapping</td><td>AI gợi ý map field/mã; rule cứng quyết định tạo chứng từ.</td><td>Kế toán phụ trách</td><td>Auto Ready ≥ 85%, lỗi gom theo nhóm.</td></tr>
+          <tr><td>4. Validate</td><td>Kiểm khách/NCC/hàng/kho/tài khoản/thuế/tổng tiền.</td><td>Phụ trách từng phân hệ</td><td>Chỉ xử lý Need Review, không mở từng hóa đơn.</td></tr>
+          <tr><td>5. Import nháp</td><td>Tạo Draft ERP documents theo tháng.</td><td>IT + Key user</td><td>Số lượng chứng từ và tổng tiền khớp MISA.</td></tr>
+          <tr><td>6. Đối soát tháng</td><td>So doanh thu, mua hàng, VAT, công nợ, tồn kho, GL.</td><td>Kế toán trưởng</td><td>Lệch = 0 hoặc có biên bản giải thích.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="signoff" class="section">
+      <div class="section-title">
+        <div>
+          <h2>8. Câu Hỏi Ký Xác Nhận</h2>
+          <p>Dùng trong buổi họp phòng ban. Tick được các mục này thì go-live giảm rủi ro rất nhiều.</p>
+        </div>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Key user phòng ban</h3>
+          <ul class="checklist">
+            <li>Tôi biết chứng từ nào mình tạo, chứng từ nào phòng khác tạo.</li>
+            <li>Tôi in được mẫu cần dùng hằng ngày.</li>
+            <li>Tôi biết khi sai thì sửa/hủy/return theo quy trình nào.</li>
+            <li>Tôi xem được report đối chiếu phần việc của mình.</li>
+            <li>Tôi đã test ít nhất 5 chứng từ thật trong UAT.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Kế toán trưởng / IT</h3>
+          <ul class="checklist">
+            <li>Opening balance đã đối soát với MISA.</li>
+            <li>Role permission không cho sửa sai sau submit nếu không có quyền.</li>
+            <li>Backup/restore và rollback ngày go-live đã có phương án.</li>
+            <li>Danh sách gap P0 có owner và ngày hoàn tất.</li>
+            <li>Dữ liệu MISA cũ có hướng tra cứu hoặc migration staging.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="footnote">
+        <b>Nguồn tham chiếu:</b>
+        project docs <code>dcnet-accounting/FEATURES.md</code>, <code>dcnet-banking/FEATURES.md</code>, <code>dcnet-einvoice/FEATURES.md</code>, <code>docs/feature/htkk/HTKK_PRD.md</code>.
+        Tham chiếu bên ngoài: trang MISA AMIS Kế toán mô tả phạm vi nghiệp vụ kế toán theo TT133/TT200, tự động nhập liệu/đối chiếu và các mảng Quỹ, Ngân hàng, Mua hàng, Bán hàng, Kho, Hóa đơn, Thuế, Giá thành
+        tại <a href="https://amis.misa.vn/ld/misa-amis-ke-toan" target="_blank" rel="noreferrer">amis.misa.vn/ld/misa-amis-ke-toan</a>.
+        Đây là tài liệu điều hành nội bộ, không phải cam kết pháp lý/chào giá.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const gaps = [
+      {
+        group: "Bán hàng",
+        dept: "Sales",
+        misa: "Quy trình bán hàng, hóa đơn, thu tiền và báo cáo doanh thu đóng gói sẵn.",
+        erp: "ERPNext đã có Quotation → SO → DN → SI → PE; mẫu Excel đã hỗ trợ.",
+        action: "Chốt quyền sửa giá/chiết khấu, mẫu in báo giá/đơn hàng/hóa đơn, quy trình Sales Return.",
+        priority: "P0",
+        status: "partial"
+      },
+      {
+        group: "Mua hàng",
+        dept: "Purchasing",
+        misa: "Mua hàng, nhận hóa đơn, nhập kho, trả tiền NCC, công nợ.",
+        erp: "RFQ → SQ → PO → PR → PI → PE có sẵn; template đã hỗ trợ.",
+        action: "Chốt mapping thuế đầu vào, chi phí mua hàng, landed cost, quy trình Purchase Return.",
+        priority: "P0",
+        status: "partial"
+      },
+      {
+        group: "Kho",
+        dept: "Warehouse",
+        misa: "Kho, kiểm kê, nhập/xuất/chuyển kho, giá vốn.",
+        erp: "Material Request, Pick List, Stock Entry, Stock Reconciliation, Packing Slip đã có nút mẫu in.",
+        action: "Test tồn kho theo kho, UOM, batch/serial nếu có; chốt quy trình kiểm kê và điều chỉnh.",
+        priority: "P0",
+        status: "partial"
+      },
+      {
+        group: "Kế toán tổng hợp",
+        dept: "Accounting",
+        misa: "Sổ sách kế toán VN và chứng từ kế toán quen thuộc.",
+        erp: "COA TT99, B01/B02/B03/B09, Trial Balance, Cash/Bank Book, Journal Entry, Payment Entry, dashboard kế toán đã có.",
+        action: "UAT bằng số liệu thật và chốt format xuất Excel/Word nào sẽ dùng để nộp/kiểm toán.",
+        priority: "P1",
+        status: "partial"
+      },
+      {
+        group: "Thuế",
+        dept: "Tax",
+        misa: "Kê khai thuế và dữ liệu thuế tích hợp trong hệ sinh thái MISA.",
+        erp: "HTKK PRD đã có scope 01/GTGT, TNDN, TNCN, KHBS, XML; cần xác nhận build và UAT.",
+        action: "Trước go-live dùng ERP làm nguồn dữ liệu, MISA/HTKK đối chiếu song song; hoàn thiện XML sau.",
+        priority: "P1",
+        status: "missing"
+      },
+      {
+        group: "Hóa đơn điện tử",
+        dept: "Tax",
+        misa: "MISA có hệ sinh thái meInvoice và kết nối kế toán.",
+        erp: "E-Invoice app có provider framework, Mắt Bão production; Viettel/MISA provider còn stub.",
+        action: "Chốt nhà cung cấp HĐĐT thực tế; test phát hành, hủy, điều chỉnh, tải PDF/XML.",
+        priority: "P0",
+        status: "partial"
+      },
+      {
+        group: "Ngân hàng",
+        dept: "Accounting",
+        misa: "Đối chiếu ngân hàng và tự động hóa thu/chi theo hệ sinh thái kế toán.",
+        erp: "VN Banking đã parse BIDV/MB/Sacombank/PG Bank, match hóa đơn, tạo Payment Entry.",
+        action: "Thêm parser cho ngân hàng công ty đang dùng nếu chưa có; chốt tolerance và quyền bulk submit.",
+        priority: "P0",
+        status: "partial"
+      },
+      {
+        group: "Dữ liệu lịch sử MISA",
+        dept: "IT",
+        misa: "Dữ liệu cũ nằm trong MISA, trường dữ liệu khác ERP.",
+        erp: "Chưa có connector migration production; đã có hướng AI/staging/import theo tháng.",
+        action: "Build MISA Import Control Center: staging, mapping dictionary, AI gợi ý, validate, monthly reconciliation.",
+        priority: "P0",
+        status: "missing"
+      },
+      {
+        group: "Master data",
+        dept: "All",
+        misa: "Danh mục khách/NCC/hàng/kho/tài khoản/thuế đã quen mã cũ.",
+        erp: "ERP có master data chuẩn hơn nhưng cần mapping và làm sạch.",
+        action: "Chốt mã chính thức, merge trùng, mapping MISA → ERP, khóa sửa mã sau go-live.",
+        priority: "P0",
+        status: "partial"
+      },
+      {
+        group: "Phân quyền",
+        dept: "IT",
+        misa: "Quyền kế toán theo vai trò quen thuộc.",
+        erp: "ERPNext phân quyền mạnh nhưng cần cấu hình theo phòng ban và trạng thái chứng từ.",
+        action: "Role matrix: ai tạo, ai submit, ai cancel, ai sửa giá, ai xem báo cáo.",
+        priority: "P0",
+        status: "partial"
+      },
+      {
+        group: "Báo cáo quản trị",
+        dept: "Management",
+        misa: "Báo cáo tài chính/kế toán đóng gói, mobile/online cho quản lý.",
+        erp: "Dashboard v2, cash flow forecast, KPI kế toán đã có; cần chỉnh theo KPI công ty.",
+        action: "Chốt 10 báo cáo quản trị cần xem tuần đầu: doanh thu, công nợ, tồn kho, dòng tiền, lãi/lỗ.",
+        priority: "P1",
+        status: "partial"
+      },
+      {
+        group: "Giá thành",
+        dept: "Accounting",
+        misa: "MISA nhấn mạnh nghiệp vụ giá thành trong bộ kế toán.",
+        erp: "ERPNext có stock valuation/manufacturing; custom BCTC/giá thành đang có kế hoạch.",
+        action: "Nếu công ty có sản xuất/giá thành phức tạp, phải UAT riêng trước khi khóa MISA.",
+        priority: "P2",
+        status: "missing"
+      }
+    ];
+
+    const departments = [
+      { name: "Sales", owner: "Kinh doanh", ready: 78, focus: "Báo giá, đơn hàng, giao hàng, hóa đơn bán ra, return.", ask: "Cần xác nhận mẫu in, quyền sửa giá, quy trình trả hàng." },
+      { name: "Purchasing", owner: "Mua hàng", ready: 74, focus: "RFQ, báo giá NCC, PO, nhập kho, hóa đơn mua, trả tiền.", ask: "Cần xác nhận landed cost, thuế đầu vào, purchase return." },
+      { name: "Warehouse", owner: "Kho", ready: 72, focus: "Yêu cầu vật tư, lấy hàng, stock entry, kiểm kê, đóng gói.", ask: "Cần test tồn kho thật, UOM, batch/serial nếu có." },
+      { name: "Accounting", owner: "Kế toán", ready: 70, focus: "Journal Entry, Payment Entry, công nợ, ngân hàng, sổ kế toán.", ask: "Cần đối soát opening balance, ngân hàng, BCTC/sổ sách mẫu VN." },
+      { name: "Tax", owner: "Thuế/HĐĐT", ready: 58, focus: "Hóa đơn điện tử, VAT register, HTKK/XML, điều chỉnh thuế.", ask: "Cần chạy song song với MISA/HTKK và chốt provider HĐĐT." },
+      { name: "IT", owner: "IT/Implementation", ready: 68, focus: "Migration, quyền, backup, rollback, monitoring.", ask: "Cần staging import MISA, log lỗi, runbook go-live." },
+      { name: "Management", owner: "Ban quản lý", ready: 76, focus: "Dashboard, dòng tiền, công nợ, tồn kho, lợi nhuận.", ask: "Cần chốt KPI nào là bắt buộc tuần đầu." }
+    ];
+
+    const statusMap = {
+      ready: ["Sẵn sàng", "green"],
+      partial: ["Cần hoàn thiện", "amber"],
+      missing: ["Thiếu", "red"]
+    };
+
+    function renderDeptOptions() {
+      const select = document.getElementById("deptFilter");
+      [...new Set(gaps.map(g => g.dept))].sort().forEach(dept => {
+        const option = document.createElement("option");
+        option.value = dept;
+        option.textContent = dept;
+        select.appendChild(option);
+      });
+    }
+
+    function renderGaps() {
+      const q = document.getElementById("search").value.trim().toLowerCase();
+      const dept = document.getElementById("deptFilter").value;
+      const priority = document.getElementById("priorityFilter").value;
+      const status = document.getElementById("statusFilter").value;
+      const tbody = document.querySelector("#gapTable tbody");
+      tbody.innerHTML = "";
+      gaps
+        .filter(g => dept === "all" || g.dept === dept)
+        .filter(g => priority === "all" || g.priority === priority)
+        .filter(g => status === "all" || g.status === status)
+        .filter(g => !q || Object.values(g).join(" ").toLowerCase().includes(q))
+        .forEach(g => {
+          const [statusText, statusClass] = statusMap[g.status];
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${g.group}<br><span class="muted">${g.dept}</span></td>
+            <td>${g.misa}</td>
+            <td>${g.erp}<br><span class="tag ${statusClass}">${statusText}</span></td>
+            <td>${g.action}</td>
+            <td><span class="tag ${g.priority === "P0" ? "red" : g.priority === "P1" ? "amber" : "blue"}">${g.priority}</span></td>
+          `;
+          tbody.appendChild(tr);
+        });
+    }
+
+    function renderDepartments() {
+      const root = document.getElementById("departmentCards");
+      root.innerHTML = departments.map(d => `
+        <div class="card dept-card">
+          <div>
+            <h3>${d.owner}</h3>
+            <div class="owner">${d.name}</div>
+            <div class="bar"><span style="width:${d.ready}%"></span></div>
+            <p class="muted">${d.ready}% readiness</p>
+          </div>
+          <div>
+            <p><b>Phạm vi:</b> ${d.focus}</p>
+            <p style="margin-top:8px"><b>Cần xác nhận:</b> ${d.ask}</p>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function setupTabs() {
+      document.querySelectorAll("[data-tabs]").forEach(group => {
+        group.addEventListener("click", event => {
+          const button = event.target.closest("[data-tab]");
+          if (!button) return;
+          const tabName = button.dataset.tab;
+          group.querySelectorAll(".tab").forEach(tab => tab.classList.toggle("active", tab === button));
+          document.querySelectorAll(`[data-panel]`).forEach(panel => {
+            panel.classList.toggle("active", panel.dataset.panel === tabName);
+          });
+        });
+      });
+    }
+
+    function copySummary() {
+      const summary = [
+        "Go-live ERP: đề xuất chạy vận hành mới từ tháng 6, dữ liệu MISA tháng 1-6 đi qua staging và đối soát theo tháng.",
+        "P0: chốt luồng chứng từ, mẫu in, master data, quyền, opening balance, HĐĐT, ngân hàng, MISA migration staging.",
+        "Không kiểm từng hóa đơn: chỉ xử lý Need Mapping/Need Review/Blocked, còn lại đối soát tổng theo tháng.",
+        "ERP đã có: 25 DocType mẫu Excel, VN Accounting TT99, VN Banking, E-Invoice framework, HTKK PRD."
+      ].join("\\n");
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(summary);
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = summary;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+      }
+      const btn = document.getElementById("copyBtn");
+      btn.textContent = "Đã copy";
+      setTimeout(() => btn.textContent = "Copy tóm tắt", 1400);
+    }
+
+    document.getElementById("printBtn").addEventListener("click", () => window.print());
+    document.getElementById("copyBtn").addEventListener("click", copySummary);
+    ["search", "deptFilter", "priorityFilter", "statusFilter"].forEach(id => {
+      document.getElementById(id).addEventListener("input", renderGaps);
+      document.getElementById(id).addEventListener("change", renderGaps);
+    });
+    renderDeptOptions();
+    renderGaps();
+    renderDepartments();
+    setupTabs();
+  </script>
+</body>
+</html>

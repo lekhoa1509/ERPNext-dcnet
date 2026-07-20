@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>DCNET Permission Manager — Mockup</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; background: #e2e8f0; display: flex; flex-direction: column; align-items: center; padding: 24px 16px 48px; min-height: 100vh; }
+
+  .label-bar { background: #1e293b; color: white; font-size: 12px; padding: 10px 20px; border-radius: 8px; margin-bottom: 16px; display: flex; gap: 24px; align-items: center; }
+  .label-bar b { color: #14b8a6; }
+  .label-sep { color: rgba(255,255,255,0.2); }
+
+  .frame { width: 960px; background: #f0f4f8; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08); }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 24px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .page-header-left { display: flex; align-items: center; gap: 10px; }
+  .page-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #0f766e, #14b8a6); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+  .page-icon svg { width: 16px; height: 16px; fill: white; }
+  .page-title { font-size: 15px; font-weight: 700; color: #0f172a; }
+  .page-subtitle { font-size: 12px; color: #94a3b8; margin-top: 1px; }
+  .page-header-right { display: flex; align-items: center; gap: 8px; }
+  .btn-refresh { height: 32px; padding: 0 12px; border-radius: 7px; border: 1px solid #e2e8f0; background: white; font-size: 12px; color: #64748b; display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  .btn-primary { height: 32px; padding: 0 14px; border-radius: 7px; background: #0f766e; color: white; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  .btn-primary:hover { background: #0d6a63; }
+
+  /* ── STATS ROW ── */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 16px 20px; background: white; border-bottom: 1px solid #e2e8f0; }
+  .stat-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; }
+  .stat-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .stat-icon svg { width: 18px; height: 18px; }
+  .stat-text { display: flex; flex-direction: column; gap: 1px; }
+  .stat-value { font-size: 20px; font-weight: 800; color: #0f172a; line-height: 1; }
+  .stat-label { font-size: 11px; color: #94a3b8; font-weight: 500; }
+
+  /* ── BODY ── */
+  .body { display: flex; height: 500px; }
+
+  /* ── SIDEBAR ── */
+  .sidebar { width: 200px; background: white; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; flex-shrink: 0; }
+  .sidebar-header { padding: 12px 16px 8px; display: flex; align-items: center; justify-content: space-between; }
+  .sidebar-title { font-size: 10px; font-weight: 700; color: #94a3b8; letter-spacing: 0.08em; text-transform: uppercase; }
+  .sidebar-count { font-size: 10px; color: #94a3b8; background: #f1f5f9; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+  .sidebar-search { margin: 0 10px 8px; height: 28px; border: 1px solid #e2e8f0; border-radius: 7px; background: #f8fafc; display: flex; align-items: center; padding: 0 10px; gap: 6px; }
+  .sidebar-search-icon { color: #94a3b8; font-size: 11px; }
+  .sidebar-search-placeholder { font-size: 11px; color: #cbd5e1; }
+  .sidebar-list { flex: 1; overflow-y: auto; padding: 2px 8px 8px; display: flex; flex-direction: column; gap: 2px; }
+  .scope-item { padding: 8px 10px; border-radius: 8px; cursor: pointer; transition: all 0.15s; display: flex; flex-direction: column; gap: 3px; }
+  .scope-item:hover { background: #f8fafc; }
+  .scope-item.active { background: #f0fdfa; }
+  .scope-top { display: flex; align-items: center; justify-content: space-between; }
+  .scope-name { font-size: 12px; font-weight: 600; color: #334155; }
+  .scope-item.active .scope-name { color: #0f766e; }
+  .scope-badge { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 10px; background: #e2e8f0; color: #64748b; }
+  .scope-item.active .scope-badge { background: #0f766e; color: white; }
+  .scope-meta { font-size: 10px; color: #94a3b8; }
+  .scope-item.active .scope-meta { color: #14b8a6; }
+  .sidebar-divider { height: 1px; background: #f1f5f9; margin: 4px 10px; }
+
+  /* ── MAIN PANEL ── */
+  .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+  /* Toolbar */
+  .main-toolbar { padding: 12px 16px; background: white; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 8px; }
+  .toolbar-dept-label { font-size: 13px; font-weight: 700; color: #0f172a; flex-shrink: 0; }
+  .toolbar-dept-count { font-size: 11px; color: #94a3b8; background: #f1f5f9; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .toolbar-gap { flex: 1; }
+  .search-input { height: 32px; border: 1px solid #e2e8f0; border-radius: 7px; background: #f8fafc; padding: 0 12px; font-size: 12px; color: #334155; display: flex; align-items: center; gap: 8px; min-width: 220px; }
+  .search-input-icon { color: #94a3b8; font-size: 12px; }
+  .search-input-text { color: #94a3b8; font-size: 12px; }
+  .filter-select { height: 32px; border: 1px solid #e2e8f0; border-radius: 7px; background: white; padding: 0 10px; font-size: 12px; color: #334155; display: flex; align-items: center; gap: 6px; }
+  .filter-caret { font-size: 9px; color: #94a3b8; }
+
+  /* Table */
+  .table-wrap { flex: 1; overflow-y: auto; background: white; }
+  .tbl { width: 100%; border-collapse: collapse; }
+  .tbl-head th { padding: 10px 16px; text-align: left; font-size: 10px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid #e2e8f0; background: #f8fafc; white-space: nowrap; }
+  .tbl-head th:last-child { text-align: right; }
+  .tbl tbody tr { border-bottom: 1px solid #f1f5f9; transition: background 0.1s; }
+  .tbl tbody tr:last-child { border-bottom: none; }
+  .tbl tbody tr:hover { background: #f8fafc; }
+  .tbl td { padding: 11px 16px; vertical-align: middle; }
+
+  .user-cell { display: flex; align-items: center; gap: 10px; }
+  .user-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; border: 2px solid white; box-shadow: 0 0 0 1px rgba(0,0,0,0.08); }
+  .user-details { display: flex; flex-direction: column; gap: 2px; }
+  .user-name { font-size: 13px; font-weight: 600; color: #0f172a; }
+  .user-email { font-size: 11px; color: #94a3b8; }
+
+  .status-pill { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .status-active { background: #f0fdf4; color: #15803d; }
+  .status-active .dot { background: #22c55e; }
+  .status-disabled { background: #f9fafb; color: #94a3b8; }
+  .status-disabled .dot { background: #cbd5e1; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; }
+
+  .roles-cell { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; max-width: 220px; }
+  .role-tag { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 5px; background: #f1f5f9; color: #475569; white-space: nowrap; }
+  .role-tag.primary { background: #ccfbf1; color: #0f766e; }
+  .role-tag.more { background: transparent; color: #94a3b8; font-size: 10px; }
+
+  .actions-cell { display: flex; align-items: center; justify-content: flex-end; gap: 4px; }
+  .action-icon-btn { width: 28px; height: 28px; border-radius: 6px; border: 1px solid #e2e8f0; background: white; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13px; color: #64748b; transition: all 0.15s; }
+  .action-icon-btn:hover { background: #f0fdfa; border-color: #14b8a6; color: #0f766e; }
+  .action-primary-btn { height: 28px; padding: 0 10px; border-radius: 6px; background: #f0fdfa; border: 1px solid #99f6e4; color: #0f766e; font-size: 11px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+
+  /* Empty state */
+  .table-footer { padding: 10px 16px; background: white; border-top: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: space-between; }
+  .footer-count { font-size: 11px; color: #94a3b8; }
+  .footer-note { font-size: 11px; color: #94a3b8; display: flex; align-items: center; gap: 4px; }
+</style>
+</head>
+<body>
+
+<div class="label-bar">
+  <span>DCNET Permission Manager — <b>Redesign Mockup</b></span>
+  <span class="label-sep">|</span>
+  <span>Direction: <b>Clean Card</b></span>
+  <span class="label-sep">|</span>
+  <span>Palette: <b>Teal Brand</b></span>
+  <span class="label-sep">|</span>
+  <span>Sidebar: <b>Compact List</b></span>
+  <span class="label-sep">|</span>
+  <span>Table: <b>Classic</b></span>
+</div>
+
+<div class="frame">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-left">
+      <div class="page-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+      </div>
+      <div>
+        <div class="page-title">Quản lý phân quyền</div>
+        <div class="page-subtitle">Cấu hình quyền truy cập theo phòng ban</div>
+      </div>
+    </div>
+    <div class="page-header-right">
+      <div class="btn-refresh">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Làm mới
+      </div>
+      <div class="btn-primary">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Tạo user mới
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#f0fdfa">
+        <svg viewBox="0 0 24 24" fill="#0f766e"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      </div>
+      <div class="stat-text">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Phòng ban</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#eff6ff">
+        <svg viewBox="0 0 24 24" fill="#2563eb"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div class="stat-text">
+        <div class="stat-value">24</div>
+        <div class="stat-label">Tổng user</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#f0fdf4">
+        <svg viewBox="0 0 24 24" fill="#16a34a"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="stat-text">
+        <div class="stat-value">22</div>
+        <div class="stat-label">Đang hoạt động</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#fff7ed">
+        <svg viewBox="0 0 24 24" fill="#ea580c"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      </div>
+      <div class="stat-text">
+        <div class="stat-value">8</div>
+        <div class="stat-label">Roles đang dùng</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-title">Phòng ban</span>
+        <span class="sidebar-count">5</span>
+      </div>
+      <div class="sidebar-search">
+        <span class="sidebar-search-icon">🔍</span>
+        <span class="sidebar-search-placeholder">Tìm phòng ban...</span>
+      </div>
+      <div class="sidebar-list">
+        <div class="scope-item active">
+          <div class="scope-top">
+            <span class="scope-name">Kinh doanh</span>
+            <span class="scope-badge">8</span>
+          </div>
+          <div class="scope-meta">6 roles • Đang hoạt động</div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-top">
+            <span class="scope-name">Kế toán</span>
+            <span class="scope-badge">5</span>
+          </div>
+          <div class="scope-meta">4 roles</div>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="scope-item">
+          <div class="scope-top">
+            <span class="scope-name">Kho hàng</span>
+            <span class="scope-badge">4</span>
+          </div>
+          <div class="scope-meta">3 roles</div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-top">
+            <span class="scope-name">Nhân sự</span>
+            <span class="scope-badge">3</span>
+          </div>
+          <div class="scope-meta">2 roles</div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-top">
+            <span class="scope-name">IT</span>
+            <span class="scope-badge">2</span>
+          </div>
+          <div class="scope-meta">5 roles • +2 profiles</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+      <!-- Toolbar -->
+      <div class="main-toolbar">
+        <span class="toolbar-dept-label">Kinh doanh</span>
+        <span class="toolbar-dept-count">8 users</span>
+        <div class="toolbar-gap"></div>
+        <div class="search-input">
+          <span class="search-input-icon">🔍</span>
+          <span class="search-input-text">Tìm user, email, role...</span>
+        </div>
+        <div class="filter-select">
+          <span style="font-size:12px;color:#334155">Đang hoạt động</span>
+          <span class="filter-caret">▾</span>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-wrap">
+        <table class="tbl">
+          <thead class="tbl-head">
+            <tr>
+              <th style="width:260px">User</th>
+              <th style="width:110px">Trạng thái</th>
+              <th>Roles</th>
+              <th style="width:150px; text-align:right">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="user-cell">
+                  <div class="user-avatar" style="background:#f0fdfa;color:#0f766e">NT</div>
+                  <div class="user-details">
+                    <div class="user-name">Nguyễn Thắng</div>
+                    <div class="user-email">thang.nguyen@company.vn</div>
+                  </div>
+                </div>
+              </td>
+              <td><span class="status-pill status-active"><span class="dot"></span>Active</span></td>
+              <td>
+                <div class="roles-cell">
+                  <span class="role-tag primary">Sales Manager</span>
+                  <span class="role-tag">Sales User</span>
+                </div>
+              </td>
+              <td>
+                <div class="actions-cell">
+                  <div class="action-primary-btn">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                    Phân quyền
+                  </div>
+                  <div class="action-icon-btn" title="Sửa user">✏️</div>
+                  <div class="action-icon-btn" title="Thêm tùy chọn">⋯</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="user-cell">
+                  <div class="user-avatar" style="background:#eff6ff;color:#2563eb">PH</div>
+                  <div class="user-details">
+                    <div class="user-name">Phạm Hương</div>
+                    <div class="user-email">huong.pham@company.vn</div>
+                  </div>
+                </div>
+              </td>
+              <td><span class="status-pill status-active"><span class="dot"></span>Active</span></td>
+              <td>
+                <div class="roles-cell">
+                  <span class="role-tag primary">Sales User</span>
+                  <span class="role-tag">CRM User</span>
+                  <span class="role-tag more">+1</span>
+                </div>
+              </td>
+              <td>
+                <div class="actions-cell">
+                  <div class="action-primary-btn">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                    Phân quyền
+                  </div>
+                  <div class="action-icon-btn">✏️</div>
+                  <div class="action-icon-btn">⋯</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="user-cell">
+                  <div class="user-avatar" style="background:#fdf4ff;color:#9333ea">TL</div>
+                  <div class="user-details">
+                    <div class="user-name">Trần Long</div>
+                    <div class="user-email">long.tran@company.vn</div>
+                  </div>
+                </div>
+              </td>
+              <td><span class="status-pill status-disabled"><span class="dot"></span>Disabled</span></td>
+              <td>
+                <div class="roles-cell">
+                  <span class="role-tag">Sales User</span>
+                </div>
+              </td>
+              <td>
+                <div class="actions-cell">
+                  <div class="action-primary-btn">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                    Phân quyền
+                  </div>
+                  <div class="action-icon-btn">✏️</div>
+                  <div class="action-icon-btn">⋯</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="user-cell">
+                  <div class="user-avatar" style="background:#fff7ed;color:#ea580c">MH</div>
+                  <div class="user-details">
+                    <div class="user-name">Mai Hoa</div>
+                    <div class="user-email">hoa.mai@company.vn</div>
+                  </div>
+                </div>
+              </td>
+              <td><span class="status-pill status-active"><span class="dot"></span>Active</span></td>
+              <td>
+                <div class="roles-cell">
+                  <span class="role-tag primary">Sales Manager</span>
+                  <span class="role-tag">Reports User</span>
+                </div>
+              </td>
+              <td>
+                <div class="actions-cell">
+                  <div class="action-primary-btn">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                    Phân quyền
+                  </div>
+                  <div class="action-icon-btn">✏️</div>
+                  <div class="action-icon-btn">⋯</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Footer -->
+      <div class="table-footer">
+        <span class="footer-count">Hiển thị 4 / 8 users đang hoạt động</span>
+        <span class="footer-note">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Chỉ hiển thị user trong scope Kinh doanh
+        </span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div style="margin-top:20px;font-size:12px;color:#64748b;text-align:center">
+  Đây là mockup tĩnh — các interaction (click, dialog) sẽ được implement trong code
+</div>
+
+</body>
+</html>

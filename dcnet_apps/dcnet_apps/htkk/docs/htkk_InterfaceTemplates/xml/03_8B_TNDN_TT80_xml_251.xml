@@ -1,0 +1,25 @@
+<PLuc_03_8B_TNDN>
+	<TenNhaMay id="String">
+		<sTT/>
+		<ten_nhaMay/>
+		<ma_nhaMay/>
+		<DiaBanPhanBo id="String">
+			<sTT/>
+			<loai/>
+			<ct05/>
+			<ct07_ma/>
+			<ct07_ten/>
+			<ct08_ma/>
+			<ct08_ten/>
+			<ct09_ma/>
+			<ct09_ten/>
+			<ct11/>
+			<ct12/>
+			<ct13/>
+			<ct14/>
+			<ct15/>
+		</DiaBanPhanBo>
+		<ct10_a/>
+		<ct11/>
+	</TenNhaMay>
+</PLuc_03_8B_TNDN>

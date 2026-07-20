@@ -1,0 +1,45 @@
+{
+  "total_files": 2,
+  "categories": {
+    "other": [
+      "doctype/note/README.md",
+      "doctype/todo/README.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "doctype/note/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 66,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Shared Note. (Page with standard information, links, attachments).\n(8 words, 0 code blocks)",
+      "content": null
+    },
+    {
+      "path": "doctype/todo/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 20,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 4,
+        "line_count": 1
+      },
+      "summary": "To do or assignment.\n(4 words, 0 code blocks)",
+      "content": null
+    }
+  ]
+}

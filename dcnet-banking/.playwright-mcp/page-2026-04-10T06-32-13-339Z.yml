@@ -1,0 +1,120 @@
+- generic [ref=e2]:
+  - banner
+  - generic [ref=e4]:
+    - text: /
+    - generic [ref=e11]:
+      - navigation [ref=e12]:
+        - img "Logo ứng dụng" [ref=e14]
+        - button "Tìm kiếm Ctrl+K" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]:
+            - img [ref=e18]
+            - text: Tìm kiếm
+          - generic [ref=e20]: Ctrl+K
+        - generic [ref=e21]:
+          - generic "Ngôn ngữ (Alt+L)" [ref=e22]:
+            - button "vi" [ref=e23] [cursor=pointer]:
+              - img [ref=e24]
+              - generic [ref=e27]: vi
+          - button [ref=e30] [cursor=pointer]:
+            - img [ref=e31]
+          - generic "Long" [ref=e34] [cursor=pointer]:
+            - generic "Long" [ref=e35]: L
+      - generic [ref=e38]:
+        - generic [ref=e39] [cursor=pointer]:
+          - img "Framework" [ref=e41]
+          - generic [ref=e43]: Framework
+        - link "Frappe CRM Frappe CRM" [ref=e44] [cursor=pointer]:
+          - /url: http://dcnet.localhost:8001/crm
+          - img "Frappe CRM" [ref=e46]
+          - generic [ref=e48]: Frappe CRM
+        - link "Ke Toan VN" [ref=e49] [cursor=pointer]:
+          - /url: /desk/ke-toan-vn?sidebar=Ke%20Toan%20VN
+          - img [ref=e51]
+          - generic [ref=e53]: Ke Toan VN
+        - link "Organization Tổ chức" [ref=e54] [cursor=pointer]:
+          - /url: /desk/company?sidebar=Organization
+          - img "Organization" [ref=e56]
+          - generic [ref=e58]: Tổ chức
+        - link "Raven Raven" [ref=e59] [cursor=pointer]:
+          - /url: http://dcnet.localhost:8001/raven
+          - img "Raven" [ref=e61]
+          - generic [ref=e63]: Raven
+        - generic [ref=e64] [cursor=pointer]:
+          - generic [ref=e67]:
+            - link:
+              - /url: /desk/invoicing?sidebar=Invoicing
+              - generic:
+                - img
+            - link:
+              - /url: /desk/dashboard-view/Payments?sidebar=Payments
+              - generic:
+                - img
+            - link:
+              - /url: /desk/query-report/Balance Sheet
+              - generic:
+                - img
+            - link "Accounts Setup":
+              - /url: /desk/account?sidebar=Accounts%20Setup
+              - generic:
+                - img "Accounts Setup"
+            - link:
+              - /url: /desk/sales-taxes-and-charges-template?sidebar=Taxes
+              - generic:
+                - img
+            - link:
+              - /url: /desk/bank-clearance/Bank Clearance?sidebar=Banking
+              - generic:
+                - img
+            - link:
+              - /url: /desk/budget?sidebar=Budget
+              - generic:
+                - img
+            - link "Share Management":
+              - /url: /desk/shareholder?sidebar=Share%20Management
+              - generic:
+                - img "Share Management"
+            - link:
+              - /url: /desk/subscription?sidebar=Subscription
+              - generic:
+                - img
+          - generic [ref=e69]: Kế toán
+        - link "Assets Tài sản" [ref=e70] [cursor=pointer]:
+          - /url: /desk/assets?sidebar=Assets
+          - img "Assets" [ref=e72]
+          - generic [ref=e74]: Tài sản
+        - link "Buying Mua" [ref=e75] [cursor=pointer]:
+          - /url: /desk/buying?sidebar=Buying
+          - img "Buying" [ref=e77]
+          - generic [ref=e79]: Mua
+        - link "Chế tạo" [ref=e80] [cursor=pointer]:
+          - /url: /desk/manufacturing?sidebar=Manufacturing
+          - img [ref=e82]
+          - generic [ref=e84]: Chế tạo
+        - link "Dự án" [ref=e85] [cursor=pointer]:
+          - /url: /desk/projects?sidebar=Projects
+          - img [ref=e87]
+          - generic [ref=e89]: Dự án
+        - link "Chất lượng" [ref=e90] [cursor=pointer]:
+          - /url: /desk/quality?sidebar=Quality
+          - img [ref=e92]
+          - generic [ref=e94]: Chất lượng
+        - link "Bán" [ref=e95] [cursor=pointer]:
+          - /url: /desk/selling?sidebar=Selling
+          - img [ref=e97]
+          - generic [ref=e99]: Bán
+        - link "Stock Kho hàng" [ref=e100] [cursor=pointer]:
+          - /url: /desk/stock?sidebar=Stock
+          - img "Stock" [ref=e102]
+          - generic [ref=e104]: Kho hàng
+        - link "Subcontracting Thầu phụ" [ref=e105] [cursor=pointer]:
+          - /url: /desk/subcontracting?sidebar=Subcontracting
+          - img "Subcontracting" [ref=e107]
+          - generic [ref=e109]: Thầu phụ
+        - link "ERPNext Settings" [ref=e110] [cursor=pointer]:
+          - /url: /desk/global-defaults/Global Defaults?sidebar=ERPNext%20Settings
+          - img [ref=e112]
+          - generic [ref=e114]: ERPNext Settings
+        - generic [ref=e115] [cursor=pointer]:
+          - img "Frappe HR" [ref=e117]
+          - generic [ref=e119]: Frappe HR
+  - contentinfo

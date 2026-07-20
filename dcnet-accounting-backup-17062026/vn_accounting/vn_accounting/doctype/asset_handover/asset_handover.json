@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "autoname": "format:BG-{YYYY}-.#####",
+ "creation": "2026-04-29 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "scope",
+  "posting_date",
+  "company",
+  "from_employee",
+  "from_department",
+  "to_employee",
+  "to_department",
+  "to_location",
+  "co_signer_employee",
+  "handover_items",
+  "total_asset_value",
+  "reason",
+  "remarks",
+  "before_handover_snapshot"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "description": "Chọn 'TSCĐ' để bàn giao tài sản cố định, 'CCDC' để bàn giao công cụ dụng cụ",
+   "fieldname": "scope",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Scope",
+   "options": "\nTSCĐ\nCCDC",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_employee",
+   "fieldtype": "Link",
+   "label": "From Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "from_department",
+   "fieldtype": "Link",
+   "label": "From Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "to_employee",
+   "fieldtype": "Link",
+   "label": "To Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "to_department",
+   "fieldtype": "Link",
+   "label": "To Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "to_location",
+   "fieldtype": "Link",
+   "label": "To Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "co_signer_employee",
+   "fieldtype": "Link",
+   "label": "Co-Signer",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "handover_items",
+   "fieldtype": "Table",
+   "label": "Handover Items",
+   "options": "Asset Handover Item"
+  },
+  {
+   "fieldname": "total_asset_value",
+   "fieldtype": "Currency",
+   "label": "Total Asset Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Select",
+   "label": "Reason",
+   "options": "\nChuyển bộ phận\nNghỉ việc\nĐiều chuyển kho\nKhác"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "before_handover_snapshot",
+   "fieldtype": "JSON",
+   "hidden": 1,
+   "label": "Before Snapshot",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-05-07 11:30:12.053108",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "Asset Handover",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 0,
+   "create": 1,
+   "delete": 0,
+   "read": 1,
+   "role": "Accounts User",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC"
+}

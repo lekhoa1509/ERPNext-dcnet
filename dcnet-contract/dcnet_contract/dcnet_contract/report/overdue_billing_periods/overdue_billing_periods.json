@@ -1,0 +1,15 @@
+{
+ "name": "Overdue Billing Periods",
+ "doctype": "Report",
+ "module": "DCNet Contract",
+ "ref_doctype": "DCNet Contract",
+ "report_type": "Script Report",
+ "is_standard": "Yes",
+ "disabled": 0,
+ "roles": [
+  {"role": "Accounts Manager"},
+  {"role": "Accounts User"},
+  {"role": "DCNet Sales Manager"},
+  {"role": "System Manager"}
+ ]
+}

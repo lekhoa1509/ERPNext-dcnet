@@ -1,0 +1,272 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "import_order",
+  "file_name",
+  "file_path",
+  "source_hash",
+  "slot_key",
+  "column_break_basic",
+  "sheet_name",
+  "target_doctype",
+  "safety_status",
+  "status",
+  "row_count",
+  "confidence",
+  "result_section",
+  "data_import",
+  "generated_file",
+  "column_break_result",
+  "imported_records",
+  "failed_records",
+  "imported_on",
+  "analysis_section",
+  "analysis_note",
+  "analysis_json",
+  "smart_plan_status",
+  "smart_plan_generated_on",
+  "smart_plan_json",
+  "smart_plan_error",
+  "error_detail",
+  "user_feedback",
+  "feedback_history_json",
+  "duplicate_check_status",
+  "duplicate_match_count",
+  "duplicate_report_json"
+ ],
+ "fields": [
+  {
+   "fieldname": "import_order",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "file_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "File Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "file_path",
+   "fieldtype": "Small Text",
+   "label": "File Path",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_hash",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Source Hash",
+   "read_only": 1
+  },
+  {
+   "fieldname": "slot_key",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Slot Key",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sheet_name",
+   "fieldtype": "Data",
+   "label": "Sheet",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Target DocType",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "default": "Unknown",
+   "fieldname": "safety_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Safety",
+   "options": "Unknown\nSafe\nWarning\nError",
+   "read_only": 1
+  },
+  {
+   "default": "Scanned",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Scanned\nReady\nReanalyzing\nError\nData Import Created\nImported\nPartial\nFailed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "row_count",
+   "fieldtype": "Int",
+   "label": "Rows",
+   "read_only": 1
+  },
+  {
+   "fieldname": "confidence",
+   "fieldtype": "Percent",
+   "label": "Confidence",
+   "read_only": 1
+  },
+  {
+   "fieldname": "result_section",
+   "fieldtype": "Section Break",
+   "label": "Import Result"
+  },
+  {
+   "fieldname": "data_import",
+   "fieldtype": "Link",
+   "label": "Data Import",
+   "options": "Data Import",
+   "read_only": 1
+  },
+  {
+   "fieldname": "generated_file",
+   "fieldtype": "Link",
+   "label": "Generated CSV File",
+   "options": "File",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_result",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "imported_records",
+   "fieldtype": "Int",
+   "label": "Imported Records",
+   "read_only": 1
+  },
+  {
+   "fieldname": "failed_records",
+   "fieldtype": "Int",
+   "label": "Failed Records",
+   "read_only": 1
+  },
+  {
+   "fieldname": "imported_on",
+   "fieldtype": "Datetime",
+   "label": "Imported On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "analysis_section",
+   "fieldtype": "Section Break",
+   "label": "Analysis"
+  },
+  {
+   "fieldname": "analysis_note",
+   "fieldtype": "Small Text",
+   "label": "Analysis Note",
+   "read_only": 1
+  },
+  {
+   "fieldname": "analysis_json",
+   "fieldtype": "Code",
+   "label": "Analysis JSON",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "smart_plan_status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Smart Plan Status",
+   "options": "Pending\nReady\nError",
+   "read_only": 1
+  },
+  {
+   "fieldname": "smart_plan_generated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Smart Plan Generated On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "smart_plan_json",
+   "fieldtype": "Code",
+   "hidden": 1,
+   "label": "Smart Plan JSON",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "smart_plan_error",
+   "fieldtype": "Long Text",
+   "hidden": 1,
+   "label": "Smart Plan Error",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_detail",
+   "fieldtype": "Long Text",
+   "label": "Error Detail",
+   "read_only": 1
+  },
+  {
+   "fieldname": "user_feedback",
+   "fieldtype": "Small Text",
+   "label": "User Feedback",
+   "hidden": 1
+  },
+  {
+   "fieldname": "feedback_history_json",
+   "fieldtype": "Code",
+   "hidden": 1,
+   "label": "Feedback History JSON",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "duplicate_check_status",
+   "fieldtype": "Select",
+   "label": "Duplicate Check Status",
+   "options": "Pending\nClean\nWarning\nError",
+   "read_only": 1
+  },
+  {
+   "fieldname": "duplicate_match_count",
+   "fieldtype": "Int",
+   "label": "Possible Duplicate Rows",
+   "read_only": 1
+  },
+  {
+   "fieldname": "duplicate_report_json",
+   "fieldtype": "Code",
+   "hidden": 1,
+   "label": "Duplicate Report JSON",
+   "options": "JSON",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Import Auto",
+ "name": "Import Auto File",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "states": []
+}

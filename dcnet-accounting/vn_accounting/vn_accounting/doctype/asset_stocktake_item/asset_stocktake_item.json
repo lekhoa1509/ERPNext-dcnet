@@ -1,0 +1,65 @@
+{
+  "actions": [],
+  "creation": "2026-04-29 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "links": [],
+  "modified": "2026-04-29 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "VN Accounting",
+  "owner": "Administrator",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "name": "Asset Stocktake Item",
+  "istable": 1,
+  "editable_grid": 1,
+  "permissions": [],
+  "field_order": [
+    "target_doctype",
+    "target_name",
+    "book_value",
+    "physical_status",
+    "remarks",
+    "last_stocktake_date"
+  ],
+  "fields": [
+    {
+      "fieldname": "target_doctype",
+      "fieldtype": "Link",
+      "options": "DocType",
+      "label": "Type",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "target_name",
+      "fieldtype": "Dynamic Link",
+      "options": "target_doctype",
+      "label": "Asset/CCDC",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "book_value",
+      "fieldtype": "Currency",
+      "label": "Book Value",
+      "read_only": 1
+    },
+    {
+      "fieldname": "physical_status",
+      "fieldtype": "Select",
+      "label": "Physical Status",
+      "options": "\nCòn nguyên\nHỏng\nMất",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "last_stocktake_date",
+      "fieldtype": "Date",
+      "label": "Last Stocktake",
+      "read_only": 1
+    }
+  ]
+}

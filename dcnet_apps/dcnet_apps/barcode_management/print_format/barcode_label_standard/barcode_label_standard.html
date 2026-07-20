@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @page {
+            size: {{ doc.label_size.replace(' x ', ' ') }};
+            margin: 2mm;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .label-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+        
+        .item-name {
+            font-size: 10pt;
+            font-weight: bold;
+            margin-bottom: 3mm;
+            word-wrap: break-word;
+            max-width: 95%;
+        }
+        
+        .barcode-wrapper {
+            margin: 2mm 0;
+        }
+        
+        .price {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 2mm;
+        }
+        
+        .label-repeat {
+            page-break-after: always;
+        }
+        
+        .label-repeat:last-child {
+            page-break-after: auto;
+        }
+    </style>
+</head>
+<body>
+    {% for i in range(doc.quantity) %}
+    <div class="label-repeat">
+        <div class="label-container">
+            {% if doc.include_item_name %}
+            <div class="item-name">
+                {{ frappe.get_value("Item", doc.item, "item_name") }}
+            </div>
+            {% endif %}
+            
+            <div class="barcode-wrapper">
+                <svg id="barcode-{{ doc.name }}-{{ i }}"></svg>
+            </div>
+            
+            {% if doc.include_price and doc.price %}
+            <div class="price">
+                {{ frappe.format_value(doc.price, {"fieldtype": "Currency"}) }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    
+    <script src="/assets/dcnet_core/node_modules/jsbarcode/dist/JsBarcode.all.min.js"></script>
+    <script>
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Normalize barcode type
+            let barcodeType = "{{ doc.barcode_type }}";
+            if (barcodeType === "EAN-13") barcodeType = "EAN13";
+            if (barcodeType === "EAN-8") barcodeType = "EAN8";
+            if (barcodeType === "UPC-A") barcodeType = "UPC";
+            
+            // Generate barcode for each label
+            {% for i in range(doc.quantity) %}
+            try {
+                JsBarcode("#barcode-{{ doc.name }}-{{ i }}", "{{ doc.barcode }}", {
+                    format: barcodeType,
+                    lineColor: "#000",
+                    width: 2,
+                    height: 30,
+                    displayValue: true,
+                    fontSize: 12,
+                    margin: 2
+                });
+            } catch (e) {
+                console.error("Barcode generation error for label {{ i }}:", e);
+            }
+            {% endfor %}
+        });
+    </script>
+</body>
+</html>

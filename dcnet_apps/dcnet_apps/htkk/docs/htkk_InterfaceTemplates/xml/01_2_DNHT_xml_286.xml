@@ -1,0 +1,15 @@
+<PLuc_01_2_HT>
+	<ToKhaiHangHoaXuatKhau id="String">
+		<maLoaiHinh/>
+		<tenLoaiHinh/>
+		<toKhaiSo/>
+		<ngayDangKy/>
+		<ma_NuocNhapKhau/>
+		<ten_NuocNhapKhau/>
+		<ma_Loaitien/>
+		<ten_Loaitien/>
+		<ngoaiTe/>
+		<dongVietNam/>
+		<ghiChu/>
+	</ToKhaiHangHoaXuatKhau>
+</PLuc_01_2_HT>

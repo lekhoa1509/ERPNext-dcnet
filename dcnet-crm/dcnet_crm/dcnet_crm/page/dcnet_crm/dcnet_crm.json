@@ -1,0 +1,29 @@
+{
+ "content": null,
+ "creation": "2026-06-13 00:00:00",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-07-13 09:41:24.467352",
+ "modified_by": "Administrator",
+ "module": "DCNET CRM",
+ "name": "dcnet-crm",
+ "owner": "Administrator",
+ "page_name": "dcnet-crm",
+ "roles": [
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "CRM"
+}

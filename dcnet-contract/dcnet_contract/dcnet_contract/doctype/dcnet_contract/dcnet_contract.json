@@ -1,0 +1,619 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "format:HD-{YYYY}-{#####}",
+ "creation": "2026-04-13 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "summary_section",
+  "summary_card",
+  "basic_info_section",
+  "customer",
+  "customer_name",
+  "sales_person",
+  "sales_person_name",
+  "department",
+  "column_break_basic",
+  "company",
+  "branch",
+  "contract_no_external",
+  "project_category",
+  "service_type",
+  "package_name",
+  "installation_address",
+  "contract_type_section",
+  "contract_type",
+  "payment_mode",
+  "billing_alignment",
+  "package_term_months",
+  "column_break_ctype",
+  "contract_date",
+  "acceptance_date",
+  "end_date",
+  "addenda_section",
+  "addenda",
+  "has_addendum",
+  "financials_section",
+  "items",
+  "unit_price_total",
+  "setup_fee",
+  "column_break_totals",
+  "grand_total",
+  "currency",
+  "billing_schedule_section",
+  "billing_schedule",
+  "invoice_payment_section",
+  "invoice_payment_html",
+  "technical_section",
+  "bandwidth",
+  "sla_restore_hours",
+  "column_break_tech",
+  "point_a",
+  "point_b",
+  "customer_info_section",
+  "customer_address",
+  "customer_phone",
+  "customer_fax",
+  "customer_email",
+  "customer_tax_id",
+  "column_break_custinfo",
+  "customer_representative",
+  "customer_representative_title",
+  "customer_bank_account",
+  "customer_id_number",
+  "customer_id_date",
+  "customer_id_place",
+  "customer_dob",
+  "company_representative",
+  "company_representative_title",
+  "references_section",
+  "shadow_sales_order",
+  "template_ref",
+  "template_version",
+  "amended_from",
+  "template_outdated",
+  "contract_html_edited",
+  "contract_html_section",
+  "contract_html",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "print_hide": 1,
+   "hide_border": 1
+  },
+  {
+   "fieldname": "summary_card",
+   "fieldtype": "HTML",
+   "label": "Summary",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Th\u00f4ng tin c\u01a1 b\u1ea3n",
+   "description": "Ph\u1ea7n \u0111\u1ecbnh danh h\u1ee3p \u0111\u1ed3ng \u2014 kh\u00e1ch h\u00e0ng, NVKD, c\u00f4ng ty v\u00e0 lo\u1ea1i d\u1ecbch v\u1ee5 ch\u00ednh."
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Kh\u00e1ch h\u00e0ng",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "T\u00ean kh\u00e1ch h\u00e0ng",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_person",
+   "fieldtype": "Link",
+   "label": "NVKD",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "sales_person.employee_name",
+   "fieldname": "sales_person_name",
+   "fieldtype": "Data",
+   "label": "T\u00ean NVKD",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "sales_person.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Ph\u00f2ng ban",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "__default_company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "C\u00f4ng ty",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Chi nh\u00e1nh",
+   "options": "Branch",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_no_external",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "S\u1ed1 h\u1ee3p \u0111\u1ed3ng gi\u1ea5y",
+   "unique": 1
+  },
+  {
+   "fieldname": "project_category",
+   "fieldtype": "Select",
+   "label": "Danh mục dự án",
+   "options": "\nTelecom\nIT\nEquipment\nConstruction",
+   "reqd": 1,
+   "description": "Phân loại doanh thu nội bộ — phục vụ báo cáo theo danh mục. KHÔNG in trên hợp đồng."
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Lo\u1ea1i d\u1ecbch v\u1ee5",
+   "options": "\nP2P\nMPLS\nILL\nFTTH DN\nFTTH HGD\nIT Managed\nVTTB\nThi c\u00f4ng",
+   "reqd": 1,
+   "description": "Ch\u1ecdn \u0111\u1ec3 hi\u1ec3n th\u1ecb tr\u01b0\u1eddng ph\u00f9 h\u1ee3p (P2P/MPLS c\u1ea7n \u0111i\u1ec3m A-B; FTTH HGD c\u1ea7n CMND; VTTB l\u00e0 one-off)."
+  },
+  {
+   "depends_on": "eval:['P2P','MPLS','ILL','FTTH DN','IT Managed'].includes(doc.service_type)",
+   "fieldname": "package_name",
+   "fieldtype": "Data",
+   "label": "T\u00ean g\u00f3i / b\u0103ng th\u00f4ng"
+  },
+  {
+   "fieldname": "installation_address",
+   "fieldtype": "Small Text",
+   "label": "\u0110\u1ecba \u0111i\u1ec3m l\u1eafp \u0111\u1eb7t"
+  },
+  {
+   "fieldname": "customer_info_section",
+   "fieldtype": "Section Break",
+   "label": "B\u00ean A / B\u00ean B",
+   "collapsible": 1,
+   "collapsible_depends_on": "eval:doc.docstatus===0",
+   "description": "Th\u00f4ng tin ph\u00e1p l\u00fd IN TR\u00caN h\u1ee3p \u0111\u1ed3ng gi\u1ea5y. Ch\u1ed1t l\u00fac k\u00fd H\u0110 \u2014 KH\u00d4NG t\u1ef1 c\u1eadp nh\u1eadt khi h\u1ed3 s\u01a1 KH thay \u0111\u1ed5i."
+  },
+  {
+   "fieldname": "customer_address",
+   "fieldtype": "Small Text",
+   "label": "\u0110\u1ecba ch\u1ec9 KH"
+  },
+  {
+   "fieldname": "customer_phone",
+   "fieldtype": "Data",
+   "label": "\u0110i\u1ec7n tho\u1ea1i KH"
+  },
+  {
+   "fieldname": "customer_fax",
+   "fieldtype": "Data",
+   "label": "Fax KH"
+  },
+  {
+   "fieldname": "customer_email",
+   "fieldtype": "Data",
+   "label": "Email KH",
+   "options": "Email"
+  },
+  {
+   "fieldname": "customer_tax_id",
+   "fieldtype": "Data",
+   "label": "M\u00e3 s\u1ed1 thu\u1ebf KH"
+  },
+  {
+   "fieldname": "column_break_custinfo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_representative",
+   "fieldtype": "Data",
+   "label": "Ng\u01b0\u1eddi \u0111\u1ea1i di\u1ec7n KH"
+  },
+  {
+   "fieldname": "customer_representative_title",
+   "fieldtype": "Data",
+   "label": "Ch\u1ee9c v\u1ee5 KH"
+  },
+  {
+   "fieldname": "customer_bank_account",
+   "fieldtype": "Data",
+   "label": "TK ng\u00e2n h\u00e0ng KH"
+  },
+  {
+   "depends_on": "eval:doc.service_type == 'FTTH HGD'",
+   "fieldname": "customer_id_number",
+   "fieldtype": "Data",
+   "label": "S\u1ed1 CMND/CCCD"
+  },
+  {
+   "depends_on": "eval:doc.service_type == 'FTTH HGD'",
+   "fieldname": "customer_id_date",
+   "fieldtype": "Date",
+   "label": "Ng\u00e0y c\u1ea5p CMND"
+  },
+  {
+   "depends_on": "eval:doc.service_type == 'FTTH HGD'",
+   "fieldname": "customer_id_place",
+   "fieldtype": "Data",
+   "label": "N\u01a1i c\u1ea5p CMND"
+  },
+  {
+   "depends_on": "eval:doc.service_type == 'FTTH HGD'",
+   "fieldname": "customer_dob",
+   "fieldtype": "Date",
+   "label": "Ng\u00e0y sinh"
+  },
+  {
+   "fieldname": "company_representative",
+   "fieldtype": "Data",
+   "label": "Ng\u01b0\u1eddi \u0111\u1ea1i di\u1ec7n B\u00ean B"
+  },
+  {
+   "fieldname": "company_representative_title",
+   "fieldtype": "Data",
+   "label": "Ch\u1ee9c v\u1ee5 B\u00ean B"
+  },
+  {
+   "fieldname": "technical_section",
+   "fieldtype": "Section Break",
+   "label": "K\u1ef9 thu\u1eadt",
+   "collapsible": 1,
+   "description": "Th\u00f4ng tin k\u1ef9 thu\u1eadt d\u00f9ng cho cung c\u1ea5p d\u1ecbch v\u1ee5 \u2014 KH\u00d4NG in tr\u00ean h\u1ee3p \u0111\u1ed3ng gi\u1ea5y."
+  },
+  {
+   "fieldname": "bandwidth",
+   "fieldtype": "Data",
+   "label": "B\u0103ng th\u00f4ng"
+  },
+  {
+   "default": "4",
+   "fieldname": "sla_restore_hours",
+   "fieldtype": "Int",
+   "label": "SLA kh\u1eafc ph\u1ee5c (gi\u1edd)"
+  },
+  {
+   "fieldname": "column_break_tech",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:['P2P','MPLS'].includes(doc.service_type)",
+   "fieldname": "point_a",
+   "fieldtype": "Data",
+   "label": "\u0110i\u1ec3m \u0111\u1ea7u (A)"
+  },
+  {
+   "depends_on": "eval:['P2P','MPLS'].includes(doc.service_type)",
+   "fieldname": "point_b",
+   "fieldtype": "Data",
+   "label": "\u0110i\u1ec3m cu\u1ed1i (B)"
+  },
+  {
+   "fieldname": "contract_date",
+   "fieldtype": "Date",
+   "label": "Ng\u00e0y k\u00fd h\u1ee3p \u0111\u1ed3ng",
+   "reqd": 1
+  },
+  {
+   "fieldname": "acceptance_date",
+   "fieldtype": "Date",
+   "label": "Ng\u00e0y nghi\u1ec7m thu / k\u00edch ho\u1ea1t",
+   "reqd": 1,
+   "description": "Ng\u00e0y k\u00edch ho\u1ea1t d\u1ecbch v\u1ee5 / nghi\u1ec7m thu \u2014 L\u1ecbch thu ti\u1ec1n t\u00ednh t\u1eeb ng\u00e0y n\u00e0y."
+  },
+  {
+   "fieldname": "addenda_section",
+   "fieldtype": "Section Break",
+   "label": "Ph\u1ee5 l\u1ee5c h\u1ee3p \u0111\u1ed3ng",
+   "collapsible": 1,
+   "description": "M\u1ed7i ph\u1ee5 l\u1ee5c l\u00e0 1 d\u00f2ng. Khi th\u00eam ph\u1ee5 l\u1ee5c \u2192 t\u1ea1o PAKD Revision t\u01b0\u01a1ng \u1ee9ng \u0111\u1ec3 \u00e1p gi\u00e1 m\u1edbi cho future periods."
+  },
+  {
+   "fieldname": "addenda",
+   "fieldtype": "Table",
+   "label": "Ph\u1ee5 l\u1ee5c",
+   "options": "Contract Addendum"
+  },
+  {
+   "fieldname": "has_addendum",
+   "fieldtype": "Check",
+   "label": "C\u00f3 ph\u1ee5 l\u1ee5c",
+   "read_only": 1,
+   "default": "0",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "description": "T\u1ef1 t\u00ednh trong validate: 1 khi addenda c\u00f3 \u00edt nh\u1ea5t 1 d\u00f2ng. D\u00f9ng cho sidebar filter 'H\u0110 c\u00f3 ph\u1ee5 l\u1ee5c'."
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "Ng\u00e0y k\u1ebft th\u00fac",
+   "read_only": 1,
+   "description": "(T\u1ef1 t\u00ednh) = Ng\u00e0y k\u00edch ho\u1ea1t + Th\u1eddi h\u1ea1n g\u00f3i. \u0110\u1ed1i v\u1edbi H\u0110 One-off, b\u1eb1ng Ng\u00e0y k\u00edch ho\u1ea1t."
+  },
+  {
+   "fieldname": "contract_type_section",
+   "fieldtype": "Section Break",
+   "label": "Lo\u1ea1i h\u1ee3p \u0111\u1ed3ng & th\u1eddi h\u1ea1n",
+   "description": "Recurring = thu \u0111\u1ecbnh k\u1ef3. One-off = thu 1 l\u1ea7n. Ng\u00e0y k\u1ebft th\u00fac t\u1ef1 t\u00ednh t\u1eeb Ng\u00e0y k\u00edch ho\u1ea1t + Th\u1eddi h\u1ea1n g\u00f3i."
+  },
+  {
+   "fieldname": "contract_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "in_list_view": 1,
+   "label": "Lo\u1ea1i h\u1ee3p \u0111\u1ed3ng (t\u1ef1 t\u00ednh)",
+   "options": "\nRecurring\nOne-off\nMixed",
+   "read_only": 1,
+   "description": "T\u1ef1 suy t\u1eeb items: ch\u1ec9 Recurring Service \u2192 Recurring; ch\u1ec9 One-off Goods \u2192 One-off; c\u00f3 c\u1ea3 2 \u2192 Mixed."
+  },
+  {
+   "depends_on": "eval:doc.contract_type=='Recurring'",
+   "fieldname": "package_term_months",
+   "fieldtype": "Int",
+   "label": "Th\u1eddi h\u1ea1n g\u00f3i (th\u00e1ng)",
+   "mandatory_depends_on": "eval:doc.contract_type=='Recurring'",
+   "description": "S\u1ed1 th\u00e1ng. Ng\u00e0y k\u1ebft th\u00fac = Ng\u00e0y k\u00edch ho\u1ea1t + N th\u00e1ng (t\u1ef1 t\u00ednh)."
+  },
+  {
+   "fieldname": "column_break_ctype",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Select",
+   "label": "H\u00ecnh th\u1ee9c thanh to\u00e1n",
+   "options": "\nPrepay\nMonthly\nOneOff",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Prepay = thu tr\u01b0\u1edbc k\u1ef3. Monthly = thu sau k\u1ef3. OneOff = ch\u1ec9 \u00e1p d\u1ee5ng cho H\u0110 One-off."
+  },
+  {
+   "fieldname": "billing_alignment",
+   "fieldtype": "Select",
+   "label": "Quy t\u1eafc chia k\u1ef3 xu\u1ea5t h\u00f3a \u0111\u01a1n",
+   "options": "Calendar Prorate\nFull Month From Start\nManual",
+   "default": "Calendar Prorate",
+   "depends_on": "eval:doc.contract_type=='Recurring' && doc.payment_mode=='Monthly'",
+   "description": "Calendar Prorate: chia theo l\u1ecbch d\u01b0\u01a1ng, th\u00e1ng \u0111\u1ea7u/cu\u1ed1i chia theo s\u1ed1 ng\u00e0y. Full Month From Start: m\u1ed7i k\u1ef3 = 1 th\u00e1ng tr\u00f2n t\u00ednh t\u1eeb ng\u00e0y k\u00edch ho\u1ea1t, kh\u00f4ng chia theo ng\u00e0y. Manual: kh\u00f4ng t\u1ef1 sinh l\u1ecbch \u2014 k\u1ebf to\u00e1n t\u1ef1 th\u00eam khi c\u1ea7n."
+  },
+  {
+   "fieldname": "financials_section",
+   "fieldtype": "Section Break",
+   "label": "H\u1ea1ng m\u1ee5c & t\u1ed5ng gi\u00e1 tr\u1ecb",
+   "description": "M\u1ed7i h\u1ea1ng m\u1ee5c c\u00f3 \u0111\u01a1n gi\u00e1 \u00d7 s\u1ed1 l\u01b0\u1ee3ng = gi\u00e1 tr\u1ecb/k\u1ef3. T\u1ed5ng gi\u00e1 tr\u1ecb = t\u1ed5ng c\u00e1c h\u1ea1ng m\u1ee5c + ph\u00ed l\u1eafp \u0111\u1eb7t."
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "H\u1ea1ng m\u1ee5c h\u1ee3p \u0111\u1ed3ng",
+   "options": "DCNet Contract Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit_price_total",
+   "fieldtype": "Currency",
+   "label": "Doanh thu / k\u1ef3",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "setup_fee",
+   "fieldtype": "Currency",
+   "label": "Ph\u00ed l\u1eafp \u0111\u1eb7t (1 l\u1ea7n)",
+   "description": "Ph\u00ed thu 1 l\u1ea7n khi k\u00edch ho\u1ea1t \u2014 KH\u00d4NG nh\u00e2n v\u1edbi chu k\u1ef3."
+  },
+  {
+   "fieldname": "column_break_totals",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "T\u1ed5ng gi\u00e1 tr\u1ecb h\u1ee3p \u0111\u1ed3ng",
+   "read_only": 1
+  },
+  {
+   "default": "VND",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Ti\u1ec1n t\u1ec7",
+   "options": "Currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "billing_schedule_section",
+   "fieldtype": "Section Break",
+   "label": "L\u1ecbch thu ti\u1ec1n",
+   "description": "T\u1ef1 sinh t\u1eeb Ng\u00e0y k\u00edch ho\u1ea1t + H\u00ecnh th\u1ee9c thanh to\u00e1n + Th\u1eddi h\u1ea1n g\u00f3i. M\u1ed7i d\u00f2ng t\u01b0\u01a1ng \u1ee9ng 1 ho\u00e1 \u0111\u01a1n d\u1ef1 ki\u1ebfn. M\u00e0u n\u1ec1n cho bi\u1ebft tr\u1ea1ng th\u00e1i."
+  },
+  {
+   "fieldname": "billing_schedule",
+   "fieldtype": "Table",
+   "label": "L\u1ecbch thu ti\u1ec1n",
+   "options": "DCNet Contract Billing Schedule",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice_payment_section",
+   "fieldtype": "Section Break",
+   "label": "H\u00f3a \u0111\u01a1n & Thanh to\u00e1n",
+   "description": "B\u1ea3ng t\u00edch h\u1ee3p tr\u1ea1ng th\u00e1i Sales Invoice + Payment Entry + hoa h\u1ed3ng cho t\u1eebng k\u1ef3 billing. Render qua frappe.db.get_list (xem dcnet_contract.js)."
+  },
+  {
+   "fieldname": "invoice_payment_html",
+   "fieldtype": "HTML",
+   "label": "B\u1ea3ng h\u00f3a \u0111\u01a1n & thanh to\u00e1n"
+  },
+  {
+   "fieldname": "references_section",
+   "fieldtype": "Section Break",
+   "label": "Tham chi\u1ebfu & b\u1ea3n m\u1eabu",
+   "collapsible": 1,
+   "description": "Li\u00ean k\u1ebft t\u1edbi c\u00e1c b\u1ea3n ghi li\u00ean quan: \u0111\u01a1n b\u00e1n h\u00e0ng n\u1ed9i b\u1ed9 (one-off), m\u1eabu h\u1ee3p \u0111\u1ed3ng, b\u1ea3n s\u1eeda \u0111\u1ed5i tr\u01b0\u1edbc."
+  },
+  {
+   "fieldname": "shadow_sales_order",
+   "fieldtype": "Link",
+   "label": "\u0110\u01a1n b\u00e1n h\u00e0ng n\u1ed9i b\u1ed9",
+   "options": "Sales Order",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "(Ch\u1ec9 H\u0110 One-off) \u0110\u01a1n b\u00e1n h\u00e0ng n\u1ed9i b\u1ed9 \u2014 qu\u1ea3n l\u00fd xu\u1ea5t kho qua ERPNext."
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Tr\u1ea1ng th\u00e1i",
+   "options": "Draft\nActive\nSuspended\nRevised\nCancelled\nExpired",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "S\u1eeda \u0111\u1ed5i t\u1eeb",
+   "no_copy": 1,
+   "options": "DCNet Contract",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "template_ref",
+   "fieldtype": "Link",
+   "label": "Mẫu hợp đồng",
+   "options": "DCNet Contract Template",
+   "description": "Mẫu HĐ — tự điền Loại HĐ, Hình thức TT, Thời hạn, Hạng mục từ template."
+  },
+  {
+   "fieldname": "template_version",
+   "fieldtype": "Int",
+   "label": "Template Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "template_outdated",
+   "fieldtype": "Check",
+   "label": "Template Outdated",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "contract_html_edited",
+   "fieldtype": "Check",
+   "label": "Contract HTML Edited",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "contract_html_section",
+   "fieldtype": "Section Break",
+   "label": "Văn bản hợp đồng",
+   "description": "Nội dung văn bản đầy đủ — dùng để xuất DOCX/PDF. Được tự động điền khi bấm 'Apply Template'."
+  },
+  {
+   "fieldname": "contract_html",
+   "fieldtype": "Text Editor",
+   "label": "Contract HTML"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "Phương Án Kinh Doanh",
+   "link_doctype": "Phuong An Kinh Doanh",
+   "link_fieldname": "contract_ref"
+  },
+  {
+   "group": "Hóa đơn & Thanh toán",
+   "link_doctype": "Sales Invoice",
+   "link_fieldname": "dcnet_contract"
+  },
+  {
+   "group": "Hóa đơn & Thanh toán",
+   "link_doctype": "Payment Entry",
+   "link_fieldname": "dcnet_contract"
+  }
+ ],
+ "modified": "2026-05-28 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet Contract",
+ "name": "DCNet Contract",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "if_owner": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DCNet Sales Rep",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "role": "DCNet Sales Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

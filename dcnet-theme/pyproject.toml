@@ -1,0 +1,12 @@
+[project]
+name = "dcnet_theme"
+version = "0.1.0"
+description = "DCNET Theme — ERPNext Desk theming module"
+requires-python = ">=3.10"
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["dcnet_theme*"]

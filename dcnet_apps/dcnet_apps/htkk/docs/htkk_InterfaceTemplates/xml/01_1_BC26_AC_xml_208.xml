@@ -1,0 +1,25 @@
+<PL_BK_01AC_01>
+	<HDonHetGTriSDung>
+		<ChiTietHoaDon id="String" >
+			<maHoaDon></maHoaDon>
+			<tenHoaDon></tenHoaDon>
+			<kyHieuMau></kyHieuMau>
+			<kyHieuHD></kyHieuHD>
+			<soLuong></soLuong>
+			<tuSo nillable="true" />
+			<denSo nillable="true" />
+		</ChiTietHoaDon>
+	</HDonHetGTriSDung>
+	<HDonDKiTiepSDung>
+		<ChiTietHoaDon id="String" >
+			<maHoaDon></maHoaDon>
+			<tenHoaDon></tenHoaDon>
+			<kyHieuMau></kyHieuMau>
+			<kyHieuHD></kyHieuHD>
+			<soLuong></soLuong>
+			<tuSo nillable="true" />
+			<denSo nillable="true" />
+		</ChiTietHoaDon>
+	</HDonDKiTiepSDung>
+	<cqtChuyenDen></cqtChuyenDen>
+</PL_BK_01AC_01>

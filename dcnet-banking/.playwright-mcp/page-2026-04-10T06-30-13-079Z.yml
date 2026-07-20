@@ -1,0 +1,21 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e6]:
+    - paragraph [ref=e7]:
+      - generic [ref=e8] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e10]: Getting Started
+    - generic [ref=e11] [cursor=pointer]:
+      - img [ref=e12]
+      - generic [ref=e13]: Thu gọn
+    - generic "Menu người dùng" [ref=e15] [cursor=pointer]:
+      - generic "Long" [ref=e17]:
+        - generic "Long" [ref=e18]: L
+      - generic [ref=e19]:
+        - generic [ref=e20]: Long
+        - generic [ref=e21]: larrytechusa@gmail.com
+  - generic [ref=e22]:
+    - banner
+    - generic [ref=e24]:
+      - generic:
+        - paragraph
+    - contentinfo

@@ -1,0 +1,17 @@
+{
+ "doctype": "DocType",
+ "name": "Bank Txn Invoice Suggestion",
+ "module": "VN Banking",
+ "creation": "2026-04-10 00:00:00",
+ "istable": 1,
+ "engine": "InnoDB",
+ "field_order": ["invoice_type", "invoice_name", "outstanding_amount", "allocated_amount", "selected"],
+ "fields": [
+  {"fieldname": "invoice_type", "fieldtype": "Select", "options": "Sales Invoice\nPurchase Invoice", "label": "Invoice Type", "in_list_view": 1},
+  {"fieldname": "invoice_name", "fieldtype": "Dynamic Link", "options": "invoice_type", "label": "Invoice", "in_list_view": 1},
+  {"fieldname": "outstanding_amount", "fieldtype": "Currency", "label": "Outstanding", "in_list_view": 1},
+  {"fieldname": "allocated_amount", "fieldtype": "Currency", "label": "Allocated", "in_list_view": 1},
+  {"fieldname": "selected", "fieldtype": "Check", "default": 0, "label": "Selected"}
+ ],
+ "permissions": []
+}

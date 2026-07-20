@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTKK - Quản lý tờ khai thuế</title>
+  <link rel="stylesheet" href="/assets/dcnet_apps/htkk/list.css">
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- Inject CSRF token for API calls -->
+  <script>
+    window.csrf_token = "{{ frappe.session.csrf_token }}";
+    window.HTKK_CONFIG = {
+      csrfToken: "{{ frappe.session.csrf_token }}"
+    };
+  </script>
+
+  <script type="module" src="/assets/dcnet_apps/htkk/list.js"></script>
+</body>
+</html>

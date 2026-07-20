@@ -1,0 +1,249 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DCNET CRM — Tài liệu training</title><link rel="stylesheet" href="assets/training.css"></head><body><div class="topbar"><a href="index.html">← Bộ tài liệu custom apps</a></div><div class="layout"><aside class="toc"><strong>Mục lục</strong><a href="#1-crm-nay-dung-de-lam-gi">1. CRM này dùng để làm gì?</a><a href="#2-quyen-truy-cap">2. Quyền truy cập</a><a href="#3-ban-do-man-hinh">3. Bản đồ màn hình</a><a href="#4-quy-trinh-ban-hang-dung-trong-training">4. Quy trình bán hàng dùng trong training</a><a href="#5-lam-viec-voi-danh-sach">5. Làm việc với danh sách</a><a href="#6-tiem-nang-va-co-hoi">6. Tiềm năng và Cơ hội</a><a href="#7-khach-hang-va-lien-he">7. Khách hàng và Liên hệ</a><a href="#8-bao-gia-va-don-hang">8. Báo giá và Đơn hàng</a><a href="#9-hoat-dong-va-the-cham-soc">9. Hoạt động và Thẻ chăm sóc</a><a href="#10-import-export-va-bao-cao">10. Import, export và báo cáo</a><a href="#11-bai-thuc-hanh-training">11. Bài thực hành training</a><a href="#12-cau-hoi-thuong-gap">12. Câu hỏi thường gặp</a><a href="#13-thuat-ngu">13. Thuật ngữ</a><a href="#14-diem-can-xac-nhan-truoc-training-chinh-thuc">14. Điểm cần xác nhận trước training chính thức</a></aside><main><h1>Hướng dẫn sử dụng DCNET CRM</h1>
+<blockquote>
+<p><strong>Hệ thống:</strong> DCNET Flow<br><strong>Phiên bản tài liệu:</strong> 1.3 — 13/07/2026<br><strong>Đối tượng:</strong> Nhân viên kinh doanh, quản lý kinh doanh, CSKH và quản trị hệ thống<br><strong>Nguồn:</strong> <code>docs/feature/FEATURE_SPECIFICATION.md</code> mục 2, 3, 4, 5, 13, 14; <code>docs/modules/dcnet-crm/SPEC_MAPPING.md</code>; code app <code>dcnet-crm</code>.</p>
+</blockquote>
+<h2 id="1-crm-nay-dung-de-lam-gi">1. CRM này dùng để làm gì?</h2>
+<p>DCNET CRM là giao diện hợp nhất trên dữ liệu ERPNext chuẩn. Người dùng làm việc với Lead, Opportunity, Customer, Contact, Quotation và Sales Order mà không phải chuyển qua nhiều màn hình Desk.</p>
+<p>Toàn bộ bản ghi xuất hiện trong ảnh của tài liệu này là dữ liệu demo phục vụ
+training. Tên, email, số điện thoại và thông tin chứng từ mẫu được giữ nguyên để
+người học dễ đối chiếu với màn hình UAT.</p>
+<p>Các phần DCNET mở rộng quan sát được trong code gồm giao diện danh sách/chi tiết, dashboard, hoạt động, thẻ chăm sóc, tài khoản dịch vụ, tạo báo giá và đơn hàng trực tiếp. Dữ liệu lõi vẫn dùng DocType ERPNext; riêng <code>CRM Care Card</code> và <code>DCNET Service Account</code> là DocType custom.</p>
+<p>Dashboard hiện tại dùng layout bento với KPI, phễu, cơ cấu cơ hội và nhóm thao tác
+nhanh trên cùng một màn hình.</p>
+<p><img src="assets/screenshots/dcnet-crm/01-crm-dashboard-system-manager.png" alt="Dashboard DCNET CRM trên site UAT"></p>
+<p><em>Hình 1 — Dashboard CRM sau redesign, chụp bằng persona System Manager. Menu “Bàn làm việc” là điểm truy cập dashboard và mục “Tất cả” đã được loại bỏ.</em></p>
+<h2 id="2-quyen-truy-cap">2. Quyền truy cập</h2>
+<p>Trang CRM cho phép các vai trò <code>Sales User</code>, <code>Sales Manager</code> và <code>System Manager</code>. Dữ liệu cụ thể còn phụ thuộc quyền ERPNext và phân quyền dòng dữ liệu đang áp dụng cho tài khoản.</p>
+<table>
+<thead>
+<tr>
+<th>Vai trò</th>
+<th>Công việc training chính</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sales User</td>
+<td>Quản lý Lead/Customer được phép xem, cập nhật hoạt động, tạo cơ hội, báo giá và đơn hàng</td>
+</tr>
+<tr>
+<td>Sales Manager</td>
+<td>Theo dõi tổng quan, kiểm soát pipeline và dữ liệu của nhóm trong phạm vi quyền</td>
+</tr>
+<tr>
+<td>System Manager</td>
+<td>Cấu hình, hỗ trợ và kiểm tra lỗi; không dùng tài khoản này cho thao tác bán hàng hằng ngày</td>
+</tr>
+</tbody></table>
+<p>Truy cập bằng menu <strong>CRM → Bàn làm việc</strong> hoặc URL Desk
+<code>/desk/dcnet-crm?view=dashboard</code>. Nếu không thấy menu, không tự xin quyền rộng
+hơn; liên hệ người quản trị để kiểm tra vai trò và phạm vi dữ liệu.</p>
+<h2 id="3-ban-do-man-hinh">3. Bản đồ màn hình</h2>
+<table>
+<thead>
+<tr>
+<th>Menu</th>
+<th>Dữ liệu nền</th>
+<th>Công việc chính</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bàn làm việc</td>
+<td>API tổng hợp CRM</td>
+<td>Xem KPI, phễu và cơ cấu cơ hội</td>
+</tr>
+<tr>
+<td>Tiềm năng</td>
+<td>Lead</td>
+<td>Tạo, tìm, cập nhật và theo dõi Lead</td>
+</tr>
+<tr>
+<td>Cơ hội</td>
+<td>Opportunity</td>
+<td>Quản lý giai đoạn, xác suất, giá trị và ngày dự kiến chốt</td>
+</tr>
+<tr>
+<td>Khách hàng</td>
+<td>Customer</td>
+<td>Quản lý hồ sơ, liên hệ, lịch sử và giao dịch</td>
+</tr>
+<tr>
+<td>Liên hệ</td>
+<td>Contact</td>
+<td>Quản lý người liên hệ của khách hàng/tổ chức</td>
+</tr>
+<tr>
+<td>Báo giá</td>
+<td>Quotation</td>
+<td>Lập và theo dõi báo giá</td>
+</tr>
+<tr>
+<td>Đơn hàng</td>
+<td>Sales Order</td>
+<td>Lập, xem chi tiết và theo dõi đơn hàng</td>
+</tr>
+<tr>
+<td>Hoạt động</td>
+<td>Communication, Comment, ToDo</td>
+<td>Theo dõi cuộc gọi, email, công việc và lịch sử xử lý</td>
+</tr>
+<tr>
+<td>Thẻ chăm sóc</td>
+<td>CRM Care Card</td>
+<td>Theo dõi nội dung chăm sóc custom</td>
+</tr>
+<tr>
+<td>Tài khoản</td>
+<td>DCNET Service Account</td>
+<td>Quản lý tài khoản dịch vụ liên quan đơn hàng</td>
+</tr>
+</tbody></table>
+<h2 id="4-quy-trinh-ban-hang-dung-trong-training">4. Quy trình bán hàng dùng trong training</h2>
+<figure class="workflow"><img src="assets/dcnet-crm-workflow.svg" alt="Sơ đồ quy trình DCNET CRM"><figcaption class="caption">Sơ đồ quy trình dùng trong training.</figcaption></figure><p>Sơ đồ là lộ trình training, không thay thế điều kiện workflow của từng chứng từ ERPNext.</p>
+<h2 id="5-lam-viec-voi-danh-sach">5. Làm việc với danh sách</h2>
+<p><img src="assets/screenshots/dcnet-crm/02-lead-list-system-manager.png" alt="Danh sách Lead trên site UAT"></p>
+<p><em>Hình 2 — Danh sách Lead demo với đầy đủ tên, điện thoại và email mẫu.</em></p>
+<ol>
+<li>Chọn menu cần làm việc.</li>
+<li>Nhập từ khóa vào ô tìm kiếm. Với Khách hàng có thể tìm theo mã, tên, mã số thuế, điện thoại hoặc email nếu trường đó được cấp quyền.</li>
+<li>Dùng bộ lọc để thu hẹp theo trạng thái, người phụ trách, giai đoạn hoặc ngày.</li>
+<li>Chọn cột cần hiển thị nếu màn hình hỗ trợ tùy chỉnh cột.</li>
+<li>Click một dòng để mở chi tiết.</li>
+<li>Chỉ dùng thao tác xóa hàng loạt sau khi đã đối chiếu dữ liệu liên kết; hệ thống có thể từ chối xóa khi bản ghi đã được chứng từ khác sử dụng.</li>
+</ol>
+<h2 id="6-tiem-nang-va-co-hoi">6. Tiềm năng và Cơ hội</h2>
+<h3>6.1. Tạo Lead</h3>
+<p><img src="assets/screenshots/dcnet-crm/03-lead-detail-system-manager.png" alt="Chi tiết Lead trên site UAT"></p>
+<p><em>Hình 3 — Trang chi tiết Lead demo gồm đầy đủ thông tin liên hệ, tab nghiệp vụ và lịch sử giao dịch.</em></p>
+<ol>
+<li>Mở <strong>Tiềm năng</strong> và chọn nút tạo mới.</li>
+<li>Nhập tối thiểu các trường bắt buộc đang hiển thị trên form.</li>
+<li>Kiểm tra điện thoại/email để hạn chế trùng dữ liệu.</li>
+<li>Chọn nguồn và người phụ trách nếu quy trình của đơn vị yêu cầu.</li>
+<li>Lưu rồi mở chi tiết để thêm ghi chú hoặc hoạt động.</li>
+</ol>
+<p>Yêu cầu tích hợp Lead từ nguồn ngoài tại spec 3.7 vẫn cần thông tin nhà cung cấp/credential; không trình diễn tích hợp giả trong training.</p>
+<h3>6.2. Theo dõi Opportunity</h3>
+<p>Các cột quan trọng gồm tên cơ hội, liên hệ, số tiền, giai đoạn bán hàng, ngày kỳ vọng, người thực hiện, trạng thái và xác suất. Khi cập nhật, phải phân biệt:</p>
+<ul>
+<li><strong>Giai đoạn bán hàng:</strong> vị trí trong pipeline.</li>
+<li><strong>Trạng thái:</strong> tình trạng xử lý của chứng từ.</li>
+<li><strong>Xác suất:</strong> đánh giá khả năng thành công, không phải doanh thu đã ghi nhận.</li>
+</ul>
+<p>Từ chi tiết cơ hội, dùng chức năng tạo đơn hàng chỉ khi thông tin khách hàng, mặt hàng, số lượng, giá và ngày giao đã được kiểm tra.</p>
+<h2 id="7-khach-hang-va-lien-he">7. Khách hàng và Liên hệ</h2>
+<p><img src="assets/screenshots/dcnet-crm/04-customer-list-system-manager.png" alt="Danh sách Khách hàng trên site UAT"></p>
+<p><em>Hình 4 — Danh sách Khách hàng demo, panel hoạt động và bộ lọc với dữ liệu mẫu được giữ nguyên.</em></p>
+<h3>7.1. Tạo Khách hàng</h3>
+<ol>
+<li>Mở <strong>Khách hàng</strong> → tạo mới.</li>
+<li>Chọn đúng loại Khách hàng cá nhân/tổ chức theo form.</li>
+<li>Nhập tên, nhóm khách hàng, khu vực và mã số thuế nếu có.</li>
+<li>Với địa chỉ Việt Nam, chọn Tỉnh/Thành và Phường/Xã theo danh mục hiển thị; không nhập tự do khi hệ thống cung cấp dropdown.</li>
+<li>Kiểm tra cảnh báo trùng mã số thuế trước khi lưu.</li>
+<li>Tạo hoặc liên kết Contact để lưu đúng người giao dịch.</li>
+</ol>
+<h3>7.2. Đọc trang chi tiết</h3>
+<p>Trang chi tiết có thể hiển thị thông tin chung, liên hệ, hoạt động và dữ liệu bán hàng liên kết. Không chỉnh trực tiếp số liệu lịch sử giao dịch từ hồ sơ Customer; mở chứng từ nguồn để xử lý theo quyền.</p>
+<h2 id="8-bao-gia-va-don-hang">8. Báo giá và Đơn hàng</h2>
+<p><img src="assets/screenshots/dcnet-crm/08-opportunity-list-system-manager.png" alt="Danh sách Cơ hội trên site UAT"></p>
+<p><em>Hình 5 — Danh sách Cơ hội mẫu theo giai đoạn bán hàng và panel bộ lọc.</em></p>
+<ol>
+<li>Chọn đúng khách hàng và ngày chứng từ.</li>
+<li>Thêm từng mặt hàng, số lượng và đơn vị tính.</li>
+<li>Kiểm tra bảng giá, đơn giá, thuế, ngày hiệu lực/ngày giao.</li>
+<li>Với đơn hàng, dùng tra cứu tồn kho trước khi cam kết số lượng với khách nếu nút này được hiển thị.</li>
+<li>Lưu nháp để kiểm tra; chỉ Submit theo quy trình nghiệp vụ đã được phê duyệt.</li>
+</ol>
+<p><code>DCNET Service Account</code> có thể được liên kết ở dòng đơn hàng đối với nghiệp vụ tài khoản dịch vụ. Đây là phần custom; chỉ sử dụng khi sản phẩm/quy trình thực tế yêu cầu.</p>
+<h2 id="9-hoat-dong-va-the-cham-soc">9. Hoạt động và Thẻ chăm sóc</h2>
+<p><img src="assets/screenshots/dcnet-crm/13-activity-workspace-system-manager.png" alt="Không gian Hoạt động CRM trên site UAT"></p>
+<p><em>Hình 6 — Không gian Hoạt động CRM dùng theo dõi công việc và tương tác.</em></p>
+<p>Trang <strong>Hoạt động</strong> hợp nhất các bản ghi tương tác/công việc và áp dụng phạm vi theo vai trò. Khi ghi hoạt động:</p>
+<ul>
+<li>Chọn đúng loại: cuộc gọi, email, công việc hoặc loại được cấu hình.</li>
+<li>Liên kết đúng Lead, Customer, Opportunity hoặc Sales Order.</li>
+<li>Ghi kết quả và bước tiếp theo có thể hành động được.</li>
+<li>Đặt hạn xử lý và người phụ trách khi là công việc.</li>
+</ul>
+<p><strong>Thẻ chăm sóc</strong> là phần custom dùng cho danh sách, tạo mới, xem chi tiết và cập nhật nội dung chăm sóc. Trong môi trường training, sử dụng dữ liệu demo và có thể giữ nguyên nội dung mẫu để người học đối chiếu thao tác.</p>
+<h2 id="10-import-export-va-bao-cao">10. Import, export và báo cáo</h2>
+<ul>
+<li>Import Lead/Customer theo spec dùng công cụ Data Import hoặc quy trình migration được quản trị phê duyệt.</li>
+<li>Export chỉ thực hiện khi vai trò được cấp quyền và có mục đích nghiệp vụ rõ ràng.</li>
+<li>Dashboard/KPI là số tổng hợp theo dữ liệu mà tài khoản được phép xem; hai người dùng khác phạm vi có thể thấy số khác nhau.</li>
+<li>Công thức KPI và danh sách báo cáo phase đầu còn các điểm cần khách hàng xác nhận; người đào tạo không tự diễn giải thành cam kết chức năng.</li>
+</ul>
+<h2 id="11-bai-thuc-hanh-training">11. Bài thực hành training</h2>
+<ol>
+<li>Tạo một Lead mẫu, thêm hoạt động gọi điện và ghi bước tiếp theo.</li>
+<li>Tạo một Customer cùng Contact, kiểm tra cảnh báo dữ liệu trùng.</li>
+<li>Tạo Opportunity, cập nhật giai đoạn và xác suất.</li>
+<li>Tạo Quotation từ dữ liệu mẫu, kiểm tra tổng tiền.</li>
+<li>Tạo Sales Order nháp, tra cứu tồn và không Submit.</li>
+<li>Tạo một Thẻ chăm sóc và tìm lại từ danh sách.</li>
+</ol>
+<h2 id="12-cau-hoi-thuong-gap">12. Câu hỏi thường gặp</h2>
+<ol>
+<li><strong>Không thấy menu CRM?</strong> Kiểm tra tài khoản có <code>Sales User</code>, <code>Sales Manager</code> hoặc vai trò được quản trị cho phép.</li>
+<li><strong>Tại sao không thấy đủ khách hàng?</strong> Tài khoản có thể đang bị giới hạn theo phân công/phạm vi dữ liệu.</li>
+<li><strong>Dashboard của tôi khác quản lý?</strong> KPI được tính trên dữ liệu người dùng được phép xem.</li>
+<li><strong>Có thể xóa Customer đã phát sinh đơn không?</strong> Thường không; dữ liệu liên kết sẽ chặn để bảo toàn lịch sử.</li>
+<li><strong>Lead và Customer khác nhau thế nào?</strong> Lead là đầu mối chưa được xác lập thành khách hàng; Customer là đối tượng giao dịch chính thức.</li>
+<li><strong>Opportunity có phải đơn hàng không?</strong> Không. Opportunity là cơ hội bán; Sales Order mới là đơn hàng.</li>
+<li><strong>Xác suất 100% có ghi nhận doanh thu không?</strong> Không; ghi nhận phụ thuộc chứng từ bán hàng/kế toán.</li>
+<li><strong>Tại sao nút tạo đơn bị lỗi?</strong> Kiểm tra Customer, mặt hàng, kho, ngày giao và các trường bắt buộc ERPNext.</li>
+<li><strong>Có gửi Zalo/Facebook trực tiếp không?</strong> Chưa khẳng định; nhà cung cấp và credential đang là nội dung cần clarify.</li>
+<li><strong>Có thể export toàn bộ CRM không?</strong> Chỉ khi quyền và chính sách dữ liệu cho phép.</li>
+<li><strong>Thẻ chăm sóc có thay thế Hoạt động không?</strong> Không; dùng đúng mục đích nghiệp vụ đã cấu hình.</li>
+<li><strong>Khi gặp dữ liệu trùng phải làm gì?</strong> Dừng tạo mới, tìm bản ghi hiện có và báo quản trị/key user để xử lý.</li>
+</ol>
+<h2 id="13-thuat-ngu">13. Thuật ngữ</h2>
+<table>
+<thead>
+<tr>
+<th>Thuật ngữ</th>
+<th>Nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Lead</td>
+<td>Tiềm năng/đầu mối bán hàng</td>
+</tr>
+<tr>
+<td>Opportunity</td>
+<td>Cơ hội bán hàng</td>
+</tr>
+<tr>
+<td>Customer</td>
+<td>Khách hàng giao dịch</td>
+</tr>
+<tr>
+<td>Contact</td>
+<td>Người liên hệ</td>
+</tr>
+<tr>
+<td>Quotation</td>
+<td>Báo giá</td>
+</tr>
+<tr>
+<td>Sales Order</td>
+<td>Đơn hàng bán</td>
+</tr>
+<tr>
+<td>Pipeline</td>
+<td>Chuỗi các giai đoạn bán hàng</td>
+</tr>
+<tr>
+<td>Submit</td>
+<td>Xác nhận chứng từ theo cơ chế ERPNext; thường hạn chế sửa sau đó</td>
+</tr>
+</tbody></table>
+<h2 id="14-diem-can-xac-nhan-truoc-training-chinh-thuc">14. Điểm cần xác nhận trước training chính thức</h2>
+<ul>
+<li>Nhà cung cấp và credential Zalo OA, Facebook/Messenger, SMS Brandname.</li>
+<li>Nguồn ngoài tại spec 3.7.</li>
+<li>Quy tắc doanh số và công thức KPI.</li>
+<li>Phạm vi GPS/di tuyến.</li>
+<li>Danh sách báo cáo chính thức cho phase training.</li>
+</ul>
+</main></div><footer>DCNET Flow · Tài liệu training · Xuất ngày 13/07/2026</footer></body></html>

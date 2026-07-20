@@ -1,0 +1,23 @@
+{
+  "meta": { "schema_version": "1.1.0", "awf_version": "4.0.0" },
+  "project": {
+    "name": "DCNET Flow",
+    "type": "ERPNext v16 Custom App",
+    "status": "Development"
+  },
+  "tech_stack": {
+    "framework": "Frappe v16",
+    "core": "ERPNext v16",
+    "custom_apps": ["dcnet_apps", "dcnet_fixtures"],
+    "database": "MariaDB"
+  },
+  "features": [
+    { "id": "01", "name": "Vietnamese Translations", "status": "Implemented" },
+    { "id": "einvoice", "name": "E-Invoice Integration", "status": "In Progress" }
+  ],
+  "knowledge_items": {
+    "conventions": [
+      "Custom translations for individual developers should be stored in dcnet_fixtures/translations/vi.csv to avoid git conflicts in dcnet_apps."
+    ]
+  }
+}

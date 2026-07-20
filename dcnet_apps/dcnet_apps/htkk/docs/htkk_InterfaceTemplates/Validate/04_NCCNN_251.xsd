@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:redefine schemaLocation="..\TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="TTNCCNN">
+							<xs:annotation>
+								<xs:documentation>Bảng kê chi tiết</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CTietThongTinNCCNN" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tenNhaCCNN" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên nhà cung cấp nước ngoài</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="diaChi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Địa chỉ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_QuocGia" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Quốc gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_QuocGia" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Quốc gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongSoTienChuyenTrongThang" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng số tiền chuyển trong tháng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_DonViTT" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã đơn vị tiền tệ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_DonViTT" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị tiền tệ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

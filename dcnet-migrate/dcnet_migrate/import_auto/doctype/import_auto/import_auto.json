@@ -1,0 +1,276 @@
+{
+ "actions": [],
+ "autoname": "format:IMPORT-AUTO-{YYYY}-{#####}",
+ "creation": "2026-05-18 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "folder_path",
+  "company",
+  "column_break_top",
+  "recursive",
+  "file_pattern",
+  "display_name",
+  "excel_file_count",
+  "progress_section",
+  "progress_percent",
+  "progress_message",
+  "column_break_progress",
+  "processed_files",
+  "total_files",
+  "current_file",
+  "ai_section",
+  "api_base_url",
+  "model",
+  "column_break_ai",
+  "api_key",
+  "timeout_seconds",
+  "actions_section",
+  "scan_files_btn",
+  "analyze_files_btn",
+  "test_connection_btn",
+  "list_section",
+  "files_html",
+  "files",
+  "summary_section",
+  "summary_json"
+ ],
+ "fields": [
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nScanning\nScanned\nAnalyzing\nAnalyzed\nImporting\nCompleted\nPartial\nFailed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "folder_path",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Server Import Folder",
+   "description": "Server-side folder used for scanning. Use Upload Files or Upload Folder to send Excel files from your computer."
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "column_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "recursive",
+   "fieldtype": "Check",
+   "label": "Include Subfolders",
+   "description": "Only applies when the path is a folder."
+  },
+  {
+   "default": "*.xlsx,*.xls",
+   "fieldname": "file_pattern",
+   "fieldtype": "Data",
+   "label": "File Pattern",
+   "description": "Only applies to folders. Example: *.xlsx,*.xls"
+  },
+  {
+   "description": "Friendly name for this import batch in the list.",
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Display Name"
+  },
+  {
+   "fieldname": "excel_file_count",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Excel File Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "progress_section",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "progress_percent",
+   "fieldtype": "Percent",
+   "hidden": 1,
+   "label": "Progress",
+   "read_only": 1
+  },
+  {
+   "fieldname": "progress_message",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Progress Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_progress",
+   "fieldtype": "Column Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "processed_files",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Processed Files",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_files",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Total Files",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_file",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Current File",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ai_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "AI Connection"
+  },
+  {
+   "default": "https://khoaapi.duckdns.org/v1",
+   "fieldname": "api_base_url",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "API Base URL"
+  },
+  {
+   "default": "cx/gpt-5.5",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Model"
+  },
+  {
+   "fieldname": "column_break_ai",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Store here, in site_config, or env. Do not commit secrets.",
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "hidden": 1,
+   "label": "API Key"
+  },
+  {
+   "default": "60",
+   "fieldname": "timeout_seconds",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Timeout Seconds"
+  },
+  {
+   "fieldname": "actions_section",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "scan_files_btn",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Scan Excel Files"
+  },
+  {
+   "fieldname": "analyze_files_btn",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Analyze"
+  },
+  {
+   "fieldname": "test_connection_btn",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Check AI Connection"
+  },
+  {
+   "fieldname": "list_section",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "files_html",
+   "fieldtype": "HTML",
+   "label": "Files"
+  },
+  {
+   "fieldname": "files",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Files Data",
+   "options": "Import Auto File"
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Summary"
+  },
+  {
+   "fieldname": "summary_json",
+   "fieldtype": "Code",
+   "hidden": 1,
+   "label": "Summary JSON",
+   "options": "JSON",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-19 10:44:42.268679",
+ "modified_by": "Administrator",
+ "module": "Import Auto",
+ "name": "Import Auto",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "display_name,folder_path,company,status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "display_name",
+ "track_changes": 1
+}

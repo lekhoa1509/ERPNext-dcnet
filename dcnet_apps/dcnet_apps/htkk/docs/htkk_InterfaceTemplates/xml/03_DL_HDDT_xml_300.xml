@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TKhai>
+	<DLTKhai id="ID_1">
+		<TTChung>
+			<PBan/>
+			<MSo/>
+			<Ten/>
+			<STKhai/>
+			<LKTThue/>
+			<KTThue/>
+			<DDanh/>
+			<NLap/>
+			<TNNT/>
+			<MST/>
+			<TDLThue/>
+			<MSTDLThue/>
+			<DVTTe/>
+		</TTChung>
+		<NDTKhai>
+			<TTSuat>
+				<TSuat/>
+				<DSHDon>
+					<HDon id="String">
+						<TenLoaiHDon/>
+						<KyHieuMau/>
+						<KyHieu/>
+						<SoHoaDon/>
+						<NgayLap/>
+						<TenNguoiMua/>
+						<MSTNguoiMua/>
+						<DoanhThu/>
+						<ThueGTGT/>
+						<GhiChu/>
+					</HDon>
+				</DSHDon>
+				<TgDTCThue/>
+				<TgTGTGT/>
+			</TTSuat>
+			<TgDThu/>
+			<TgThue/>
+		</NDTKhai>
+		<PLuc/>
+	</DLTKhai>
+</TKhai>

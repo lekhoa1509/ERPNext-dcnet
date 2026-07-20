@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ngayThangNam" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Ngày Tháng Năm </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="BienLai">
+							<xs:annotation>
+								<xs:documentation>Biên lai</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTiet" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation> Nọi dung chi tiết biên lai </xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ttinThayDoi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thông tin thay đổi </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tTinCu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thông tin cũ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tTinMoi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thông tin mới </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="ID" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="tenCQTTiepNhan" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tên cơ quan thuế tiếp nhận thông báo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

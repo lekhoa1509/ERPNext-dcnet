@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "autoname": "field:format_name",
+ "creation": "2026-04-10 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "format_name", "bank", "file_type", "currency", "column_break_1",
+  "sheet_index", "header_row", "data_start_row", "data_end_marker",
+  "section_columns", "col_date", "col_narration", "col_debit", "col_credit",
+  "col_balance", "col_ref", "col_counter_account", "col_counter_name",
+  "section_parsing", "date_format", "decimal_separator", "thousands_separator"
+ ],
+ "description": "Defines how to read a bank statement Excel file: which row has headers, which columns contain date/amount/description, and how to parse dates and numbers. Pre-configured for BIDV, MB Bank, Sacombank, PG Bank. Create a new format for other banks.",
+ "fields": [
+  {"fieldname": "format_name", "fieldtype": "Data", "label": "Format Name", "reqd": 1, "unique": 1, "in_list_view": 1, "description": "A descriptive name, e.g. 'BIDV - Sao kê TK' or 'MB Bank - Bang ket qua giao dich'"},
+  {"fieldname": "bank", "fieldtype": "Link", "options": "Bank", "label": "Bank", "reqd": 1, "in_list_view": 1, "description": "The bank this format belongs to. Used for auto-detection when uploading."},
+  {"fieldname": "file_type", "fieldtype": "Select", "options": "xlsx\nxls\ncsv\nhtml", "default": "xlsx", "reqd": 1, "label": "File Type", "description": "File extension of the bank export. PG Bank uses .xls (actually HTML inside)."},
+  {"fieldname": "currency", "fieldtype": "Link", "options": "Currency", "default": "VND", "label": "Currency"},
+  {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+  {"fieldname": "sheet_index", "fieldtype": "Int", "default": 0, "label": "Sheet Index", "description": "0 = first sheet. Most banks use the first sheet."},
+  {"fieldname": "header_row", "fieldtype": "Int", "default": 1, "label": "Header Row", "description": "Row number (1-indexed) containing column headers. Open the file in Excel to find it. BIDV uses row 16."},
+  {"fieldname": "data_start_row", "fieldtype": "Int", "default": 2, "label": "Data Start Row", "description": "Row number where actual transaction data begins (after header). BIDV uses row 18 (dual-row header)."},
+  {"fieldname": "data_end_marker", "fieldtype": "Data", "label": "Data End Marker (regex)"},
+  {"fieldname": "section_columns", "fieldtype": "Section Break", "label": "Column Mapping", "description": "Map each field to a column in the Excel file. Use a single letter (A, B, C...) for column position, or type the header text for text-based matching."},
+  {"fieldname": "col_date", "fieldtype": "Data", "label": "Date Column", "reqd": 1, "description": "Column letter (e.g. 'A') or header text. This column contains the transaction date."},
+  {"fieldname": "col_narration", "fieldtype": "Data", "label": "Narration Column", "reqd": 1, "description": "Column with transaction description/narration. Used for matching with invoices."},
+  {"fieldname": "col_debit", "fieldtype": "Data", "label": "Debit (Withdrawal) Column", "description": "Column for money going out. Some banks use separate debit/credit columns, others use a single amount column."},
+  {"fieldname": "col_credit", "fieldtype": "Data", "label": "Credit (Deposit) Column", "description": "Column for money coming in."},
+  {"fieldname": "col_balance", "fieldtype": "Data", "label": "Balance Column", "description": "Column showing running balance (optional, not used for matching)."},
+  {"fieldname": "col_ref", "fieldtype": "Data", "label": "Reference Column", "description": "Transaction reference number from the bank. Helps with deduplication on re-upload."},
+  {"fieldname": "col_counter_account", "fieldtype": "Data", "label": "Counter Account No Column", "description": "Counterparty bank account number (optional). Helps identify the party."},
+  {"fieldname": "col_counter_name", "fieldtype": "Data", "label": "Counter Account Name Column", "description": "Counterparty name (optional). Used by the name-matching engine."},
+  {"fieldname": "section_parsing", "fieldtype": "Section Break", "label": "Parsing Rules", "description": "How to interpret date and number formats in the file."},
+  {"fieldname": "date_format", "fieldtype": "Data", "default": "%d/%m/%Y", "label": "Date Format (strptime)", "description": "Python strptime format. Common: %d/%m/%Y (31/12/2025), %Y-%m-%d (2025-12-31), %d-%m-%Y (31-12-2025)"},
+  {"fieldname": "decimal_separator", "fieldtype": "Data", "default": ".", "label": "Decimal Separator", "description": "Character for decimal point. VN banks typically use '.' (dot)."},
+  {"fieldname": "thousands_separator", "fieldtype": "Data", "default": ",", "label": "Thousands Separator", "description": "Character separating thousands. VN banks typically use ',' (comma)."}
+ ],
+ "istable": 0,
+ "module": "VN Banking",
+ "name": "Bank Statement Format",
+ "owner": "Administrator",
+ "permissions": [
+  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "export": 1},
+  {"role": "Accounts Manager", "read": 1, "write": 1, "create": 1}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

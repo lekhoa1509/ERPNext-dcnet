@@ -1,0 +1,2477 @@
+{
+  "total_guides": 7,
+  "guides_by_complexity": {
+    "advanced": 5,
+    "intermediate": 2
+  },
+  "guides_by_use_case": {
+    "Carry Forward Of Email And Comments": [
+      {
+        "guide_id": "8f1641a0ac5d",
+        "title": "Carry Forward Of Email And Comments",
+        "overview": "Workflow: test carry forward of email and comments",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "unittest",
+          "frappe",
+          "frappe.tests",
+          "frappe.utils",
+          "erpnext.crm.doctype.lead.lead",
+          "erpnext.crm.doctype.lead.test_lead",
+          "erpnext.crm.doctype.opportunity.opportunity",
+          "erpnext.crm.utils",
+          "erpnext.tests.utils"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "f0038dd3",
+            "test_name": "test_carry_forward_of_email_and_comments",
+            "category": "workflow",
+            "code": "frappe.db.set_single_value('CRM Settings', 'carry_forward_communication_and_comments', 1)\nlead_doc = make_lead()\nlead_doc.add_comment('Comment', text='Test Comment 1')\nlead_doc.add_comment('Comment', text='Test Comment 2')\ncreate_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)\ncreate_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)\nopp_doc = make_opportunity(opportunity_from='Lead', lead=lead_doc.name)\nopportunity_comment_count = frappe.db.count('Comment', {'reference_doctype': opp_doc.doctype, 'reference_name': opp_doc.name})\nopportunity_communication_count = len(get_linked_communication_list(opp_doc.doctype, opp_doc.name))\nself.assertEqual(opportunity_comment_count, 2)\nself.assertEqual(opportunity_communication_count, 2)\nopp_doc.add_comment('Comment', text='Test Comment 3')\nopp_doc.add_comment('Comment', text='Test Comment 4')\ncreate_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)\ncreate_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)",
+            "language": "Python",
+            "description": "Workflow: test carry forward of email and comments",
+            "expected_behavior": "self.assertEqual(opportunity_communication_count, 2)",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+            "line_start": 82,
+            "line_end": 101,
+            "complexity_score": 1.0,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "unittest",
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "unittest",
+              "frappe",
+              "frappe.tests",
+              "frappe.utils",
+              "erpnext.crm.doctype.lead.lead",
+              "erpnext.crm.doctype.lead.test_lead",
+              "erpnext.crm.doctype.opportunity.opportunity",
+              "erpnext.crm.utils",
+              "erpnext.tests.utils"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "frappe.db.set_single_value('CRM Settings', 'carry_forward_communication_and_comments', 1)",
+            "description": "Call frappe.db.set_single_value()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "lead_doc = make_lead()",
+            "description": "Assign lead_doc = make_lead(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "lead_doc.add_comment('Comment', text='Test Comment 1')",
+            "description": "Call lead_doc.add_comment()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "lead_doc.add_comment('Comment', text='Test Comment 2')",
+            "description": "Call lead_doc.add_comment()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "create_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)",
+            "description": "Call create_communication()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "create_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)",
+            "description": "Call create_communication()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "opp_doc = make_opportunity(opportunity_from='Lead', lead=lead_doc.name)",
+            "description": "Assign opp_doc = make_opportunity(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "opportunity_comment_count = frappe.db.count('Comment', {'reference_doctype': opp_doc.doctype, 'reference_name': opp_doc.name})",
+            "description": "Assign opportunity_comment_count = frappe.db.count(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 9,
+            "code": "opportunity_communication_count = len(get_linked_communication_list(opp_doc.doctype, opp_doc.name))",
+            "description": "Assign opportunity_communication_count = len(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 10,
+            "code": "self.assertEqual(opportunity_comment_count, 2)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 11,
+            "code": "self.assertEqual(opportunity_communication_count, 2)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 12,
+            "code": "opp_doc.add_comment('Comment', text='Test Comment 3')",
+            "description": "Call opp_doc.add_comment()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 13,
+            "code": "opp_doc.add_comment('Comment', text='Test Comment 4')",
+            "description": "Call opp_doc.add_comment()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 14,
+            "code": "create_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)",
+            "description": "Call create_communication()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 15,
+            "code": "create_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)",
+            "description": "Call create_communication()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Carry Forward Of Email And Comments",
+        "tags": [
+          "unittest",
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "20 minutes",
+        "source_files": [
+          "test_opportunity.py:82"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Add Lead To Prospect And Address Linking": [
+      {
+        "guide_id": "4e6e26d24046",
+        "title": "Add Lead To Prospect And Address Linking",
+        "overview": "Workflow: test add lead to prospect and address linking",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "unittest",
+          "frappe",
+          "frappe.tests",
+          "frappe.utils",
+          "erpnext.crm.doctype.lead.lead",
+          "erpnext.crm.doctype.lead.test_lead",
+          "erpnext.crm.doctype.prospect.prospect"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "2c5e16c3",
+            "test_name": "test_add_lead_to_prospect_and_address_linking",
+            "category": "workflow",
+            "code": "lead_doc = make_lead()\naddress_doc = make_address(address_title=lead_doc.name)\naddress_doc.append('links', {'link_doctype': lead_doc.doctype, 'link_name': lead_doc.name})\naddress_doc.save()\nprospect_doc = make_prospect()\nadd_lead_to_prospect(lead_doc.name, prospect_doc.name)\nprospect_doc.reload()\nlead_exists_in_prosoect = False\nfor rec in prospect_doc.get('leads'):\n    if rec.lead == lead_doc.name:\n        lead_exists_in_prosoect = True\nself.assertEqual(lead_exists_in_prosoect, True)\naddress_doc.reload()\nself.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+            "language": "Python",
+            "description": "Workflow: test add lead to prospect and address linking",
+            "expected_behavior": "self.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+            "line_start": 14,
+            "line_end": 28,
+            "complexity_score": 1.0,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "unittest",
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "unittest",
+              "frappe",
+              "frappe.tests",
+              "frappe.utils",
+              "erpnext.crm.doctype.lead.lead",
+              "erpnext.crm.doctype.lead.test_lead",
+              "erpnext.crm.doctype.prospect.prospect"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "lead_doc = make_lead()",
+            "description": "Assign lead_doc = make_lead(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "address_doc = make_address(address_title=lead_doc.name)",
+            "description": "Assign address_doc = make_address(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "address_doc.append('links', {'link_doctype': lead_doc.doctype, 'link_name': lead_doc.name})",
+            "description": "Call address_doc.append()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "address_doc.save()",
+            "description": "Call address_doc.save()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "prospect_doc = make_prospect()",
+            "description": "Assign prospect_doc = make_prospect(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "add_lead_to_prospect(lead_doc.name, prospect_doc.name)",
+            "description": "Call add_lead_to_prospect()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "prospect_doc.reload()",
+            "description": "Call prospect_doc.reload()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "lead_exists_in_prosoect = False",
+            "description": "Assign lead_exists_in_prosoect = False",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 9,
+            "code": "self.assertEqual(lead_exists_in_prosoect, True)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 10,
+            "code": "address_doc.reload()",
+            "description": "Call address_doc.reload()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 11,
+            "code": "self.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 12,
+            "code": "lead_exists_in_prosoect = True",
+            "description": "Assign lead_exists_in_prosoect = True",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Add Lead To Prospect And Address Linking",
+        "tags": [
+          "unittest",
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "20 minutes",
+        "source_files": [
+          "test_prospect.py:14"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Sales Pipeline Analytics": [
+      {
+        "guide_id": "5c4272c48cfe",
+        "title": "Sales Pipeline Analytics",
+        "overview": "Workflow: test sales pipeline analytics",
+        "complexity_level": "intermediate",
+        "prerequisites": [],
+        "required_imports": [
+          "unittest",
+          "frappe",
+          "frappe.tests",
+          "erpnext.crm.report.sales_pipeline_analytics.sales_pipeline_analytics"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "3661658b",
+            "test_name": "test_sales_pipeline_analytics",
+            "category": "workflow",
+            "code": "self.from_date = '2021-01-01'\nself.to_date = '2021-12-31'\nself.check_for_monthly_and_number()\nself.check_for_monthly_and_amount()\nself.check_for_quarterly_and_number()\nself.check_for_quarterly_and_amount()\nself.check_for_all_filters()",
+            "language": "Python",
+            "description": "Workflow: test sales pipeline analytics",
+            "expected_behavior": "",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/report/sales_pipeline_analytics/test_sales_pipeline_analytics.py",
+            "line_start": 15,
+            "line_end": 22,
+            "complexity_score": 0.7,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "unittest",
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "unittest",
+              "frappe",
+              "frappe.tests",
+              "erpnext.crm.report.sales_pipeline_analytics.sales_pipeline_analytics"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "self.from_date = '2021-01-01'",
+            "description": "Assign self.from_date = '2021-01-01'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "self.to_date = '2021-12-31'",
+            "description": "Assign self.to_date = '2021-12-31'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "self.check_for_monthly_and_number()",
+            "description": "Call self.check_for_monthly_and_number()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "self.check_for_monthly_and_amount()",
+            "description": "Call self.check_for_monthly_and_amount()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "self.check_for_quarterly_and_number()",
+            "description": "Call self.check_for_quarterly_and_number()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "self.check_for_quarterly_and_amount()",
+            "description": "Call self.check_for_quarterly_and_amount()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "self.check_for_all_filters()",
+            "description": "Call self.check_for_all_filters()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Sales Pipeline Analytics",
+        "tags": [
+          "unittest",
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "15 minutes",
+        "source_files": [
+          "test_sales_pipeline_analytics.py:15"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Make Customer": [
+      {
+        "guide_id": "21baa175e69a",
+        "title": "Make Customer",
+        "overview": "Workflow: test make customer",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "unittest",
+          "frappe",
+          "frappe.tests",
+          "frappe.utils",
+          "erpnext.crm.doctype.lead.lead",
+          "erpnext.crm.utils",
+          "erpnext.tests.utils",
+          "erpnext.crm.doctype.lead.lead",
+          "erpnext.crm.doctype.lead.lead"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "f62eb534",
+            "test_name": "test_make_customer",
+            "category": "workflow",
+            "code": "from erpnext.crm.doctype.lead.lead import make_customer\nfrappe.delete_doc_if_exists('Customer', '_Test Lead')\ncustomer = make_customer(self.leads[0].name)\nself.assertEqual(customer.doctype, 'Customer')\nself.assertEqual(customer.lead_name, self.leads[0].name)\ncustomer.company = '_Test Company'\ncustomer.customer_group = '_Test Customer Group'\ncustomer.insert()\ncontact = frappe.db.get_value('Dynamic Link', {'parenttype': 'Contact', 'link_doctype': 'Lead', 'link_name': customer.lead_name}, 'parent')\nif contact:\n    contact_doc = frappe.get_doc('Contact', contact)\n    self.assertEqual(contact_doc.has_link(customer.doctype, customer.name), True)",
+            "language": "Python",
+            "description": "Workflow: test make customer",
+            "expected_behavior": "self.assertEqual(customer.lead_name, self.leads[0].name)",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+            "line_start": 20,
+            "line_end": 46,
+            "complexity_score": 1.0,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "unittest",
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "unittest",
+              "frappe",
+              "frappe.tests",
+              "frappe.utils",
+              "erpnext.crm.doctype.lead.lead",
+              "erpnext.crm.utils",
+              "erpnext.tests.utils",
+              "erpnext.crm.doctype.lead.lead",
+              "erpnext.crm.doctype.lead.lead"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "frappe.delete_doc_if_exists('Customer', '_Test Lead')",
+            "description": "Call frappe.delete_doc_if_exists()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "customer = make_customer(self.leads[0].name)",
+            "description": "Assign customer = make_customer(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "self.assertEqual(customer.doctype, 'Customer')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "self.assertEqual(customer.lead_name, self.leads[0].name)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "customer.company = '_Test Company'",
+            "description": "Assign customer.company = '_Test Company'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "customer.customer_group = '_Test Customer Group'",
+            "description": "Assign customer.customer_group = '_Test Customer Group'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "customer.insert()",
+            "description": "Call customer.insert()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "contact = frappe.db.get_value('Dynamic Link', {'parenttype': 'Contact', 'link_doctype': 'Lead', 'link_name': customer.lead_name}, 'parent')",
+            "description": "Assign contact = frappe.db.get_value(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 9,
+            "code": "contact_doc = frappe.get_doc('Contact', contact)",
+            "description": "Assign contact_doc = frappe.get_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 10,
+            "code": "self.assertEqual(contact_doc.has_link(customer.doctype, customer.name), True)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Make Customer",
+        "tags": [
+          "unittest",
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "15 minutes",
+        "source_files": [
+          "test_lead.py:20"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Fulfilled Contract Status": [
+      {
+        "guide_id": "e1d3e75e29ac",
+        "title": "Fulfilled Contract Status",
+        "overview": "Workflow: test fulfilled contract status",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "unittest",
+          "frappe",
+          "frappe.tests",
+          "frappe.utils"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "2c261561",
+            "test_name": "test_fulfilled_contract_status",
+            "category": "workflow",
+            "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'\nself.contract_doc.requires_fulfilment = 1\nfulfilment_terms = []\nfulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})\nself.contract_doc.set('fulfilment_terms', fulfilment_terms)\nfor term in self.contract_doc.fulfilment_terms:\n    term.fulfilled = 1\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Fulfilled')",
+            "language": "Python",
+            "description": "Workflow: test fulfilled contract status",
+            "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Fulfilled')",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+            "line_start": 61,
+            "line_end": 75,
+            "complexity_score": 0.8,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "unittest",
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "unittest",
+              "frappe",
+              "frappe.tests",
+              "frappe.utils"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'",
+            "description": "Assign self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "self.contract_doc.requires_fulfilment = 1",
+            "description": "Assign self.contract_doc.requires_fulfilment = 1",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "fulfilment_terms = []",
+            "description": "Assign fulfilment_terms = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "fulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})",
+            "description": "Call fulfilment_terms.append()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "self.contract_doc.set('fulfilment_terms', fulfilment_terms)",
+            "description": "Call self.contract_doc.set()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "self.contract_doc.save()",
+            "description": "Call self.contract_doc.save()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "self.assertEqual(self.contract_doc.fulfilment_status, 'Fulfilled')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "term.fulfilled = 1",
+            "description": "Assign term.fulfilled = 1",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Fulfilled Contract Status",
+        "tags": [
+          "unittest",
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "15 minutes",
+        "source_files": [
+          "test_contract.py:61"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Partially Fulfilled Contract Status": [
+      {
+        "guide_id": "bcc5435428d7",
+        "title": "Partially Fulfilled Contract Status",
+        "overview": "Workflow: test partially fulfilled contract status",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "unittest",
+          "frappe",
+          "frappe.tests",
+          "frappe.utils"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "ec9e4f1d",
+            "test_name": "test_partially_fulfilled_contract_status",
+            "category": "workflow",
+            "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'\nself.contract_doc.requires_fulfilment = 1\nself.contract_doc.save()\nfulfilment_terms = []\nfulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})\nfulfilment_terms.append({'requirement': 'This is another test requirement.', 'fulfilled': 0})\nself.contract_doc.set('fulfilment_terms', fulfilment_terms)\nself.contract_doc.fulfilment_terms[0].fulfilled = 1\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Partially Fulfilled')",
+            "language": "Python",
+            "description": "Workflow: test partially fulfilled contract status",
+            "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Partially Fulfilled')",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+            "line_start": 77,
+            "line_end": 91,
+            "complexity_score": 1.0,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "unittest",
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "unittest",
+              "frappe",
+              "frappe.tests",
+              "frappe.utils"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'",
+            "description": "Assign self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "self.contract_doc.requires_fulfilment = 1",
+            "description": "Assign self.contract_doc.requires_fulfilment = 1",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "self.contract_doc.save()",
+            "description": "Call self.contract_doc.save()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "fulfilment_terms = []",
+            "description": "Assign fulfilment_terms = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "fulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})",
+            "description": "Call fulfilment_terms.append()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "fulfilment_terms.append({'requirement': 'This is another test requirement.', 'fulfilled': 0})",
+            "description": "Call fulfilment_terms.append()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "self.contract_doc.set('fulfilment_terms', fulfilment_terms)",
+            "description": "Call self.contract_doc.set()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "self.contract_doc.fulfilment_terms[0].fulfilled = 1",
+            "description": "Assign unknown.fulfilled = 1",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 9,
+            "code": "self.contract_doc.save()",
+            "description": "Call self.contract_doc.save()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 10,
+            "code": "self.assertEqual(self.contract_doc.fulfilment_status, 'Partially Fulfilled')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Partially Fulfilled Contract Status",
+        "tags": [
+          "unittest",
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "15 minutes",
+        "source_files": [
+          "test_contract.py:77"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Lapsed Contract Status": [
+      {
+        "guide_id": "c395cdf8e2c2",
+        "title": "Lapsed Contract Status",
+        "overview": "Workflow: test lapsed contract status",
+        "complexity_level": "intermediate",
+        "prerequisites": [],
+        "required_imports": [
+          "unittest",
+          "frappe",
+          "frappe.tests",
+          "frappe.utils"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "7d74cb6d",
+            "test_name": "test_lapsed_contract_status",
+            "category": "workflow",
+            "code": "self.contract_doc.contract_term = '_Test Customer Contract with Requirements'\nself.contract_doc.start_date = add_days(nowdate(), -2)\nself.contract_doc.end_date = add_days(nowdate(), 1)\nself.contract_doc.requires_fulfilment = 1\nself.contract_doc.fulfilment_deadline = add_days(nowdate(), -1)\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Lapsed')",
+            "language": "Python",
+            "description": "Workflow: test lapsed contract status",
+            "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Lapsed')",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+            "line_start": 93,
+            "line_end": 101,
+            "complexity_score": 0.7,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "unittest",
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "unittest",
+              "frappe",
+              "frappe.tests",
+              "frappe.utils"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "self.contract_doc.contract_term = '_Test Customer Contract with Requirements'",
+            "description": "Assign self.contract_doc.contract_term = '_Test Customer Contract with Requirements'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "self.contract_doc.start_date = add_days(nowdate(), -2)",
+            "description": "Assign self.contract_doc.start_date = add_days(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "self.contract_doc.end_date = add_days(nowdate(), 1)",
+            "description": "Assign self.contract_doc.end_date = add_days(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "self.contract_doc.requires_fulfilment = 1",
+            "description": "Assign self.contract_doc.requires_fulfilment = 1",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "self.contract_doc.fulfilment_deadline = add_days(nowdate(), -1)",
+            "description": "Assign self.contract_doc.fulfilment_deadline = add_days(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "self.contract_doc.save()",
+            "description": "Call self.contract_doc.save()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "self.assertEqual(self.contract_doc.fulfilment_status, 'Lapsed')",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Lapsed Contract Status",
+        "tags": [
+          "unittest",
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "15 minutes",
+        "source_files": [
+          "test_contract.py:93"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ]
+  },
+  "guides": [
+    {
+      "guide_id": "8f1641a0ac5d",
+      "title": "Carry Forward Of Email And Comments",
+      "overview": "Workflow: test carry forward of email and comments",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.opportunity.opportunity",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "f0038dd3",
+          "test_name": "test_carry_forward_of_email_and_comments",
+          "category": "workflow",
+          "code": "frappe.db.set_single_value('CRM Settings', 'carry_forward_communication_and_comments', 1)\nlead_doc = make_lead()\nlead_doc.add_comment('Comment', text='Test Comment 1')\nlead_doc.add_comment('Comment', text='Test Comment 2')\ncreate_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)\ncreate_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)\nopp_doc = make_opportunity(opportunity_from='Lead', lead=lead_doc.name)\nopportunity_comment_count = frappe.db.count('Comment', {'reference_doctype': opp_doc.doctype, 'reference_name': opp_doc.name})\nopportunity_communication_count = len(get_linked_communication_list(opp_doc.doctype, opp_doc.name))\nself.assertEqual(opportunity_comment_count, 2)\nself.assertEqual(opportunity_communication_count, 2)\nopp_doc.add_comment('Comment', text='Test Comment 3')\nopp_doc.add_comment('Comment', text='Test Comment 4')\ncreate_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)\ncreate_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)",
+          "language": "Python",
+          "description": "Workflow: test carry forward of email and comments",
+          "expected_behavior": "self.assertEqual(opportunity_communication_count, 2)",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+          "line_start": 82,
+          "line_end": 101,
+          "complexity_score": 1.0,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "unittest",
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "unittest",
+            "frappe",
+            "frappe.tests",
+            "frappe.utils",
+            "erpnext.crm.doctype.lead.lead",
+            "erpnext.crm.doctype.lead.test_lead",
+            "erpnext.crm.doctype.opportunity.opportunity",
+            "erpnext.crm.utils",
+            "erpnext.tests.utils"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "frappe.db.set_single_value('CRM Settings', 'carry_forward_communication_and_comments', 1)",
+          "description": "Call frappe.db.set_single_value()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "lead_doc = make_lead()",
+          "description": "Assign lead_doc = make_lead(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "lead_doc.add_comment('Comment', text='Test Comment 1')",
+          "description": "Call lead_doc.add_comment()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "lead_doc.add_comment('Comment', text='Test Comment 2')",
+          "description": "Call lead_doc.add_comment()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "create_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)",
+          "description": "Call create_communication()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "create_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)",
+          "description": "Call create_communication()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "opp_doc = make_opportunity(opportunity_from='Lead', lead=lead_doc.name)",
+          "description": "Assign opp_doc = make_opportunity(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "opportunity_comment_count = frappe.db.count('Comment', {'reference_doctype': opp_doc.doctype, 'reference_name': opp_doc.name})",
+          "description": "Assign opportunity_comment_count = frappe.db.count(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 9,
+          "code": "opportunity_communication_count = len(get_linked_communication_list(opp_doc.doctype, opp_doc.name))",
+          "description": "Assign opportunity_communication_count = len(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 10,
+          "code": "self.assertEqual(opportunity_comment_count, 2)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 11,
+          "code": "self.assertEqual(opportunity_communication_count, 2)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 12,
+          "code": "opp_doc.add_comment('Comment', text='Test Comment 3')",
+          "description": "Call opp_doc.add_comment()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 13,
+          "code": "opp_doc.add_comment('Comment', text='Test Comment 4')",
+          "description": "Call opp_doc.add_comment()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 14,
+          "code": "create_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)",
+          "description": "Call create_communication()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 15,
+          "code": "create_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)",
+          "description": "Call create_communication()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Carry Forward Of Email And Comments",
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "20 minutes",
+      "source_files": [
+        "test_opportunity.py:82"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "4e6e26d24046",
+      "title": "Add Lead To Prospect And Address Linking",
+      "overview": "Workflow: test add lead to prospect and address linking",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.prospect.prospect"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "2c5e16c3",
+          "test_name": "test_add_lead_to_prospect_and_address_linking",
+          "category": "workflow",
+          "code": "lead_doc = make_lead()\naddress_doc = make_address(address_title=lead_doc.name)\naddress_doc.append('links', {'link_doctype': lead_doc.doctype, 'link_name': lead_doc.name})\naddress_doc.save()\nprospect_doc = make_prospect()\nadd_lead_to_prospect(lead_doc.name, prospect_doc.name)\nprospect_doc.reload()\nlead_exists_in_prosoect = False\nfor rec in prospect_doc.get('leads'):\n    if rec.lead == lead_doc.name:\n        lead_exists_in_prosoect = True\nself.assertEqual(lead_exists_in_prosoect, True)\naddress_doc.reload()\nself.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+          "language": "Python",
+          "description": "Workflow: test add lead to prospect and address linking",
+          "expected_behavior": "self.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+          "line_start": 14,
+          "line_end": 28,
+          "complexity_score": 1.0,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "unittest",
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "unittest",
+            "frappe",
+            "frappe.tests",
+            "frappe.utils",
+            "erpnext.crm.doctype.lead.lead",
+            "erpnext.crm.doctype.lead.test_lead",
+            "erpnext.crm.doctype.prospect.prospect"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "lead_doc = make_lead()",
+          "description": "Assign lead_doc = make_lead(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "address_doc = make_address(address_title=lead_doc.name)",
+          "description": "Assign address_doc = make_address(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "address_doc.append('links', {'link_doctype': lead_doc.doctype, 'link_name': lead_doc.name})",
+          "description": "Call address_doc.append()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "address_doc.save()",
+          "description": "Call address_doc.save()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "prospect_doc = make_prospect()",
+          "description": "Assign prospect_doc = make_prospect(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "add_lead_to_prospect(lead_doc.name, prospect_doc.name)",
+          "description": "Call add_lead_to_prospect()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "prospect_doc.reload()",
+          "description": "Call prospect_doc.reload()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "lead_exists_in_prosoect = False",
+          "description": "Assign lead_exists_in_prosoect = False",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 9,
+          "code": "self.assertEqual(lead_exists_in_prosoect, True)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 10,
+          "code": "address_doc.reload()",
+          "description": "Call address_doc.reload()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 11,
+          "code": "self.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 12,
+          "code": "lead_exists_in_prosoect = True",
+          "description": "Assign lead_exists_in_prosoect = True",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Add Lead To Prospect And Address Linking",
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "20 minutes",
+      "source_files": [
+        "test_prospect.py:14"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "5c4272c48cfe",
+      "title": "Sales Pipeline Analytics",
+      "overview": "Workflow: test sales pipeline analytics",
+      "complexity_level": "intermediate",
+      "prerequisites": [],
+      "required_imports": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "erpnext.crm.report.sales_pipeline_analytics.sales_pipeline_analytics"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "3661658b",
+          "test_name": "test_sales_pipeline_analytics",
+          "category": "workflow",
+          "code": "self.from_date = '2021-01-01'\nself.to_date = '2021-12-31'\nself.check_for_monthly_and_number()\nself.check_for_monthly_and_amount()\nself.check_for_quarterly_and_number()\nself.check_for_quarterly_and_amount()\nself.check_for_all_filters()",
+          "language": "Python",
+          "description": "Workflow: test sales pipeline analytics",
+          "expected_behavior": "",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/report/sales_pipeline_analytics/test_sales_pipeline_analytics.py",
+          "line_start": 15,
+          "line_end": 22,
+          "complexity_score": 0.7,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "unittest",
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "unittest",
+            "frappe",
+            "frappe.tests",
+            "erpnext.crm.report.sales_pipeline_analytics.sales_pipeline_analytics"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "self.from_date = '2021-01-01'",
+          "description": "Assign self.from_date = '2021-01-01'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "self.to_date = '2021-12-31'",
+          "description": "Assign self.to_date = '2021-12-31'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "self.check_for_monthly_and_number()",
+          "description": "Call self.check_for_monthly_and_number()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "self.check_for_monthly_and_amount()",
+          "description": "Call self.check_for_monthly_and_amount()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "self.check_for_quarterly_and_number()",
+          "description": "Call self.check_for_quarterly_and_number()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "self.check_for_quarterly_and_amount()",
+          "description": "Call self.check_for_quarterly_and_amount()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "self.check_for_all_filters()",
+          "description": "Call self.check_for_all_filters()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Sales Pipeline Analytics",
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "15 minutes",
+      "source_files": [
+        "test_sales_pipeline_analytics.py:15"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "21baa175e69a",
+      "title": "Make Customer",
+      "overview": "Workflow: test make customer",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.lead"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "f62eb534",
+          "test_name": "test_make_customer",
+          "category": "workflow",
+          "code": "from erpnext.crm.doctype.lead.lead import make_customer\nfrappe.delete_doc_if_exists('Customer', '_Test Lead')\ncustomer = make_customer(self.leads[0].name)\nself.assertEqual(customer.doctype, 'Customer')\nself.assertEqual(customer.lead_name, self.leads[0].name)\ncustomer.company = '_Test Company'\ncustomer.customer_group = '_Test Customer Group'\ncustomer.insert()\ncontact = frappe.db.get_value('Dynamic Link', {'parenttype': 'Contact', 'link_doctype': 'Lead', 'link_name': customer.lead_name}, 'parent')\nif contact:\n    contact_doc = frappe.get_doc('Contact', contact)\n    self.assertEqual(contact_doc.has_link(customer.doctype, customer.name), True)",
+          "language": "Python",
+          "description": "Workflow: test make customer",
+          "expected_behavior": "self.assertEqual(customer.lead_name, self.leads[0].name)",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+          "line_start": 20,
+          "line_end": 46,
+          "complexity_score": 1.0,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "unittest",
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "unittest",
+            "frappe",
+            "frappe.tests",
+            "frappe.utils",
+            "erpnext.crm.doctype.lead.lead",
+            "erpnext.crm.utils",
+            "erpnext.tests.utils",
+            "erpnext.crm.doctype.lead.lead",
+            "erpnext.crm.doctype.lead.lead"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "frappe.delete_doc_if_exists('Customer', '_Test Lead')",
+          "description": "Call frappe.delete_doc_if_exists()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "customer = make_customer(self.leads[0].name)",
+          "description": "Assign customer = make_customer(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "self.assertEqual(customer.doctype, 'Customer')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "self.assertEqual(customer.lead_name, self.leads[0].name)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "customer.company = '_Test Company'",
+          "description": "Assign customer.company = '_Test Company'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "customer.customer_group = '_Test Customer Group'",
+          "description": "Assign customer.customer_group = '_Test Customer Group'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "customer.insert()",
+          "description": "Call customer.insert()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "contact = frappe.db.get_value('Dynamic Link', {'parenttype': 'Contact', 'link_doctype': 'Lead', 'link_name': customer.lead_name}, 'parent')",
+          "description": "Assign contact = frappe.db.get_value(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 9,
+          "code": "contact_doc = frappe.get_doc('Contact', contact)",
+          "description": "Assign contact_doc = frappe.get_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 10,
+          "code": "self.assertEqual(contact_doc.has_link(customer.doctype, customer.name), True)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Make Customer",
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "15 minutes",
+      "source_files": [
+        "test_lead.py:20"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "e1d3e75e29ac",
+      "title": "Fulfilled Contract Status",
+      "overview": "Workflow: test fulfilled contract status",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "2c261561",
+          "test_name": "test_fulfilled_contract_status",
+          "category": "workflow",
+          "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'\nself.contract_doc.requires_fulfilment = 1\nfulfilment_terms = []\nfulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})\nself.contract_doc.set('fulfilment_terms', fulfilment_terms)\nfor term in self.contract_doc.fulfilment_terms:\n    term.fulfilled = 1\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Fulfilled')",
+          "language": "Python",
+          "description": "Workflow: test fulfilled contract status",
+          "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Fulfilled')",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+          "line_start": 61,
+          "line_end": 75,
+          "complexity_score": 0.8,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "unittest",
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "unittest",
+            "frappe",
+            "frappe.tests",
+            "frappe.utils"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'",
+          "description": "Assign self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "self.contract_doc.requires_fulfilment = 1",
+          "description": "Assign self.contract_doc.requires_fulfilment = 1",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "fulfilment_terms = []",
+          "description": "Assign fulfilment_terms = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "fulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})",
+          "description": "Call fulfilment_terms.append()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "self.contract_doc.set('fulfilment_terms', fulfilment_terms)",
+          "description": "Call self.contract_doc.set()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "self.contract_doc.save()",
+          "description": "Call self.contract_doc.save()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "self.assertEqual(self.contract_doc.fulfilment_status, 'Fulfilled')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "term.fulfilled = 1",
+          "description": "Assign term.fulfilled = 1",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Fulfilled Contract Status",
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "15 minutes",
+      "source_files": [
+        "test_contract.py:61"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "bcc5435428d7",
+      "title": "Partially Fulfilled Contract Status",
+      "overview": "Workflow: test partially fulfilled contract status",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "ec9e4f1d",
+          "test_name": "test_partially_fulfilled_contract_status",
+          "category": "workflow",
+          "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'\nself.contract_doc.requires_fulfilment = 1\nself.contract_doc.save()\nfulfilment_terms = []\nfulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})\nfulfilment_terms.append({'requirement': 'This is another test requirement.', 'fulfilled': 0})\nself.contract_doc.set('fulfilment_terms', fulfilment_terms)\nself.contract_doc.fulfilment_terms[0].fulfilled = 1\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Partially Fulfilled')",
+          "language": "Python",
+          "description": "Workflow: test partially fulfilled contract status",
+          "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Partially Fulfilled')",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+          "line_start": 77,
+          "line_end": 91,
+          "complexity_score": 1.0,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "unittest",
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "unittest",
+            "frappe",
+            "frappe.tests",
+            "frappe.utils"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'",
+          "description": "Assign self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "self.contract_doc.requires_fulfilment = 1",
+          "description": "Assign self.contract_doc.requires_fulfilment = 1",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "self.contract_doc.save()",
+          "description": "Call self.contract_doc.save()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "fulfilment_terms = []",
+          "description": "Assign fulfilment_terms = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "fulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})",
+          "description": "Call fulfilment_terms.append()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "fulfilment_terms.append({'requirement': 'This is another test requirement.', 'fulfilled': 0})",
+          "description": "Call fulfilment_terms.append()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "self.contract_doc.set('fulfilment_terms', fulfilment_terms)",
+          "description": "Call self.contract_doc.set()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "self.contract_doc.fulfilment_terms[0].fulfilled = 1",
+          "description": "Assign unknown.fulfilled = 1",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 9,
+          "code": "self.contract_doc.save()",
+          "description": "Call self.contract_doc.save()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 10,
+          "code": "self.assertEqual(self.contract_doc.fulfilment_status, 'Partially Fulfilled')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Partially Fulfilled Contract Status",
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "15 minutes",
+      "source_files": [
+        "test_contract.py:77"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "c395cdf8e2c2",
+      "title": "Lapsed Contract Status",
+      "overview": "Workflow: test lapsed contract status",
+      "complexity_level": "intermediate",
+      "prerequisites": [],
+      "required_imports": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "7d74cb6d",
+          "test_name": "test_lapsed_contract_status",
+          "category": "workflow",
+          "code": "self.contract_doc.contract_term = '_Test Customer Contract with Requirements'\nself.contract_doc.start_date = add_days(nowdate(), -2)\nself.contract_doc.end_date = add_days(nowdate(), 1)\nself.contract_doc.requires_fulfilment = 1\nself.contract_doc.fulfilment_deadline = add_days(nowdate(), -1)\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Lapsed')",
+          "language": "Python",
+          "description": "Workflow: test lapsed contract status",
+          "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Lapsed')",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+          "line_start": 93,
+          "line_end": 101,
+          "complexity_score": 0.7,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "unittest",
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "unittest",
+            "frappe",
+            "frappe.tests",
+            "frappe.utils"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "self.contract_doc.contract_term = '_Test Customer Contract with Requirements'",
+          "description": "Assign self.contract_doc.contract_term = '_Test Customer Contract with Requirements'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "self.contract_doc.start_date = add_days(nowdate(), -2)",
+          "description": "Assign self.contract_doc.start_date = add_days(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "self.contract_doc.end_date = add_days(nowdate(), 1)",
+          "description": "Assign self.contract_doc.end_date = add_days(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "self.contract_doc.requires_fulfilment = 1",
+          "description": "Assign self.contract_doc.requires_fulfilment = 1",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "self.contract_doc.fulfilment_deadline = add_days(nowdate(), -1)",
+          "description": "Assign self.contract_doc.fulfilment_deadline = add_days(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "self.contract_doc.save()",
+          "description": "Call self.contract_doc.save()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "self.assertEqual(self.contract_doc.fulfilment_status, 'Lapsed')",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Lapsed Contract Status",
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "15 minutes",
+      "source_files": [
+        "test_contract.py:93"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    }
+  ]
+}

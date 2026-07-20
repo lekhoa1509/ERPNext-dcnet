@@ -1,0 +1,3053 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by dinhquoccuong (dinhquoccuong) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:redefine schemaLocation="..\TKhaiThue_DBHC.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ten_DonViTien" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tên đơn vị tiền</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ma_DonViTien" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Mã đơn vị tiền</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Muc_1">
+							<xs:annotation>
+								<xs:documentation>1 THÔNG TIN TẬP ĐOÀN ĐA QUỐC GIA</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Muc_1.1">
+										<xs:annotation>
+											<xs:documentation>1.1 Thông tin về đơn vị hợp thành chịu trách nhiệm kê khai </xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="congTyMeToiCao_Co" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Công ty mẹ tối cao là đơn vị hợp thành chịu trách nhiệm kê khai - Có</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="congTyMeToiCao_Khong" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Công ty mẹ tối cao là đơn vị hợp thành chịu trách nhiệm kê khai Không</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_DVHT" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Tên đơn vị hợp thành chịu trách nhiệm kê khai</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="mst_DVHT" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Mã số thuế của đơn vị hợp thành chịu trách nhiệm kê khai theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_QuocGia" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4. Tên Quốc gia có Hiệp định giữa nhà chức trách có thẩm quyền về trao đổi thông tin theo quy định thuế tối thiểu toàn cầu có hiệu lực với Việt Nam (nếu có)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_QuocGia" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4. Mã Quốc gia có Hiệp định giữa nhà chức trách có thẩm quyền về trao đổi thông tin theo quy định thuế tối thiểu toàn cầu có hiệu lực với Việt Nam (nếu có)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_1.2.1">
+										<xs:annotation>
+											<xs:documentation>1.2.1 Thông tin về năm tài chính của Tập đoàn đa quốc gia</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ten_TapDoan" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Tên Tập đoàn đa quốc gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="nam_TaiChinhTu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Ngày bắt đầu năm tài chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="nam_TaiChinhDen" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Ngày kết thúc năm tài chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_1.2.2">
+										<xs:annotation>
+											<xs:documentation>1.2.2 Thông tin kế toán chung của Tập đoàn đa quốc gia</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ten_BaoCaoTaiChinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Tên Báo cáo tài chính hợp nhất của Công ty mẹ tối cao</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_BaoCaoTaiChinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Mã Báo cáo tài chính hợp nhất của Công ty mẹ tối cao</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="chuan_MucKeToanTC" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Chuẩn mực kế toán tài chính được sử dụng trong báo cáo tài chính hợp nhất của Công ty mẹ tối cao</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Đơn vị tiền tệ được sử dụng trong báo cáo tài chính hợp nhất của công ty mẹ tối cao</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Đơn vị tiền tệ được sử dụng trong báo cáo tài chính hợp nhất của công ty mẹ tối cao</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_1.3.1">
+										<xs:annotation>
+											<xs:documentation>1.3.1 Công ty mẹ tối cao</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ma_QuocGia" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Quốc gia Công ty mẹ tối cao cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_QuocGia" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Quốc gia Công ty mẹ tối cao cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_CongTyMeToiCao" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Tên Công ty mẹ tối cao</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_CongTyMeToiCao" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Mã số thuế/Mã số doanh nghiệp của Công ty mẹ tối cao</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_1.3.2">
+										<xs:annotation>
+											<xs:documentation>1.3.2 Các đơn vị của Tập đoàn đa quốc gia tại Việt Nam</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="thayDoiBCTC_Co" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thay đổi so với năm tài chính báo cáo trước - Có    </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thayDoiBCTC_Khong" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thay đổi so với năm tài chính báo cáo trước - Không     </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên của đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="maSoThue" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_LoaiHinhThue" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Loại hình theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_LoaiHinhThue" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Loại hình theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_1.3.3">
+										<xs:annotation>
+											<xs:documentation>1.3.3 Đơn vị bị loại trừ</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="thayDoiBCTC_Co" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thay đổi so với năm tài chính báo cáo trước - Có    </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thayDoiBCTC_Khong" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thay đổi so với năm tài chính báo cáo trước - Không     </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên của đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="maSoThue" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_LoaiHinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Mã Loại hình đơn vị bị loại trừ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_LoaiHinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Tên Loại hình đơn vị bị loại trừ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_1.3.4">
+										<xs:annotation>
+											<xs:documentation>1.3.4 Thay đổi về cấu trúc Tập đoàn phát sinh trong năm tài chính báo cáo</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="thayDoi_AnhHuong" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>a. Thay đổi về cấu trúc Tập đoàn trong năm tài chính ảnh hưởng tới cách tính thuế suất thực tế, thuế bổ sung hoặc việc tính toán, phân bổ thuế bổ sung.  </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thayDoi_KhongAnhHuong" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>b. Thay đổi về cấu trúc Tập đoàn trong năm tài chính không ảnh hưởng tới cách tính thuế suất thực tế, thuế bổ sung hoặc việc tính toán, phân bổ thuế bổ sung.  </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên của đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="maSoThue" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ngay_HieuLuc" type="xs:date" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Ngày có hiệu lực thay đổi </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_LoaiHinhThueTruocThayDoi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Loại hình theo quy định về thuế tối thiểu toàn cầu trước thay đổi</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_LoaiHinhThueTruocThayDoi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Loại hình theo quy định về thuế tối thiểu toàn cầu trước thay đổi</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_LoaiHinhThueSauThayDoi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Loại hình theo quy định về thuế tối thiểu toàn cầu sau thay đổi</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_LoaiHinhThueSauThayDoi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Loại hình theo quy định về thuế tối thiểu toàn cầu sau thay đổi</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Muc_2">
+							<xs:annotation>
+								<xs:documentation>2 Quy định giảm trừ trách nhiệm áp dụng tại Việt Nam</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Muc_2.1">
+										<xs:annotation>
+											<xs:documentation>2.1 Quy định giảm trừ trách nhiệm tại Việt Nam </xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ma_QuyDinhGiamTru" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Quy định giảm trừ trách nhiệm áp dụng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_QuyDinhGiamTru" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Quy định giảm trừ trách nhiệm áp dụng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="TongDoanhThu">
+													<xs:annotation>
+														<xs:documentation>1. Tổng doanh thu của tất cả các đơn vị hợp thành không trọng yếu tại Việt Nam</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_TC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>a. Năm tài chính báo cáo</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu1" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>b. Năm tài chính liền kề trước đó (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu2" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>c. Năm tài chính thứ 2 liền kề trước đó (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="binhQuan_3NamTC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>d. Bình quân 3 năm tài chính (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="TongSoThue">
+													<xs:annotation>
+														<xs:documentation>2. Tổng số thuế được đơn giản hóa của tất cả các đơn vị hợp thành không trọng yếu tại Việt Nam</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_TCBC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>a. Năm tài chính báo cáo</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_2.1.2">
+										<xs:annotation>
+											<xs:documentation>2.1.2 Quy định giảm trừ trách nhiệm trên cơ sở báo cáo lợi nhuận liên quốc gia trong thời gian chuyển tiếp</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tongDoanhThu" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Tổng doanh thu của Tập đoàn đa quốc gia tại Việt Nam</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="loiNhuan_TruocThue" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Lợi nhuận trước thuế thu nhập doanh nghiệp hoặc lỗ của Tập đoàn đa quốc gia tại Việt Nam</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongThue_DonGianHoa" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Tổng các khoản thuế thuộc phạm vi áp dụng được đơn giản hóa</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thueSuatThucTe_DonGianHoa" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4. Thuế suất thực tế được đơn giản hóa </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_2.2">
+										<xs:annotation>
+											<xs:documentation>2.2 Số thuế thu nhập doanh nghiệp bổ sung tối thiểu nội địa đạt chuẩn được xác định bằng 0</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="thueSuatThucTe" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số thuế thu nhập doanh nghiệp bổ sung tối thiểu nội địa đạt chuẩn tại Việt Nam được xác định bằng 0 </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="DoanhThu_BCTC">
+													<xs:annotation>
+														<xs:documentation>1. Doanh thu tại báo cáo tài chính</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_TC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>a. Năm tài chính báo cáo</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruoc" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>b. Năm tài chính liền kề trước đó (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu2" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>c. Năm tài chính thứ 2 liền kề trước đó (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="binhQuan_3NamTC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>d. Bình quân 3 năm tài chính (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="DoanhThu_ThueTTTC">
+													<xs:annotation>
+														<xs:documentation>2. Doanh thu theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_TC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>a. Năm tài chính báo cáo</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu1" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>b. Năm tài chính liền kề trước đó (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu2" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>c. Năm tài chính thứ 2 liền kề trước đó (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="binhQuan_3NamTC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>d. Bình quân 3 năm tài chính (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ThuNhap_BCTC">
+													<xs:annotation>
+														<xs:documentation>3. Thu nhập hoặc lỗ ròng tại báo cáo tài chính</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_TC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>a. Năm tài chính báo cáo</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu1" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>b. Năm tài chính liền kề trước đó (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu2" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>c. Năm tài chính thứ 2 liền kề trước đó (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="binhQuan_3NamTC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>d. Bình quân 3 năm tài chính (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ThuNhap_ThueTTTC">
+													<xs:annotation>
+														<xs:documentation>4. Thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_TC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>a. Năm tài chính báo cáo</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu1" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>b. Năm tài chính liền kề trước đó (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu2" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>c. Năm tài chính thứ 2 liền kề trước đó (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="binhQuan_3NamTC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>d. Bình quân 3 năm tài chính (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_2.3">
+										<xs:annotation>
+											<xs:documentation>2.3 Giảm trừ trách nhiệm trong giai đoạn đầu thực hiện hoạt động đầu tư quốc tế</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ngay_DauTien" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Ngày đầu tiên của năm tài chính đầu tiên mà Tập đoàn đa quốc gia bắt đầu thuộc phạm vi điều chỉnh của quy định về thuế tối thiểu toàn cầu </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_Nuoc" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Nước tham chiếu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_Nuoc" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Nước tham chiếu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="giaTriGhiSo" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Giá trị ghi sổ của tài sản hữu hình của tất cả các đơn vị hợp thành tại nước tham chiếu trong năm tài chính đầu tiên mà Tập đoàn đa quốc gia bắt đầu thuộc phạm vi điều chỉnh của quy định về thuế tối thiểu toàn cầu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soQuocGia_ThueTTTC" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4. Số quốc gia mà Tập đoàn đa quốc gia có đơn vị hợp thành cư trú trong năm tài chính mà Tập đoàn đa quốc gia bắt đầu nằm trong phạm vi điều chỉnh của quy định về thuế tối thiểu toàn cầu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ma_QuocGia" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Giá trị ghi sổ của tài sản hữu hình của các đơn vị hợp thành cư trú ngoài nước tham chiếu trong năm tài chính mà Tập đoàn đa quốc gia bắt đầu thuộc phạm vi điều chỉnh của quy định về thuế tối thiểu toàn cầu</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_QuocGia" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Giá trị ghi sổ của tài sản hữu hình của các đơn vị hợp thành cư trú ngoài nước tham chiếu trong năm tài chính mà Tập đoàn đa quốc gia bắt đầu thuộc phạm vi điều chỉnh của quy định về thuế tối thiểu toàn cầu</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="giaTriGhiSo" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Giá trị ghi sổ của tài sản hữu hình của tất cả các đơn vị hợp thành cư trú tại từng quốc gia</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="soQuocGia" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>6. Số quốc gia mà Tập đoàn đa quốc gia có đơn vị hợp thành cư trú trong năm tài chính báo cáo</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongGiaTriGhiSo" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>7. Tổng giá trị ghi sổ của tài sản hữu hình của tất cả các đơn vị hợp thành cư trú tại các nước khác nước tham chiếu trong năm tài chính báo cáo</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Muc_3">
+							<xs:annotation>
+								<xs:documentation>3 Tính toán theo quy định thuế tối thiểu toàn cầu</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Muc_3.1.1">
+										<xs:annotation>
+											<xs:documentation>3.1.1 Xác định thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tong_ct1" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Tổng thu nhập hoặc lỗ ròng tại báo cáo tài chính sau khi thực hiện phân bổ thu nhập hoặc lỗ giữa một công ty chính và một cơ sở thường trú, phân bổ thu nhập hoặc lỗ của một cơ sở thường trú có Công ty mẹ tối cao là đơn vị trung chuyển</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.1" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.1. Chi phí thuế ròng </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.2" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.2. Cổ tức được loại trừ </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.3" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.3. Lãi hoặc lỗ trên vốn chủ sở hữu được loại trừ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.4" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.4. Lãi hoặc lỗ do đánh giá lạ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.5" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.5. Lãi hoặc lỗ về chênh lệch tỷ giá do sử dụng đồng tiền kế toán và đồng tiền tính thuế khác nhau</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.6" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.6. Các khoản chi phí không được trừ theo quy định</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.7" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.7. Sai sót của các kỳ trước</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.8" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.8. Những thay đổi về nguyên tắc kế toán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.9" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.9. Chi phí hưu trí trích trước của Chương trình hưu trí do các quỹ hưu trí cung cấp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.10" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.10. Xóa nợ </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.11" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.11. Khoản chi phí phát sinh chi trả cho người làm công dựa trên cổ phiếu </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.12" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.12. Điều chỉnh theo nguyên tắc giá thị trường</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.13" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.13. Khoản giảm trừ thuế thu nhập có thể được hoàn trả không đạt chuẩn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.14" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.14. Điều chỉnh do lựa chọn nguyên tắc thực tế phát sinh đối với các tài sản và nợ phải trả đang được hạch toán theo giá trị hợp lý hoặc giá trị suy giảm</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.15" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.15. Điều chỉnh đối với thỏa thuận tài chính trong nội bộ tập đoàn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.16" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.16. Điều chỉnh khoản thu nhập hoặc lỗ tương ứng phần thuế nộp thay chủ hợp đồng bảo hiểm liên quan đến thu nhập của chủ hợp đồng bảo hiểm</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.17" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.17. Điều chỉnh liên quan đến phần vốn cấp một bổ sung, phần vốn cấp một bị hạn chế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.18" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.18. Điều chỉnh đối với các đơn vị hợp thành tham gia và rời khỏi Tập đoàn đa quốc gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.19" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.19. Điều chỉnh thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu của cơ sở thường trú có công ty mẹ tối cao là đơn vị trung chuyển </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.20" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.20. Thu nhập vận tải quốc tế được loại trừ </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.21" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.21. Điều chỉnh do giao dịch chuyển giao tài sản giữa các đơn vị hợp thành sau ngày 30/11/2021 và trước khi bắt đầu năm chuyển tiếp </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct3" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Thu nhập ròng theo Quy định thuế tối thiểu toàn cầu </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.1.2.1">
+										<xs:annotation>
+											<xs:documentation>3.1.2.1 Tổng giá trị tài sản hữu hình và tiền lương được giảm trừ theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="chiTienLuong" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.1. Chi tiền lương hợp lệ </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_TyLeGiamTruTienLuong" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.2. Tỷ lệ giảm trừ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_TyLeGiamTruTienLuong" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.2. Tỷ lệ giảm trừ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="giaTriTaiSan" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.1. Giá trị tài sản hữu hình hợp lệ </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_TyLeGiamTruTaiSan" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.2. Tỷ lệ giảm trừ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_TyLeGiamTruTaiSan" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.2. Tỷ lệ giảm trừ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_GiaTriTaiSan" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Tổng giá trị tài sản hữu hình và tiền lương được giảm trừ theo quy định về thuế tối thiểu toàn cầu </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.1.2.2">
+										<xs:annotation>
+											<xs:documentation>3.1.2.2 Phân bổ chi tiền lương và giá trị tài sản hữu hình hợp lệ giữa công ty chính và cơ sở thường trú</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_QuocGiaCongTyChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Quốc gia công ty chính cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_QuocGiaCongTyChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Quốc gia công ty chính cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chiTienLuong_CongTyChinh" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Chi tiền lương hợp lệ của công ty chính</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="giaTriTaiSan_CongTyChinh" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Giá trị tài sản hữu hình hợp lệ của công ty chính</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_QuocGiaCoSoThuongTru" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Quốc gia cơ sở thường trú cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_QuocGiaCoSoThuongTru" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Quốc gia cơ sở thường trú cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chiTienLuong_CoSoThuongTru" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Chi tiền lương hợp lệ được phân bổ cho cơ sở thường trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="giaTriTaiSan_CoSoThuongTru" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>6. Giá trị tài sản hữu hình hợp lệ được phân bổ cho cơ sở thường trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chiTienLuong_PhanBo" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>7. Chi tiền lương hợp lệ sau phân bổ của công ty chính</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="giaTriTaiSan_PhanBo" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>8. Giá trị tài sản hữu hình hợp lệ sau phân bổ của công ty chính</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.1.2.3">
+										<xs:annotation>
+											<xs:documentation>3.1.2.3 Phân bổ chi tiền lương và giá trị tài sản hữu hình hợp lệ của các cơ sở thường trú có công ty mẹ tối cao là đơn vị trung chuyển</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="chiTienLuong_dvTrungChuyen" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Chi tiền lương hợp lệ của cơ sở thường trú có công ty mẹ tối cao là đơn vị trung chuyển</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="giaTriTaiSan_dvTrungChuyen" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Giá trị tài sản hữu hình hợp lệ của cơ sở thường trú có công ty mẹ tối cao là đơn vị trung chuyển</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_QuocGiaCongTyMe" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Quốc gia đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao cư trú </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_QuocGiaCongTyMe" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Quốc gia đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao cư trú </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chiTienLuong_CongTyMe" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Chi tiền lương hợp lệ được phân bổ cho đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="giaTriTaiSan_CongTyMe" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Giá trị tài sản hữu hình hợp lệ được phân bổ cho đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chiTienLuong_PhanBo" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>6. Chi tiền lương hợp lệ của cơ sở thường trú có công ty mẹ tối cao là đơn vị trung chuyển sau khi phân bổ cho đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="giaTriTaiSan_PhanBo" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>7. Giá trị tài sản hữu hình hợp lệ của cơ sở thường trú có công ty mẹ tối cao là đơn vị trung chuyển sau khi phân bổ cho đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.2.1">
+										<xs:annotation>
+											<xs:documentation>3.2.1 Tổng số thuế thuộc phạm vi áp dụng đã được điều chỉnh</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tong_ct1" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Tổng khoản thuế thuộc phạm vi áp dụng sau khi thực hiện phân bổ từ một đơn vị hợp thành này sang đơn vị hợp thành khác </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.1" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.1. Khoản thuế thuộc phạm vi áp dụng được hạch toán là chi phí khi tính lợi nhuận trước thuế trong sổ kế toán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.2" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.2. Khoản tài sản thuế hoãn lại do lỗ theo quy định về thuế tối thiểu toàn cầu được sử dụng theo quy định  </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.3" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.3. Khoản thuế thuộc phạm vi áp dụng được nộp trong năm tài chính và liên quan đến nghiệp vụ thuế không chắc chắn (chờ điều chỉnh) mà khoản đó nằm trong phần điều chỉnh trừ khỏi thuế thuộc phạm vi áp dụng trong một năm tài chính trước đó theo quy định</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.4" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.4. Khoản chi phí thuế hiện hành liên quan đến thu nhập không được đưa vào khi tính thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu theo quy định</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.5" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.5. Khoản giảm trừ hoặc khoản hoàn trả thuế mà theo quy định các khoản này được coi là một khoản giảm trừ thuế thu nhập có thể được hoàn trả không đạt chuẩn và chưa được ghi nhận là một khoản giảm chi phí thuế hiện hành</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.6" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.6. Khoản thuế thuộc phạm vi áp dụng được hoàn trả hoặc giảm trừ của một đơn vị hợp thành mà đã không được ghi nhận là khoản điều chỉnh chi phí thuế hiện hành trong sổ kế toán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.7" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.7. Khoản chi phí thuế hiện hành liên quan đến một nghiệp vụ thuế không chắc chắn (chờ điều chỉnh)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.8" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.8. Khoản chi phí thuế hiện hành dự kiến không được thanh toán trong vòng ba năm kể từ ngày cuối cùng của năm tài chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.9" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.9. Những điều chỉnh phát sinh sau khi kê khai và thay đổi thuế suất</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.10" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.10. Điều chỉnh thuế thuộc phạm vi áp dụng của cơ sở thường trú có Công ty mẹ tối cao là đơn vị trung chuyển </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.11" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.11.  Tổng các khoản điều chỉnh thuế hoãn lại</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.12" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.12. Tăng hoặc giảm đối với các khoản thuế thuộc phạm vi áp dụng chưa được ghi nhận vào chi phí thuế hiện hành hoặc chi phí thuế hoãn lại, nhưng được ghi nhận trong phần vốn chủ sở hữu hoặc phần thu nhập toàn diện khác liên quan đến các khoản được đưa vào khi tính thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu mà các khoản này sẽ phải chịu thuế theo quy định của thuế nội địa</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.13" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.13. Chi phí thuế nhỏ hơn 0 chưa bù trừ hết  phát sinh trong năm tài chính báo cáo</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct2.14" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.14. Chi phí thuế nhỏ hơn 0 chưa bù trừ hết  được sử dụng trong năm tài chính báo cáo</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ct3" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Thuế thuộc phạm vi áp dụng đã được điều chỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.2.2">
+										<xs:annotation>
+											<xs:documentation>3.2.2 Chi phí thuế nhỏ hơn 0 chưa bù trừ hết</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="soDu_ChuyenSang" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Số dư từ năm tài chính báo cáo trước chuyển sang</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="chiPhi_PhatSinh" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Chi phí thuế nhỏ hơn 0 chưa bù trừ hết phát sinh trong năm tài chính báo cáo</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="chiPhi_SuDung" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Chi phí thuế nhỏ hơn 0 chưa bù trừ hết được sử dụng trong năm tài chính báo cáo</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="chiPhi_ConLai" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4. Chi phí thuế nhỏ hơn 0 chưa bù trừ hết còn lại cho các năm tài chính báo cáo kế tiếp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.2.3.1">
+										<xs:annotation>
+											<xs:documentation>3.2.3.1 Các điều chỉnh thuế hoãn lại</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct_A" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Chi phí thuế hoãn lại [A]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_B" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Chi phí thuế hoãn lại tính lại theo mức thuế suất tối thiểu [B] = [C] + [D]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_C" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Tài sản thuế hoãn lại đã được ghi nhận ở mức thuế suất thấp hơn thuế suất tối thiểu được tính lại ở mức thuế suất tối thiểu trong năm tài chính mà khoản lỗ liên quan đến tài sản thuế hoãn lại đó trở thành một khoản lỗ theo quy định về thuế tối thiểu toàn cầu [C]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_D" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4. Chi phí thuế hoãn lại được ghi nhận ở mức thuế suất cao hơn thuế suất tối thiểu và được tính lại ở mức thuế suất tối thiểu [D]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_E" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>5. Tổng các khoản điều chỉnh [E]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_F" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>6. Tổng thuế hoãn lại sau khi tính lại theo mức thuế suất tối thiểu và đã được điều chỉnh [F] = [B] + [E]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.1" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.1. Chi phí thuế hoãn lại đối với các khoản không được đưa vào khi tính thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.2" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.2. Chi phí thuế hoãn lại đối với các khoản trích trước không được chấp nhận</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.3" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.3. Chi phí thuế hoãn lại đối với các khoản trích trước chưa được tính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.4" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.4. Điều chỉnh cách thức xác định giá trị hoặc điều chỉnh việc ghi nhận kế toán liên quan đến tài sản thuế hoãn lại</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.5" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.5. Chi phí thuế hoãn lại phát sinh từ việc tính toán lại do thay đổi thuế suất áp dụng tại một nước</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.6" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.6. Chi phí thuế hoãn lại từ việc tạo lập và sử dụng các khoản giảm trừ nghĩa vụ thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.7" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.7. Khoản lỗ thay thế từ tài sản thuế hoãn lại được chuyển kỳ sau</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.8" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.8. Các khoản trích trước chưa được tính đã được thanh toán trong năm tài chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.9" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.9. Các khoản thuế hoãn lại phải trả được thu hồi được xác định trong năm tài chính trước đó và đã được nộp trong năm tài chính hiện hành</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.10" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.10. Tài sản thuế hoãn lại do lỗ của năm tài chính hiện hành phát sinh lỗ, nhưng tài sản thuế hoãn lại do lỗ đó không được ghi trên báo cáo tài chính vì không đáp ứng tiêu chuẩn được kế toán ghi nhận là tài sản thuế hoãn lại</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.11" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.11. Khoản điều chỉnh chi phí thuế hoãn lại do giảm thuế suất</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.12" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.12. Khoản điều chỉnh chi phí thuế hoãn lại do tăng thuế suất</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.13" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.13. Điều chỉnh đối với đơn vị hợp thành tham gia hoặc rời khỏi Tập đoàn đa quốc gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.14" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.14. Điều chỉnh chi phí thuế hoãn lại của cơ sở thường trú có Công ty mẹ tối cao là đơn vị trung chuyển</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_1.15" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.15. Điều chỉnh do giao dịch chuyển giao tài sản giữa các đơn vị hợp thành sau ngày 30/11/2021 và trước khi bắt đầu năm chuyển tiếp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_DieuChinh" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Tổng các khoản điều chỉnh </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.2.3.2">
+										<xs:annotation>
+											<xs:documentation>3.2.3.2 Cơ chế thu hồi</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="khoan_GhiNhan">
+													<xs:annotation>
+														<xs:documentation>2. Khoản thuế hoãn lại phải trả được ghi nhận theo cơ chế xử lý các khoản chênh lệch tạm thời</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_TCLienTruocThu5" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 5</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu4" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 4</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu3" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 3</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu2" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 2</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu1" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ nhất</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính báo cáo</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="KhoanThuHoi">
+													<xs:annotation>
+														<xs:documentation>3. Khoản thuế hoãn lại phải trả được thu hồi</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="NamTCLienTruocThu4">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 4</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="nam_TCLienTruocThu5" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 5</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="NamTCLienTruocThu3">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 3</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="nam_TCLienTruocThu5" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 5</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu4" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 4</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="NamTCLienTruocThu2">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 2</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="nam_TCLienTruocThu5" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 5</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu4" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 4</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu3" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 3</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="NamTCLienTruocThu1">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 1</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="nam_TCLienTruocThu5" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 5</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu4" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 4</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu3" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 3</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu2" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 2</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="NamTC">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính báo cáo</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="nam_TCLienTruocThu5" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 5</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu4" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 4</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu3" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 3</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu2" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 2</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu1" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ nhất</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="TongCong">
+																<xs:annotation>
+																	<xs:documentation>Tổng cộng</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="nam_TCLienTruocThu5" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 5</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu4" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 4</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu3" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 3</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu2" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ 2</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_TCLienTruocThu1" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm tài chính liền trước thứ nhất</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="khoan_KhongThuHoi">
+													<xs:annotation>
+														<xs:documentation>4. Khoản thuế hoãn lại phải trả không được thu hồi</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_TCLienTruocThu5" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 5</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu4" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 4</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu3" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 3</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu2" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ 2</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TCLienTruocThu1" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính liền trước thứ nhất</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_TC" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm tài chính báo cáo</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.2.3.3">
+										<xs:annotation>
+											<xs:documentation>3.2.3.3 Quy tắc chuyển tiếp</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="nam_ChuyenTiep" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Năm chuyển tiếp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Muc_a">
+													<xs:annotation>
+														<xs:documentation>a. Xử lý khoản thuế hoãn lại phải trả và khoản tài sản thuế hoãn lại trong thời gian chuyển tiếp</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="khoan_ChuyenTiep" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1.1. Khoản thuế hoãn lại phải trả tại đầu năm chuyển tiếp</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="khoan_TinhLai" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1.2. Khoản thuế hoãn lại phải trả được tính lại ở mức thuế suất tối thiểu (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="khoan_TaiSanChuyenTiep" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1.1. Tài sản thuế hoãn lại tại đầu năm chuyển tiếp</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="khoan_TaiSanTinhLai" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1.2. Tài sản thuế hoãn lại được tính lại ở mức thuế suất tối thiểu (nếu áp dụng)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="khoan_TaiSanPhatSinh" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1.3. Tài sản thuế hoãn lại phát sinh từ những khoản mục được loại trừ </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="khoan_TaiSanGhiNhan" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1.4. Tài sản thuế hoãn lại được ghi nhận theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="Muc_b">
+													<xs:annotation>
+														<xs:documentation>b. Chuyển nhượng tài sản giữa các đơn vị hợp thành sau ngày 30 tháng 11 năm 2021 và trước khi bắt đầu năm chuyển tiếp</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="ten_QuocGia" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>1. Quốc gia các đơn vị hợp thành chuyển nhượng cư trú</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="ma_QuocGia" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>1. Quốc gia các đơn vị hợp thành chuyển nhượng cư trú</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="taiSanChuyenNhuong_DaNop" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>2. Số thuế bên chuyển nhượng tài sản đã nộp đối với giao dịch chuyển nhượng</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="taiSanChuyenNhuong_PhaiTra" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>3. Tài sản thuế hoãn lại hoặc thuế hoãn lại phải trả ròng ghi nhận trên sổ kế toán của đơn vị hợp thành chuyển nhượng tài sản</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="taiSanChuyenNhuong_TTTC" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>4. Giá trị tài sản chuyển nhượng theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="taiSanChuyenNhuongDVHT_TTTC" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>5. Tài sản thuế hoãn lại hoặc thuế hoãn lại phải trả ròng được xác định đối với tài sản được chuyển nhượng theo quy định về thuế tối thiểu toàn cầu của các đơn vị hợp thành nhận chuyển nhượng</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																	<xs:attribute name="id" type="xs:string" use="required"/>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.3.1">
+										<xs:annotation>
+											<xs:documentation>3.3.1 Các lựa chọn</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="chon_XacDinhKhoanGiam" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.  Lựa chọn xác định khoản giảm không trọng yếu của các khoản  thuế thuộc phạm vi áp dụng là một khoản điều chỉnh đối với các khoản thuế thuộc phạm vi áp dụng trong năm tài chính thực hiện việc điều chỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="chon_KhongApDungQuyDinh" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.  Lựa chọn không áp dụng quy định về giảm trừ giá trị tài sản hữu hình và tiền lương </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="chon_QuyTrinhQuanLy" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Lựa chọn quy trình quản lý đối với chi phí thuế nhỏ hơn 0 chưa bù trừ hết</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ChonKhongApDung">
+													<xs:annotation>
+														<xs:documentation>1. Lựa chọn không áp dụng điều chỉnh lãi hoặc lỗ trên vốn chủ sở hữu</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_LuaChon" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_ChamDutLuaChon" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm chấm dứt lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ChonThayThe">
+													<xs:annotation>
+														<xs:documentation>1. Lựa chọn không áp dụng điều chỉnh lãi hoặc lỗ trên vốn chủ sở hữu</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_LuaChon" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_ChamDutLuaChon" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm chấm dứt lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ChonNguyenTac">
+													<xs:annotation>
+														<xs:documentation>1. Lựa chọn không áp dụng điều chỉnh lãi hoặc lỗ trên vốn chủ sở hữu</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_LuaChon" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_ChamDutLuaChon" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm chấm dứt lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ChonLoTheoQuyDinh">
+													<xs:annotation>
+														<xs:documentation>1. Lựa chọn lỗ theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="nam_LuaChon" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_ChamDutLuaChon" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Năm chấm dứt lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.3.2">
+										<xs:annotation>
+											<xs:documentation>3.3.2 Thông tin liên quan đến lựa chọn không áp dụng điều chỉnh lãi hoặc lỗ trên vốn chủ sở hữu</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="khoan_LaiHoacLo" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Lãi hoặc lỗ vốn chủ sở hữu đối với lựa chọn không áp dụng điều chỉnh lãi hoặc lỗ trên vốn chủ sở hữu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="khoan_SoDuDauTu" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Số dư khoản đầu tư của chủ sở hữu trong quyền sở hữu đạt chuẩn từ những năm tài chính trước</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="khoan_BoSung" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Phần bổ sung vào khoản đầu tư của chủ sở hữu trong quyền sở hữu đạt chuẩn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="khoan_GiamTru" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4. Phần giảm trừ vào khoản đầu tư của chủ sở hữu trong quyền sở hữu đạt chuẩn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="khoan_SoDuConLai" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>5. Số dư còn lại của khoản đầu tư của chủ sở hữu trong quyền sở hữu đạt chuẩn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.4">
+										<xs:annotation>
+											<xs:documentation>3.4 Xác định thuế suất thực tế</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="thue_ThuNhapHoacLo" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Thu nhập hoặc lỗ ròng trên báo cáo tài chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thue_ThuNhapRong" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Thu nhập ròng theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thue_ChiPhi" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Chi phí thuế thu nhập doanh nghiệp trên báo cáo tài chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thue_DieuChinh" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4. Thuế thuộc phạm vi áp dụng được điều chỉnh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thue_ThucTe" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>5. Thuế suất thực tế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.5.1">
+										<xs:annotation>
+											<xs:documentation>3.5.1 Số thuế bổ sung được điều chỉnh cho năm hiện hành phát sinh trong trường hợp thuế suất thực tế và thuế bổ sung của năm tài chính trước đó phải tính toán lại</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ma_CoSoDieuChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Cơ sở điều chỉnh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_CoSoDieuChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Cơ sở điều chỉnh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_LienQuan" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Năm liên quan</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="daBaoCao_ThuNhapRong" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Thu nhập ròng theo quy định về thuế tối thiểu toàn cầu a. Đã báo cáo </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="tinhLai_ThuNhapRong" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Thu nhập ròng theo quy định về thuế tối thiểu toàn cầu b. Tính lại</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="daBaoCao_ApDung" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Thuế thuộc phạm vi áp dụng đã được điều chỉnh a. Đã báo cáo </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="tinhLai_ApDung" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Thuế thuộc phạm vi áp dụng đã được điều chỉnh b. Tính lại</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="daBaoCao_ThucTe" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Thuế suất thực tế (%) a. Đã báo cáo </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="tinhLai_ThucTe" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Thuế suất thực tế (%) b. Tính lại</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="daBaoCao_LoiNhuanBoSung" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>6. Lợi nhuận tính thuế bổ sung a. Đã báo cáo </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="tinhLai_LoiNhuanBoSung" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>6. Lợi nhuận tính thuế bổ sung b. Tính lại</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="daBaoCao_TyLeBoSung" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>7. Tỷ lệ thuế bổ sung (%) a. Đã báo cáo </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="tinhLai_TyLeBoSung" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>7. Tỷ lệ thuế bổ sung (%) b. Tính lại</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="daBaoCao_ThueBoSung" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>8. Thuế bổ sung a. Đã báo cáo </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="tinhLai_ThueBoSung" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>8. Thuế bổ sung b. Tính lại</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thueBoSung_DieuChinh" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>9. Thuế bổ sung được điều chỉnh cho năm hiện hành</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.5.2">
+										<xs:annotation>
+											<xs:documentation>3.5.2 Số tiền thuế bổ sung được điều chỉnh cho năm hiện hành phát sinh trong trường hợp năm tài chính không có thu nhập ròng theo quy định về thuế tối thiểu toàn cầu tại một nước, nếu thuế thuộc phạm vi áp dụng đã điều chỉnh tại một nước nhỏ hơn 0 và thấp hơn thuế thuộc phạm vi áp dụng đã điều chỉnh theo dự kiến</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="thue_DieuChinh" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Thuế thuộc phạm vi áp dụng được điều chỉnh (nếu nhỏ hơn 0) [1]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thue_DieuChinhLo" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Lỗ theo quy định về thuế tối thiểu toàn cầu [2]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thue_DieuChinhDuKien" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Thuế thuộc phạm vi áp dụng được điều chỉnh dự kiến [3] = 15% x [2]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thue_DieuChinhBoSung" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4. Thuế bổ sung được điều chỉnh cho năm hiện hành [4] = [3] - [1]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_3.6">
+										<xs:annotation>
+											<xs:documentation>3.6 Tính toán thuế bổ sung</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="thueBoSung_TyLe" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Tỷ lệ thuế bổ sung [1] = 15% - ETR</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thueBoSung_TaiSan" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Giá trị tài sản hữu hình và tiền lương được giảm trừ [2]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thueBoSung_LoiNhuan" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Lợi nhuận tính thuế bổ sung [3] = Thu nhập ròng theo quy định về thuế tối thiểu toàn cầu - [2]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thueBoSung_DieuChinh" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4. Thuế bổ sung được điều chỉnh cho năm hiện hành [4]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thueBoSung" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>5. Thuế bổ sung [5] = [1] x [3] + [4]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Muc_4">
+							<xs:annotation>
+								<xs:documentation>4 Số liệu tính toán của các đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Muc_4.1.1">
+										<xs:annotation>
+											<xs:documentation>4.1.1 Điều chỉnh thu nhập hoặc lỗ ròng tại Báo cáo tài chính </xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ct_1" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên đơn vị hợp thành, liên doanh,công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_2" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.  Tổng thu nhập hoặc lỗ ròng tại báo cáo tài chính sau khi thực hiện phân bổ thu nhập hoặc lỗ giữa một công ty chính và một cơ sở thường trú, phân bổ thu nhập hoặc lỗ của  của một cơ sở thường trú có Công ty mẹ tối cao là đơn vị trung chuyển </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.1" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.1. Chi phí thuế ròng </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.2" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.2. Cổ tức được loại trừ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.3" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.3. Lãi hoặc lỗ trên vốn chủ sở hữu được loại trừ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.4" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.4. Lãi hoặc lỗ do đánh giá lại</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.5" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.5. Lãi hoặc lỗ về chênh lệch tỷ giá do sử dụng đồng tiền kế toán và đồng tiền tính thuế khác nhau</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.6" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.6. Các khoản chi phí không được trừ theo quy định</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.7" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.7. Sai sót của các kỳ trước</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.8" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.8. Những thay đổi về nguyên tắc kế toán</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.9" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.9. Chi phí hưu trí trích trước của Chương trình hưu trí do các quỹ hưu trí cung cấp</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.10" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.10. Xóa nợ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.11" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.11. Khoản chi phí phát sinh chi trả cho người làm công dựa trên cổ phiếu</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.12" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.12. Điều chỉnh theo nguyên tắc giá thị trường</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.13" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.13. Khoản giảm trừ thuế thu nhập có thể được hoàn trả không đạt chuẩn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.14" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.14. Điều chỉnh do lựa chọn nguyên tắc thực tế phát sinh đối với các tài sản và nợ phải trả đang được hạch toán theo giá trị hợp lý hoặc giá trị suy giảm</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.15" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.15. Điều chỉnh đối với thỏa thuận tài chính trong nội bộ tập đoàn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.16" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.16. Điều chỉnh khoản thu nhập hoặc lỗ tương ứng phần thuế nộp thay chủ hợp đồng bảo hiểm liên quan đến thu nhập của chủ hợp đồng bảo hiểm</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.17" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.17. Điều chỉnh liên quan đến phần vốn cấp một bổ sung, phần vốn cấp một bị hạn chế</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.18" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.18. Điều chỉnh đối với các đơn vị hợp thành tham gia và rời khỏi Tập đoàn đa quốc gia</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.19" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.19. Điều chỉnh thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu của cơ sở thường trú có công ty mẹ tối cao là đơn vị trung chuyển</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.20" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.20. Thu nhập từ vận tải quốc tế được loại trừ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.21" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.21. Điều chỉnh do giao dịch chuyển giao tài sản giữa các đơn vị hợp thành sau ngày 30/11/2021 và trước khi bắt đầu năm chuyển tiếp</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_5" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5.  Thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.1.2">
+										<xs:annotation>
+											<xs:documentation>4.1.2 Phân bổ thu nhập hoặc lỗ giữa một công ty chính và một cơ sở thường trú </xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_CongTyChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên công ty chính</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_CongTyChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế/Mã số doanh nghiệp công ty chính</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_QuocGiaCongTyChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Quốc gia công ty chính cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_QuocGiaCongTyChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Quốc gia công ty chính cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_CongTyChinh" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Thu nhập hoặc lỗ ròng trên báo cáo tài chính của công ty chính trước khi điều chỉnh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_CoSoThuongTru" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Tên cơ sở thường trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_CoSoThuongTru" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>6. Mã số thuế/Mã số doanh nghiệp cơ sở thường trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_QuocGiaCoSoThuongTru" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>7. Quốc gia cơ sở thường trú cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_QuocGiaCoSoThuongTru" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>7. Quốc gia cơ sở thường trú cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_PhanBo" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>8. Thu nhập hoặc lỗ ròng trên báo cáo tài chính của công ty chính phân bổ cho cơ sở thường trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_SauPhanBo" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>9. Thu nhập hoặc lỗ ròng trên báo cáo tài chính của công ty chính sau khi phân bổ cho cơ sở thường trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.1.3">
+										<xs:annotation>
+											<xs:documentation>4.1.3 Phân bổ thu nhập hoặc lỗ của cơ sở thường trú có Công ty mẹ tối cao là đơn vị trung chuyển</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_CoSoThuongTru" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên cơ sở thường trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_CoSoThuongTru" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế/Mã số doanh nghiệp cơ sở thường trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_CoSoThuongTru" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Thu nhập hoặc lỗ ròng trên báo cáo tài chính của cơ sở thường trú trước khi điều chỉnh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_DoiTuong" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Tên đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_DoiTuong" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Mã số thuế/Mã số doanh nghiệp của đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_QuocGiaDoiTuong" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>6. Quốc gia đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_QuocGiaDoiTuong" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>6. Quốc gia đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_PhanBo" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>7. Thu nhập hoặc lỗ ròng trên báo cáo tài chính của cơ sở thường trú phân bổ cho đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_SauPhanBo" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>8. Thu nhập hoặc lỗ ròng trên báo cáo tài chính của cơ sở thường trú sau khi phân bổ cho đối tượng nắm giữ quyền sở hữu trong Công ty mẹ tối cao</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.1.4">
+										<xs:annotation>
+											<xs:documentation>4.1.4 Điều chỉnh thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu đối với các giao dịch xuyên quốc gia</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên đơn vị hợp thành, liên doanh, công ty con của liên doanh </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế/Mã số doanh nghiệp của  đơn vị hợp thành, liên doanh, công ty con của liên doanh </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_CoSoDieuChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Cơ sở của sự điều chỉnh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_CoSoDieuChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Cơ sở của sự điều chỉnh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_DonViLienQuan" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Tên đơn vị hợp thành, liên doanh, công ty con của liên doanh liên quan</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_DonViLienQuan" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Mã số thuế/Mã số doanh nghiệp của đơn vị hợp thành, liên doanh, công ty con của liên doanh liên quan</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_QuocGiaDonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>6. Quốc gia  đơn vị hợp thành,  liên doanh, công ty con của liên doanh liên quan cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_QuocGiaDonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>6. Quốc gia  đơn vị hợp thành,  liên doanh, công ty con của liên doanh liên quan cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_DieuChinhTang" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>7. Giá trị điều chỉnh tăng thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu của đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_DieuChinhGiam" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>8. Giá trị điều chỉnh giảm thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu của đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.2.1">
+										<xs:annotation>
+											<xs:documentation>4.2.1 Điều chỉnh đối với chi phí thuế hiện hành trong sổ kế toán</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ct_1" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_2" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Thuế thuộc phạm vi áp dụng sau khi thực hiện phân bổ từ một đơn vị hợp thành này sang đơn vị hợp thành khác  </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.1" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.1. Khoản thuế thuộc phạm vi áp dụng được hạch toán là chi phí khi tính lợi nhuận trước thuế trong sổ kế toán </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.2" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.2. Khoản tài sản thuế hoãn lại do lỗ theo Quy định về thuế tối thiểu toàn cầu được sử dụng theo quy định </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.3" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.3. Khoản thuế thuộc phạm vi áp dụng được nộp trong năm tài chính và liên quan đến nghiệp vụ thuế không chắc chắn (chờ điều chỉnh) mà khoản đó nằm trong phần điều chỉnh trừ khỏi thuế thuộc phạm vi áp dụng trong một năm tài chính trước đó theo quy định</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.4" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.4. Khoản chi phí thuế hiện hành liên quan đến thu nhập không được đưa vào khi tính thu nhập hoặc lỗ theo Quy định về thuế tối thiểu toàn cầu theo quy định</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.5" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.5. Khoản giảm trừ hoặc khoản hoàn trả thuế mà theo quy định các khoản này được coi là một khoản giảm trừ thuế thu nhập có thể được hoàn trả không đạt chuẩn và chưa được ghi nhận là một khoản giảm chi phí thuế hiện hành</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.6" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.6. Khoản thuế thuộc phạm vi áp dụng được hoàn trả hoặc giảm trừ của một đơn vị hợp thành mà đã không được ghi nhận là khoản điều chỉnh chi phí thuế hiện hành trong sổ kế toán</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.7" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.7. Khoản chi phí thuế hiện hành liên quan đến một nghiệp vụ thuế không chắc chắn (chờ điều chỉnh)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.8" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.8. Khoản chi phí thuế hiện hành dự kiến không được thanh toán trong vòng ba năm kể từ ngày cuối cùng của năm tài chính</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.9" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.9. Những điều chỉnh phát sinh sau khi kê khai</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.10" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.10. Điều chỉnh thuế thuộc phạm vi áp dụng của cơ sở thường trú có Công ty mẹ tối cao là đơn vị trung chuyển</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.11" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.11.  Tổng các khoản điều chỉnh thuế hoãn lại</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.12" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.12. Tăng hoặc giảm nào đối với các khoản thuế thuộc phạm vi áp dụng chưa được ghi nhận vào chi phí thuế hiện hành hoặc chi phí thuế hoãn lại, nhưng được ghi nhận trong phần vốn chủ sở hữu hoặc phần thu nhập toàn diện khác liên quan đến các khoản được đưa vào khi tính thu nhập hoặc lỗ theo Quy định về thuế tối thiểu toàn cầu mà các khoản này sẽ phải chịu thuế theo quy định của thuế nội địa</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.13" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.13. Chi phí thuế nhỏ hơn 0 chưa bù trừ hết  phát sinh trong năm tài chính báo cáo</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4.14" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.14. Chi phí thuế nhỏ hơn 0 chưa bù trừ hết được sử dụng trong năm tài chính báo cáo</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_5" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Thuế thuộc phạm vi áp dụng đã được điều chỉnh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.2.2">
+										<xs:annotation>
+											<xs:documentation>4.2.2 Phân bổ thuế thuộc phạm vi áp dụng từ một đơn vị hợp thành sang một đơn vị hợp thành khác</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thue_TruocDieuChinh" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Thuế thuộc phạm vi áp dụng của đơn vị hợp thành trước điều chỉnh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_CoSoDieuChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Cơ sở của sự điều chỉnh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_CoSoDieuChinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Cơ sở của sự điều chỉnh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_DonViLienQuan" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5. Tên đơn vị hợp thành, liên doanh, công ty con của liên doanh liên quan</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_DonViLienQuan" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>6. Mã số thuế/Mã số doanh nghiệp của đơn vị hợp thành, liên doanh, công ty con của liên doanh liên quan</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_QuocGiaDonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>7. Quốc gia cư trú của đơn vị hợp thành, liên doanh, công ty con của liên doanh liên quan</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_QuocGiaDonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>7. Quốc gia cư trú của đơn vị hợp thành, liên doanh, công ty con của liên doanh liên quan</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_DieuChinhTang" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>8. Giá trị khoản điều chỉnh tăng khoản thuế thuộc phạm vi áp dụng của đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_DieuChinhGiam" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>9. Giá trị khoản điều chỉnh giảm khoản thuế thuộc phạm vi áp dụng của đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thue_SauDieuChinh" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>10. Thuế thuộc phạm vi áp dụng của đơn vị hợp thành, liên doanh, công ty con của liên doanh sau khi điều chỉnh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.2.3">
+										<xs:annotation>
+											<xs:documentation>4.2.3 Điều chỉnh thuế hoãn lại</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ct_1" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_2" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.1" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.1. Chi phí thuế hoãn lại đối với các khoản không được đưa vào khi tính thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.2" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.2. Chi phí thuế hoãn lại đối với các khoản trích trước không được chấp nhận</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.3" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.3. Chi phí thuế hoãn lại đối với các khoản trích trước chưa được tính</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.4" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.4. Điều chỉnh cách thức xác định giá trị hoặc điều chỉnh việc ghi nhận kế toán liên quan đến tài sản thuế hoãn lại</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.5" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.5. Chi phí thuế hoãn lại phát sinh từ việc tính toán lại do thay đổi thuế suất áp dụng tại một nước</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.6" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.6. Chi phí thuế hoãn lại từ việc tạo lập và sử dụng các khoản giảm trừ nghĩa vụ thuế</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.7" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.7. Khoản lỗ thay thế từ tài sản thuế hoãn lại được chuyển kỳ sau</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.8" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.8. Các khoản trích trước chưa được tính đã được thanh toán trong năm tài chính</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.9" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.9. Các khoản thuế hoãn lại phải trả được thu hồi được xác định trong năm tài chính trước đó và đã được nộp trong năm tài chính hiện hành</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.10" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.10. Tài sản thuế hoãn lại do lỗ của năm tài chính hiện hành phát sinh lỗ, nhưng tài sản thuế hoãn lại do lỗ đó không được ghi trên báo cáo tài chính vì không đáp ứng tiêu chuẩn được kế toán ghi nhận là tài sản thuế hoãn lại</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.11" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.11. Khoản điều chỉnh chi phí thuế hoãn lại do giảm thuế suất</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.12" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.12. Khoản điều chỉnh chi phí thuế hoãn lại do tăng thuế suất</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.13" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.13. Đơn vị hợp thành tham gia hoặc rời khỏi Tập đoàn đa quốc gia</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.14" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.14. Chi phí thuế hoãn lại của cơ sở thường trú có Công ty mẹ tối cao là đơn vị trung chuyển</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_3.15" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.15. Điều chỉnh do giao dịch chuyển giao tài sản giữa các đơn vị hợp thành sau ngày 30/11/2021 và trước khi bắt đầu năm chuyển tiếp</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct_4" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Tổng các khoản điều chỉnh thuế hoãn lại</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.3.1">
+										<xs:annotation>
+											<xs:documentation>4.3.1 Lựa chọn hằng năm</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên đơn vị hợp thành, liên doanh, công ty con của liên doanh lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chon_XoaNo" type="xs:boolean" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Lựa chọn xóa nợ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chon_KhongTinh" type="xs:boolean" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4. Lựa chọn không tính vào tổng các khoản điều chỉnh thuế hoãn lại khoản trích trước chưa được tính trong năm tài chính</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.3.2">
+										<xs:annotation>
+											<xs:documentation>4.3.2 Lựa chọn năm năm</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên đơn vị hợp thành, liên doanh, công ty con của liên doanh lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ChonDonViLoaiTru">
+																<xs:annotation>
+																	<xs:documentation>3. Lựa chọn đơn vị hợp thành không phải là đơn vị bị loại trừ</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="nam_LuaChon" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm lựa chọn</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_ChamDutLuaChon" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm chấm dứt lựa chọn</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="ChonCoTucLienQuan">
+																<xs:annotation>
+																	<xs:documentation>4. Lựa chọn tính tất cả các khoản cổ tức liên quan đến quyền sở hữu đầu tư gián tiếp để xác định thu nhập hoặc lỗ theo quy định về thuế tối thiểu toàn cầu, không phụ thuộc vào việc các quyền sở hữu đầu tư gián tiếp là ngắn hạn</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="nam_LuaChon" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm lựa chọn</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_ChamDutLuaChon" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm chấm dứt lựa chọn</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="ChonDieuChinhLoLai">
+																<xs:annotation>
+																	<xs:documentation>5. Lựa chọn điều chỉnh lãi hoặc lỗ chênh lệch tỷ giá liên quan đến công cụ tài chính dự phòng rủi ro đối với khoản đầu tư ròng được ghi nhận trong thu nhâp hoặc lỗ ròng báo cáo tài chính của đơn vị hợp thành theo cùng nguyên tắc điều chỉnh lãi hoặc lỗ trên vốn chủ sở hữu được loại trừ </xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="nam_LuaChon" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm lựa chọn</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nam_ChamDutLuaChon" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Năm chấm dứt lựa chọn</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.3.3">
+										<xs:annotation>
+											<xs:documentation>4.3.3 Lựa chọn điều chỉnh giá trị ghi sổ tài sản và khoản nợ phải trả theo giá trị hợp lý trong trường hợp chuyển nhượng tài sản và nợ phải trả</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên đơn vị hợp thành, liên doanh, công ty con của liên doanh lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="nam_LuaChon" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Năm lựa chọn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chon_PhatSinhDieuChinh" type="xs:boolean" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.1. Tính vào năm tài chính có phát sinh sự kiện điều chỉnh </xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chon_PhanBo" type="xs:boolean" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.2. Phân bổ trong năm (05) năm bao gồm năm tài chính phát sinh sự kiện điều chỉnh và bốn (04) năm tài chính liền kề tiếp theo</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.4.1">
+										<xs:annotation>
+											<xs:documentation>4.4.4 Loại trừ thu nhập vận tải quốc tế</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_VanTaiHoatDong" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.1. Danh mục hoạt động</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_VanTaiHoatDong" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.1. Danh mục hoạt động</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="doanhThu_VanTai" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.2. Doanh thu</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chiPhi_VanTai" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.3. Chi phí</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_VanTai" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3.4. Thu nhập vận tải quốc tế</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_VanTaiPhuTro" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.1. Danh mục hoạt động</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_VanTaiPhuTro" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.1. Danh mục hoạt động</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="doanhThu_VanTaiPhuTro" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.2. Doanh thu</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chiPhi_VanTaiPhuTro" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.3. Chi phí</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thuNhap_VanTaiPhuTro" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>4.4. Thu nhập vận tải quốc tế phụ trợ đạt chuẩn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chi_TienLuong" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5.1. Chi tiền lương được sử dụng để tạo ra thu nhập vận tải quốc tế hoặc thu nhập vận tải quốc tế phụ trợ đạt chuẩn được loại trừ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="giaTri_TaiSan" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>5.2. Giá trị tài sản hữu hình hợp lệ được sử dụng để tạo ra thu nhập vận tải quốc tế hoặc thu nhập vận tải quốc tế phụ trợ đạt chuẩn được loại trừ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="thue_ApDung" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>6. Thuế thuộc phạm vi áp dụng đối với thu nhập vận tải quốc tế hoặc thu nhập quốc tế phụ trợ đạt chuẩn được loại trừ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.4.2">
+										<xs:annotation>
+											<xs:documentation>4.4.2 Giới hạn quốc gia đối với loại trừ thu nhập vận tải quốc tế đạt chuẩn </xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tong_ThuNhap" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1. Tổng thu nhập vận tải quốc tế [1]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ThuNhapGioiHan" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2. Giới hạn 50% của tổng thu nhập vận tải quốc tế [2] = 50% x [1]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tong_ThuNhapPhuTro" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3. Tổng thu nhập vận tải quốc tế phụ trợ đạt chuẩn [3]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="vuot_GioiHan" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4. Phần vượt mức giới hạn [4] = [3] - [2]</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_4.5">
+										<xs:annotation>
+											<xs:documentation>4.5 Chuẩn mực kế toán khác chuẩn mực kế toán lập báo cáo tài chính hợp nhất của Công ty mẹ tối cao</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ten_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>1. Tên đơn vị hợp thành, liên doanh, công ty con của liên doanh có thu nhập hoặc lỗ ròng trên báo cáo tài chính được xác định bằng một chuẩn mực kế toán khác chuẩn mực kế toán lập báo cáo tài chính hợp nhất của Công ty mẹ tối cao</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="mst_DonVi" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>2. Mã số thuế  đơn vị hợp thành, liên doanh, công ty con của liên doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="chuan_KeToan" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>3. Chuẩn mực kế toán tài chính được chấp nhận hoặc được phép áp dụng</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string" use="required"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="PLucType">
+			<xs:complexContent>
+				<xs:extension base="PLucType">
+					<xs:sequence>
+						<xs:element name="TKhai_01_TNDN_QDMTT">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="LoaiTienTNDN" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[10] Lựa chọn đồng tiền kê khai Tờ khai thuế TNDN bổ sung, nộp thuế TNDN bổ sung</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tien_KhacVND" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đồng tiền khai Tờ khai thông tin (khác Đồng Việt Nam)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tien_VND" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đồng Việt Nam</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ty_GiaQuyDoi" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[11] Tỷ giá quy đổi trong trường hợp khai Tờ khai thông tin bằng đồng ngoại tệ và lựa chọn khai Tờ khai thuế TNDN bổ sung, nộp thuế TNDN bổ sung bằng đồng Việt Nam</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ten_NganHang" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>tại Ngân hàng</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="giam_TruTrachNhiem" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[12] Áp dụng quy định giảm trừ trách nhiệm</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Muc_I">
+										<xs:annotation>
+											<xs:documentation>I. XÁC ĐỊNH SỐ THUẾ THU NHẬP DOANH NGHIỆP BỔ SUNG THEO QUY ĐỊNH VỀ THUẾ THU NHẬP DOANH NGHIỆP BỔ SUNG TỐI THIỂU NỘI ĐỊA ĐẠT CHUẨN TẠI VIỆT NAM</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct_A" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1 Lợi nhuận tính thuế bổ sung (A =A1-A4)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_A1" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.1 Thu nhập ròng tại Việt Nam trong năm tài chính theo Quy định về thuế tối thiểu toàn cầu (A1=A2 - A3)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_A2" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.1.1 Thu nhập theo Quy định về thuế tối thiểu toàn cầu của tất cả các đơn vị hợp thành</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_A3" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>1.1.2 Lỗ theo Quy định về thuế tối thiểu toàn cầu của tất cả các đơn vị hợp thành</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_A4" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2 Giá trị tài sản hữu hình và tiền lương được giảm trừ theo Quy định về thuế tối thiểu toàn cầu (A4=A5+A8)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_A5" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.1 Giá trị tài sản hữu hình được giảm trừ (A5=A6 x A7)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_A6" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.1.1 Giá trị tài sản hữu hình hợp lệ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_A7" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.1.2 Tỷ lệ giảm trừ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_A8" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.2 Giá trị tiền lương được giảm trừ (A8=A9 x A10)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_A9" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.2.1 Chi tiền lương hợp lệ </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_A10" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>2.2.2 Tỷ lệ giảm trừ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_B" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3 Tỷ lệ thuế bổ sung (B = 15% - B2)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_B1" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3.1 Tổng số thuế thu nhập doanh nghiệp tại Việt Nam thuộc phạm vi áp dụng đã được điều chỉnh trong năm tài chính của các đơn vị hợp thành tại Việt Nam</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_B2" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>3.2 Thuế suất thực tế (B2=B1/A1)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_C" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>4 Số thuế bổ sung được điều chỉnh trong năm hiện hành (nếu có)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_D" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>5 Tổng số thuế bổ sung của đơn vị hợp thành tại Việt Nam (D = A x B + C) </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_E" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>6 Tổng số thuế bổ sung của đơn vị hợp thành theo đồng Việt Nam trong trường hợp khai Tờ khai thông tin bằng đồng ngoại tệ và lựa chọn khai Tờ khai thuế TNDN bổ sung, nộp thuế TNDN bổ sung bằng đồng Việt Nam (nếu có)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Muc_II">
+										<xs:annotation>
+											<xs:documentation>II. PHÂN BỔ THUẾ THU NHẬP DOANH NGHIỆP BỔ SUNG THEO QUY ĐỊNH VỀ THUẾ THU NHẬP DOANH NGHIỆP BỔ SUNG TỐI THIỂU NỘI ĐỊA ĐẠT CHUẨN GIỮA CÁC ĐƠN VỊ HỢP THÀNH TẠI VIỆT NAM</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ten_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị tiền</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã đơn vị tiền</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tieu_ThucPhanBo" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tiêu thức phân bổ số thuế TNDN bổ sung phải nộp theo quy định về thuế thu nhập doanh nghiệp bổ sung tối thiểu nội địa đạt chuẩn giữa các đơn vị hợp thành tại Việt Nam</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="so_ThueTNDN">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ChiTiet" maxOccurs="unbounded">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="ten_DVHT" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Tên đơn vị hợp thành</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="mst_DVHT" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Mã số thuế đã được cấp tại Việt Nam</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="ma_CQTQuanLy" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Mã Cơ quan thuế quản lý trực tiếp đơn vị 
+hợp thành</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="ten_CQTQuanLy" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Tên Cơ quan thuế quản lý trực tiếp đơn vị 
+hợp thành</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="ty_LePhanBo" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Tỷ lệ phân bổ (%)</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="so_ThuePhanBo" type="xs:decimal" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Số thuế TNDN bổ sung phải nộp được phân bổ</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																	<xs:attribute name="id" type="xs:string" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="tong_TyLePhanBo" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tổng Tỷ lệ phân bổ (%)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="tong_SoThuePhanBo" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tổng Số thuế TNDN bổ sung phải nộp được phân bổ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TKhai_01_TM">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="giam_TruTrachNhiem" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[10] Áp dụng quy định giảm trừ trách nhiệm</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ChiTiet" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="mst_DVHT" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã số thuế đơn vị hợp thành (2)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_DVHT" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị hợp thành (3)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_ChiTieu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Chỉ tiêu (4)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_ChiTieu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã số chỉ tiêu (5)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soLieu_DVHT" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số liệu trên Báo cáo tài chính của đơn vị hợp thành (6)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soLieu_CongTyMe" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số liệu trên Báo cáo số liệu tài chính phục vụ mục đích hợp nhất của Công ty mẹ tối cao (7)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="so_ChenhLech" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Chênh lệch (8) = (7) - (6)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="nguyen_NhanChenhLech" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Nguyên nhân chênh lệch (9)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

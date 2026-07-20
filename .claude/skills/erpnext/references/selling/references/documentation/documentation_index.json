@@ -1,0 +1,209 @@
+{
+  "total_files": 11,
+  "categories": {
+    "overview": [
+      "README.md"
+    ],
+    "other": [
+      "doctype/customer/README.md",
+      "doctype/industry_type/README.md",
+      "doctype/installation_note/README.md",
+      "doctype/installation_note_item/README.md",
+      "doctype/quotation/README.md",
+      "doctype/quotation_item/README.md",
+      "doctype/sales_order/README.md",
+      "doctype/sales_order_item/README.md",
+      "doctype/sales_team/README.md",
+      "doctype/sms_center/README.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "filename": "README.md",
+      "category": "overview",
+      "size_bytes": 179,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 29,
+        "line_count": 12
+      },
+      "summary": "Selling management module. Includes forms for capturing / managing the sales process:\n(29 words, 0 code blocks)",
+      "content": "Selling management module. Includes forms for capturing / managing the sales process:\n\n- Customer\n- Campaign\n- Quotation\n- Sales Order\n\nMoved to CRM Module:\n\n- Lead\n- Opportunity\n"
+    },
+    {
+      "path": "doctype/customer/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 16,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 2,
+        "line_count": 1
+      },
+      "summary": "Customer master.\n(2 words, 0 code blocks)",
+      "content": "Customer master."
+    },
+    {
+      "path": "doctype/industry_type/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 32,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Type of industry for a Customer.\n(6 words, 0 code blocks)",
+      "content": "Type of industry for a Customer."
+    },
+    {
+      "path": "doctype/installation_note/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 53,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "Details of product installation at Customer location.\n(7 words, 0 code blocks)",
+      "content": "Details of product installation at Customer location."
+    },
+    {
+      "path": "doctype/installation_note_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 56,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 10,
+        "line_count": 1
+      },
+      "summary": "Detail of Item installed as a part of Installation Note.\n(10 words, 0 code blocks)",
+      "content": "Detail of Item installed as a part of Installation Note."
+    },
+    {
+      "path": "doctype/quotation/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 45,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Price + terms quote sent to Lead or Customer.\n(9 words, 0 code blocks)",
+      "content": "Price + terms quote sent to Lead or Customer."
+    },
+    {
+      "path": "doctype/quotation_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 45,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "Item details (qty, rate) in parent Quotation.\n(7 words, 0 code blocks)",
+      "content": "Item details (qty, rate) in parent Quotation."
+    },
+    {
+      "path": "doctype/sales_order/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 155,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 23,
+        "line_count": 1
+      },
+      "summary": "Confirmed order received from Customer (either against a PO or a payment). All fulfilment details (shipments, billing) are tracked against the Sales Order.\n(23 words, 0 code blocks)",
+      "content": "Confirmed order received from Customer (either against a PO or a payment). All fulfilment details (shipments, billing) are tracked against the Sales Order."
+    },
+    {
+      "path": "doctype/sales_order_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 34,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Item detail in parent Sales Order.\n(6 words, 0 code blocks)",
+      "content": "Item detail in parent Sales Order."
+    },
+    {
+      "path": "doctype/sales_team/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 55,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Sales Person involved in parent Quotation, Sales Order.\n(8 words, 0 code blocks)",
+      "content": "Sales Person involved in parent Quotation, Sales Order."
+    },
+    {
+      "path": "doctype/sms_center/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 42,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Tool to send Bulk SMS to Lead or Contacts.\n(9 words, 0 code blocks)",
+      "content": "Tool to send Bulk SMS to Lead or Contacts."
+    }
+  ]
+}

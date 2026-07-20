@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kế hoạch Mua hàng - DCNET Flow</title>
+<style>
+  /* ========== Frappe v16 Design Tokens ========== */
+  :root {
+    --gray-50:#f8f8f8; --gray-100:#f3f3f3; --gray-200:#ededed;
+    --gray-300:#e2e2e2; --gray-400:#c7c7c7; --gray-500:#999;
+    --gray-600:#7c7c7c; --gray-700:#525252; --gray-800:#383838;
+    --gray-900:#171717;
+    --blue-50:#f0f7ff; --blue-100:#d3e8fd; --blue-200:#a8d2fc;
+    --blue-300:#72b5f9; --blue-500:#0289f7; --blue-600:#0074d4; --blue-700:#005aaa;
+    --green-50:#edfcf0; --green-100:#cef5d5; --green-500:#28a745;
+    --green-600:#1d8a38; --green-700:#17702e; --green-800:#115524;
+    --red-50:#fff2f2; --red-100:#ffd7d7; --red-500:#e03636; --red-700:#a31919;
+    --orange-50:#fff6ed; --orange-100:#ffe4cc; --orange-500:#e67512; --orange-700:#974a0a;
+    --yellow-50:#fffde6; --yellow-100:#fff3bf;
+    --shadow-xs: rgba(0,0,0,0.05) 0px 0.5px 0px, rgba(0,0,0,0.08) 0px 0px 0px 1px, rgba(0,0,0,0.05) 0px 2px 4px;
+    --shadow-sm: 0px 1px 2px rgba(0,0,0,0.1);
+    --shadow-md: 0px 0px 1px rgba(0,0,0,0.12), 0px 0.5px 2px rgba(0,0,0,0.15), 0px 2px 3px rgba(0,0,0,0.16);
+    --focus-blue: 0px 0px 0px 2px #65b9fc;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: "InterVariable","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size: 13px; font-weight: 420; color: var(--gray-800);
+    background: var(--gray-100); line-height: 1.5;
+  }
+  /* ========== Navbar ========== */
+  .navbar {
+    height: 48px; background: white; border-bottom: 1px solid var(--gray-200);
+    display: flex; align-items: center; padding: 0 16px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .navbar-brand { font-size: 14px; font-weight: 700; color: var(--gray-900); }
+  .navbar-breadcrumb { display: flex; align-items: center; gap: 6px; margin-left: 20px; font-size: 13px; color: var(--gray-600); }
+  .navbar-breadcrumb a { color: var(--gray-600); text-decoration: none; }
+  .navbar-breadcrumb a:hover { color: var(--gray-900); }
+  .navbar-breadcrumb .sep { color: var(--gray-400); }
+  .navbar-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+  /* ========== Layout ========== */
+  .layout { display: flex; min-height: calc(100vh - 48px); }
+  .sidebar {
+    width: 220px; background: var(--gray-100); border-right: 1px solid var(--gray-200);
+    padding: 12px 8px; flex-shrink: 0;
+  }
+  .sidebar-section { margin-bottom: 16px; }
+  .sidebar-section-title {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    color: var(--gray-500); padding: 4px 12px; margin-bottom: 4px;
+  }
+  .sidebar-item {
+    height: 30px; padding: 6px 12px; font-size: 13px; color: var(--gray-700);
+    border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px;
+    text-decoration: none;
+  }
+  .sidebar-item:hover { background: #f3f3f3; color: var(--gray-900); }
+  .sidebar-item.active { background: white; box-shadow: var(--shadow-sm); color: var(--gray-900); font-weight: 500; }
+  .sidebar-icon { width: 16px; height: 16px; color: var(--gray-500); flex-shrink: 0; }
+  .main-content { flex: 1; background: white; overflow-x: hidden; }
+  /* ========== Page Head ========== */
+  .page-head {
+    height: 45px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px; border-bottom: 1px solid var(--gray-200); position: sticky; top: 48px;
+    background: white; z-index: 50;
+  }
+  .page-head-left { display: flex; align-items: center; gap: 12px; }
+  .page-title { font-size: 14px; font-weight: 600; color: var(--gray-900); }
+  .page-head-right { display: flex; align-items: center; gap: 8px; }
+  /* ========== Buttons ========== */
+  .btn {
+    height: 28px; padding: 0 12px; border: none; border-radius: 6px;
+    font-size: 13px; font-weight: 420; cursor: pointer; display: inline-flex;
+    align-items: center; gap: 6px; box-shadow: var(--shadow-xs);
+    font-family: inherit;
+  }
+  .btn:focus-visible { box-shadow: 0px 0px 0px 2px #c9c9c9; outline: none; }
+  .btn-primary { background: var(--gray-900); color: white; }
+  .btn-primary:hover { background: var(--gray-800); }
+  .btn-default { background: var(--gray-100); color: var(--gray-800); }
+  .btn-default:hover { background: var(--gray-200); }
+  .btn-sm { height: 24px; padding: 0 8px; font-size: 12px; }
+  .btn-ghost { background: transparent; box-shadow: none; }
+  .btn-ghost:hover { background: var(--gray-100); }
+  .icon-btn { width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center; }
+  /* ========== Indicator Pill ========== */
+  .indicator-pill {
+    display: inline-flex; align-items: center; padding: 2px 8px 2px 6px;
+    border-radius: 999px; height: 20px; font-size: 12px; font-weight: 420; gap: 6px;
+    white-space: nowrap;
+  }
+  .indicator-pill::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: currentColor; flex-shrink: 0;
+  }
+  .indicator-pill.blue { background: var(--blue-100); color: var(--blue-700); }
+  .indicator-pill.green { background: var(--green-100); color: var(--green-800); }
+  .indicator-pill.orange { background: var(--orange-100); color: var(--orange-700); }
+  /* ========== Form ========== */
+  .form-page { padding: 20px; max-width: 1200px; }
+  .form-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+  }
+  .form-header-title { font-size: 20px; font-weight: 600; color: var(--gray-900); }
+  .form-tabs {
+    display: flex; border-bottom: 1px solid var(--gray-200); margin-bottom: 20px; gap: 0;
+  }
+  .form-tab {
+    padding: 8px 16px; font-size: 13px; font-weight: 420; color: var(--gray-600);
+    border-bottom: 2px solid transparent; cursor: pointer; background: none; border-top: none;
+    border-left: none; border-right: none; font-family: inherit;
+  }
+  .form-tab:hover { color: var(--gray-900); }
+  .form-tab.active { color: var(--gray-900); font-weight: 500; border-bottom-color: var(--gray-900); }
+  .form-tab:focus-visible { box-shadow: 0px 0px 0px 2px #c9c9c9; outline: none; }
+  .form-section { margin-bottom: 24px; }
+  .section-head {
+    font-size: 13px; font-weight: 600; color: var(--gray-900);
+    padding-bottom: 8px; margin-bottom: 12px; border-bottom: 1px solid var(--gray-200);
+  }
+  .form-group { margin-bottom: 12px; }
+  .form-group label {
+    display: block; font-size: 11px; font-weight: 500; text-transform: uppercase;
+    color: var(--gray-600); margin-bottom: 4px;
+  }
+  .form-control {
+    height: 28px; padding: 4px 8px; background: var(--gray-100); border: none;
+    border-radius: 8px; font-size: 13px; color: var(--gray-800); width: 100%;
+    font-family: inherit;
+  }
+  .form-control:focus { box-shadow: var(--focus-blue); outline: none; }
+  .form-control-static {
+    height: 28px; padding: 4px 0; font-size: 13px; color: var(--gray-800);
+    display: flex; align-items: center;
+  }
+  select.form-control { appearance: auto; cursor: pointer; }
+  textarea.form-control { height: auto; min-height: 60px; resize: vertical; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  /* ========== Child Table ========== */
+  .child-table-wrapper {
+    border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden;
+  }
+  .child-table-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 12px; background: var(--gray-50); border-bottom: 1px solid var(--gray-200);
+  }
+  .child-table-title { font-size: 13px; font-weight: 600; color: var(--gray-900); }
+  .child-table-scroll { overflow-x: auto; }
+  .child-table {
+    width: 100%; border-collapse: collapse; min-width: 1800px;
+  }
+  .child-table th {
+    font-size: 11px; font-weight: 500; color: var(--gray-600); text-transform: uppercase;
+    background: var(--gray-50); border-bottom: 1px solid var(--gray-200);
+    padding: 6px 8px; text-align: left; white-space: nowrap; position: sticky; top: 0;
+  }
+  .child-table th.month-col {
+    text-align: center; min-width: 50px; background: var(--blue-50); color: var(--blue-700);
+  }
+  .child-table th.total-col {
+    text-align: center; min-width: 60px; background: var(--green-50); color: var(--green-700);
+  }
+  .child-table td {
+    padding: 6px 8px; font-size: 13px; color: var(--gray-800);
+    border-bottom: 1px solid var(--gray-100); white-space: nowrap;
+  }
+  .child-table td.month-val { text-align: center; }
+  .child-table td.total-val { text-align: center; font-weight: 600; color: var(--gray-900); }
+  .child-table tr:hover td { background: var(--gray-50); }
+  .child-table .row-num {
+    color: var(--gray-500); font-size: 11px; width: 30px; text-align: center;
+  }
+  .child-table input {
+    width: 100%; height: 24px; padding: 2px 6px; background: var(--gray-100);
+    border: none; border-radius: 4px; font-size: 12px; text-align: center;
+    font-family: inherit; color: var(--gray-800);
+  }
+  .child-table input:focus { box-shadow: var(--focus-blue); outline: none; }
+  .child-table .link-cell { color: var(--blue-600); cursor: pointer; }
+  .child-table .link-cell:hover { text-decoration: underline; }
+  /* ========== Footer ========== */
+  .form-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 0; margin-top: 20px; border-top: 1px solid var(--gray-200);
+  }
+  .footer-info { font-size: 12px; color: var(--gray-500); }
+  /* ========== Alert ========== */
+  .alert {
+    padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 16px;
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .alert-info { background: var(--blue-50); color: var(--blue-700); }
+  .alert svg { flex-shrink: 0; margin-top: 1px; }
+  /* ========== Tabs Content ========== */
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  /* ========== Scroll hint ========== */
+  .scroll-hint {
+    font-size: 11px; color: var(--gray-500); padding: 4px 12px;
+    display: flex; align-items: center; gap: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <span class="navbar-brand">DCNET Flow</span>
+  <div class="navbar-breadcrumb">
+    <a href="#">Mua hàng</a>
+    <span class="sep">/</span>
+    <a href="#">Kế hoạch mua hàng</a>
+    <span class="sep">/</span>
+    <span style="color:var(--gray-900)">KHMH-2026-001</span>
+  </div>
+  <div class="navbar-right">
+    <button class="btn btn-ghost icon-btn" aria-label="Tìm kiếm">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    </button>
+    <button class="btn btn-ghost icon-btn" aria-label="Thông báo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+    </button>
+    <div style="width:28px;height:28px;border-radius:50%;background:var(--blue-500);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:600;cursor:pointer" aria-label="Tài khoản">Đ</div>
+  </div>
+</nav>
+
+<div class="layout">
+  <!-- Sidebar -->
+  <aside class="sidebar" role="navigation" aria-label="Module navigation">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Mua hàng</div>
+      <a class="sidebar-item active" href="#" aria-current="page">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+        Kế hoạch MH
+      </a>
+      <a class="sidebar-item" href="#">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+        Đơn hàng mua
+      </a>
+      <a class="sidebar-item" href="#">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        Phiếu nhập kho
+      </a>
+      <a class="sidebar-item" href="#">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        KH Giao hàng
+      </a>
+      <a class="sidebar-item" href="#">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Thanh toán
+      </a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Báo cáo</div>
+      <a class="sidebar-item" href="#">
+        <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        Phân tích mua
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Page Head -->
+    <div class="page-head">
+      <div class="page-head-left">
+        <span class="indicator-pill blue">Nháp</span>
+        <span class="page-title">KHMH-2026-001</span>
+      </div>
+      <div class="page-head-right">
+        <button class="btn btn-default" aria-label="Menu thêm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+          Menu
+        </button>
+        <button class="btn btn-primary">Gửi duyệt</button>
+      </div>
+    </div>
+
+    <!-- Form Content -->
+    <div class="form-page">
+      <!-- Tabs -->
+      <div class="form-tabs" role="tablist">
+        <button class="form-tab active" role="tab" aria-selected="true" onclick="switchTab('details')">Chi tiết</button>
+        <button class="form-tab" role="tab" aria-selected="false" onclick="switchTab('connections')">Liên kết</button>
+        <button class="form-tab" role="tab" aria-selected="false" onclick="switchTab('comments')">Ghi chú</button>
+      </div>
+
+      <!-- Tab: Chi tiết -->
+      <div class="tab-content active" id="tab-details">
+        <!-- Section: Thông tin chung -->
+        <div class="form-section">
+          <div class="section-head">Thông tin chung</div>
+          <div class="form-row">
+            <div>
+              <div class="form-group">
+                <label for="plan_number">Số kế hoạch</label>
+                <div class="form-control-static">KHMH-2026-001</div>
+              </div>
+              <div class="form-group">
+                <label for="supplier">Nhà cung cấp</label>
+                <input type="text" id="supplier" class="form-control" value="Acushnet Vietnam Co., Ltd (Titleist)" readonly>
+              </div>
+              <div class="form-group">
+                <label for="content">Nội dung</label>
+                <textarea id="content" class="form-control">Kế hoạch mua hàng Q1-Q2/2026 — Gậy golf Titleist (TSR Series, T-Series Irons)</textarea>
+              </div>
+            </div>
+            <div>
+              <div class="form-group">
+                <label for="plan_date">Ngày lập</label>
+                <input type="text" id="plan_date" class="form-control" value="15/01/2026">
+              </div>
+              <div class="form-group">
+                <label for="created_by">Người lập</label>
+                <div class="form-control-static">Nguyễn Văn Đức</div>
+              </div>
+              <div class="form-group">
+                <label for="status">Trạng thái</label>
+                <select id="status" class="form-control">
+                  <option selected>Nháp</option>
+                  <option>Chờ duyệt</option>
+                  <option>Đã duyệt</option>
+                  <option>Đã tạo PO</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Chi tiết sản phẩm -->
+        <div class="form-section">
+          <div class="child-table-wrapper">
+            <div class="child-table-header">
+              <span class="child-table-title">Chi tiết sản phẩm (7 mục)</span>
+              <div style="display:flex;gap:8px;align-items:center">
+                <span class="scroll-hint">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                  Cuộn ngang để xem tháng
+                </span>
+                <button class="btn btn-sm btn-default">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                  Thêm dòng
+                </button>
+              </div>
+            </div>
+            <div class="child-table-scroll">
+              <table class="child-table">
+                <thead>
+                  <tr>
+                    <th style="width:30px">#</th>
+                    <th style="min-width:100px">Mã VT</th>
+                    <th style="min-width:200px">Tên vật tư</th>
+                    <th style="min-width:50px">ĐVT</th>
+                    <th style="min-width:80px">Loại mua</th>
+                    <th style="min-width:90px">Đơn giá (USD)</th>
+                    <th style="min-width:80px">Family</th>
+                    <th style="min-width:50px">Year</th>
+                    <th style="min-width:80px">Category</th>
+                    <th style="min-width:80px">Sub Cat.</th>
+                    <th style="min-width:70px">Shaft</th>
+                    <th class="month-col">T1</th>
+                    <th class="month-col">T2</th>
+                    <th class="month-col">T3</th>
+                    <th class="month-col">T4</th>
+                    <th class="month-col">T5</th>
+                    <th class="month-col">T6</th>
+                    <th class="month-col">T7</th>
+                    <th class="month-col">T8</th>
+                    <th class="month-col">T9</th>
+                    <th class="month-col">T10</th>
+                    <th class="month-col">T11</th>
+                    <th class="month-col">T12</th>
+                    <th class="total-col">Tổng SL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="row-num">1</td>
+                    <td class="link-cell">TSR3-DR-9</td>
+                    <td>Gậy Driver Titleist TSR3 9.0°</td>
+                    <td>Cây</td>
+                    <td><span class="indicator-pill blue" style="font-size:11px;height:18px">Purchase</span></td>
+                    <td style="text-align:right">549.00</td>
+                    <td>Titleist</td>
+                    <td>2026</td>
+                    <td>Driver</td>
+                    <td>—</td>
+                    <td>TENSEI Blue</td>
+                    <td class="month-val"><input value="5"></td>
+                    <td class="month-val"><input value="8"></td>
+                    <td class="month-val"><input value="12"></td>
+                    <td class="month-val"><input value="10"></td>
+                    <td class="month-val"><input value="8"></td>
+                    <td class="month-val"><input value="6"></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="total-val">49</td>
+                  </tr>
+                  <tr>
+                    <td class="row-num">2</td>
+                    <td class="link-cell">TSR2-FW-15</td>
+                    <td>Gậy Fairway Titleist TSR2 15°</td>
+                    <td>Cây</td>
+                    <td><span class="indicator-pill blue" style="font-size:11px;height:18px">Purchase</span></td>
+                    <td style="text-align:right">349.00</td>
+                    <td>Titleist</td>
+                    <td>2026</td>
+                    <td>Fairway</td>
+                    <td>3 Wood</td>
+                    <td>TENSEI Red</td>
+                    <td class="month-val"><input value="3"></td>
+                    <td class="month-val"><input value="5"></td>
+                    <td class="month-val"><input value="8"></td>
+                    <td class="month-val"><input value="6"></td>
+                    <td class="month-val"><input value="5"></td>
+                    <td class="month-val"><input value="4"></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="total-val">31</td>
+                  </tr>
+                  <tr>
+                    <td class="row-num">3</td>
+                    <td class="link-cell">T200-IS-7</td>
+                    <td>Bộ sắt Titleist T200 (5-PW)</td>
+                    <td>Bộ</td>
+                    <td><span class="indicator-pill blue" style="font-size:11px;height:18px">Purchase</span></td>
+                    <td style="text-align:right">1,099.00</td>
+                    <td>Titleist</td>
+                    <td>2026</td>
+                    <td>Iron Set</td>
+                    <td>Players</td>
+                    <td>True Temper</td>
+                    <td class="month-val"><input value="2"></td>
+                    <td class="month-val"><input value="4"></td>
+                    <td class="month-val"><input value="6"></td>
+                    <td class="month-val"><input value="5"></td>
+                    <td class="month-val"><input value="4"></td>
+                    <td class="month-val"><input value="3"></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="total-val">24</td>
+                  </tr>
+                  <tr>
+                    <td class="row-num">4</td>
+                    <td class="link-cell">T150-IS-7</td>
+                    <td>Bộ sắt Titleist T150 (4-PW)</td>
+                    <td>Bộ</td>
+                    <td><span class="indicator-pill blue" style="font-size:11px;height:18px">Purchase</span></td>
+                    <td style="text-align:right">1,199.00</td>
+                    <td>Titleist</td>
+                    <td>2026</td>
+                    <td>Iron Set</td>
+                    <td>Tour</td>
+                    <td>KBS Tour</td>
+                    <td class="month-val"><input value="1"></td>
+                    <td class="month-val"><input value="3"></td>
+                    <td class="month-val"><input value="4"></td>
+                    <td class="month-val"><input value="3"></td>
+                    <td class="month-val"><input value="2"></td>
+                    <td class="month-val"><input value="2"></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="total-val">15</td>
+                  </tr>
+                  <tr>
+                    <td class="row-num">5</td>
+                    <td class="link-cell">SM10-WG-56</td>
+                    <td>Gậy Wedge Titleist Vokey SM10 56°</td>
+                    <td>Cây</td>
+                    <td><span class="indicator-pill blue" style="font-size:11px;height:18px">Purchase</span></td>
+                    <td style="text-align:right">179.00</td>
+                    <td>Titleist</td>
+                    <td>2026</td>
+                    <td>Wedge</td>
+                    <td>Sand</td>
+                    <td>—</td>
+                    <td class="month-val"><input value="4"></td>
+                    <td class="month-val"><input value="6"></td>
+                    <td class="month-val"><input value="10"></td>
+                    <td class="month-val"><input value="8"></td>
+                    <td class="month-val"><input value="6"></td>
+                    <td class="month-val"><input value="5"></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="total-val">39</td>
+                  </tr>
+                  <tr>
+                    <td class="row-num">6</td>
+                    <td class="link-cell">PRO-V1X-DZ</td>
+                    <td>Bóng golf Titleist Pro V1x (1 tá)</td>
+                    <td>Tá</td>
+                    <td><span class="indicator-pill orange" style="font-size:11px;height:18px">Demo</span></td>
+                    <td style="text-align:right">54.99</td>
+                    <td>Titleist</td>
+                    <td>2026</td>
+                    <td>Ball</td>
+                    <td>Tour</td>
+                    <td>—</td>
+                    <td class="month-val"><input value="10"></td>
+                    <td class="month-val"><input value="15"></td>
+                    <td class="month-val"><input value="20"></td>
+                    <td class="month-val"><input value="15"></td>
+                    <td class="month-val"><input value="10"></td>
+                    <td class="month-val"><input value="10"></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="total-val">80</td>
+                  </tr>
+                  <tr>
+                    <td class="row-num">7</td>
+                    <td class="link-cell">FJ-HLV3-BOA</td>
+                    <td>Giày FootJoy Hyperflex v3 BOA</td>
+                    <td>Đôi</td>
+                    <td><span class="indicator-pill blue" style="font-size:11px;height:18px">Purchase</span></td>
+                    <td style="text-align:right">189.00</td>
+                    <td>FootJoy</td>
+                    <td>2026</td>
+                    <td>Footwear</td>
+                    <td>BOA</td>
+                    <td>—</td>
+                    <td class="month-val"><input value="6"></td>
+                    <td class="month-val"><input value="10"></td>
+                    <td class="month-val"><input value="15"></td>
+                    <td class="month-val"><input value="12"></td>
+                    <td class="month-val"><input value="10"></td>
+                    <td class="month-val"><input value="8"></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="month-val"><input value=""></td>
+                    <td class="total-val">61</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr style="background:var(--gray-50);font-weight:600">
+                    <td></td>
+                    <td colspan="10" style="text-align:right;color:var(--gray-700)">Tổng cộng:</td>
+                    <td class="month-val" style="font-weight:600">31</td>
+                    <td class="month-val" style="font-weight:600">51</td>
+                    <td class="month-val" style="font-weight:600">75</td>
+                    <td class="month-val" style="font-weight:600">59</td>
+                    <td class="month-val" style="font-weight:600">45</td>
+                    <td class="month-val" style="font-weight:600">38</td>
+                    <td class="month-val" style="font-weight:600">—</td>
+                    <td class="month-val" style="font-weight:600">—</td>
+                    <td class="month-val" style="font-weight:600">—</td>
+                    <td class="month-val" style="font-weight:600">—</td>
+                    <td class="month-val" style="font-weight:600">—</td>
+                    <td class="month-val" style="font-weight:600">—</td>
+                    <td class="total-val" style="font-size:14px;color:var(--blue-600)">299</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Tóm tắt -->
+        <div class="form-section">
+          <div class="section-head">Tóm tắt</div>
+          <div class="form-row-3">
+            <div class="form-group">
+              <label>Tổng dòng sản phẩm</label>
+              <div class="form-control-static" style="font-weight:600">7</div>
+            </div>
+            <div class="form-group">
+              <label>Tổng số lượng</label>
+              <div class="form-control-static" style="font-weight:600">299</div>
+            </div>
+            <div class="form-group">
+              <label>Ước tính giá trị (USD)</label>
+              <div class="form-control-static" style="font-weight:600;color:var(--blue-600)">$72,461.20</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-info">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span>Sau khi duyệt, bạn có thể tạo Đơn hàng mua (PO) từ kế hoạch này bằng nút <strong>"Tạo PO"</strong>.</span>
+        </div>
+      </div>
+
+      <!-- Tab: Connections -->
+      <div class="tab-content" id="tab-connections">
+        <div class="form-section">
+          <div class="section-head">Đơn hàng mua liên kết</div>
+          <p style="color:var(--gray-500);padding:20px 0">Chưa có PO nào được tạo từ kế hoạch này.</p>
+        </div>
+      </div>
+
+      <!-- Tab: Comments -->
+      <div class="tab-content" id="tab-comments">
+        <div class="form-section">
+          <div class="section-head">Ghi chú & Lịch sử</div>
+          <p style="color:var(--gray-500);padding:20px 0">Chưa có ghi chú.</p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="form-footer">
+        <span class="footer-info">Tạo bởi Nguyễn Văn Đức · 15/01/2026 09:30</span>
+        <span class="footer-info">Sửa lần cuối: 16/01/2026 14:22</span>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.form-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+  event.target.setAttribute('aria-selected','true');
+  document.getElementById('tab-' + tabId).classList.add('active');
+}
+</script>
+</body>
+</html>

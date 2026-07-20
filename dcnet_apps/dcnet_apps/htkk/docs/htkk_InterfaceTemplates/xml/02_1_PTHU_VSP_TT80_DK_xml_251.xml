@@ -1,0 +1,24 @@
+<PL02_1_PTHU_VSP>
+		<BangKePThuLanXuatBan>
+			<CTietBangKePThuLanXuatBan id="String">
+				<ct2/>
+				<ct3/>
+				<ct4/>
+				<ct5/>
+				<ct6/>
+				<ct7/>
+			</CTietBangKePThuLanXuatBan>
+		</BangKePThuLanXuatBan>
+		<BKePThuTienKetDu>
+			<CTietBKePThuTienKetDu id="String">
+				<ct2/>
+				<ct3/>
+				<ct4/>
+				<ct5/>
+				<ct6/>
+				<ct7/>
+			</CTietBKePThuTienKetDu>
+		</BKePThuTienKetDu>
+		<tong_ct5/>
+		<tong_ct6/>
+	</PL02_1_PTHU_VSP>

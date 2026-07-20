@@ -1,0 +1,513 @@
+{
+  "nodes": [
+    {
+      "file": "__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/appointment/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/appointment/appointment.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/appointment/appointment.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/appointment/test_appointment.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/appointment_booking_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/appointment_booking_settings/appointment_booking_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/appointment_booking_settings/appointment_booking_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/appointment_booking_settings/test_appointment_booking_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/appointment_booking_slots/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/appointment_booking_slots/appointment_booking_slots.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/availability_of_slots/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/availability_of_slots/availability_of_slots.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/campaign/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/campaign/campaign.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/campaign/campaign.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/campaign/test_campaign.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/campaign_email_schedule/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/campaign_email_schedule/campaign_email_schedule.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/competitor/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/competitor/competitor.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/competitor/competitor.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/competitor/test_competitor.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/competitor_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/competitor_detail/competitor_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/contract/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/contract/contract.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/contract/contract.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/contract/contract_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/contract/test_contract.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/contract_fulfilment_checklist/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/contract_fulfilment_checklist/contract_fulfilment_checklist.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/contract_fulfilment_checklist/contract_fulfilment_checklist.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/contract_fulfilment_checklist/test_contract_fulfilment_checklist.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/contract_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/contract_template/contract_template.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/contract_template/contract_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/contract_template/test_contract_template.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/contract_template_fulfilment_terms/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/contract_template_fulfilment_terms/contract_template_fulfilment_terms.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/crm_note/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/crm_note/crm_note.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/crm_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/crm_settings/crm_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/crm_settings/crm_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/crm_settings/test_crm_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/email_campaign/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/email_campaign/email_campaign.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/email_campaign/email_campaign.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/email_campaign/email_campaign_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/email_campaign/test_email_campaign.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/lead/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/lead/lead.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/lead/lead.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/lead/lead_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/lead/lead_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/lead/test_lead.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/lost_reason_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/lost_reason_detail/lost_reason_detail.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/lost_reason_detail/lost_reason_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/market_segment/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/market_segment/market_segment.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/market_segment/market_segment.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/market_segment/test_market_segment.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity/opportunity.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/opportunity/opportunity.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity/opportunity_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity/opportunity_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/opportunity/test_opportunity.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity_item/opportunity_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity_lost_reason/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity_lost_reason/opportunity_lost_reason.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/opportunity_lost_reason/opportunity_lost_reason.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity_lost_reason_detail/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity_lost_reason_detail/opportunity_lost_reason_detail.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity_type/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity_type/opportunity_type.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/opportunity_type/opportunity_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/opportunity_type/test_opportunity_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/prospect/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/prospect/prospect.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/prospect/prospect.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/prospect/test_prospect.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/prospect_lead/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/prospect_lead/prospect_lead.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/prospect_opportunity/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/prospect_opportunity/prospect_opportunity.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_stage/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_stage/sales_stage.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_stage/sales_stage.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_stage/test_sales_stage.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/utils.py",
+      "language": "Python"
+    },
+    {
+      "file": "frappe_crm_api.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/campaign_efficiency/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/campaign_efficiency/campaign_efficiency.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/campaign_efficiency/campaign_efficiency.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/first_response_time_for_opportunity/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/first_response_time_for_opportunity/first_response_time_for_opportunity.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/first_response_time_for_opportunity/first_response_time_for_opportunity.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/lead_conversion_time/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/lead_conversion_time/lead_conversion_time.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/lead_conversion_time/lead_conversion_time.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/lead_details/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/lead_details/lead_details.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/lead_details/lead_details.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/lead_owner_efficiency/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/lead_owner_efficiency/lead_owner_efficiency.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/lead_owner_efficiency/lead_owner_efficiency.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/lost_opportunity/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/lost_opportunity/lost_opportunity.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/lost_opportunity/lost_opportunity.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/opportunity_summary_by_sales_stage/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/opportunity_summary_by_sales_stage/opportunity_summary_by_sales_stage.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/opportunity_summary_by_sales_stage/opportunity_summary_by_sales_stage.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/opportunity_summary_by_sales_stage/test_opportunity_summary_by_sales_stage.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/prospects_engaged_but_not_converted/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/prospects_engaged_but_not_converted/prospects_engaged_but_not_converted.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/prospects_engaged_but_not_converted/prospects_engaged_but_not_converted.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_pipeline_analytics/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_pipeline_analytics/sales_pipeline_analytics.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_pipeline_analytics/sales_pipeline_analytics.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_pipeline_analytics/test_sales_pipeline_analytics.py",
+      "language": "Python"
+    },
+    {
+      "file": "utils.py",
+      "language": "Python"
+    }
+  ],
+  "edges": []
+}

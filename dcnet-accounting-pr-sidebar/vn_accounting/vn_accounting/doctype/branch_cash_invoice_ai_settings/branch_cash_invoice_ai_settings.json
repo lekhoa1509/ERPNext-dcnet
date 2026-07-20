@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "creation": "2026-05-17 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-05-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "Branch Cash Invoice AI Settings",
+ "owner": "Administrator",
+ "field_order": [
+  "enabled",
+  "base_url",
+  "model",
+  "api_key",
+  "timeout_seconds",
+  "section_help",
+  "help_html"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Bật AI đọc hóa đơn"
+  },
+  {
+   "fieldname": "base_url",
+   "fieldtype": "Data",
+   "label": "Base URL (OpenAI compatible)"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key"
+  },
+  {
+   "default": "120",
+   "fieldname": "timeout_seconds",
+   "fieldtype": "Int",
+   "label": "Timeout (giây)"
+  },
+  {
+   "fieldname": "section_help",
+   "fieldtype": "Section Break",
+   "label": "Hướng dẫn"
+  },
+  {
+   "fieldname": "help_html",
+   "fieldtype": "HTML",
+   "options": "<p>AI dùng để trích xuất hóa đơn dạng <b>PDF</b>, <b>ảnh</b> (PNG/JPG/JPEG/WEBP/HEIC). File <b>XML</b> và <b>HTML</b> vẫn được parse trực tiếp không qua AI.</p><p>Endpoint phải tương thích chuẩn OpenAI <code>POST /chat/completions</code> với content-type <code>image_url</code> base64.</p>"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "share": 1
+  },
+  {
+   "role": "Accounts Manager",
+   "read": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

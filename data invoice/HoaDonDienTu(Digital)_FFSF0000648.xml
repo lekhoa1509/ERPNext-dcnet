@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<HDon xmlns:inv="http://laphoadon.gdt.gov.vn/2014/09/invoicexml/v1" xmlns:ns1="http://www.w3.org/2000/09/xmldsig#">
+  <DLHDon id="data">
+    <TTChung>
+      <MSHDon>01GTKT0/016</MSHDon>
+      <KHHDon>AA/21E</KHHDon>
+      <SHDon>0000648</SHDon>
+      <THDon>HÓA ĐƠN GIÁ TRỊ GIA  TĂNG</THDon>
+      <TDLap>2021-12-21T00:00:00</TDLap>
+      <DVTTe>VNĐ</DVTTe>
+      <TGia>1</TGia>
+	  <IDHDon>FFSF0000648</IDHDon>
+      <TTCKhac></TTCKhac>
+    </TTChung>
+    <NDHDon>
+      <Nban>
+        <NBTen>Công ty TNHH MTV viễn thông quốc tế FPT</NBTen>
+        <NBMST>0305793402</NBMST>
+        <NBDChi>Lô L.29B-31B-33B, đường Tân Thuận,Khu Chế Xuất Tân Thuận, P. Tân Thuận Đông, Quận 7, TPHCM, VN</NBDChi>
+        <NBDThoai>(84.28) 7300 2222 - Fax: (84.28) 7300 2233</NBDThoai>
+      </Nban>
+      <NMua>
+        <Ten></Ten>
+        <TDVi>CÔNG TY CỔ PHẦN DƯỢC PHẨM OPC</TDVi>
+        <MST>0302560110</MST>
+        <DChi>1017 Hồng Bàng, Phường 12, Quận 6, TP Hồ Chí Minh</DChi>
+        <XTKho>6111000002 - FTIHO-FHO-HH-Kho hang tot-KCX Tan Thuan</XTKho>
+        <HTTToan>CK</HTTToan>
+        <HTToan>20/01/2022</HTToan>
+        <STKhoan></STKhoan>
+        <Tai></Tai>
+        <STChieu>9496 - 14410</STChieu>
+      </NMua>
+      <DSHHDVu><HHDVu>
+<STT>1</STT>
+<THHDVu>Máy tính chủ Dell PowerEdge R540 Server, 2xIntel XS 4210R, upto8x3.5&amp;quot;, 6xRam 32GB, 2xỔ cứng 960GB, 3xỔ cứng 4 TB, 5xKhay đỡ, Cạc Intel I350 T2, 2xTản nhiệt, Dây cáp, iDRAC9Ent, H730P, DVDRW, DP 1GbE LOM, 2x750W</THHDVu>
+<MSo>20043293</MSo>
+<DVTinh>Bộ</DVTinh>
+<SLuong>1</SLuong>
+<DGia>127.579.889</DGia>
+<TTien>127.579.889</TTien>
+</HHDVu>
+</DSHHDVu>
+      <TToan>
+        <TgTCThue>127.579.889</TgTCThue>
+        <TSGTGTang>10</TSGTGTang>
+        <TgTThue>12.757.989</TgTThue>
+        <TgTTTBSo>140.337.878</TgTTTBSo>
+        <TgTTTBChu>Một trăm bốn mươi triệu ba trăm ba mươi bảy nghìn tám trăm bảy mươi tám đồng</TgTTTBChu>
+      </TToan>
+    </NDHDon>
+    <SignDate>2021-12-21T00:00:00</SignDate>
+  </DLHDon>
+  <DSCKSo>
+    <NBan><Signature Id="seller" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI="#data"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>1RXz5GPRn8ZNaPcMVjpV4KUZRoO3go2Pr8Z0jpS1Bf0=</DigestValue></Reference></SignedInfo><SignatureValue>K5cmdjvzLcW2RoyapqrmltPVUsO28HTTf+Y9tN73nGyKPSeYifDJd5HLiro9CRh7Y/NHs7w6Ie1j3X6aRTJO9vcc+hZfXo2yMtHSn7tZecDZPWogrdHkp9GsantmyRYkRlYbTaJA7tePohTbxOCy8dkv2W/OrvE5GI/H29rrLqG/fI8QwMlCD4+BlxXMnPkfimrGH1FfQyQ4vfLmOpnVZm4vFN+qaWZUqeG8afXrgiSIE9oqDFWBdmSJcRrn7yIz54KGGi2QvMpU49HpRVc2xYHRrwBspS6lUyfjTGxwXvCydlsofFg1q5dZve8UID1xjJ8qtlZk/DVRsB8/MOpcyw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>OID.0.9.2342.19200300.100.1.1=MST:0305793402, CN=CÔNG TY TNHH MTV VIỄN THÔNG QUỐC TẾ FPT, S=THÀNH PHỐ HỒ CHÍ MINH, C=VN</X509SubjectName><X509Certificate>MIIFRTCCBC2gAwIBAgIQVAEBBAX0mlh4pP7aGPVoBDANBgkqhkiG9w0BAQUFADBuMQswCQYDVQQGEwJWTjEYMBYGA1UEChMPRlBUIENvcnBvcmF0aW9uMR8wHQYDVQQLExZGUFQgSW5mb3JtYXRpb24gU3lzdGVtMSQwIgYDVQQDExtGUFQgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMTkxMTEyMDMxNzAwWhcNMjIxMTE0MDMxNzAwWjCBjTELMAkGA1UEBhMCVk4xJDAiBgNVBAgMG1RIw4BOSCBQSOG7kCBI4buSIENIw40gTUlOSDE4MDYGA1UEAwwvQ8OUTkcgVFkgVE5ISCBNVFYgVknhu4ROIFRIw5RORyBRVeG7kEMgVOG6viBGUFQxHjAcBgoJkiaJk/IsZAEBDA5NU1Q6MDMwNTc5MzQwMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJMTpwJnN9edre5QeMcxv0tSxEBclKWcH/iZ7/zu9+Mo0RRCaQRJGlhybs3ssCKbxyU3L5OxBz0cJODQtrnL9aqEhwLusNsXAKjNP/tBm2RMZU0NiKJWioJ4bUqo1A26lxh7hHLuU4fdUzloSTWEXcGfOvMCfX4fdJs2Wbwp9utEcPtpIn5MJhAsW5tPVTBbs+FZ/enC+MkkJfdOHwA/rvWo0t9YBI8ABBSpBYAYtkajFCZ5eE6q35gh+muT2fahZr3UrVnTmHnlOti32JHaLhkDBOd8BoHislAsgMvHYefOfgOJJGRLO+1L4TtcEjvd070neMr++nholTFinoXY2dUCAwEAAaOCAb0wggG5MAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUmqYRpQsOjBItEi31ltblF2sgPC8wgagGCCsGAQUFBwEBBIGbMIGYMDcGCCsGAQUFBzAChitodHRwOi8vcHVibGljLnJvb3RjYS5nb3Yudm4vY3J0L21pY25yY2EuY3J0MDgGCCsGAQUFBzAChixodHRwOi8vZGljaHZ1ZGllbnR1LmZwdC5jb20udm4vY3J0L2ZwdGNhLmNydDAjBggrBgEFBQcwAYYXaHR0cDovL29jc3AyLmZpcy5jb20udm4wTwYDVR0gBEgwRjBEBgsrBgEEAYHtAwEEATA1MDMGCCsGAQUFBwIBFidodHRwOi8vZGljaHZ1ZGllbnR1LmZwdC5jb20udm4vY3BzLmh0bWwwNAYDVR0lBC0wKwYIKwYBBQUHAwIGCCsGAQUFBwMEBgorBgEEAYI3CgMMBgkqhkiG9y8BAQUwJwYDVR0fBCAwHjAcoBqgGIYWaHR0cDovL2NybDIuZmlzLmNvbS52bjAdBgNVHQ4EFgQUE6BhDK+3mLYoM5boNk+p2nDFPg8wDgYDVR0PAQH/BAQDAgTwMA0GCSqGSIb3DQEBBQUAA4IBAQAUVifgkiheW5BNru2nFNfNRiDPO4sZYn7ZfBdEb97G52ejv94uot7cKtj5CaAKDzjaQlcQk+eRqhyUWekCI0Z+B7lftT9lbH2582pmhbC31xJIj3dzY6JNbAc5Miw9KeEr8oTqqnmfPO9LqCsM27pByfaseT9XLNlefQzNkMEhCWRWrLl7HK+pWYDvlHcCtUMhRBgMoXfFlWWt5ilVcgmIZEDf38ft1AaZgt9UxCBXMy17AEj2shMWBBkXRehThIaPWPb8o6qx3zkyBGvOIroUDm6C/lkslTN1L5bKXM5UIVMhkBvdu+316Zd75j9owb2AbvQ13wcPSgXa/En6Re2r</X509Certificate></X509Data><KeyValue><RSAKeyValue><Modulus>kxOnAmc3152t7lB4xzG/S1LEQFyUpZwf+Jnv/O734yjRFEJpBEkaWHJuzeywIpvHJTcvk7EHPRwk4NC2ucv1qoSHAu6w2xcAqM0/+0GbZExlTQ2IolaKgnhtSqjUDbqXGHuEcu5Th91TOWhJNYRdwZ868wJ9fh90mzZZvCn260Rw+2kifkwmECxbm09VMFuz4Vn96cL4ySQl904fAD+u9ajS31gEjwAEFKkFgBi2RqMUJnl4TqrfmCH6a5PZ9qFmvdStWdOYeeU62LfYkdouGQME53wGgeKyUCyAy8dh585+A4kkZEs77UvhO1wSO93TvSd4yv76eGiVMWKehdjZ1Q==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue></KeyInfo></Signature></NBan>
+    <NMua></NMua>
+    <TCT></TCT>
+    <CCKSKhac></CCKSKhac>
+  </DSCKSo>
+</HDon>

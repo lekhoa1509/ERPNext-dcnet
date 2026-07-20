@@ -1,0 +1,691 @@
+source,translated,context
+T,T,Number system
+B,Tỷ,Number system
+M,Tr,Number system
+K,N,Number system
+VN Accounting,Kế Toán VN
+VN Accounting Dashboard,Tổng Quan Kế Toán
+Branch Cash Entry,Phiếu Quỹ Chi Nhánh
+Internal Summary Entry,Bút toán tổng hợp nội bộ
+Branch Cash Access,Phân quyền quỹ chi nhánh
+Accounting Unit,Đơn vị hạch toán
+Company Wide View,Xem toàn công ty
+Official Posting,Hạch toán sổ cái
+Official Journal Entry,Bút toán sổ cái
+Posting Scope,Phạm vi ghi nhận
+Direction,Loại phiếu
+Receive,Thu
+Pay,Chi
+Official,Hạch toán sổ cái
+Internal,Nội bộ chi nhánh
+Detail,Chi tiết
+Summary,Tổng hợp
+View Mode,Chế độ xem
+Posting Date,Ngày hạch toán
+Amount,Số tiền
+Remarks,Diễn giải
+Cash Account,Tài khoản quỹ
+Offset Account,Tài khoản đối ứng
+Open Journal Entry,Mở bút toán
+New Branch Cash Entry,Tạo phiếu quỹ chi nhánh
+New Internal Summary Entry,Tạo bút toán tổng hợp nội bộ
+"Official mode will create a Journal Entry on submit.","Chế độ hạch toán sổ cái sẽ tự tạo bút toán khi nộp phiếu."
+"Internal mode keeps the transaction inside branch cash management only.","Chế độ nội bộ chỉ ghi nhận trong quỹ chi nhánh, không hạch toán vào sổ cái."
+"Internal summary entries only update the internal book and do not post to the general ledger.","Bút toán tổng hợp nội bộ chỉ ghi nhận vào sổ nội bộ, không hạch toán vào sổ cái."
+Company,Công ty
+Branch,Chi nhánh
+From Date,Từ ngày
+To Date,Đến ngày
+So Noi Bo,Sổ Quỹ Chi Nhánh
+Cash Book,Sổ Quỹ Tiền Mặt
+Bank Account Book,Sổ Tài Khoản Ngân Hàng
+Account Detail Ledger,Sổ Chi Tiết Tài Khoản
+Trial Balance Sheet,Bảng Cân Đối Số Phát Sinh
+Cash Receipts,Thu Tiền Mặt
+Cash Payments,Chi Tiền Mặt
+Bank Receipts,Thu Ngân Hàng
+Bank Payments,Chi Ngân Hàng
+Internal Transfer,Điều Chuyển Nội Bộ
+Term Deposit,Tiền Gửi Có Kỳ Hạn
+Bank Loan,Khoản Vay Ngân Hàng
+Term Deposit Interest,Lãi Tiền Gửi
+Bank Loan Repayment,Kỳ Trả Nợ Vay
+Interest Schedule,Lịch Trả Lãi
+Repayment Schedule,Lịch Trả Nợ
+VN Accounting Settings,Cài Đặt Kế Toán VN
+End of Term,Cuối kỳ
+Monthly,Hàng tháng
+Quarterly,Hàng quý
+Prepaid,Trả trước
+Compound,Lãi nhập gốc
+Interest Only,Trả lãi hàng kỳ + gốc cuối kỳ
+EMI,Trả đều (gốc + lãi)
+Fixed,Cố định
+Floating,Thả nổi
+Draft,Nháp
+Active,Đang hoạt động
+Matured,Đã đáo hạn
+Settled,Đã tất toán
+Early Settled,Tất toán trước hạn
+Pending,Chờ xử lý
+Draft Created,Đã tạo nháp
+Booked,Đã hạch toán
+Principal Amount,Số tiền gốc
+Annual Interest Rate (%),Lãi suất (%/năm)
+Interest Payment Type,Kiểu trả lãi
+Start Date,Ngày bắt đầu
+Maturity Date,Ngày đáo hạn
+Term (Months),Kỳ hạn (tháng)
+Early Withdrawal Rate (%),Lãi suất tất toán trước hạn (%)
+Alert Days Before Maturity,Cảnh báo trước (ngày)
+Total Interest,Tổng lãi dự kiến
+Deposit Number,Số sổ tiền gửi
+Deposit Account (1281),TK tiền gửi có kỳ hạn (1281)
+Interest Income Account (515),TK doanh thu lãi (515)
+Loan Amount,Số tiền vay
+Outstanding Amount,Dư nợ hiện tại
+Rate Type,Loại lãi suất
+Repayment Type,Kiểu trả nợ
+Repayment Frequency,Tần suất trả
+Loan Number,Số hợp đồng vay
+Loan Account (3411),TK nợ vay (3411)
+Interest Expense Account (635),TK chi phí lãi vay (635)
+Total Repayment,Tổng trả (gốc + lãi)
+Due Date,Ngày đến hạn
+Interest Amount,Tiền lãi
+Principal at Start,Gốc đầu kỳ
+Total Amount,Tổng tiền
+Outstanding After,Dư nợ sau trả
+Journal Entry,Bút toán
+Status,Trạng thái
+Bank,Ngân hàng
+Bank Account,Tài khoản ngân hàng
+Company,Công ty
+Remarks,Ghi chú
+Notes,Ghi chú
+Summary,Tổng hợp
+Deposit Info,Thông tin tiền gửi
+Loan Info,Thông tin khoản vay
+Terms,Điều khoản
+Default Deposit Account,TK tiền gửi mặc định
+Default Interest Income Account,TK doanh thu lãi mặc định
+Default Loan Account,TK nợ vay mặc định
+Default Interest Expense Account,TK chi phí lãi mặc định
+Deposit Alert Days Before Maturity,Cảnh báo đáo hạn tiền gửi (ngày)
+Loan Alert Days Before Maturity,Cảnh báo đáo hạn vay (ngày)
+Term Deposits & Bank Loans,Tiền Gửi & Khoản Vay
+Maturity Alerts,Cảnh Báo Đáo Hạn
+Term deposit account (default 1281),TK tiền gửi có kỳ hạn (1281)
+Interest income account (default 515),TK doanh thu lãi tiền gửi (515)
+Loan payable account (default 3411),TK nợ vay (3411)
+Interest expense account (default 635),TK chi phí lãi vay (635)
+Days before maturity to send deposit alert,Số ngày cảnh báo trước khi đáo hạn tiền gửi
+Days before maturity to send loan alert,Số ngày cảnh báo trước khi đáo hạn khoản vay
+Can only renew Matured deposits,Chỉ có thể tái tục sổ tiền gửi đã đáo hạn
+Rate can only be updated for Floating rate loans,Chỉ cập nhật lãi suất cho khoản vay lãi suất thả nổi
+New Term Deposit {0} created,Đã tạo sổ tiền gửi mới {0}
+Disbursement Date,Ngày giải ngân
+Cancelled,Đã hủy
+Deposit Journal Entry,Bút toán gửi tiền
+Disbursement Journal Entry,Bút toán giải ngân
+Interest Receivable Account,TK lãi phải thu
+Interest Payable Account,TK lãi phải trả
+Deposit Interest Receivable Account,TK lãi phải thu tiền gửi
+Loan Interest Payable Account,TK lãi phải trả khoản vay
+"Accrued interest receivable, default 1388","Lãi phải thu dồn tích, mặc định 1388"
+"Accrued interest payable, default 335","Lãi phải trả dồn tích, mặc định 335"
+Accrual Accounts,Tài khoản dồn tích
+"Bank Account {0} belongs to company {1}, not {2}","Tài khoản ngân hàng {0} thuộc công ty {1}, không phải {2}"
+Interest Receivable Account is required for accrual entries,Cần nhập TK lãi phải thu để tạo bút toán dồn tích
+Interest Payable Account is required for accrual entries,Cần nhập TK lãi phải trả để tạo bút toán dồn tích
+No accrued interest for this period,Không có lãi dồn tích cho kỳ này
+Accrual Journal Entry {0} created,Đã tạo bút toán dồn tích {0}
+Create Accrual Entry,Tạo Bút Toán Dồn Tích
+Accrual Date,Ngày dồn tích
+Actions,Thao tác
+Term Deposit {0} maturing on {1},Sổ tiền gửi {0} đáo hạn ngày {1}
+"Term Deposit {0} ({1}) with principal {2:,.0f} VND matures on {3}.","Sổ tiền gửi {0} ({1}) với gốc {2:,.0f} VND đáo hạn ngày {3}."
+Bank Loan {0} maturing on {1},Khoản vay {0} đáo hạn ngày {1}
+"Bank Loan {0} ({1}) with amount {2:,.0f} VND matures on {3}.","Khoản vay {0} ({1}) với số tiền {2:,.0f} VND đáo hạn ngày {3}."
+Alert Sent,Đã gửi cảnh báo
+Series,Nhóm
+Cash Count,Kiểm kê quỹ tiền mặt
+Cash Count Denomination,Bảng kê mệnh giá
+Periodic,Định kỳ
+Unscheduled,Đột xuất
+Balanced,Cân bằng
+Surplus,Thừa quỹ
+Deficit,Thiếu quỹ
+Record Difference,Ghi nhận chênh lệch
+Refresh Balance,Cập nhật số dư
+Book Balance,Số dư sổ sách
+Actual Amount,Số tiền thực tế
+Show Denomination Detail,Chi tiết mệnh giá
+Save as Default Account,Lưu làm tài khoản mặc định
+Not Applicable,Không áp dụng
+Resolved,Đã xử lý
+Counted,Đã kiểm đếm
+Approved,Đã duyệt
+Closed,Đóng
+Cash Surplus Account,Tài khoản thừa quỹ
+Cash Deficit Account,Tài khoản thiếu quỹ
+Resolve Difference,Xử lý chênh lệch
+Resolution Type,Hình thức xử lý
+Employee Compensation,Bồi thường nhân viên
+Management Expense,Chi phí quản lý
+Return to Owner,Trả lại đối tượng
+Other Income,Thu nhập khác
+Pending Resolution,Chờ xử lý chênh lệch
+Employee Receivable Account,Tài khoản phải thu nhân viên
+Management Expense Account,Tài khoản chi phí quản lý
+Other Income Account,Tài khoản thu nhập khác
+Cash Count Report,Biên bản kiểm kê quỹ
+Cash Account,Tài khoản quỹ tiền mặt
+Count Date,Ngày kiểm kê
+Count Type,Loại kiểm kê
+Reason,Lý do
+Counting,Kiểm đếm
+Result,Kết quả
+Difference,Chênh lệch
+Difference Type,Loại chênh lệch
+Difference Account,Tài khoản chênh lệch
+Difference Resolution,Xử lý chênh lệch
+Pending JE,Bút toán chờ xử lý
+Resolution JE,Bút toán xử lý
+Resolution Status,Trạng thái xử lý
+Resolution,Xử lý
+Resolution Target Account,TK đích xử lý
+Signatories,Người ký
+Cashier,Thủ quỹ
+Chief Accountant,Kế toán trưởng
+Director,Giám đốc
+Denomination,Mệnh giá
+Denominations,Bảng kê mệnh giá
+Quantity,Số lượng
+Amount,Thành tiền
+Mark as Counted,Đánh dấu đã kiểm đếm
+Approve,Duyệt
+Cash Count,Kiểm kê quỹ
+"Pending surplus account (default 3381)","TK thừa quỹ chờ xử lý (mặc định 3381)"
+"Pending deficit account (default 1381)","TK thiếu quỹ chờ xử lý (mặc định 1381)"
+"Employee receivable for deficit resolution (default 1388)","TK phải thu nhân viên cho xử lý thiếu quỹ (mặc định 1388)"
+"Management expense for deficit resolution (default 6425)","TK chi phí quản lý cho xử lý thiếu quỹ (mặc định 6425)"
+"Other income for surplus resolution (default 711)","TK thu nhập khác cho xử lý thừa quỹ (mặc định 711)"
+Draft Journal Entry {0} created,Đã tạo bút toán nháp {0}
+Draft Resolution Journal Entry {0} created,Đã tạo bút toán xử lý nháp {0}
+Can only mark as Counted from Draft status,Chỉ có thể đánh dấu đã kiểm đếm từ trạng thái Nháp
+Cashier is required to mark as Counted,Cần chọn Thủ quỹ để đánh dấu đã kiểm đếm
+Can only approve from Counted status,Chỉ có thể duyệt từ trạng thái Đã kiểm đếm
+Chief Accountant and Director are required to approve,Cần chọn Kế toán trưởng và Giám đốc để duyệt
+Can only record difference from Approved status,Chỉ ghi nhận chênh lệch khi đã duyệt
+No difference to record,Không có chênh lệch để ghi nhận
+Difference Account is required,Cần chọn Tài khoản chênh lệch
+Can only resolve from Pending Resolution status,Chỉ xử lý khi đang Chờ xử lý chênh lệch
+Resolution Type is required,Cần chọn Hình thức xử lý
+Resolution Target Account is required,Cần chọn TK đích xử lý
+Under Development,Đang phát triển
+Feature Under Development,Tính năng đang phát triển
+"This feature is being developed and will be available in a future update. Please check back later.","Tính năng này đang được phát triển và sẽ có trong bản cập nhật tiếp theo. Vui lòng quay lại sau."
+Go Back,Quay lại
+Cash Flow Forecast,Dự báo dòng tiền
+Deferred Revenue,Doanh thu ghi nhận trước
+Prepaid Expense (242),Chi phí trả trước (242)
+PIT (Personal Income Tax),Thuế TNCN
+Payroll Summary by Department,BC lương theo phòng ban
+Project Costing,Giá thành công trình
+Tax ID Verification,Kiểm tra MST
+VN Financial Statement TT99/B01,BCTC mẫu TT99/B01
+VN Financial Statement TT99/B02,BCTC mẫu TT99/B02
+VN Financial Statement TT99/B03,BCTC mẫu TT99/B03
+Notes to Financial Statements,Thuyết minh BCTC
+Consolidated Report,BC hợp nhất
+Landed Cost Voucher,Chi phí vào giá vốn
+Payment Terms Template,Điều khoản thanh toán
+Item-wise Purchase Register,BC theo mặt hàng
+Asset Movement,Điều chuyển TS
+Exchange Rate Revaluation,Đánh giá lại ngoại tệ
+Salary Structure,Cơ cấu lương
+Budget,Ngân sách
+Stock Settings,Cài đặt kho
+Batch,Số lô
+Serial No,Số seri
+Stock Ageing,BC tuổi kho
+Manufacture,Lắp ráp
+Repack,Tháo dỡ
+Cash Flow Forecast,Dự Báo Dòng Tiền
+Opening Balance,Số Dư Đầu Kỳ
+Closing Balance,Số Dư Cuối Kỳ
+Inflow,Dòng Tiền Vào
+Outflow,Dòng Tiền Ra
+Net,Thuần
+Period,Kỳ
+Confidence,Độ Tin Cậy
+Sources,Nguồn Dữ Liệu
+Loading forecast...,Đang tải dự báo...
+Some providers failed,Một số nguồn dữ liệu lỗi
+No entries,Không có bút toán
+Threshold,Ngưỡng Tối Thiểu
+Overdue,Quá Hạn
+Committed,Cam Kết
+Probable,Có Thể Xảy Ra
+Possible,Dự Kiến
+Monthly,Hàng Tháng
+Weekly,Hàng Tuần
+3 Months,3 Tháng
+6 Months,6 Tháng
+12 Months,12 Tháng
+Granularity,Phân Kỳ
+Export,Xuất Dữ Liệu
+Deposit Interest,Lãi Tiền Gửi
+Deposit Maturity,Đáo Hạn Tiền Gửi
+Loan Repayment,Trả Nợ Gốc Vay
+Loan Interest,Lãi Vay
+Quotation,Báo Giá
+Sales Order,Đơn Bán Hàng
+Purchase Order,Đơn Mua Hàng
+Sales Invoice,Hóa Đơn Bán Hàng
+Purchase Invoice,Hóa Đơn Mua Hàng
+Payroll,Lương
+Social Insurance,Bảo Hiểm Xã Hội
+VAT Payment,Nộp Thuế GTGT
+Corporate Income Tax,Thuế TNDN
+Personal Income Tax,Thuế TNCN
+Committed only,Chỉ đã cam kết
+Months,Tháng
+Methodology,Phương Pháp Dự Báo
+Forecast Methodology,Phương Pháp Dự Báo Dòng Tiền
+Direct method,Phương pháp trực tiếp
+Historical method,Phương pháp lịch sử
+Aging-adjusted,Điều chỉnh theo tuổi nợ
+reads actual documents — invoices orders contracts loan schedules,đọc trực tiếp từ chứng từ — hoá đơn đơn hàng hợp đồng lịch vay
+projects recurring expenses from 12-month GL history (same-month-last-year),chiếu chi phí recurring từ 12 tháng sổ cái (cùng kỳ năm trước)
+adjusts collection dates by each customer's historical payment delay,điều chỉnh ngày thu theo lịch sử trả chậm của từng khách hàng
+past due date payment not yet received — financial health indicator,quá hạn thanh toán chưa thu được — chỉ số sức khoẻ tài chính
+legally binding — signed contracts issued invoices bank schedules,ràng buộc pháp lý — hợp đồng đã ký hoá đơn đã xuất lịch ngân hàng
+high likelihood — confirmed orders not yet invoiced pending approvals,khả năng cao — đơn hàng đã xác nhận chưa xuất hoá đơn đang chờ duyệt
+estimates — open quotations projected expenses from historical patterns,ước tính — báo giá đang mở chi phí dự báo từ xu hướng lịch sử
+Limitation,Giới hạn
+forecast is based on existing documents only; does not include unplanned expenses or revenue,dự báo dựa trên chứng từ hiện có; không bao gồm chi phí hoặc doanh thu đột xuất
+Data as of,Dữ liệu tính đến
+Operating Expenses (projected),Chi Phí Hoạt Động (dự báo)
+Payroll & Insurance (projected),Lương & BHXH (dự báo)
+PAKD Commission,Hoa Hồng PAKD
+Sales Invoice (unpaid),Hoá Đơn Bán (chưa thanh toán)
+Purchase Invoice (unpaid),Hoá Đơn Mua (chưa thanh toán)
+Sales Order (pipeline),Đơn Hàng Bán (chờ xuất HĐ)
+Purchase Order (pipeline),Đơn Hàng Mua (chờ nhận HĐ)
+Quotation (pipeline),Báo Giá (chờ duyệt)
+balance of cash (111) + bank (112) + in-transit (113) as of today,số dư tiền mặt (111) + ngân hàng (112) + đang chuyển (113) tại ngày hiện tại
+Total Inflow,Tổng Thu Vào
+Total Outflow,Tổng Chi Ra
+Net Surplus/Deficit,Thặng Dư / Thâm Hụt
+Projected Closing,Số Dư Dự Báo Cuối Kỳ
+By Month,Theo Tháng
+By Week,Theo Tuần
+Forecast,Dự Báo
+History,Lịch Sử
+months,tháng
+weeks,tuần
+Current,Hiện Tại
+Actual,Thực Tế
+Balance,Số Dư
+Opening,Mở Đầu
+Closing,Kết Thúc
+MoM,So Kỳ Trước
+Month-over-month,So với kỳ trước
+Settings,Cài Đặt
+Cash Flow Forecast Settings,Thiết Lập Dự Báo Dòng Tiền
+Minimum Cash Threshold,Ngưỡng Tiền Mặt Tối Thiểu
+"Closing balance below this value will be highlighted in yellow. Set 0 to disable.","Số dư cuối kỳ dưới giá trị này sẽ được đánh dấu vàng. Đặt 0 để tắt."
+Save,Lưu
+Saved,Đã lưu
+Error,Lỗi
+Retry,Thử lại
+Loading...,Đang tải...
+Load more,Tải thêm
+remaining,còn lại
+Showing,Hiển thị
+entries,bút toán
+Forecast methods,Phương pháp dự báo
+Method,Phương pháp
+Sources,Nguồn dữ liệu
+How,Cách tính
+Direct,Trực tiếp
+Historical,Lịch sử
+Aging,Điều chỉnh tuổi nợ
+"Outstanding amount + due date from documents","Đọc số tiền còn nợ + ngày đến hạn từ chứng từ thực"
+"Median of past 6-12 months GL, projected forward","Trung vị 6-12 tháng sổ cái, chiếu ra tương lai"
+"Adjusted by customer's median payment delay","Điều chỉnh theo số ngày trả chậm trung vị của khách hàng"
+"GL balance of cash (TK 111) + bank (TK 112) + in-transit (TK 113) as of today","Số dư sổ cái tiền mặt (TK 111) + ngân hàng (TK 112) + đang chuyển (TK 113) tại ngày hiện tại"
+Past due date,Quá hạn thanh toán
+Legally binding,Ràng buộc pháp lý
+"Confirmed, not invoiced","Đã xác nhận, chưa xuất hóa đơn"
+Historical estimate,Ước tính từ lịch sử
+Contract,Hợp Đồng
+OpEx,Chi Phí HĐ
+Payroll/Ins,Lương/BHXH
+Sales Inv,Hóa Đơn Bán
+Purchase Inv,Hóa Đơn Mua
+PAKD,PAKD
+"Recurring expenses (TK 6xx) from GL history","Chi phí định kỳ (TK 6xx) từ lịch sử sổ cái"
+"Revenue (TK 511/512) from GL history","Doanh thu (TK 511/512) từ lịch sử sổ cái"
+"Payroll (TK 334) + Insurance (TK 3383-3386)","Lương (TK 334) + BHXH (TK 3383-3386)"
+Principal + interest on maturity,Gốc + lãi khi đáo hạn
+Scheduled repayments,Trả nợ theo lịch
+"Outstanding, adjusted by payment history","Chưa thu, điều chỉnh theo lịch sử thanh toán"
+Outstanding supplier invoices,Hóa đơn nhà cung cấp chưa trả
+Unbilled portion of confirmed orders,Phần chưa xuất hóa đơn của đơn hàng xác nhận
+Unbilled portion of purchase orders,Phần chưa nhận hóa đơn của đơn mua
+Open quotations,Báo giá đang mở
+Asset Disposal,Thanh lý tài sản
+Disposal Type,Hình thức thanh lý
+Sell,Bán
+Scrap,Hủy
+Book Value,Giá trị còn lại
+Gross Purchase Amount,Nguyên giá
+Accumulated Depreciation,Khấu hao lũy kế
+Disposal Reason,Lý do thanh lý
+Participants,Thành viên hội đồng thanh lý
+Selling Amount,Giá bán
+Buyer,Người mua
+Disposal Loss Account,TK chi phí thanh lý
+Disposal Income Account,TK thu nhập thanh lý
+Fixed Asset Account,TK tài sản cố định
+Accumulated Depreciation Account,TK hao mòn lũy kế
+Execute,Thực hiện thanh lý
+Asset Disposal Report,Biên bản thanh lý TSCĐ
+Disposal Date,Ngày thanh lý
+Sale Details,Chi tiết bán
+Accounting Entries,Tài khoản hạch toán
+Asset Information,Thông tin tài sản
+Asset Values,Giá trị tài sản
+Asset Disposal Participant,Thành viên hội đồng thanh lý
+"Cash Flow Forecast","Dự Báo Dòng Tiền"
+"Closing Balance","Số dư cuối kỳ"
+"Opening:","Đầu kỳ:"
+"Net Cash Flow","Dòng tiền ròng"
+"Performance:","Hiệu suất:"
+"Total Inflow","Tổng thu vào"
+"Total Outflow","Tổng chi ra"
+"Avg/period:","TB/kỳ:"
+"Actual Balance","Số dư thực tế"
+"Forecast Balance","Số dư dự báo"
+"Cash Inflow","Dòng tiền vào"
+"Cash Outflow","Dòng tiền ra"
+"Minimum Threshold (Balance)","Mức tối thiểu (số dư)"
+"Summary by month/week","Tóm tắt theo tháng/tuần"
+"Forecast Detail Transactions","Chi tiết giao dịch dự báo"
+"Search transactions...","Tìm kiếm giao dịch..."
+"Showing {0} - {1} of {2} transactions","Hiển thị {0} - {1} của {2} giao dịch"
+"By Month","Theo tháng"
+"By Week","Theo tuần"
+"Forecast Periods","Số kỳ dự báo"
+"History Periods","Số kỳ quá khứ"
+"Inflow Sources","Nguồn thu"
+"Outflow Sources","Nguồn chi"
+"Refresh (clear cache)","Làm mới (xóa cache)"
+"Excel","Xuất Excel"
+"Type","Loại giao dịch"
+"Description","Mô tả"
+"Status","Trạng thái"
+"Expected Date","Ngày dự kiến"
+"Reference","Tham chiếu"
+"Party","Đối tác"
+"Net","Thuần"
+"Total","Tổng"
+"entries","giao dịch"
+"No transactions","Không có giao dịch"
+"No transactions in {0}","Không có giao dịch trong {0}"
+"Metric","Chỉ tiêu"
+"Granularity","Theo"
+At,Tại
+
+"Filter by Confidence","Lọc theo độ tin cậy"
+"Filter by Source","Lọc theo nguồn"
+"More filters","Bộ lọc khác"
+"Apply","Áp dụng"
+
+"Inflow sources","Nguồn thu"
+"Outflow sources","Nguồn chi"
+"Both directions","Cả thu và chi"
+"Revenue","Doanh Thu"
+
+"Asset","Tài sản cố định"
+"Assets","Tài sản cố định"
+"Asset Category","Nhóm tài sản"
+"Asset Movement","Di chuyển tài sản"
+"Asset Repair","Sửa chữa tài sản"
+"Asset Disposal","Thanh lý tài sản"
+"Asset Handover","Bàn giao tài sản"
+"Asset Stocktake","Kiểm kê tài sản"
+"Gross Purchase Amount","Nguyên giá"
+"Asset Owner","Chủ tài sản"
+"Custodian","Người phụ trách"
+"Available-for-use Date","Ngày đưa vào sử dụng"
+"Depreciation Method","Phương pháp khấu hao"
+"Straight Line","Đường thẳng"
+"Double Declining Balance","Số dư giảm dần"
+"Manual","Thủ công"
+"Total Number of Depreciations","Tổng số kỳ khấu hao"
+"Frequency of Depreciation","Tần suất khấu hao"
+"Repair Status","Trạng thái sửa chữa"
+"Disposal Date","Ngày thanh lý"
+"Repair Classification","Phân loại sửa chữa"
+"Capitalization Journal Entry","Bút toán vốn hóa"
+"Is Low Value Asset","Là CCDC"
+"CCDC Item","Công cụ dụng cụ"
+"CCDC Category","Nhóm CCDC"
+"CCDC Allocation Schedule","Lịch phân bổ CCDC"
+"CCDC Writeoff","Ghi giảm CCDC"
+"Asset Permission Rule","Quy tắc phân quyền tài sản"
+"Allocate CCDC","Phân bổ CCDC"
+"Write Off CCDC","Ghi giảm CCDC"
+"Capital Work in Progress","Chi phí dở dang"
+"Prepaid Expense","Chi phí trả trước"
+"Chi phí trả trước","Chi phí trả trước"
+"Book Value After Depreciation","Giá trị còn lại"
+"Depreciation Schedule","Lịch khấu hao"
+"Asset Value Adjustment","Điều chỉnh nguyên giá"
+"Fixed Asset Register","Sổ tài sản cố định"
+"Asset Type","Loại tài sản"
+"Available for Use Date","Ngày đưa vào sử dụng"
+"Cần báo trì","Cần bảo trì"
+"From Department","Phòng ban giao"
+"To Department","Phòng ban nhận"
+"To Location","Đến vị trí"
+"Co-Signer","Người đồng ký"
+"Handover Items","Danh sách bàn giao"
+"Asset/CCDC","Tài sản/CCDC"
+"Total Asset Value","Tổng giá trị tài sản"
+"Executed","Đã thực hiện"
+"Cancel Disposal","Hủy thanh lý"
+"Writeoff Date","Ngày ghi giảm"
+"Writeoff Reason","Lý do ghi giảm"
+"Compensation Amount","Số tiền bồi thường"
+"Remaining 242 Amount","Số dư còn lại TK 242"
+"Remaining 153 Amount","Số dư còn lại TK 153"
+"Cost Account (153)","TK công cụ (153)"
+"Prepayment Account (242)","TK chờ phân bổ (242)"
+"Useful Period (months)","Thời gian sử dụng (tháng)"
+"Allocation Periods","Số kỳ phân bổ"
+"PI Item Row","Dòng hóa đơn"
+"Stocktake Date","Ngày kiểm kê"
+"Physical Status","Tình trạng thực tế"
+"Ownership","Sở hữu"
+"VN Accounting Settings","Cài đặt Kế toán VN"
+"Failure Date","Ngày hư hỏng"
+"Send a Raven","Gửi tin nhắn"
+"Add row","Thêm hàng"
+"Add rows","Thêm các hàng"
+"Create","Tạo mới"
+"Các Số Tài chính","Các chỉ số tài chính"
+"Existing Asset","Tài sản hiện có"
+"Composite Asset","Tài sản tổng hợp"
+"Composite Component","Thành phần tổng hợp"
+"Periods","Số kỳ"
+"Allocation Entries","Kỳ phân bổ"
+"Period No","Kỳ số"
+"Allocation Amount","Số tiền phân bổ"
+"Accounting Entries","Hạch toán"
+"Posted Journal Entry","Bút toán"
+"Has VAT","Có VAT?"
+"VAT Rate (%)","Thuế suất VAT (%)"
+Add multiple,Thêm nhiều dòng
+Stock UOM,ĐVT tồn kho
+Stock Ageing Report,Tuổi tồn kho
+Cash Voucher Receipt,Phiếu thu
+Cash Voucher Payment,Phiếu chi
+Cash Withdrawal Deposit,Rút/nộp tiền
+Sub-type,Loại phiếu chi
+Internal Transfer,Luân chuyển nội bộ
+Cash Count Form,Biên bản kiểm kê quỹ
+Branch Cash Book,Sổ quỹ chi nhánh
+Help Center,Trợ giúp
+VN Accounting Help,Trợ giúp VN Accounting
+Landed Cost Pending Allocation,Chi phí chờ phân bổ vào giá vốn
+S03a-DN So Nhat Ky Chung,Sổ Nhật Ký Chung (S03a-DN)
+S03b-DN So Cai,Sổ Cái (S03b-DN)
+Landed Cost Allocation,Phân bổ chi phí mua hàng
+Phân bổ chi phí mua hàng,Phân bổ chi phí mua hàng
+Chi phí chờ phân bổ,Chi phí chờ phân bổ
+Sổ nhật ký chung (S03a-DN),Sổ nhật ký chung (S03a-DN)
+Sổ cái (S03b-DN),Sổ cái (S03b-DN)
+Số dư đầu kỳ,Số dư đầu kỳ
+Số dư cuối kỳ,Số dư cuối kỳ
+Cộng phát sinh kỳ,Cộng phát sinh kỳ
+TK Nợ,TK Nợ
+TK Có,TK Có
+PS Nợ,PS Nợ
+PS Có,PS Có
+TK đối ứng,TK đối ứng
+Số hiệu CT,Số hiệu CT
+Ngày CT,Ngày CT
+Loại CT,Loại CT
+Dư Nợ/Có,Dư Nợ/Có
+Số dư,Số dư
+Nhà cung cấp,Nhà cung cấp
+Tài khoản treo,Tài khoản treo
+Số tiền,Số tiền
+Công ty là bắt buộc,Công ty là bắt buộc
+Work In Progress Valuation,Phiếu Tính Giá Thành Sản Xuất
+Manufacturing Costing Wizard,Wizard Tính Giá Thành Sản Xuất
+Production Cost Aggregation,Tập Hợp Chi Phí Sản Xuất
+Direct Input,Nhập Trực Tiếp
+Equivalent Production,Sản Lượng Tương Đương
+Direct Material Only,Chi Phí Nguyên Vật Liệu Trực Tiếp
+50% Conversion Cost,50% Chi Phí Chế Biến
+Opening WIP Value,Dở Dang Đầu Kỳ (TK 154)
+Closing WIP Value,Dở Dang Cuối Kỳ
+Computed Closing WIP,Dở Dang Cuối Kỳ (Tính Tự Động)
+Physical Units In Progress,Số Lượng SP Dở Dang Vật Lý
+Completion %,Tỷ Lệ % Hoàn Thành
+Unit Cost,Giá Thành Đơn Vị
+Total Finished Goods Value,Tổng Giá Thành Thành Phẩm
+Completed Quantity,Sản Lượng Hoàn Thành
+Period Direct Material,621 - NVL Trực Tiếp Kỳ Này
+Period Direct Labor,622 - Nhân Công Trực Tiếp Kỳ Này
+Overhead Allocated,627 - Chi Phí Sản Xuất Chung Phân Bổ
+Direct Labor,Nhân Công Trực Tiếp
+Overhead,Chi Phí Sản Xuất Chung
+Cost Object Type,Loại Đối Tượng Tập Hợp Chi Phí
+Cost Center,Trung Tâm Chi Phí
+Valuation Method,Phương Pháp Xác Định Dở Dang
+Bảng tính giá thành,Bảng Tính Giá Thành
+Wizard tính giá thành SX,Wizard Tính Giá Thành Sản Xuất
+Tập hợp chi phí SX,Tập Hợp Chi Phí Sản Xuất
+Dự án Xây lắp?,Dự Án Xây Lắp / Xây Dựng
+Giá trị hợp đồng,Giá Trị Hợp Đồng Thi Công
+% Khối lượng nghiệm thu lũy kế,% Khối Lượng Nghiệm Thu Lũy Kế
+Giai đoạn thi công,Giai Đoạn Thi Công
+Project Costing Stage,Giai đoạn công trình
+Cost Allocation Run,Đợt phân bổ chi phí
+Cost Allocation Share,Phân bổ cho công trình
+Cost Allocation Source,Chứng từ nguồn
+Framework Contract,HĐ khung
+Default Markup Method,Phương pháp markup mặc định
+Stages,Giai đoạn
+Related Journal Entries,Bút toán liên quan
+Related JEs,Bút toán liên quan
+Closed On,Ngày đóng
+Write-off Journal Entry,Bút toán write-off
+Stage Order,Thứ tự giai đoạn
+Stage Name,Tên giai đoạn
+Expected Invoice Date,Ngày dự kiến xuất HĐ
+Markup,Markup
+Markup Method,Phương pháp markup
+Markup Value,Giá trị markup
+Planned Amount,Giá kế hoạch
+Cost Pinned,Chi phí đã pin
+Price,Giá
+Suggested Price,Giá đề xuất
+Override Price (KTT),Giá KTT chốt
+Override Reason,Lý do override
+Override By,Người override
+Override At,Thời điểm override
+Invoice,Hóa đơn
+COGS Journal Entry,Bút toán giá vốn
+Coefficient,Hệ số
+Percent on Cost,% trên chi phí
+Fixed Amount,Số tiền cố định
+From Contract,Theo HĐ / phụ lục
+Percent of Contract,% trên HĐ khung
+Cost-to-Date Uplift,% trên cost đã phát sinh + uplift
+Period Start,Kỳ bắt đầu
+Period End,Kỳ kết thúc
+Allocation Method,Phương pháp phân bổ
+Source Costs,Chứng từ nguồn
+Shares,Phân bổ
+Total %,Tổng %
+Total Share Amount,Tổng tiền
+Generated Journal Entry,Bút toán đã sinh
+Source Doctype,Loại chứng từ
+Source,Chứng từ
+Cost Type,Loại chi phí
+WIP Account (override),TK WIP (override)
+Project Name,Tên công trình
+Stage of Project,Giai đoạn công trình
+WIP Account for Project Costing,TK tập hợp chi phí công trình
+Giai đoạn công trình,Giai đoạn công trình
+TK tập hợp chi phí công trình,TK tập hợp chi phí công trình
+Loại chi phí,Loại chi phí
+VN Deferred Revenue Schedule,Lịch ghi nhận Doanh thu chưa thực hiện
+VN Deferred Revenue Schedule Line,Dòng lịch ghi nhận DT chưa thực hiện
+VN Deferred Expense Schedule,Lịch phân bổ Chi phí trả trước
+VN Deferred Expense Schedule Line,Dòng lịch phân bổ CP trả trước
+VN Period Close,Phiếu kết chuyển định kỳ
+VN Period Close Line,Dòng kết chuyển
+Recognized,Đã ghi nhận
+Reversed,Đã đảo bút toán
+Previewed,Đã xem trước
+One-shot,Một lần duy nhất
+Mới VN Deferred Revenue Schedule,Mới — Lịch ghi nhận Doanh thu chưa thực hiện
+Mới VN Deferred Expense Schedule,Mới — Lịch phân bổ Chi phí trả trước
+Mới VN Period Close,Mới — Phiếu kết chuyển định kỳ
+Generate lịch,Sinh lịch tự động
+Hành động,Hành động
+Ghi nhận tất cả kỳ đến hạn,Ghi nhận tất cả kỳ đến hạn
+Phân bổ tất cả kỳ đến hạn,Phân bổ tất cả kỳ đến hạn
+Preview các TK,Xem trước các TK
+Xem phiếu kế toán,Xem phiếu kế toán
+Save,Lưu
+Delete all,Xóa tất cả
+Duplicate rows,Sao chép dòng
+Bao Cao Chi Phi Khong Duoc Tru,Báo cáo chi phí không được trừ
+Quyet Toan TNDN Reconciliation,Quyết toán TNDN — Đối chiếu
+Auto Generated Docs Pending,Tài liệu tự động chờ duyệt
+B01-DN Bao Cao Tinh Hinh Tai Chinh,Báo cáo tình hình tài chính (B01-DN)
+B02-DN Bao Cao KQHDKD,Báo cáo kết quả HĐKD (B02-DN)
+B03-DN Bao Cao LCTT,Báo cáo lưu chuyển tiền tệ (B03-DN)
+Bang Can Doi So Phat Sinh,Bảng cân đối số phát sinh (TT99/2025)
+Bank Loan Summary,Tổng hợp khoản vay ngân hàng
+Misa Account Conflicts,Xung đột tài khoản Misa
+Project Cost Collection,Tập hợp chi phí dự án
+Project Invoicing Progress,Tiến độ xuất hóa đơn
+Project PnL Detailed,Lãi lỗ chi tiết theo dự án
+Purchase No VAT,Mua không VAT
+S21-DN,Sổ tài sản cố định (S21-DN)
+S21-DN So TSCD,Sổ chi tiết TSCĐ (S21-DN)
+S22-DN Theo Doi TSCD CCDC,Sổ theo dõi TSCĐ & CCDC (S22-DN)
+So Quy Chi Nhanh,Sổ quỹ chi nhánh
+Term Deposit Summary,Tổng hợp tiền gửi có kỳ hạn
+vat_return_01_gtgt,Tờ khai thuế GTGT (01/GTGT)

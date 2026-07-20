@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:redefine schemaLocation="..\TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="TTNCCNN">
+							<xs:annotation>
+								<xs:documentation>Bảng kê chi tiết</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CTietThongTinNCCNN" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tenNhaCCNN" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên nhà cung cấp nước ngoài</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="diaChi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Địa chỉ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_QuocGia" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Quốc Gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_QuocGia" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Quốc Gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="doanhThuTinhThue_GTGT" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế Giá trị gia tăng (GTGT): Doanh thu tính thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tyLeThueGTGTTrenDT" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế Giá trị gia tăng (GTGT): Tỷ lệ % thuế GTGT trên doanh thu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thueGTGTPhaiNop" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế Giá trị gia tăng (GTGT): Thuế GTGT phải nộp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="doanhThuTinhThue_TNDN" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế thu nhập doanh nghiệp (TNDN): Doanh thu tính thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tyLeThueTNDNTrenDT" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế thu nhập doanh nghiệp (TNDN): Tỷ lệ % thuế TNDN trên doanh thu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soThueMienGiam" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế thu nhập doanh nghiệp (TNDN): Số thuế được miễn giảm theo Hiệp định</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thueTNDNPhaiNop" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế thu nhập doanh nghiệp (TNDN): Thuế TNDN phải nộp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongSoThueNopVaoNSNN" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng số thuế phải nộp vào ngân sáchnhà nước</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ct12" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng cộng cột (6)Thuế giá trị gia tăng phải nộp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct13" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng cộng cột (10)Thuế thu nhập doanh nghiệp phải nộp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct14" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng cộng cột (11)Tổng số thuế phải nộp vào ngân sáchnhà nước</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongThueGTGT_TNDNPhaiNop" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng số thuế GTGT và thuế TNDN phải nộp kỳ </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

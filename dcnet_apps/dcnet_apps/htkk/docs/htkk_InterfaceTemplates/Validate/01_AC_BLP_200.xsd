@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="tuNgay" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Từ ngày</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="denNgay" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Đến ngày</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="BKeNhanInBienLai">
+							<xs:annotation>
+								<xs:documentation>Bảng kê tình hình nhận in, cung cấp phần mềm tự in biên lai</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CTietBKeNhanInBienLai" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Chi tiết Bảng kê tình hình nhận in, cung cấp phần mềm tự in biên lai</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="mst" type="TINType">
+													<xs:annotation>
+														<xs:documentation>Mã số thuế tổ chức, cá nhân đặt in, tự in</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Tên tổ chức, cá nhân đặt in, tự in</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="diaChi" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Địa chỉ tổ chức, cá nhân đặt in, tự in</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soHopDong" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Số hợp đồng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ngayHopDong" type="xs:date">
+													<xs:annotation>
+														<xs:documentation>Ngày hợp đồng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tenLoaiBienLai" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên loại biên lai</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="kyHieuMauBienLai" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ký hiệu mẫu biên lai</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="kyHieuBienLai" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ký hiệu biên lai</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tuSo" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Từ số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="denSo" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đến số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soLuong" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lượng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="noiBCao" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Nơi báo cáo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ngayLapBCao" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Ngày báo cáo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="nguoiDaiDien" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Người đại diện theo pháp luật</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

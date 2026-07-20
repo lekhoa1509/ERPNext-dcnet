@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by LUYENPN (SEATECHIT) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="Header">
+							<xs:annotation>
+								<xs:documentation>Thông tin chung</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct10" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Số CMND (trường hợp cá nhân quốc tịch Việt Nam):</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Hộ chiếu (trường hợp cá nhân không có quốc tịch Việt nam):</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct21_so" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Văn bản uỷ quyền (nếu có): Số .....</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct21_ngay" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Văn bản uỷ quyền (nếu có): ngày……tháng……năm……</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TongDoanhThuTrongNam" type="ChiTiet">
+							<xs:annotation>
+								<xs:documentation>Tổng doanh thu  trong năm (a)
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ThueTNCNPhaiNop" type="ChiTiet">
+							<xs:annotation>
+								<xs:documentation>Số thuế TNCN phải nộp (b)
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ThueDaKhauTruTamNop" type="ChiTiet">
+							<xs:annotation>
+								<xs:documentation>Số thuế đã khấu trừ, đã tạm nộp
+(c)
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ThueTNCNNopBoSung" type="ChiTiet">
+							<xs:annotation>
+								<xs:documentation>Số thuế TNCN phải nộp bổ sung
+(d)=(b)-(c)
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+	<xs:complexType name="ChiTiet">
+		<xs:sequence>
+			<xs:element name="ct22" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Hoạt động đại lý xổ số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct23" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Hoạt động đại lý bảo hiểm </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct24" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Hoạt  động bán hàng đa cấp</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct25" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Hoạt động kinh doanh khác</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct26" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tổng cộng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

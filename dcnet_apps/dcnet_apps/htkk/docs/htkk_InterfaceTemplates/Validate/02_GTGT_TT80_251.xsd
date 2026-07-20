@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.2">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="Header">
+							<xs:annotation>
+								<xs:documentation>Hàng hoá, dịch vụ mua vào trong kỳ</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct01a" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Mã hồ sơ khai dự án đầu tư</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct06" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên dự án</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct07" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Địa chỉ thực hiện dự án</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct08_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Địa chỉ thực hiện dự án</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct08_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Địa chỉ thực hiện dự án</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Địa chỉ thực hiện dự án</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Địa chỉ thực hiện dự án</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct10_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Địa chỉ thực hiện dự án</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct10_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Địa chỉ thực hiện dự án</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="VBPheDuyetDuAnDauTu">
+										<xs:annotation>
+											<xs:documentation>Văn bản phê duyệt dự án đầu tư</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="so" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số văn bản</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ngay" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ngày ban hành văn bản phê  duyệt dự án đầu tư</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="cua" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Cơ quan ban hành văn bản phê duyệt dự án đầu tư</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="tenChuDuAnDauTu" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên Chủ dự án đầu tư</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="maSoThueDuAnDauTu" type="TINType" nillable="true">
+										<xs:annotation>
+											<xs:documentation>MST chủ dự án đầu tư</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="tieuMucHachToan" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tiểu mục hạch toán</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct21" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế GTGT chưa được hoàn kỳ trước chuyển sang</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct21a" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế GTGT đầu vào của dự án đầu tư nhận bàn giao từ  chủ dự án đầu tư</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="HHDVMuaVaoTrongKy">
+							<xs:annotation>
+								<xs:documentation>Hàng hoá, dịch vụ mua vào trong kỳ</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct22" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Giá Trị của Hàng hoá, dịch vụ mua vào trong kỳ (chưa có thuế GTGT) </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct23" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thuế GTGT của Hàng hoá, dịch vụ mua vào trong kỳ </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TrongDo">
+							<xs:annotation>
+								<xs:documentation>Hàng hoá, dịch vụ mua vào trong kỳ</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct22a" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Giá Trị của Hàng hoá, dịch vụ mua vào trong kỳ (chưa có thuế GTGT) </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct23a" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thuế GTGT của Hàng hoá, dịch vụ mua vào trong kỳ </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DieuChinhTangGTGTCacKyTruoc">
+							<xs:annotation>
+								<xs:documentation>Điều chỉnh tăng thuế GTGT của HHDV mua vào các kỳ trước</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct24" type="xs:nonNegativeInteger" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Giá trị HHDV mua vào kỳ trước điều chỉnh tăng</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct25" type="xs:nonNegativeInteger" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thuế GTGT của HHDV mua vào kỳ trước điều chỉnh tăng</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DieuChinhGiamGTGTCacKyTruoc">
+							<xs:annotation>
+								<xs:documentation>Điều chỉnh giảm thuế GTGT của HHDV mua vào các kỳ trước</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct26" type="xs:nonNegativeInteger" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Giá trị HHDV mua vào kỳ trước điều chỉnh giảm</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct27" type="xs:nonNegativeInteger" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thuế GTGT của HHDV mua vào kỳ trước điều chỉnh giảm</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ct28" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng số thuế giá trị gia tăng đầu vào của hàng hóa, dịch vụ mua vào ([28]=[21]+[21a]+[23]+[25]-[27])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct28a" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế giá trị gia tăng mua vào của dự án đầu tư bù trừ với thuế giá trị gia tăng phải nộp của hoạt động sản xuất kinh doanh cùng kỳ tính thuế ([28a]≤[28])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct28b" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế giá trị gia tăng mua vào của dự án đầu tư bù trừ với thuế giá trị gia tăng phải nộp của hoạt động sản xuất kinh doanh cùng kỳ tính thuế của chủ đầu tư (trường hợp người nộp thuế được chủ đầu tư giao quản lý dự án đầu tư; ([28b]≤[28]-[28a])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct29" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế giá trị gia tăng đầu vào chưa được hoàn đến kỳ tính thuế của dự án đầu tư
+([29]=[28]-[28a]-[28b])
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct30" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế giá trị gia tăng đề nghị hoàn ([30]≤[29])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct31" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế giá trị gia tăng đầu vào của dự án đầu tư chưa được hoàn bàn giao trong kỳ ([31]≤[29]-[30])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct32" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế giá trị gia tăng đầu vào của dự án đầu tư chưa được hoàn chuyển kỳ sau ([32]=[29]-[30]-[31])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

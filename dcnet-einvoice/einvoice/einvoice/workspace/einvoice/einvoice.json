@@ -1,0 +1,171 @@
+{
+    "charts": [],
+    "content": "[{\"id\":\"nc1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"EInvoice - HĐ mua vào chưa ghép\",\"col\":3}},{\"id\":\"nc2\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"EInvoice - HĐ mua vào đã ghép\",\"col\":3}},{\"id\":\"nc3\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"EInvoice - SI chưa xuất HĐ đỏ\",\"col\":3}},{\"id\":\"nc4\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"EInvoice - SI đã xuất HĐ đỏ\",\"col\":3}},{\"id\":\"hdr1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Danh sách & Quản trị</b></span>\",\"col\":12}},{\"id\":\"c1\",\"type\":\"card\",\"data\":{\"card_name\":\"Hóa đơn mua vào\",\"col\":4}},{\"id\":\"c2\",\"type\":\"card\",\"data\":{\"card_name\":\"Hóa đơn bán ra\",\"col\":4}},{\"id\":\"c3\",\"type\":\"card\",\"data\":{\"card_name\":\"Quản trị\",\"col\":4}}]",
+    "creation": "2026-03-03 14:00:00.000000",
+    "custom_blocks": [],
+    "docstatus": 0,
+    "doctype": "Workspace",
+    "for_user": "",
+    "hide_custom": 0,
+    "icon": "invoice",
+    "idx": 0,
+    "is_hidden": 0,
+    "label": "EInvoice",
+    "type": "Workspace",
+    "links": [
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Hóa đơn mua vào",
+            "link_count": 3,
+            "onboard": 0,
+            "type": "Card Break"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Tất cả HĐ mua vào",
+            "link_count": 0,
+            "link_to": "EInvoice Inward",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link",
+            "dependencies": "",
+            "only_for": ""
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Chưa ghép nối",
+            "link_count": 0,
+            "link_to": "EInvoice Inward",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Đã ghép nối",
+            "link_count": 0,
+            "link_to": "EInvoice Inward",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Hóa đơn bán ra",
+            "link_count": 2,
+            "onboard": 0,
+            "type": "Card Break"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Chưa xuất HĐ đỏ",
+            "link_count": 0,
+            "link_to": "Sales Invoice",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Lịch sử phát hành",
+            "link_count": 0,
+            "link_to": "EInvoice Issuance Log",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Quản trị",
+            "link_count": 3,
+            "onboard": 0,
+            "type": "Card Break"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Nhà cung cấp HĐĐT",
+            "link_count": 0,
+            "link_to": "EInvoice Provider",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Cấu hình chung",
+            "link_count": 0,
+            "link_to": "EInvoice Settings",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Lịch sử đồng bộ",
+            "link_count": 0,
+            "link_to": "EInvoice Sync Log",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        }
+    ],
+    "modified": "2026-03-03 16:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "EInvoice",
+    "name": "EInvoice",
+    "number_cards": [
+        {
+            "label": "HĐ mua vào - Chưa ghép",
+            "number_card_name": "EInvoice - HĐ mua vào chưa ghép"
+        },
+        {
+            "label": "HĐ mua vào - Đã ghép",
+            "number_card_name": "EInvoice - HĐ mua vào đã ghép"
+        },
+        {
+            "label": "SI chưa xuất HĐ đỏ",
+            "number_card_name": "EInvoice - SI chưa xuất HĐ đỏ"
+        },
+        {
+            "label": "SI đã xuất HĐ đỏ",
+            "number_card_name": "EInvoice - SI đã xuất HĐ đỏ"
+        }
+    ],
+    "owner": "Administrator",
+    "parent_page": "",
+    "public": 1,
+    "restrict_to_domain": "",
+    "roles": [],
+    "sequence_id": 30,
+    "shortcuts": [
+        {
+            "color": "Orange",
+            "doc_view": "List",
+            "label": "HĐ mua vào mới",
+            "link_to": "EInvoice Inward",
+            "stats_filter": "{\"status\":\"New\"}",
+            "type": "DocType"
+        },
+        {
+            "color": "Green",
+            "doc_view": "List",
+            "label": "Xuất HĐ đỏ",
+            "link_to": "Sales Invoice",
+            "stats_filter": "{\"docstatus\":1,\"einvoice_issued\":0}",
+            "type": "DocType"
+        }
+    ],
+    "title": "EInvoice",
+    "type": "Workspace"
+}

@@ -1,0 +1,188 @@
+
+<Sections>
+	<Section Dynamic="0" MaxRows="0">
+		<!-- Tờ khai 05/KK-TNCN -->
+		<Cells DataFile="05_TNCN">
+			<Cell CellID="H_4" PropertyInfo="KyTinhThue"/>
+			<Cell CellID="L_4" PropertyInfo="TuThang"/>
+			<Cell CellID="N_4" PropertyInfo="DenThang"/>
+			<Cell CellID="L_6" PropertyInfo="BoSungLanDau"/>
+			<Cell CellID="O_6" PropertyInfo="BoSungLanThu"/>
+			<Cell CellID="D_8" PropertyInfo="NguoiNopThue"/>
+			<Cell CellID="D_10" PropertyInfo="MaSoThue"/>
+			<Cell CellID="D_12" PropertyInfo="DiaChiTruSo"/>
+			<Cell CellID="D_14" PropertyInfo="QuanHuyen"/>
+			<Cell CellID="L_14" PropertyInfo="TinhThanhPho"/>
+			<Cell CellID="D_16" PropertyInfo="DienThoai"/>			
+			<Cell CellID="G_16" PropertyInfo="Fax"/>
+			<Cell CellID="L_16" PropertyInfo="Email"/>
+			<Cell CellID="D_18" PropertyInfo="DaiLy_TenDaiLyThue"/>
+			<Cell CellID="D_20" PropertyInfo="DaiLy_MaSoThue"/>
+			<Cell CellID="D_22" PropertyInfo="DaiLy_DiChiTruSo"/>
+			<Cell CellID="D_24" PropertyInfo="DaiLy_QuanHuyen"/>
+			<Cell CellID="L_24" PropertyInfo="DaiLy_TinhThanhPho"/>
+			<Cell CellID="D_26" PropertyInfo="DaiLy_DienThoai"/>
+			<Cell CellID="G_26" PropertyInfo="DaiLy_Fax"/>			
+			<Cell CellID="L_26" PropertyInfo="DaiLy_Email"/>
+			<Cell CellID="D_28" PropertyInfo="DaiLy_SoHopDongDaiLyThue"/>
+			<Cell CellID="K_28" PropertyInfo="DaiLy_Ngay"/>
+			<Cell CellID="D_30" PropertyInfo="CoQuanThueCapCuc"/>
+			<Cell CellID="D_32" PropertyInfo="CoQuanThueQuanLy"/>
+			<Cell CellID="D_69" PropertyInfo="DaiLy_HoTenNhanVien"/>
+			<Cell CellID="D_71" PropertyInfo="DaiLy_SoChungChiHanhNghe"/>			
+		</Cells>
+		<Cells DataFile="05_1_TNCN">
+			<Cell CellID="G_5" PropertyInfo="KyTinhThue"/>			
+			<Cell CellID="E_7" PropertyInfo="NguoiNopThue"/>
+			<Cell CellID="E_9" PropertyInfo="MaSoThue"/>			
+			<Cell CellID="E_11" PropertyInfo="DaiLy_TenDaiLyThue"/>			
+			<Cell CellID="E_13" PropertyInfo="DaiLy_MaSoThue"/>				
+		</Cells>
+		<Cells DataFile="05_2_TNCN">
+			<Cell CellID="E_4" PropertyInfo="KyTinhThue"/>			
+			<Cell CellID="D_6" PropertyInfo="NguoiNopThue"/>
+			<Cell CellID="D_8" PropertyInfo="MaSoThue"/>			
+			<Cell CellID="D_10" PropertyInfo="DaiLy_TenDaiLyThue"/>			
+			<Cell CellID="D_12" PropertyInfo="DaiLy_MaSoThue"/>				
+		</Cells>
+		<Cells DataFile="05_3_TNCN">
+			<Cell CellID="E_5" PropertyInfo="KyTinhThue"/>			
+			<Cell CellID="E_7" PropertyInfo="NguoiNopThue"/>
+			<Cell CellID="E_9" PropertyInfo="MaSoThue"/>			
+			<Cell CellID="E_11" PropertyInfo="DaiLy_TenDaiLyThue"/>			
+			<Cell CellID="E_13" PropertyInfo="DaiLy_MaSoThue"/>				
+		</Cells>
+		<!-- end Tờ khai 05/KK-TNCN -->	
+		<!-- Tờ khai 02/KK-XS -->
+		<Cells DataFile="02_TNCN_XS">
+			<Cell CellID="H_4" PropertyInfo="KyTinhThue"/>
+			<Cell CellID="L_4" PropertyInfo="TuThang"/>
+			<Cell CellID="N_4" PropertyInfo="DenThang"/>
+			<Cell CellID="E_6" PropertyInfo="BoSungLanDau"/>
+			<Cell CellID="I_6" PropertyInfo="BoSungLanThu"/>
+			<Cell CellID="D_8" PropertyInfo="NguoiNopThue"/>
+			<Cell CellID="D_10" PropertyInfo="MaSoThue"/>
+			<Cell CellID="D_12" PropertyInfo="DiaChiTruSo"/>
+			<Cell CellID="D_14" PropertyInfo="QuanHuyen"/>
+			<Cell CellID="M_14" PropertyInfo="TinhThanhPho"/>
+			<Cell CellID="D_16" PropertyInfo="DienThoai"/>			
+			<Cell CellID="M_16" PropertyInfo="Fax"/>
+			<Cell CellID="D_18" PropertyInfo="Email"/>
+			<Cell CellID="D_20" PropertyInfo="DaiLy_TenDaiLyThue"/>
+			<Cell CellID="D_22" PropertyInfo="DaiLy_MaSoThue"/>
+			<Cell CellID="D_24" PropertyInfo="DaiLy_DiChiTruSo"/>
+			<Cell CellID="D_26" PropertyInfo="DaiLy_QuanHuyen"/>
+			<Cell CellID="M_26" PropertyInfo="DaiLy_TinhThanhPho"/>
+			<Cell CellID="D_28" PropertyInfo="DaiLy_DienThoai"/>
+			<Cell CellID="M_28" PropertyInfo="DaiLy_Fax"/>			
+			<Cell CellID="D_30" PropertyInfo="DaiLy_Email"/>
+			<Cell CellID="D_32" PropertyInfo="DaiLy_SoHopDongDaiLyThue"/>
+			<Cell CellID="M_32" PropertyInfo="DaiLy_Ngay"/>
+			<Cell CellID="D_34" PropertyInfo="CoQuanThueCapCuc"/>
+			<Cell CellID="D_36" PropertyInfo="CoQuanThueQuanLy"/>
+			<Cell CellID="D_46" PropertyInfo="DaiLy_HoTenNhanVien"/>
+			<Cell CellID="D_48" PropertyInfo="DaiLy_SoChungChiHanhNghe"/>	
+			<Cell CellID="M_46" PropertyInfo="NguoiKyToKhai"/>
+			<Cell CellID="M_48" PropertyInfo="DaiLy_Ngay"/>			
+		</Cells>
+		<Cells DataFile="02A_TNCN_XS">
+			<Cell CellID="G_5" PropertyInfo="KyTinhThue"/>			
+			<Cell CellID="E_7" PropertyInfo="NguoiNopThue"/>
+			<Cell CellID="E_9" PropertyInfo="MaSoThue"/>			
+			<Cell CellID="E_11" PropertyInfo="DaiLy_TenDaiLyThue"/>			
+			<Cell CellID="E_13" PropertyInfo="DaiLy_MaSoThue"/>				
+		</Cells>		
+		<!-- end Tờ khai 02/KK-XS -->	
+		
+		<!-- Tờ khai 02/KK-BHĐC -->
+		<Cells DataFile="02_TNCN_BHDC">
+			<Cell CellID="H_4" PropertyInfo="KyTinhThue"/>
+			<Cell CellID="L_4" PropertyInfo="TuThang"/>
+			<Cell CellID="N_4" PropertyInfo="DenThang"/>
+			<Cell CellID="E_6" PropertyInfo="BoSungLanDau"/>
+			<Cell CellID="I_6" PropertyInfo="BoSungLanThu"/>
+			<Cell CellID="D_8" PropertyInfo="NguoiNopThue"/>
+			<Cell CellID="D_10" PropertyInfo="MaSoThue"/>
+			<Cell CellID="D_12" PropertyInfo="DiaChiTruSo"/>
+			<Cell CellID="D_14" PropertyInfo="QuanHuyen"/>
+			<Cell CellID="M_14" PropertyInfo="TinhThanhPho"/>
+			<Cell CellID="D_16" PropertyInfo="DienThoai"/>			
+			<Cell CellID="M_16" PropertyInfo="Fax"/>
+			<Cell CellID="D_18" PropertyInfo="Email"/>
+			<Cell CellID="D_20" PropertyInfo="DaiLy_TenDaiLyThue"/>
+			<Cell CellID="D_22" PropertyInfo="DaiLy_MaSoThue"/>
+			<Cell CellID="D_24" PropertyInfo="DaiLy_DiChiTruSo"/>
+			<Cell CellID="D_26" PropertyInfo="DaiLy_QuanHuyen"/>
+			<Cell CellID="M_26" PropertyInfo="DaiLy_TinhThanhPho"/>
+			<Cell CellID="D_28" PropertyInfo="DaiLy_DienThoai"/>
+			<Cell CellID="M_28" PropertyInfo="DaiLy_Fax"/>			
+			<Cell CellID="D_30" PropertyInfo="DaiLy_Email"/>
+			<Cell CellID="D_32" PropertyInfo="DaiLy_SoHopDongDaiLyThue"/>
+			<Cell CellID="M_32" PropertyInfo="DaiLy_Ngay"/>
+			<Cell CellID="D_34" PropertyInfo="CoQuanThueCapCuc"/>
+			<Cell CellID="D_36" PropertyInfo="CoQuanThueQuanLy"/>
+			<Cell CellID="D_61" PropertyInfo="DaiLy_HoTenNhanVien"/>
+			<Cell CellID="D_63" PropertyInfo="DaiLy_SoChungChiHanhNghe"/>	
+			<Cell CellID="M_61" PropertyInfo="NguoiKyToKhai"/>
+			<Cell CellID="M_63" PropertyInfo="DaiLy_Ngay"/>			
+		</Cells>
+		<Cells DataFile="02_1_TNCN_BHDC">
+			<Cell CellID="G_5" PropertyInfo="KyTinhThue"/>			
+			<Cell CellID="E_7" PropertyInfo="NguoiNopThue"/>
+			<Cell CellID="E_9" PropertyInfo="MaSoThue"/>			
+			<Cell CellID="E_11" PropertyInfo="DaiLy_TenDaiLyThue"/>			
+			<Cell CellID="E_13" PropertyInfo="DaiLy_MaSoThue"/>				
+		</Cells>		
+		<Cells DataFile="02_2_TNCN_BHDC">
+			<Cell CellID="G_5" PropertyInfo="KyTinhThue"/>			
+			<Cell CellID="E_7" PropertyInfo="NguoiNopThue"/>
+			<Cell CellID="E_9" PropertyInfo="MaSoThue"/>			
+			<Cell CellID="E_11" PropertyInfo="DaiLy_TenDaiLyThue"/>			
+			<Cell CellID="E_13" PropertyInfo="DaiLy_MaSoThue"/>				
+		</Cells>	
+		<!-- end Tờ khai 02/KK-XS -->	
+		
+		<!-- end Tờ khai 05/KK-TNCN -->	
+		<!-- Tờ khai 06/KK-TNCN -->
+		<Cells DataFile="06_TNCN10">
+			<Cell CellID="H_4" PropertyInfo="KyTinhThue"/>
+			<Cell CellID="L_4" PropertyInfo="TuThang"/>
+			<Cell CellID="N_4" PropertyInfo="DenThang"/>
+			<Cell CellID="E_6" PropertyInfo="BoSungLanDau"/>
+			<Cell CellID="I_6" PropertyInfo="BoSungLanThu"/>
+			<Cell CellID="D_8" PropertyInfo="NguoiNopThue"/>
+			<Cell CellID="D_10" PropertyInfo="MaSoThue"/>
+			<Cell CellID="D_12" PropertyInfo="DiaChiTruSo"/>
+			<Cell CellID="D_14" PropertyInfo="QuanHuyen"/>
+			<Cell CellID="M_14" PropertyInfo="TinhThanhPho"/>
+			<Cell CellID="D_16" PropertyInfo="DienThoai"/>			
+			<Cell CellID="M_16" PropertyInfo="Fax"/>
+			<Cell CellID="D_18" PropertyInfo="Email"/>
+			<Cell CellID="D_20" PropertyInfo="DaiLy_TenDaiLyThue"/>
+			<Cell CellID="D_22" PropertyInfo="DaiLy_MaSoThue"/>
+			<Cell CellID="D_24" PropertyInfo="DaiLy_DiChiTruSo"/>
+			<Cell CellID="D_26" PropertyInfo="DaiLy_QuanHuyen"/>
+			<Cell CellID="M_26" PropertyInfo="DaiLy_TinhThanhPho"/>
+			<Cell CellID="D_28" PropertyInfo="DaiLy_DienThoai"/>
+			<Cell CellID="M_28" PropertyInfo="DaiLy_Fax"/>			
+			<Cell CellID="D_30" PropertyInfo="DaiLy_Email"/>
+			<Cell CellID="D_32" PropertyInfo="DaiLy_SoHopDongDaiLyThue"/>
+			<Cell CellID="M_32" PropertyInfo="DaiLy_Ngay"/>
+			<Cell CellID="D_34" PropertyInfo="CoQuanThueCapCuc"/>
+			<Cell CellID="D_36" PropertyInfo="CoQuanThueQuanLy"/>
+			<Cell CellID="D_46" PropertyInfo="DaiLy_HoTenNhanVien"/>
+			<Cell CellID="D_48" PropertyInfo="DaiLy_SoChungChiHanhNghe"/>	
+			<Cell CellID="M_46" PropertyInfo="NguoiKyToKhai"/>
+			<Cell CellID="M_48" PropertyInfo="DaiLy_Ngay"/>			
+		</Cells>
+		<Cells DataFile="06B_TNCN10">
+			<Cell CellID="G_5" PropertyInfo="KyTinhThue"/>			
+			<Cell CellID="E_7" PropertyInfo="NguoiNopThue"/>
+			<Cell CellID="E_9" PropertyInfo="MaSoThue"/>			
+			<Cell CellID="E_11" PropertyInfo="DaiLy_TenDaiLyThue"/>			
+			<Cell CellID="E_13" PropertyInfo="DaiLy_MaSoThue"/>				
+		</Cells>		
+		<!-- end Tờ khai 06/KK-TNCN -->	
+		
+	</Section>
+</Sections>

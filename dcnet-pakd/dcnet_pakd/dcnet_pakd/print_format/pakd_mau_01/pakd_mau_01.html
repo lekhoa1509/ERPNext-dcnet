@@ -1,0 +1,138 @@
+{% set company = frappe.get_doc("Company", doc.company) %}
+{% set fmt = frappe.format %}
+
+<style>
+.pakd-print { font-family: "Times New Roman", Times, serif; font-size: 12px; line-height: 1.5; color: #000; }
+.pakd-print h2 { text-align: center; font-size: 14px; text-transform: uppercase; margin: 8px 0 4px; }
+.pakd-print h3 { text-align: center; font-size: 12px; font-weight: normal; font-style: italic; margin: 0 0 16px; }
+.pakd-print .header-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.pakd-print .header-left { width: 50%; font-weight: bold; text-transform: uppercase; font-size: 11px; }
+.pakd-print .header-right { width: 50%; text-align: center; font-size: 11px; }
+.pakd-print .info-table { width: 100%; margin-bottom: 10px; }
+.pakd-print .info-table td { padding: 2px 4px; vertical-align: top; }
+.pakd-print .info-table td.label { font-weight: bold; white-space: nowrap; width: 30%; }
+.pakd-print table.items-table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 11px; }
+.pakd-print table.items-table th, .pakd-print table.items-table td { border: 1px solid #333; padding: 4px 6px; }
+.pakd-print table.items-table th { background: #e8e8e8; text-align: center; font-weight: bold; }
+.pakd-print table.items-table td.num { text-align: right; }
+.pakd-print table.items-table td.center { text-align: center; }
+.pakd-print .totals-row { font-weight: bold; background: #f0f0f0; }
+.pakd-print .signatures { display: flex; justify-content: space-between; margin-top: 30px; }
+.pakd-print .sig-block { width: 22%; text-align: center; font-size: 11px; }
+.pakd-print .sig-block .sig-title { font-weight: bold; text-transform: uppercase; margin-bottom: 55px; }
+.pakd-print .sig-block .sig-name { font-style: italic; }
+.pakd-print .note { font-size: 10px; color: #555; margin-top: 4px; }
+</style>
+
+<div class="pakd-print">
+  {# Header #}
+  <div class="header-row">
+    <div class="header-left">
+      {{ company.company_name or '' }}<br>
+      <span style="font-weight:normal; text-transform:none; font-size:10px;">{{ company.company_abbr or '' }}</span>
+    </div>
+    <div class="header-right">
+      <strong>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</strong><br>
+      <em>Độc lập - Tự do - Hạnh phúc</em><br>
+      <span style="font-size:10px;">——————————</span>
+    </div>
+  </div>
+
+  <h2>PHƯƠNG ÁN KINH DOANH</h2>
+  <h2 style="font-size:13px;">(Mẫu số 01 — Dịch vụ viễn thông / IT thuê bao)</h2>
+  <h3>Số: {{ doc.name }}{% if doc.contract_no_external %} — HĐ: {{ doc.contract_no_external }}{% endif %}</h3>
+
+  {# Info block #}
+  <table class="info-table">
+    <tr><td class="label">Khách hàng:</td><td><strong>{{ doc.customer_name or doc.customer }}</strong></td>
+        <td class="label">Chi nhánh:</td><td>{{ doc.branch or '' }}</td></tr>
+    <tr><td class="label">Hợp đồng:</td><td>{{ doc.contract_ref or '' }}</td>
+        <td class="label">Dịch vụ:</td><td>{{ doc.service_type or '' }}</td></tr>
+    <tr><td class="label">Nhân viên KD:</td><td>{{ doc.sales_person_name or doc.sales_person or '' }}</td>
+        <td class="label">Kênh:</td><td>{{ doc.channel or '' }}</td></tr>
+    <tr><td class="label">Phòng/Ban:</td><td>{{ doc.department or '' }}</td>
+        <td class="label">Trạng thái:</td><td><strong>{{ doc.workflow_state or doc.status or '' }}</strong></td></tr>
+  </table>
+
+  {# Items table — Recurring Telecom #}
+  <table class="items-table">
+    <thead>
+      <tr>
+        <th rowspan="2" style="width:4%">STT</th>
+        <th rowspan="2" style="width:18%">Hạng mục dịch vụ</th>
+        <th rowspan="2" style="width:8%">ĐVT</th>
+        <th rowspan="2" style="width:9%">Đơn giá HĐ</th>
+        <th rowspan="2" style="width:7%">Chi phí ngoài</th>
+        <th colspan="4" style="text-align:center">Chi phí</th>
+        <th rowspan="2" style="width:9%">Doanh thu dịch vụ</th>
+      </tr>
+      <tr>
+        <th style="width:8%">DV quản lý</th>
+        <th style="width:7%">Phí GPVT</th>
+        <th style="width:8%">Lương KD</th>
+        <th style="width:8%">Tổng CP</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in doc.items %}
+      <tr>
+        <td class="center">{{ loop.index }}</td>
+        <td>{{ item.item_label or '' }}</td>
+        <td class="center">{{ item.uom or 'Tháng' }}</td>
+        <td class="num">{{ fmt(item.unit_price, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(item.add_costs, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(item.manager_services, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(item.license_fee, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(item.sales_commission, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(item.total_cost, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(item.revenue_service, {'fieldtype':'Currency'}) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr class="totals-row">
+        <td colspan="3" style="text-align:center">TỔNG CỘNG</td>
+        <td class="num">{{ fmt(doc.total_revenue_contract, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(doc.total_add_costs, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(doc.total_manager_services, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(doc.total_license_fee, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(doc.total_sales_commission, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(doc.total_cost, {'fieldtype':'Currency'}) }}</td>
+        <td class="num">{{ fmt(doc.total_revenue_service, {'fieldtype':'Currency'}) }}</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <p class="note">* Chi phí ngoài và DV quản lý theo quy định nội bộ. Phí GPVT = 2,2% doanh thu viễn thông.</p>
+
+  {# Signature block — 4 variants by branch × channel #}
+  {% set is_hn = (doc.branch or '') | lower in ['hn', 'ha noi', 'hà nội', 'hanoi'] %}
+  {% set is_bgd = (doc.channel or '') == 'BGĐ' %}
+
+  <div class="signatures">
+    <div class="sig-block">
+      <div class="sig-title">Nhân viên kinh doanh</div>
+      <div class="sig-name">{{ doc.sales_person_name or doc.sales_person or '.........' }}</div>
+    </div>
+    <div class="sig-block">
+      {% if is_bgd %}
+      <div class="sig-title">Giám đốc chi nhánh {{ 'HN' if is_hn else 'HCM' }}</div>
+      {% else %}
+      <div class="sig-title">GĐ Trung tâm KD {{ 'HN' if is_hn else 'HCM' }}</div>
+      {% endif %}
+      <div class="sig-name">...........</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-title">Phòng Tổng hợp</div>
+      <div class="sig-name">...........</div>
+    </div>
+    <div class="sig-block">
+      {% if is_bgd %}
+      <div class="sig-title">Tổng Giám đốc</div>
+      {% else %}
+      <div class="sig-title">Ban Giám đốc</div>
+      {% endif %}
+      <div class="sig-name">...........</div>
+    </div>
+  </div>
+</div>

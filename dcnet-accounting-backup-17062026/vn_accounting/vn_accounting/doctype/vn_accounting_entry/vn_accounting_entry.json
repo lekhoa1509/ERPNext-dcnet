@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-05-04 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "account_debit",
+  "account_credit",
+  "amount",
+  "description",
+  "is_vat",
+  "party_type",
+  "party"
+ ],
+ "fields": [
+  {
+   "fieldname": "account_debit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tài khoản Nợ",
+   "options": "Account",
+   "reqd": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "account_credit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tài khoản Có",
+   "options": "Account",
+   "reqd": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Số tiền",
+   "options": "VND",
+   "reqd": 1,
+   "columns": 2,
+   "non_negative": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Diễn giải",
+   "columns": 4
+  },
+  {
+   "default": "0",
+   "fieldname": "is_vat",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Là dòng VAT"
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Link",
+   "label": "Loại đối tác",
+   "options": "DocType",
+   "description": "Bắt buộc khi TK Có là loại Payable/Receivable (vd: TK 331)"
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Đối tác",
+   "options": "party_type"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-04 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "VN Accounting Entry",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

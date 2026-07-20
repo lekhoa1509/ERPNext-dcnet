@@ -1,0 +1,222 @@
+[
+  {
+    "doctype": "Lead",
+    "first_name": "Trương",
+    "last_name": "Văn Minh",
+    "email_id": "truongvanminh@gmail.com",
+    "mobile_no": "0901111111",
+    "status": "Open",
+    "source": "Website",
+    "lead_owner": "Administrator",
+    "notes": "Quan tâm đến Driver TaylorMade mới nhất, đang tìm hiểu về fitting service"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Lê",
+    "last_name": "Thị Hoa",
+    "email_id": "lethihoa@gmail.com",
+    "mobile_no": "0902222222",
+    "status": "Open",
+    "source": "Facebook",
+    "lead_owner": "Administrator",
+    "notes": "Muốn mua set golf cho chồng làm quà sinh nhật"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Nguyễn",
+    "last_name": "Đức Anh",
+    "email_id": "nguyenducanh@gmail.com",
+    "mobile_no": "0903333333",
+    "status": "Converted",
+    "source": "Walk In",
+    "lead_owner": "Administrator",
+    "notes": "Đã chuyển đổi thành khách hàng - mua Callaway Paradym Driver"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Phạm",
+    "last_name": "Quang Hải",
+    "email_id": "phamquanghai@gmail.com",
+    "mobile_no": "0904444444",
+    "status": "Open",
+    "source": "Zalo",
+    "lead_owner": "Administrator",
+    "notes": "Hỏi về giá wholesale cho shop golf nhỏ"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Võ",
+    "last_name": "Minh Tuấn",
+    "email_id": "vominhtuan@gmail.com",
+    "mobile_no": "0905555555",
+    "status": "Replied",
+    "source": "Phone",
+    "lead_owner": "Administrator",
+    "notes": "Đã gửi báo giá Iron Set, chờ phản hồi"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Hoàng",
+    "last_name": "Văn Long",
+    "email_id": "hoangvanlong@gmail.com",
+    "mobile_no": "0906666666",
+    "status": "Interested",
+    "source": "Website",
+    "lead_owner": "Administrator",
+    "notes": "Rất quan tâm đến coaching package 12 buổi"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Đặng",
+    "last_name": "Thị Mai",
+    "email_id": "dangthimai@gmail.com",
+    "mobile_no": "0907777777",
+    "status": "Do Not Contact",
+    "source": "Facebook",
+    "lead_owner": "Administrator",
+    "notes": "Đã yêu cầu không liên hệ nữa"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Bùi",
+    "last_name": "Quốc Việt",
+    "email_id": "buiquocviet@gmail.com",
+    "mobile_no": "0908888888",
+    "status": "Converted",
+    "source": "Referral",
+    "lead_owner": "Administrator",
+    "notes": "Được giới thiệu từ anh Nguyễn Văn An - đã mua full set"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Trịnh",
+    "last_name": "Văn Phong",
+    "email_id": "trinhvanphong@gmail.com",
+    "mobile_no": "0909999999",
+    "status": "Open",
+    "source": "Website",
+    "lead_owner": "Administrator",
+    "notes": "Download brochure về Fitting Service"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Ngô",
+    "last_name": "Thanh Tùng",
+    "email_id": "ngothanhtung@gmail.com",
+    "mobile_no": "0910101010",
+    "status": "Replied",
+    "source": "Zalo",
+    "lead_owner": "Administrator",
+    "notes": "Hỏi về Putter Scotty Cameron, đã gửi thông tin"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Đinh",
+    "last_name": "Hoàng Nam",
+    "email_id": "dinhhoangnam@gmail.com",
+    "mobile_no": "0911111111",
+    "status": "Interested",
+    "source": "Phone",
+    "lead_owner": "Administrator",
+    "notes": "Muốn đặt lịch fitting cho Driver"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Lý",
+    "last_name": "Văn Đức",
+    "email_id": "lyvanduc@gmail.com",
+    "mobile_no": "0912121212",
+    "status": "Converted",
+    "source": "Walk In",
+    "lead_owner": "Administrator",
+    "notes": "Đã mua 2 hộp bóng Titleist Pro V1"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Phan",
+    "last_name": "Thị Lan",
+    "email_id": "phanthilan@gmail.com",
+    "mobile_no": "0913131313",
+    "status": "Open",
+    "source": "Facebook",
+    "lead_owner": "Administrator",
+    "notes": "Hỏi về giày golf cho nữ"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Vũ",
+    "last_name": "Minh Châu",
+    "email_id": "vuminhchau@gmail.com",
+    "mobile_no": "0914141414",
+    "status": "Lost",
+    "source": "Website",
+    "lead_owner": "Administrator",
+    "notes": "Đã mua ở shop khác với giá rẻ hơn"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Dương",
+    "last_name": "Quang Vinh",
+    "email_id": "duongquangvinh@gmail.com",
+    "mobile_no": "0915151515",
+    "status": "Interested",
+    "source": "Referral",
+    "lead_owner": "Administrator",
+    "notes": "CEO công ty IT, quan tâm đến Golf VIP package"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Hồ",
+    "last_name": "Văn Thắng",
+    "email_id": "hovanthang2@gmail.com",
+    "mobile_no": "0916161616",
+    "status": "Open",
+    "source": "Zalo",
+    "lead_owner": "Administrator",
+    "notes": "Hỏi về trade-in gậy cũ"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Cao",
+    "last_name": "Thị Hương",
+    "email_id": "caothihuong@gmail.com",
+    "mobile_no": "0917171717",
+    "status": "Converted",
+    "source": "Walk In",
+    "lead_owner": "Administrator",
+    "notes": "Đã mua găng tay và mũ golf"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Tạ",
+    "last_name": "Minh Đạt",
+    "email_id": "taminhdat@gmail.com",
+    "mobile_no": "0918181818",
+    "status": "Replied",
+    "source": "Phone",
+    "lead_owner": "Administrator",
+    "notes": "Hỏi về giá Rangefinder Bushnell"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Lương",
+    "last_name": "Văn Hùng",
+    "email_id": "luongvanhung@gmail.com",
+    "mobile_no": "0919191919",
+    "status": "Open",
+    "source": "Website",
+    "lead_owner": "Administrator",
+    "notes": "Subscribe newsletter, chưa có action cụ thể"
+  },
+  {
+    "doctype": "Lead",
+    "first_name": "Mai",
+    "last_name": "Xuân Bách",
+    "email_id": "maixuanbach@gmail.com",
+    "mobile_no": "0920202020",
+    "status": "Interested",
+    "source": "Facebook",
+    "lead_owner": "Administrator",
+    "notes": "Comment hỏi về khóa học coaching cho người mới"
+  }
+]

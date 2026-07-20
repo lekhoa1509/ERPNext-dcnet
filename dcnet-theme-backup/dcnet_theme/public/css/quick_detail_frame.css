@@ -1,0 +1,267 @@
+/* dcnet_theme — Quick Detail Frame
+ * Spec: docs/specs/2026-05-13-quick-detail-frame-design.md  section 9.
+ *
+ * Typography intentionally inherits Frappe defaults: no custom font-family,
+ * font-size, font-weight unless matching Frappe utility classes. Colors come
+ * from Frappe CSS variables (--text-color, --text-muted, --border-color, etc.)
+ * so dark mode / theme presets apply automatically.
+ *
+ * Custom rules below restrict themselves to LAYOUT (positioning, spacing,
+ * z-index) — visual styling is delegated to Frappe.
+ */
+
+:root {
+    --qdf-z-frame-desktop: 1040;
+    --qdf-z-frame-tablet: 1045;
+    --qdf-z-frame-tooltip: 1060;
+}
+
+/* ── toggle button ──────────────────────────────────────────────── */
+
+.qdf-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-right: 8px;
+}
+
+.qdf-toggle-btn .qdf-toggle-check {
+    display: none;
+    color: var(--green-600, #16a34a);
+}
+
+.qdf-toggle-btn--on .qdf-toggle-check {
+    display: inline;
+}
+
+/* ── frame container ────────────────────────────────────────────── */
+
+.qdf-frame {
+    position: fixed;
+    background: var(--card-bg, var(--fg-color, #fff));
+    color: var(--text-color);
+    border-top: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md, 0 -2px 8px rgba(0, 0, 0, 0.05));
+    z-index: var(--qdf-z-frame-desktop);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.qdf-frame--open {
+    display: flex;
+}
+
+/* Skeleton state: dim the stale content slightly while a new row loads. */
+.qdf-frame--loading .qdf-body {
+    opacity: 0.55;
+    transition: opacity 0.15s ease-out;
+}
+
+.qdf-frame--desktop {
+    /* --qdf-sidebar-offset is updated by JS to match the desk sidebar's
+     * current width. Frame starts to the right of the sidebar. */
+    left: var(--qdf-sidebar-offset, 220px);
+    right: 0;
+    bottom: 0;
+    height: 25vh;
+    min-height: 200px;
+    max-height: 50vh;
+}
+
+.qdf-frame--tablet {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    z-index: var(--qdf-z-frame-tablet);
+}
+
+/* Push the page content up so the frame doesn't cover interactive area. */
+body.qdf-frame-open-desktop .layout-main-section-wrapper,
+body.qdf-frame-open-desktop .main-section .layout-main,
+body.qdf-frame-open-desktop .page-container {
+    padding-bottom: calc(25vh + 16px);
+}
+
+/* ── header bar ─────────────────────────────────────────────────── */
+
+.qdf-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--card-bg, var(--fg-color, #fff));
+    flex-shrink: 0;
+}
+
+.qdf-header-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1 1 auto;
+}
+
+.qdf-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+/* ── hint bar ───────────────────────────────────────────────────── */
+
+.qdf-hint-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 4px 16px;
+    background: var(--bg-light-gray, var(--gray-50, #f9fafb));
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.qdf-hint-dismiss {
+    margin-left: auto;
+    background: transparent;
+    border: 0;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+}
+
+.qdf-hint-dismiss:hover {
+    color: var(--text-color);
+}
+
+/* ── body / table ───────────────────────────────────────────────── */
+
+.qdf-body {
+    flex: 1 1 auto;
+    overflow: auto;
+}
+
+.qdf-empty {
+    padding: 24px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.qdf-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.qdf-table thead {
+    background: var(--bg-light-gray, var(--gray-50, #f9fafb));
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.qdf-table th {
+    padding: 6px 10px;
+    text-align: left;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.qdf-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.qdf-col-idx {
+    width: 32px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.qdf-row:hover {
+    background: var(--bg-light-gray, var(--gray-50, #f9fafb));
+}
+
+/* ── cell states ────────────────────────────────────────────────── */
+
+.qdf-cell--editable {
+    cursor: text;
+}
+
+.qdf-cell--editable:hover {
+    background: var(--bg-blue, var(--blue-50, #eff6ff));
+}
+
+.qdf-cell--locked {
+    background: var(--bg-light-gray, var(--gray-50, #f9fafb));
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+.qdf-cell--editing {
+    padding: 2px 4px;
+    background: var(--card-bg, var(--fg-color, #fff));
+}
+
+.qdf-cell--saving {
+    background: var(--yellow-50, #fef9c3);
+}
+
+.qdf-cell--saved {
+    background: var(--green-50, #d1fae5);
+    transition: background-color 0.5s ease-out;
+}
+
+.qdf-cell--editable:focus-visible {
+    outline: 2px solid var(--primary, #2563eb);
+    outline-offset: -2px;
+}
+
+/* Let Frappe's own control styling apply; only size the container. */
+.qdf-cell-control {
+    width: 100%;
+    min-width: 100px;
+}
+
+.qdf-cell-control .frappe-control {
+    margin-bottom: 0;
+}
+
+.qdf-cell-control .control-input,
+.qdf-cell-control .control-input-wrapper,
+.qdf-cell-control .form-control,
+.qdf-cell-control input,
+.qdf-cell-control select {
+    margin: 0;
+}
+
+/* Ensure Awesomplete dropdown overlay is above frame/modal */
+.qdf-cell-control .awesomplete > ul,
+body > .awesomplete > ul {
+    z-index: var(--qdf-z-frame-tooltip);
+}
+
+/* ── selected row in list view ──────────────────────────────────── */
+
+.list-row-container.qdf-row-selected,
+.list-row.qdf-row-selected,
+.dt-row.qdf-row-selected {
+    background: var(--bg-blue, var(--blue-100, #dbeafe)) !important;
+}
+
+/* ── responsive ─────────────────────────────────────────────────── */
+
+@media (max-width: 767.98px) {
+    .qdf-toggle-btn,
+    .qdf-frame {
+        display: none !important;
+    }
+}

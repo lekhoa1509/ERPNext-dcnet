@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.5">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="TNKhaiThac">
+							<xs:annotation>
+								<xs:documentation>I. Tài nguyên khai thác</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CTietTNKhaiThac" type="ChiTietThueTaiNguyenType" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Chi tiết bảng kê tài nguyên khai thác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TNThuMuaGom">
+							<xs:annotation>
+								<xs:documentation>II. Tài nguyên thu mua gom</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CTietTNThuMuaGom" type="ChiTietThueTaiNguyenType" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Chi tiết bảng kê tài nguyên thu mua gom</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="tong_ct8" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng Thuế tài nguyên phát sinh trong kỳ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tong_ct9" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng Thuế tài nguyên dự kiến được miễn giảm trong kỳ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tong_ct10" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng Thuế tài nguyên phát sinh phải nộp trong kỳ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tong_ct11" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng Thuế tài nguyên đã kê khai trong kỳ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tong_ct12" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng Chênh lệch giữa số quyết toán với kê khai</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+	<xs:complexType name="ChiTietThueTaiNguyenType">
+		<xs:sequence>
+			<xs:element name="ct1" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>mã loại tài nguyên </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct2" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Tên loại tài nguyên </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct3" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Đơn vị tính </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct4" type="xs:decimal" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Sản lượng tài nguyên  tính thuế</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct5" type="xs:decimal" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Giá tính thuế đơn vị tài nguyên </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct6" type="xs:decimal" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Thuế suất (%)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct7" type="xs:decimal" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Mức thuế tài nguyên ấn định trên 1 đơn vị tài nguyên </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct8" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Thuế tài nguyên phát sinh trong kỳ (8) = (4) x (5) x (6)  hoặc (8) = (4) x (7)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct9" type="xs:decimal" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Thuế tài nguyên dự kiến được miễn giảm trong kỳ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct10" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Thuế tài nguyên phát sinh phải nộp trong kỳ (10) = (8) - (9)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct11" type="xs:decimal" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Thuế tài nguyên đã kê khai trong kỳ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ct12" type="xs:long" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Chênh lệch giữa số quyết toán với kê khai (12) = (10) - (11)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+</xs:schema>

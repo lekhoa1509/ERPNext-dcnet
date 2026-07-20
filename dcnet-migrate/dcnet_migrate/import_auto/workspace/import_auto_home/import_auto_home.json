@@ -1,0 +1,63 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"hdr_quick\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Actions</b></span>\",\"col\":12}},{\"id\":\"sc_new\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Import Danh M\\u1ee5c M\\u1edbi (New Master Data Import)\",\"col\":3}},{\"id\":\"sc_opening\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Opening Balance Import\",\"col\":3}},{\"id\":\"sc_list\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Danh S\\u00e1ch Import Danh M\\u1ee5c (Master Data Import List)\",\"col\":3}},{\"id\":\"sc_settings\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"C\\u00e0i \\u0110\\u1eb7t Import Danh M\\u1ee5c (Master Data Import Settings)\",\"col\":3}},{\"id\":\"sc_data_import\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Frappe Data Import\",\"col\":3}}]",
+ "creation": "2026-05-18 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "upload",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Import Danh Mục (Master Data Import)",
+ "links": [],
+ "modified": "2026-05-18 23:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Import Auto",
+ "name": "Import Auto Home",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 36,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "label": "Import Danh Mục Mới (New Master Data Import)",
+   "type": "URL",
+   "url": "/app/import-auto/new"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Opening Balance Import",
+   "link_to": "Opening Balance Import",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Danh Sách Import Danh Mục (Master Data Import List)",
+   "link_to": "Import Auto",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "label": "Cài Đặt Import Danh Mục (Master Data Import Settings)",
+   "type": "URL",
+   "url": "/desk/import-auto-settings"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Frappe Data Import",
+   "link_to": "Data Import",
+   "type": "DocType"
+  }
+ ],
+ "title": "Import Danh Mục (Master Data Import)",
+ "type": "Workspace"
+}

@@ -1,0 +1,66 @@
+{
+    "actions": [],
+    "allow_rename": 0,
+    "creation": "2026-03-09 10:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "company",
+        "role",
+        "account_code",
+        "account",
+        "description"
+    ],
+    "fields": [
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Company",
+            "options": "Company",
+            "reqd": 1
+        },
+        {
+            "fieldname": "role",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Vai tr\u00f2 t\u00e0i kho\u1ea3n",
+            "options": "\nOUTPUT_VAT\nOUTPUT_VAT_IMPORT\nINPUT_VAT\nINPUT_VAT_FIXED_ASSET\nCIT_PAYABLE\nCIT_EXPENSE_CURRENT\nCIT_EXPENSE_DEFERRED\nPIT_PAYABLE\nREVENUE\nREVENUE_FINANCIAL\nREVENUE_DEDUCTION\nCOGS\nEXPENSE_FINANCIAL\nEXPENSE_SELLING\nEXPENSE_ADMIN\nINCOME_OTHER\nEXPENSE_OTHER\nCASH\nBANK\nCASH_IN_TRANSIT\nRECEIVABLE\nPAYABLE\nEQUITY\nRETAINED_EARNINGS\nFIXED_ASSET_TANGIBLE\nFIXED_ASSET_INTANGIBLE\nDEPRECIATION\nINVENTORY_RAW_MATERIAL\nINVENTORY_TOOLS\nINVENTORY_WIP\nINVENTORY_FINISHED_GOODS\nINVENTORY_MERCHANDISE",
+            "reqd": 1
+        },
+        {
+            "fieldname": "account_code",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "M\u00e3 t\u00e0i kho\u1ea3n",
+            "reqd": 1
+        },
+        {
+            "fieldname": "account",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "T\u00e0i kho\u1ea3n",
+            "options": "Account"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "M\u00f4 t\u1ea3",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 0,
+    "istable": 1,
+    "links": [],
+    "modified": "2026-03-09 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "HTKK",
+    "name": "HTKK Account Mapping",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "creation",
+    "sort_order": "ASC",
+    "states": []
+}

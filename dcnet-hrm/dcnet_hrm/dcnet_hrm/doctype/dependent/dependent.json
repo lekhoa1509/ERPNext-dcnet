@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "creation": "2026-07-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "full_name",
+  "relationship",
+  "column_break_basic",
+  "dob",
+  "registration_status",
+  "id_section",
+  "tax_code",
+  "citizen_id",
+  "deduction_section",
+  "deduction_from",
+  "column_break_deduction",
+  "deduction_to"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "relationship",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Relationship",
+   "options": "Child\nSpouse\nParent\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "registration_status",
+   "fieldtype": "Select",
+   "default": "Pending Tax Code",
+   "in_list_view": 1,
+   "label": "Registration Status",
+   "options": "Registered\nPending Tax Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "id_section",
+   "fieldtype": "Section Break",
+   "label": "Identification"
+  },
+  {
+   "fieldname": "tax_code",
+   "fieldtype": "Data",
+   "label": "Tax Code"
+  },
+  {
+   "fieldname": "citizen_id",
+   "fieldtype": "Data",
+   "label": "Citizen ID Number"
+  },
+  {
+   "fieldname": "deduction_section",
+   "fieldtype": "Section Break",
+   "label": "Deduction Period"
+  },
+  {
+   "description": "Tháng bắt đầu được tính giảm trừ gia cảnh (kỳ lương >= tháng này)",
+   "fieldname": "deduction_from",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Deduction From",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_deduction",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Để trống = đang áp dụng (chưa có ngày kết thúc giảm trừ)",
+   "fieldname": "deduction_to",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Deduction To"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-07-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet HRM",
+ "name": "Dependent",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,149 @@
+/* ============================================================
+   Worker Notification Panel — dcnet_migrate
+   ============================================================ */
+
+/* Tab badge (count of running jobs) */
+.notifications-category#import_workers .worker-count-badge {
+	display: inline-block;
+	background: var(--red-avatar-color, #e74c3c);
+	color: #fff;
+	border-radius: 10px;
+	padding: 1px 5px;
+	font-size: 9px;
+	font-weight: 600;
+	margin-left: 3px;
+	vertical-align: middle;
+	line-height: 1.4;
+}
+
+/* ---- Worker items ---- */
+.panel-workers .worker-item {
+	padding: 8px 12px;
+	border-bottom: 1px solid var(--border-color, #e0e0e0);
+	transition: background 0.15s;
+	cursor: default;
+}
+
+.panel-workers .worker-item:last-child {
+	border-bottom: none;
+}
+
+.panel-workers .worker-item:hover {
+	background: var(--bg-light-gray, #f8f8f8);
+}
+
+.panel-workers .worker-body {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.panel-workers .worker-icon {
+	font-size: 15px;
+	flex-shrink: 0;
+	width: 20px;
+	text-align: center;
+	margin-top: 1px;
+	line-height: 1;
+}
+
+.panel-workers .worker-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.panel-workers .worker-type {
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--text-color, #333);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.panel-workers .worker-doc {
+	font-size: 11px;
+	margin-top: 1px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.panel-workers .worker-subtext {
+	font-size: 10px;
+	margin-top: 2px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Progress bar */
+.panel-workers .worker-bar-wrap {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	margin-top: 5px;
+}
+
+.panel-workers .worker-bar-track {
+	flex: 1;
+	height: 3px;
+	background: var(--border-color, #e0e0e0);
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.panel-workers .worker-bar {
+	height: 3px;
+	background: var(--primary, #2490ef);
+	border-radius: 2px;
+	transition: width 0.4s ease;
+}
+
+/* Indeterminate (unknown %) — sliding animation */
+@keyframes worker-bar-slide {
+	0%   { transform: translateX(-100%); }
+	100% { transform: translateX(400%); }
+}
+
+.panel-workers .worker-bar--indeterminate {
+	width: 40% !important;
+	transition: none;
+	animation: worker-bar-slide 1.4s ease-in-out infinite;
+}
+
+.panel-workers .worker-pct {
+	font-size: 10px;
+	color: var(--text-muted, #888);
+	flex-shrink: 0;
+	min-width: 26px;
+}
+
+/* Cancel button — hidden until hover */
+.panel-workers .worker-cancel-btn {
+	flex-shrink: 0;
+	background: transparent;
+	border: none;
+	padding: 3px;
+	cursor: pointer;
+	color: var(--text-muted, #aaa);
+	border-radius: 4px;
+	line-height: 1;
+	opacity: 0;
+	transition: opacity 0.15s, color 0.15s, background 0.15s;
+	margin-top: 1px;
+}
+
+.panel-workers .worker-item:hover .worker-cancel-btn {
+	opacity: 1;
+}
+
+.panel-workers .worker-cancel-btn:hover {
+	color: var(--red, #e74c3c);
+	background: rgba(231, 76, 60, 0.1);
+}
+
+/* Empty state */
+.panel-workers .notification-null-state {
+	padding: 32px 16px;
+}

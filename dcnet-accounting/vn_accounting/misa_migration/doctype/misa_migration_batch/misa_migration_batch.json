@@ -1,0 +1,221 @@
+{
+ "actions": [],
+ "autoname": "format:MM-{YYYY}-{#####}",
+ "creation": "2026-05-19 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "batch_title",
+  "ob_posting_date",
+  "status",
+  "shard_token",
+  "column_break_1",
+  "created_on",
+  "started_on",
+  "parsed_on",
+  "posted_on",
+  "reversed_on",
+  "section_break_files",
+  "files",
+  "section_break_stats",
+  "total_files",
+  "total_rows",
+  "posted_docs_count",
+  "failed_rows_count",
+  "column_break_2",
+  "job_id",
+  "stuck_at",
+  "section_break_notes",
+  "pipeline_json",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "batch_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Ti\u00eau \u0111\u1ec1 batch"
+  },
+  {
+   "fieldname": "ob_posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Ng\u00e0y OB (\u0111\u1ea7u k\u1ef3)",
+   "description": "Posting date used for OB JE + OB Material Receipt SEs. Misa '\u0111\u1ea7u k\u1ef3' files don't carry date \u2014 operator MUST set this. For \u0111\u1ea7u k\u1ef3 2025 \u2192 2024-12-31. For \u0111\u1ea7u k\u1ef3 2026 \u2192 2025-12-31."
+  },
+  {
+   "default": "DRAFT",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Tr\u1ea1ng th\u00e1i",
+   "options": "DRAFT\nUPLOADED\nPARSED\nREVIEWED\nPOSTING\nPOSTED\nREVERSING\nREVERSED\nSTUCK",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "shard_token",
+   "fieldtype": "Data",
+   "label": "Shard token",
+   "description": "Optional shard label (e.g. 'A', 'B', '2025', '01-2026'). Two batches with DIFFERENT non-empty shard_tokens for the same Company can coexist in active state. Batches with empty shard_token use the legacy 'one active batch per company' lock. Used to route batch posting to long (shard A/odd) or default (shard B/even) RQ queue for parallelism.",
+   "length": 32
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "created_on",
+   "fieldtype": "Datetime",
+   "label": "Kh\u1edfi t\u1ea1o",
+   "read_only": 1
+  },
+  {
+   "fieldname": "started_on",
+   "fieldtype": "Datetime",
+   "label": "B\u1eaft \u0111\u1ea7u upload",
+   "read_only": 1
+  },
+  {
+   "fieldname": "parsed_on",
+   "fieldtype": "Datetime",
+   "label": "Ho\u00e0n t\u1ea5t parse",
+   "read_only": 1
+  },
+  {
+   "fieldname": "posted_on",
+   "fieldtype": "Datetime",
+   "label": "Ho\u00e0n t\u1ea5t post",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reversed_on",
+   "fieldtype": "Datetime",
+   "label": "Ho\u00e0n t\u1ea5t undo",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_files",
+   "fieldtype": "Section Break",
+   "label": "File upload"
+  },
+  {
+   "fieldname": "files",
+   "fieldtype": "Table",
+   "label": "Files",
+   "options": "Misa Migration File"
+  },
+  {
+   "fieldname": "section_break_stats",
+   "fieldtype": "Section Break",
+   "label": "Th\u1ed1ng k\u00ea"
+  },
+  {
+   "fieldname": "total_files",
+   "fieldtype": "Int",
+   "label": "T\u1ed5ng s\u1ed1 file",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_rows",
+   "fieldtype": "Int",
+   "label": "T\u1ed5ng s\u1ed1 d\u00f2ng",
+   "read_only": 1
+  },
+  {
+   "fieldname": "posted_docs_count",
+   "fieldtype": "Int",
+   "label": "T\u00e0i li\u1ec7u \u0111\u00e3 t\u1ea1o",
+   "read_only": 1
+  },
+  {
+   "fieldname": "failed_rows_count",
+   "fieldtype": "Int",
+   "label": "D\u00f2ng l\u1ed7i",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "job_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "RQ Job ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stuck_at",
+   "fieldtype": "Datetime",
+   "label": "B\u1ecb treo l\u00fac",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_notes",
+   "fieldtype": "Section Break",
+   "label": "Ghi ch\u00fa"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Long Text",
+   "label": "Ghi ch\u00fa"
+  },
+  {
+   "fieldname": "pipeline_json",
+   "fieldtype": "Long Text",
+   "label": "Pipeline Progress (JSON)",
+   "read_only": 1,
+   "hidden": 1
+  }
+ ],
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2026-06-11 10:36:31.442703",
+ "modified_by": "Administrator",
+ "module": "Misa Migration",
+ "name": "Misa Migration Batch",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "batch_title",
+ "track_changes": 1
+}

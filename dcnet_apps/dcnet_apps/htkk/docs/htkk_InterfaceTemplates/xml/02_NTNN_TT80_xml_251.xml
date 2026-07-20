@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HSoThueDTu >
+	<HSoKhaiThue id="ID_1">
+		<TTinChung>
+			<TTinDVu>
+				<maDVu/>
+				<tenDVu/>
+				<pbanDVu/>
+				<ttinNhaCCapDVu/>
+			</TTinDVu>
+			<TTinTKhaiThue>
+				<TKhaiThue>
+					<maTKhai/>
+					<tenTKhai/>
+					<moTaBMau/>
+					<pbanTKhaiXML/>
+					<loaiTKhai/>
+					<soLan/>
+					<KyKKhaiThue>
+						<kieuKy/>
+						<kyKKhai/>
+						<kyKKhaiTuNgay/>
+						<kyKKhaiDenNgay/>
+						<kyKKhaiTuThang/>
+						<kyKKhaiDenThang/>
+					</KyKKhaiThue>
+					<maCQTNoiNop/>
+					<tenCQTNoiNop/>
+					<ngayLapTKhai/>
+					<GiaHan>
+						<maLyDoGiaHan/>
+						<lyDoGiaHan/>
+					</GiaHan>
+					<nguoiKy/>
+					<ngayKy/>
+					<nganhNgheKD/>
+				</TKhaiThue>
+				<NNT>
+					<mst/>
+					<tenNNT/>
+					<dchiNNT/>
+					<phuongXa/>
+					<maHuyenNNT/>
+					<tenHuyenNNT/>
+					<maTinhNNT/>
+					<tenTinhNNT/>
+					<dthoaiNNT/>
+					<faxNNT/>
+					<emailNNT/>
+				</NNT>
+				<DLyThue>
+					<mstDLyThue/>
+					<tenDLyThue/>
+					<dchiDLyThue/>
+					<maHuyenDLyThue/>
+					<tenHuyenDLyThue/>
+					<maTinhDLyThue/>
+					<tenTinhDLyThue/>
+					<dthoaiDLyThue/>
+					<faxDLyThue/>
+					<emailDLyThue/>
+					<soHDongDLyThue/>
+					<ngayKyHDDLyThue/>
+					<NVienDLy>
+						<tenNVienDLyThue/>
+						<cchiHNghe/>
+					</NVienDLy>
+				</DLyThue>
+			</TTinTKhaiThue>
+		</TTinChung>
+		<CTieuTKhaiChinh>
+			<Header>
+				<ma_THQuyetToan/>
+				<ten_THQuyetToan/>
+				<soHopDong/>
+				<ngayHopDong/>
+			</Header>
+			<GiaTriHDong>
+				<keKhai/>
+				<quyetToan/>
+				<chenhLech/>
+				<ghiChu/>
+			</GiaTriHDong>
+			<DThuChuaGomGTGT>
+				<keKhai/>
+				<quyetToan/>
+				<chenhLech/>
+				<ghiChu/>
+			</DThuChuaGomGTGT>
+			<DThuTinhThueNTPhu>
+				<keKhai/>
+				<quyetToan/>
+				<chenhLech/>
+				<ghiChu/>
+			</DThuTinhThueNTPhu>
+			<DThuTinhThueNTNN>
+				<keKhai/>
+				<quyetToan/>
+				<chenhLech/>
+				<ghiChu/>
+			</DThuTinhThueNTNN>
+			<SoThuePhaiNopNTNN>
+				<keKhai/>
+				<quyetToan/>
+				<chenhLech/>
+				<ghiChu/>
+			</SoThuePhaiNopNTNN>
+			<ThueGTGTPhaiNop>
+				<keKhai/>
+				<quyetToan/>
+				<chenhLech/>
+				<ghiChu/>
+			</ThueGTGTPhaiNop>
+			<ThueTNDNPhaiNop>
+				<keKhai/>
+				<quyetToan/>
+				<chenhLech/>
+				<ghiChu/>
+			</ThueTNDNPhaiNop>
+			<SoThueDaNop>
+			
+				<quyetToan/>
+				
+				<ghiChu/>
+			</SoThueDaNop>
+			<ThueGTGTDaNop>
+			
+				<quyetToan/>
+			
+				<ghiChu/>
+			</ThueGTGTDaNop>
+			<ThueTNDNDaNop>
+				
+				<quyetToan/>
+				
+				<ghiChu/>
+			</ThueTNDNDaNop>
+			<SoThueConPhaiNop>
+			
+				<quyetToan/>
+			
+				<ghiChu/>
+			</SoThueConPhaiNop>
+			<ThueGTGTConPNop>
+			
+				<quyetToan/>
+				
+				<ghiChu/>
+			</ThueGTGTConPNop>
+			<ThueTNDNConPNop>
+				
+				<quyetToan/>
+				
+				<ghiChu/>
+			</ThueTNDNConPNop>
+			<SoThueNopThua>
+			
+				<quyetToan/>
+				
+				<ghiChu/>
+			</SoThueNopThua>
+			<ThueGTGTNopThua>
+			
+				<quyetToan/>
+				
+				<ghiChu/>
+			</ThueGTGTNopThua>
+			<ThueTNDNNopThua>
+			
+				<quyetToan/>
+				
+				<ghiChu/>
+			</ThueTNDNNopThua>
+		</CTieuTKhaiChinh>
+		<PLuc>
+		</PLuc>
+	</HSoKhaiThue>
+</HSoThueDTu>

@@ -1,0 +1,185 @@
+<h2>Sidebar phòng ban trông như thế nào?</h2>
+<p class="subtitle">Sidebar bên trái liệt kê các scope/phòng ban — chọn cách hiển thị</p>
+
+<style>
+  .sb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+  .sb-card { border: 2px solid #e2e8f0; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.2s; background: #fff; }
+  .sb-card:hover { border-color: #0f766e; box-shadow: 0 4px 20px rgba(15,118,110,0.15); transform: translateY(-1px); }
+  .sb-card.selected { border-color: #0f766e; box-shadow: 0 4px 24px rgba(15,118,110,0.2); }
+  .sb-preview { height: 220px; background: #f8fafc; display: flex; }
+  .sb-meta { padding: 14px 16px; }
+  .sb-meta h3 { margin: 0 0 4px; font-size: 14px; font-weight: 600; color: #1e293b; }
+  .sb-meta p { margin: 0; font-size: 12px; color: #64748b; line-height: 1.5; }
+
+  /* --- OPTION A: Compact list với badge --- */
+  .sa-sidebar { width: 120px; background: white; border-right: 1px solid #e2e8f0; padding: 10px 8px; display: flex; flex-direction: column; gap: 3px; }
+  .sa-item { padding: 7px 8px; border-radius: 7px; display: flex; flex-direction: column; gap: 3px; }
+  .sa-item.active { background: #f0fdfa; }
+  .sa-name { font-size: 10px; font-weight: 600; color: #1e293b; display: flex; justify-content: space-between; align-items: center; }
+  .sa-name.active { color: #0f766e; }
+  .sa-badge { background: #0f766e; color: white; font-size: 8px; border-radius: 10px; padding: 1px 5px; font-weight: 700; }
+  .sa-badge.gray { background: #e2e8f0; color: #64748b; }
+  .sa-sub { font-size: 9px; color: #94a3b8; }
+  .sa-sub.active { color: #14b8a6; }
+  .sa-divider { height: 1px; background: #f1f5f9; margin: 3px 0; }
+  .sa-main { flex: 1; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .sa-toolbar { height: 26px; background: white; border-radius: 6px; border: 1px solid #e2e8f0; }
+  .sa-rows { flex: 1; background: white; border-radius: 6px; border: 1px solid #e2e8f0; padding: 6px; display: flex; flex-direction: column; gap: 4px; }
+  .sa-row { height: 12px; background: #f1f5f9; border-radius: 3px; }
+  .sa-row.h { background: #ccfbf1; }
+
+  /* --- OPTION B: Card-based với avatar icon --- */
+  .sb-sidebar { width: 130px; background: #f8fafc; border-right: 1px solid #e2e8f0; padding: 10px 8px; display: flex; flex-direction: column; gap: 5px; overflow: hidden; }
+  .sb-item { padding: 8px; border-radius: 8px; background: white; border: 1.5px solid #e2e8f0; display: flex; align-items: center; gap: 7px; }
+  .sb-item.active { border-color: #0f766e; background: #f0fdfa; box-shadow: 0 1px 4px rgba(15,118,110,0.12); }
+  .sb-avatar { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; flex-shrink: 0; }
+  .sb-info { flex: 1; min-width: 0; }
+  .sb-dept-name { font-size: 9px; font-weight: 600; color: #1e293b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sb-dept-name.active { color: #0f766e; }
+  .sb-count { font-size: 8px; color: #94a3b8; }
+  .sb-count.active { color: #14b8a6; }
+  .sb-main { flex: 1; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .sb-toolbar { height: 26px; background: white; border-radius: 6px; border: 1px solid #e2e8f0; }
+  .sb-rows { flex: 1; background: white; border-radius: 6px; border: 1px solid #e2e8f0; padding: 6px; display: flex; flex-direction: column; gap: 4px; }
+  .sb-row { height: 12px; background: #f1f5f9; border-radius: 3px; }
+  .sb-row.h { background: #ccfbf1; }
+
+  /* --- OPTION C: Tab ngang thay sidebar --- */
+  .sc-wrap { width: 100%; display: flex; flex-direction: column; }
+  .sc-tabs { background: white; border-bottom: 1px solid #e2e8f0; padding: 8px 12px 0; display: flex; gap: 2px; overflow: hidden; }
+  .sc-tab { padding: 6px 10px; border-radius: 6px 6px 0 0; font-size: 9px; font-weight: 600; color: #64748b; background: #f8fafc; border: 1px solid #e2e8f0; border-bottom: none; white-space: nowrap; display: flex; align-items: center; gap: 4px; }
+  .sc-tab.active { background: white; color: #0f766e; border-bottom: 2px solid white; margin-bottom: -1px; border-top: 2px solid #0f766e; }
+  .sc-badge { background: #0f766e; color: white; font-size: 7px; border-radius: 10px; padding: 1px 4px; }
+  .sc-badge.gray { background: #e2e8f0; color: #64748b; }
+  .sc-body { flex: 1; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .sc-toolbar { height: 26px; background: white; border-radius: 6px; border: 1px solid #e2e8f0; }
+  .sc-rows { flex: 1; background: white; border-radius: 6px; border: 1px solid #e2e8f0; padding: 6px; display: flex; flex-direction: column; gap: 4px; }
+  .sc-row { height: 12px; background: #f1f5f9; border-radius: 3px; }
+  .sc-row.h { background: #ccfbf1; }
+</style>
+
+<div class="sb-grid">
+
+  <!-- A: Compact list -->
+  <div class="sb-card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="sb-preview">
+      <div class="sa-sidebar">
+        <div style="font-size:9px;font-weight:700;color:#94a3b8;padding:2px 8px;letter-spacing:0.05em">PHÒNG BAN</div>
+        <div class="sa-item active">
+          <div class="sa-name active">Kinh doanh <span class="sa-badge">8</span></div>
+          <div class="sa-sub active">6 roles • active</div>
+        </div>
+        <div class="sa-item">
+          <div class="sa-name">Kế toán <span class="sa-badge gray">5</span></div>
+          <div class="sa-sub">4 roles</div>
+        </div>
+        <div class="sa-divider"></div>
+        <div class="sa-item">
+          <div class="sa-name">Kho <span class="sa-badge gray">4</span></div>
+          <div class="sa-sub">3 roles</div>
+        </div>
+        <div class="sa-item">
+          <div class="sa-name">HR <span class="sa-badge gray">3</span></div>
+          <div class="sa-sub">2 roles</div>
+        </div>
+        <div class="sa-item">
+          <div class="sa-name">IT <span class="sa-badge gray">2</span></div>
+          <div class="sa-sub">5 roles</div>
+        </div>
+      </div>
+      <div class="sa-main">
+        <div class="sa-toolbar"></div>
+        <div class="sa-rows">
+          <div class="sa-row h"></div>
+          <div class="sa-row"></div>
+          <div class="sa-row"></div>
+          <div class="sa-row"></div>
+          <div class="sa-row"></div>
+        </div>
+      </div>
+    </div>
+    <div class="sb-meta">
+      <h3>A — List gọn (Khuyến nghị)</h3>
+      <p>Compact list, badge số user, section label. Nhiều dept vừa màn hình, scan nhanh.</p>
+    </div>
+  </div>
+
+  <!-- B: Card với avatar -->
+  <div class="sb-card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="sb-preview">
+      <div class="sb-sidebar">
+        <div style="font-size:9px;font-weight:700;color:#94a3b8;padding:2px 4px;letter-spacing:0.05em">SCOPE</div>
+        <div class="sb-item active">
+          <div class="sb-avatar" style="background:#f0fdfa;color:#0f766e">KD</div>
+          <div class="sb-info">
+            <div class="sb-dept-name active">Kinh doanh</div>
+            <div class="sb-count active">8 users</div>
+          </div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-avatar" style="background:#eff6ff;color:#2563eb">KT</div>
+          <div class="sb-info">
+            <div class="sb-dept-name">Kế toán</div>
+            <div class="sb-count">5 users</div>
+          </div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-avatar" style="background:#fff7ed;color:#ea580c">KH</div>
+          <div class="sb-info">
+            <div class="sb-dept-name">Kho hàng</div>
+            <div class="sb-count">4 users</div>
+          </div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-avatar" style="background:#fdf4ff;color:#9333ea">HR</div>
+          <div class="sb-info">
+            <div class="sb-dept-name">Nhân sự</div>
+            <div class="sb-count">3 users</div>
+          </div>
+        </div>
+      </div>
+      <div class="sb-main">
+        <div class="sb-toolbar"></div>
+        <div class="sb-rows">
+          <div class="sb-row h"></div>
+          <div class="sb-row"></div>
+          <div class="sb-row"></div>
+          <div class="sb-row"></div>
+        </div>
+      </div>
+    </div>
+    <div class="sb-meta">
+      <h3>B — Card với avatar chữ tắt</h3>
+      <p>Mỗi dept là 1 card nhỏ, avatar màu viết tắt tên dept. Đẹp hơn, chiếm nhiều chỗ hơn.</p>
+    </div>
+  </div>
+
+  <!-- C: Tab ngang -->
+  <div class="sb-card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="sb-preview">
+      <div class="sc-wrap">
+        <div class="sc-tabs">
+          <div class="sc-tab active">Kinh doanh <span class="sc-badge">8</span></div>
+          <div class="sc-tab">Kế toán <span class="sc-badge gray">5</span></div>
+          <div class="sc-tab">Kho <span class="sc-badge gray">4</span></div>
+          <div class="sc-tab">HR <span class="sc-badge gray">3</span></div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-toolbar"></div>
+          <div class="sc-rows">
+            <div class="sc-row h"></div>
+            <div class="sc-row"></div>
+            <div class="sc-row"></div>
+            <div class="sc-row"></div>
+            <div class="sc-row"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sb-meta">
+      <h3>C — Tab ngang trên cùng</h3>
+      <p>Bỏ sidebar, dùng tab ngang. Bảng user rộng hơn nhiều. Phù hợp khi ít dept (&lt;6).</p>
+    </div>
+  </div>
+
+</div>

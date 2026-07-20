@@ -1,0 +1,461 @@
+{
+  "total_files": 25,
+  "categories": {
+    "other": [
+      "doctype/authorization_control/README.md",
+      "doctype/authorization_rule/README.md",
+      "doctype/branch/README.md",
+      "doctype/brand/README.md",
+      "doctype/company/README.md",
+      "doctype/customer_group/README.md",
+      "doctype/department/README.md",
+      "doctype/email_digest/README.md",
+      "doctype/employee/README.md",
+      "doctype/employee_education/README.md",
+      "doctype/employee_external_work_history/README.md",
+      "doctype/employee_internal_work_history/README.md",
+      "doctype/global_defaults/README.md",
+      "doctype/holiday/README.md",
+      "doctype/holiday_list/README.md",
+      "doctype/item_group/README.md",
+      "doctype/quotation_lost_reason/README.md",
+      "doctype/sales_partner/README.md",
+      "doctype/sales_person/README.md",
+      "doctype/target_detail/README.md",
+      "doctype/terms_and_conditions/README.md",
+      "doctype/territory/README.md",
+      "doctype/uom/README.md",
+      "doctype/website_item_group/README.md"
+    ],
+    "architecture": [
+      "doctype/designation/README.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "doctype/authorization_control/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 98,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 15,
+        "line_count": 1
+      },
+      "summary": "Tool to define Authorization Rules (limits above which only specified roles have right to Submit).\n(15 words, 0 code blocks)",
+      "content": "Tool to define Authorization Rules (limits above which only specified roles have right to Submit)."
+    },
+    {
+      "path": "doctype/authorization_rule/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 82,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 13,
+        "line_count": 1
+      },
+      "summary": "Rule to define limits on transactions, above which only specified Role can Submit.\n(13 words, 0 code blocks)",
+      "content": "Rule to define limits on transactions, above which only specified Role can Submit."
+    },
+    {
+      "path": "doctype/branch/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 66,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Location belonging to the organization where Employees can belong.\n(9 words, 0 code blocks)",
+      "content": "Location belonging to the organization where Employees can belong."
+    },
+    {
+      "path": "doctype/brand/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 17,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 4,
+        "line_count": 1
+      },
+      "summary": "Brand of an Item.\n(4 words, 0 code blocks)",
+      "content": "Brand of an Item."
+    },
+    {
+      "path": "doctype/company/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 231,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 40,
+        "line_count": 1
+      },
+      "summary": "Company against which all transactions are made. This is not the Customer or Supplier, this is the company that is the host of the system. Multiple companies can be created as host companies with each...\n(40 words, 0 code blocks)",
+      "content": "Company against which all transactions are made. This is not the Customer or Supplier, this is the company that is the host of the system. Multiple companies can be created as host companies with each user having a different right."
+    },
+    {
+      "path": "doctype/customer_group/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 31,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 3,
+        "line_count": 1
+      },
+      "summary": "Customer classification (tree).\n(3 words, 0 code blocks)",
+      "content": "Customer classification (tree)."
+    },
+    {
+      "path": "doctype/department/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 34,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 4,
+        "line_count": 1
+      },
+      "summary": "Department where Employee belongs.\n(4 words, 0 code blocks)",
+      "content": "Department where Employee belongs."
+    },
+    {
+      "path": "doctype/designation/README.md",
+      "filename": "README.md",
+      "category": "architecture",
+      "size_bytes": 21,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 2,
+        "line_count": 1
+      },
+      "summary": "Employee Designation.\n(2 words, 0 code blocks)",
+      "content": "Employee Designation."
+    },
+    {
+      "path": "doctype/email_digest/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 66,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 10,
+        "line_count": 1
+      },
+      "summary": "Details of automated daily, weekly, monthly digests sent to users.\n(10 words, 0 code blocks)",
+      "content": "Details of automated daily, weekly, monthly digests sent to users."
+    },
+    {
+      "path": "doctype/employee/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 16,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 2,
+        "line_count": 1
+      },
+      "summary": "Employee master.\n(2 words, 0 code blocks)",
+      "content": "Employee master."
+    },
+    {
+      "path": "doctype/employee_education/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 37,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 5,
+        "line_count": 1
+      },
+      "summary": "Education detail for parent Employee.\n(5 words, 0 code blocks)",
+      "content": "Education detail for parent Employee."
+    },
+    {
+      "path": "doctype/employee_external_work_history/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 49,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "External work history details of parent Employee.\n(7 words, 0 code blocks)",
+      "content": "External work history details of parent Employee."
+    },
+    {
+      "path": "doctype/employee_internal_work_history/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 64,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Work history details of parent Employee within the organization.\n(9 words, 0 code blocks)",
+      "content": "Work history details of parent Employee within the organization."
+    },
+    {
+      "path": "doctype/global_defaults/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 49,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "Global defaults and settings for various modules.\n(7 words, 0 code blocks)",
+      "content": "Global defaults and settings for various modules."
+    },
+    {
+      "path": "doctype/holiday/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 29,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 5,
+        "line_count": 1
+      },
+      "summary": "Holiday date in Holiday List.\n(5 words, 0 code blocks)",
+      "content": "Holiday date in Holiday List."
+    },
+    {
+      "path": "doctype/holiday_list/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 17,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 3,
+        "line_count": 1
+      },
+      "summary": "List of Holidays.\n(3 words, 0 code blocks)",
+      "content": "List of Holidays."
+    },
+    {
+      "path": "doctype/item_group/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 27,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 3,
+        "line_count": 1
+      },
+      "summary": "Item classification (tree).\n(3 words, 0 code blocks)",
+      "content": "Item classification (tree)."
+    },
+    {
+      "path": "doctype/quotation_lost_reason/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 36,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 5,
+        "line_count": 1
+      },
+      "summary": "Reason master for losing quotations.\n(5 words, 0 code blocks)",
+      "content": "Reason master for losing quotations."
+    },
+    {
+      "path": "doctype/sales_partner/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 105,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 18,
+        "line_count": 1
+      },
+      "summary": "Partner / dealer / distributor who sells products (maybe for commission) and for whom targets can be set.\n(18 words, 0 code blocks)",
+      "content": "Partner / dealer / distributor who sells products (maybe for commission) and for whom targets can be set."
+    },
+    {
+      "path": "doctype/sales_person/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 45,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Sales User for whom sales targets can be set.\n(9 words, 0 code blocks)",
+      "content": "Sales User for whom sales targets can be set."
+    },
+    {
+      "path": "doctype/target_detail/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 56,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Target set for Sales Person, Territory or Sales Partner.\n(9 words, 0 code blocks)",
+      "content": "Target set for Sales Person, Territory or Sales Partner."
+    },
+    {
+      "path": "doctype/terms_and_conditions/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 80,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 14,
+        "line_count": 1
+      },
+      "summary": "Order / Contract terms that can be attached to any sale or purchase transaction.\n(14 words, 0 code blocks)",
+      "content": "Order / Contract terms that can be attached to any sale or purchase transaction."
+    },
+    {
+      "path": "doctype/territory/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 69,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 13,
+        "line_count": 1
+      },
+      "summary": "Territory against with any sale can be tagged and targets can be set.\n(13 words, 0 code blocks)",
+      "content": "Territory against with any sale can be tagged and targets can be set."
+    },
+    {
+      "path": "doctype/uom/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 33,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "Unit of Measure (UoM) of an Item.\n(7 words, 0 code blocks)",
+      "content": "Unit of Measure (UoM) of an Item."
+    },
+    {
+      "path": "doctype/website_item_group/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 96,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 16,
+        "line_count": 1
+      },
+      "summary": "Alternate grouping of parent Item (for website, so an Item can be listed under multiple groups).\n(16 words, 0 code blocks)",
+      "content": "Alternate grouping of parent Item (for website, so an Item can be listed under multiple groups)."
+    }
+  ]
+}

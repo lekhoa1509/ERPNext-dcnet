@@ -1,0 +1,481 @@
+{
+ "actions": [],
+ "autoname": "PAKD-.YYYY.-.#####",
+ "creation": "2026-04-13 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "summary_section",
+  "summary_card",
+  "section_header",
+  "pakd_type",
+  "contract_ref",
+  "contract_no_external",
+  "channel",
+  "column_break_header",
+  "customer",
+  "customer_name",
+  "sales_person",
+  "sales_person_name",
+  "column_break_header2",
+  "department",
+  "branch",
+  "company",
+  "service_type",
+  "project_category",
+  "section_items",
+  "items",
+  "section_revisions",
+  "revisions",
+  "section_commission_rates",
+  "commission_overrides",
+  "section_totals",
+  "total_revenue_contract",
+  "total_add_costs",
+  "total_manager_services",
+  "total_license_fee",
+  "column_break_totals",
+  "total_sales_commission",
+  "total_cost",
+  "total_revenue_service",
+  "margin_pct",
+  "effective_commission_pct",
+  "section_commission",
+  "commission_pivot_html",
+  "commission_lines",
+  "additional_salary",
+  "section_beneficiary",
+  "beneficiary_lines",
+  "has_pending_revision",
+  "has_referral_pending",
+  "section_invoice_payment",
+  "invoice_payment_html",
+  "rejection_reason",
+  "workflow_state",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "print_hide": 1,
+   "hide_border": 1
+  },
+  {
+   "fieldname": "summary_card",
+   "fieldtype": "HTML",
+   "label": "Summary",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_header",
+   "fieldtype": "Section Break",
+   "label": "Thông tin chung",
+   "description": "Hầu hết trường ở đây được tự đồng bộ từ Hợp đồng. Khi Hợp đồng thay đổi, bấm 'Cập nhật từ hợp đồng' ở Hạng mục để đồng bộ lại."
+  },
+  {
+   "fieldname": "pakd_type",
+   "fieldtype": "Select",
+   "label": "Loại PAKD",
+   "options": "Recurring Telecom\nOne-off Sale/Project",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "description": "Recurring Telecom = qty×price. One-off = bán hàng/thi công 1 lần. (Monthly FTTH Rollup bỏ ở v0.2.0 D4 — mỗi HD FTTH DN giờ là 1 PAKD riêng theo Recurring Telecom.)"
+  },
+  {
+   "fieldname": "contract_ref",
+   "fieldtype": "Link",
+   "label": "Hợp đồng",
+   "options": "DCNet Contract",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "description": "Hợp đồng nguồn — 1 Hợp đồng = 1 PAKD suốt đời (v0.2.0). Phụ lục HD → thêm row vào Revisions, KHÔNG tạo PAKD mới."
+  },
+  {
+   "fieldname": "contract_no_external",
+   "fieldtype": "Data",
+   "label": "Số hợp đồng giấy",
+   "fetch_from": "contract_ref.contract_no_external",
+   "read_only": 1
+  },
+  {
+   "fieldname": "channel",
+   "fieldtype": "Select",
+   "label": "Channel",
+   "options": "Staff\nBoard",
+   "reqd": 1,
+   "description": "Staff = NVKD tự bán. Board = HĐ do Ban Lãnh đạo giới thiệu (có thể áp tỷ lệ hoa hồng khác)."
+  },
+  {
+   "fieldname": "column_break_header",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Khách hàng",
+   "options": "Customer",
+   "fetch_from": "contract_ref.customer",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Tên khách hàng",
+   "fetch_from": "contract_ref.customer_name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_person",
+   "fieldtype": "Link",
+   "label": "NVKD",
+   "options": "Employee",
+   "fetch_from": "contract_ref.sales_person",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_person_name",
+   "fieldtype": "Data",
+   "label": "Tên NVKD",
+   "fetch_from": "contract_ref.sales_person_name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_header2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Phòng ban",
+   "options": "Department",
+   "fetch_from": "contract_ref.department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Chi nhánh",
+   "options": "Branch",
+   "fetch_from": "contract_ref.branch",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Công ty",
+   "options": "Company",
+   "fetch_from": "contract_ref.company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Select",
+   "label": "Loại dịch vụ",
+   "options": "\nP2P\nMPLS\nILL\nFTTH DN\nIT Managed\nVTTB\nThi công",
+   "fetch_from": "contract_ref.service_type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "project_category",
+   "fieldtype": "Select",
+   "label": "Danh mục dự án",
+   "options": "",
+   "fetch_from": "contract_ref.project_category",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_items",
+   "fieldtype": "Section Break",
+   "label": "Hạng mục Hợp đồng",
+   "description": "Đồng bộ tự động từ Hợp đồng được chọn ở trên. Dùng nút \"Cập nhật từ hợp đồng\" để đồng bộ lại khi hợp đồng thay đổi."
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Hạng mục",
+   "options": "PAKD Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_revisions",
+   "fieldtype": "Section Break",
+   "label": "Phụ lục PAKD",
+   "collapsible": 1,
+   "description": "Mỗi phụ lục Hợp đồng có 1 PAKD Revision tương ứng (v0.2.0). Revision có workflow approval riêng; engine commission lookup revision active tại kỳ T."
+  },
+  {
+   "fieldname": "revisions",
+   "fieldtype": "Table",
+   "label": "Revisions",
+   "options": "PAKD Revision"
+  },
+  {
+   "fieldname": "section_commission_rates",
+   "fieldtype": "Section Break",
+   "label": "Tỷ lệ hoa hồng áp dụng",
+   "description": "Tỷ lệ chuẩn lấy từ mẫu hoa hồng theo Loại PAKD. Để trống cột 'Tỷ lệ riêng' = dùng mẫu. Điền giá trị để áp dụng tỷ lệ khác cho PAKD này (vd: khuyến mại, khách lớn, đặc thù).",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "commission_overrides",
+   "fieldtype": "Table",
+   "label": "Tỷ lệ áp dụng theo khoản",
+   "options": "PAKD Commission Override"
+  },
+  {
+   "fieldname": "section_totals",
+   "fieldtype": "Section Break",
+   "label": "Tổng tính toán & biên lãi",
+   "description": "Các tổng được tính tự động từ Hạng mục, hệ số chi phí và tỷ lệ hoa hồng. Biên lãi % = (DT dịch vụ − Chi phí) / DT dịch vụ × 100."
+  },
+  {
+   "fieldname": "total_revenue_contract",
+   "fieldtype": "Currency",
+   "label": "Tổng DT hợp đồng",
+   "read_only": 1,
+   "in_list_view": 1,
+   "description": "Doanh thu theo điều khoản hợp đồng."
+  },
+  {
+   "fieldname": "total_add_costs",
+   "fieldtype": "Currency",
+   "label": "Tổng chi phí ngoài",
+   "read_only": 1,
+   "description": "Chi phí phát sinh ngoài đơn giá (vận chuyển, chi phí thi công khác)."
+  },
+  {
+   "fieldname": "total_manager_services",
+   "fieldtype": "Currency",
+   "label": "Tổng DV quản lý",
+   "read_only": 1,
+   "description": "Phí dịch vụ quản lý — chi cho cấp quản lý theo công thức nội bộ."
+  },
+  {
+   "fieldname": "total_license_fee",
+   "fieldtype": "Currency",
+   "label": "Tổng phí GPVT",
+   "read_only": 1,
+   "description": "Phí giấy phép viễn thông — áp dụng cho dịch vụ telecom."
+  },
+  {
+   "fieldname": "column_break_totals",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_sales_commission",
+   "fieldtype": "Currency",
+   "label": "Tổng hoa hồng",
+   "read_only": 1,
+   "description": "Hoa hồng NVKD = f(doanh thu dịch vụ, channel)."
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Tổng chi phí",
+   "read_only": 1,
+   "description": "Tổng = CP ngoài + DV quản lý + GPVT + Hoa hồng."
+  },
+  {
+   "fieldname": "total_revenue_service",
+   "fieldtype": "Currency",
+   "label": "Tổng DT dịch vụ",
+   "read_only": 1,
+   "description": "Doanh thu dịch vụ ròng = DT hợp đồng − GPVT − DV quản lý."
+  },
+  {
+   "fieldname": "margin_pct",
+   "fieldtype": "Percent",
+   "label": "Biên lãi",
+   "read_only": 1,
+   "in_list_view": 1,
+   "precision": "1",
+   "description": "Biên lãi % = (DT dịch vụ − Chi phí) / DT dịch vụ. Ngưỡng màu cấu hình ở PAKD Settings."
+  },
+  {
+   "fieldname": "effective_commission_pct",
+   "fieldtype": "Percent",
+   "label": "Tỷ lệ hoa hồng thực tế",
+   "read_only": 1,
+   "precision": "2",
+   "description": "Tỷ lệ hoa hồng thực tế = Tổng hoa hồng / DT hợp đồng × 100. Cho biết NVKD nhận bao nhiêu % doanh thu hợp đồng."
+  },
+  {
+   "fieldname": "section_commission",
+   "fieldtype": "Section Break",
+   "label": "Hoa hồng & lương bổ sung",
+   "description": "Bảng hoa hồng theo kỳ — bấm vào ô để xem chi tiết và đăng/bỏ qua/điều chỉnh tỷ lệ. Ctrl+click ô Chờ để đăng nhanh 1 dòng."
+  },
+  {
+   "fieldname": "commission_pivot_html",
+   "fieldtype": "HTML",
+   "label": "Bảng hoa hồng theo kỳ"
+  },
+  {
+   "fieldname": "commission_lines",
+   "fieldtype": "Table",
+   "label": "Dòng hoa hồng",
+   "options": "PAKD Commission Line",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "additional_salary",
+   "fieldtype": "Link",
+   "label": "Lương bổ sung",
+   "options": "Additional Salary",
+   "read_only": 1,
+   "description": "Bản ghi HRMS chi hoa hồng cho NVKD — tự tạo khi PAKD được duyệt."
+  },
+  {
+   "fieldname": "section_beneficiary",
+   "fieldtype": "Section Break",
+   "label": "Chi cho phía khách hàng (MS / AC / Referral)",
+   "description": "v0.2.0 — bảng thống nhất cho 3 loại chi cho phía khách hàng: Manager Services (định kỳ), Add Costs (định kỳ), Referral (1 lần). Mỗi dòng có optional recipient + TNCN. Khi không có recipient → JE 2-leg; có recipient + TNCN > 0 → JE 3-leg.",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "beneficiary_lines",
+   "fieldtype": "Table",
+   "label": "Beneficiary Lines",
+   "options": "PAKD Beneficiary Line"
+  },
+  {
+   "fieldname": "has_pending_revision",
+   "fieldtype": "Check",
+   "label": "Có phụ lục chờ duyệt",
+   "read_only": 1,
+   "default": "0",
+   "description": "Tự tính trong validate: 1 khi revisions có ít nhất 1 dòng workflow_state in (Draft, Pending*). Dùng cho sidebar filter."
+  },
+  {
+   "fieldname": "has_referral_pending",
+   "fieldtype": "Check",
+   "label": "Có Referral chờ đăng",
+   "read_only": 1,
+   "default": "0",
+   "description": "Tự tính trong validate: 1 khi beneficiary_lines có ít nhất 1 dòng kind=Referral state=Pending. Dùng cho sidebar filter."
+  },
+  {
+   "fieldname": "section_invoice_payment",
+   "fieldtype": "Section Break",
+   "label": "Hóa đơn & Thanh toán",
+   "description": "Bảng tích hợp trạng thái Sales Invoice + Payment Entry + commission state cho từng kỳ billing của Hợp đồng. Render qua frappe.db.get_list trong phuong_an_kinh_doanh.js."
+  },
+  {
+   "fieldname": "invoice_payment_html",
+   "fieldtype": "HTML",
+   "label": "Bảng hóa đơn & thanh toán"
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Lý do từ chối",
+   "read_only": 1,
+   "depends_on": "eval:doc.workflow_state==='Rejected'",
+   "description": "Lý do được nhập khi PAKD bị từ chối ở bước duyệt. Hiển thị trong thẻ Tóm tắt."
+  },
+  {
+   "fieldname": "workflow_state",
+   "fieldtype": "Data",
+   "label": "Workflow State",
+   "hidden": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPending Sales Director\nPending General Dept\nPending Branch Director\nPending Board\nApproved\nRejected",
+   "default": "Draft",
+   "hidden": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "group": "Hóa đơn & Thanh toán",
+   "link_doctype": "Sales Invoice",
+   "link_fieldname": "dcnet_pakd"
+  },
+  {
+   "group": "Hóa đơn & Thanh toán",
+   "link_doctype": "Payment Entry",
+   "link_fieldname": "dcnet_pakd"
+  }
+ ],
+ "modified": "2026-05-14 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet PAKD",
+ "name": "Phuong An Kinh Doanh",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "if_owner": 1,
+   "role": "PAKD Sales Rep"
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "role": "PAKD Sales Director HCM"
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "role": "PAKD Sales Director HN"
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "role": "PAKD General Department"
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "role": "PAKD Branch Director HN"
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "write": 1,
+   "role": "PAKD Board"
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "PAKD Accountant"
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

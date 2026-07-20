@@ -1,0 +1,413 @@
+{
+  "nodes": [
+    {
+      "file": "__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/connected_app/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/connected_app/connected_app.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/connected_app/connected_app.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/connected_app/test_connected_app.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/geolocation_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/geolocation_settings/geolocation_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/geolocation_settings/geolocation_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/geolocation_settings/providers/geoapify.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/geolocation_settings/providers/here.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/geolocation_settings/providers/nomatim.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/geolocation_settings/test_geolocation_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/google_calendar/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/google_calendar/google_calendar.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/google_calendar/google_calendar.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/google_contacts/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/google_contacts/google_contacts.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/google_contacts/google_contacts.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/google_contacts/test_google_contacts.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/google_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/google_settings/google_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/google_settings/google_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/google_settings/test_google_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/integration_request/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/integration_request/integration_request.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/integration_request/integration_request.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/integration_request/integration_request_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/integration_request/test_integration_request.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ldap_group_mapping/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ldap_group_mapping/ldap_group_mapping.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ldap_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ldap_settings/ldap_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/ldap_settings/ldap_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/ldap_settings/test_ldap_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_authorization_code/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_authorization_code/oauth_authorization_code.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/oauth_authorization_code/oauth_authorization_code.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_authorization_code/test_oauth_authorization_code.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_bearer_token/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_bearer_token/oauth_bearer_token.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/oauth_bearer_token/oauth_bearer_token.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_bearer_token/patches/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_bearer_token/patches/clear_old_tokens.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_bearer_token/test_oauth_bearer_token.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_client/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_client/oauth_client.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/oauth_client/oauth_client.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_client/patches/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_client/patches/set_default_allowed_role_in_oauth_client.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_client/test_oauth_client.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_client_role/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_client_role/oauth_client_role.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_provider_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_provider_settings/oauth_provider_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/oauth_provider_settings/oauth_provider_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_scope/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_scope/oauth_scope.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_settings/oauth_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/oauth_settings/oauth_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/oauth_settings/test_oauth_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/push_notification_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/push_notification_settings/push_notification_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/push_notification_settings/push_notification_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/push_notification_settings/test_push_notification_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/query_parameters/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/query_parameters/query_parameters.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/slack_webhook_url/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/slack_webhook_url/slack_webhook_url.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/slack_webhook_url/slack_webhook_url.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/slack_webhook_url/test_slack_webhook_url.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/social_login_key/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/social_login_key/social_login_key.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/social_login_key/social_login_key.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/social_login_key/test_social_login_key.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/social_login_keys/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/social_login_keys/social_login_keys.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/token_cache/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/token_cache/test_token_cache.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/token_cache/token_cache.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/token_cache/token_cache.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/webhook/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/webhook/test_webhook.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/webhook/webhook.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/webhook/webhook.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/webhook_data/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/webhook_data/webhook_data.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/webhook_header/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/webhook_header/webhook_header.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/webhook_request_log/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/webhook_request_log/test_webhook_request_log.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/webhook_request_log/webhook_request_log.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/webhook_request_log/webhook_request_log.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/webhook_request_log/webhook_request_log_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "frappe_providers/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "frappe_providers/frappecloud.py",
+      "language": "Python"
+    },
+    {
+      "file": "frappe_providers/frappecloud_billing.py",
+      "language": "Python"
+    },
+    {
+      "file": "google_oauth.py",
+      "language": "Python"
+    },
+    {
+      "file": "oauth2.py",
+      "language": "Python"
+    },
+    {
+      "file": "oauth2_logins.py",
+      "language": "Python"
+    },
+    {
+      "file": "utils.py",
+      "language": "Python"
+    }
+  ],
+  "edges": []
+}

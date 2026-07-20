@@ -1,0 +1,22 @@
+{
+ "color": "#c62828",
+ "creation": "2026-04-02 00:00:00.000000",
+ "currency": "VND",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[]",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Công Nợ Phải Trả",
+ "method": "vn_accounting.vn_accounting.number_card_methods.get_accounts_payable",
+ "modified": "2026-04-29 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "Công Nợ Phải Trả",
+ "owner": "Administrator",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Monthly",
+ "type": "Custom"
+}

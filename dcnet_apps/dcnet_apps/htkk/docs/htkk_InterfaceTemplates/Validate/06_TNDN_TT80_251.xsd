@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Huong (123) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.7">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ThongTinChuyenNhuong">
+							<xs:annotation>
+								<xs:documentation>2. Bên nhận chuyển nhượng:</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct06" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[06] Tên tổ chức/cá nhân nhận chuyển nhượng</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct07" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[07] Mã số thuế (đối với doanh nghiệp) hoặc số chứng minh nhân dân (đối với cá nhân):</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CT08">
+										<xs:annotation>
+											<xs:documentation>[08] Địa chỉ:</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="diaChi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Địa chỉ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="xaPhuong_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã phường/xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="xaPhuong_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên phường/xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="quanHuyen_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quận/Huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="quanHuyen_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quận/Huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tinhTP_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tỉnh/TP</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tinhTP_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tỉnh/TP</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="CT09">
+										<xs:annotation>
+											<xs:documentation>[09] Địa chỉ bất động sản được chuyển nhượng: </xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct09a" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[09a] Số nhà, đường phố</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct09b_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Phường/xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct09b_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Phường/xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct09c_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Quận/huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct09c_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Quận/huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct09d_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Tỉnh/TP</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct09d_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Tỉnh/TP</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="so_hd" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Số hợp đồng chuyển nhượng bất động sản</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ngay_hd" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ngày hợp đồng chuyển nhượng bất động sản</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ngay_congChung" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ngày công chứng hoặc chứng thực tại UBND phường (xã)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ct13" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[13] Doanh thu của hoạt động bán toàn bộ Công ty có gắn với chuyển nhượng bất động sản</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct14" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[14] Chi phí của hoạt động bán toàn bộ Công ty có gắn với chuyển nhượng bất động sản</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct15" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[15] Giá vốn của đất chuyển nhượng</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct16" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[16] Chi phí đền bù thiệt hại về đất</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct17" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[17] Chi phí đền bù thiệt hại về hoa màu</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct18" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[18] Chi phí cải tạo san lấp mặt bằng</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct19" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[19] Chi phí đầu tư xây dựng kết cấu hạ tầng</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct20" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[20] Chi phí khác (bao gồm cả giá mua của phần vốn chuyển nhượng)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct21" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thu nhập từ hoạt động bán toàn bộ doanh nghiệp có gắn với chuyển nhượng bất động sản ([21]=[13]-[14])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct22" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[22] Số lỗ từ hoạt động chuyển nhượng bất động sản được chuyển kỳ này</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct23" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thu nhập tính thuế thu nhập doanh nghiệp (TNDN) từ hoạt động  bán toàn bộ doanh nghiệp có gắn với chuyển nhượng bất động sản ([23]=[21]-[22])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct24" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[24] Thuế suất thuế TNDN  (%)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct25" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế TNDN phải nộp ([25]=[23] x [24])</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

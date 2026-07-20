@@ -1,0 +1,775 @@
+{
+  "total_files": 36,
+  "categories": {
+    "overview": [
+      "README.md"
+    ],
+    "other": [
+      "doctype/batch/README.md",
+      "doctype/bin/README.md",
+      "doctype/delivery_note/README.md",
+      "doctype/delivery_note_item/README.md",
+      "doctype/item/README.md",
+      "doctype/item_customer_detail/README.md",
+      "doctype/item_price/README.md",
+      "doctype/item_reorder/README.md",
+      "doctype/item_supplier/README.md",
+      "doctype/item_tax/README.md",
+      "doctype/landed_cost_item/README.md",
+      "doctype/landed_cost_purchase_receipt/README.md",
+      "doctype/material_request/README.md",
+      "doctype/material_request_item/README.md",
+      "doctype/packing_slip/README.md",
+      "doctype/packing_slip_item/README.md",
+      "doctype/price_list/README.md",
+      "doctype/purchase_receipt/README.md",
+      "doctype/purchase_receipt_item/README.md",
+      "doctype/sales_bom/README.md",
+      "doctype/sales_bom_item/README.md",
+      "doctype/serial_no/README.md",
+      "doctype/stock_entry/README.md",
+      "doctype/stock_entry_detail/README.md",
+      "doctype/stock_ledger_entry/README.md",
+      "doctype/stock_reconciliation/README.md",
+      "doctype/uom_conversion_detail/README.md",
+      "doctype/warehouse/README.md",
+      "report/stock_ageing/stock_ageing_fifo_logic.md"
+    ],
+    "specifications": [
+      "doctype/item_quality_inspection_parameter/README.md",
+      "doctype/item_website_specification/README.md",
+      "doctype/quality_inspection/README.md",
+      "doctype/quality_inspection_reading/README.md",
+      "spec/README.md",
+      "spec/reposting.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "filename": "README.md",
+      "category": "overview",
+      "size_bytes": 28,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 3,
+        "line_count": 1
+      },
+      "summary": "Inventory management module.\n(3 words, 0 code blocks)",
+      "content": "Inventory management module."
+    },
+    {
+      "path": "doctype/batch/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 129,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 20,
+        "line_count": 1
+      },
+      "summary": "Batch of Items Units. If Item has batched inventory, then adding tagging each inventory transaction to a Batch becomes important.\n(20 words, 0 code blocks)",
+      "content": "Batch of Items Units. If Item has batched inventory, then adding tagging each inventory transaction to a Batch becomes important."
+    },
+    {
+      "path": "doctype/bin/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 160,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 22,
+        "line_count": 1
+      },
+      "summary": "Bin represents a unique Item-Warehouse combination. Sum of all transactions, planned, ordered, reserved quantities for that Item Warehouse is maintained in Bin.\n(22 words, 0 code blocks)",
+      "content": "Bin represents a unique Item-Warehouse combination. Sum of all transactions, planned, ordered, reserved quantities for that Item Warehouse is maintained in Bin."
+    },
+    {
+      "path": "doctype/delivery_note/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 70,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 11,
+        "line_count": 1
+      },
+      "summary": "Record of shipment made to Customer, optionally against a Sales Order.\n(11 words, 0 code blocks)",
+      "content": "Record of shipment made to Customer, optionally against a Sales Order."
+    },
+    {
+      "path": "doctype/delivery_note_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 37,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Item shipped in parent Delivery Note.\n(6 words, 0 code blocks)",
+      "content": "Item shipped in parent Delivery Note."
+    },
+    {
+      "path": "doctype/item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 50,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Item master. Also called SKU (stock keeping unit).\n(8 words, 0 code blocks)",
+      "content": "Item master. Also called SKU (stock keeping unit)."
+    },
+    {
+      "path": "doctype/item_customer_detail/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 49,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Item-codes used by Customers for the parent Item.\n(8 words, 0 code blocks)",
+      "content": "Item-codes used by Customers for the parent Item."
+    },
+    {
+      "path": "doctype/item_price/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 45,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Price of the Item in a particular Price List.\n(9 words, 0 code blocks)",
+      "content": "Price of the Item in a particular Price List."
+    },
+    {
+      "path": "doctype/item_quality_inspection_parameter/README.md",
+      "filename": "README.md",
+      "category": "specifications",
+      "size_bytes": 45,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Quality inspection parameter for parent Item.\n(6 words, 0 code blocks)",
+      "content": "Quality inspection parameter for parent Item."
+    },
+    {
+      "path": "doctype/item_reorder/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 49,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "Warehouse-wise reorder level for the parent Item.\n(7 words, 0 code blocks)",
+      "content": "Warehouse-wise reorder level for the parent Item."
+    },
+    {
+      "path": "doctype/item_supplier/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 47,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Supplier and supplier code for the parent Item.\n(8 words, 0 code blocks)",
+      "content": "Supplier and supplier code for the parent Item."
+    },
+    {
+      "path": "doctype/item_tax/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 53,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Tax rate for this Item against the specified Account.\n(9 words, 0 code blocks)",
+      "content": "Tax rate for this Item against the specified Account."
+    },
+    {
+      "path": "doctype/item_website_specification/README.md",
+      "filename": "README.md",
+      "category": "specifications",
+      "size_bytes": 53,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "Specification detail / parameter for website listing.\n(7 words, 0 code blocks)",
+      "content": "Specification detail / parameter for website listing."
+    },
+    {
+      "path": "doctype/landed_cost_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 56,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 11,
+        "line_count": 1
+      },
+      "summary": "Item to whose value the selected expense is to be added.\n(11 words, 0 code blocks)",
+      "content": "Item to whose value the selected expense is to be added."
+    },
+    {
+      "path": "doctype/landed_cost_purchase_receipt/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 50,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Purchase Receipt where the expense is to be added.\n(9 words, 0 code blocks)",
+      "content": "Purchase Receipt where the expense is to be added."
+    },
+    {
+      "path": "doctype/material_request/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 68,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 10,
+        "line_count": 1
+      },
+      "summary": "Request for material (Items) from internal warehouse or by purchase.\n(10 words, 0 code blocks)",
+      "content": "Request for material (Items) from internal warehouse or by purchase."
+    },
+    {
+      "path": "doctype/material_request_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 43,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Items requested in parent Material Receipt.\n(6 words, 0 code blocks)",
+      "content": "Items requested in parent Material Receipt."
+    },
+    {
+      "path": "doctype/packing_slip/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 63,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 10,
+        "line_count": 1
+      },
+      "summary": "Items contained in a package / container against Delivery Note.\n(10 words, 0 code blocks)",
+      "content": "Items contained in a package / container against Delivery Note."
+    },
+    {
+      "path": "doctype/packing_slip_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 35,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Item detail of parent Packing Slip.\n(6 words, 0 code blocks)",
+      "content": "Item detail of parent Packing Slip."
+    },
+    {
+      "path": "doctype/price_list/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 73,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 12,
+        "line_count": 1
+      },
+      "summary": "Item Price List master. Price Lists can be defined per Country, Currency.\n(12 words, 0 code blocks)",
+      "content": "Item Price List master. Price Lists can be defined per Country, Currency."
+    },
+    {
+      "path": "doctype/purchase_receipt/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 55,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "Shipment received from Supplier against Purchase Order.\n(7 words, 0 code blocks)",
+      "content": "Shipment received from Supplier against Purchase Order."
+    },
+    {
+      "path": "doctype/purchase_receipt_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 52,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Detail of Items received in parent Purchase Receipt.\n(8 words, 0 code blocks)",
+      "content": "Detail of Items received in parent Purchase Receipt."
+    },
+    {
+      "path": "doctype/quality_inspection/README.md",
+      "filename": "README.md",
+      "category": "specifications",
+      "size_bytes": 47,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Incoming quality inspection for received Items.\n(6 words, 0 code blocks)",
+      "content": "Incoming quality inspection for received Items."
+    },
+    {
+      "path": "doctype/quality_inspection_reading/README.md",
+      "filename": "README.md",
+      "category": "specifications",
+      "size_bytes": 60,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Parameter reading for quality inspection of particular Item.\n(8 words, 0 code blocks)",
+      "content": "Parameter reading for quality inspection of particular Item."
+    },
+    {
+      "path": "doctype/sales_bom/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 117,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 22,
+        "line_count": 1
+      },
+      "summary": "Grouping of Items for sale. This is use where inventory is not maintained for the main Item but only the child Items.\n(22 words, 0 code blocks)",
+      "content": "Grouping of Items for sale. This is use where inventory is not maintained for the main Item but only the child Items."
+    },
+    {
+      "path": "doctype/sales_bom_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 44,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "Child Item grouped in parent Product Bundle.\n(7 words, 0 code blocks)",
+      "content": "Child Item grouped in parent Product Bundle."
+    },
+    {
+      "path": "doctype/serial_no/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 169,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 30,
+        "line_count": 1
+      },
+      "summary": "Unique serial number assigned to an instance (unit) of an Item. This is used incase each unit of the Item needs to be tracked separately for warranty or recall purposes.\n(30 words, 0 code blocks)",
+      "content": "Unique serial number assigned to an instance (unit) of an Item. This is used incase each unit of the Item needs to be tracked separately for warranty or recall purposes."
+    },
+    {
+      "path": "doctype/stock_entry/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 74,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 13,
+        "line_count": 1
+      },
+      "summary": "Stock movement from one warehouse to another (or from, or to a warehouse).\n(13 words, 0 code blocks)",
+      "content": "Stock movement from one warehouse to another (or from, or to a warehouse)."
+    },
+    {
+      "path": "doctype/stock_entry_detail/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 40,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Item moved as a part of the Stock Entry.\n(9 words, 0 code blocks)",
+      "content": "Item moved as a part of the Stock Entry."
+    },
+    {
+      "path": "doctype/stock_ledger_entry/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 149,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 25,
+        "line_count": 1
+      },
+      "summary": "Internal / consolidated record of stock movement. All types of stock movements are recorded on this table and is the key table for inventory reports.\n(25 words, 0 code blocks)",
+      "content": "Internal / consolidated record of stock movement. All types of stock movements are recorded on this table and is the key table for inventory reports."
+    },
+    {
+      "path": "doctype/stock_reconciliation/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 79,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 15,
+        "line_count": 1
+      },
+      "summary": "Tool to update stock level, value on a particular date by uploading a csv file.\n(15 words, 0 code blocks)",
+      "content": "Tool to update stock level, value on a particular date by uploading a csv file."
+    },
+    {
+      "path": "doctype/uom_conversion_detail/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 80,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 12,
+        "line_count": 1
+      },
+      "summary": "Conversion factor to convert non-standard Unit of Measure (UoM) to standard UoM.\n(12 words, 0 code blocks)",
+      "content": "Conversion factor to convert non-standard Unit of Measure (UoM) to standard UoM."
+    },
+    {
+      "path": "doctype/warehouse/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 57,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Location (physical or virtual) where Items can be stored.\n(9 words, 0 code blocks)",
+      "content": "Location (physical or virtual) where Items can be stored."
+    },
+    {
+      "path": "report/stock_ageing/stock_ageing_fifo_logic.md",
+      "filename": "stock_ageing_fifo_logic.md",
+      "category": "other",
+      "size_bytes": 4868,
+      "title": "stock_ageing_fifo_logic",
+      "structure": {
+        "title": null,
+        "headers": [
+          {
+            "level": 3,
+            "text": "Concept of FIFO Slots",
+            "line": 1
+          },
+          {
+            "level": 3,
+            "text": "Calculation of FIFO Slots",
+            "line": 19
+          },
+          {
+            "level": 4,
+            "text": "Case 1: Outward from sufficient balance qty",
+            "line": 21
+          },
+          {
+            "level": 4,
+            "text": "Case 2: Outward from sufficient cumulative (slots) balance qty",
+            "line": 33
+          },
+          {
+            "level": 4,
+            "text": "Case 3: Outward from insufficient balance qty",
+            "line": 47
+          },
+          {
+            "level": 3,
+            "text": "Concept of Transfer Qty Bucket",
+            "line": 76
+          },
+          {
+            "level": 4,
+            "text": "Case 1: Same Item-Warehouse in Repack",
+            "line": 86
+          },
+          {
+            "level": 4,
+            "text": "Case 2: Same Item-Warehouse in Repack with Split Consumption rows",
+            "line": 99
+          }
+        ],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 778,
+        "line_count": 110
+      },
+      "summary": "Sections: Concept of FIFO Slots, Calculation of FIFO Slots, Concept of Transfer Qty Bucket\nSince we need to know age-wise remaining stock, we maintain all the inward entries as slots. So each time stock comes in, a slot is added for the same.\n(778 words, 0 code blocks)",
+      "content": "### Concept of FIFO Slots\n\nSince we need to know age-wise remaining stock, we maintain all the inward entries as slots. So each time stock comes in, a slot is added for the same.\n\nEg. For Item A:\n----------------------\nDate | Qty | Queue\n----------------------\n1st  | +50 | [[50, 1-12-2021]]\n2nd  | +20 | [[50, 1-12-2021], [20, 2-12-2021]]\n----------------------\n\nNow the queue can tell us the total stock and also how old the stock is.\nHere, the balance qty is 70.\n50 qty is (today-the 1st) days old\n20 qty is (today-the 2nd) days old\n\n> Note: We generate FIFO slots warehouse wise as stock reconciliations from different warehouses can cause incorrect values.\n### Calculation of FIFO Slots\n\n#### Case 1: Outward from sufficient balance qty\n----------------------\nDate | Qty | Queue\n----------------------\n1st  | +50 | [[50, 1-12-2021]]\n2nd  | -20 | [[30, 1-12-2021]]\n2nd  | +20 | [[30, 1-12-2021], [20, 2-12-2021]]\n\nHere after the first entry, while issuing 20 qty:\n- **since 20 is lesser than the balance**, **qty_to_pop (20)** is simply consumed from first slot (FIFO consumption)\n- Any inward entry after as usual will get its own slot added to the queue\n\n#### Case 2: Outward from sufficient cumulative (slots) balance qty\n----------------------\nDate | Qty | Queue\n----------------------\n1st  | +50 | [[50, 1-12-2021]]\n2nd  | +20 | [[50, 1-12-2021], [20, 2-12-2021]]\n2nd  | -60 | [[10, 2-12-2021]]\n\n- Consumption happens slot wise. First slot 1 is consumed\n- Since **qty_to_pop (60) is greater than slot 1 qty (50)**, the entire slot is consumed and popped\n- Now the queue is [[20, 2-12-2021]], and **qty_to_pop=10** (remaining qty to pop)\n- It then goes ahead to the next slot and consumes 10 from it\n- Now the queue is [[10, 2-12-2021]]\n\n#### Case 3: Outward from insufficient balance qty\n> This case is possible only if **Allow Negative Stock** was enabled at some point/is enabled.\n\n----------------------\nDate | Qty | Queue\n----------------------\n1st  | +50 | [[50, 1-12-2021]]\n2nd  | -60 | [[-10, 1-12-2021]]\n\n- Since **qty_to_pop (60)** is more than the balance in slot 1, the entire slot is consumed and popped\n- Now the queue is **empty**, and **qty_to_pop=10** (remaining qty to pop)\n- Since we still have more to consume, we append the balance since 60 is issued from 50 i.e. -10.\n- We register this negative value, since the stock issue has caused the balance to become negative\n\nNow when stock is inwarded:\n- Instead of adding a slot we check if there are any negative balances.\n- If yes, we keep adding positive stock to it until we make the balance positive.\n- Once the balance is positive, the next inward entry will add a new slot in the queue\n\nEg:\n----------------------\nDate | Qty | Queue\n----------------------\n1st  | +50 | [[50, 1-12-2021]]\n2nd  | -60 | [[-10, 1-12-2021]]\n3rd  | +5  | [[-5, 3-12-2021]]\n4th  | +10 | [[5, 4-12-2021]]\n4th  | +20 | [[5, 4-12-2021], [20, 4-12-2021]]\n\n### Concept of Transfer Qty Bucket\nIn the case of **Repack**, Quantity that comes in, isn't really incoming. It is just new stock repurposed from old stock, due to incoming-outgoing of the same warehouse.\n\nHere, stock is consumed from the FIFO Queue. It is then re-added back to the queue.\nWhile adding stock back to the queue we need to know how much to add.\nFor this we need to keep track of how much was previously consumed.\nHence we use **Transfer Qty Bucket**.\n\nWhile re-adding stock, we try to add buckets that were consumed earlier (date intact), to maintain correctness.\n\n#### Case 1: Same Item-Warehouse in Repack\nEg:\n-------------------------------------------------------------------------------------\nDate | Qty   | Voucher |             FIFO Queue           \t   | Transfer Qty Buckets\n-------------------------------------------------------------------------------------\n1st  | +500  |  PR     | [[500, 1-12-2021]]   \t\t\t\t   |\n2nd  | -50   |  Repack | [[450, 1-12-2021]]   \t\t\t\t   | [[50, 1-12-2021]]\n2nd  | +50   |  Repack | [[450, 1-12-2021], [50, 1-12-2021]]   | []\n\n- The balance at the end is restored back to 500\n- However, the initial 500 qty bucket is now split into 450 and 50, with the same date\n- The net effect is the same as that before the Repack\n\n#### Case 2: Same Item-Warehouse in Repack with Split Consumption rows\nEg:\n-------------------------------------------------------------------------------------\nDate | Qty   | Voucher |             FIFO Queue           \t   | Transfer Qty Buckets\n-------------------------------------------------------------------------------------\n1st  | +500  |  PR     | [[500, 1-12-2021]]   \t\t\t\t   |\n2nd  | -50   |  Repack | [[450, 1-12-2021]]   \t\t\t\t   | [[50, 1-12-2021]]\n2nd  | -50   |  Repack | [[400, 1-12-2021]]   \t\t\t\t   | [[50, 1-12-2021],\n-\t |\t\t |\t\t   |\t\t\t\t\t\t\t\t\t   |[50, 1-12-2021]]\n2nd  | +100  |  Repack | [[400, 1-12-2021], [50, 1-12-2021],   | []\n-\t |\t\t |\t\t   | [50, 1-12-2021]]\t\t\t\t\t   |\n"
+    },
+    {
+      "path": "spec/README.md",
+      "filename": "README.md",
+      "category": "specifications",
+      "size_bytes": 4169,
+      "title": "Implementation notes for Stock Ledger",
+      "structure": {
+        "title": "Implementation notes for Stock Ledger",
+        "headers": [
+          {
+            "level": 1,
+            "text": "Implementation notes for Stock Ledger",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Important files",
+            "line": 4
+          },
+          {
+            "level": 2,
+            "text": "What is in a Stock Ledger Entry (SLE)?",
+            "line": 10
+          },
+          {
+            "level": 2,
+            "text": "Implementation of Stock Ledger",
+            "line": 47
+          },
+          {
+            "level": 3,
+            "text": "Serial nos",
+            "line": 71
+          },
+          {
+            "level": 3,
+            "text": "Batch Nos",
+            "line": 78
+          },
+          {
+            "level": 2,
+            "text": "Creation process of SLEs",
+            "line": 84
+          },
+          {
+            "level": 2,
+            "text": "Accounting impact",
+            "line": 99
+          }
+        ],
+        "code_blocks": [
+          {
+            "language": "sql",
+            "code": "select *\nfrom `tabStock Ledger Entry` as sle\nwhere\n    is_cancelled = 0  --- cancelled entries don't affect ledger\n    and item_code = 'item_code' and warehouse = 'warehouse_name'\norder by timestamp(posting_date, posting_time), creation",
+            "full_length": 236
+          }
+        ],
+        "links": [],
+        "word_count": 614,
+        "line_count": 104
+      },
+      "summary": "**Implementation notes for Stock Ledger**\nSections: Important files, What is in a Stock Ledger Entry (SLE)?, Implementation of Stock Ledger, Serial nos, Batch Nos\n- `stock/stock_ledger.py` - `controllers/stock_controller.py` - `stock/valuation.py`\n(614 words, 1 code blocks)",
+      "content": "# Implementation notes for Stock Ledger\n\n\n## Important files\n\n- `stock/stock_ledger.py`\n- `controllers/stock_controller.py`\n- `stock/valuation.py`\n\n## What is in a Stock Ledger Entry (SLE)?\n\nStock Ledger Entry is a single row in the Stock Ledger. It signifies some\nmodification of stock for a particular Item in the specified warehouse.\n\n- `item_code`: item for which ledger entry is made\n- `warehouse`: warehouse where inventory is affected\n- `actual_qty`: change in qty\n- `qty_after_transaction`: quantity available after the transaction is processed\n- `incoming_rate`: rate at which inventory was received.\n- `is_cancelled`: if 1 then stock ledger entry is cancelled and should not be used\nfor any business logic except for the code that handles cancellation.\n- `posting_date` & `posting_time`: Specify the temporal ordering of stock ledger\n  entries. Ties are broken by `creation` timestamp.\n- `voucher_type`: Many transaction can create SLE, e.g. Stock Entry, Purchase\n  Invoice\n- `voucher_no`: `name` of the transaction that created SLE\n- `voucher_detail_no`: `name` of the child table row from parent transaction\n  that created the SLE.\n- `dependant_sle_voucher_detail_no`: cross-warehouse transfers need this\n  reference in order to update dependent warehouse rates in case of change in\n  rate.\n- `recalculate_rate`: if this is checked in/out rates are recomputed on\n  transactions.\n- `valuation_rate`: current average valuation rate.\n- `stock_value`: current total stock value\n- `stock_value_difference`: stock value difference made between last and current\n  entry. This value is booked in accounting ledger.\n- `stock_queue`: if FIFO/LIFO is used this represents queue/stack maintained for\n  computing incoming rate for inventory getting consumed.\n- `batch_no`: batch no for which stock entry is made; each stock entry can only\n  affect one batch number.\n- `serial_no`: newline separated list of serial numbers that were added (if\n  actual_qty > 0) or else removed. Currently multiple serial nos can have single\n  SLE but this will likely change in future.\n\n\n## Implementation of Stock Ledger\n\nStock Ledger Entry affects stock of combinations of (item_code, warehouse) and\noptionally batch no if specified. For simplicity, lets avoid batch no. for now.\n\n\nStock Ledger Entry table stores stock ledger for all combinations of item_code\nand warehouse. So whenever any operations are to be performed on said\nitem-warehouse combination stock ledger is filtered and sorted by posting\ndatetime. A typical query that will give you individual ledger looks like this:\n\n```sql\nselect *\nfrom `tabStock Ledger Entry` as sle\nwhere\n    is_cancelled = 0  --- cancelled entries don't affect ledger\n    and item_code = 'item_code' and warehouse = 'warehouse_name'\norder by timestamp(posting_date, posting_time), creation\n```\n\nNew entry is just an update to the last entry which is found by looking at last\nrow in the filter ledger.\n\n\n### Serial nos\n\nSerial numbers do not follow any valuation method configuration and they are\nconsumed at rate they were produced unless they are grouped in which case they\nare consumed at weighted average rate.\n\n\n### Batch Nos\n\nBatches are currently NOT consumed as per batch wise valuation rate, instead\nglobal FIFO queue for the item is used for valuation rate.\n\n\n## Creation process of SLEs\n\n- SLE creation is usually triggered by Stock Transactions using a method\n  conventionally named `update_stock_ledger()` This might not be defined for\n  stock transaction and could be specified somewhere in inheritance hierarchy of\n  controllers.\n- This method produces SLE objects which are processed by `make_sl_entries` in\n  `stock_ledger.py` which commits the SLE to database.\n- `update_entries_after` class is used to process ONLY the inserted SLE's queue\n  and valuation.\n- The change in qty is propagated to future entries immediately. Valuation and\n  queue for future entries is processed in background using repost item\n  valuation.\n\n\n## Accounting impact\n\n- Accounting impact for stock transaction is handled by `get_gl_entries()`\n  method on controllers. Each transaction has different business logic for\n  booking the accounting impact.\n"
+    },
+    {
+      "path": "spec/reposting.md",
+      "filename": "reposting.md",
+      "category": "specifications",
+      "size_bytes": 1979,
+      "title": "Stock Reposting",
+      "structure": {
+        "title": "Stock Reposting",
+        "headers": [
+          {
+            "level": 1,
+            "text": "Stock Reposting",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "Why is this required?",
+            "line": 9
+          },
+          {
+            "level": 2,
+            "text": "How is this implemented?",
+            "line": 15
+          },
+          {
+            "level": 2,
+            "text": "Queue implementation",
+            "line": 22
+          },
+          {
+            "level": 2,
+            "text": "How to identify broken stock data:",
+            "line": 33
+          }
+        ],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 300,
+        "line_count": 39
+      },
+      "summary": "**Stock Reposting**\nSections: Why is this required?, How is this implemented?, Queue implementation, How to identify broken stock data:\nStock \"reposting\" is process of re-processing Stock Ledger Entry and GL Entries in event of backdated stock transaction.\n(300 words, 0 code blocks)",
+      "content": "# Stock Reposting\n\nStock \"reposting\" is process of re-processing Stock Ledger Entry and GL Entries\nin event of backdated stock transaction.\n\n*Backdated stock transaction*: Any stock transaction for which some\nitem-warehouse combination has a future transactions.\n\n## Why is this required?\nStock Ledger is stateful, it maintains queue, qty at any\npoint in time. So if you do a backdated transaction all future values change,\nqueues need to be re-evaluated etc. Watch Nabin and Rohit's conference\npresentation for explanation: https://www.youtube.com/watch?v=mw3WAnekGIM\n\n## How is this implemented?\nWhenever backdated transaction is detected, instead of\nfully processing it while submitting, the processing is queued using \"Repost\nItem Valuation\" doctype. Every hour a scheduled job runs and processes this\nqueue (for up to maximum of 25 minutes)\n\n\n## Queue implementation\n- \"Repost item valuation\" (RIV) is automatically submitted from backdated transactions. (check stock_controller.py)\n- Draft and cancelled RIV are ignored.\n- Keep filter of \"submitted\" documents when doing anything with RIVs.\n- The default status is \"Queued\".\n- When background job runs, it picks the oldest pending reposts and changes the status to \"In Progress\" and when it finishes it\nchanges to \"Completed\"\n- There are two more status: \"Failed\" when reposting failed and \"Skipped\" when reposting is deemed not necessary so it's skipped.\n- technical detail: Entry point for whole process is \"repost_entries\" function in repost_item_valuation.py\n\n\n## How to identify broken stock data:\nThere are 4 major reports for checking broken stock data:\n- Incorrect balance qty after the transaction - to check if the running total of qty isn't correct.\n- Incorrect stock value report - to check incorrect value books in accounts for stock transactions\n- Incorrect serial no valuation -specific to serial nos\n- Stock ledger invariant check - combined report for checking qty, running total, queue, balance value etc\n"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+/* === HTKK Frontend - Global Styles === */
+
+@import "tailwindcss";
+
+:root {
+  font-family: 'Outfit', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1e293b;
+  background-color: #f0f2f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== CRITICAL: Prevent horizontal jitter ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;       /* Block horizontal scroll at root */
+  overflow-y: auto;
+  scrollbar-gutter: stable; /* Reserve scrollbar space to prevent layout shift */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* DO NOT use display:flex + place-items:center here, it conflicts with 100vh app */
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  /* DO NOT set max-width or margin:auto - app should be full viewport */
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

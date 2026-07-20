@@ -1,0 +1,37 @@
+{
+ "actions": [],
+ "creation": "2026-06-04 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "profile",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "profile",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Permission Profile",
+   "options": "Kế toán - Toàn bộ\nKế toán - Thiết lập\nKế toán - Tiền và ngân hàng\nKế toán - Sổ kế toán\nKế toán - Bán hàng và công nợ phải thu\nKế toán - Mua hàng và công nợ phải trả\nKế toán - Tài sản\nNhân sự - Toàn bộ\nNhân sự - Tổ chức và vòng đời\nNhân sự - Chấm công\nNhân sự - Nghỉ phép\nNhân sự - Chi phí nhân viên\nBán hàng - Toàn bộ\nBán hàng - CRM\nBán hàng - Sản phẩm và bảng giá\nBán hàng - Đơn hàng và giao hàng\nMua hàng - Toàn bộ\nMua hàng - Nghiệp vụ mua\nKho - Toàn bộ\nKho - Vận hành kho\nChăm sóc khách hàng\nDự án",
+   "reqd": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-04 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNET Permission",
+ "name": "DCNET Permission Scope Profile",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,878 @@
+[
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/connected_app/connected_app.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/connected_app/connected_app.py",
+        "class_name": "ConnectedApp",
+        "method_name": null,
+        "line_number": 22,
+        "evidence": [
+          "Factory method: get_openid_configuration",
+          "Parameterized factory method: get_oauth2_session",
+          "Parameterized factory method: get_user_token",
+          "Parameterized factory method: get_token_cache",
+          "Factory method: get_scopes",
+          "Factory method: get_query_params",
+          "Parameterized factory method: get_active_token",
+          "Parameterized factory method: get_backend_app_token",
+          "Multiple factory methods: get_openid_configuration, get_oauth2_session, get_user_token",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/connected_app/connected_app.py",
+        "class_name": "ConnectedApp",
+        "method_name": "get_openid_configuration",
+        "line_number": 52,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/connected_app/connected_app.py",
+        "class_name": "ConnectedApp",
+        "method_name": null,
+        "line_number": 22,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 10 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/connected_app/test_connected_app.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/connected_app/test_connected_app.py",
+        "class_name": "TestConnectedApp",
+        "method_name": null,
+        "line_number": 51,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 5,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/google_settings/test_google_settings.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/google_settings/test_google_settings.py",
+        "class_name": "TestGoogleSettings",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/integration_request/integration_request.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/integration_request/integration_request.py",
+        "class_name": "IntegrationRequest",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/integration_request/integration_request.py",
+        "class_name": "IntegrationRequest",
+        "method_name": "update_status",
+        "line_number": 46,
+        "evidence": [
+          "Observer method detected: update_status"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/ldap_settings.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/ldap_settings.py",
+        "class_name": "LDAPSettings",
+        "method_name": null,
+        "line_number": 28,
+        "evidence": [
+          "Factory method: get_ldap_client_settings",
+          "Parameterized factory method: create_or_update_user",
+          "Factory method: get_ldap_attributes",
+          "Multiple factory methods: get_ldap_client_settings, create_or_update_user, get_ldap_attributes",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/ldap_settings.py",
+        "class_name": "LDAPSettings",
+        "method_name": "get_ldap_client_settings",
+        "line_number": 170,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/ldap_settings.py",
+        "class_name": "LDAPSettings",
+        "method_name": null,
+        "line_number": 28,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 11 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/ldap_settings.py",
+        "class_name": "LDAPSettings",
+        "method_name": null,
+        "line_number": 28,
+        "evidence": [
+          "Notify method: update_user_fields",
+          "Notify method: create_or_update_user"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+        "class_name": "LDAP_TestCase",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Factory method: test_get_ldap_client_settings",
+          "Factory method: test_create_website_user",
+          "Factory method: test_create_or_update_user",
+          "Factory method: test_get_ldap_attributes",
+          "Multiple factory methods: test_get_ldap_client_settings, test_create_website_user, test_create_or_update_user"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+        "class_name": "LDAP_TestCase",
+        "method_name": "setUpClass",
+        "line_number": 63,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+        "class_name": "LDAP_TestCase",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Notify method: test_update_user_fields",
+          "Notify method: test_create_or_update_user"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+        "class_name": "LDAP_TestCase",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Strategy base with implementations: Test_OpenLDAP, Test_ActiveDirectory"
+        ],
+        "related_classes": [
+          "Test_OpenLDAP",
+          "Test_ActiveDirectory"
+        ]
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.7,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+        "class_name": "LDAP_TestCase",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Base class with 2 implementations",
+          "Has hook methods: setUpClass, tearDownClass"
+        ],
+        "related_classes": [
+          "Test_OpenLDAP",
+          "Test_ActiveDirectory"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+        "class_name": "Test_OpenLDAP",
+        "method_name": null,
+        "line_number": 607,
+        "evidence": [
+          "Part of strategy family with: Test_ActiveDirectory"
+        ],
+        "related_classes": [
+          "LDAP_TestCase",
+          "TestCase"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+        "class_name": "Test_ActiveDirectory",
+        "method_name": null,
+        "line_number": 631,
+        "evidence": [
+          "Part of strategy family with: Test_OpenLDAP"
+        ],
+        "related_classes": [
+          "LDAP_TestCase",
+          "TestCase"
+        ]
+      }
+    ],
+    "total_classes": 3,
+    "total_functions": 1,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Observer": 1,
+      "Strategy": 3,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/oauth_bearer_token/oauth_bearer_token.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/oauth_bearer_token/oauth_bearer_token.py",
+        "class_name": "OAuthBearerToken",
+        "method_name": "clear_old_logs",
+        "line_number": 35,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Decorator": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/oauth_client/oauth_client.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/oauth_client/oauth_client.py",
+        "class_name": "OAuthClient",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/social_login_key.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/social_login_key.py",
+        "class_name": "BaseUrlNotSetError",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Part of strategy family with: AuthorizeUrlNotSetError, AccessTokenUrlNotSetError, RedirectUrlNotSetError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/social_login_key.py",
+        "class_name": "AuthorizeUrlNotSetError",
+        "method_name": null,
+        "line_number": 15,
+        "evidence": [
+          "Part of strategy family with: BaseUrlNotSetError, AccessTokenUrlNotSetError, RedirectUrlNotSetError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/social_login_key.py",
+        "class_name": "AccessTokenUrlNotSetError",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Part of strategy family with: BaseUrlNotSetError, AuthorizeUrlNotSetError, RedirectUrlNotSetError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/social_login_key.py",
+        "class_name": "RedirectUrlNotSetError",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Part of strategy family with: BaseUrlNotSetError, AuthorizeUrlNotSetError, AccessTokenUrlNotSetError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/social_login_key.py",
+        "class_name": "ClientIDNotSetError",
+        "method_name": null,
+        "line_number": 27,
+        "evidence": [
+          "Part of strategy family with: BaseUrlNotSetError, AuthorizeUrlNotSetError, AccessTokenUrlNotSetError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/social_login_key.py",
+        "class_name": "ClientSecretNotSetError",
+        "method_name": null,
+        "line_number": 31,
+        "evidence": [
+          "Part of strategy family with: BaseUrlNotSetError, AuthorizeUrlNotSetError, AccessTokenUrlNotSetError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/social_login_key.py",
+        "class_name": "SocialLoginKey",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Parameterized factory method: get_social_login_provider",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/social_login_key.py",
+        "class_name": "SocialLoginKey",
+        "method_name": "get_social_login_provider",
+        "line_number": 120,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/social_login_key.py",
+        "class_name": "SocialLoginKey",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 7,
+    "total_functions": 1,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Strategy": 6,
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/test_social_login_key.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/test_social_login_key.py",
+        "class_name": "TestSocialLoginKey",
+        "method_name": "test_force_enabled_signups",
+        "line_number": 76,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Website Settings', disable_signup=1)\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/social_login_key/test_social_login_key.py",
+        "class_name": "TestSocialLoginKey",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 7,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/token_cache/test_token_cache.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/token_cache/test_token_cache.py",
+        "class_name": "TestTokenCache",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Factory method: test_get_auth_header",
+          "Factory method: test_get_expires_in",
+          "Factory method: get_json",
+          "Multiple factory methods: test_get_auth_header, test_get_expires_in, get_json",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/token_cache/test_token_cache.py",
+        "class_name": "TestTokenCache",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/token_cache/test_token_cache.py",
+        "class_name": "TestTokenCache",
+        "method_name": "test_update_data",
+        "line_number": 18,
+        "evidence": [
+          "Observer method detected: test_update_data"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/token_cache/token_cache.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/token_cache/token_cache.py",
+        "class_name": "TokenCache",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Factory method: get_auth_header",
+          "Factory method: get_expires_in",
+          "Factory method: get_json",
+          "Multiple factory methods: get_auth_header, get_expires_in, get_json",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/token_cache/token_cache.py",
+        "class_name": "TokenCache",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/token_cache/token_cache.py",
+        "class_name": "TokenCache",
+        "method_name": "update_data",
+        "line_number": 40,
+        "evidence": [
+          "Observer method detected: update_data"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook/test_webhook.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook/test_webhook.py",
+        "class_name": "TestWebhook",
+        "method_name": "create_sample_webhooks",
+        "line_number": 45,
+        "evidence": [
+          "Factory method detected: create_sample_webhooks"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook/test_webhook.py",
+        "class_name": "TestWebhook",
+        "method_name": "setUpClass",
+        "line_number": 35,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook/test_webhook.py",
+        "class_name": "TestWebhook",
+        "method_name": null,
+        "line_number": 33,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 15 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook/webhook.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook/webhook.py",
+        "class_name": "Webhook",
+        "method_name": "preview_meets_condition",
+        "line_number": 123,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook/webhook.py",
+        "class_name": "Webhook",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 11 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook/webhook.py",
+        "class_name": "Webhook",
+        "method_name": "on_update",
+        "line_number": 69,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 6,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook_request_log/webhook_request_log.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook_request_log/webhook_request_log.py",
+        "class_name": "WebhookRequestLog",
+        "method_name": "clear_old_logs",
+        "line_number": 29,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Decorator": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/google_oauth.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/google_oauth.py",
+        "class_name": "GoogleOAuth",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Parameterized factory method: get_authentication_url",
+          "Parameterized factory method: get_google_service_object",
+          "Multiple factory methods: get_authentication_url, get_google_service_object"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 3,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1
+    }
+  }
+]

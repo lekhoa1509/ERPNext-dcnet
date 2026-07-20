@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Huong (123) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="soLan" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>số lần nộp tờ chính thức</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="NguoiNopThue">
+							<xs:annotation>
+								<xs:documentation>1. Người nộp thuế</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct05" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[05] Ngày tháng năm sinh (nếu là cá nhân)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct07" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[07] Số CMND/hộ chiếu/CCCD</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct08" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[08] Ngày cấp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[09] Nơi cấp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="DiaChi">
+										<xs:annotation>
+											<xs:documentation>[10] Địa chỉ trụ sở/Địa chỉ cư trú</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct10_1" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[10.1] Số nhà</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10_2" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[10.2] Đường/phố</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10_3" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[10.3] Tổ/thôn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10_4_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[10.4] Phường/Xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10_4_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[10.4] Phường/Xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ct11" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[11] Địa chỉ nhận thông báo thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DacDiem">
+							<xs:annotation>
+								<xs:documentation>3. Đặc điểm đất/mặt nước thuê:</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct16_1" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[16.1] Số nhà</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_2" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[16.2] Đường/phố</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_3" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[16.3] Tổ/thôn</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_4_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[16.4] Phường/xã/thị trấn mã</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_4_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[16.4] Phường/xã/thị trấn tên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_5_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[16.5] Quận/huyện mã</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_5_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[16.5] Quận/huyện tên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_6_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[16.6] Tỉnh/Thành phố mã</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_6_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[16.6] Tỉnh/Thành phố tên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct17" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[17] Vị trí thửa đất/mặt nước</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct18" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[18] Mục đích sử dụng</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct19" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[19] Diện tích</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct20" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[20] Thời điểm sử dụng đất vào mục đích thuộc đối tượng phải nộp tiền thuê đất theo quy định của Luật Đất đai</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DienTich">
+							<xs:annotation>
+								<xs:documentation>4. Diện tích đất, mặt nước phải nộp tiền thuê (m2):</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct21" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[21] Đất/mặt nước dùng cho sản xuất kinh doanh phi nông nghiệp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct22" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[22] Đất xây dựng nhà ở, cơ sở hạ tầng để cho thuê</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct23" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[23] Đất xây dựng khu công nghiệp, cụm công nghiệp, làng nghề</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct24" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[24] Đất/ mặt nước sử dụng vào mục đích sản xuất nông nghiệp, nuôi trồng thuỷ sản</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct25" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[25] Đất/mặt nước dùng vào mục đích khác</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="thoiGian_suDung" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>5. Thời gian sử dụng đất vào mục đích thuộc đối tượng phải nộp tiền thuê đất theo quy định của Luật Đất đai: ......</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

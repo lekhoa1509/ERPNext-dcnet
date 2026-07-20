@@ -1,0 +1,283 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-15 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "deposit_info_section",
+  "company",
+  "bank",
+  "bank_account",
+  "column_break_info",
+  "deposit_number",
+  "deposit_account",
+  "interest_income_account",
+  "interest_receivable_account",
+  "terms_section",
+  "principal_amount",
+  "interest_rate",
+  "interest_type",
+  "column_break_terms",
+  "start_date",
+  "term_months",
+  "maturity_date",
+  "early_withdrawal_rate",
+  "summary_section",
+  "total_interest",
+  "status",
+  "alert_days_before",
+  "schedule_section",
+  "interest_schedule",
+  "notes_section",
+  "remarks",
+  "alert_sent",
+  "deposit_je",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "TD-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "deposit_info_section",
+   "fieldtype": "Section Break",
+   "label": "Deposit Info"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank",
+   "fieldtype": "Link",
+   "label": "Bank",
+   "options": "Bank",
+   "in_list_view": 0
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Bank Account",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_info",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "deposit_number",
+   "fieldtype": "Data",
+   "label": "Deposit Number"
+  },
+  {
+   "fieldname": "deposit_account",
+   "fieldtype": "Link",
+   "label": "Deposit Account (1281)",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "interest_income_account",
+   "fieldtype": "Link",
+   "label": "Interest Income Account (515)",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "interest_receivable_account",
+   "fieldtype": "Link",
+   "label": "Interest Receivable Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "terms_section",
+   "fieldtype": "Section Break",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "principal_amount",
+   "fieldtype": "Currency",
+   "label": "Principal Amount",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "interest_rate",
+   "fieldtype": "Percent",
+   "label": "Annual Interest Rate (%)",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "interest_type",
+   "fieldtype": "Select",
+   "label": "Interest Payment Type",
+   "options": "End of Term\nMonthly\nQuarterly\nPrepaid\nCompound",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_terms",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "term_months",
+   "fieldtype": "Int",
+   "label": "Term (Months)",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "maturity_date",
+   "fieldtype": "Date",
+   "label": "Maturity Date",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "early_withdrawal_rate",
+   "fieldtype": "Percent",
+   "label": "Early Withdrawal Rate (%)"
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "total_interest",
+   "fieldtype": "Currency",
+   "label": "Total Interest",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nActive\nMatured\nSettled\nEarly Settled\nCancelled",
+   "default": "Draft",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "alert_days_before",
+   "fieldtype": "Int",
+   "label": "Alert Days Before Maturity",
+   "default": "7"
+  },
+  {
+   "fieldname": "schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Interest Schedule"
+  },
+  {
+   "fieldname": "interest_schedule",
+   "fieldtype": "Table",
+   "label": "Interest Schedule",
+   "options": "Term Deposit Interest"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "alert_sent",
+   "fieldtype": "Check",
+   "label": "Alert Sent",
+   "hidden": 1
+  },
+  {
+   "fieldname": "deposit_je",
+   "fieldtype": "Link",
+   "label": "Deposit Journal Entry",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Term Deposit",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-05-13 10:23:01.477240",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "Term Deposit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 0,
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "submit": 0,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

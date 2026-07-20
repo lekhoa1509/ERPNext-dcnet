@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ngayTBaoPHanhHDon" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Ngày thông báo phát hành hóa đơn</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TTinThayDoi">
+							<xs:annotation>
+								<xs:documentation>Nay (tổ chức, cá nhân) đăng ký thông tin thay đổi như sau: </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietTTinThayDoi" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Chi tiết thông tin thay đổi</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="thongTinThayDoi" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Thông tin thay đổi</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thongTinCu" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Thông tin cũ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="thongTinMoi" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Thông tin mới</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="ID" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TTinDonViChuQuan">
+							<xs:annotation>
+								<xs:documentation>6. Thông tin đơn vị chủ quản (trường hợp tổ chức, cá nhân dùng hóa đơn của đơn vị chủ quản đặt in, tự in) </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="tenDViChuQuan" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên đơn vị chủ quản  </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="mstDViChuQuan" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Mã số thuế đơn vị chủ quản </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="tenCQTTiepNhanTBao" type="xs:string" nillable="false">
+							<xs:annotation>
+								<xs:documentation>7. Tên cơ quan thuế tiếp nhận thông báo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ngayThongBao" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Ngày thông báo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="nguoiDaiDien" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Người đại diện theo pháp luật</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

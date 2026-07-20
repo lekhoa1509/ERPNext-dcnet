@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Huong (123) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.7">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="so" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số đề nghị miễn tiền chậm nộp</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="diaDanh" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>... ngày....tháng .....năm ...</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="nnkd" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Ngành nghề kinh doanh chính</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="soTien" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số tiền</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="soTienVietBangChu" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số tiền viết bằng chữ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TaiLieuDinhKem">
+							<xs:annotation>
+								<xs:documentation>Các tài liệu đính kèm (nếu có)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Tailieu" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tenTaiLieu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên tài liệu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="ID" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

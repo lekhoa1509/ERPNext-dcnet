@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.2">
+	<xs:redefine schemaLocation="..\TKhaiThue_HDDT.xsd">
+		<xs:complexType name="NDTKhaiType">
+			<xs:complexContent>
+				<xs:extension base="NDTKhaiType">
+					<xs:sequence>
+						<xs:element name="TTSuat" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TSuat" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thuế GTGT của doanh nghiệp, tổ chức</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="DSHDon">
+										<xs:annotation>
+											<xs:documentation>Khu đất thuê</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="HDon" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="TenLoaiHDon" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên loại hóa đơn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="KyHieuMau" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Ký hiệu mẫu hóa đơn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="KyHieu" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Ký hiệu hóa đơn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="SoHoaDon" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Số hóa đơn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="NgayLap" type="xs:date" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Ngày, tháng, năm lập hóa đơn</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="TenNguoiMua" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên người mua</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="MSTNguoiMua" type="TINType" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>MST người mua</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="DoanhThu" type="xs:long" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Doanh thu chưa có thuế GTGT</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ThueGTGT" type="xs:long" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Thuế GTGT</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="GhiChu" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Ghi chú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TgDTCThue" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng doanh thu cột (6) từng mục</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="TgTGTGT" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng Thuế GTGT cột (7) từng mục</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TgDThu" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng doanh thu</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TgThue" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng Thuế GTGT</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.2">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="NoiDung01PHLP">
+							<xs:annotation>
+								<xs:documentation>Thông tin chi tiết  tờ khai</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietPhiLePhi" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct2" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Loại phí, lệ phí</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct3" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tiểu mục</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct4" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tiền phí, lệ phí thu được</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct5" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tỷ lệ trích sử dụng theo chế độ (%)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct6" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tiền phí, lệ phí trích sử dụng theo chế độ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct7" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tiền phí, lệ phí phải nộp NSNN (7) = (4) – (6)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="tong_ct4" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng số tiền phí, lệ phí thu được</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tong_ct6" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số tiền phí, lệ phí trích sử dụng theo chế độ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tong_ct7" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số tiền phí, lệ phí phải nộp NSNN</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

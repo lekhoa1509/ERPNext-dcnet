@@ -1,0 +1,81 @@
+{
+  "actions": [],
+  "creation": "2026-04-29 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "links": [],
+  "modified": "2026-04-29 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "VN Accounting",
+  "owner": "Administrator",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "name": "CCDC Category",
+  "is_submittable": 0,
+  "permissions": [
+    {
+      "role": "Accounts User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0
+    },
+    {
+      "role": "Accounts Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1
+    },
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1
+    }
+  ],
+  "field_order": [
+    "category_name",
+    "parent_category_account",
+    "expense_account_default",
+    "useful_period_default",
+    "is_group"
+  ],
+  "fields": [
+    {
+      "fieldname": "category_name",
+      "fieldtype": "Data",
+      "label": "Category Name",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "parent_category_account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "label": "Cost Account (153 sub)"
+    },
+    {
+      "fieldname": "expense_account_default",
+      "fieldtype": "Link",
+      "options": "Account",
+      "label": "Expense Account Default"
+    },
+    {
+      "fieldname": "useful_period_default",
+      "fieldtype": "Int",
+      "label": "Useful Period (months)",
+      "default": "12"
+    },
+    {
+      "fieldname": "is_group",
+      "fieldtype": "Check",
+      "label": "Is Group"
+    }
+  ]
+}

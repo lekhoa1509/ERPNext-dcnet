@@ -1,0 +1,48 @@
+<PLuc_01_1_PL_CNKD>
+	<ThueGTGT>
+		<ct12_1/>
+		<ct12_2/>
+		<ct12_3/>
+	</ThueGTGT>
+	<ThueTNCN>
+		<ct13_1/>
+		<ct13_2/>
+		<ct13_3/>
+	</ThueTNCN>
+	<ThueTTDB>
+		<tong_ct14_1/>
+		<tong_ct14_2/>
+		<tong_ct14_3/>
+		<CTietThueTTDB id="String">
+			<ct14_ma/>
+			<ct14_ten/>
+			<ct14_1/>
+			<ct14_2/>
+			<ct14_3/>
+		</CTietThueTTDB>
+	</ThueTTDB>
+	<ThueTAIN>
+		<tong_ct15_1/>
+		<tong_ct15_2/>
+		<tong_ct15_3/>
+		<CTietThueTAIN id="String">
+			<ct15_ma/>
+			<ct15_ten/>
+			<ct15_1/>
+			<ct15_2/>
+			<ct15_3/>
+		</CTietThueTAIN>
+	</ThueTAIN>
+	<ThueBVMT>
+		<tong_ct16_1/>
+		<tong_ct16_2/>
+		<tong_ct16_3/>
+		<CTietThueBVMT id="String">
+			<ct16_ma/>
+			<ct16_ten/>
+			<ct16_1/>
+			<ct16_2/>
+			<ct16_3/>
+		</CTietThueBVMT>
+	</ThueBVMT>
+</PLuc_01_1_PL_CNKD>

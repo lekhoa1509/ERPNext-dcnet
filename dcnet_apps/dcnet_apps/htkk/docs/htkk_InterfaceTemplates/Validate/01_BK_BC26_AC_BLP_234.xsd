@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="BienLai">
+							<xs:annotation>
+								<xs:documentation>Biên lai</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTiet" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation> Nọi dung chi tiết biên lai</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="maBienLai" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã biên lai </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tenLoaiBLai" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên loại biên lai</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="kyHieuMau" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ký hiệu mẫu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="kyHieuBLai" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ký hiệu </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soLuong" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lượng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tuSo" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Từ số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="denSo" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đến số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="ID" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

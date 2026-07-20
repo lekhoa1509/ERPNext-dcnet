@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.6">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="CapMSTChoNPT">
+							<xs:annotation>
+								<xs:documentation>I. Đăng ký cấp mã số thuế cho người phụ thuộc</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="BKeCapMSTChoNPT" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Bảng kê cấp MST cho NPT</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct07" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Họ và tên người nộp thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct08" type="TINType" nillable="true">
+													<xs:annotation>
+														<xs:documentation>MST của người nộp thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct09" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Họ và tên người phụ thuộc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ngày sinh người phụ thuộc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct11" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>MST của người phụ thuộc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct12_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Quốc tịch người phụ thuộc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct12" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quốc tịch người phụ thuộc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct13" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>CMND/ Hộ chiếu của người phụ thuộc </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct14_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Quan hệ với người nộp thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct14" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quan hệ với người nộp thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct15" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct16" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quyển số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct17_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Quốc gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct17" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quốc gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct18_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Tỉnh/ Thành phố</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct18" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tỉnh/ Thành phố</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct19_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Quận/ Huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct19" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quận/ Huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct20_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Phường / Xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct20" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Phường / Xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct21" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Từ tháng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct22" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đến tháng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct23" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ghi chú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ThayDoiTTinNPT">
+							<xs:annotation>
+								<xs:documentation>II. Đăng ký thay đổi thông tin người phụ thuộc</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="BKeThayDoiTTinNPT" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Bảng kê thay đổi thông tin NPT</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct07" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Họ và tên người nộp thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct08" type="TINType" nillable="true">
+													<xs:annotation>
+														<xs:documentation>MST của người nộp thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct09" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Họ và tên người phụ thuộc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ngày sinh người phụ thuộc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct11" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>MST của người phụ thuộc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct12_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Quốc tịch người phụ thuộc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct12" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quốc tịch người phụ thuộc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct13" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>CMND/ Hộ chiếu của người phụ thuộc </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct14_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Quan hệ với người nộp thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct14" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quan hệ với người nộp thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct15" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct16" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quyển số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct17_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Quốc gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct17" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quốc gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct18_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Tỉnh/ Thành phố</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct18" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tỉnh/ Thành phố</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct19_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Quận/ Huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct19" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quận/ Huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct20_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Phường / Xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct20" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Phường / Xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct21" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Từ tháng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct22" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đến tháng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct23" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ghi chú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

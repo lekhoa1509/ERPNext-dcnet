@@ -1,0 +1,38 @@
+<PL_01-1_TBH_TB>
+	<Header>
+		<ct4_ten/>
+		<ct5_mst/>
+	</Header>
+	<HopDongTBHPI>
+		<ChiTietHopDongTBHPI id="String">
+			<ct2/>
+			<ct3/>
+			<ct4/>
+			<ct5/>
+			<ct6/>
+			<ct7/>
+			<ct8/>
+			<ct9/>
+			<ct10/>
+			<ct11/>
+			<ct12/>
+			<ct13/>
+		</ChiTietHopDongTBHPI>
+	</HopDongTBHPI>
+	<HopDongTBHKyThuat>
+		<ChiTietHopDongTBHKyThuat id="String">
+			<ct2/>
+			<ct3/>
+			<ct4/>
+			<ct5/>
+			<ct6/>
+			<ct7/>
+			<ct8/>
+			<ct9/>
+			<ct10/>
+			<ct11/>
+			<ct12/>
+			<ct13/>
+		</ChiTietHopDongTBHKyThuat>
+	</HopDongTBHKyThuat>
+</PL_01-1_TBH_TB>

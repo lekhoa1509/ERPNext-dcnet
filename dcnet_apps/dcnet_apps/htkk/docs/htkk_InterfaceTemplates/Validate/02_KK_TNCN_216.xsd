@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.7">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="CaNhanCuTru">
+							<xs:annotation>
+								<xs:documentation>I. Cá nhân cư trú có thu nhập từ tiền lương, tiền công:</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct21" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Cá nhân có thu nhập ổn định theo quý không phải nộp tờ khai các quý tiếp theo</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct22" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng thu nhập chịu thuế phát sinh trong kỳ </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct23" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Trong đó thu nhập chịu thuế được miễn giảm theo Hiệp định</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct24" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng các khoản giảm trừ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct25" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>a. Cho bản thân</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct26" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>b. Cho người phụ thuộc</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct27" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>c. Cho từ thiện, nhân đạo, khuyến học</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct28" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation> d. Các khoản đóng bảo hiểm được trừ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct29" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>e. Khoản đóng quỹ hưu trí tự nguyện được trừ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct30" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng thu nhập tính thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct31" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng số thuế thu nhập cá nhân phát sinh trong kỳ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct32" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng thu nhập chịu thuế làm căn cứ tính giảm thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct33" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng số thuế thu nhập cá nhân được giảm</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct34" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng số thuế thu nhập cá nhân phải nộp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CaNhanKhongCuTru">
+							<xs:annotation>
+								<xs:documentation>II. Cá nhân không cư trú có thu nhập từ tiền lương, tiền công:</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct35" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng thu nhập tính thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct36" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Mức thuế suất</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct37" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng số thuế thu nhập cá nhân phải nộp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

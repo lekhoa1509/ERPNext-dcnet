@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "creation": "2026-07-14 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "si_number",
+  "old_amount",
+  "new_amount",
+  "effective_date",
+  "reason"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.si_number",
+   "fieldname": "si_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Social Insurance Number"
+  },
+  {
+   "fieldname": "old_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Old Contribution Salary"
+  },
+  {
+   "fieldname": "new_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "New Contribution Salary"
+  },
+  {
+   "fieldname": "effective_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Effective Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet HRM",
+ "name": "Insurance Declaration Employee",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": []
+}

@@ -1,0 +1,24 @@
+{
+ "add_total_row": 0,
+ "creation": "2026-03-25",
+ "disable_prepared_report": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "module": "DCNET Report",
+ "name": "Item-wise Purchase History",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Purchase Order",
+ "report_name": "Báo cáo mua hàng theo giá trung bình",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Purchase Manager"
+  }
+ ]
+}

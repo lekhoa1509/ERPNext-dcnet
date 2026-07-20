@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:redefine schemaLocation="..\TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="cqt_ma" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Mã cơ quan thuế quản lý trực tiếp</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="cqt_ten" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tên cơ quan thuế quản lý trực tiếp</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ma_NganhNghe" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Mã ngành nghề</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ten_NganhNghe" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tên ngành nghề</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="thue_GTGT" type="xs:boolean" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế GTGT</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="thue_TNCN" type="xs:boolean" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thuế TNCN</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="nam" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>áp dụng kỳ tính thuế ...theo Quý kể từ kỳ tính thuế Quý I năm ...</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

@@ -1,0 +1,27 @@
+{
+  "total_files": 1,
+  "categories": {
+    "other": [
+      "doctype/opportunity/README.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "doctype/opportunity/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 59,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Potential sales opportunity (deal) from a Lead or Customer.\n(9 words, 0 code blocks)",
+      "content": null
+    }
+  ]
+}

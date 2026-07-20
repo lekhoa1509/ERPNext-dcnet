@@ -1,0 +1,110 @@
+{
+  "actions": [],
+  "allow_rename": 0,
+  "creation": "2026-04-29 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "enabled",
+    "doctype_name",
+    "role",
+    "read",
+    "write",
+    "create",
+    "submit",
+    "cancel",
+    "report",
+    "if_owner",
+    "is_modified"
+  ],
+  "fields": [
+    {
+      "default": "1",
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Enabled"
+    },
+    {
+      "fieldname": "doctype_name",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "DocType",
+      "options": "DocType",
+      "reqd": 1
+    },
+    {
+      "fieldname": "role",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Role",
+      "options": "Role",
+      "reqd": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "read",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Read"
+    },
+    {
+      "default": "0",
+      "fieldname": "write",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Write"
+    },
+    {
+      "default": "0",
+      "fieldname": "create",
+      "fieldtype": "Check",
+      "in_list_view": 1,
+      "label": "Create"
+    },
+    {
+      "default": "0",
+      "fieldname": "submit",
+      "fieldtype": "Check",
+      "label": "Submit"
+    },
+    {
+      "default": "0",
+      "fieldname": "cancel",
+      "fieldtype": "Check",
+      "label": "Cancel"
+    },
+    {
+      "default": "0",
+      "fieldname": "report",
+      "fieldtype": "Check",
+      "label": "Report"
+    },
+    {
+      "default": "0",
+      "fieldname": "if_owner",
+      "fieldtype": "Check",
+      "label": "If Owner"
+    },
+    {
+      "default": "0",
+      "fieldname": "is_modified",
+      "fieldtype": "Check",
+      "hidden": 1,
+      "label": "Is Modified",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 0,
+  "istable": 1,
+  "links": [],
+  "modified": "2026-04-29 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "VN Accounting",
+  "name": "Asset Permission Rule",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "creation",
+  "sort_order": "DESC"
+}

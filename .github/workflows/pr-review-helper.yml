@@ -1,0 +1,132 @@
+name: PR Review Helper
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review-checklist:
+    name: PR Review Checklist
+    if: false  # Temporarily disabled
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate Review Checklist
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            const pr = context.payload.pull_request;
+            const base = pr.base.sha;
+            const head = pr.head.sha;
+
+            // Get changed files
+            const diffOutput = execSync(`git diff --name-only --diff-filter=ACMR ${base} ${head}`).toString().trim();
+            const files = diffOutput ? diffOutput.split('\n') : [];
+
+            if (files.length === 0) return;
+
+            // Categorize files
+            const pyFiles = files.filter(f => f.endsWith('.py'));
+            const jsFiles = files.filter(f => f.endsWith('.js'));
+            const jsonFiles = files.filter(f => f.endsWith('.json'));
+            const docFiles = files.filter(f => f.endsWith('.md'));
+            const hooksChanged = files.some(f => f.endsWith('hooks.py'));
+            const installChanged = files.some(f => f.endsWith('install.py'));
+            const fixturesChanged = files.some(f => f.includes('fixtures') || f.endsWith('.json'));
+            const hasDocType = files.some(f => f.includes('/doctype/'));
+            const hasReport = files.some(f => f.includes('/report/'));
+            const hasTests = files.some(f => f.includes('test_'));
+            const hasClientScript = jsFiles.length > 0;
+            const hasServerCode = pyFiles.length > 0;
+
+            // Get diff stats
+            const stats = execSync(`git diff --stat ${base} ${head} | tail -1`).toString().trim();
+
+            // Build checklist
+            const marker = '<!-- pr-review-helper -->';
+            let body = `${marker}\n`;
+            body += `## 📋 PR Review Checklist\n\n`;
+
+            // Summary
+            body += `### 📊 Thay đổi\n\n`;
+            body += `| Loại | Số file |\n|------|--------|\n`;
+            if (pyFiles.length) body += `| Python | ${pyFiles.length} |\n`;
+            if (jsFiles.length) body += `| JavaScript | ${jsFiles.length} |\n`;
+            if (jsonFiles.length) body += `| JSON (DocType/Config) | ${jsonFiles.length} |\n`;
+            if (docFiles.length) body += `| Documentation | ${docFiles.length} |\n`;
+            body += `| **Tổng** | **${files.length}** |\n\n`;
+            body += `> ${stats}\n\n`;
+
+            // Dynamic checklist based on what changed
+            body += `### ✅ Review Checklist\n\n`;
+            body += `**Chung:**\n`;
+            body += `- [ ] Code đã được test locally\n`;
+            body += `- [ ] Không có console.log / print debug còn sót\n`;
+
+            if (hasServerCode) {
+              body += `\n**Python / Server:**\n`;
+              body += `- [ ] Không có SQL injection (f-string trong frappe.db.sql)\n`;
+              body += `- [ ] Permission check cho @frappe.whitelist methods\n`;
+              body += `- [ ] Error handling đầy đủ (frappe.throw với message rõ ràng)\n`;
+            }
+
+            if (hasClientScript) {
+              body += `\n**JavaScript / Client:**\n`;
+              body += `- [ ] Không dùng frappe.db.* (phải dùng frappe.call)\n`;
+              body += `- [ ] frappe.call có callback/error handler\n`;
+              body += `- [ ] Không dùng cur_frm (dùng frm parameter)\n`;
+            }
+
+            if (hooksChanged) {
+              body += `\n**⚠️ hooks.py thay đổi:**\n`;
+              body += `- [ ] doc_events đúng format dict\n`;
+              body += `- [ ] fixtures list đúng filter\n`;
+              body += `- [ ] scheduler_events có frappe.db.commit() nếu cần\n`;
+              body += `- [ ] Không break existing hooks\n`;
+            }
+
+            if (installChanged) {
+              body += `\n**⚠️ install.py thay đổi:**\n`;
+              body += `- [ ] after_migrate idempotent (chạy lại không lỗi)\n`;
+              body += `- [ ] Custom fields có đúng fieldname convention\n`;
+            }
+
+            if (hasDocType) {
+              body += `\n**DocType:**\n`;
+              body += `- [ ] JSON definition hợp lệ\n`;
+              body += `- [ ] Permissions đúng role\n`;
+              body += `- [ ] Naming convention đúng (autoname, name_case)\n`;
+            }
+
+            if (fixturesChanged) {
+              body += `\n**Fixtures / Data:**\n`;
+              body += `- [ ] Fixtures export đúng (bench export-fixtures)\n`;
+              body += `- [ ] Không chứa data nhạy cảm (password, API key)\n`;
+            }
+
+            if (!hasTests && (hasServerCode || hasClientScript)) {
+              body += `\n**⚠️ Không có test file trong PR:**\n`;
+              body += `- [ ] Xác nhận: test đã có sẵn hoặc sẽ thêm sau\n`;
+            }
+
+            // Changed files list
+            body += `\n<details><summary>📁 Changed files (${files.length})</summary>\n\n`;
+            body += '```\n' + files.join('\n') + '\n```\n';
+            body += '</details>\n\n';
+            body += '---\n';
+            body += '*🤖 Auto-generated by PR Review Helper*\n';
+
+            // Post comment (only on new PRs)
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: pr.number,
+              body,
+            });

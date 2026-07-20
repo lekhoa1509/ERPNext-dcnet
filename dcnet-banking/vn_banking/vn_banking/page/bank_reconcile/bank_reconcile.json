@@ -1,0 +1,13 @@
+{
+ "doctype": "Page",
+ "name": "bank-reconcile",
+ "page_name": "bank-reconcile",
+ "title": "Bank Reconcile",
+ "module": "VN Banking",
+ "standard": "Yes",
+ "roles": [
+  {"role": "Accounts User"},
+  {"role": "Accounts Manager"},
+  {"role": "System Manager"}
+ ]
+}

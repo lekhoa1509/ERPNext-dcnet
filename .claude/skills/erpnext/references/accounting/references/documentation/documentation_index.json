@@ -1,0 +1,387 @@
+{
+  "total_files": 20,
+  "categories": {
+    "overview": [
+      "README.md"
+    ],
+    "other": [
+      "doctype/account/README.md",
+      "doctype/bank_clearance/README.md",
+      "doctype/bank_clearance_detail/README.md",
+      "doctype/cost_center/README.md",
+      "doctype/fiscal_year/README.md",
+      "doctype/gl_entry/README.md",
+      "doctype/journal_entry/README.md",
+      "doctype/journal_entry_account/README.md",
+      "doctype/mode_of_payment/README.md",
+      "doctype/monthly_distribution/README.md",
+      "doctype/period_closing_voucher/README.md",
+      "doctype/purchase_invoice/README.md",
+      "doctype/purchase_invoice_advance/README.md",
+      "doctype/purchase_invoice_item/README.md",
+      "doctype/purchase_taxes_and_charges/README.md",
+      "doctype/sales_invoice/README.md",
+      "doctype/sales_invoice_advance/README.md",
+      "doctype/sales_invoice_item/README.md",
+      "doctype/sales_taxes_and_charges/README.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "filename": "README.md",
+      "category": "overview",
+      "size_bytes": 2167,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [
+          {
+            "level": 2,
+            "text": "Payment Ledger",
+            "line": 15
+          },
+          {
+            "level": 3,
+            "text": "Key Fields",
+            "line": 18
+          },
+          {
+            "level": 3,
+            "text": "Design",
+            "line": 28
+          }
+        ],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 282,
+        "line_count": 52
+      },
+      "summary": "Sections: Payment Ledger, Key Fields, Design\nAccounts module contains masters and transactions to manage a traditional double entry accounting system.\n(282 words, 0 code blocks)",
+      "content": "Accounts module contains masters and transactions to manage a traditional\ndouble entry accounting system.\n\nAccounting heads are called \"Accounts\" and they can be groups in a tree like\n\"Chart of Accounts\"\n\nEntries are:\n\n- Journal Entries\n- Sales Invoice (Itemised)\n- Purchase Invoice (Itemised)\n\nAll accounting entries are stored in the `General Ledger`\n\n## Payment Ledger\nTransactions on Receivable and Payable Account types will also be stored in `Payment Ledger`. This is so that payment reconciliation process only requires update on this ledger.\n\n### Key Fields\n| Field                | Description                      |\n|----------------------|----------------------------------|\n| `account_type`       | Receivable/Payable               |\n| `account`            | Accounting head                  |\n| `party`              | Party Name                       |\n| `voucher_no`         | Voucher No                       |\n| `against_voucher_no` | Linked voucher(secondary effect) |\n| `amount`             | can be +ve/-ve                   |\n\n### Design\n`debit` and `credit` have been replaced with `account_type` and `amount`. `against_voucher_no` is populated for all entries. So, outstanding amount can be calculated by summing up amount only using `against_voucher_no`.\n\nEx:\n1. Consider an invoice for \u20b9100 and a partial payment of \u20b980 against that invoice. Payment Ledger will have following entries.\n\n| voucher_no | against_voucher_no | amount |\n|------------|--------------------|--------|\n| SINV-01    | SINV-01            | 100    |\n| PAY-01     | SINV-01            | -80    |\n\n\n2. Reconcile a Credit Note against an invoice using a Journal Entry\n\nAn invoice for \u20b9100 partially reconciled against a credit of \u20b970 using a Journal Entry. Payment Ledger will have the following entries.\n\n| voucher_no | against_voucher_no | amount |\n|------------|--------------------|--------|\n| SINV-01    | SINV-01            | 100    |\n|            |                    |        |\n| CR-NOTE-01 | CR-NOTE-01         | -70    |\n|            |                    |        |\n| JE-01      | CR-NOTE-01         | +70    |\n| JE-01      | SINV-01            | -70    |\n"
+    },
+    {
+      "path": "doctype/account/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 354,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 59,
+        "line_count": 12
+      },
+      "summary": "Account DocType represents an Accounting Ledger or Group.\n(59 words, 0 code blocks)",
+      "content": "Account DocType represents an Accounting Ledger or Group.\n\nFollows a composite model. `parent_account` represents the parent of an Account except\na root account.\nThere can be only 4 root accounts: Income, Expense, Assets and Liabilities in a company.\n\nOther features:\n\n- It can be of type Debit or Credit.\n- A Group is a collection of groups or ledgers\n\n"
+    },
+    {
+      "path": "doctype/bank_clearance/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 58,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Tool to update realization dates for banking transactions.\n(8 words, 0 code blocks)",
+      "content": "Tool to update realization dates for banking transactions."
+    },
+    {
+      "path": "doctype/bank_clearance_detail/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 48,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "Detail of transaction for parent Bank Clearance.\n(7 words, 0 code blocks)",
+      "content": "Detail of transaction for parent Bank Clearance."
+    },
+    {
+      "path": "doctype/cost_center/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 26,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 4,
+        "line_count": 1
+      },
+      "summary": "Cost center master (tree).\n(4 words, 0 code blocks)",
+      "content": "Cost center master (tree)."
+    },
+    {
+      "path": "doctype/fiscal_year/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 70,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 10,
+        "line_count": 1
+      },
+      "summary": "Accounting year. Fiscal Year is tagged in all accounting transactions.\n(10 words, 0 code blocks)",
+      "content": "Accounting year. Fiscal Year is tagged in all accounting transactions."
+    },
+    {
+      "path": "doctype/gl_entry/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 141,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 21,
+        "line_count": 1
+      },
+      "summary": "All accounting entries are consolidated / aggregated in GL Entry (General Ledger Entry) DocType. All reports are generated from this DocType.\n(21 words, 0 code blocks)",
+      "content": "All accounting entries are consolidated / aggregated in GL Entry (General Ledger Entry) DocType. All reports are generated from this DocType."
+    },
+    {
+      "path": "doctype/journal_entry/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 56,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "Journal entry for accounting entries including payments.\n(7 words, 0 code blocks)",
+      "content": "Journal entry for accounting entries including payments."
+    },
+    {
+      "path": "doctype/journal_entry_account/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 42,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Individual entry for parent Journal Entry.\n(6 words, 0 code blocks)",
+      "content": "Individual entry for parent Journal Entry."
+    },
+    {
+      "path": "doctype/mode_of_payment/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 80,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 16,
+        "line_count": 8
+      },
+      "summary": "Master for modes of payment.\n(16 words, 0 code blocks)",
+      "content": "Master for modes of payment.\n\ne.g.\n\n- Cash\n- Credit Card\n- Bank Transfer\n- Check"
+    },
+    {
+      "path": "doctype/monthly_distribution/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 63,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Budget distribution master to manage manage budget seasonality.\n(8 words, 0 code blocks)",
+      "content": "Budget distribution master to manage manage budget seasonality."
+    },
+    {
+      "path": "doctype/period_closing_voucher/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 83,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 16,
+        "line_count": 1
+      },
+      "summary": "Entry to close all Profit and Loss (P&L) accounts at the end of a financial period.\n(16 words, 0 code blocks)",
+      "content": "Entry to close all Profit and Loss (P&L) accounts at the end of a financial period."
+    },
+    {
+      "path": "doctype/purchase_invoice/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 36,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 5,
+        "line_count": 1
+      },
+      "summary": "Itemized invoice raised by Supplier.\n(5 words, 0 code blocks)",
+      "content": "Itemized invoice raised by Supplier."
+    },
+    {
+      "path": "doctype/purchase_invoice_advance/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 48,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 7,
+        "line_count": 1
+      },
+      "summary": "Detail of advance paid against Purchase Invoice.\n(7 words, 0 code blocks)",
+      "content": "Detail of advance paid against Purchase Invoice."
+    },
+    {
+      "path": "doctype/purchase_invoice_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 39,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Item detail in parent Purchase Invoice.\n(6 words, 0 code blocks)",
+      "content": "Item detail in parent Purchase Invoice."
+    },
+    {
+      "path": "doctype/purchase_taxes_and_charges/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 42,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Tax details for all Purchase Transactions.\n(6 words, 0 code blocks)",
+      "content": "Tax details for all Purchase Transactions."
+    },
+    {
+      "path": "doctype/sales_invoice/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 37,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 5,
+        "line_count": 1
+      },
+      "summary": "Itemized invoice raised to Customers.\n(5 words, 0 code blocks)",
+      "content": "Itemized invoice raised to Customers."
+    },
+    {
+      "path": "doctype/sales_invoice_advance/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 60,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Details of advances paid by Customers against Sales Invoice.\n(9 words, 0 code blocks)",
+      "content": "Details of advances paid by Customers against Sales Invoice."
+    },
+    {
+      "path": "doctype/sales_invoice_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 37,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Item details of parent Sales Invoice.\n(6 words, 0 code blocks)",
+      "content": "Item details of parent Sales Invoice."
+    },
+    {
+      "path": "doctype/sales_taxes_and_charges/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 39,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 6,
+        "line_count": 1
+      },
+      "summary": "Tax details for all sales transactions.\n(6 words, 0 code blocks)",
+      "content": "Tax details for all sales transactions."
+    }
+  ]
+}

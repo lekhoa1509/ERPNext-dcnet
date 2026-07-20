@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "creation": "2026-05-19 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "file_type",
+  "file_url",
+  "original_filename",
+  "size_bytes",
+  "row_count",
+  "total_rows_expected",
+  "column_count",
+  "parse_status",
+  "parse_error"
+ ],
+ "fields": [
+  {
+   "fieldname": "file_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Loại file",
+   "options": "Unknown\nNKC\nBang ke BR\nBang ke MV\nSCT\nAccount\nMisa Default Account\nMisa Closing Rule\nItem\nItem Group\nCustomer\nCustomer Group\nSupplier\nSupplier Group\nEmployee\nUOM\nBank\nBank Account\nWarehouse\nDepartment\nCost Center\nProject\nAsset Category\nCCDC Category\nOB Account Balance\nOB Bank Balance\nOB Customer AR\nOB Supplier AP\nOB Employee Advance\nOB Inventory\nOB Fixed Asset\nOB CCDC\nOB Prepaid Expense"
+  },
+  {
+   "fieldname": "file_url",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "File",
+   "reqd": 1
+  },
+  {
+   "fieldname": "original_filename",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tên file gốc",
+   "read_only": 1
+  },
+  {
+   "fieldname": "size_bytes",
+   "fieldtype": "Int",
+   "label": "Dung lượng (B)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "row_count",
+   "fieldtype": "Int",
+   "label": "Số dòng",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_rows_expected",
+   "fieldtype": "Int",
+   "label": "Tổng dòng ước tính",
+   "read_only": 1,
+   "description": "Số dòng ước tính từ openpyxl ws.max_row, ghi trước khi bắt đầu parse để UI có thể hiển thị progress 'parsed/total'."
+  },
+  {
+   "fieldname": "column_count",
+   "fieldtype": "Int",
+   "label": "Số cột",
+   "read_only": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "parse_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Trạng thái parse",
+   "options": "Pending\nParsing\nParsed\nFailed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "parse_error",
+   "fieldtype": "Long Text",
+   "label": "Lỗi parse",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-21 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Misa Migration",
+ "name": "Misa Migration File",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

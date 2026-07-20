@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by CHANHHT (SEATECHIT) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ct12" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Hợp đồng dầu khí lô</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="LoaiHinhUyQuyen">
+							<xs:annotation>
+								<xs:documentation>Loại hình ủy quyền</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="donViUyQuyen" type="xs:boolean" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Tên đơn vị được uỷ quyền</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="daiLyThue" type="xs:boolean" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Đại lý thuế </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="tenDonViUyQuyen" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tên đơn vị uỷ quyền</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CT1">
+							<xs:annotation>
+								<xs:documentation>Sản lượng dầu khí dự kiến khai thác trong năm-</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TinhTheoThung" nillable="true">
+										<xs:annotation>
+											<xs:documentation> Tính theo thùng</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="dauTho_11" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Dầu thô</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="condensate_11" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Condensate</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="khiThienNhien_11" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Khí thiên nhiên</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ghiChu_11" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ghi chú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TinhTheom3" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tính theo m3</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="dauTho_12" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Dầu thô</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="condensate_12" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Condensate</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="khiThienNhien_12" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Khí thiên nhiên</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ghiChu_12" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ghi chú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CT2" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng số ngày khai thác dầu khí trong năm</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="dauTho_2" type="xs:nonNegativeInteger" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Dầu thô</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="condensate_2" type="xs:nonNegativeInteger" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Condensate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="khiThienNhien_2" type="xs:nonNegativeInteger" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Khí thiên nhiên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ghiChu_2" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ghi chú</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CT3">
+							<xs:annotation>
+								<xs:documentation>Sản lượng khai thác bình quân ngày </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TinhTheoThung" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tính theo thùng/ngày</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="dauTho_31" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Dầu thô</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="condensate_31" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Condensate</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="khiThienNhien_31" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Khí thiên nhiên</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ghiChu_31" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ghi chú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TinhTheom3" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tính theo m3/ngày</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="dauTho_32" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Dầu thô</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="condensate_32" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Condensate</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="khiThienNhien_32" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Khí thiên nhiên</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ghiChu_32" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ghi chú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CT4" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tỷ lệ thuế tài nguyên tạm nộp</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="dauTho_4" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Dầu thô</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="condensate_4" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Condensate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="khiThienNhien_4" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Khí thiên nhiên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ghiChu_4" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ghi chú</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CT5" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tỷ lệ thuế xuất khẩu tạm nộp</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="dauTho_5" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Dầu thô</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="condensate_5" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Condensate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="khiThienNhien_5" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Khí thiên nhiên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ghiChu_5" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ghi chú</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CT6" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tỷ lệ thuế thu nhập doanh nghiệp tạm nộp đối với trường hợp bán trong nước </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="dauTho_6" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Dầu thô</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="condensate_6" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Condensate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="khiThienNhien_6" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Khí thiên nhiên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ghiChu_6" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ghi chú</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CT7" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tỷ lệ thuế thu nhập doanh nghiệp tạm nộp đối với trường hợp xuất khẩu </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="dauTho_7" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Dầu thô</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="condensate_7" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Condensate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="khiThienNhien_7" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Khí thiên nhiên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ghiChu_7" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Ghi chú</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

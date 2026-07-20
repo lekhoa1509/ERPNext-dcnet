@@ -1,0 +1,16 @@
+{
+  "name": "dcnet-crm-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "esbuild frontend/src/main.js --bundle --minify --format=iife --global-name=DCNETCRM --loader:.css=text --outfile=dcnet_crm/public/dist/crm.bundle.js",
+    "check": "node scripts/check-frontend.mjs",
+    "test": "npm run check && npm run build"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

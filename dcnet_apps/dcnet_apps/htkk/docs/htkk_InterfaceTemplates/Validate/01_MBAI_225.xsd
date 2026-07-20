@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.2">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ChonToKhai">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="tkChinhThucLanDau" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Khai phí môn bài chính thức lần đầu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="boSung_tkChinhThucLanDau" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Khai phí môn bài bổ sung cho tờ khai chính thức lần đầu </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tkChiNhanhMoiThanhLap" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Khai phí môn bài  cho chi nhánh mới thành lập</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="boSung_tkChiNhanhMoiThanhLap" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Khai phí môn bài  bổ sung cho tờ khai của các chi nhánh</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ngayLapTKChinhThuc" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Ngày lập tờ khai chính thức</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct21" type="xs:boolean" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Khai bổ sung cho cơ sở mới thành lập trong năm (đánh dấu “X” nếu có)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CT22">
+							<xs:annotation>
+								<xs:documentation>Người nộp lệ phí môn bài</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct2" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Người nộp lệ phí môn bài</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct4" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Vốn điều lệ hoặc vốn đầu tư, doanh thu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct5" type="xs:long" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Mức lệ phí môn bài</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CT23">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="DonViTrucThuocHToanDiaPhuong" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Đơn vị trực thuộc hạch toán phụ thuộc cùng địa phương</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct2_ma" type="TINType" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã số thuế đơn vị trực thuộc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct2_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đơn vị trực thuộc hạch toán phụ thuộc cùng địa phương
+ (ghi rõ tên, địa chỉ)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct4" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Vốn điều lệ hoặc vốn đầu tư, doanh thu</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct5" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mức lệ phí môn bài</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ct24" type="xs:long" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tổng  lệ phí môn bài phải nộp</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

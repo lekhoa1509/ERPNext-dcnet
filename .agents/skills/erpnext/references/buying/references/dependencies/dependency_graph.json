@@ -1,0 +1,473 @@
+{
+  "nodes": [
+    {
+      "file": "__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/buying_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/buying_settings/buying_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/buying_settings/buying_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/buying_settings/test_buying_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer_number_at_supplier/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer_number_at_supplier/customer_number_at_supplier.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_order/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_order/purchase_order.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/purchase_order/purchase_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_order/purchase_order_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_order/purchase_order_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/purchase_order/test_purchase_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_order_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_order_item/purchase_order_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_order_item_supplied/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_order_item_supplied/purchase_order_item_supplied.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_receipt_item_supplied/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/purchase_receipt_item_supplied/purchase_receipt_item_supplied.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/request_for_quotation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/request_for_quotation/request_for_quotation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/request_for_quotation/request_for_quotation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/request_for_quotation/request_for_quotation_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/request_for_quotation/test_request_for_quotation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/request_for_quotation_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/request_for_quotation_item/request_for_quotation_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/request_for_quotation_supplier/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/request_for_quotation_supplier/request_for_quotation_supplier.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier/patches/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier/patches/migrate_supplier_portal_users.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier/supplier.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier/supplier.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier/supplier_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier/supplier_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier/test_supplier.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_quotation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_quotation/supplier_quotation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier_quotation/supplier_quotation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_quotation/supplier_quotation_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_quotation/supplier_quotation_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier_quotation/test_supplier_quotation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_quotation_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_quotation_item/supplier_quotation_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard/supplier_scorecard.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier_scorecard/supplier_scorecard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard/supplier_scorecard_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard/supplier_scorecard_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier_scorecard/test_supplier_scorecard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_criteria/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_criteria/supplier_scorecard_criteria.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier_scorecard_criteria/supplier_scorecard_criteria.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_criteria/test_supplier_scorecard_criteria.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_period/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_period/supplier_scorecard_period.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier_scorecard_period/supplier_scorecard_period.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_period/test_supplier_scorecard_period.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_scoring_criteria/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_scoring_criteria/supplier_scorecard_scoring_criteria.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_scoring_standing/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_scoring_standing/supplier_scorecard_scoring_standing.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_scoring_variable/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_scoring_variable/supplier_scorecard_scoring_variable.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_standing/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_standing/supplier_scorecard_standing.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier_scorecard_standing/supplier_scorecard_standing.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_standing/test_supplier_scorecard_standing.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_variable/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_variable/supplier_scorecard_variable.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/supplier_scorecard_variable/supplier_scorecard_variable.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_scorecard_variable/test_supplier_scorecard_variable.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/drop_shipping_format/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/purchase_order_standard/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/purchase_order_with_item_image/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format_field_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format_field_template/purchase_order_taxes/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format_field_template/supplier_quotation_taxes/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/item_wise_purchase_history/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/item_wise_purchase_history/item_wise_purchase_history.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/item_wise_purchase_history/item_wise_purchase_history.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/procurement_tracker/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/procurement_tracker/procurement_tracker.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/procurement_tracker/procurement_tracker.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/procurement_tracker/test_procurement_tracker.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/purchase_analytics/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/purchase_analytics/purchase_analytics.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/purchase_analytics/purchase_analytics.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/purchase_order_analysis/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/purchase_order_analysis/purchase_order_analysis.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/purchase_order_analysis/purchase_order_analysis.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/purchase_order_trends/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/purchase_order_trends/purchase_order_trends.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/purchase_order_trends/purchase_order_trends.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/requested_items_to_order_and_receive/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/requested_items_to_order_and_receive/requested_items_to_order_and_receive.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/requested_items_to_order_and_receive/requested_items_to_order_and_receive.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/requested_items_to_order_and_receive/test_requested_items_to_order_and_receive.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/subcontract_order_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/subcontract_order_summary/subcontract_order_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/subcontract_order_summary/subcontract_order_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/subcontracted_item_to_be_received/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/subcontracted_item_to_be_received/subcontracted_item_to_be_received.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/subcontracted_item_to_be_received/subcontracted_item_to_be_received.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/subcontracted_item_to_be_received/test_subcontracted_item_to_be_received.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/subcontracted_raw_materials_to_be_transferred/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/subcontracted_raw_materials_to_be_transferred/subcontracted_raw_materials_to_be_transferred.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/subcontracted_raw_materials_to_be_transferred/subcontracted_raw_materials_to_be_transferred.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/subcontracted_raw_materials_to_be_transferred/test_subcontracted_raw_materials_to_be_transferred.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/supplier_quotation_comparison/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/supplier_quotation_comparison/supplier_quotation_comparison.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/supplier_quotation_comparison/supplier_quotation_comparison.py",
+      "language": "Python"
+    },
+    {
+      "file": "utils.py",
+      "language": "Python"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,40 @@
+<PL_04_ND20>
+	<Muc_I>
+		<CTiet id="ID_1">
+			<ct1_ma></ct1_ma>
+			<ct1_ten></ct1_ten>
+			<ct2>0</ct2>
+			<ct3>0</ct3>
+			<ct4>0</ct4>
+			<ct5>0</ct5>
+			<ct6>0</ct6>
+			<ct7>0</ct7>
+			<ct8>0</ct8>
+			<ct9>0</ct9>
+			<ct10>0</ct10>
+			<ct11>0</ct11>
+		</CTiet>
+	</Muc_I>
+	<Muc_II>
+		<CTiet id="ID_2">
+			<ct1_ma></ct1_ma>
+			<ct1_ten></ct1_ten>
+			<ct2></ct2>
+			<ct3_ma></ct3_ma>
+			<ct3_ten></ct3_ten>
+			<ct4></ct4>
+			<ct5></ct5>
+			<ct6></ct6>
+			<ct7></ct7>
+			<ct8></ct8>
+			<ct9></ct9>
+			<ct10></ct10>
+			<ct11></ct11>
+			<ct12></ct12>
+			<ct13></ct13>
+			<ct14></ct14>
+			<ct15></ct15>
+			<ct16></ct16>
+		</CTiet>
+	</Muc_II>
+</PL_04_ND20>

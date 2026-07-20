@@ -1,0 +1,1 @@
+"""Excel Print Template DocType."""

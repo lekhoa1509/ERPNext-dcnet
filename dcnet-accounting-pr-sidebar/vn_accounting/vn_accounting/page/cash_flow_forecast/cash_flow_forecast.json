@@ -1,0 +1,20 @@
+{
+    "content": null,
+    "creation": "2026-04-20 00:00:00",
+    "docstatus": 0,
+    "doctype": "Page",
+    "idx": 0,
+    "module": "VN Accounting",
+    "modified": "2026-04-20 00:00:00",
+    "modified_by": "Administrator",
+    "name": "cash-flow-forecast",
+    "owner": "Administrator",
+    "page_name": "cash-flow-forecast",
+    "roles": [
+        {"role": "Accounts User"},
+        {"role": "Accounts Manager"},
+        {"role": "System Manager"}
+    ],
+    "standard": "Yes",
+    "title": "Cash Flow Forecast"
+}

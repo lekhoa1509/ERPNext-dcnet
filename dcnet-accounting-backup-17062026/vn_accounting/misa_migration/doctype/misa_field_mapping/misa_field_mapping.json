@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "creation": "2026-05-19 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_intro",
+  "intro_html",
+  "section_break_nkc",
+  "nkc_columns",
+  "section_break_invoice",
+  "invoice_list_br_columns",
+  "invoice_list_mv_columns",
+  "section_break_master",
+  "account_columns",
+  "item_columns",
+  "customer_columns",
+  "supplier_columns",
+  "employee_columns",
+  "bank_account_columns",
+  "generic_master_columns"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_intro",
+   "fieldtype": "Section Break",
+   "label": "Hướng dẫn"
+  },
+  {
+   "fieldname": "intro_html",
+   "fieldtype": "HTML",
+   "label": "Intro",
+   "options": "<div style=\"padding:8px;background:#f0f7fa;border-radius:6px;\"><p style=\"margin:0;\">Ánh xạ cột Misa Excel → field ERPNext. JSON dạng <code>{\"erpnext_field\": \"Tên cột Misa\"}</code>. Cập nhật khi Misa thay đổi tên cột giữa các bản.</p></div>"
+  },
+  {
+   "fieldname": "section_break_nkc",
+   "fieldtype": "Section Break",
+   "label": "Sổ Nhật Ký Chung (NKC)"
+  },
+  {
+   "fieldname": "nkc_columns",
+   "fieldtype": "Long Text",
+   "label": "NKC columns (JSON)"
+  },
+  {
+   "fieldname": "section_break_invoice",
+   "fieldtype": "Section Break",
+   "label": "Bảng kê hóa đơn"
+  },
+  {
+   "fieldname": "invoice_list_br_columns",
+   "fieldtype": "Long Text",
+   "label": "Bảng kê BR (bán ra) columns"
+  },
+  {
+   "fieldname": "invoice_list_mv_columns",
+   "fieldtype": "Long Text",
+   "label": "Bảng kê MV (mua vào) columns"
+  },
+  {
+   "fieldname": "section_break_master",
+   "fieldtype": "Section Break",
+   "label": "Danh mục master"
+  },
+  {
+   "fieldname": "account_columns",
+   "fieldtype": "Long Text",
+   "label": "Account columns"
+  },
+  {
+   "fieldname": "item_columns",
+   "fieldtype": "Long Text",
+   "label": "Item columns"
+  },
+  {
+   "fieldname": "customer_columns",
+   "fieldtype": "Long Text",
+   "label": "Customer columns"
+  },
+  {
+   "fieldname": "supplier_columns",
+   "fieldtype": "Long Text",
+   "label": "Supplier columns"
+  },
+  {
+   "fieldname": "employee_columns",
+   "fieldtype": "Long Text",
+   "label": "Employee columns"
+  },
+  {
+   "fieldname": "bank_account_columns",
+   "fieldtype": "Long Text",
+   "label": "Bank Account columns"
+  },
+  {
+   "fieldname": "generic_master_columns",
+   "fieldtype": "Long Text",
+   "label": "Generic master (UOM/Bank/Warehouse/Department/...) columns"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-05-19 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Misa Migration",
+ "name": "Misa Field Mapping",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 0,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "Accounts Manager",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

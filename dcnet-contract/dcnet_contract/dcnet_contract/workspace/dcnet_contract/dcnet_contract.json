@@ -1,0 +1,121 @@
+{
+ "app": "dcnet_contract",
+ "name": "Contract Manager",
+ "title": "Contract Manager",
+ "label": "Contract Manager",
+ "doctype": "Workspace",
+ "module": "DCNet Contract",
+ "icon": "file",
+ "is_standard": 1,
+ "public": 1,
+ "is_hidden": 0,
+ "content": "[{\"id\":\"dc_h1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>T\u1ed5ng quan H\u1ee3p \u0111\u1ed3ng</b></span>\",\"col\":12}},{\"id\":\"dc_nc_active\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Contracts\",\"col\":3}},{\"id\":\"dc_nc_revenue\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Monthly Revenue\",\"col\":3}},{\"id\":\"dc_nc_overdue\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Overdue Amount\",\"col\":3}},{\"id\":\"dc_nc_expiring\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Contracts Expiring This Month\",\"col\":3}},{\"id\":\"dc_h2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Bi\u1ec3u \u0111\u1ed3</b></span>\",\"col\":12}},{\"id\":\"dc_chart_monthly\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Monthly Contract Value\",\"col\":6}},{\"id\":\"dc_chart_service\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Revenue by Service Type\",\"col\":6}},{\"id\":\"dc_chart_status\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Contracts by Status\",\"col\":6}},{\"id\":\"dc_h3\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Truy c\u1eadp nhanh</b></span>\",\"col\":12}},{\"id\":\"dc_sc_new\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"T\u1ea1o H\u1ee3p \u0111\u1ed3ng\",\"col\":4}},{\"id\":\"dc_sc_list\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Danh s\u00e1ch H\u1ee3p \u0111\u1ed3ng\",\"col\":4}},{\"id\":\"dc_sc_settings\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"C\u00e0i \u0111\u1eb7t\",\"col\":4}}]",
+ "number_cards": [
+  {"number_card_name": "Active Contracts", "label": "H\u1ee3p \u0111\u1ed3ng \u0111ang ho\u1ea1t \u0111\u1ed9ng"},
+  {"number_card_name": "Total Monthly Revenue", "label": "Doanh thu h\u00e0ng th\u00e1ng"},
+  {"number_card_name": "Overdue Amount", "label": "S\u1ed1 ti\u1ec1n qu\u00e1 h\u1ea1n"},
+  {"number_card_name": "Contracts Expiring This Month", "label": "H\u1ee3p \u0111\u1ed3ng s\u1eafp h\u1ebft h\u1ea1n"}
+ ],
+ "charts": [
+  {"chart_name": "Monthly Contract Value", "label": "Gi\u00e1 tr\u1ecb h\u1ee3p \u0111\u1ed3ng theo th\u00e1ng"},
+  {"chart_name": "Revenue by Service Type", "label": "Doanh thu theo lo\u1ea1i d\u1ecbch v\u1ee5"},
+  {"chart_name": "Contracts by Status", "label": "H\u1ee3p \u0111\u1ed3ng theo tr\u1ea1ng th\u00e1i"}
+ ],
+ "shortcuts": [
+  {
+   "type": "DocType",
+   "link_to": "DCNet Contract",
+   "label": "T\u1ea1o H\u1ee3p \u0111\u1ed3ng",
+   "color": "Green",
+   "doc_view": "New"
+  },
+  {
+   "type": "DocType",
+   "link_to": "DCNet Contract",
+   "label": "Danh s\u00e1ch H\u1ee3p \u0111\u1ed3ng",
+   "color": "Blue",
+   "doc_view": "List"
+  },
+  {
+   "type": "DocType",
+   "link_to": "DCNet Contract Settings",
+   "label": "C\u00e0i \u0111\u1eb7t",
+   "color": "Grey",
+   "doc_view": ""
+  }
+ ],
+ "links": [
+  {
+   "type": "Card Break",
+   "label": "H\u1ee3p \u0111\u1ed3ng theo tr\u1ea1ng th\u00e1i"
+  },
+  {
+   "type": "Link",
+   "link_type": "DocType",
+   "link_to": "DCNet Contract",
+   "label": "H\u1ee3p \u0111\u1ed3ng \u0111ang ho\u1ea1t \u0111\u1ed9ng",
+   "dependencies": "",
+   "only_for": "",
+   "onboard": 0
+  },
+  {
+   "type": "Card Break",
+   "label": "B\u00e1o c\u00e1o"
+  },
+  {
+   "type": "Link",
+   "link_type": "Report",
+   "link_to": "Outstanding Receivables by Contract",
+   "label": "C\u00f4ng n\u1ee3 theo H\u1ee3p \u0111\u1ed3ng",
+   "dependencies": "",
+   "only_for": "",
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "link_type": "Report",
+   "link_to": "Contract Expiry Report",
+   "label": "H\u1ee3p \u0111\u1ed3ng s\u1eafp h\u1ebft h\u1ea1n",
+   "dependencies": "",
+   "only_for": "",
+   "onboard": 0
+  },
+  {
+   "type": "Card Break",
+   "label": "Thi\u1ebft l\u1eadp"
+  },
+  {
+   "type": "Link",
+   "link_type": "DocType",
+   "link_to": "DCNet Contract Settings",
+   "label": "C\u00e0i \u0111\u1eb7t",
+   "dependencies": "",
+   "only_for": "",
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "link_type": "DocType",
+   "link_to": "DCNet Contract Template",
+   "label": "M\u1eabu H\u1ee3p \u0111\u1ed3ng",
+   "dependencies": "",
+   "only_for": "",
+   "onboard": 0
+  }
+ ],
+ "quick_lists": [],
+ "custom_blocks": [],
+ "roles": [],
+ "restrict_to_domain": "",
+ "parent_page": "",
+ "for_user": "",
+ "hide_custom": 0,
+ "creation": "2026-04-13 00:00:00.000000",
+ "modified": "2026-04-13 22:00:00.000000",
+ "modified_by": "Administrator",
+ "owner": "Administrator",
+ "docstatus": 0,
+ "idx": 0,
+ "sequence_id": 1.0,
+ "type": "Workspace"
+}

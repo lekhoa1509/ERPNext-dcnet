@@ -1,0 +1,17 @@
+[project]
+name = "dcnet_fixtures"
+version = "0.0.1"
+description = "Sample data fixtures for DCNET Golf Business - ERPNext"
+authors = [
+    { name = "DCNET Team", email = "dev@dcnet.vn" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[build-system]
+requires = ["flit_core >=3.4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "dcnet_fixtures"

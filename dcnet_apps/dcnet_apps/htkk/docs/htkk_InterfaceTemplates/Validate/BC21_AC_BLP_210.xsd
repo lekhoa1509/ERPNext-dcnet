@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="noiBCao" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Nơi báo cáo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ngayBCao" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Ngày báo cáo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ngayMatChayBLai" type="xs:dateTime" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Ngày biên lai mất, cháy</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="BKeBLaiMatChay">
+							<xs:annotation>
+								<xs:documentation>Bảng kê biên lai mất, cháy</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietBKeBLaiMatChay" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Chi tiết bảng kê biên lại mất, cháy</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="kyHieuMauBienLai" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Ký hiệu mẫu biên lai </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tenLoaiBienLai" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Tên loại biên lai</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="kyHieuBienLai" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Ký hiệu biên lai</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tuSo" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Từ số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="denSo" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đến số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soLuong" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lượng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="lienBLai" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Liên biên lai</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ghiChu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ghi chú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="lyDoMatChayBLai" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Lý do mất, cháy biên lai</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="donViNhanBCao" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Nay đơn vị báo cáo với ………………………. Để phối hợp truy tìm, ngăn chặn lợi dụng và thông báo số ấn chỉ trên không còn giá trị sử dụng</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="nguoiDaiDien" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Người đại diện theo pháp luật</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

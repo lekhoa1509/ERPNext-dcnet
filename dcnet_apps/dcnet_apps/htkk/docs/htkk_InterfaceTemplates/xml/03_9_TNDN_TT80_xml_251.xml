@@ -1,0 +1,57 @@
+<PLuc_03_9_TNDN>
+	<ThueTNDN_KyTruoc>
+		<chiTiet_ThueTNDN id="String">
+			<ct2/>
+			<ct4_ma/>
+			<ct4_ten/>
+			<ct5_ma/>
+			<ct5_ten/>
+			<ct6_ma/>
+			<ct6_ten/>
+			<ct7/>
+			<ct8/>
+			<ct9/>
+			<ct10/>
+		</chiTiet_ThueTNDN>
+		<ct04/>
+		<ct05/>
+		<ct06/>
+	</ThueTNDN_KyTruoc>
+	<ThueTNDN_KyNay>
+		<chiTiet_DuanBDS id="String">
+			<ct2/>
+			<ct3_so/>
+			<ct3_ngay/>
+			<ct4_ma/>
+			<ct4_ten/>
+			<ct5_ma/>
+			<ct5_ten/>
+			<ct6_ma/>
+			<ct6_ten/>
+			<ct7/>
+			<ct8/>
+			<ct9/>
+			<ct10/>
+		</chiTiet_DuanBDS>
+		<ct06/>
+		<ct07/>
+		<ct08/>
+	</ThueTNDN_KyNay>
+	<TongThueTNDN>
+		<chiTiet_ThueTNDN id="String">
+			<ct2/>
+			<ct4_ma/>
+			<ct4_ten/>
+			<ct5_ma/>
+			<ct5_ten/>
+			<ct6_ma/>
+			<ct6_ten/>
+			<ct7/>
+			<ct8/>
+			<ct9/>
+			<ct10/>
+		</chiTiet_ThueTNDN>
+		<ct09/>
+		<ct10/>
+	</TongThueTNDN>
+</PLuc_03_9_TNDN>

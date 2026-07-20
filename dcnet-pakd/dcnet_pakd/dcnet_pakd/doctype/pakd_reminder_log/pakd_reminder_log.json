@@ -1,0 +1,96 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "format:RL-{YYYY}-{#####}",
+ "creation": "2026-05-12 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "pakd",
+  "workflow_state_at_send",
+  "column_break_1",
+  "sent_by",
+  "sent_at",
+  "section_recipients",
+  "recipients"
+ ],
+ "fields": [
+  {
+   "fieldname": "pakd",
+   "fieldtype": "Link",
+   "label": "PAKD",
+   "options": "Phuong An Kinh Doanh",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "workflow_state_at_send",
+   "fieldtype": "Data",
+   "label": "Workflow state at send",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sent_by",
+   "fieldtype": "Link",
+   "label": "Sent by",
+   "options": "User",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "sent_at",
+   "fieldtype": "Datetime",
+   "label": "Sent at",
+   "reqd": 1,
+   "in_list_view": 1,
+   "default": "Now"
+  },
+  {
+   "fieldname": "section_recipients",
+   "fieldtype": "Section Break",
+   "label": "Recipients"
+  },
+  {
+   "fieldname": "recipients",
+   "fieldtype": "Long Text",
+   "label": "Recipients",
+   "read_only": 1,
+   "description": "Comma-separated email addresses of users notified by this reminder."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-05-12 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet PAKD",
+ "name": "PAKD Reminder Log",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager"
+  }
+ ],
+ "sort_field": "sent_at",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

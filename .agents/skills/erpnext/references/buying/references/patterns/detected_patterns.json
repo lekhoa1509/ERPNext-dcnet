@@ -1,0 +1,787 @@
+[
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/buying_settings/buying_settings.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/buying_settings/buying_settings.py",
+        "class_name": "BuyingSettings",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py",
+        "class_name": "PurchaseOrder",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Factory method: get_schedule_dates",
+          "Factory method: get_last_purchase_rate",
+          "Factory method: auto_create_subcontracting_order",
+          "Multiple factory methods: get_schedule_dates, get_last_purchase_rate, auto_create_subcontracting_order",
+          "Inherits from: BuyingController"
+        ],
+        "related_classes": [
+          "BuyingController"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py",
+        "class_name": "PurchaseOrder",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Has 3 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py",
+        "class_name": "PurchaseOrder",
+        "method_name": "get_last_purchase_rate",
+        "line_number": 373,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py",
+        "class_name": "PurchaseOrder",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Implements interface: BuyingController",
+          "Has 32 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py",
+        "class_name": "PurchaseOrder",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Notify method: update_ordered_qty",
+          "Notify method: update_status",
+          "Notify method: update_status_updater",
+          "Notify method: update_status_updater_if_from_pp",
+          "Notify method: update_delivered_qty_in_sales_order",
+          "Notify method: update_reserved_qty_for_subcontract",
+          "Notify method: update_receiving_percentage",
+          "Notify method: can_update_items",
+          "Detach method: update_ordered_qty_in_so_for_removed_items",
+          "Notify method: update_ordered_qty_in_so_for_removed_items",
+          "Notify method: update_subcontracting_order_status"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py",
+        "class_name": "PurchaseOrder",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Has hook methods: before_validate, validate, validate_with_previous_doc",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 21,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/test_purchase_order.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/test_purchase_order.py",
+        "class_name": "TestPurchaseOrder",
+        "method_name": null,
+        "line_number": 31,
+        "evidence": [
+          "Factory method: test_make_purchase_receipt",
+          "Factory method: test_update_child_adding_new_item",
+          "Factory method: test_make_purchase_invoice",
+          "Factory method: test_make_purchase_invoice_with_terms",
+          "Factory method: test_make_po_without_terms",
+          "Parameterized factory method: create_account",
+          "Factory method: test_new_sc_flow",
+          "Factory method: test_auto_create_subcontracting_order",
+          "Multiple factory methods: test_make_purchase_receipt, test_update_child_adding_new_item, test_make_purchase_invoice",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/test_purchase_order.py",
+        "class_name": "TestPurchaseOrder",
+        "method_name": "test_make_purchase_invoice_with_terms",
+        "line_number": 544,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Accounts Settings', {'automatically_fetch_payment_terms': 1})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/test_purchase_order.py",
+        "class_name": "TestPurchaseOrder",
+        "method_name": null,
+        "line_number": 31,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 49 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/purchase_order/test_purchase_order.py",
+        "class_name": "TestPurchaseOrder",
+        "method_name": null,
+        "line_number": 31,
+        "evidence": [
+          "Notify method: test_ordered_qty_against_pi_with_update_stock",
+          "Detach method: test_update_remove_child_linked_to_mr",
+          "Notify method: test_update_remove_child_linked_to_mr",
+          "Notify method: test_update_child",
+          "Attach method: test_update_child_adding_new_item",
+          "Notify method: test_update_child_adding_new_item",
+          "Notify method: test_update_child_removing_item",
+          "Notify method: test_update_child_perm",
+          "Notify method: test_update_child_with_tax_template",
+          "Notify method: test_update_qty",
+          "Notify method: test_update_items_for_subcontracting_purchase_order"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 9,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.py",
+        "class_name": "RequestforQuotation",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Parameterized factory method: get_supplier_email_preview",
+          "Factory method: get_link",
+          "Parameterized factory method: create_user",
+          "Factory method: get_attachments",
+          "Multiple factory methods: get_supplier_email_preview, get_link, create_user",
+          "Inherits from: BuyingController"
+        ],
+        "related_classes": [
+          "BuyingController"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.py",
+        "class_name": "RequestforQuotation",
+        "method_name": "get_supplier_email_preview",
+        "line_number": 167,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.py",
+        "class_name": "RequestforQuotation",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Implements interface: BuyingController",
+          "Has 23 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.py",
+        "class_name": "RequestforQuotation",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Notify method: update_email_id",
+          "Notify method: update_supplier_part_no",
+          "Notify method: update_supplier_contact",
+          "Notify method: update_user_in_supplier",
+          "Attach method: get_attachments",
+          "Notify method: update_rfq_supplier_status"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 12,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/request_for_quotation/test_request_for_quotation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/request_for_quotation/test_request_for_quotation.py",
+        "class_name": "TestRequestforQuotation",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Factory method: test_make_supplier_quotation",
+          "Factory method: test_make_supplier_quotation_with_taxes",
+          "Factory method: test_make_supplier_quotation_with_special_characters",
+          "Factory method: test_make_supplier_quotation_from_portal",
+          "Factory method: test_make_multi_uom_supplier_quotation",
+          "Factory method: test_make_rfq_from_opportunity",
+          "Factory method: test_get_link",
+          "Factory method: test_get_pdf",
+          "Factory method: test_portal_user_with_new_supplier",
+          "Multiple factory methods: test_make_supplier_quotation, test_make_supplier_quotation_with_taxes, test_make_supplier_quotation_with_special_characters",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/request_for_quotation/test_request_for_quotation.py",
+        "class_name": "TestRequestforQuotation",
+        "method_name": "test_supplier_quotation_from_zero_qty_rfq",
+        "line_number": 226,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Buying Settings', {'allow_zero_qty_in_request_for_quotation': 1})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/request_for_quotation/test_request_for_quotation.py",
+        "class_name": "TestRequestforQuotation",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 14 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier/supplier.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier/supplier.py",
+        "class_name": "Supplier",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Factory method: get_supplier_group_details",
+          "Factory method: create_primary_contact",
+          "Factory method: create_primary_address",
+          "Multiple factory methods: get_supplier_group_details, create_primary_contact, create_primary_address",
+          "Inherits from: TransactionBase"
+        ],
+        "related_classes": [
+          "TransactionBase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier/supplier.py",
+        "class_name": "Supplier",
+        "method_name": "get_supplier_group_details",
+        "line_number": 150,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier/supplier.py",
+        "class_name": "Supplier",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Implements interface: TransactionBase",
+          "Has 15 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier/supplier.py",
+        "class_name": "Supplier",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Attach method: load_dashboard_info",
+          "Notify method: on_update",
+          "Attach method: add_role_for_user",
+          "Attach method: _add_supplier_role",
+          "Attach method: create_primary_address"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier/supplier.py",
+        "class_name": "Supplier",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Has hook methods: before_save, validate, validate_internal_supplier",
+          "Has abstract methods: _add_supplier_role"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier/test_supplier.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier/test_supplier.py",
+        "class_name": "TestSupplier",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier/test_supplier.py",
+        "class_name": "TestSupplier",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Part of strategy family with: TestSupplierPortal"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.7,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier/test_supplier.py",
+        "class_name": "TestSupplierPortal",
+        "method_name": null,
+        "line_number": 178,
+        "evidence": [
+          "Part of strategy family with: TestSupplier",
+          "Strategy interface method: test_portal_user_can_access_supplier_data"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Strategy": 2
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_quotation/supplier_quotation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_quotation/supplier_quotation.py",
+        "class_name": "SupplierQuotation",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Implements interface: BuyingController",
+          "Has 9 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_quotation/supplier_quotation.py",
+        "class_name": "SupplierQuotation",
+        "method_name": "update_rfq_supplier_status",
+        "line_number": 171,
+        "evidence": [
+          "Observer method detected: update_rfq_supplier_status"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 9,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_quotation/test_supplier_quotation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_quotation/test_supplier_quotation.py",
+        "class_name": "TestPurchaseOrder",
+        "method_name": "test_map_purchase_order_from_zero_qty_supplier_quotation",
+        "line_number": 154,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Buying Settings', {'allow_zero_qty_in_supplier_quotation': 1})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_quotation/test_supplier_quotation.py",
+        "class_name": "TestPurchaseOrder",
+        "method_name": null,
+        "line_number": 15,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_quotation/test_supplier_quotation.py",
+        "class_name": "TestPurchaseOrder",
+        "method_name": null,
+        "line_number": 15,
+        "evidence": [
+          "Attach method: test_update_child_supplier_quotation_add_item",
+          "Notify method: test_update_child_supplier_quotation_add_item",
+          "Notify method: test_update_supplier_quotation_child_rate_disallow",
+          "Detach method: test_update_supplier_quotation_child_remove_item",
+          "Notify method: test_update_supplier_quotation_child_remove_item"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_scorecard/supplier_scorecard.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_scorecard/supplier_scorecard.py",
+        "class_name": "SupplierScorecard",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_scorecard/supplier_scorecard.py",
+        "class_name": "SupplierScorecard",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: update_standing"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 6,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_scorecard/test_supplier_scorecard.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_scorecard/test_supplier_scorecard.py",
+        "class_name": "TestSupplierScorecard",
+        "method_name": "test_create_scorecard",
+        "line_number": 10,
+        "evidence": [
+          "Factory method detected: test_create_scorecard"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_scorecard_criteria/supplier_scorecard_criteria.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_scorecard_criteria/supplier_scorecard_criteria.py",
+        "class_name": "SupplierScorecardCriteria",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_scorecard_period/supplier_scorecard_period.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_scorecard_period/supplier_scorecard_period.py",
+        "class_name": "SupplierScorecardPeriod",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Parameterized factory method: get_eval_statement",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/doctype/supplier_scorecard_period/supplier_scorecard_period.py",
+        "class_name": "SupplierScorecardPeriod",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/report/requested_items_to_order_and_receive/test_requested_items_to_order_and_receive.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/buying/report/requested_items_to_order_and_receive/test_requested_items_to_order_and_receive.py",
+        "class_name": "TestRequestedItemsToOrderAndReceive",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  }
+]

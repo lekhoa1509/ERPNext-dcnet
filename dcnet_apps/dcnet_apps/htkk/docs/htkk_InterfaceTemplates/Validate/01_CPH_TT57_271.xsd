@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by TeaM DJiNN (TeaM DJiNN) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="Header">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="DoiTuong">
+										<xs:annotation>
+											<xs:documentation>Đối tượng kê khai</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="doanhNghiep" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh nghiệp</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="donViSuNghiep" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đơn vị sự nghiệp công lập </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="maSoThue" type="TINType" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Mã số thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ten_DN_DVi" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tại doanh nghiệp, đơn vị sự nghiệp   </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ct09" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>1. Tiền thu từ bán đấu giá công khai ra công chúng</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct10" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2.Tiền thu từ bán đấu giá cho các nhà đầu tư chiến lược</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct11" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>3.Tiền thu từ bảo lãnh phát hành</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct12" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>4.Tiền thu từ bán thỏa thuận cho các nhà đầu tư (bao gồm cả nhà đầu tư chiến lược), bán cổ phần ưu đãi cho tổ chức công đoàn, người lao động và người quản lý doanh nghiệp</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct13" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>5.Tiền thu theo phương thức dựng sổ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct14" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>6.Tiền thu từ cổ phần hóa tại thời điểm chính thức chuyển thành công ty cổ phần.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct15" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>7.Các khoản thu khác theo quy định tại điểm h khoản 1 Điều 7 Thông tư này, gồm:</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct16" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>a.Tiền thu từ số dư dự phòng bảo hành sản phẩm, hàng hóa, công trình xây dựng không chi hết</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct17" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>b.Tiền thu từ thu hồi, xử lý nợ và tài sản DATC có trách nhiệm khai, nộp vào ngân sách nhà nước</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct18" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>c.Tiền thu từ khoản công nợ không tính vào giá trị doanh nghiệp cổ phần hóa của các ngân hàng thương mại và doanh nghiệp viễn thông</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tongCong" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>8.Tổng cộng</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

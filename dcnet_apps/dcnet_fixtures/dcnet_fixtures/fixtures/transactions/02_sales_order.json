@@ -1,0 +1,309 @@
+[
+  {
+    "doctype": "Sales Order",
+    "customer": "Nguyễn Văn An",
+    "transaction_date": "2025-01-10",
+    "delivery_date": "2025-01-15",
+    "items": [
+      {"item_code": "GOLF-IRN-TM-P790-5PW", "qty": 1, "rate": 28500000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Trần Minh Tuấn",
+    "transaction_date": "2025-01-12",
+    "delivery_date": "2025-01-17",
+    "items": [
+      {"item_code": "GOLF-DRV-CAL-PARADYM", "qty": 1, "rate": 22000000},
+      {"item_code": "GOLF-BALL-TTL-PROV1", "qty": 2, "rate": 1850000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Phạm Đức Hùng",
+    "transaction_date": "2025-01-15",
+    "delivery_date": "2025-01-20",
+    "items": [
+      {"item_code": "GOLF-IRN-CAL-PARADYM-5PW", "qty": 1, "rate": 32000000},
+      {"item_code": "GOLF-WDG-TTL-SM9-52", "qty": 1, "rate": 4500000},
+      {"item_code": "GOLF-WDG-TTL-SM9-56", "qty": 1, "rate": 4500000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Sân Golf Long Thành",
+    "transaction_date": "2025-01-18",
+    "delivery_date": "2025-01-25",
+    "items": [
+      {"item_code": "GOLF-BALL-TTL-PROV1", "qty": 20, "rate": 1850000},
+      {"item_code": "GOLF-BALL-CAL-CHROMESOFT", "qty": 15, "rate": 1450000},
+      {"item_code": "GOLF-GLV-FJ-STASOF", "qty": 20, "rate": 850000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Lê Hoàng Nam",
+    "transaction_date": "2025-01-20",
+    "delivery_date": "2025-01-25",
+    "items": [
+      {"item_code": "GOLF-DRV-TM-STEALTH2", "qty": 1, "rate": 18500000},
+      {"item_code": "GOLF-SVC-FITTING-BASIC", "qty": 1, "rate": 500000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Golf Shop Tân Sơn Nhất",
+    "transaction_date": "2025-01-22",
+    "delivery_date": "2025-01-30",
+    "items": [
+      {"item_code": "GOLF-DRV-PNG-G430", "qty": 5, "rate": 15800000},
+      {"item_code": "GOLF-DRV-TM-STEALTH2", "qty": 5, "rate": 18500000},
+      {"item_code": "GOLF-BALL-TM-TP5", "qty": 10, "rate": 1650000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Võ Thị Mai",
+    "transaction_date": "2025-01-25",
+    "delivery_date": "2025-01-30",
+    "items": [
+      {"item_code": "GOLF-APL-NKE-POLO", "qty": 2, "rate": 1450000},
+      {"item_code": "GOLF-CAP-TTL-PERFORMANCE", "qty": 1, "rate": 850000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Hoàng Quốc Việt",
+    "transaction_date": "2025-01-28",
+    "delivery_date": "2025-02-02",
+    "items": [
+      {"item_code": "GOLF-PTR-TTL-CAMERON-SEL", "qty": 1, "rate": 12000000},
+      {"item_code": "GOLF-BALL-TTL-PROV1X", "qty": 3, "rate": 1850000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Pro Shop Vinpearl Golf",
+    "transaction_date": "2025-02-01",
+    "delivery_date": "2025-02-10",
+    "items": [
+      {"item_code": "GOLF-IRN-TTL-T200-5PW", "qty": 3, "rate": 26000000},
+      {"item_code": "GOLF-IRN-PNG-G430-5PW", "qty": 3, "rate": 23500000},
+      {"item_code": "GOLF-WDG-TTL-SM9-60", "qty": 10, "rate": 4500000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Đặng Thanh Tùng",
+    "transaction_date": "2025-02-03",
+    "delivery_date": "2025-02-08",
+    "items": [
+      {"item_code": "GOLF-SVC-COACH-8SESS", "qty": 1, "rate": 8000000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "FLC Golf Club",
+    "transaction_date": "2025-02-05",
+    "delivery_date": "2025-02-15",
+    "items": [
+      {"item_code": "GOLF-BALL-BRG-TOURBX", "qty": 30, "rate": 1550000},
+      {"item_code": "GOLF-BALL-BRG-TOURBXS", "qty": 30, "rate": 1550000},
+      {"item_code": "GOLF-GLV-TTL-PLAYERS", "qty": 30, "rate": 750000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Bùi Văn Hải",
+    "transaction_date": "2025-02-08",
+    "delivery_date": "2025-02-13",
+    "items": [
+      {"item_code": "GOLF-RNG-BSN-TOURV5", "qty": 1, "rate": 12500000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Golf Academy Hà Nội",
+    "transaction_date": "2025-02-10",
+    "delivery_date": "2025-02-18",
+    "items": [
+      {"item_code": "GOLF-IRN-MZN-JPX923-5PW", "qty": 3, "rate": 22000000},
+      {"item_code": "GOLF-BAG-PNG-HOOFER", "qty": 5, "rate": 5200000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Ngô Thị Lan",
+    "transaction_date": "2025-02-12",
+    "delivery_date": "2025-02-17",
+    "items": [
+      {"item_code": "GOLF-SHO-FJ-PROSL", "qty": 1, "rate": 4200000},
+      {"item_code": "GOLF-GLV-FJ-STASOF", "qty": 2, "rate": 850000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Trịnh Công Sơn",
+    "transaction_date": "2025-02-15",
+    "delivery_date": "2025-02-20",
+    "items": [
+      {"item_code": "GOLF-DRV-TTL-TSR3", "qty": 1, "rate": 16500000},
+      {"item_code": "GOLF-WD-TM-STEALTH2-3W", "qty": 1, "rate": 9800000},
+      {"item_code": "GOLF-SVC-FITTING-PREMIUM", "qty": 1, "rate": 1200000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Thế Giới Golf",
+    "transaction_date": "2025-02-18",
+    "delivery_date": "2025-02-28",
+    "items": [
+      {"item_code": "GOLF-DRV-CAL-PARADYM", "qty": 8, "rate": 22000000},
+      {"item_code": "GOLF-DRV-TM-STEALTH2", "qty": 8, "rate": 18500000},
+      {"item_code": "GOLF-BAG-TM-FLEXTECH", "qty": 10, "rate": 5800000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Đinh Văn Phong",
+    "transaction_date": "2025-02-20",
+    "delivery_date": "2025-02-25",
+    "items": [
+      {"item_code": "GOLF-SVC-COACH-12SESS", "qty": 1, "rate": 11000000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Lý Minh Châu",
+    "transaction_date": "2025-02-22",
+    "delivery_date": "2025-02-27",
+    "items": [
+      {"item_code": "GOLF-HYB-TM-STEALTH2-4H", "qty": 1, "rate": 7500000},
+      {"item_code": "GOLF-BALL-CAL-SUPERSOFT", "qty": 2, "rate": 750000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Trung tâm Golf Sài Gòn",
+    "transaction_date": "2025-02-25",
+    "delivery_date": "2025-03-05",
+    "items": [
+      {"item_code": "GOLF-SVC-FITTING-CUSTOM", "qty": 10, "rate": 2500000},
+      {"item_code": "GOLF-RNG-GRM-S62", "qty": 3, "rate": 15800000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Phan Quang Huy",
+    "transaction_date": "2025-02-28",
+    "delivery_date": "2025-03-05",
+    "items": [
+      {"item_code": "GOLF-DRV-CBR-AEROJET", "qty": 1, "rate": 12500000},
+      {"item_code": "GOLF-PTR-ODY-WHITEHOT", "qty": 1, "rate": 6500000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Kings Island Golf Resort",
+    "transaction_date": "2025-03-01",
+    "delivery_date": "2025-03-10",
+    "items": [
+      {"item_code": "GOLF-BALL-TTL-PROV1", "qty": 40, "rate": 1850000},
+      {"item_code": "GOLF-BALL-TM-TP5", "qty": 30, "rate": 1650000},
+      {"item_code": "GOLF-APL-NKE-POLO", "qty": 20, "rate": 1450000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Vũ Ngọc Anh",
+    "transaction_date": "2025-03-03",
+    "delivery_date": "2025-03-08",
+    "items": [
+      {"item_code": "GOLF-SHO-ADI-TOUR360", "qty": 1, "rate": 5500000},
+      {"item_code": "GOLF-APL-ADI-ULT365", "qty": 2, "rate": 1350000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "BRG Golf Vietnam",
+    "transaction_date": "2025-03-05",
+    "delivery_date": "2025-03-15",
+    "items": [
+      {"item_code": "GOLF-DRV-TM-STEALTH2", "qty": 15, "rate": 18500000},
+      {"item_code": "GOLF-DRV-CAL-PARADYM", "qty": 15, "rate": 22000000},
+      {"item_code": "GOLF-IRN-TM-P790-5PW", "qty": 10, "rate": 28500000},
+      {"item_code": "GOLF-BAG-TTL-PLAYERS4", "qty": 20, "rate": 6200000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Dương Minh Quang",
+    "transaction_date": "2025-03-08",
+    "delivery_date": "2025-03-13",
+    "items": [
+      {"item_code": "GOLF-GRP-GP-MCC", "qty": 13, "rate": 450000},
+      {"item_code": "GOLF-SHF-FJK-VENTUS", "qty": 1, "rate": 8500000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Hồ Văn Thắng",
+    "transaction_date": "2025-03-10",
+    "delivery_date": "2025-03-15",
+    "items": [
+      {"item_code": "GOLF-WDG-CAL-JAWS-54", "qty": 1, "rate": 4000000},
+      {"item_code": "GOLF-WDG-CAL-JAWS-58", "qty": 1, "rate": 4000000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Lê Hoàng Golf Shop",
+    "transaction_date": "2025-03-12",
+    "delivery_date": "2025-03-20",
+    "items": [
+      {"item_code": "GOLF-PTR-TM-SPIDER", "qty": 5, "rate": 7000000},
+      {"item_code": "GOLF-PTR-PNG-SIGMA2", "qty": 5, "rate": 5000000},
+      {"item_code": "GOLF-BALL-SRX-ZSTAR", "qty": 20, "rate": 1250000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Nguyễn Thị Hương",
+    "transaction_date": "2025-03-15",
+    "delivery_date": "2025-03-20",
+    "items": [
+      {"item_code": "GOLF-SHO-ECCO-BIOM", "qty": 1, "rate": 6500000},
+      {"item_code": "GOLF-CAP-TM-TOURRADAR", "qty": 1, "rate": 680000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Golf Range Ciputra",
+    "transaction_date": "2025-03-18",
+    "delivery_date": "2025-03-25",
+    "items": [
+      {"item_code": "GOLF-SVC-COACH-8SESS", "qty": 5, "rate": 8000000},
+      {"item_code": "GOLF-SVC-COACH-12SESS", "qty": 3, "rate": 11000000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Trần Đình Khoa",
+    "transaction_date": "2025-03-20",
+    "delivery_date": "2025-03-25",
+    "items": [
+      {"item_code": "GOLF-BAG-CAL-FAIRWAY", "qty": 1, "rate": 4500000},
+      {"item_code": "GOLF-BALL-TM-DISTANCE", "qty": 3, "rate": 550000}
+    ]
+  },
+  {
+    "doctype": "Sales Order",
+    "customer": "Nguyễn Minh Golf Academy",
+    "transaction_date": "2025-03-22",
+    "delivery_date": "2025-03-30",
+    "items": [
+      {"item_code": "GOLF-IRN-PNG-G430-5PW", "qty": 5, "rate": 23500000},
+      {"item_code": "GOLF-HYB-PNG-G430-5H", "qty": 10, "rate": 6800000}
+    ]
+  }
+]

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="Header">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="LoaiDauKhi">
+										<xs:annotation>
+											<xs:documentation>Loại dầu khí</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct01" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[01] Dầu thô:</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct02" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[02] Condensate:</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="CT04">
+										<xs:annotation>
+											<xs:documentation>[04] Kỳ kết dư:  </xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tuNgay" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Kỳ kết dư: từ ngày..... tháng..... năm</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="denNgay" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Kỳ kết dư: đến ngày..... tháng..... năm .......  </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ct15" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[15] Hợp đồng dầu khí lô: </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16" type="TINType" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[16] Mã số thuế nhà điều hành hợp đồng dầu khí:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CT17">
+										<xs:annotation>
+											<xs:documentation>Loại hình ủy quyền</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="nguoiNopThueThay" type="xs:boolean" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Người nộp thuế thay</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="daiLyThue" type="xs:boolean" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Đại lý thuế </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="tenNguoiNopThueThay" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên người nộp thuế thay</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ct26" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>1. Số tiền kết dư của phần dầu thô, condensate, khí thiên nhiên (nếu có) để lại</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct27" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2. Số tiền kết dư của phần khí thiên nhiên để lại (nếu có)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct28" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>3. Số tiền kết dư của phần dầu thô, condensate để lại [28]=[26]-[27]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct29" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>4. Giá bình quân gia quyền của các lô dầu thô, condensate xuất bán trong kỳ kết dư</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct30" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>5. Sản lượng dầu lãi từ tiền kết dư của phần dầu để lại [30] = [28]/[29]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct31" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>6. Giá dầu thô cơ sở</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct32" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>7. Số phụ thu tạm tính phải nộp 
+[32]=[33] hoặc [34]       </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct33" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>7.1 Trường hợp ....</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct34" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>7.2 Trường hợp [29] > {1,5x[31]}:
+[34]=[35] + [36]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct35" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>a.  - Phụ thu theo mức 50%
+[35] = 50%x{1,5x[31]–1,2x[31]}x[30]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct36" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>b.  - Phụ thu theo mức 60%
+[36] = 60%x{[29]–1,5x[31]}x[30]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct37" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>8. Tỷ giá quy đổi</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

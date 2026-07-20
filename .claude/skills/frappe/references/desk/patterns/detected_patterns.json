@@ -1,0 +1,1837 @@
+[
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/desktop.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/desktop.py",
+        "class_name": "Workspace",
+        "method_name": null,
+        "line_number": 31,
+        "evidence": [
+          "Parameterized factory method: get_cached",
+          "Factory method: get_can_read_items",
+          "Factory method: get_allowed_modules",
+          "Parameterized factory method: get_onboarding_doc",
+          "Factory method: build_workspace",
+          "Factory method: get_links",
+          "Factory method: get_charts",
+          "Factory method: get_shortcuts",
+          "Factory method: get_quick_lists",
+          "Factory method: get_onboardings",
+          "Parameterized factory method: get_onboarding_steps",
+          "Factory method: get_number_cards",
+          "Factory method: get_custom_blocks",
+          "Multiple factory methods: get_cached, get_can_read_items, get_allowed_modules"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/desktop.py",
+        "class_name": "Workspace",
+        "method_name": null,
+        "line_number": 31,
+        "evidence": [
+          "Has terminal build/create method"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/desktop.py",
+        "class_name": "Workspace",
+        "method_name": "get_links",
+        "line_number": 222,
+        "evidence": [
+          "Method uses decorators: ['handle_not_exist']"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 15,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/bulk_update.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/bulk_update.py",
+        "class_name": "BulkUpdate",
+        "method_name": "bulk_update",
+        "line_number": 29,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/bulk_update.py",
+        "class_name": "BulkUpdate",
+        "method_name": "bulk_update",
+        "line_number": 29,
+        "evidence": [
+          "Observer method detected: bulk_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+        "class_name": "TestBulkUpdate",
+        "method_name": "setUpClass",
+        "line_number": 14,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+        "class_name": "TestBulkUpdate",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+        "class_name": "TestBulkUpdate",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Notify method: test_bulk_update_parent_fields",
+          "Notify method: test_bulk_update_child_fields"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard/dashboard.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard/dashboard.py",
+        "class_name": "Dashboard",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard/dashboard.py",
+        "class_name": "Dashboard",
+        "method_name": "on_update",
+        "line_number": 34,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 7,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/dashboard_chart.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/dashboard_chart.py",
+        "class_name": "DashboardChart",
+        "method_name": null,
+        "line_number": 336,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/dashboard_chart.py",
+        "class_name": "DashboardChart",
+        "method_name": "on_update",
+        "line_number": 381,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 13,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+        "class_name": "TestDashboardChart",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 10 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart_source/dashboard_chart_source.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart_source/dashboard_chart_source.py",
+        "class_name": "DashboardChartSource",
+        "method_name": "get_folder_path",
+        "line_number": 62,
+        "evidence": [
+          "Factory method detected: get_folder_path"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart_source/dashboard_chart_source.py",
+        "class_name": "DashboardChartSource",
+        "method_name": null,
+        "line_number": 22,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart_source/dashboard_chart_source.py",
+        "class_name": "DashboardChartSource",
+        "method_name": "on_update",
+        "line_number": 36,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/desktop_icon/desktop_icon.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/desktop_icon/desktop_icon.py",
+        "class_name": "DesktopIcon",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 10 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/desktop_icon/desktop_icon.py",
+        "class_name": "DesktopIcon",
+        "method_name": "on_update",
+        "line_number": 57,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 8,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/event.js",
+    "language": "JavaScript",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9500000000000001,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/event.js",
+        "class_name": "eventParticipants",
+        "method_name": null,
+        "line_number": 97,
+        "evidence": [
+          "Parameterized factory method: constructor",
+          "Factory method: make",
+          "Multiple factory methods: constructor, make"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/event.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/event.py",
+        "class_name": "Event",
+        "method_name": null,
+        "line_number": 49,
+        "evidence": [
+          "Parameterized factory method: create_communication",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/event.py",
+        "class_name": "Event",
+        "method_name": null,
+        "line_number": 49,
+        "evidence": [
+          "Has 3 configuration methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/event.py",
+        "class_name": "Event",
+        "method_name": null,
+        "line_number": 49,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 11 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/event.py",
+        "class_name": "Event",
+        "method_name": null,
+        "line_number": 49,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: update_communication",
+          "Attach method: add_participant",
+          "Attach method: add_participants",
+          "Detach method: remove_event_from_user_settings"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 9,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+        "class_name": "TestEvent",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 14 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 6,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/form_tour/form_tour.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/form_tour/form_tour.py",
+        "class_name": "FormTour",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/form_tour/form_tour.py",
+        "class_name": "FormTour",
+        "method_name": "on_update",
+        "line_number": 67,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/kanban_board/kanban_board.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/kanban_board/kanban_board.py",
+        "class_name": "KanbanBoard",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 14,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/list_filter/list_filter.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "ChainOfResponsibility",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/list_filter/list_filter.py",
+        "class_name": "ListFilter",
+        "method_name": null,
+        "line_number": 7,
+        "evidence": [
+          "Class name suggests handler chain: ListFilter"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "ChainOfResponsibility": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/module_onboarding/module_onboarding.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/module_onboarding/module_onboarding.py",
+        "class_name": "ModuleOnboarding",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Factory method: get_steps",
+          "Factory method: get_allowed_roles",
+          "Multiple factory methods: get_steps, get_allowed_roles",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/module_onboarding/module_onboarding.py",
+        "class_name": "ModuleOnboarding",
+        "method_name": "reset_progress",
+        "line_number": 66,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/module_onboarding/module_onboarding.py",
+        "class_name": "ModuleOnboarding",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 8 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/module_onboarding/module_onboarding.py",
+        "class_name": "ModuleOnboarding",
+        "method_name": "on_update",
+        "line_number": 31,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/note.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/note.py",
+        "class_name": "Note",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 6,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+        "class_name": "TestNote",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/notification_log/notification_log.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/notification_log/notification_log.py",
+        "class_name": "NotificationLog",
+        "method_name": "clear_old_logs",
+        "line_number": 46,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 14,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Decorator": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/notification_settings/notification_settings.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/notification_settings/notification_settings.py",
+        "class_name": "NotificationSettings",
+        "method_name": "on_update",
+        "line_number": 32,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 9,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/number_card/number_card.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/number_card/number_card.py",
+        "class_name": "NumberCard",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/number_card/number_card.py",
+        "class_name": "NumberCard",
+        "method_name": "on_update",
+        "line_number": 76,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 9,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/route_history/route_history.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/route_history/route_history.py",
+        "class_name": "RouteHistory",
+        "method_name": "clear_old_logs",
+        "line_number": 23,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Decorator": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/sidebar_item_group/sidebar_item_group.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/sidebar_item_group/sidebar_item_group.py",
+        "class_name": "SidebarItemGroup",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/sidebar_item_group/sidebar_item_group.py",
+        "class_name": "SidebarItemGroup",
+        "method_name": "on_update",
+        "line_number": 27,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/system_console.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/system_console.py",
+        "class_name": "SystemConsole",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Has execute method: run()"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+        "class_name": "TestSystemConsole",
+        "method_name": "setUpClass",
+        "line_number": 9,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+        "class_name": "TestSystemConsole",
+        "method_name": null,
+        "line_number": 7,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report/system_health_report.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report/system_health_report.py",
+        "class_name": "SystemHealthReport",
+        "method_name": null,
+        "line_number": 73,
+        "evidence": [
+          "Parameterized factory method: get_list",
+          "Factory method: get_count",
+          "Factory method: get_stats",
+          "Multiple factory methods: get_list, get_count, get_stats",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report/system_health_report.py",
+        "class_name": "SystemHealthReport",
+        "method_name": "fetch_background_jobs",
+        "line_number": 156,
+        "evidence": [
+          "Method uses decorators: [\"health_check('Background Jobs')\", 'no_wait(get_redis_conn)']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report/system_health_report.py",
+        "class_name": "SystemHealthReport",
+        "method_name": null,
+        "line_number": 73,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 15 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report/system_health_report.py",
+        "class_name": "SystemHealthReport",
+        "method_name": "db_update",
+        "line_number": 350,
+        "evidence": [
+          "Observer method detected: db_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 7,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_errors/system_health_report_errors.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_errors/system_health_report_errors.py",
+        "class_name": "SystemHealthReportErrors",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Parameterized factory method: get_list",
+          "Factory method: get_count",
+          "Factory method: get_stats",
+          "Multiple factory methods: get_list, get_count, get_stats",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_errors/system_health_report_errors.py",
+        "class_name": "SystemHealthReportErrors",
+        "method_name": "get_list",
+        "line_number": 37,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_errors/system_health_report_errors.py",
+        "class_name": "SystemHealthReportErrors",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_errors/system_health_report_errors.py",
+        "class_name": "SystemHealthReportErrors",
+        "method_name": "db_update",
+        "line_number": 30,
+        "evidence": [
+          "Observer method detected: db_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_failing_jobs/system_health_report_failing_jobs.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_failing_jobs/system_health_report_failing_jobs.py",
+        "class_name": "SystemHealthReportFailingJobs",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Parameterized factory method: get_list",
+          "Factory method: get_count",
+          "Factory method: get_stats",
+          "Multiple factory methods: get_list, get_count, get_stats",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_failing_jobs/system_health_report_failing_jobs.py",
+        "class_name": "SystemHealthReportFailingJobs",
+        "method_name": "get_list",
+        "line_number": 37,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_failing_jobs/system_health_report_failing_jobs.py",
+        "class_name": "SystemHealthReportFailingJobs",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_failing_jobs/system_health_report_failing_jobs.py",
+        "class_name": "SystemHealthReportFailingJobs",
+        "method_name": "db_update",
+        "line_number": 30,
+        "evidence": [
+          "Observer method detected: db_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_queue/system_health_report_queue.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_queue/system_health_report_queue.py",
+        "class_name": "SystemHealthReportQueue",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Parameterized factory method: get_list",
+          "Factory method: get_count",
+          "Factory method: get_stats",
+          "Multiple factory methods: get_list, get_count, get_stats",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_queue/system_health_report_queue.py",
+        "class_name": "SystemHealthReportQueue",
+        "method_name": "get_list",
+        "line_number": 37,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_queue/system_health_report_queue.py",
+        "class_name": "SystemHealthReportQueue",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_queue/system_health_report_queue.py",
+        "class_name": "SystemHealthReportQueue",
+        "method_name": "db_update",
+        "line_number": 30,
+        "evidence": [
+          "Observer method detected: db_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_tables/system_health_report_tables.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_tables/system_health_report_tables.py",
+        "class_name": "SystemHealthReportTables",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Parameterized factory method: get_list",
+          "Factory method: get_count",
+          "Factory method: get_stats",
+          "Multiple factory methods: get_list, get_count, get_stats",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_tables/system_health_report_tables.py",
+        "class_name": "SystemHealthReportTables",
+        "method_name": "get_list",
+        "line_number": 37,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_tables/system_health_report_tables.py",
+        "class_name": "SystemHealthReportTables",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_tables/system_health_report_tables.py",
+        "class_name": "SystemHealthReportTables",
+        "method_name": "db_update",
+        "line_number": 30,
+        "evidence": [
+          "Observer method detected: db_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_workers/system_health_report_workers.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_workers/system_health_report_workers.py",
+        "class_name": "SystemHealthReportWorkers",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Parameterized factory method: get_list",
+          "Factory method: get_count",
+          "Factory method: get_stats",
+          "Multiple factory methods: get_list, get_count, get_stats",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_workers/system_health_report_workers.py",
+        "class_name": "SystemHealthReportWorkers",
+        "method_name": "get_list",
+        "line_number": 39,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_workers/system_health_report_workers.py",
+        "class_name": "SystemHealthReportWorkers",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_health_report_workers/system_health_report_workers.py",
+        "class_name": "SystemHealthReportWorkers",
+        "method_name": "db_update",
+        "line_number": 32,
+        "evidence": [
+          "Observer method detected: db_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/tag/tag.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/tag/tag.py",
+        "class_name": "DocTags",
+        "method_name": null,
+        "line_number": 74,
+        "evidence": [
+          "Factory method: get_tag_fields",
+          "Parameterized factory method: get_tags",
+          "Multiple factory methods: get_tag_fields, get_tags"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/tag/tag.py",
+        "class_name": "DocTags",
+        "method_name": null,
+        "line_number": 74,
+        "evidence": [
+          "Attach method: add",
+          "Detach method: remove",
+          "Detach method: remove_all",
+          "Notify method: update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 10,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+        "class_name": "TestToDo",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/todo.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/todo.py",
+        "class_name": "ToDo",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Parameterized factory method: get_owners",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/todo.py",
+        "class_name": "ToDo",
+        "method_name": "get_owners",
+        "line_number": 138,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/todo.py",
+        "class_name": "ToDo",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/todo.py",
+        "class_name": "ToDo",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Notify method: on_update",
+          "Attach method: add_assign_comment",
+          "Notify method: update_in_reference"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/workspace/workspace.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/workspace/workspace.py",
+        "class_name": "Workspace",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Factory method: get_module_wise_workspaces",
+          "Factory method: get_link_groups",
+          "Parameterized factory method: build_links_table_from_card",
+          "Multiple factory methods: get_module_wise_workspaces, get_link_groups, build_links_table_from_card",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/workspace/workspace.py",
+        "class_name": "Workspace",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Has terminal build/create method"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/workspace/workspace.py",
+        "class_name": "Workspace",
+        "method_name": "get_module_wise_workspaces",
+        "line_number": 147,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/workspace/workspace.py",
+        "class_name": "Workspace",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 10 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/workspace/workspace.py",
+        "class_name": "Workspace",
+        "method_name": "on_update",
+        "line_number": 110,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 9,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/workspace_sidebar/workspace_sidebar.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/workspace_sidebar/workspace_sidebar.py",
+        "class_name": "WorkspaceSidebar",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Factory method: get_can_read_items",
+          "Parameterized factory method: get_cached",
+          "Factory method: get_module_from_items",
+          "Factory method: get_allowed_modules",
+          "Multiple factory methods: get_can_read_items, get_cached, get_module_from_items",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/workspace_sidebar/workspace_sidebar.py",
+        "class_name": "WorkspaceSidebar",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 11 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/workspace_sidebar/workspace_sidebar.py",
+        "class_name": "WorkspaceSidebar",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Has hook methods: before_save, after_rename",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 10,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/form/linked_with.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/form/linked_with.py",
+        "class_name": "SubmittableDocumentTree",
+        "method_name": null,
+        "line_number": 56,
+        "evidence": [
+          "Parameterized factory method: get_all_children",
+          "Parameterized factory method: get_next_level_children",
+          "Parameterized factory method: get_doctype_references",
+          "Factory method: get_document_sources",
+          "Factory method: get_link_sources",
+          "Factory method: get_submittable_doctypes",
+          "Multiple factory methods: get_all_children, get_next_level_children, get_doctype_references"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 15,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/form/meta.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/form/meta.py",
+        "class_name": "FormMeta",
+        "method_name": null,
+        "line_number": 51,
+        "evidence": [
+          "Has 4 configuration methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/form/meta.py",
+        "class_name": "FormMeta",
+        "method_name": null,
+        "line_number": 51,
+        "evidence": [
+          "Implements interface: Meta",
+          "Has 16 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/form/meta.py",
+        "class_name": "FormMeta",
+        "method_name": null,
+        "line_number": 51,
+        "evidence": [
+          "Attach method: add_code",
+          "Attach method: _add_code",
+          "Attach method: add_html_templates",
+          "Attach method: add_code_via_hook",
+          "Attach method: add_custom_script",
+          "Attach method: load_dashboard"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Builder": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/page/desktop/desktop.js",
+    "language": "JavaScript",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.8500000000000001,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/page/desktop/desktop.js",
+        "class_name": "DesktopPage",
+        "method_name": null,
+        "line_number": 166,
+        "evidence": [
+          "Factory method: constructor",
+          "Factory method: make",
+          "Multiple factory methods: constructor, make"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.6000000000000001,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/page/desktop/desktop.js",
+        "class_name": "DesktopPage",
+        "method_name": null,
+        "line_number": 166,
+        "evidence": [
+          "Has terminal build/create method"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/page/desktop/desktop.js",
+        "class_name": "DesktopIcon",
+        "method_name": null,
+        "line_number": 797,
+        "evidence": [
+          "Parameterized factory method: constructor",
+          "Factory method: get_route",
+          "Multiple factory methods: constructor, get_route"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.8,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/page/desktop/desktop.js",
+        "class_name": "IconsPane",
+        "method_name": null,
+        "line_number": 1136,
+        "evidence": [
+          "Factory method: constructor",
+          "Factory method: get",
+          "Multiple factory methods: constructor, get"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/page/desktop/desktop.js",
+        "class_name": "InlineEditor",
+        "method_name": null,
+        "line_number": 1175,
+        "evidence": [
+          "Parameterized factory method: constructor"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 6,
+    "total_functions": 8,
+    "analysis_depth": "deep",
+    "pattern_summary": {
+      "Factory": 4,
+      "Builder": 1
+    }
+  }
+]

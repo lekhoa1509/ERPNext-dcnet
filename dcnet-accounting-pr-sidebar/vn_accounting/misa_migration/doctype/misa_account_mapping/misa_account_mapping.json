@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "creation": "2026-05-19 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_intro",
+  "intro_html",
+  "last_updated",
+  "total_mapped",
+  "section_break_data",
+  "mappings",
+  "unmapped_codes"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_intro",
+   "fieldtype": "Section Break",
+   "label": "Tổng quan"
+  },
+  {
+   "fieldname": "intro_html",
+   "fieldtype": "HTML",
+   "label": "Intro",
+   "options": "<div style=\"padding:8px;background:#f0f7fa;border-radius:6px;\"><p style=\"margin:0;\">Ánh xạ <strong>Số TK Misa → Account ERPNext</strong>. Cập nhật tự động bởi Phase 2 importer; có thể chỉnh tay khi conflict.</p></div>"
+  },
+  {
+   "fieldname": "last_updated",
+   "fieldtype": "Datetime",
+   "label": "Cập nhật lần cuối",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_mapped",
+   "fieldtype": "Int",
+   "label": "Tổng số ánh xạ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_data",
+   "fieldtype": "Section Break",
+   "label": "Dữ liệu ánh xạ"
+  },
+  {
+   "fieldname": "mappings",
+   "fieldtype": "Long Text",
+   "label": "Mappings (JSON)"
+  },
+  {
+   "fieldname": "unmapped_codes",
+   "fieldtype": "Long Text",
+   "label": "Misa TK chưa ánh xạ (JSON list)",
+   "read_only": 1
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-05-19 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Misa Migration",
+ "name": "Misa Account Mapping",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 0,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "Accounts Manager",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

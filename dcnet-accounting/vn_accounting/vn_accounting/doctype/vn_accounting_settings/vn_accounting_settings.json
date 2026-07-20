@@ -1,0 +1,508 @@
+{
+ "actions": [],
+ "creation": "2026-04-15 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "workspace_access_section",
+  "enforce_workspace_role_gate",
+  "allowed_workspace_roles",
+  "treasury_section",
+  "default_deposit_account",
+  "default_interest_income_account",
+  "column_break_treasury",
+  "default_loan_account",
+  "default_interest_expense_account",
+  "accrual_section",
+  "default_deposit_interest_receivable",
+  "column_break_accrual",
+  "default_loan_interest_payable",
+  "alerts_section",
+  "deposit_alert_days",
+  "column_break_alerts",
+  "loan_alert_days",
+  "cash_count_section",
+  "cash_surplus_account",
+  "cash_deficit_account",
+  "column_break_cash_count",
+  "employee_receivable_account",
+  "management_expense_account",
+  "other_income_account",
+  "asset_disposal_section",
+  "disposal_loss_account",
+  "column_break_asset_disposal",
+  "disposal_income_account",
+  "forecast_section",
+  "minimum_cash_threshold",
+  "asset_permission_section",
+  "enable_value_thresholds",
+  "scope_by_department",
+  "asset_thresholds_section",
+  "disposal_threshold",
+  "handover_threshold",
+  "column_break_asset_perm",
+  "min_asset_value",
+  "permission_matrix_section",
+  "permission_matrix",
+  "deferred_section",
+  "deferred_revenue_account",
+  "column_break_deferred",
+  "deferred_expense_account",
+  "period_closing_section",
+  "pnl_account_911",
+  "retained_earnings_current_year",
+  "column_break_period_closing",
+  "retained_earnings_prior_year",
+  "corporate_income_tax_account",
+  "period_closing_tolerance_section",
+  "revenue_accounts_to_close",
+  "expense_accounts_section",
+  "expense_accounts_to_close_periodic",
+  "closing_balance_section",
+  "period_closing_balance_tolerance",
+  "project_costing_section",
+  "wip_account_project_costing",
+  "overhead_collector_account",
+  "column_break_project_costing_1",
+  "cogs_account_project_costing",
+  "writeoff_account_project_costing",
+  "direct_labor_account_project_costing",
+  "auto_show_stage_picker_on_source_docs"
+ ],
+ "fields": [
+  {
+   "fieldname": "workspace_access_section",
+   "fieldtype": "Section Break",
+   "label": "Phân quyền truy cập phân hệ"
+  },
+  {
+   "default": "1",
+   "description": "Khi bật, chỉ người dùng có ít nhất 1 vai trò trong danh sách \"Vai trò được phép\" mới truy cập được phân hệ Kế toán Việt Nam.",
+   "fieldname": "enforce_workspace_role_gate",
+   "fieldtype": "Check",
+   "label": "Bật giới hạn truy cập theo vai trò"
+  },
+  {
+   "description": "Danh sách vai trò được phép truy cập phân hệ. Người dùng phải có ít nhất 1 vai trò trong danh sách. Mặc định: Accounts User, Accounts Manager, Auditor.",
+   "fieldname": "allowed_workspace_roles",
+   "fieldtype": "Table",
+   "label": "Vai trò được phép",
+   "options": "Has Role"
+  },
+  {
+   "fieldname": "treasury_section",
+   "fieldtype": "Section Break",
+   "label": "Term Deposits & Bank Loans"
+  },
+  {
+   "fieldname": "default_deposit_account",
+   "fieldtype": "Link",
+   "label": "Default Deposit Account",
+   "options": "Account",
+   "description": "Term deposit account (default 1281)"
+  },
+  {
+   "fieldname": "default_interest_income_account",
+   "fieldtype": "Link",
+   "label": "Default Interest Income Account",
+   "options": "Account",
+   "description": "Interest income account (default 515)"
+  },
+  {
+   "fieldname": "column_break_treasury",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_loan_account",
+   "fieldtype": "Link",
+   "label": "Default Loan Account",
+   "options": "Account",
+   "description": "Loan payable account (default 3411)"
+  },
+  {
+   "fieldname": "default_interest_expense_account",
+   "fieldtype": "Link",
+   "label": "Default Interest Expense Account",
+   "options": "Account",
+   "description": "Interest expense account (default 635)"
+  },
+  {
+   "fieldname": "accrual_section",
+   "fieldtype": "Section Break",
+   "label": "Accrual Accounts"
+  },
+  {
+   "fieldname": "default_deposit_interest_receivable",
+   "fieldtype": "Link",
+   "label": "Deposit Interest Receivable Account",
+   "options": "Account",
+   "description": "Accrued interest receivable, default 1388"
+  },
+  {
+   "fieldname": "column_break_accrual",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_loan_interest_payable",
+   "fieldtype": "Link",
+   "label": "Loan Interest Payable Account",
+   "options": "Account",
+   "description": "Accrued interest payable, default 335"
+  },
+  {
+   "fieldname": "alerts_section",
+   "fieldtype": "Section Break",
+   "label": "Maturity Alerts"
+  },
+  {
+   "fieldname": "deposit_alert_days",
+   "fieldtype": "Int",
+   "label": "Deposit Alert Days Before Maturity",
+   "default": "7",
+   "description": "Days before maturity to send deposit alert"
+  },
+  {
+   "fieldname": "column_break_alerts",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "loan_alert_days",
+   "fieldtype": "Int",
+   "label": "Loan Alert Days Before Maturity",
+   "default": "7",
+   "description": "Days before maturity to send loan alert"
+  },
+  {
+   "fieldname": "cash_count_section",
+   "fieldtype": "Section Break",
+   "label": "Cash Count"
+  },
+  {
+   "fieldname": "cash_surplus_account",
+   "fieldtype": "Link",
+   "label": "Cash Surplus Account",
+   "options": "Account",
+   "description": "Pending surplus account (default 3381)"
+  },
+  {
+   "fieldname": "cash_deficit_account",
+   "fieldtype": "Link",
+   "label": "Cash Deficit Account",
+   "options": "Account",
+   "description": "Pending deficit account (default 1381)"
+  },
+  {
+   "fieldname": "column_break_cash_count",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employee_receivable_account",
+   "fieldtype": "Link",
+   "label": "Employee Receivable Account",
+   "options": "Account",
+   "description": "Employee receivable for deficit resolution (default 1388)"
+  },
+  {
+   "fieldname": "management_expense_account",
+   "fieldtype": "Link",
+   "label": "Management Expense Account",
+   "options": "Account",
+   "description": "Management expense for deficit resolution (default 6425)"
+  },
+  {
+   "fieldname": "other_income_account",
+   "fieldtype": "Link",
+   "label": "Other Income Account",
+   "options": "Account",
+   "description": "Other income for surplus resolution (default 711)"
+  },
+  {
+   "fieldname": "asset_disposal_section",
+   "fieldtype": "Section Break",
+   "label": "Asset Disposal"
+  },
+  {
+   "fieldname": "disposal_loss_account",
+   "fieldtype": "Link",
+   "label": "Disposal Loss Account",
+   "options": "Account",
+   "description": "Default TK 811"
+  },
+  {
+   "fieldname": "column_break_asset_disposal",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "disposal_income_account",
+   "fieldtype": "Link",
+   "label": "Disposal Income Account",
+   "options": "Account",
+   "description": "Default TK 711"
+  },
+  {
+   "fieldname": "forecast_section",
+   "fieldtype": "Section Break",
+   "label": "Cash Flow Forecast"
+  },
+  {
+   "fieldname": "minimum_cash_threshold",
+   "fieldtype": "Currency",
+   "label": "Minimum Cash Threshold",
+   "default": "500000000",
+   "description": "Minimum cash balance warning threshold for forecast page"
+  },
+  {
+   "fieldname": "asset_permission_section",
+   "fieldtype": "Section Break",
+   "label": "Phân quyền TSCĐ & CCDC"
+  },
+  {
+   "fieldname": "enable_value_thresholds",
+   "fieldtype": "Check",
+   "label": "Enable Value Thresholds",
+   "default": "1",
+   "description": "Enforce ngưỡng giá trị cho thanh lý và bàn giao"
+  },
+  {
+   "fieldname": "scope_by_department",
+   "fieldtype": "Check",
+   "label": "Scope Permissions by Department",
+   "default": "0",
+   "description": "Giới hạn xem/chỉnh sửa TSCĐ/CCDC theo phòng ban của người dùng"
+  },
+  {
+   "fieldname": "asset_thresholds_section",
+   "fieldtype": "Section Break",
+   "label": "Ngưỡng giá trị",
+   "collapsible": 1,
+   "collapsible_depends_on": "eval:1"
+  },
+  {
+   "fieldname": "disposal_threshold",
+   "fieldtype": "Currency",
+   "label": "Disposal Threshold",
+   "default": "50000000",
+   "description": "Ngưỡng giá trị thanh lý cần duyệt (mặc định 50 triệu)"
+  },
+  {
+   "fieldname": "handover_threshold",
+   "fieldtype": "Currency",
+   "label": "Handover Threshold",
+   "default": "100000000",
+   "description": "Ngưỡng tổng giá trị bàn giao cần đồng ký (mặc định 100 triệu)"
+  },
+  {
+   "fieldname": "column_break_asset_perm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "min_asset_value",
+   "fieldtype": "Currency",
+   "label": "Min Asset Value (TSCĐ)",
+   "default": "30000000",
+   "description": "Ngưỡng tối thiểu để ghi nhận TSCĐ (mặc định 30 triệu per TT99)"
+  },
+  {
+   "fieldname": "permission_matrix_section",
+   "fieldtype": "Section Break",
+   "label": "Ma trận phân quyền"
+  },
+  {
+   "fieldname": "permission_matrix",
+   "fieldtype": "Table",
+   "label": "Permission Matrix",
+   "options": "Asset Permission Rule",
+   "description": "Quyền hạn theo DocType và vai trò — nhấn 'Khôi phục mặc định' để reset"
+  },
+  {
+   "fieldname": "deferred_section",
+   "fieldtype": "Section Break",
+   "label": "Doanh thu / Chi phí hoãn lại",
+   "description": "Cấu hình TK mặc định cho lịch phân bổ Doanh thu chưa thực hiện (3387) + Chi phí chờ phân bổ (242). Dùng làm giá trị mặc định khi tạo VN Deferred Revenue Schedule / VN Deferred Expense Schedule."
+  },
+  {
+   "fieldname": "deferred_revenue_account",
+   "fieldtype": "Link",
+   "label": "TK Doanh thu chưa thực hiện (mặc định 3387)",
+   "options": "Account",
+   "description": "TK 3387 (theo TT99/2025). Khi tạo Schedule Doanh thu hoãn lại, field deferred_account sẽ auto-fill từ đây."
+  },
+  {
+   "fieldname": "column_break_deferred",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "deferred_expense_account",
+   "fieldtype": "Link",
+   "label": "TK Chi phí chờ phân bổ (mặc định 242)",
+   "options": "Account",
+   "description": "TK 242 \"Chi phí chờ phân bổ\" (theo TT99/2025). Khi tạo Schedule Chi phí hoãn lại, field deferred_account auto-fill từ đây."
+  },
+  {
+   "fieldname": "period_closing_section",
+   "fieldtype": "Section Break",
+   "label": "Kết chuyển cuối kỳ (TK 911)",
+   "description": "Cấu hình TK xác định kết quả kinh doanh (KQKD) và danh sách TK kết chuyển. Wizard kết chuyển 911 dùng dữ liệu này để tạo bút toán tự động. Kết chuyển hàng kỳ (tháng/quý): doanh thu + chi phí (trừ 821) → 911 → 4212. Kết chuyển năm tài chính: bổ sung thêm 821 vào danh sách."
+  },
+  {
+   "fieldname": "pnl_account_911",
+   "fieldtype": "Link",
+   "label": "TK Xác định kết quả kinh doanh (911)",
+   "options": "Account",
+   "reqd": 1,
+   "description": "TK 911 — trung gian tập hợp doanh thu và chi phí để xác định lãi/lỗ. Khi kết chuyển: Nợ 511/512... / Có 911 (doanh thu), Nợ 911 / Có 632/641... (chi phí), sau đó Nợ 911 / Có 4212 (nếu lãi) hoặc Nợ 4212 / Có 911 (nếu lỗ). TK này bắt buộc không có số dư cuối kỳ."
+  },
+  {
+   "fieldname": "retained_earnings_current_year",
+   "fieldtype": "Link",
+   "label": "TK Lợi nhuận chưa phân phối kỳ này (4212)",
+   "options": "Account",
+   "reqd": 1,
+   "description": "TK 4212 — nhận kết chuyển lãi/lỗ từ TK 911 sau mỗi kỳ. Số dư cuối năm được chuyển sang TK 4211 khi phân phối lợi nhuận năm. Bắt buộc theo TT99/2025."
+  },
+  {
+   "fieldname": "column_break_period_closing",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "retained_earnings_prior_year",
+   "fieldtype": "Link",
+   "label": "TK Lợi nhuận chưa phân phối năm trước (4211)",
+   "options": "Account",
+   "reqd": 1,
+   "description": "TK 4211 — lũy kế lợi nhuận chưa phân phối từ các năm trước. Số dư TK này xuất hiện trên B01-DN mã 421. Không kết chuyển hàng kỳ — chỉ cập nhật qua nghiệp vụ phân phối lợi nhuận cuối năm."
+  },
+  {
+   "fieldname": "corporate_income_tax_account",
+   "fieldtype": "Link",
+   "label": "TK Chi phí thuế TNDN (821)",
+   "options": "Account",
+   "reqd": 1,
+   "description": "TK 821 — chi phí thuế thu nhập doanh nghiệp. Wizard kết chuyển TỰ ĐỘNG phát hiện kỳ cuối năm tài chính: nếu là kỳ cuối năm → include 821 vào danh sách kết chuyển. Kỳ thường: 821 KHÔNG kết chuyển (để tích lũy cả năm). Kế toán chỉ cần đặt TK đúng, không phải nhớ rule."
+  },
+  {
+   "fieldname": "period_closing_tolerance_section",
+   "fieldtype": "Section Break",
+   "label": "Danh sách TK doanh thu kết chuyển",
+   "description": "TK doanh thu kết chuyển hàng kỳ vào TK 911. Mặc định TT99/2025: 511 (DT bán hàng), 512 (DT nội bộ), 515 (DT HĐTC), 711 (Thu nhập khác). Thêm TK nếu cần. 821 được xử lý riêng ở ô TK Chi phí thuế TNDN."
+  },
+  {
+   "fieldname": "revenue_accounts_to_close",
+   "fieldtype": "Table",
+   "label": "TK Doanh thu kết chuyển",
+   "options": "Account List Item",
+   "reqd": 1,
+   "description": "Danh sách TK doanh thu kết chuyển vào TK 911. Mặc định: 511, 512, 515, 711. Thêm TK con (511a, 511b) nếu dùng chi tiết. Wizard sẽ tạo bút toán Nợ các TK này / Có 911."
+  },
+  {
+   "fieldname": "expense_accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Danh sách TK chi phí kết chuyển hàng kỳ",
+   "description": "TK chi phí kết chuyển hàng kỳ (tháng/quý) — KHÔNG bao gồm 821. Mặc định TT99/2025: 632, 635, 641, 642, 811. TK 821 được xử lý riêng theo kỳ cuối năm."
+  },
+  {
+   "fieldname": "expense_accounts_to_close_periodic",
+   "fieldtype": "Table",
+   "label": "TK Chi phí kết chuyển hàng kỳ (trừ 821)",
+   "options": "Account List Item",
+   "reqd": 1,
+   "description": "Danh sách TK chi phí kết chuyển vào TK 911 mỗi kỳ. Mặc định: 632 (giá vốn), 635 (chi phí HĐTC), 641 (bán hàng), 642 (quản lý), 811 (chi phí khác). Wizard tạo bút toán Nợ 911 / Có các TK này. KHÔNG thêm 821 vào đây."
+  },
+  {
+   "fieldname": "closing_balance_section",
+   "fieldtype": "Section Break",
+   "label": "Kiểm tra cân đối"
+  },
+  {
+   "default": "1",
+   "fieldname": "period_closing_balance_tolerance",
+   "fieldtype": "Currency",
+   "label": "Sai số cho phép khi kiểm tra cân đối (VNĐ)",
+   "description": "Mức sai số tối đa cho phép giữa tổng Nợ và tổng Có sau khi kết chuyển. Mặc định 1 VNĐ (làm tròn số). Nếu vượt quá sai số này, Wizard sẽ cảnh báo trước khi cho tạo bút toán."
+  },
+  {
+   "fieldname": "project_costing_section",
+   "fieldtype": "Section Break",
+   "label": "Giá thành công trình",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "wip_account_project_costing",
+   "fieldtype": "Link",
+   "options": "Account",
+   "label": "TK tập hợp chi phí công trình (WIP)",
+   "description": "Mặc định 154. Áp dụng cho Stock Entry / DN / PI / Expense Claim / Timesheet khi tag công trình."
+  },
+  {
+   "fieldname": "overhead_collector_account",
+   "fieldtype": "Link",
+   "options": "Account",
+   "label": "TK gom chi phí gián tiếp (Overhead)",
+   "description": "Mặc định 627. Áp dụng cho chứng từ cost_type = Phân bổ trước Đợt phân bổ chi phí."
+  },
+  {
+   "fieldname": "column_break_project_costing_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cogs_account_project_costing",
+   "fieldtype": "Link",
+   "options": "Account",
+   "label": "TK giá vốn công trình (COGS)",
+   "description": "Mặc định 632. Recognize khi Stage Sales Invoice submit."
+  },
+  {
+   "fieldname": "writeoff_account_project_costing",
+   "fieldtype": "Link",
+   "options": "Account",
+   "label": "TK write-off khi đóng công trình",
+   "description": "Mặc định 642. KTT có thể chọn 632 nếu là giá vốn không phân bổ."
+  },
+  {
+   "fieldname": "direct_labor_account_project_costing",
+   "fieldtype": "Link",
+   "options": "Account",
+   "label": "TK lương trực tiếp (cho lương kỹ sư on-site)",
+   "description": "Mặc định 622 — Chi phí nhân công trực tiếp. Khi Salary Slip tag project submit, engine sinh JE Dr 154 / Cr <TK này>."
+  },
+  {
+   "fieldname": "auto_show_stage_picker_on_source_docs",
+   "fieldtype": "Check",
+   "label": "Hiện chọn giai đoạn ngay trên chứng từ (PI/SE/DN/EC)",
+   "default": "1",
+   "description": "Khi BẬT (mặc định): trên Purchase Invoice / Stock Entry / Delivery Note / Expense Claim — sau khi chọn công trình, sẽ hiện ô 'Giai đoạn công trình' để KTT/PM gắn ngay khi nhập chứng từ → giảm thời gian gắn lại ở Tập hợp chi phí chưa gắn. Khi TẮT: ô ẩn, KTT gắn sau qua tab Giai đoạn của Project Costing."
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-05-18 11:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "VN Accounting Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 0,
+   "read": 1,
+   "role": "Accounts User",
+   "write": 0,
+   "delete": 0
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

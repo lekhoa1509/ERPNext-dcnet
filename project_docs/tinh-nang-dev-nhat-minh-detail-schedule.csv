@@ -1,0 +1,337 @@
+,Module trong custom app ,Phân hệ,TÍNH NĂNG,Có sẵn?,Tình trạng,Deadline tháng,Ước tính số ngày thực hiện ,Deadline ngày,Người thực hiện,Người kiểm tra,Người xác nhận,Ghi chú,Ghi chú giao tiếp/xác nhận với khách hàng về chi tiết chức năng/giao diện,Link đến tính năng để test ,Docs,Note - ALong
+1,,Đăng nhập/Đăng xuất + nền tảng hệ thống,Đăng nhập,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,13-Mar,HieuDT,,,,,http://localhost:8000/login,,
+2,,Đăng nhập/Đăng xuất + nền tảng hệ thống,Đăng xuất,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,13-Mar,HieuDT,,,,,,,
+3,,Đăng nhập/Đăng xuất + nền tảng hệ thống,Quên mật khẩu,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,13-Mar,HieuDT,,,Yêu cầu admin cấp lại mật khẩu,,http://localhost:8000/login?redirect-to=%2Fdesk#forgot,,
+4,,Mua hàng,Tạo PO (Purchase Order) - PO Number (auto) + NCC + Kho nhận + Ngày đặt,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,13-Mar,HieuDT,,,,,http://localhost:8000/desk/purchase-order/new-purchase-order-hrrxfcnkoa,,
+5,,Mua hàng,Chi tiết PO - Model + SKU + Số lượng + Giá mua,Có sẵn,,3,,13-Mar,HieuDT,,,,,#REF!,,
+6,,Mua hàng,Theo dõi PO theo số PO - Trạng thái: Nháp → Đã gửi NCC → Đang giao → Hoàn thành,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,0.5,13-Mar,HieuDT,,,Thêm fixture bổ sung Status Đang giao vào trong các option ,,http://localhost:8000/desk/purchase-order/new-purchase-order-hrrxfcnkoa,,
+7,,Mua hàng,"
+Cập nhật lệnh nhập hàng - Sinh lệnh nhập từ PO + Nhập một phần / nhiều lần",Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,13-Mar,HieuDT,,,,,#REF!,,
+8,,Mua hàng,Theo dõi thực hiện mua hàng - Đã đặt + Đã nhận một phần (%) + Đã nhận đủ,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,13-Mar,HieuDT,,,,,#REF!,,
+9,,Mua hàng,Nhập hàng theo lô - Mã lô + Ngày nhập + Gắn với PO,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,13-Mar,HieuDT,,,Cần kết nối kho,,#REF!,,
+10,,Mua hàng,Nhập hàng theo serial - Serial duy nhất + Scan serial khi nhập,Có sẵn phải customize nhiều,Đang làm,3,2,13-Mar,HieuDT,,,Khách dùng điện thoại hay máy scan --> viết nút cho phép scan bằng điện thoai vào trường Seri trong bảng con item của PR (Purchase Receipt),,#REF!,,
+11,,Mua hàng,Nhập hàng theo mã vạch - Gán barcode cho SP/serial + Nhập kho bằng quét,Có sẵn phải customzie nhẹ,Đang làm,3,,13-Mar,HieuDT,,,Cần kết nối kho,,#REF!,,
+12,,Mua hàng,Khai báo vòng đời SP - 6 tháng / 1 năm / 2 năm + Tính từ ngày nhập,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,1,13-Mar,HieuDT,,,Cần làm rõ req cho button ngày nhập trong màn hình tạo Lô,,"http://localhost:8000/desk/purchase-receipt => tạo 1 đơn nhập kho , chọn lô => edit full form",,
+13,,Quản lý Sản phẩm,Danh sách SP - List + Ẩn/hiện cột + 4 filters + search,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,,,#REF!,,
+14,,Quản lý Sản phẩm,Danh mục SP – Category management: List + Detail,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,,,#REF!,,
+15,,Quản lý Sản phẩm,Tạo SP - Create product Form,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,,,#REF!,,
+16,,Quản lý Sản phẩm,Import SP - Excel import,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,,,#REF!,,
+17,,Quản lý Sản phẩm,Export SP - Excel export,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,,      ,#REF!,,
+18,,Quản lý Sản phẩm,Xem chi tiết SP – View product + Warranty info (1 năm),Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,,,#REF!,,
+19,,Báo cáo Phân tích,Báo cáo hàng tồn chậm - Hàng bán chậm + Đề xuất sale / điều chuyển,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,0.5,15-Mar,CuongNDM,,,https://github.com/dcnet-cloud/flow_next/discussions/29,Cần hỏi KH lại rõ chỗ action  Đề xuất sale / điều chuyển,http://flow.local:8000/desk/query-report/Stock%20Ageing,,
+20,,Báo cáo Phân tích,Báo cáo hàng sắp hết vòng đời - Còn 60 ngày + Còn 45 ngày,Có sẵn phải customize nhiều,Đang làm,3,,15-Mar,CuongNDM,,,,,http://localhost:8000/desk/query-report/Batch%20Item%20Expiry%20Status?from_date=2026-01-01&to_date=2026-03-05,,
+21,,Báo cáo Phân tích,Báo cáo hàng điều chuyển - Điều chuyển giữa các kho + Điều chuyển cho đại lý,Có sẵn,Đang làm,3,,15-Mar,CuongNDM,,, ,,#REF!,,
+22,,Báo cáo Phân tích,Báo cáo hàng thanh lý / sale - Sale campaign + Thanh lý,Có sẵn phải customzie nhẹ,,3,,15-Mar,CuongNDM,,,Hướng dẫn khách hàng tạo kho Thanh lý và chuyển hàng quá date hoặc logic khác sang kho Thanh lý ,,#REF!,,
+23,,Quản lý Kho hàng,Quản lý theo lô (Batch/Lot) - Mã lô + Ngày nhập + Vòng đời SP + Tồn theo lô,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,"Về cơ bản có thể đáp ứng được các yêu cầu của KH, nhưng cần phải lấy thêm requirement từ khách hàng và lấy thêm thông tin về quy trình bên họ làm việc với nhà cung cấp để clear được tổ chức số Lô  ",,#REF!,,
+24,,Quản lý Kho hàng,Quản lý theo Serial - Serial hàng hóa + Trạng thái serial (tồn/ký gửi/đã bán) + Lịch sử serial,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,"Về cơ bản có thể đáp ứng được các yêu cầu của KH, nhưng cần phải lấy thêm requirement từ khách hàng về cách tổ chức Serial No ",,#REF!,,
+25,,Quản lý Kho hàng,Quản lý nhập kho - Nhập từ NCC + Nhập điều chuyển + Nhập trả hàng + Gắn phiếu nhập,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,"https://github.com/dcnet-cloud/flow_next/discussions/26
+
+
+
+",,"http://flow.local:8000/desk/purchase-receipt
+",,
+26,,Quản lý Kho hàng,Quản lý xuất kho - Xuất bán hàng + Xuất điều chuyển + Xuất hao hụt,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,https://github.com/dcnet-cloud/flow_next/discussions/27,,http://flow.local:8000/desk/delivery-note,,
+27,,Quản lý Kho hàng,Nhập xuất theo mã số - Theo mã SP + Theo kho + Theo lô + Theo vị trí,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,https://github.com/dcnet-cloud/flow_next/discussions/28,,http://flow.local:8000/desk/stock,,
+28,,Quản lý Kho hàng,Theo dõi tồn kho - Tồn thực tế + Tồn khả dụng + Tồn giữ,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,Bật chức năng Stock Reservation trong Setting kho và sử dụng với Sales Order,Yêu cầu khá giống với #35 cần a Long check lại,http://flow.local:8000/desk/query-report/Stock%20Projected%20Qty,,
+29,,Quản lý Kho hàng,Quản lý mã vạch - Gán mã vạch cho SP/serial + Quét khi nhập – xuất,Xây mới,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,,Hỏi khách mẫu in mã vạch dán lên sản phẩm,http://localhost:8000/desk/barcode-label,,
+30,,Quản lý Kho hàng,Tạo tem sản phẩm - Tem mã SP + Tem serial + Tem lô,Có sẵn phải customize nhiều,,3,,15-Mar,CuongNDM,,,,Hỏi KH mẫu,#REF!,,
+31,,Quản lý Kho hàng,In tem - In đơn chiếc + In hàng loạt + Tùy chỉnh mẫu tem,Có sẵn phải customize nhiều,,3,,15-Mar,CuongNDM,,,,3,#REF!,,
+32,,Quản lý Kho hàng,Điều chuyển kho - Kho đi / kho đến + SP / lô / serial,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,"Dùng công cụ Stock Entry với Type là 
+Material Transfer
+",,#REF!,,
+33,,Báo cáo Kho,Báo cáo nhập xuất tồn - Theo kho + Theo SP + Theo lô,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,,,http://flow.local:8000/desk/query-report/Serial%20No%20and%20Batch%20Traceability,,
+34,,Báo cáo Kho,Báo cáo theo serial - Serial tồn + Serial đã bán,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,,,http://flow.local:8000/desk/query-report/Serial%20No%20Ledger,,
+35,,Báo cáo Kho,Báo cáo tồn khả dụng - Tồn thực tế vs tồn giữ,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,https://github.com/dcnet-cloud/flow_next/discussions/25,,http://flow.local:8000/desk/query-report/Stock%20Projected%20Qty,,
+36,,Báo cáo Kho,Báo cáo vòng đời SP - Còn 60 ngày + Còn 45 ngày,Có sẵn phải customzie nhẹ,Đang làm,3,,15-Mar,CuongNDM,,,,,http://flow.local:8000/desk/query-report/Batch%20Item%20Expiry%20Status,,
+37,,Báo cáo Kho,Phân tích kho - Hàng bán nhanh/chậm + Hàng cần sale        ,Có sẵn,Đang làm,3,,15-Mar,CuongNDM,,,Yêu cầu khá giống với #19 cần a Long check lại xem nó giống hay không ,,#REF!,,
+38,,Báo cáo Kho,"Kho - 3 reports: Tồn kho
+theo kho, Giá trị tồn kho,
+SP dưới định mức",Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,CuongNDM,,,https://github.com/dcnet-cloud/flow_next/discussions/30,,"http://flow.local:8000/desk/query-report/Warehouse%20Wise%20Stock%20Balance
+http://flow.local:8000/desk/query-report/Item%20Shortage%20Report
+http://flow.local:8000/desk/query-report/Itemwise%20Recommended%20Reorder%20Level",,
+39,,Dashboard,Doanh số theo nguồn Khách hàng,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,0.5,15-Mar,DatMLT,,,"Nhờ Đức đẩy sample data, sử dụng UTM Source từ Lead",,"- Path: /desk/dashboard
+- Mô tả: nằm ở module Dashboard/ Báo cáo/ DS theo nguồn KH.",,
+40,,Dashboard,Doanh số theo nguồn đơn hàng,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,0.5,15-Mar,DatMLT,,,Đợi data từ T4 để lên dashboard,,"- Path: /desk/dashboard
+- Mô tả: nằm ở module Dashboard/ Báo cáo/ DS theo nguồn đơn.",,Báo cáo theo UTM source
+41,,Dashboard,Doanh số theo sản phẩm (top 20),Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,0.5,15-Mar,DatMLT,,,,,"- Path: /desk/dashboard
+- Mô tả: nằm ở module Dashboard/ Báo cáo/ Top 20 SP bán chạy.",,
+42,,Danh mục nhà cung cấp,"Danh mục nhà cung cấp - Quản lý thông tin NCC (Mã, Tên, Nhóm, Điều khoản thanh toán)",Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,"Cần data mẫu từ bravo
+https://github.com/dcnet-cloud/flow_next/discussions/17",,"- Path: /desk/supplier
+- Mô tả: nằm ở module Mua hàng/ Setup/ Nhà cung cấp.",,
+43,,Danh mục nhà cung cấp,Bảng giá nhà cung cấp - Giá theo model/SKU + Hiệu lực giá + Làm cơ sở tính KM đầu vào,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,"Link task: https://amisapp.misa.vn/task/project?Type=1&ProjectID=360195&taskID=14564926&companyCode=DDJJ9QH5 --> tạo bảng giá, tick vào mua, gắn bảng giá vào chi tiết NCC; Hiệu lực giá: trong item price trong price list",Nhờ Đức làm rõ: Lấy cơ sở làm KM là sao,"- Path: /desk/price-list
+- Mô tả: nằm ở module Mua hàng/ Setup/ Bảng giá.",,
+44,,Báo cáo bán,Báo cáo hàng bán ra - Số lượng bán + Theo thời gian + Theo kênh bán,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,0.5,15-Mar,DatMLT,,,"Kênh = customer group( bán buôn, bán lẻ...)",,"- Path: /desk/query-report/Sales Analytics
+- Mô tả: nằm ở module Bán hàng/ Reports/ Phân tích bán hàng.",,
+45,,Báo cáo bán,Báo cáo hàng bán theo đại lý - Doanh số từng đại lý + Sản lượng bán,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,0.5,15-Mar,DatMLT,,,Customer group là đại lý ,,"- Path: /desk/query-report/Sales Analytics
+- Mô tả: nằm ở module Bán hàng/ Reports/ Phân tích bán hàng.",,
+46,,Báo cáo bán,Báo cáo luân chuyển hàng hóa - Tốc độ bán + Thời gian lưu kho,Có sẵn phải customzie nhẹ,Đang làm mà phải đợi khách xác nhận,3,0.5,15-Mar,DatMLT,,,"Thời gian lưu kho: Stock aging report; 
+Stock Balance / Stock Summary / Stock Ageing",Làm rõ: Mẫu báo cáo tốc độ bán hàng,#REF!,,
+47,,Quản lý Kho hàng,Danh sách kho - Mã kho + Tên kho + Địa chỉ + NV phụ trách + Trạng thái,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,"Cần data mẫu từ bravo
+Link task: https://amisapp.misa.vn/task/project?Type=1&ProjectID=360195&DepartmentID=52347&taskID=14573448&companyCode=DDJJ9QH5",,"- Path: /desk/warehouse
+- Mô tả: nằm ở module Tồn kho/ Setup/ Warehouse.",,
+48,,Quản lý Kho hàng,Quản lý vị trí kho - Khu vực + Kệ + Ô/Vị trí + Gán vị trí cho sản phẩm,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,"Link task: https://amisapp.misa.vn/task/project?Type=1&ProjectID=360195&DepartmentID=52347&taskID=14573452&companyCode=DDJJ9QH5 --> tạo cấu trúc chi tiết tới từng kệ, ô ",,"- Path: /desk/warehouse
+- Mô tả: nằm ở module Tồn kho/ Setup/ Warehouse, chuyển từ List View sang Tree View để trực quan hơn.",,
+49,,Quản lý Kho hàng,Danh mục vật tư hàng hóa - Mã SP + Model + SKU + Nhóm SP,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,Link task: https://amisapp.misa.vn/task/project?Type=1&ProjectID=360195&DepartmentID=52347&taskID=14573460&companyCode=DDJJ9QH5 --> Stock Ledger,,"- Path: /desk/warehouse
+- Mô tả: từ danh sách kho ở module Tồn kho/ Setup/ Warehouse -> chọn kho muốn check -> click button ""Sổ cái"" để xem danh mục các SP + tồn kho hiện tại của SP.",,
+50,,Quản lý Kho hàng,Giữ hàng theo đơn - Giữ tồn khi tạo đơn hàng + Hoàn tồn khi hủy đơn + Trừ tồn khi hoàn thành đơn,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,0.5,15-Mar,DatMLT,,,"Flow hiện tại chỉ +/- và validate quantity của SP sau khi tạo Delivery Note.
+Ở Sales Order đã có chức năng Giữ hàng theo đơn nhưng không có cảnh báo hay alert mà chỉ hiển thị trong phần Items và có thể xem chi tiết ở phần ""Số lượng tồn kho dự kiến"" trong mục Reports của module Stock.
+-> Cần hỏi ý kiến KH để đưa ra hướng xử lý chính xác cho các case SL tồn kho < SL đặt
+ 1. Warning: còn bao nhiêu đặt bấy nhiêu -> continue
+ 2. Error: báo không đủ hàng tồn -> Không cho tạo SO, yêu cầu nhập hàng.
+Stock reservation: bật trong Settings",,"- Path: /desk/sales-order
+- Mô tả: Nằm ở module Bán hàng/ Đơn bán hàng.
+- Pre-condition: Bật 2 flag dưới đây trong phần Stock Settings để bật chức năng giữ chỗ và validate qty SP
+Enable Stock Reservation
+Auto Reserve Stock
+",,
+51,,Quản lý Kho hàng,Kiểm kê kho - Theo kho + Theo vị trí + So sánh thực tế & hệ thống,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,"Stock Reconciliation hỗ trợ kiểm kê theo từng Warehouse nhưng không có sẵn một module “Stock Take” cực chi tiết theo từng vị trí như một số WMS chuyên dụng, nhưng có đủ nền tảng (Warehouse, Bin, Stock Reconciliation, Stock Balance/Stock Ledger) để build quy trình kiểm kê.",,"- Path: /desk/stock-reconciliation
+- Mô tả: nằm ở module Tồn kho/ Công cụ/ Đối chiếu kho.",,
+52,,Quản lý Kho hàng,Điều chỉnh kho - Thừa/thiếu + Ghi nhận lý do,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,0.5,15-Mar,DatMLT,,,"Chức năng điều chỉnh kho thừa/thiếu là có sẵn qua Stock Reconciliation, còn phần “lý do” nếu muốn chuẩn hóa thì nên custom field + bắt buộc nhập. Thêm note ở trong bảng con item và note ở doctype chính",,"- Path: /desk/stock-reconciliation
+- Mô tả: nằm ở module Tồn kho/ Công cụ/ Đối chiếu kho -> Tạo đối chiếu kho để điều chỉnh kho",,
+53,,Quản lý Kho hàng,Cảnh báo kho - Tồn thấp (MIN) + Sắp hết vòng đời,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,"Cảnh báo tồn thấp (MIN):
+- Bật chức năng “Raise Material Request when stock reaches Re-Order level” trong Stock Settings để hệ thống tự sinh Material Request khi tồn xuống dưới mức MIN, đồng thời có thể cấu hình Email Notification để gửi cảnh báo. --> sử dung trường re-order level trong tab Inventory của Item master
+Sắp hết vòng đời:
+- Có field để đánh dấu vòng đời sản phẩm và cho phép chặn giao dịch khi đã hết hạn, nhưng không có sẵn báo cáo cảnh báo “sắp hết vòng đời” dạng kho. --> sử dụng expiry date của Batch hoặc Serial number 
+Làm hiện báo cáo tùy chỉnh trên sidebar của Module Stock: Batch Item Expiry Status.",,"- Path: /desk/query-report/Batch%20Item%20Expiry%20Status
+- Mô tả: nằm ở module Tồn kho/ Reports/ Trạng thái hết hạn lô.
+Báo cáo tồn thấp: desk/query-report/Stock%20Ledger",,Khi demo hỏi thêm khách có muốn set mức cảnh báo tồn kho cho Tổng tất cả các kho hoặc set cho từng kho số khác nhau; thiếu logic check chưa chặt chẽ. Bổ sung vào sidebar; đổi label hết hạn --> ngày hết vòng đời
+54,,Quản lý Kho hàng,Lịch sử kho - Nhập + Xuất + Điều chuyển + Ai thao tác,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,Hiện ERPNext không gom sẵn “ai thao tác” cho tất cả chứng từ kho vào một report duy nhất trong module Warehouse; phải kết hợp báo cáo stock (để biết giao dịch nào) và Audit Trail từng chứng từ (để biết người thao tác). Stock Ledger ,,"- Path: /desk/query-report/Stock%20Ledger
+- Mô tả: nằm ở module Tồn kho/ Reports/ Sổ cái kho",,
+55,,Quản lý Đơn hàng,"Danh sách ĐH - List + Loại đơn (Vật dụng, Fitting, Coaching, Thu cũ) + 6 filters",Có sẵn phải customize nhiều,Đang làm,3,,16-Mar,DatMLT,,,"Cần data mẫu từ bravo --> Fitting và Coaching vẫn là sản phẩm, nhưng thuộc Item group là coaching hoặc Fitting. Khi tạo dịch vụ couching/fitting thì chọn item group tương ứng thì item master sẽ tự động hiện các quy trình và doctype tương ứng ",,"- Path: /desk/sales-order
+- Mô tả: nằm ở module Bán hàng/ Đơn bán hàng.",,
+56,,Quản lý Đơn hàng,"Tạo ĐH Vật dụng – Form 13 fields + 2 loại (Bán lẻ, Bán buôn)",Có sẵn phải customize nhiều,Đang làm,3,,17-Mar,DatMLT,,,"Đơn hàng vật dụng - chọn item group là vật dụng hoặc các group con thuộc group vật dụng thì sổ ra custom fields và các logic tương ứng
+Form 13 field:
+- Nguồn đơn (chọn trong danh sách nguồn khách hàng)
+- Khách hàng (nếu chưa có thì mở ra popup tạo mới)
+- Số điện thoại
+- Địa chỉ nhận hàng (chọn chi nhánh hoặc nhập địa chỉ của khách)
+- Thời gian tạo đơn hàng
+- Người tạo đơn hàng
+- Kho xuất hàng
+- Voucher
+- Tích điểm
+- Phương thức thanh toán (tiền mặt/chuyển khoản/cod)
+- Giảm giá khác (nhập số)
+- Thực nhận
+- Chọn sản phẩm (check số lượng trong kho)
+",Form hiện tại của khách 13 fields,"- Path: /desk/sales-order/new-sales-order
+- Mô tả: nằm ở module Bán hàng/ Đơn bán hàng -> click button ""Add đơn bán hàng""",,
+57,,Quản lý Đơn hàng,Kiểm tra tồn kho - Kiểm tra tồn kho SP trước khi tạo đơn + Hiển thị số lượng theo kho,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,,,"- Path: /desk/sales-order
+- Mô tả: nằm ở module Bán hàng/ Đơn bán hàng -> click button ""Add đơn bán hàng""/ Chọn bất kỳ 1 đơn hàng đã tạo -> Xem trong phần edit từng Items -> Mục ""Số lượng Khả dụng"" để xem số lượng tồn kho hiện tại, mục ""Lập KH"" để biết được số lượng hàng có thể giao cho KH.",,
+58,,Quản lý Đơn hàng,Import ĐH - Excel import,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,,,"- Path: /desk/sales-order
+- Mô tả: nằm ở module Bán hàng/ Đơn bán hàng -> Click button Menu (dấu 3 chấm phía trên bên phải) -> Click chọn ""Import"" -> Click button ""Add Data Import"" để tiến hành import file.",,
+59,,Quản lý Đơn hàng,Export ĐH - Excel export,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,,,"- Path: /desk/sales-order
+- Mô tả: nằm ở module Bán hàng/ Đơn bán hàng -> Select đơn hàng cần export -> Click button ""Actions"" -> Click chọn ""Export"" để export dât.",,
+60,,Quản lý Đơn hàng,Xem chi tiết ĐH – View đơn hàng + Bảo hành + Công nợ,Có sẵn phải customize nhiều,,3,,19-Mar,DatMLT,,,"Thêm thông tin về số ngày bảo hành
+Công nợ đi từ detail Customer
+Bảo hành -> Chờ KH confirm
+Thống nhất thêm tab list warranty tất cả SP của KH (Đã confirm với anh Long)
+Thêm section để xem công nợ trong tab dashboard của Customer
+Section: Danh sách đơn hàng = danh sách các hóa đơn đã bán cho khách (cả trạng thái thanh toán)
+Section: Danh sách các mặt hàng + số seri + warranty 
+- SI
+-  bổ sung tab bảo hành (tên sản phẩm, ngày mua, số seri, ngày hết hạn bảo hành, sắp xếp theo hạn còn ít đến nhiều, nếu không có thì báo đơn hàng này không có sản phẩm được bảo hành)
+- Công nợ: công nợ với hóa đơn này
+- Hướng: nhúng report có filter ",,"- Path: /desk/sales-order
+- Mô tả: nằm ở module Bán hàng/ Đơn bán hàng -> Chọn đơn hàng cần check -> Chọn tab Connections -> Cick chọn ""Bút toán thanh toán"" để xem công nợ",,
+61,,Quản lý Đơn hàng,Cập nhật ĐH – Update đơn hàng + Chuyển kho xử lý,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,DatMLT,,,"Update đơn dạng draft, hoặc cancel đơn chưa giao/chưa xuất hóa đơn -->amend ",hỏi luồng chuyên kho xử lý ,"- Path: /desk/sales-order
+- Mô tả: nằm ở module Bán hàng/ Đơn bán hàng -> Chọn đơn hàng cần update",,
+62,,Quản lý Đơn hàng,Resell -Auto update status + Gửi feedback + Đề xuất mua lại/cross-sell ,Xây mới,,3,2,20-Mar,DatMLT,,,Chưa biết có sẵn hay không?,hỏi rõ luồng để phân tích,#REF!,,
+63,,Dashboard,"Doanh số theo ngày, tuần, tháng",Có sẵn phải customzie nhẹ,Đang làm,3,1,16-Mar,HauLN,,,Bổ sung Ngày và Tuần,,#REF!,,
+64,,Dashboard,Doanh số bán lẻ tổng,Có sẵn phải customzie nhẹ,Đang làm,3,1,17-Mar,HauLN,,,filter Customer group = Khách lẻ ,,#REF!,,
+65,,Mua hàng,Ưu đãi NCC - Chiết khấu % + Chiết khấu tiền + Quà tặng,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,11-Mar,HauLN,,,"Phần quà tặng có thể tạo nhóm sản phẩm quà tặng, cho vào đơn hàng với giá bằng 0 với ghi chú quà tặng , tạo kho riêng cho quà tặng nếu cần",,http://localhost:8000/desk/supplier-quotation/new-supplier-quotation-ykcgibfkvj,https://www.notion.so/Feature-65-31ad5c06e7b3803ba4d8ede998529296?source=copy_link,
+66,,Mua hàng,Import hình ảnh SP - Import ảnh theo model + Quy tắc đặt tên ảnh,Có sẵn phải customize nhiều,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,2,11-Mar,HauLN,,,Tạo tab quản lý hình ảnh trong item master; 10M max --> phải có UI thông báo.,,http://localhost:8000/desk/item,,
+67,,Mua hàng,Thông tin nguồn tiền - Quỹ tiền mặt / TK ngân hàng,Có sẵn,Chưa làm,3,,20-Mar,HauLN,,,Đợi kế toán,,#REF!,,
+68,,Mua hàng,Phương thức thanh toán - Tiền mặt + Chuyển khoản + Công nợ,Có sẵn,Chưa làm,3,,20-Mar,HauLN,,,Đợi kế toán,,#REF!,,
+69,,Mua hàng,Theo dõi thanh toán PO - Đã thanh toán + Thanh toán 1 phần + Còn nợ,Có sẵn,Chưa làm,3,,20-Mar,HauLN,,,Đợi kế toán,,#REF!,,
+70,,Mua hàng,Đính kèm chứng từ - Hóa đơn NCC + Phiếu giao hàng + Hợp đồng,Có sẵn,Chưa làm,3,,20-Mar,HauLN,,,,,#REF!,,
+71,,Mua hàng,Trạng thái phiếu nhập - Nháp + Chờ duyệt + Đã nhập kho,Có sẵn phải customzie nhẹ,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,0.5,16-Mar,HauLN,,,"Thêm trạng thái ""chờ duyệt"", thêm nút bấm chuyển trạng thái từ Bản nháp --> Chờ duyệt
+Bản nháp -> Chờ duyệt -> Đã nhập kho (-> Cancel)",,http://localhost:8000/desk/purchase-receipt,,
+72,,Mua hàng,Lịch sử mua hàng - Theo NCC + Theo PO + Theo SP,Có sẵn,Chưa làm,3,,20-Mar,HauLN,,,,,#REF!,,
+73,,Mua hàng,Báo cáo mua hàng - Giá mua bình quân + NCC tốt nhất + Chi phí mua,Có sẵn phải customzie nhẹ,Chưa làm,3,0.5,20-Mar,HauLN,,,,,#REF!,,
+74,,Kết nối sàn TMĐT,TMĐT sync - E-commerce Platform connection (Shopee/TikTok/Lazada/Website),Xây mới,,3,,31-Mar,CuongNDM,,,,,#REF!,,
+75,,Danh mục Bán hàng,"Danh mục đối tượng (KH/NCC) - Mã, tên, loại, địa chỉ, MST, TK ngân hàng, phương thức TT",Có sẵn phải customzie nhẹ,,4,,30-Apr,CuongNDM,,,,,#REF!,,
+76,,Danh mục Bán hàng,"Danh mục vật tư hàng hóa - Mã, tên, ĐVT, macro, location, product group, color, category + Theo dõi lô",Có sẵn phải customzie nhẹ,,4,,30-Apr,CuongNDM,,,,,#REF!,,
+77,,Danh mục Bán hàng,Kế hoạch doanh số năm - Nhập giá trị doanh số tiêu thụ theo kế hoạch của từng KH,Có sẵn phải customize nhiều,,4,,30-Apr,CuongNDM,,,Cần data mẫu từ bravo,,#REF!,,
+78,,Bán lẻ,Bảng giá bán lẻ - Cập nhật giá bán cho khách lẻ,Có sẵn,,4,,30-Apr,DatMLT,,,"Cần data mẫu từ bravo
+Cấu hình qua Price List và Item Price.
+Có thể tạo riêng 1 Price List cho khách lẻ, và đặt làm Default Price List cho Selling.",,#REF!,,
+79,,Bán lẻ,Chính sách chiết khấu bán lẻ - (thêm - xoá - cập nhật - sửa) + Đính kèm file,Có sẵn phải customize nhiều,,4,,30-Apr,DatMLT,,,"Pricing Rule (quy tắc giá), phải làm hiện tỷ lệ chiết khấu ngay trong giao diện ở từng dòng item",,#REF!,,
+80,,Bán lẻ,Hóa đơn bán lẻ - Lập phiếu bán hàng + Auto tính CK + Thẻ thanh toán + Xuất hóa đơn điện tử,Có sẵn phải customize nhiều,,4,,30-Apr,DatMLT,,,Chưa biết xuất hoá đơn điện tử như thế nào,,#REF!,,
+81,,Quản lý Bán hàng,Kế hoạch BH - (thêm - xoá - sửa) + list,,,4,,30-Apr,DatMLT,,,"Quản lý kế hoạch bán hàng, Quản lý chính sách chiết khấu, Quản lý bán lẻ, Quản lý hàng trả lại, Tính thưởng doanh số, Quản lý voucher, Danh sách bảng giá",,#REF!,,
+82,,Quản lý Bán hàng,Chính sách CK - (thêm - xoá - sửa) + list,Có sẵn,,4,,30-Apr,DatMLT,,,,,#REF!,,
+83,,Quản lý Bán hàng,"Bán lẻ - 5 sub: Hóa đơn, đổi trả, hàng hóa/tồn kho, nhập hàng, điều chuyển",Có sẵn,,4,,30-Apr,DatMLT,,,,,#REF!,,
+84,,Quản lý Bán hàng,Hàng trả lại - (thêm - xoá - sửa) + list,Có sẵn,,4,,30-Apr,DatMLT,,,,,#REF!,,
+85,,Quản lý Bán hàng,Tính thưởng DS - (thêm - xoá - sửa) + list + 3-step workflow + Tính theo rule,,,4,,30-Apr,DatMLT,,,,,#REF!,,
+86,,Quản lý Bán hàng,"Voucher - List, Detail, Create Delete",Có sẵn,,4,,30-Apr,DatMLT,,,,,#REF!,,
+87,,Quản lý Chi nhánh,Danh sách Chi nhánh - List + search/filter,,,4,,30-Apr,HieuDT,,,,,#REF!,,
+88,,Quản lý Chi nhánh,"Tạo Chi nhánh – Create với thông tin (Tên, Địa chỉ, SĐT, Email) + Gán  kho hàng",,,4,,30-Apr,HieuDT,,,Cần data mẫu từ bravo,,#REF!,,
+89,,Quản lý Chi nhánh,Xem chi tiết Chi nhánh - View info + Kho hang liên kết + DS nhân viên,,,4,,30-Apr,HieuDT,,,,,#REF!,,
+90,,Quản lý Chi nhánh,Cập nhật Chi nhánh - Update functionality,,,4,,30-Apr,HieuDT,,,,,#REF!,,
+91,,Quản lý Chi nhánh,Xóa Chi nhánh – Delete functionality,,,4,,30-Apr,HieuDT,,,,,#REF!,,
+92,,Quản lý Nhân viên,Danh sách NV - List + search/filter,,,4,,30-Apr,HieuDT,,,Cần data mẫu từ bravo,,#REF!,,
+93,,Quản lý Nhân viên,Tạo NV – Create single/bulk,,,4,,30-Apr,HieuDT,,,,,#REF!,,
+94,,Quản lý Nhân viên,Xem chi tiết NV – View detail,,,4,,30-Apr,HieuDT,,,,,#REF!,,
+95,,Quản lý Nhân viên,Cập nhật NV – Update functionality,,,4,,30-Apr,HieuDT,,,,,#REF!,,
+96,,Quản lý Nhân viên,Xóa NV - Delete functionality,,,4,,30-Apr,HieuDT,,,,,#REF!,,
+97,,Quản lý Nhân viên,Import NV - Excel import,,,4,,30-Apr,HieuDT,,,,,#REF!,,
+98,,Quản lý Nhân viên,Export NV - Excel export,,,4,,30-Apr,HieuDT,,,,,#REF!,,
+99,,Quản lý Bán hàng,DS Bảng giá - List + Trạng thái + Chi nhánh + Tags KH + Search/Filter,Có sẵn,,4,,30-Apr,DatMLT,,,,,#REF!,,
+100,,Quản lý Bán hàng,Thêm Bảng giá - Create single/bulk,Có sẵn,,4,,30-Apr,DatMLT,,,,,#REF!,,
+101,,Quản lý Bán hàng,Xem Bảng giá - View detail,Có sẵn,,4,,30-Apr,DatMLT,,,,,#REF!,,
+102,,Quản lý Bán hàng,"Cập nhật Bảng giá - Update: Thời gian, Chi nhánh, Tags KH, Default ",Có sẵn,,4,,30-Apr,DatMLT,,,,,#REF!,,
+103,,Quản lý Bán hàng,Xóa Bảng giá - Delete,Có sẵn,,4,,30-Apr,DatMLT,,,,,#REF!,,
+104,,Quản lý Khách hàng,Danh sách KH - List +Ẩn/hiện cột + Tags +10 filter,Có sẵn,Tạm dừng,4,,30-Apr,DatMLT,,,,,#REF!,,
+105,,Quản lý Khách hàng,"Xem chi tiết KH – View info + Công nợ + Lịch sử GD + Điểm + Tích điểm + Hàng đã mua + Tài liệu + Bảng giá",Có sẵn,Tạm dừng,4,,30-Apr,DatMLT,,,,,#REF!,,
+106,,Quản lý Khách hàng,Cập nhật KH – Update info+ Chiết khấu theo danh mục SP + Lịch chăm sóc + Documents + Owner,Có sẵn,Tạm dừng,4,,30-Apr,DatMLT,,,,,#REF!,,
+107,,Quản lý Khách hàng,"Nguồn KH – Customer source (thêm - xoá - sửa) (list, create, update, delete)",Có sẵn,Tạm dừng,4,,30-Apr,DatMLT,,,,,#REF!,,
+108,,Quản lý Khách hàng,Xóa KH – Delete functionality,Có sẵn,Tạm dừng,4,,30-Apr,DatMLT,,,,,#REF!,,
+109,,Báo cáo Nhân viên ,"Nhân viên - 4 reports: Tỉ lệ chốt đơn, Số đơn, Doanh thu theo NV, Hiệu suất",,,4,,30-Apr,HieuDT,,,,,#REF!,,
+110,,Quản lý Khách hàng,Import KH - Excel import,Có sẵn,Tạm dừng,4,,30-Apr,DatMLT,,,Cần data mẫu từ bravo,,#REF!,,
+111,,Quản lý Khách hàng,Export KH - Excel export,Có sẵn,Tạm dừng,4,,30-Apr,DatMLT,,,,,#REF!,,
+112,,Bán buôn,Kế hoạch bán hàng theo năm - Cập nhật kế hoạch theo năm cho từng KH để tính thưởng doanh số,Có sẵn phải customzie nhẹ,,4,0.5,30-Apr,HauLN,,,,,#REF!,,
+113,,Bán buôn,Bảng giá bán niêm yết - Cập nhật giá bán + Đính kèm file quyết định giá,Có sẵn phải customzie nhẹ,,4,0.5,30-Apr,HauLN,,,Cần data mẫu từ bravo,,#REF!,,
+114,,Bán buôn,Chính sách chiết khấu bán buôn - Cập nhật tỷ lệ CK theo KH + SP + Đính kèm file,Có sẵn phải customzie nhẹ,,4,0.5,30-Apr,HauLN,,,- Thêm phần thông tin chiết khấu cho page khách hàng,,#REF!,,
+115,,Bán buôn,Đơn đặt hàng bán - Form 13 fields + Auto tính tiền từ bảng giá + CK,Có sẵn phải customzie nhẹ,,4,0.5,30-Apr,HauLN,,,"- Cần vào bravo lấy thông tin 13 fields, có thể dùng ở form hoá đơn bán hàng và customize",,#REF!,,
+116,,Bán buôn,Kiểm tra tồn kho - Kiểm tra tham khảo tồn kho trước khi xuất,,,4,,30-Apr,HauLN,,,,,#REF!,,
+117,,Bán buôn,Lệnh xuất hàng - Kế thừa từ ĐH + Check công nợ + Phân quyền kho không nhìn giá,,,4,,30-Apr,HauLN,,,,,#REF!,,
+118,,Bán buôn,Kiểm tra hạn mức công nợ - Hiển thị công nợ thực tế + dự kiến + số HĐ quá hạn,,,4,,30-Apr,HauLN,,,,,#REF!,,
+119,,Bán buôn,Kiểm tra công nợ quá hạn - Auto cảnh báo + Yêu cầu duyệt Kế toán trưởng nếu vượt,,,4,,30-Apr,HauLN,,,,,#REF!,,
+120,,Bán buôn,Hóa đơn bán buôn - Kế thừa từ lệnh xuất + Auto lấy giá + Cảnh báo giá khác,,,4,,30-Apr,HauLN,,,,,#REF!,,
+121,,Bán buôn,"Lệnh nhập hàng trả lại - Kế thừa từ hóa đơn + Ghi nhận mã lô, seri",,,4,,30-Apr,HauLN,,,,,#REF!,,
+122,,Bán buôn,Hàng bán bị trả lại - Kế thừa từ lệnh nhập + Kiểm tra seri có tồn tại trên HĐ KH,,,4,,30-Apr,HauLN,,,,,#REF!,,
+123,,Bán buôn,Tính thưởng đạt kế hoạch doanh số - Tính CKKM + Công nợ KH + Ghi nhận tại phiếu thu,,,4,,30-Apr,HauLN,,,,,#REF!,,
+124,,Danh mục Bán hàng,Danh sách đơn Trade- in - List + Filter,,,4,,30-Apr,HauLN,,,Cần thống nhất lại flow,,#REF!,,
+125,,Danh mục Bán hàng,"Tạo đơn Trade-in - SP cũ (tên, thương hiệu, tình trạng, giá, ảnh) + SP mới + Voucher",,,4,,30-Apr,HauLN,,,,,#REF!,,
+126,,Danh mục Bán hàng,Trạng thái đơn Trade-in - 7 trạng thái: Mới → Kiểm tra → Định giá → KH confirm → Xử lý → Hoàn thành/Hủy,,,4,,30-Apr,HauLN,,,,,#REF!,,
+127,,Danh mục Bán hàng,Xem chi tiết đơn Trade-in - Thông tin KH + SP cũ+ SP mới + Chi tiết TT +Lịch sử,,,4,,30-Apr,HauLN,,,,,#REF!,,
+128,,Danh mục Bán hàng,Cập nhật đơn Trade-in - Cập nhật SP cũ + Giá thu + SP mới + Voucher,,,4,,30-Apr,HauLN,,,,,#REF!,,
+129,,Danh mục Bán hàng,Quy trình kiểm tra & định giá SP cũ - Checklist + Ghi nhận ảnh + Đề xuất giá + Manager duyệt,,,4,,30-Apr,HauLN,,,,,#REF!,,
+130,,Danh mục Bán hàng,Tích hợp Kho - Nhập SP cũ vào kho + Xuất SP mới + Cập nhật tồn kho tự động,,,4,,30-Apr,HauLN,,,,,#REF!,,
+131,,Danh mục Bán hàng,Báo cáo Trade-in - Tổng số đơn + Doanh thu chênh lệch + Giá trị SP cũ + BC theo CN/NV,,,4,,30-Apr,HauLN,,,,,#REF!,,
+132,,Danh mục Bán hàng,Dashboard Widgets Trade-in - Số đơn + Giá trị chênh lệch + Số SP cũ + Top SP,,,4,,30-Apr,HauLN,,,,,#REF!,,
+133,,Báo cáo Đơn hàng,Đơn hàng - 4 categories: Tổng đơn + Cửa hàng + Trạng thái,,,4,,30-Apr,HauLN,,,,,#REF!,,
+134,,Báo cáo Quản trị,Báo cáo quản trị theo yêu cầu - Theo thời gian + Theo sản phẩm + Theo đại lý,,,4,,30-Apr,HauLN,,,,,#REF!,,
+135,,Báo cáo Quản trị,"Kết xuất báo cáo - Excel + PDF, biểu đồ",,,4,,30-Apr,HauLN,,,,,#REF!,,
+136,,Báo cáo Khách hàng,"Khách hàng - 4 reports: Lead, Top KH doanh thu, KH mới, Mức độ hài lòng",,,4,,30-Apr,HauLN,,,,,#REF!,,
+137,,Báo cáo Doanh số,"Doanh số - 7 reports (theo thời gian, chi nhánh, tags KH, nguồn KH, sỉ/lẻ, top 10 SP)",,,4,,30-Apr,HauLN,,,,,#REF!,,
+138,,Kế toán Tiền,Quản lý tiền mặt - Số dư đầu kỳ + Thu – chi + Sổ quỹ,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,Cần data mẫu từ bravo,,#REF!,,
+139,,Kế toán Tiền,Quản lý tiền ngân hàng - Nhiều tài khoản + Biến động số dư + Sao kê,Có sẵn phải customzie nhẹ,Đang làm mà phải đợi khách xác nhận,5,,31-May,anh Long,,,,"Hỏi rõ feature ""Biến động số dư + sao kê"" là sao (đang hiểu là lưu file sao kê ngân hàng)",#REF!,,
+140,,Kế toán Mua hàng,Kế toán mua hàng - Nhận dữ liệu từ PO & phiếu nhập + Giá vốn,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,Cần data mẫu từ bravo; tạo shorcut vào phân hệ và sidebar link tới các chức năng,,#REF!,,
+141,,Kế toán Mua hàng,Theo dõi thanh toán mua - Đã thanh toán + Thanh toán 1 phần + Công nợ,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,tạo shorcut vào phân hệ và sidebar link tới các chức năng,,#REF!,,
+142,,Kế toán Bán hàng,Ghi nhận doanh thu - Theo đơn hàng + Theo kênh bán,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,Cần data mẫu từ bravo,,#REF!,,
+143,,Kế toán Công nợ,Công nợ phải thu - Hạn thanh toán + Tuổi nợ,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,Cần data mẫu từ bravo,,#REF!,,
+144,,Kế toán Công nợ,Công nợ phải trả - Gắn với PO / phiếu nhập,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,,,#REF!,,
+145,,Kế toán Công nợ,Tạm ứng - hoàn ứng - Nhân viên / NCC + Đối trừ công nợ	,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,,,#REF!,,
+146,,Kế toán tồn kho,Giá trị tồn kho - Theo kho + Theo batch,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,Cần data mẫu từ bravo,,#REF!,,
+147,,Kế toán tồn kho,Giá vốn bán hàng (COGS) - FIFO / bình quân,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,,,#REF!,,
+148,,Chi phí & Hỗ trợ,Chi phí hỗ trợ hãng - Marketing + Trưng bày + Demo        ,Có sẵn phải customzie nhẹ,Đang làm mà phải đợi khách xác nhận,5,,31-May,anh Long,,,Cần data mẫu từ bravo,Hỏi khách xem luồng hạch toán như thế nào với các chi phí này,#REF!,,
+149,,Chi phí & Hỗ trợ,"
+Phân bổ chi phí - Theo SP + Theo chiến dịch",Có sẵn phải customzie nhẹ,Đang làm mà phải đợi khách xác nhận,5,,31-May,anh Long,,,,Hỏi khách xem luồng hạch toán như thế nào với các chi phí này? Phân bổ có vào giá vốn sản phẩm không hay là theo từng chiến dịch (dự án),#REF!,,
+150,,Tài sản & CCDC,Quản lý TSCĐ - Nguyên giá + Khấu hao,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,Cần data mẫu từ bravo,,#REF!,,
+151,,Tài sản & CCDC,Khấu hao tài sản theo giờ,Có sẵn phải customzie nhẹ,Đang làm mà phải đợi khách xác nhận,5,,31-May,anh Long,,,,"Hỏi khách logic khấu hao theo giờ (ví dụ, quy định từ đầu tổng thời gian khấu hao, rồi khi có sử dụng thì dùng bút toán khấu hao theo giờ đã được ghi nhận?)",#REF!,,
+152,,Tài sản & CCDC,Công cụ dụng cụ - Phân bổ nhiều kỳ,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,,,#REF!,,
+153,,Kế toán Thuế,"
+Kế toán thuế - VAT đầu vào/ra
+",Xây mới,Đang thực hiện,5,15,31-May,anh Long,,,Cần data mẫu từ bravo,"hỏi khách: dùng dịch vụ hóa đơn đỏ của Mắt bảo (rẻ hơn) được không, mình cho xuất thẳng từ ERP luôn, không phải ra phần mềm khác.",desk/hóa-đơn-điện-tử,,
+154,,Kế toán Thuế,Kết xuất dữ liệu thuế - Xuất file HTKK + Theo chuẩn thuế,Xây mới,Chưa làm,5,15,31-May,anh Long,,,,,#REF!,,
+155,,Kế toán Tổng hợp,Báo cáo KQKD - Doanh thu + Chi phí + Lợi nhuận,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,Cần data mẫu từ bravo,,#REF!,,
+156,,Kế toán Tổng hợp,Báo cáo chi phí - Marketing + Demo + Sale,Có sẵn phải customzie nhẹ,Đang làm,5,,31-May,anh Long,,,,,#REF!,,
+157,,Kế toán Tổng hợp,Báo cáo quản trị - Theo chi nhánh + Theo đại lý,Có sẵn phải customzie nhẹ,Đang làm mà phải đợi khách xác nhận,5,,31-May,anh Long,,,,Hỏi rõ mẫu báo cáo quản trị của khách,#REF!,,
+158,,Báo cáo Tổng hợp,Tổng hợp nhập - xuất - tồn - Tổng số lượng nhập + Tổng số lượng xuất + Tồn kho cuối kỳ,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,,,#REF!,,
+159,,Báo cáo Tổng hợp,Báo cáo tồn kho theo kho - Theo từng kho/chi nhánh + Giá trị tồn kho,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,,,#REF!,,
+160,,Báo cáo Tổng hợp,Báo cáo tồn kho theo model - Model / SKU + Số lượng tồn + Tỷ trọng tồn,Có sẵn phải customzie nhẹ,Đang làm mà phải đợi khách xác nhận,5,,31-May,anh Long,,,,Hỏi rõ công thức tính tỷ trọng tồn (hoặc mẫu báo cáo tỷ trọng tồn),#REF!,,
+161,,Báo cáo Tổng hợp,Báo cáo tồn kho theo lô - Mã lô + Ngày nhập + Tồn theo lô,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,,,#REF!,,
+162,,Báo cáo Tổng hợp,Báo cáo tồn kho theo vòng đời - Hàng mới + Hàng chậm bán + Hàng sắp hết vòng đời,Có sẵn phải customize nhiều,Đang làm,5,,31-May,anh Long,,,Batch Item expiry  report,,http://localhost:8000/desk/query-report/Batch%20Item%20Expiry%20Status?from_date=2026-01-01&to_date=2026-03-06,,
+163,,Role & Permission,Danh sách Role - List roles,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,,,#REF!,,
+164,,Role & Permission,Tạo Role - Create custom roles với permissions (DocType + field-level),Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,,,#REF!,,
+165,,Role & Permission,Cập nhật Role - Update role permissions,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,,,#REF!,,
+166,,Role & Permission,Xóa Role - Delete roles,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),5,,31-May,anh Long,,,,,#REF!,,
+167,,Dự báo doanh thu - Cảnh báo hụt doanh số (có cài đặt doanh số mong đợi),,Có sẵn phải customize nhiều,Đang làm mà phải đợi khách xác nhận,5,,31-May,anh Long,,,Phát sinh sau họp C.Linh 3/2/2026,Dự báo theo logic nào? Có quy trình/form/báo cáo mẫu không?,#REF!,,
+168,,"Tích hợp Giao vận Viettel post, GHTK",DS Đơn giao vận - List + Filter theo trạng thái,,,5,,31-May,CuongNDM,,,,,#REF!,,
+169,,"Tích hợp Giao vận Viettel post, GHTK","Liên kết Viettel Post - Tạo đơn CRM→VP + Đồng bộ (mã, dịch vụ, giá, trạng thái)",,,5,,31-May,CuongNDM,,,,,#REF!,,
+170,,Web & Đồng bộ,Đồng bộ danh mục KH - Sync customer data giữa CRM và Website (2 chiều),,,5,,31-May,CuongNDM,,,,,#REF!,,
+171,,Web & Đồng bộ,"Đồng bộ danh mục hàng hóa - Sync product catalog (hình ảnh, mô tả, giá) - CRM → Website",,,5,,31-May,CuongNDM,,,,,#REF!,,
+172,,Web & Đồng bộ,Đồng bộ danh mục kho - Sync warehouse data - CRM → Website,,,5,,31-May,CuongNDM,,,,,#REF!,,
+173,,Web & Đồng bộ,Đồng bộ đơn hàng - Auto tạo đơn hàng từ Website → CRM + Update trạng thái,,,5,,31-May,CuongNDM,,,,,#REF!,,
+174,,Web & Đồng bộ,Đồng bộ tồn kho - Real-time sync tồn kho khả dụng → Website ,,,5,,31-May,CuongNDM,,,,,#REF!,,
+175,,Quản lý Lead,Danh sách Lead – List + Ẩn/hiện cột + Tags + 9 filters + search,Có sẵn phải customzie nhẹ,Hoàn thành,5,,31-May,DatMLT,,,,,#REF!,,
+176,,Quản lý Lead,Tạo Lead - Form 8 fields cơ bản + 9 fields nâng cao + duplicate check,Có sẵn phải customzie nhẹ,Hoàn thành,5,,31-May,DatMLT,,,,,#REF!,,
+177,,Quản lý Lead,Xem chi tiết Lead - View info + Lịch sử GD + Lịch sử tư vấn + Comments,Có sẵn phải customzie nhẹ,Hoàn thành,5,,31-May,DatMLT,,,,,#REF!,,
+178,,Quản lý Lead,Cập nhật Lead - Update info + documents + owner,Có sẵn,Hoàn thành,5,,31-May,DatMLT,,,,,#REF!,,
+179,,Quản lý Lead,Xóa Lead – Delete functionality,Có sẵn,Hoàn thành,5,,31-May,DatMLT,,,,,#REF!,,
+180,,Quản lý Lead,Auto từ nhanh_vn - Webhook integration đa kênh,,,5,,31-May,DatMLT,,,,,#REF!,,
+181,,Quản lý Lead,Import Lead - Excel import,Có sẵn,Hoàn thành,5,,31-May,DatMLT,,,,,#REF!,,
+182,,Quản lý Lead,Export Lead - Excel export,Có sẵn,Hoàn thành,5,,31-May,DatMLT,,,,,#REF!,,
+183,,Quản lý Lead,Expose API - REST API cho external systems,Có sẵn,Hoàn thành,5,,31-May,DatMLT,,,,,#REF!,,
+184,,Quản lý Coaching,Danh sách đơn Coaching - List + Calendar view + Filter,Có sẵn,,5,,31-May,DatMLT,,,https://app.diagrams.net/#G1KITJbZXO0ld3GItPp3waW_S6DW4GlX_M#%7B%22pageId%22%3A%22iJpuWqaLqIVbqVSdFLRd%22%7D,,#REF!,,
+185,,Quản lý Coaching,Tạo đơn Coaching - Hồ sơ học viên + Gói huấn luyện + HLV + Sân tập + Lịch + Học phí,Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+186,,Quản lý Coaching,Trạng thái đơn Coaching - 8 trạng thái: Mới → Đã test → Tư vấn → TT → Đang học → Tạm dừng → Hoàn thành/Hủy,Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+187,,Quản lý Coaching,"Quản lý Gói huấn luyện - (thêm - xoá - sửa): Tên gói, Loại, Số buổi, Thời lượng, Giá, Mô tả",Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+188,,Quản lý Coaching,"Quản lý HLV - (thêm - xoá - sửa): Link Employee, Chứng chỉ, Kinh nghiệm, Chuyên môn, Rating",Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+189,,Quản lý Coaching,"Quản lý Sân tập - (them - xoá - sửa): Tên sân, Địa chỉ, Số lane, SĐT, Đối tác",Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+190,,Quản lý Coaching,"Bài test đầu vào – Ngày test, HLV test, Kết quả đánh giá, Chi tiết, Đề xuất gói",Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+191,,Quản lý Coaching,Nhập thông số kỹ thuật - Tương tự Fitting (14+ thông số),Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+192,,Quản lý Coaching,Lịch học & điểm danh - Lịch từng buổi + Trạng thái + Nội dung + Bài tập,Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+193,,Quản lý Coaching,Tiến độ học tập - Tổng quan kỹ năng + Đánh giá định kỳ + Phân tích kỹ thuật,Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+194,,Quản lý Coaching,Tạo Sales Order từ Coaching - Tạo đơn học phí + Đơn phụ kiện + Link + Theo dõi công nợ,Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+195,,Quản lý Coaching,Thông báo & Nhắc lịch tự động - Gửi lịch qua Zalo/Email + Thay đổi giờ + Nhắc thi đấu,Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+196,,Quản lý Coaching,Báo cáo Coaching - Doanh thu đào tạo + DT SP phát sinh + Số học viên + KPI,Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+197,,Quản lý Coaching,Dashboard Widgets Coaching - Số học viên + Doanh thu + DT SP + Top HLV + Tỉ lệ hoàn thành,Có sẵn phải customzie nhẹ,,5,,31-May,DatMLT,,,,,#REF!,,
+198,,"Cài đặt hệ thống (lead/ tag, khách hàng)",Phân công Lead - Phân công Lead thủ công cho NV theo chi nhánh,Có sẵn,,5,,31-May,DatMLT,,,,,#REF!,,
+199,,"Cài đặt hệ thống (lead/ tag, khách hàng)",Quản lý tags KH - Customer tags (thêm - xoá - sửa),Có sẵn,,5,,31-May,DatMLT,,,,,#REF!,,
+200,,"Cài đặt hệ thống (lead/ tag, khách hàng)","Danh sách Nhóm KH - Customer group (thêm - xoá - sửa) (nhóm theo loại, vùng miền)",Có sẵn,,5,,31-May,DatMLT,,,,,#REF!,,
+201,,"Cài đặt hệ thống (lead/ tag, khách hàng)",Quản lý trạng thái cơ hội - Opportunity status (thêm - xoá - sửa),Có sẵn,,5,,31-May,DatMLT,,,,,#REF!,,
+202,,Quản lý Fitting,Danh sách Đơn Fitting - List + Calendar view + Filter,,,5,,31-May,HieuDT,,,https://app.diagrams.net/#G1KITJbZXO0ld3GItPp3waW_S6DW4GlX_M#%7B%22pageId%22%3A%22jipBalF-uE_CkHiYptnZ%22%7D,,#REF!,,
+203,,Quản lý Fitting,Tạo đơn Fitting - Nguồn + KH + Lịch hẹn + Chi nhánh + NV Fitting + Ghi chú,,,5,,31-May,HieuDT,,,,,#REF!,,
+204,,Quản lý Fitting,Trạng thái đơn Fitting – 5 trạng thái: Mới → Đã xác nhận → Đang thực hiện → Hoàn thành/Hủy,,,5,,31-May,HieuDT,,,,,#REF!,,
+205,,Quản lý Fitting,"Nhập thông số kỹ thuật - 14 fields (Chiều cao, Cân nặng, Size tay, Cấp độ, Tốc độ, Swing, etc.)",,,5,,31-May,HieuDT,,,,,#REF!,,
+206,,Quản lý Fitting,"Dịch vụ phát sinh – Ghi nhận: Mua grip, Lắp shaft, Đặt gậy custom, Combo fitting + gậy",,,5,,31-May,HieuDT,,,,,#REF!,,
+207,,Quản lý Fitting,Phân công NV Fitting - Phân công + Đổi NV phụ trách,,,5,,31-May,HieuDT,,,,,#REF!,,
+208,,Quản lý Fitting,"Tạo Sales Order từ Fitting - Button ""Tạo đơn hàng"" + Pre-fill + Link với đơn Fitting",,,5,,31-May,HieuDT,,,,,#REF!,,
+209,,Quản lý Fitting,Tích hợp Website Fitting – API nhận đăng ký từ website + Auto tạo đơn + Thông báo Sale,,,5,,31-May,HieuDT,,,,,#REF!,,
+210,,Quản lý Fitting,Báo cáo Fitting - Doanh thu + Số buổi + Số khách + Linh kiện + Báo cáo NV,,,5,,31-May,HieuDT,,,,,#REF!,,
+211,,Quản lý Fitting,Dashboard Widgets Fitting - Số buổi fitting + Doanh thu + Tỉ lệ chuyển đổi + Top NV,,,5,,31-May,HieuDT,,,,,#REF!,,
+212,,Chăm sóc khách hàng tự động,Lịch chăm sóc tự động - (thêm - xoá - sửa) + Giao hàng nhiệm vụ định kỳ + Nhắc lịch KH VIP + Auto thông báo,,,5,,31-May,HieuDT,,,,,#REF!,,
+213,,Chăm sóc khách hàng tự động,Lịch gửi KM tự động - (thêm - xoá - sửa) + Chọn lọc nhóm KH + Auto send promotions,,,5,,31-May,HieuDT,,,,,#REF!,,
+214,,Chăm sóc khách hàng tự động,Phiếu hỗ trợ (Ticket) - (thêm - xoá - sửa) + Assignment + Status (Chưa xử lý/Đang xử lý/ Đã xong),,,5,,31-May,HieuDT,,,,,#REF!,,
+215,,Chăm sóc khách hàng tự động,Phân quyền CSKH - Assign care groups to staff,,,5,,31-May,HieuDT,,,,,#REF!,,
+216,,Chăm sóc khách hàng tự động,"Khảo sát hài lòng - Form khảo sát (sau mua hàng, sau CSKH, sau khiếu nại)",,,5,,31-May,HieuDT,,,,,#REF!,,
+217,,Chăm sóc khách hàng tự động,Tích hợp Zalo/Messenger - Integration với Zalo OA + Messenger,,,5,,31-May,HieuDT,,,,,#REF!,,
+218,,Chăm sóc khách hàng tự động,Upsell/Cross-sell - Gợi ý SP dựa lịch sử mua + Auto gửi tin nhắn/email,,,5,,31-May,HieuDT,,,,,#REF!,,
+219,,"Cài đặt hệ thống (lead/ tag, khách hàng)",Danh sách Chức vụ - Role management (them - xoá - sửa) + Phân quyền cho từng chức vụ,,,5,,31-May,HauLN,,,,,#REF!,,
+220,,"Cài đặt hệ thống (lead/ tag, khách hàng)",Danh sách Trạng thái ĐH - Order status list (Xác nhận/Đang xử lý/Hoàn thành/Hủy),,,5,,31-May,HauLN,,,,,#REF!,,
+221,,"Cài đặt hệ thống (lead/ tag, khách hàng)",Danh sách Hành động NV - Employee action list (Gọi điện/SMS/Email/FB/Zalo),,,5,,31-May,HauLN,,,,,#REF!,,
+222,,Quản lý tích điểm,Tích điểm - Quy tắc tính điểm + Quy tắc lên hạng,,,5,,31-May,HauLN,,,Quy tắc tính điểm/ lên hạng,,#REF!,,
+223,,Đơn hàng bảo hành - bảo trì,Quản lý đơn hàng BH- BT,,,5,,31-May,HauLN,,,Cần thống nhất lại flow,,#REF!,,
+224,,Đơn hàng bảo hành - bảo trì,Tạo đơn bảo hành/bảo trì - Tạo phiếu BH cơ bản,,,5,,31-May,HauLN,,,,,#REF!,,
+225,,Report Website,"Lượt truy cập – 5 Metrics (tháng/tuần/ngày/giờ, Đơn mới, KH mới, Tỉ lệ chuyển đổi, Thời gian TB) ",,,5,,31-May,HieuDT,,,,,#REF!,,
+226,,Report Website,Heatmap (basic) – User interaction tracking + Filter sự kiện ,,,5,,31-May,HieuDT,,,,,#REF!,,
+227,,Report Website,"Phân tích Data – 11 metrics (PageView, Scroll Depth, Session, Purchase, Subscribe, etc.) ",,,5,,31-May,HieuDT,,,,,#REF!,,
+228,,Report Website,Tối ưu - Performance: Ghi phiên không ảnh hưởng tốc độ load,,,5,,31-May,HieuDT,,,,,#REF!,,
+229,,Đơn hàng bảo hành - bảo trì,Xem chi tiết ĐH – View đơn hàng + Bảo hành + Công nợ,,,5,,31-May,HauLN,,,,,#REF!,,
+230,,Đơn hàng bảo hành - bảo trì,Cập nhật ĐH – Update đơn hàng + Chuyển kho xử lý,,,5,,31-May,HauLN,,,,,#REF!,,
+231,,Đơn hàng bảo hành - bảo trì,Xóa ĐH - Delete orders,,,5,,31-May,HauLN,,,,,#REF!,,
+232,,Đơn hàng bảo hành - bảo trì,In ĐH - Print order forms,,,5,,31-May,HauLN,,,,,#REF!,,
+233,,Đơn hàng bảo hành - bảo trì,Bảo hành nâng cao - Tạo phiếu BH (7 fields) + Status workflow + Auto notify,,,5,,31-May,HauLN,,,,,#REF!,,
+234,,Kiểm soát,"Audit log - Ai thao tác + Thời gian
+",,,5,,31-May,HieuDT,,,,,#REF!,,
+235,,Đơn hàng bảo hành - bảo trì,Export ĐH - Excel export,,,5,,31-May,HauLN,,,,,#REF!,,
+236,,Membership,Quản lý gói đăng ký,,,5,,31-May,HauLN,,,,,#REF!,,
+237,,Membership,Quản lý danh sách thẻ thành viên,,,5,,31-May,HauLN,,,Phát sinh sau họp C.Linh 3/2/2026,,#REF!,,
+238,,Membership,Đăng ký gói member mới: sử dụng tất cả dịch vụ trong gói quy định,,,5,,31-May,HauLN,,,,,#REF!,,
+239,,Membership,Tự động tạo membership khi sử dụng dịch vụ,,,5,,31-May,HauLN,,,,,#REF!,,
+239,,Membership,"Chính sách quyền lợi (chiết khấu, tích điểm, ưu đãi dịch vụ)",,,5,,31-May,HauLN,,,,,#REF!,,
+240,,Membership,Quản lý thời hạn sử dụng thẻ,,,5,,31-May,HauLN,,,,,#REF!,,
+241,,Membership,Tự động nâng hạng hoặc hạ hạng khách,,,5,,31-May,HauLN,,,,,#REF!,,
+242,,Membership,Tích hợp mã QR hoặc mã thẻ để check-in,,,5,,31-May,HauLN,,,,,#REF!,,
+243,,Membership,"Báo cáo (số lần sử dụng, doanh số mua hàng, doanh thu thẻ)",,,5,,31-May,HauLN,,,,,#REF!,,
+244,,"Workshop/ Event (cho thuê điạ điểm hoặc cho thuê chọn gói dịch vụ)
+Đơn hàng dịch vụ, đánh tag workshop hoặc event",,,,5,,31-May,HieuDT,,,Đánh tag đơn hàng dạng dịch vụ,,#REF!,,
+245,,Migrate dữ liệu kế toán thực tế từ bravo về để đối chiếu,,,,5,,31-May,DucVV,,,lấy trong khoảng time muốn kiểm tra,,#REF!,,
+246,,Cài đặt Server Khách,,,,5,,31-May,DucVV,,,Thực hiện sang tháng 8 nếu đẩy làm trước mục phát sinh 47 48 49 vào đầu tháng 7,,#REF!,,
+247,,"Bàn giao, chuyển server",,,,5,,31-May,DucVV,,,,,#REF!,,
+248,,"Đào tạo, hướng dẫn sử dụng",,,,5,,31-May,DucVV,,,,,May,,
+249,,Quản lý sản phẩm,Quản lý thuộc tính sản phẩm: cho phép thiết lập danh sách thuộc tính trong nhóm sản phẩm,Có sẵn phải customize nhiều,Chưa làm,4,2,30-Apr,anh Long,,,"Tạo sản phẩm theo template, sản phẩm có thể kế thừa danh sách thuộc tính từ nhóm sản phẩm. Trong nhóm sản phẩm thêm bảng con để chọn các thuộc tính có sẵn. Khi tạo sản phẩm mới và chọn nhóm sản phẩm tương ứng sẽ tự động load thuộc tính đã được chọn trong nhóm sản phẩm. Trong Item, User có thể: thêm - bớt các thuộc tính đã load, thêm bớt các giá trị của thuộc tính. Sử dụng nút Tạo nên - Tạo nhiều Biến thể để tạo hàng loạt biến thể theo các giá trị của tất cả các thuộc tính. Note: khi đồng bộ với WordPress: api căn cứ vào chọn biến thể trên web sẽ đưa về mã sản phẩm/biến thể tương ứng trên erp",,,,
+250,,Quản lý sản phẩm,Tạo biến thể của sản phẩm,Có sẵn,Đã xong (kể cả có sẵn cũng phải kiểm tra),3,,15-Mar,anh Long,,,"Tick chọn ""Có biến thể"" thì item sẽ trở thành template, sau đó vào mục biến thể để thêm các thuộc tính (cần vào bảng thuộc tính để thêm thuộc tính mới nếu chưa có)",,"desk/item
+desk/item-attribute",,

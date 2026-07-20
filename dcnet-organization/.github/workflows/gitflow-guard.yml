@@ -1,0 +1,251 @@
+name: Git Flow Guard
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: gitflow-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  guard:
+    name: Git Flow Guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Git Flow Rules
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const base = pr.base.ref;
+            const head = pr.head.ref;
+            const title = pr.title;
+            const violations = [];
+
+            const allowedIntoDevelop = ['feature/', 'fix/', 'refactor/', 'chore/', 'docs/', 'test/'];
+
+            if (base === 'main') {
+              if (head !== 'develop' && !head.startsWith('hotfix/')) {
+                violations.push({
+                  rule: '🎯 PR → main',
+                  error: `Nhánh \`${head}\` không được merge trực tiếp vào \`main\`.`,
+                  fix: 'Chỉ nhánh `develop` hoặc `hotfix/*` mới được tạo PR vào `main`.\n'
+                    + '- Feature/fix → merge vào `develop` trước.\n'
+                    + '- `develop` → `main` khi release.\n'
+                    + '- `hotfix/*` → `main` chỉ khi production có lỗi nghiêm trọng.',
+                });
+              }
+            }
+
+            if (base === 'develop') {
+              const allowed = allowedIntoDevelop.some(prefix => head.startsWith(prefix));
+              if (!allowed) {
+                violations.push({
+                  rule: '🎯 PR → develop',
+                  error: `Nhánh \`${head}\` không được merge vào \`develop\`.`,
+                  fix: 'Chỉ các nhánh sau mới được tạo PR vào `develop`:\n'
+                    + '`feature/*` · `fix/*` · `refactor/*` · `chore/*` · `docs/*` · `test/*`\n\n'
+                    + 'Tạo nhánh mới: `git checkout -b feature/{tên} develop`',
+                });
+              }
+            }
+
+            const branchPatterns = [
+              /^feature\/.+$/,
+              /^fix\/.+$/,
+              /^hotfix\/.+$/,
+              /^refactor\/.+$/,
+              /^chore\/.+$/,
+              /^docs\/.+$/,
+              /^test\/.+$/,
+              /^develop$/,
+              /^main$/,
+            ];
+
+            if (!branchPatterns.some(re => re.test(head))) {
+              violations.push({
+                rule: '📛 Tên nhánh',
+                error: `Nhánh \`${head}\` không đúng quy tắc đặt tên.`,
+                fix: '**Format:** `{prefix}/{tên-có-gạch-ngang}`\n\n'
+                  + '| Prefix | Dùng khi |\n'
+                  + '|--------|----------|\n'
+                  + '| `feature/` | Tính năng mới |\n'
+                  + '| `fix/` | Bug fix thông thường |\n'
+                  + '| `hotfix/` | Fix khẩn cấp production |\n'
+                  + '| `refactor/` | Tái cấu trúc code |\n'
+                  + '| `chore/` | Dependencies, config, tooling |\n'
+                  + '| `docs/` | Chỉ tài liệu |\n'
+                  + '| `test/` | Thêm/sửa tests |\n\n'
+                  + '**VD:** `feature/approval-flow` · `fix/login-bug` · `hotfix/payment-crash`',
+              });
+            }
+
+            const ccPattern = /^(feat|fix|refactor|docs|chore|test|style|ci|perf|build|revert|hotfix|release)(\(.+?\))?: .+/;
+
+            if (!ccPattern.test(title)) {
+              violations.push({
+                rule: '📝 PR Title',
+                error: `Title \`${title}\` không đúng format Conventional Commits.`,
+                fix: '**Format:** `{type}({scope}): {mô tả}`\n\n'
+                  + '| Type | Khi nào dùng |\n'
+                  + '|------|--------------|\n'
+                  + '| `feat` | Tính năng mới |\n'
+                  + '| `fix` | Sửa lỗi |\n'
+                  + '| `refactor` | Đổi code, không đổi chức năng |\n'
+                  + '| `docs` | Thay đổi tài liệu |\n'
+                  + '| `chore` | Config, build, dependencies |\n'
+                  + '| `test` | Thêm/sửa test |\n'
+                  + '| `hotfix` | Sửa lỗi production |\n'
+                  + '| `release` | Đánh dấu release |\n\n'
+                  + '**VD:** `feat: add approval workflow` · `fix(auth): resolve login redirect`',
+              });
+            }
+
+            const body = pr.body || '';
+
+            // Skip per-section validation cho release PR (develop→main) và hotfix PR (hotfix/*→main)
+            // vì release notes / hotfix note có format riêng.
+            const isReleaseOrHotfixPR = base === 'main' && (head === 'develop' || head.startsWith('hotfix/'));
+
+            const sectionRules = isReleaseOrHotfixPR ? [] : [
+              { title: '🎯 Bối cảnh nghiệp vụ', required: true,  min: 30, max: 250 },
+              { title: '⚙️ Chức năng thực hiện', required: true,  min: 30, max: 250 },
+              { title: '📝 Ghi chú kỹ thuật',    required: false, min: 0,  max: 500 },
+            ];
+
+            function parseSections(bodyText) {
+              const out = {};
+              const lines = bodyText.split('\n');
+              let curTitle = null;
+              let curLines = [];
+              for (const line of lines) {
+                const m = line.match(/^##\s+(.+?)\s*$/);
+                if (m) {
+                  if (curTitle) out[curTitle] = curLines.join('\n');
+                  curTitle = m[1].trim();
+                  curLines = [];
+                } else if (curTitle) {
+                  curLines.push(line);
+                }
+              }
+              if (curTitle) out[curTitle] = curLines.join('\n');
+              return out;
+            }
+
+            function cleanLength(content) {
+              return content
+                .replace(/<!--[\s\S]*?-->/g, '')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .length;
+            }
+
+            function hasPlaceholder(content) {
+              return /<!--[\s\S]*?-->/.test(content);
+            }
+
+            const sections = parseSections(body);
+
+            for (const r of sectionRules) {
+              const content = sections[r.title];
+              const exists = content !== undefined;
+
+              if (!exists) {
+                if (r.required) {
+                  violations.push({
+                    rule: `📄 Section \`${r.title}\``,
+                    error: `Thiếu section \`## ${r.title}\` trong mô tả PR.`,
+                    fix: 'Paste lại đầy đủ PR template, điền nội dung vào các section.',
+                  });
+                }
+                continue;
+              }
+
+              const len = cleanLength(content);
+              const stillPlaceholder = hasPlaceholder(content) && len === 0;
+
+              if (r.required && stillPlaceholder) {
+                violations.push({
+                  rule: `📄 Section \`${r.title}\``,
+                  error: `Section \`${r.title}\` chưa điền nội dung — vẫn còn placeholder \`<!-- ... -->\`.`,
+                  fix: `**Yêu cầu:** Xóa comment hướng dẫn, viết nội dung thật ${r.min}–${r.max} ký tự.`,
+                });
+                continue;
+              }
+
+              if (r.required && len < r.min) {
+                violations.push({
+                  rule: `📄 Section \`${r.title}\``,
+                  error: `Section \`${r.title}\` quá ngắn (${len}/${r.min} ký tự tối thiểu).`,
+                  fix: `**Yêu cầu:** ${r.min}–${r.max} ký tự nội dung thật (comment \`<!-- ... -->\` không được tính).`,
+                });
+                continue;
+              }
+
+              if (len > r.max) {
+                violations.push({
+                  rule: `📄 Section \`${r.title}\``,
+                  error: `Section \`${r.title}\` quá dài (${len}/${r.max} ký tự).`,
+                  fix: `**Yêu cầu:** Tối đa ${r.max} ký tự. Rút gọn, tránh paste AI output dài lê thê — chỉ giữ ý chính.`,
+                });
+                continue;
+              }
+
+              if (!r.required && len > 0 && len < r.min) {
+                violations.push({
+                  rule: `📄 Section \`${r.title}\``,
+                  error: `Section \`${r.title}\` đã điền nhưng chỉ có ${len}/${r.min} ký tự.`,
+                  fix: `**Yêu cầu:** Nếu điền thì cần ${r.min}–${r.max} ký tự. Hoặc xóa nội dung để section trống.`,
+                });
+              }
+            }
+
+            const marker = '<!-- gitflow-guard -->';
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: pr.number,
+            });
+            const existing = comments.find(c => c.body.includes(marker));
+
+            if (violations.length > 0) {
+              let body = `${marker}\n`;
+              body += `## ⛔ Git Flow Guard — ${violations.length} vi phạm\n\n`;
+              body += `| | Nhánh | PR Title |\n`;
+              body += `|---|---|---|\n`;
+              body += `| **Source** | \`${head}\` | \`${title}\` |\n`;
+              body += `| **Target** | \`${base}\` | — |\n\n`;
+              for (const v of violations) {
+                body += `### ${v.rule}\n\n> ${v.error}\n\n${v.fix}\n\n`;
+              }
+              body += '---\n<details><summary>📋 Git Flow Rules</summary>\n\n';
+              body += '**Branch rules**\n\n';
+              body += '| Target | Cho phép từ |\n|--------|------------|\n';
+              body += '| `main` | `develop`, `hotfix/*` |\n';
+              body += '| `develop` | `feature/*`, `fix/*`, `refactor/*`, `chore/*`, `docs/*`, `test/*` |\n\n';
+              body += '**PR Title:** `{type}({scope}): {mô tả}` — types: `feat` · `fix` · `refactor` · `docs` · `chore` · `test` · `hotfix` · `release`\n\n';
+              body += '**PR Body sections** (bắt buộc giữ đúng heading)\n\n';
+              body += '| Section | Bắt buộc | Độ dài |\n|---------|:-------:|--------|\n';
+              body += '| `## 📌 Issue liên quan` | — | optional |\n';
+              body += '| `## 💬 Discussion liên quan` | — | optional |\n';
+              body += '| `## 🎯 Bối cảnh nghiệp vụ` | ✅ | 30–250 ký tự |\n';
+              body += '| `## ⚙️ Chức năng thực hiện` | ✅ | 30–250 ký tự |\n';
+              body += '| `## 📝 Ghi chú kỹ thuật` | — | ≤ 500 ký tự nếu điền |\n\n';
+              body += '> Comment `<!-- ... -->` không được tính vào độ dài — phải xóa và viết nội dung thật.\n';
+              body += '</details>\n';
+              if (existing) {
+                await github.rest.issues.updateComment({ ...context.repo, comment_id: existing.id, body });
+              } else {
+                await github.rest.issues.createComment({ ...context.repo, issue_number: pr.number, body });
+              }
+              core.setFailed(`Git Flow Guard: ${violations.length} vi phạm — xem comment trên PR`);
+            } else {
+              if (existing) {
+                await github.rest.issues.deleteComment({ ...context.repo, comment_id: existing.id });
+              }
+              core.info('✅ Git Flow Guard — Tất cả rules đều pass');
+            }

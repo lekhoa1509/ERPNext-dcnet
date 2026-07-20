@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frappe/ERPNext Design System Style Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Gray Scale */
+            --gray-50: #f8f8f8;
+            --gray-100: #f3f3f3;
+            --gray-200: #ededed;
+            --gray-300: #e2e2e2;
+            --gray-400: #c7c7c7;
+            --gray-500: #999999;
+            --gray-600: #7c7c7c;
+            --gray-700: #525252;
+            --gray-800: #383838;
+            --gray-900: #171717;
+
+            /* Blue Scale */
+            --blue-50: #f7fbfd;
+            --blue-100: #edf6fd;
+            --blue-200: #e3f1fd;
+            --blue-300: #c9e7fc;
+            --blue-400: #70b6f0;
+            --blue-500: #0289f7;
+            --blue-600: #007be0;
+            --blue-700: #0070cc;
+            --blue-800: #005ca3;
+            --blue-900: #004880;
+
+            /* Green Scale */
+            --green-50: #f3fcf5;
+            --green-100: #e4f5e9;
+            --green-200: #daf0e1;
+            --green-300: #cae5d4;
+            --green-400: #b6dec5;
+            --green-500: #59ba8b;
+            --green-600: #30a66d;
+            --green-700: #278f5e;
+            --green-800: #16794c;
+            --green-900: #173b2c;
+
+            /* Red Scale */
+            --red-50: #fff7f7;
+            --red-100: #fff0f0;
+            --red-200: #fcd7d7;
+            --red-300: #f9c6c6;
+            --red-400: #eb9091;
+            --red-500: #e03636;
+            --red-600: #cc2929;
+            --red-700: #b52a2a;
+            --red-800: #941f1f;
+            --red-900: #6b1515;
+
+            /* Orange Scale */
+            --orange-50: #fff9f5;
+            --orange-100: #fff1e7;
+            --orange-200: #fce6d5;
+            --orange-300: #f7d6bd;
+            --orange-400: #f0b58b;
+            --orange-500: #e86c13;
+            --orange-600: #d45a08;
+            --orange-700: #bd3e0c;
+            --orange-800: #9e3513;
+            --orange-900: #6b2711;
+
+            /* Amber Scale */
+            --amber-50: #fdfaed;
+            --amber-100: #fcf3cf;
+            --amber-200: #f7e28d;
+            --amber-300: #f5d261;
+            --amber-400: #f2be3a;
+            --amber-500: #e79913;
+            --amber-600: #db7706;
+            --amber-700: #b35309;
+            --amber-800: #91400d;
+            --amber-900: #763813;
+
+            /* Yellow Scale */
+            --yellow-50: #fffcef;
+            --yellow-100: #fff7d3;
+            --yellow-200: #f7e9a8;
+            --yellow-300: #f5e171;
+            --yellow-400: #f2d14b;
+            --yellow-500: #edba13;
+            --yellow-600: #d1930d;
+            --yellow-700: #ab6e05;
+            --yellow-800: #8c5600;
+            --yellow-900: #733f12;
+
+            /* Purple Scale */
+            --purple-50: #fdfaff;
+            --purple-100: #f9f0ff;
+            --purple-200: #f1e5fa;
+            --purple-300: #e9d6f5;
+            --purple-400: #d6c1e6;
+            --purple-500: #9c45e3;
+            --purple-600: #8642c2;
+            --purple-700: #6e399d;
+            --purple-800: #5c2f83;
+            --purple-900: #401863;
+
+            /* Typography */
+            --font-stack: "InterVariable", "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            --text-tiny: 11px;
+            --text-xs: 12px;
+            --text-sm: 13px;
+            --text-base: 14px;
+            --text-md: 14px;
+            --text-lg: 16px;
+            --text-xl: 18px;
+            --text-2xl: 20px;
+            --text-3xl: 24px;
+            --text-4xl: 26px;
+            --text-5xl: 28px;
+            --text-6xl: 32px;
+            --text-7xl: 40px;
+            --text-8xl: 44px;
+            --text-9xl: 48px;
+
+            /* Font Weights */
+            --weight-regular: 420;
+            --weight-medium: 500;
+            --weight-semibold: 600;
+            --weight-bold: 700;
+            --weight-black: 800;
+
+            /* Spacing */
+            --padding-xs: 5px;
+            --padding-sm: 7px;
+            --padding-md: 15px;
+            --padding-lg: 20px;
+            --padding-xl: 30px;
+            --padding-2xl: 40px;
+
+            --margin-xs: 5px;
+            --margin-sm: 10px;
+            --margin-md: 15px;
+            --margin-lg: 20px;
+            --margin-xl: 30px;
+            --margin-2xl: 40px;
+
+            /* Border Radius */
+            --border-radius-tiny: 4px;
+            --border-radius-sm: 8px;
+            --border-radius: 8px;
+            --border-radius-md: 10px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
+            --border-radius-2xl: 20px;
+            --border-radius-full: 999px;
+
+            /* Shadows */
+            --shadow-xs: rgba(0, 0, 0, 0.05) 0px 0.5px 0px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.05) 0px 2px 4px 0px;
+            --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.1);
+            --shadow-base: 0px 0px 1px rgba(0, 0, 0, 0.45), 0px 1px 2px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0px 0px 1px rgba(0, 0, 0, 0.12), 0px 0.5px 2px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.16);
+            --shadow-lg: 0px 0px 1px rgba(0, 0, 0, 0.35), 0px 6px 8px -4px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 1px 2px rgba(0, 0, 0, 0.07), 0px 6px 15px -5px rgba(0, 0, 0, 0.11);
+            --shadow-2xl: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 1px 3px rgba(0, 0, 0, 0.05), 0px 10px 24px -3px rgba(0, 0, 0, 0.1);
+
+            /* Semantic Colors */
+            --primary: var(--gray-900);
+            --danger: var(--red-500);
+            --border-color: var(--gray-200);
+            --text-color: var(--gray-800);
+            --text-muted: var(--gray-700);
+            --text-light: var(--gray-600);
+            --bg-color: white;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            font-size: var(--text-base);
+            color: var(--text-color);
+            line-height: 1.6;
+            background: var(--gray-50);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .header {
+            background: var(--gray-900);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: var(--text-6xl);
+            font-weight: var(--weight-bold);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: var(--text-lg);
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: var(--text-3xl);
+            font-weight: var(--weight-semibold);
+            color: var(--gray-900);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .subsection-title {
+            font-size: var(--text-xl);
+            font-weight: var(--weight-medium);
+            color: var(--gray-800);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        /* Color Palette */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .color-swatch {
+            text-align: center;
+        }
+
+        .color-box {
+            width: 100%;
+            height: 80px;
+            border-radius: var(--border-radius);
+            margin-bottom: 8px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+        }
+
+        .color-label {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            font-weight: var(--weight-medium);
+        }
+
+        /* Typography Scale */
+        .typography-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .typography-sample {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 15px;
+            background: var(--gray-50);
+            border-radius: var(--border-radius);
+        }
+
+        .typography-label {
+            min-width: 120px;
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        .typography-example {
+            flex: 1;
+        }
+
+        /* Spacing System */
+        .spacing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .spacing-item {
+            background: var(--gray-50);
+            padding: 15px;
+            border-radius: var(--border-radius);
+        }
+
+        .spacing-label {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-family: monospace;
+        }
+
+        .spacing-visual {
+            background: var(--blue-500);
+            border-radius: var(--border-radius-tiny);
+        }
+
+        /* Buttons */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            align-items: start;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+            font-size: var(--text-base);
+            font-weight: var(--weight-regular);
+            cursor: pointer;
+            border: none;
+            transition: all 0.15s ease;
+            font-family: var(--font-stack);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--gray-900);
+            color: white;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .btn-primary:hover {
+            background: var(--gray-800);
+        }
+
+        .btn-secondary {
+            background: var(--gray-100);
+            color: var(--gray-900);
+            box-shadow: var(--shadow-xs);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-300);
+        }
+
+        .btn-danger {
+            background: var(--red-500);
+            color: white;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .btn-danger:hover {
+            background: var(--red-600);
+        }
+
+        .btn-success {
+            background: var(--green-600);
+            color: white;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .btn-success:hover {
+            background: var(--green-700);
+        }
+
+        .btn-sm {
+            padding: 5px 12px;
+            font-size: var(--text-sm);
+        }
+
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: var(--text-lg);
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: var(--text-sm);
+            font-weight: var(--weight-medium);
+            color: var(--gray-800);
+            margin-bottom: 6px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 6px 8px;
+            font-size: var(--text-base);
+            font-family: var(--font-stack);
+            color: var(--text-color);
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius);
+            transition: all 0.15s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gray-500);
+            background: white;
+        }
+
+        .form-control::placeholder {
+            color: var(--gray-500);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: var(--border-radius-full);
+            font-size: var(--text-xs);
+            font-weight: var(--weight-medium);
+        }
+
+        .badge-primary {
+            background: var(--gray-900);
+            color: white;
+        }
+
+        .badge-success {
+            background: var(--green-100);
+            color: var(--green-700);
+        }
+
+        .badge-warning {
+            background: var(--yellow-100);
+            color: var(--yellow-800);
+        }
+
+        .badge-danger {
+            background: var(--red-100);
+            color: var(--red-700);
+        }
+
+        .badge-info {
+            background: var(--blue-100);
+            color: var(--blue-700);
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--gray-50);
+            font-weight: var(--weight-semibold);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-footer {
+            padding: 15px 20px;
+            border-top: 1px solid var(--border-color);
+            background: var(--gray-50);
+        }
+
+        /* Indicators */
+        .indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .indicator-primary { background: var(--gray-900); }
+        .indicator-success { background: var(--green-600); }
+        .indicator-warning { background: var(--amber-500); }
+        .indicator-danger { background: var(--red-500); }
+        .indicator-info { background: var(--blue-500); }
+
+        /* Shadows Demo */
+        .shadow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .shadow-box {
+            height: 100px;
+            background: white;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        /* Border Radius Demo */
+        .radius-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .radius-box {
+            height: 80px;
+            background: var(--blue-100);
+            border: 2px solid var(--blue-500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-sm);
+            color: var(--blue-800);
+            font-family: monospace;
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 12px 16px;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            font-size: var(--text-sm);
+        }
+
+        .alert-success {
+            background: var(--green-100);
+            color: var(--green-700);
+            border: 1px solid var(--green-300);
+        }
+
+        .alert-warning {
+            background: var(--yellow-50);
+            color: var(--yellow-700);
+            border: 1px solid var(--yellow-200);
+        }
+
+        .alert-danger {
+            background: var(--red-50);
+            color: var(--red-600);
+            border: 1px solid var(--red-200);
+        }
+
+        .alert-info {
+            background: var(--blue-50);
+            color: var(--blue-700);
+            border: 1px solid var(--blue-200);
+        }
+
+        .code-snippet {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-sm);
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .color-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Frappe/ERPNext Design System</h1>
+            <p>Espresso Design System - Comprehensive Style Guide</p>
+        </div>
+
+        <div class="content">
+            <!-- Color Palette Section -->
+            <div class="section">
+                <h2 class="section-title">Color Palette</h2>
+
+                <h3 class="subsection-title">Gray Scale (Primary)</h3>
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--gray-50);"></div>
+                        <div class="color-label">gray-50</div>
+                        <div class="color-label">#f8f8f8</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--gray-100);"></div>
+                        <div class="color-label">gray-100</div>
+                        <div class="color-label">#f3f3f3</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--gray-200);"></div>
+                        <div class="color-label">gray-200</div>
+                        <div class="color-label">#ededed</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--gray-300);"></div>
+                        <div class="color-label">gray-300</div>
+                        <div class="color-label">#e2e2e2</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--gray-400);"></div>
+                        <div class="color-label">gray-400</div>
+                        <div class="color-label">#c7c7c7</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--gray-500);"></div>
+                        <div class="color-label">gray-500</div>
+                        <div class="color-label">#999999</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--gray-600);"></div>
+                        <div class="color-label">gray-600</div>
+                        <div class="color-label">#7c7c7c</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--gray-700);"></div>
+                        <div class="color-label">gray-700</div>
+                        <div class="color-label">#525252</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--gray-800);"></div>
+                        <div class="color-label">gray-800</div>
+                        <div class="color-label">#383838</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--gray-900);"></div>
+                        <div class="color-label">gray-900</div>
+                        <div class="color-label">#171717</div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Blue Scale</h3>
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--blue-50);"></div>
+                        <div class="color-label">blue-50</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--blue-100);"></div>
+                        <div class="color-label">blue-100</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--blue-300);"></div>
+                        <div class="color-label">blue-300</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--blue-500);"></div>
+                        <div class="color-label">blue-500</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--blue-600);"></div>
+                        <div class="color-label">blue-600</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--blue-700);"></div>
+                        <div class="color-label">blue-700</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--blue-900);"></div>
+                        <div class="color-label">blue-900</div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Semantic Colors</h3>
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--green-500);"></div>
+                        <div class="color-label">Success</div>
+                        <div class="color-label">green-500</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--green-700);"></div>
+                        <div class="color-label">Success Dark</div>
+                        <div class="color-label">green-700</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--red-500);"></div>
+                        <div class="color-label">Danger</div>
+                        <div class="color-label">red-500</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--red-700);"></div>
+                        <div class="color-label">Danger Dark</div>
+                        <div class="color-label">red-700</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--yellow-500);"></div>
+                        <div class="color-label">Warning</div>
+                        <div class="color-label">yellow-500</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--amber-500);"></div>
+                        <div class="color-label">Amber</div>
+                        <div class="color-label">amber-500</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--orange-500);"></div>
+                        <div class="color-label">Orange</div>
+                        <div class="color-label">orange-500</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background: var(--purple-500);"></div>
+                        <div class="color-label">Purple</div>
+                        <div class="color-label">purple-500</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typography Section -->
+            <div class="section">
+                <h2 class="section-title">Typography</h2>
+
+                <h3 class="subsection-title">Font Family</h3>
+                <div class="code-snippet">--font-stack: "InterVariable", "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto"</div>
+
+                <h3 class="subsection-title">Type Scale</h3>
+                <div class="typography-grid">
+                    <div class="typography-sample">
+                        <div class="typography-label">text-9xl (48px)</div>
+                        <div class="typography-example" style="font-size: var(--text-9xl); font-weight: var(--weight-bold);">Heading 1 - Large Display</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">text-7xl (40px)</div>
+                        <div class="typography-example" style="font-size: var(--text-7xl); font-weight: var(--weight-bold);">Heading 2 - Page Title</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">text-6xl (32px)</div>
+                        <div class="typography-example" style="font-size: var(--text-6xl); font-weight: var(--weight-semibold);">Heading 3 - Section Title</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">text-3xl (24px)</div>
+                        <div class="typography-example" style="font-size: var(--text-3xl); font-weight: var(--weight-semibold);">Heading 4 - Subsection</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">text-xl (18px)</div>
+                        <div class="typography-example" style="font-size: var(--text-xl); font-weight: var(--weight-medium);">Heading 5 - Card Title</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">text-lg (16px)</div>
+                        <div class="typography-example" style="font-size: var(--text-lg);">Large Body Text - Introductions</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">text-base (14px)</div>
+                        <div class="typography-example" style="font-size: var(--text-base);">Body Text - Default paragraph text for main content</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">text-sm (13px)</div>
+                        <div class="typography-example" style="font-size: var(--text-sm);">Small Text - Labels, captions, helper text</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">text-xs (12px)</div>
+                        <div class="typography-example" style="font-size: var(--text-xs);">Extra Small - Badges, timestamps, metadata</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">text-tiny (11px)</div>
+                        <div class="typography-example" style="font-size: var(--text-tiny); text-transform: uppercase; letter-spacing: 0.09em;">TINY CAPS - MICRO TEXT</div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Font Weights</h3>
+                <div class="typography-grid">
+                    <div class="typography-sample">
+                        <div class="typography-label">regular (420)</div>
+                        <div class="typography-example" style="font-weight: var(--weight-regular);">Regular weight for body text</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">medium (500)</div>
+                        <div class="typography-example" style="font-weight: var(--weight-medium);">Medium weight for emphasis</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">semibold (600)</div>
+                        <div class="typography-example" style="font-weight: var(--weight-semibold);">Semibold for headings</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">bold (700)</div>
+                        <div class="typography-example" style="font-weight: var(--weight-bold);">Bold for strong emphasis</div>
+                    </div>
+                    <div class="typography-sample">
+                        <div class="typography-label">black (800)</div>
+                        <div class="typography-example" style="font-weight: var(--weight-black);">Black for maximum impact</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spacing Section -->
+            <div class="section">
+                <h2 class="section-title">Spacing System</h2>
+
+                <div class="spacing-grid">
+                    <div class="spacing-item">
+                        <div class="spacing-label">xs: 5px</div>
+                        <div class="spacing-visual" style="width: 5px; height: 40px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <div class="spacing-label">sm: 7px / 10px</div>
+                        <div class="spacing-visual" style="width: 10px; height: 40px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <div class="spacing-label">md: 15px</div>
+                        <div class="spacing-visual" style="width: 15px; height: 40px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <div class="spacing-label">lg: 20px</div>
+                        <div class="spacing-visual" style="width: 20px; height: 40px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <div class="spacing-label">xl: 30px</div>
+                        <div class="spacing-visual" style="width: 30px; height: 40px;"></div>
+                    </div>
+                    <div class="spacing-item">
+                        <div class="spacing-label">2xl: 40px</div>
+                        <div class="spacing-visual" style="width: 40px; height: 40px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons Section -->
+            <div class="section">
+                <h2 class="section-title">Buttons</h2>
+
+                <h3 class="subsection-title">Button Variants</h3>
+                <div class="button-grid">
+                    <div>
+                        <button class="btn btn-primary">Primary Button</button>
+                        <div class="code-snippet" style="margin-top: 10px;">
+background: gray-900
+color: white
+shadow: shadow-xs
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary">Secondary Button</button>
+                        <div class="code-snippet" style="margin-top: 10px;">
+background: gray-100
+color: gray-900
+shadow: shadow-xs
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-danger">Danger Button</button>
+                        <div class="code-snippet" style="margin-top: 10px;">
+background: red-500
+color: white
+shadow: shadow-xs
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-success">Success Button</button>
+                        <div class="code-snippet" style="margin-top: 10px;">
+background: green-600
+color: white
+shadow: shadow-xs
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Button Sizes</h3>
+                <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                    <button class="btn btn-primary btn-sm">Small Button</button>
+                    <button class="btn btn-primary">Default Button</button>
+                    <button class="btn btn-primary btn-lg">Large Button</button>
+                </div>
+            </div>
+
+            <!-- Form Elements Section -->
+            <div class="section">
+                <h2 class="section-title">Form Elements</h2>
+
+                <div class="two-column">
+                    <div>
+                        <div class="form-group">
+                            <label class="form-label">Text Input</label>
+                            <input type="text" class="form-control" placeholder="Enter text...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Input</label>
+                            <input type="email" class="form-control" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Select Dropdown</label>
+                            <select class="form-control">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label class="form-label">Textarea</label>
+                            <textarea class="form-control" placeholder="Enter multiple lines..."></textarea>
+                        </div>
+                        <div class="code-snippet">
+Input Properties:
+padding: 6px 8px
+background: gray-100
+border: 1px solid gray-200
+border-radius: 8px
+focus border: gray-500
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Badges and Indicators Section -->
+            <div class="section">
+                <h2 class="section-title">Badges & Indicators</h2>
+
+                <h3 class="subsection-title">Badges</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <span class="badge badge-primary">Primary</span>
+                    <span class="badge badge-success">Success</span>
+                    <span class="badge badge-warning">Warning</span>
+                    <span class="badge badge-danger">Danger</span>
+                    <span class="badge badge-info">Info</span>
+                </div>
+
+                <h3 class="subsection-title">Status Indicators</h3>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div><span class="indicator indicator-primary"></span>Primary Status</div>
+                    <div><span class="indicator indicator-success"></span>Active / Success</div>
+                    <div><span class="indicator indicator-warning"></span>Pending / Warning</div>
+                    <div><span class="indicator indicator-danger"></span>Error / Danger</div>
+                    <div><span class="indicator indicator-info"></span>Info</div>
+                </div>
+            </div>
+
+            <!-- Cards Section -->
+            <div class="section">
+                <h2 class="section-title">Cards</h2>
+
+                <div class="two-column">
+                    <div class="card">
+                        <div class="card-header">Card Header</div>
+                        <div class="card-body">
+                            <p>This is the card body content. Cards are used to group related information and actions together.</p>
+                        </div>
+                        <div class="card-footer">Card Footer</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 style="margin-bottom: 10px; font-weight: var(--weight-semibold);">Simple Card</h3>
+                            <p>Cards without header/footer are also common. They provide a clean container for content.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-snippet" style="margin-top: 20px;">
+Card Properties:
+background: white
+border: 1px solid gray-200
+border-radius: 12px (lg)
+box-shadow: shadow-sm
+                </div>
+            </div>
+
+            <!-- Alerts Section -->
+            <div class="section">
+                <h2 class="section-title">Alerts</h2>
+
+                <div class="alert alert-success">
+                    <strong>Success!</strong> Your operation completed successfully.
+                </div>
+                <div class="alert alert-info">
+                    <strong>Info:</strong> Here's some information you should know.
+                </div>
+                <div class="alert alert-warning">
+                    <strong>Warning:</strong> Please review this important notice.
+                </div>
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> Something went wrong. Please try again.
+                </div>
+            </div>
+
+            <!-- Border Radius Section -->
+            <div class="section">
+                <h2 class="section-title">Border Radius</h2>
+
+                <div class="radius-grid">
+                    <div class="radius-box" style="border-radius: var(--border-radius-tiny);">tiny: 4px</div>
+                    <div class="radius-box" style="border-radius: var(--border-radius-sm);">sm: 8px</div>
+                    <div class="radius-box" style="border-radius: var(--border-radius);">default: 8px</div>
+                    <div class="radius-box" style="border-radius: var(--border-radius-md);">md: 10px</div>
+                    <div class="radius-box" style="border-radius: var(--border-radius-lg);">lg: 12px</div>
+                    <div class="radius-box" style="border-radius: var(--border-radius-xl);">xl: 16px</div>
+                    <div class="radius-box" style="border-radius: var(--border-radius-2xl);">2xl: 20px</div>
+                    <div class="radius-box" style="border-radius: var(--border-radius-full);">full: 999px</div>
+                </div>
+            </div>
+
+            <!-- Shadows Section -->
+            <div class="section">
+                <h2 class="section-title">Shadows</h2>
+
+                <div class="shadow-grid">
+                    <div class="shadow-box" style="box-shadow: var(--shadow-xs);">shadow-xs</div>
+                    <div class="shadow-box" style="box-shadow: var(--shadow-sm);">shadow-sm</div>
+                    <div class="shadow-box" style="box-shadow: var(--shadow-base);">shadow-base</div>
+                    <div class="shadow-box" style="box-shadow: var(--shadow-md);">shadow-md</div>
+                    <div class="shadow-box" style="box-shadow: var(--shadow-lg);">shadow-lg</div>
+                    <div class="shadow-box" style="box-shadow: var(--shadow-xl);">shadow-xl</div>
+                    <div class="shadow-box" style="box-shadow: var(--shadow-2xl);">shadow-2xl</div>
+                </div>
+            </div>
+
+            <!-- Common UI Patterns Section -->
+            <div class="section">
+                <h2 class="section-title">Common UI Patterns</h2>
+
+                <h3 class="subsection-title">Navbar Pattern</h3>
+                <div style="background: var(--gray-900); padding: 15px 20px; border-radius: var(--border-radius); color: white; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <div style="font-weight: var(--weight-semibold);">DCNET TELECOM</div>
+                    <div style="display: flex; gap: 20px;">
+                        <a href="#" style="color: white; text-decoration: none;">Dashboard</a>
+                        <a href="#" style="color: white; text-decoration: none;">Settings</a>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">List Row Pattern</h3>
+                <div class="card" style="margin-bottom: 20px;">
+                    <div style="padding: 12px 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: background 0.15s;" onmouseover="this.style.background='var(--gray-50)'" onmouseout="this.style.background='white'">
+                        <div>
+                            <div style="font-weight: var(--weight-medium);">List Item Title</div>
+                            <div style="font-size: var(--text-sm); color: var(--text-muted); margin-top: 2px;">Subtitle or description</div>
+                        </div>
+                        <span class="badge badge-success">Active</span>
+                    </div>
+                    <div style="padding: 12px 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: background 0.15s;" onmouseover="this.style.background='var(--gray-50)'" onmouseout="this.style.background='white'">
+                        <div>
+                            <div style="font-weight: var(--weight-medium);">Another List Item</div>
+                            <div style="font-size: var(--text-sm); color: var(--text-muted); margin-top: 2px;">With metadata</div>
+                        </div>
+                        <span class="badge badge-warning">Pending</span>
+                    </div>
+                    <div style="padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: background 0.15s;" onmouseover="this.style.background='var(--gray-50)'" onmouseout="this.style.background='white'">
+                        <div>
+                            <div style="font-weight: var(--weight-medium);">Third Item</div>
+                            <div style="font-size: var(--text-sm); color: var(--text-muted); margin-top: 2px;">No border on last item</div>
+                        </div>
+                        <span class="badge badge-info">Draft</span>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Form Layout Pattern</h3>
+                <div class="card">
+                    <div class="card-header">Edit Document</div>
+                    <div class="card-body">
+                        <div class="two-column">
+                            <div class="form-group">
+                                <label class="form-label">Document Name</label>
+                                <input type="text" class="form-control" value="DOC-2024-001">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Status</label>
+                                <select class="form-control">
+                                    <option>Draft</option>
+                                    <option>Submitted</option>
+                                    <option>Approved</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="3">Enter description here...</textarea>
+                        </div>
+                    </div>
+                    <div class="card-footer" style="display: flex; gap: 10px; justify-content: flex-end;">
+                        <button class="btn btn-secondary">Cancel</button>
+                        <button class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSS Variables Reference -->
+            <div class="section">
+                <h2 class="section-title">CSS Variables Reference</h2>
+
+                <div class="code-snippet">
+/* Key Design Tokens */
+
+/* Colors */
+--primary: var(--gray-900)
+--danger: var(--red-500)
+--border-color: var(--gray-200)
+--text-color: var(--gray-800)
+--text-muted: var(--gray-700)
+--bg-color: white
+
+/* Typography */
+--font-stack: "InterVariable", "Inter", ...
+--text-base: 14px
+--text-sm: 13px
+--text-lg: 16px
+--text-xl: 18px
+--weight-regular: 420
+--weight-medium: 500
+--weight-semibold: 600
+
+/* Spacing */
+--padding-xs: 5px
+--padding-sm: 7px
+--padding-md: 15px
+--padding-lg: 20px
+
+/* Border Radius */
+--border-radius: 8px
+--border-radius-sm: 8px
+--border-radius-lg: 12px
+--border-radius-full: 999px
+
+/* Shadows */
+--shadow-xs: (subtle button shadow)
+--shadow-sm: (card shadow)
+--shadow-md: (modal shadow)
+--shadow-lg: (large elevation)
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

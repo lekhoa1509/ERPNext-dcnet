@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Huong (123) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="soLan" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>số lần nộp tờ chính thức</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct01a" type="xs:date" nillable="true">
+							<xs:annotation>
+								<xs:documentation>[01a] Ngày khai thác sản lượng</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="NguoiNopThue">
+							<xs:annotation>
+								<xs:documentation>1. Người nộp thuế</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct05" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[05] Ngày tháng năm sinh (nếu là cá nhân)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct07" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[07] Số CMND/hộ chiếu/CCCD</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct08" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[08] Ngày cấp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[09] Nơi cấp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="DiaChi">
+										<xs:annotation>
+											<xs:documentation>[10] Địa chỉ trụ sở/Địa chỉ cư trú</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct10_1" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[10.1] Số nhà</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10_2" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[10.2] Đường/phố</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10_3" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[10.3] Tổ/thôn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10_4_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[10.4] Phường/Xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10_4_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[10.4] Phường/Xã</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ct11" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[11] Địa chỉ nhận thông báo thuế</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ThuaDatChiuThue">
+							<xs:annotation>
+								<xs:documentation>3. Thửa đất chịu thuế, loại cây:</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct16" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[16] Địa chỉ lô đất trồng cây lâu năm thu hoạch một lần</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_1" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[16.1] Tổ/thôn</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_2_ma" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[16.2] Phường/xã/thị trấn mã</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_2_ten" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[16.2] Phường/xã/thị trấn tên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_3_ma" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[16.3] Quận/huyện mã</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_3_ten" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[16.3] Quận/huyện tên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_4_ma" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[16.4] Tỉnh/Thành phố mã</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct16_4_ten" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[16.4] Tỉnh/Thành phố tên</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct17" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[17] Số thửa</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct18" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[18] Tờ bản đồ số</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct19" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>[19] Diện tích lô đất trồng cây lâu năm thu hoạch một lần (ha)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct20" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>[20] Loại cây lâu năm thu hoạch một lần</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct21" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[21] Thời điểm bắt đầu sử dụng đất</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct22" type="xs:date" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[22] Thời điểm thay đổi diện tích đất</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TinhThue">
+							<xs:annotation>
+								<xs:documentation>3. Tính thuế:</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct23" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>[23] Diện tích đất khai thác cây lâu năm thu hoạch một lần (ha)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct24" type="xs:decimal">
+										<xs:annotation>
+											<xs:documentation>[24] Sản lượng khai thác cây lâu năm thu hoạch một lần (tấn/ha hoặc m3/ha)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct25" type="xs:nonNegativeInteger">
+										<xs:annotation>
+											<xs:documentation>[25] Giá bán một đơn vị sản phẩm tại nơi khai thác (đồng/ tấn hoặc đồng/m3)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct26" type="xs:nonNegativeInteger">
+										<xs:annotation>
+											<xs:documentation>[26] Giá trị sản lượng khai thác [26] = [23] x [24] x [25]</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct26a" type="xs:nonNegativeInteger">
+										<xs:annotation>
+											<xs:documentation>[26a] Thuế sử dụng đất nông nghiệp phải nộp trước miễn giảm [26a]=[26] * 4%</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct27" type="xs:nonNegativeInteger" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[27] Thuế sử dụng đất nông nghiệp được miễn, giảm (nếu có)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct28" type="xs:nonNegativeInteger">
+										<xs:annotation>
+											<xs:documentation>[28] Thuế sử dụng đất nông nghiệp phải nộp [28] = ([26] x 4%) - [27]</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

@@ -1,0 +1,22 @@
+{
+ "align_labels_right": 0,
+ "creation": "2026-04-13 16:00:00.000000",
+ "custom_format": 1,
+ "default_print_language": "vi",
+ "disabled": 0,
+ "doc_type": "DCNet Contract",
+ "docstatus": 0,
+ "doctype": "Print Format",
+ "font_size": 0,
+ "html": "<style>\n    @media print {\n        .contract-print { page-break-inside: auto; }\n        .contract-print table tr { page-break-inside: avoid; }\n        .contract-print .page-break-before { page-break-before: always; }\n    }\n    .contract-print {\n        font-family: \"Times New Roman\", Times, serif;\n        font-size: 13px;\n        line-height: 1.6;\n        color: #000;\n        max-width: 210mm;\n        margin: 0 auto;\n    }\n    .contract-print p {\n        margin: 3px 0; text-align: justify;\n    }\n    .contract-print table {\n        width: 100%; border-collapse: collapse; margin: 10px 0;\n    }\n    .contract-print table th,\n    .contract-print table td {\n        border: 1px solid #000; padding: 5px 8px; font-size: 12px;\n    }\n    .contract-print table th {\n        background: #f0f0f0; text-align: center; font-weight: bold;\n    }\n    .contract-print ol, .contract-print ul {\n        margin: 5px 0 5px 20px; padding: 0;\n    }\n    .contract-print li {\n        margin: 2px 0;\n    }\n    .contract-print .appendix-separator {\n        border-top: 2px dashed #999;\n        margin: 30px 0;\n        padding-top: 10px;\n    }\n</style>\n\n<div class=\"contract-print\">\n    {# --- HỢP ĐỒNG --- #}\n    {{ doc.contract_html_rendered or doc.contract_html or \"\" }}\n\n    {# --- PHỤ LỤC --- #}\n    {% if doc.appendix_html and \"Khong tim thay\" not in doc.appendix_html %}\n    <div class=\"page-break-before\"></div>\n    {{ doc.appendix_html }}\n    {% endif %}\n</div>\n",
+ "line_breaks": 1,
+ "modified": "2026-04-13 16:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet Contract",
+ "name": "Hop Dong Chuan",
+ "owner": "Administrator",
+ "print_format_type": "Jinja",
+ "raw_printing": 0,
+ "show_section_headings": 0,
+ "standard": "Yes"
+}

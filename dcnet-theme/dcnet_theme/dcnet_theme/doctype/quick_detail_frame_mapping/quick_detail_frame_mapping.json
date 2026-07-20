@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "creation": "2026-05-13 10:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "parent_doctype",
+  "child_field",
+  "parent_label_fields"
+ ],
+ "fields": [
+  {
+   "fieldname": "parent_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Parent DocType",
+   "options": "DocType",
+   "reqd": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "child_field",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Child Table Field",
+   "reqd": 1,
+   "columns": 3,
+   "description": "Fieldname of the Table-type field on parent (e.g., \"items\", \"references\", \"accounts\")."
+  },
+  {
+   "fieldname": "parent_label_fields",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Parent Label Fields (JSON list, optional)",
+   "columns": 4,
+   "description": "JSON list of parent fieldnames to show in header bar. Example: [\"customer_name\", \"status\", \"grand_total\"]. Leave empty to use defaults."
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-13 10:00:00",
+ "modified_by": "Administrator",
+ "module": "DCNET Theme",
+ "name": "Quick Detail Frame Mapping",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

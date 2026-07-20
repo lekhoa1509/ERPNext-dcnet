@@ -1,0 +1,173 @@
+{
+ "actions": [],
+ "creation": "2026-05-14 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "kind",
+  "revision_idx",
+  "recurrence",
+  "column_break_rate",
+  "rate_pct",
+  "rate_base",
+  "recipient_section",
+  "recipient_name",
+  "recipient_id",
+  "recipient_tax_pct",
+  "column_break_recipient",
+  "recipient_note",
+  "amounts_section",
+  "amount_per_period",
+  "pit_amount",
+  "net_amount",
+  "state_section",
+  "billing_schedule_idx",
+  "state",
+  "journal_entry",
+  "payment_entry"
+ ],
+ "fields": [
+  {
+   "fieldname": "kind",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Loại",
+   "options": "Manager Services\nAdd Costs\nReferral",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "revision_idx",
+   "fieldtype": "Int",
+   "label": "Revision",
+   "description": "Trỏ về PAKD Revision idx (0 = bản gốc)."
+  },
+  {
+   "fieldname": "recurrence",
+   "fieldtype": "Select",
+   "label": "Chu kỳ",
+   "options": "Per Period\nOne-off",
+   "reqd": 1,
+   "default": "Per Period",
+   "description": "MS/AC = Per Period (mỗi kỳ billing); Referral = One-off (1 lần)."
+  },
+  {
+   "fieldname": "column_break_rate",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate_pct",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Tỷ lệ (%)"
+  },
+  {
+   "fieldname": "rate_base",
+   "fieldtype": "Select",
+   "label": "Cơ sở tính",
+   "options": "\ncontract_revenue\ncontract_minus_ac_unit\ncontract_minus_ac_total\nac_only",
+   "default": "contract_revenue",
+   "description": "contract_revenue = đơn giá × qty (full revenue, Mẫu 01 License); contract_minus_ac_unit = (đơn giá − AC đơn giá) × qty (Mẫu 01 MS/SC + Mẫu 03 SC); contract_minus_ac_total = doanh thu tổng − AC tổng (Mẫu 03 MS); ac_only = AC đơn giá × qty (component AC)."
+  },
+  {
+   "fieldname": "recipient_section",
+   "fieldtype": "Section Break",
+   "label": "Người nhận đích danh (tùy chọn)",
+   "description": "Điền nếu chi cho cá nhân đích danh — TNCN tự động giữ tại nguồn. Để trống → JE 2-leg đơn (CR 3388 phải trả khác)."
+  },
+  {
+   "fieldname": "recipient_name",
+   "fieldtype": "Data",
+   "label": "Tên người nhận"
+  },
+  {
+   "fieldname": "recipient_id",
+   "fieldtype": "Data",
+   "label": "MST / CCCD"
+  },
+  {
+   "fieldname": "recipient_tax_pct",
+   "fieldtype": "Percent",
+   "label": "Tỷ lệ TNCN (%)",
+   "description": "0 = không khấu trừ; 10 = có MST; 20 = chỉ CCCD."
+  },
+  {
+   "fieldname": "column_break_recipient",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recipient_note",
+   "fieldtype": "Small Text",
+   "label": "Ghi chú",
+   "description": "Bối cảnh, ví dụ: 'Anh A — QL IT khách, ký duyệt 2026-04'."
+  },
+  {
+   "fieldname": "amounts_section",
+   "fieldtype": "Section Break",
+   "label": "Số tiền (tự tính)"
+  },
+  {
+   "fieldname": "amount_per_period",
+   "fieldtype": "Currency",
+   "label": "Số tiền / kỳ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pit_amount",
+   "fieldtype": "Currency",
+   "label": "TNCN khấu trừ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_amount",
+   "fieldtype": "Currency",
+   "label": "Net (sau TNCN)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "state_section",
+   "fieldtype": "Section Break",
+   "label": "Trạng thái + tham chiếu",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "billing_schedule_idx",
+   "fieldtype": "Int",
+   "label": "Kỳ billing"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "state",
+   "fieldtype": "Select",
+   "label": "Trạng thái",
+   "options": "Pending\nPosted\nCancelled\nSkipped",
+   "reqd": 1
+  },
+  {
+   "fieldname": "journal_entry",
+   "fieldtype": "Link",
+   "label": "Bút toán",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "Phiếu thu trigger",
+   "options": "Payment Entry",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-14 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet PAKD",
+ "name": "PAKD Beneficiary Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": []
+}

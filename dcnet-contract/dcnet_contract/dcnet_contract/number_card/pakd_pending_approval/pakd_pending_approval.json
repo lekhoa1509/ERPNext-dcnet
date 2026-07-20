@@ -1,0 +1,20 @@
+{
+ "name": "PAKD Pending Approval",
+ "label": "PAKD chờ duyệt",
+ "doctype": "Number Card",
+ "module": "DCNet Contract",
+ "type": "Custom",
+ "method": "dcnet_contract.number_card_methods.get_pakd_pending_approval",
+ "show_percentage_stats": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "color": "#449CF0",
+ "filters_json": "[]",
+ "dynamic_filters_json": "[]",
+ "creation": "2026-05-12 13:30:00.000000",
+ "modified": "2026-05-12 13:30:00.000000",
+ "modified_by": "Administrator",
+ "owner": "Administrator",
+ "docstatus": 0,
+ "idx": 0
+}

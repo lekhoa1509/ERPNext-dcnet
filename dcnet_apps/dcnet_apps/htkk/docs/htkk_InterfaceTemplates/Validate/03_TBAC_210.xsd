@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by SHOCK (SHOCK) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="kinhGui" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Kính Gửi</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="phuongPhapHuy" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Phương pháp hủy hoá đơn</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="thoiGian" type="xs:dateTime">
+							<xs:annotation>
+								<xs:documentation>Thời gian hủy hóa đơn</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="HoaDon">
+							<xs:annotation>
+								<xs:documentation>Hóa đơn</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTiet" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Nội dung chi tiết hóa đơn</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tenHDon" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Tên loại hóa đơn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="mauHDon" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Mẫu số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="kyHieu" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>Ký hiệu hóa đơn</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tuSo" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Từ số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="denSo" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đến số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soLuong" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số lượng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="ID" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="nguoiLapBieu" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Người lập biểu</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="nguoiDaiDien" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Người đại diện theo pháp luật</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ngayBCao" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Ngày báo cáo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

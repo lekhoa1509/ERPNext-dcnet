@@ -1,0 +1,653 @@
+{
+  "nodes": [
+    {
+      "file": "__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer/customer.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/customer/customer.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer/customer_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer/customer_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/customer/test_customer.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer_credit_limit/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/customer_credit_limit/customer_credit_limit.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/delivery_schedule_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/delivery_schedule_item/delivery_schedule_item.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/delivery_schedule_item/delivery_schedule_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/delivery_schedule_item/test_delivery_schedule_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/industry_type/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/industry_type/industry_type.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/industry_type/industry_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/industry_type/test_industry_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/installation_note/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/installation_note/installation_note.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/installation_note/installation_note.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/installation_note/test_installation_note.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/installation_note_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/installation_note_item/installation_note_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/party_specific_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/party_specific_item/party_specific_item.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/party_specific_item/party_specific_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/party_specific_item/test_party_specific_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/product_bundle/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/product_bundle/product_bundle.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/product_bundle/product_bundle.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/product_bundle/test_product_bundle.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/product_bundle_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/product_bundle_item/product_bundle_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/quotation/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/quotation/quotation.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/quotation/quotation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/quotation/quotation_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/quotation/quotation_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/quotation/test_quotation.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/quotation_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/quotation_item/quotation_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_order/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_order/sales_order.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_order/sales_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_order/sales_order_calendar.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_order/sales_order_dashboard.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_order/sales_order_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_order/test_sales_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_order_item/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_order_item/sales_order_item.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_partner_type/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_partner_type/sales_partner_type.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sales_partner_type/sales_partner_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_partner_type/test_sales_partner_type.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_team/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sales_team/sales_team.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/selling_settings/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/selling_settings/selling_settings.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/selling_settings/selling_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/selling_settings/test_selling_settings.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sms_center/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/sms_center/sms_center.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "doctype/sms_center/sms_center.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_number_at_customer/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "doctype/supplier_number_at_customer/supplier_number_at_customer.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/point_of_sale/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/point_of_sale/point_of_sale.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "page/point_of_sale/point_of_sale.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/point_of_sale/pos_controller.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "page/point_of_sale/pos_item_cart.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "page/point_of_sale/pos_item_details.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "page/point_of_sale/pos_item_selector.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "page/point_of_sale/pos_number_pad.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "page/point_of_sale/pos_past_order_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "page/point_of_sale/pos_past_order_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "page/point_of_sale/pos_payment.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "page/sales_funnel/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "page/sales_funnel/sales_funnel.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "page/sales_funnel/sales_funnel.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/pos_invoice/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format/return_pos_invoice/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format_field_template/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format_field_template/quotation_taxes/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "print_format_field_template/sales_order_taxes/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/address_and_contacts/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/address_and_contacts/address_and_contacts.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/address_and_contacts/address_and_contacts.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/available_stock_for_packing_items/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/available_stock_for_packing_items/available_stock_for_packing_items.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/available_stock_for_packing_items/available_stock_for_packing_items.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/customer_acquisition_and_loyalty/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/customer_acquisition_and_loyalty/customer_acquisition_and_loyalty.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/customer_acquisition_and_loyalty/customer_acquisition_and_loyalty.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/customer_credit_balance/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/customer_credit_balance/customer_credit_balance.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/customer_credit_balance/customer_credit_balance.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/customer_wise_item_price/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/customer_wise_item_price/customer_wise_item_price.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/customer_wise_item_price/customer_wise_item_price.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/customers_without_any_sales_transactions/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/inactive_customers/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/inactive_customers/inactive_customers.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/inactive_customers/inactive_customers.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/item_wise_sales_history/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/item_wise_sales_history/item_wise_sales_history.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/item_wise_sales_history/item_wise_sales_history.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/lost_quotations/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/lost_quotations/lost_quotations.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/lost_quotations/lost_quotations.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/payment_terms_status_for_sales_order/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/payment_terms_status_for_sales_order/payment_terms_status_for_sales_order.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/payment_terms_status_for_sales_order/payment_terms_status_for_sales_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/payment_terms_status_for_sales_order/test_payment_terms_status_for_sales_order.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/pending_so_items_for_purchase_request/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/pending_so_items_for_purchase_request/pending_so_items_for_purchase_request.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/pending_so_items_for_purchase_request/pending_so_items_for_purchase_request.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/pending_so_items_for_purchase_request/test_pending_so_items_for_purchase_request.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/quotation_trends/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/quotation_trends/quotation_trends.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/quotation_trends/quotation_trends.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_analytics/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_analytics/sales_analytics.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_analytics/sales_analytics.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_analytics/test_analytics.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_order_analysis/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_order_analysis/sales_order_analysis.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_order_analysis/sales_order_analysis.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_order_analysis/test_sales_order_analysis.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_order_trends/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_order_trends/sales_order_trends.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_order_trends/sales_order_trends.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_partner_commission_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_partner_commission_summary/sales_partner_commission_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_partner_commission_summary/sales_partner_commission_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_partner_target_variance_based_on_item_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_partner_target_variance_based_on_item_group/item_group_wise_sales_target_variance.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_partner_target_variance_based_on_item_group/sales_partner_target_variance_based_on_item_group.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_partner_target_variance_based_on_item_group/sales_partner_target_variance_based_on_item_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_partner_target_variance_based_on_item_group/test_sales_partner_target_variance_based_on_item_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_partner_transaction_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_partner_transaction_summary/sales_partner_transaction_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_partner_transaction_summary/sales_partner_transaction_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_person_commission_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_person_commission_summary/sales_person_commission_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_person_commission_summary/sales_person_commission_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_person_target_variance_based_on_item_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_person_target_variance_based_on_item_group/sales_person_target_variance_based_on_item_group.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_person_target_variance_based_on_item_group/sales_person_target_variance_based_on_item_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_person_target_variance_based_on_item_group/test_sales_person_target_variance_based_on_item_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_person_wise_transaction_summary/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/sales_person_wise_transaction_summary/sales_person_wise_transaction_summary.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/sales_person_wise_transaction_summary/sales_person_wise_transaction_summary.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/territory_target_variance_based_on_item_group/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/territory_target_variance_based_on_item_group/territory_target_variance_based_on_item_group.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/territory_target_variance_based_on_item_group/territory_target_variance_based_on_item_group.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/territory_wise_sales/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "report/territory_wise_sales/territory_wise_sales.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "report/territory_wise_sales/territory_wise_sales.py",
+      "language": "Python"
+    }
+  ],
+  "edges": []
+}

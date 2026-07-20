@@ -1,0 +1,110 @@
+source,translated
+Bank Reconcile,Đối chiếu ngân hàng
+Upload Statement,Tải sao kê
+Upload Bank Statement,Tải sao kê ngân hàng
+"Upload the Excel file (.xls/.xlsx) exported from your bank's website. The bank and format are auto-detected.","Tải file Excel (.xls/.xlsx) xuất từ website ngân hàng. Ngân hàng và định dạng được nhận diện tự động."
+Supported banks,Ngân hàng hỗ trợ
+For other banks,Với ngân hàng khác
+create a Format config,tạo cấu hình định dạng
+"to map your file's columns.",để ánh xạ các cột trong file.
+Upload and Match,Tải lên và đối chiếu
+File,Tệp
+Bank Account,Tài khoản ngân hàng
+Select Bank Account,Chọn tài khoản ngân hàng
+"Auto-detected from file. Only change if detection is wrong.","Tự động nhận diện từ file. Chỉ thay đổi nếu nhận diện sai."
+From Date,Từ ngày
+To Date,Đến ngày
+Format,Định dạng
+Format (auto-detected),Định dạng (tự động nhận diện)
+Auto-detected from file content.,Tự động nhận diện từ nội dung file.
+"Leave blank for auto-detection. Only set manually if auto-detection fails.","Để trống để tự động nhận diện. Chỉ chọn thủ công nếu nhận diện thất bại."
+"Could not detect Bank Account. Please select one manually.","Không thể nhận diện tài khoản ngân hàng. Vui lòng chọn thủ công."
+"Bank detected: {0}, but no matching Bank Account found. Please select or create one.","Đã nhận diện ngân hàng: {0}, nhưng không tìm thấy tài khoản ngân hàng phù hợp. Vui lòng chọn hoặc tạo mới."
+Parsing,Đang phân tích
+Starting...,Đang bắt đầu...
+Upload failed,Tải lên thất bại
+"Processed {0} rows ({1} duplicates)","Đã xử lý {0} dòng ({1} trùng lặp)"
+Re-run Match,Chạy lại đối chiếu
+No import loaded,Chưa có dữ liệu tải lên
+"No import loaded. Click Upload Statement to begin.","Chưa có dữ liệu. Nhấn Tải sao kê để bắt đầu."
+Date,Ngày
+Description,Nội dung
+Amount,Số tiền
+Party,Đối tác
+Match,Đối chiếu
+transactions,giao dịch
+matched,đã khớp
+suggested,đề xuất
+unmatched,chưa khớp
+difference,chênh lệch
+Select a transaction,Chọn một giao dịch
+Incoming,Tiền vào
+Outgoing,Tiền ra
+Transaction,Giao dịch
+Invoices,Hóa đơn
+Select at least one invoice,Chọn ít nhất một hóa đơn
+Create Draft PE,Tạo phiếu thu/chi nháp
+Create + Submit PE,Tạo và duyệt phiếu thu/chi
+Dismiss,Bỏ qua
+Payment Entry {0} created,Phiếu thu/chi {0} đã tạo
+All,Tất cả
+Credits,Tiền vào
+Debits,Tiền ra
+Create draft PEs for High confidence matches,Tạo phiếu thu/chi nháp cho các giao dịch khớp chính xác
+Submit all draft PEs from this import,Duyệt tất cả phiếu thu/chi nháp từ lần tải này
+"Create draft PE for every High-confidence row?","Tạo phiếu thu/chi nháp cho tất cả giao dịch khớp chính xác?"
+Creating Payment Entries...,Đang tạo phiếu thu/chi...
+{0} PEs created,Đã tạo {0} phiếu thu/chi
+Errors,Lỗi
+"Submit ALL draft Payment Entries belonging to this import?","Duyệt TẤT CẢ phiếu thu/chi nháp thuộc lần tải này?"
+Submitting...,Đang duyệt...
+Test on last import,Thử trên lần tải trước
+Match Preview,Xem trước đối chiếu
+Before,Trước
+After,Sau
+No previous import to test against.,Không có dữ liệu tải trước để thử.
+Notify open reconcile pages,Thông báo các trang đối chiếu đang mở
+Notified,Đã thông báo
+"Unknown source type: {0}","Loại nguồn không xác định: {0}"
+file_url required for excel_upload,Cần có đường dẫn file cho tải Excel
+"Could not auto-detect Bank Statement Format. Please pick one manually.","Không thể tự động nhận diện định dạng sao kê. Vui lòng chọn thủ công."
+No invoices selected,Chưa chọn hóa đơn nào
+"Bank fee / rounding difference (TT99/2025)","Phí ngân hàng / chênh lệch làm tròn (TT99/2025)"
+"Please select a Bank Account first","Vui lòng chọn tài khoản ngân hàng trước"
+Ref,Tham chiếu
+Invoice / PE,Hóa đơn / Phiếu thu chi
+Actions,Hành động
+Reconciled,Đã đối soát
+reconciled,đã đối soát
+existing PE found,phiếu thu/chi đã có sẵn
+No match,Chưa khớp
+Reconcile,Đối soát
+"Reconciled with {0}","Đã đối soát với {0}"
+Draft,Nháp
+Submit,Duyệt
+Create Draft PE,Tạo phiếu thu/chi nháp
+"Create & Submit PE","Tạo & duyệt phiếu thu/chi"
+Select a party first,Vui lòng chọn đối tác trước
+Select Invoices,Chọn hóa đơn
+"Select invoices to allocate for","Chọn hóa đơn để phân bổ cho"
+"No outstanding invoices found for {0}","Không tìm thấy hóa đơn chưa thanh toán cho {0}"
+Submitted,Đã duyệt
+"Create draft PEs for High matches","Tạo phiếu thu/chi nháp cho giao dịch khớp chính xác"
+Submit all draft PEs,Duyệt tất cả phiếu thu/chi nháp
+"Reconcile all found PEs","Đối soát tất cả phiếu thu/chi đã tìm thấy"
+"No unreconciled transactions with existing PEs","Không có giao dịch chưa đối soát có phiếu thu/chi sẵn"
+"{0} transactions will be reconciled with existing PEs. Continue?","{0} giao dịch sẽ được đối soát với phiếu thu/chi có sẵn. Tiếp tục?"
+"{0} transactions reconciled","{0} giao dịch đã đối soát"
+"PE {0} created","Phiếu thu/chi {0} đã tạo"
+"All {0} rows already exist (duplicates). Showing previous import data.","Tất cả {0} dòng đã tồn tại (trùng lặp). Đang hiển thị dữ liệu lần tải trước."
+"Imported {0} new rows ({1} duplicates skipped)","Đã nhập {0} dòng mới ({1} trùng lặp bỏ qua)"
+Pick invoice,Chọn hóa đơn
+"No outstanding invoices within tolerance/date window for this amount.","Không có hóa đơn chưa thanh toán nào phù hợp số tiền/khoảng ngày này."
+"No outstanding invoices for {0}.","{0} chưa có hóa đơn nào chưa thanh toán."
+"Outstanding invoices for {0}. Click a row to link this transaction.","Các hóa đơn chưa thanh toán của {0}. Bấm một dòng để gắn giao dịch này."
+"Click a row to link this transaction. {0} auto-fills.","Bấm một dòng để gắn giao dịch này. {0} sẽ được tự động điền."
+"Pick {0} for {1}","Chọn {0} cho {1}"
+"Pick {0} for {1} — {2}","Chọn {0} cho {1} — {2}"
+diff,chênh lệch
+exact,khớp chính xác
+"Linked {0} → {1}","Đã gắn {0} → {1}"

@@ -1,0 +1,82 @@
+name: Discord PR Notify
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  notify:
+    name: Notify Discord Forum
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send to Discord forum
+        uses: actions/github-script@v7
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_PR_WEBHOOK }}
+        with:
+          script: |
+            const TAG_MAP = {
+              'dcnet-workflow':    '1496338089059029202',
+              'dcnet-sample':      '1496338120898121788',
+              'dcnet-theme':       '1496338140846100640',
+              'dcnet-accounting':  '1496338157409534002',
+              'dcnet-fixture':     '1496338174446796961',
+              'dcnet-process':     '1496338195296817282',
+              'dcnet-translation': '1496338213684379719',
+              'dcnet-banking':     '1496338230805528606',
+              'dcnet-contract':    '1496338246215663788',
+              'dcnet-pakd':        '1496338263236018289',
+              'dcnet-einvoice':    '1496338283066691685',
+            };
+
+            const pr = context.payload.pull_request;
+            const repo = context.repo.repo;
+
+            const threadName = `[${repo}] PR #${pr.number}: ${pr.title}`.slice(0, 100);
+            const body = (pr.body || '_Không có mô tả_').slice(0, 2000);
+            const tagId = TAG_MAP[repo];
+
+            const payload = {
+              thread_name: threadName,
+              applied_tags: tagId ? [tagId] : [],
+              embeds: [{
+                title: pr.title.slice(0, 256),
+                url: pr.html_url,
+                description: body,
+                color: 0x2ea043,
+                author: {
+                  name: pr.user.login,
+                  icon_url: pr.user.avatar_url,
+                  url: pr.user.html_url
+                },
+                fields: [
+                  { name: 'Repo', value: repo, inline: true },
+                  { name: 'Flow', value: `\`${pr.head.ref}\` → \`${pr.base.ref}\``, inline: true },
+                  { name: 'Changes', value: `+${pr.additions} / -${pr.deletions} (${pr.changed_files} files)`, inline: true }
+                ],
+                timestamp: pr.created_at
+              }]
+            };
+
+            const webhook = process.env.DISCORD_WEBHOOK;
+            if (!webhook) {
+              core.warning('DISCORD_PR_WEBHOOK org secret not set, skipping notification');
+              return;
+            }
+
+            const res = await fetch(webhook, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            if (!res.ok) {
+              core.setFailed(`Discord ${res.status}: ${await res.text()}`);
+            } else {
+              core.info(`Posted to Discord forum (tag: ${tagId || 'none'})`);
+            }

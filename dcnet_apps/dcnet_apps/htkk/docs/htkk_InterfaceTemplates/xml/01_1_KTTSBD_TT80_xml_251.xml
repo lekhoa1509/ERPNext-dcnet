@@ -1,0 +1,43 @@
+<PLuc_01_1_KTTSBD>
+	<KeKhaiThayToChuc>
+		<ChiTietKhaiThayToChuc id="String">
+			<nNTCoTSBD/>
+			<maSoThue/>
+			<so/>
+			<ngay/>
+			<soTienThanhToan/>
+			<ngayThanhToan/>
+			<giaTinhThue/>
+			<thueGTGTPhaiNop/>
+			<thuNhapTinhThue/>
+			<thueTNDNPhaiNop/>
+			<tongSoThuePhaiNop/>
+		</ChiTietKhaiThayToChuc>
+		<tongCongGiaTinhThue/>
+		<tongCongThueGTGTPN/>
+		<tongCongThuNhapTT/>
+		<tongCongThueTNDNPN/>
+		<tongCongSoThuePN/>
+	</KeKhaiThayToChuc>
+	<KeKhaiThayCaNhan>
+		<ChiTietKhaiThayCaNhan id="String">
+			<nNTCoTSBD/>
+			<maSoThue/>
+			<soCMND_CCCD/>
+			<so/>
+			<ngay/>
+			<soTienThanhToan/>
+			<ngayThanhToan/>
+			<doanhThuGTGT/>
+			<thueGTGTPhaiNop/>
+			<doanhThuTNCN/>
+			<thueTNCNPhaiNop/>
+			<tongSoThuePhaiNop/>
+		</ChiTietKhaiThayCaNhan>
+		<tongCongDTTinhThueGTGT/>
+		<tongCongThueGTGTPN/>
+		<tongCongDTTinhThueTNCN/>
+		<tongCongThueTNCNPN/>
+		<tongCongSoThuePN/>
+	</KeKhaiThayCaNhan>
+</PLuc_01_1_KTTSBD>

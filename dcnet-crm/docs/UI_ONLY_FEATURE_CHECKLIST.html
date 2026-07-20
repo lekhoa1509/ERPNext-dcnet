@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DCNET CRM — UI-only Feature Checklist</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --primary: #2563eb;
+      --primary-soft: #eff6ff;
+      --success: #15803d;
+      --success-soft: #f0fdf4;
+      --warning: #b45309;
+      --warning-soft: #fff7ed;
+      --danger: #b91c1c;
+      --danger-soft: #fff1f2;
+      --radius: 12px;
+      --shadow: 0 5px 20px rgb(15 23 42 / 6%);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.5 Inter, "Segoe UI", Arial, sans-serif;
+      margin: 0;
+    }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, input:focus-visible, summary:focus-visible {
+      outline: 3px solid rgb(37 99 235 / 20%);
+      outline-offset: 2px;
+    }
+
+    .shell { margin: 0 auto; max-width: 1180px; padding: 28px 20px 60px; }
+    .hero {
+      background: linear-gradient(135deg, #172554, #1e40af 62%, #2563eb);
+      border-radius: 16px;
+      box-shadow: 0 14px 36px rgb(30 64 175 / 18%);
+      color: #fff;
+      overflow: hidden;
+      padding: 28px 30px;
+      position: relative;
+    }
+    .hero::after {
+      border: 1px solid rgb(255 255 255 / 15%);
+      border-radius: 50%;
+      content: "";
+      height: 250px;
+      position: absolute;
+      right: -70px;
+      top: -110px;
+      width: 250px;
+    }
+    .eyebrow { color: #bfdbfe; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+    h1 { font-size: clamp(24px, 4vw, 34px); letter-spacing: -.03em; margin: 5px 0 7px; }
+    .hero p { color: #dbeafe; margin: 0; max-width: 720px; }
+
+    .summary-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 16px 0;
+    }
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 1px 2px rgb(15 23 42 / 4%);
+      padding: 16px 18px;
+    }
+    .metric span { color: var(--muted); display: block; font-size: 12px; }
+    .metric strong { display: block; font-size: 25px; margin-top: 2px; }
+    .metric.done strong { color: var(--success); }
+    .metric.pending strong { color: var(--warning); }
+
+    .progress {
+      background: #dbe3ef;
+      border-radius: 999px;
+      height: 10px;
+      margin-top: 13px;
+      overflow: hidden;
+    }
+    .progress > i {
+      background: linear-gradient(90deg, #2563eb, #22c55e);
+      display: block;
+      height: 100%;
+      transition: width .2s ease;
+      width: 0;
+    }
+
+    .toolbar {
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 10px;
+      margin: 16px 0;
+      padding: 12px;
+      position: sticky;
+      top: 10px;
+      z-index: 20;
+    }
+    .search {
+      align-items: center;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: flex;
+      flex: 1;
+      min-width: 180px;
+      padding: 0 11px;
+    }
+    .search svg { color: var(--muted); flex: 0 0 17px; }
+    .search input { background: transparent; border: 0; color: var(--text); height: 38px; outline: 0; width: 100%; }
+    .filters { display: flex; gap: 6px; }
+    .filter, .secondary {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: #475569;
+      min-height: 38px;
+      padding: 0 12px;
+    }
+    .filter.active { background: var(--primary-soft); border-color: #bfdbfe; color: var(--primary); }
+    .secondary:hover, .filter:hover { border-color: #94a3b8; }
+    .danger-button { color: var(--danger); }
+
+    details {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 1px 2px rgb(15 23 42 / 4%);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    summary {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      gap: 12px;
+      list-style: none;
+      min-height: 58px;
+      padding: 0 18px;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before {
+      border-bottom: 2px solid #64748b;
+      border-right: 2px solid #64748b;
+      content: "";
+      height: 7px;
+      transform: rotate(-45deg);
+      transition: transform .15s ease;
+      width: 7px;
+    }
+    details[open] summary::before { transform: rotate(45deg); }
+    summary h2 { flex: 1; font-size: 16px; margin: 0; }
+    .section-progress { color: var(--muted); font-size: 12px; font-weight: 600; }
+    .items { border-top: 1px solid var(--line); }
+
+    .item {
+      align-items: flex-start;
+      border-bottom: 1px solid #edf1f6;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 22px minmax(0, 1fr) auto;
+      padding: 13px 18px;
+      transition: background .15s ease;
+    }
+    .item:last-child { border-bottom: 0; }
+    .item:hover { background: #fbfdff; }
+    .item.hidden { display: none; }
+    .item.completed { background: var(--success-soft); }
+    .item.completed .item-title { color: #64748b; text-decoration: line-through; }
+    .item input[type="checkbox"] {
+      accent-color: var(--success);
+      cursor: pointer;
+      height: 17px;
+      margin: 2px 0 0;
+      width: 17px;
+    }
+    .item-title { font-weight: 650; }
+    .item-note { color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .source { color: var(--primary); font-size: 11px; margin-top: 4px; word-break: break-all; }
+    .badge {
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .04em;
+      padding: 3px 8px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .badge.dead { background: var(--danger-soft); color: var(--danger); }
+    .badge.placeholder { background: var(--warning-soft); color: var(--warning); }
+    .badge.partial { background: var(--primary-soft); color: var(--primary); }
+    .badge.done { background: #dcfce7; color: var(--success); }
+
+    .empty { color: var(--muted); display: none; padding: 40px; text-align: center; }
+    .empty.visible { display: block; }
+    .footnote { color: var(--muted); font-size: 12px; margin-top: 18px; text-align: center; }
+
+    @media (max-width: 760px) {
+      .shell { padding: 12px 10px 40px; }
+      .hero { border-radius: 12px; padding: 22px 18px; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .toolbar { align-items: stretch; flex-direction: column; position: static; }
+      .filters { overflow-x: auto; }
+      .item { grid-template-columns: 22px minmax(0, 1fr); }
+      .badge { grid-column: 2; justify-self: start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="eyebrow">DCNET CRM · FUNCTIONAL AUDIT</div>
+      <h1>UI-only Feature Checklist</h1>
+      <p>Danh sách control đã có giao diện nhưng chưa hoạt động, chỉ là placeholder hoặc đang chạy thiếu/sai mục đích. Tick khi hoàn thành; trình duyệt sẽ tự lưu tiến độ.</p>
+      <div class="progress" aria-label="Tiến độ"><i id="progressBar"></i></div>
+    </header>
+
+    <section class="summary-grid" aria-label="Tổng quan">
+      <article class="metric"><span>Tổng hạng mục</span><strong id="totalCount">0</strong></article>
+      <article class="metric done"><span>Đã hoàn thành</span><strong id="doneCount">0</strong></article>
+      <article class="metric pending"><span>Còn lại</span><strong id="pendingCount">0</strong></article>
+    </section>
+
+    <section class="toolbar" aria-label="Công cụ">
+      <label class="search">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="searchInput" type="search" placeholder="Tìm tính năng hoặc module...">
+      </label>
+      <div class="filters">
+        <button class="filter active" data-filter="all">Tất cả</button>
+        <button class="filter" data-filter="pending">Chưa làm</button>
+        <button class="filter" data-filter="done">Đã xong</button>
+      </div>
+      <button id="expandButton" class="secondary">Mở tất cả</button>
+      <button id="resetButton" class="secondary danger-button">Xóa tiến độ</button>
+    </section>
+
+    <div id="checklist">
+      <details open data-module="Liên hệ">
+        <summary><h2>Liên hệ</h2><span class="section-progress"></span></summary>
+        <div class="items">
+          <label class="item" data-id="contact-list-view"><input type="checkbox"><span><div class="item-title">Sửa giao diện và chọn kiểu hiển thị</div><div class="item-note">Hai control đang không có handler.</div><div class="source">features/opportunities/template.js:4–6</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="contact-export"><input type="checkbox"><span><div class="item-title">Xuất danh sách liên hệ ra Excel</div><div class="item-note">Đã nối API xuất .xlsx theo tìm kiếm, bộ lọc và saved view hiện tại.</div><div class="source">features/opportunities/template.js; contacts/composable.js; dcnet_crm/api.py</div></span><b class="badge done">Đã triển khai</b></label>
+          <label class="item" data-id="contact-quick-actions"><input type="checkbox"><span><div class="item-title">Quick actions tại danh sách</div><div class="item-note">Gọi điện, tạo công việc, tạo lịch, email, ghi chú và cuộc gọi.</div><div class="source">features/opportunities/template.js:62–64</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="contact-purchases"><input type="checkbox"><span><div class="item-title">Tab Mua hàng tại danh sách liên hệ</div><div class="item-note">Hiện luôn placeholder, chưa có nguồn dữ liệu.</div><div class="source">features/opportunities/template.js:81</div></span><b class="badge placeholder">Placeholder</b></label>
+          <label class="item" data-id="contact-filter-more"><input type="checkbox"><span><div class="item-title">Xem thêm bộ lọc</div><div class="source">features/opportunities/template.js:98</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="contact-ai-search"><input type="checkbox"><span><div class="item-title">Tìm kiếm “AI”</div><div class="item-note">Hiện chỉ gọi tìm kiếm danh sách thông thường.</div><div class="source">features/opportunities/template.js:23</div></span><b class="badge partial">Chưa phải AI</b></label>
+          <label class="item" data-id="contact-tags"><input type="checkbox"><span><div class="item-title">Hệ thống thẻ liên hệ</div><div class="item-note">Cột thẻ luôn là “—”; nút Thêm thẻ ở chi tiết không hoạt động.</div><div class="source">features/opportunities/template.js:31; contacts/template-detail.js:19</div></span><b class="badge placeholder">Placeholder</b></label>
+          <label class="item" data-id="contact-create-opportunity"><input type="checkbox"><span><div class="item-title">Sinh cơ hội từ liên hệ</div><div class="item-note">Cả nút chính và dropdown đều chưa có handler.</div><div class="source">features/contacts/template-detail.js:32–35</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="contact-detail-more"><input type="checkbox"><span><div class="item-title">Menu ba chấm tại chi tiết liên hệ</div><div class="source">features/contacts/template-detail.js:37</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="contact-detail-tabs"><input type="checkbox"><span><div class="item-title">Các tab nghiệp vụ tại chi tiết liên hệ</div><div class="item-note">Ghi chú, đính kèm, hàng hóa, cơ hội, đơn hàng, báo giá, hóa đơn, chiến dịch và công việc đều chung màn rỗng.</div><div class="source">features/contacts/template-detail.js:79–88; 523</div></span><b class="badge placeholder">9 tab rỗng</b></label>
+          <label class="item" data-id="contact-right-actions"><input type="checkbox"><span><div class="item-title">Toolbar rail phải</div><div class="item-note">Đã bỏ cụm quick actions theo yêu cầu; hai nút Làm mới và Tùy chọn vẫn chưa có handler.</div><div class="source">features/contacts/template-detail.js</div></span><b class="badge partial">Còn 2 nút</b></label>
+          <label class="item" data-id="contact-right-data"><input type="checkbox"><span><div class="item-title">Rail Hoạt động/Mua hàng</div><div class="item-note">Tab đổi được nhưng nội dung luôn là “Không có dữ liệu”.</div><div class="source">features/contacts/template-detail.js:561–568</div></span><b class="badge placeholder">Placeholder</b></label>
+        </div>
+      </details>
+
+      <details open data-module="Khách hàng">
+        <summary><h2>Khách hàng</h2><span class="section-progress"></span></summary>
+        <div class="items">
+          <label class="item" data-id="customer-view-controls"><input type="checkbox"><span><div class="item-title">Sửa giao diện, kiểu hiển thị và menu ba chấm</div><div class="source">features/customers/template.js:438–444</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="customer-disabled-views"><input type="checkbox"><span><div class="item-title">Đối tác/CTV, khách hàng của nhóm và thêm giao diện</div><div class="item-note">Ba lựa chọn đang bị disable vì chưa có mô hình dữ liệu.</div><div class="source">features/customers/template.js:433–435</div></span><b class="badge placeholder">Chưa cấu hình</b></label>
+          <label class="item" data-id="customer-list-actions"><input type="checkbox"><span><div class="item-title">Quick actions tại danh sách</div><div class="item-note">Gọi điện, tạo lịch và gửi email chưa có handler.</div><div class="source">features/customers/template.js:488–489</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="customer-filter-more"><input type="checkbox"><span><div class="item-title">Xem thêm bộ lọc khách hàng</div><div class="source">features/customers/template.js:550</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="customer-ai-search"><input type="checkbox"><span><div class="item-title">Tìm kiếm “AI”</div><div class="item-note">Chỉ là tìm kiếm danh sách thông thường.</div><div class="source">features/customers/template.js:451</div></span><b class="badge partial">Chưa phải AI</b></label>
+          <label class="item" data-id="customer-detail-controls"><input type="checkbox"><span><div class="item-title">Thêm thẻ, tạo lịch, tùy chỉnh tóm tắt và menu ba chấm</div><div class="source">features/customers/template.js:20; 33; 37; 49</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="customer-support-marketing"><input type="checkbox"><span><div class="item-title">Tab Hỗ trợ và Marketing</div><div class="item-note">Cả hai chỉ hiển thị “Chưa có dữ liệu trong phân hệ này”.</div><div class="source">features/customers/template.js:69–70; 351–352</div></span><b class="badge placeholder">2 tab rỗng</b></label>
+          <label class="item" data-id="customer-subsidiaries"><input type="checkbox"><span><div class="item-title">Bán hàng → Đại lý/Công ty con</div><div class="item-note">Chưa có nguồn dữ liệu được cấu hình.</div><div class="source">features/customers/template.js:82; 114</div></span><b class="badge placeholder">Placeholder</b></label>
+        </div>
+      </details>
+
+      <details open data-module="Cơ hội">
+        <summary><h2>Cơ hội</h2><span class="section-progress"></span></summary>
+        <div class="items">
+          <label class="item" data-id="opportunity-import-items"><input type="checkbox"><span><div class="item-title">Nhập khẩu hàng hóa khi tạo cơ hội</div><div class="source">features/opportunities/template.js:128</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="opportunity-list-view"><input type="checkbox"><span><div class="item-title">Kiểu hiển thị danh sách cơ hội</div><div class="source">features/opportunities/template.js:282</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="opportunity-export"><input type="checkbox"><span><div class="item-title">Xuất danh sách cơ hội ra Excel</div><div class="source">features/opportunities/template.js:289</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="opportunity-list-actions"><input type="checkbox"><span><div class="item-title">Quick actions tại danh sách</div><div class="item-note">Gọi điện, tạo lịch, gửi email và tạo báo giá chưa có handler.</div><div class="source">features/opportunities/template.js:338–340</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="opportunity-filter-more"><input type="checkbox"><span><div class="item-title">Xem thêm bộ lọc cơ hội</div><div class="source">features/opportunities/template.js:386</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="opportunity-ai-search"><input type="checkbox"><span><div class="item-title">Tìm kiếm “AI”</div><div class="item-note">Chỉ là tìm kiếm danh sách thông thường.</div><div class="source">features/opportunities/template.js:299</div></span><b class="badge partial">Chưa phải AI</b></label>
+          <label class="item" data-id="opportunity-header-menu"><input type="checkbox"><span><div class="item-title">Dropdown giai đoạn và menu ba chấm</div><div class="item-note">Giai đoạn nhìn như dropdown nhưng là span; menu ba chấm không có handler.</div><div class="source">features/opportunities/template.js:399–402; 409</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="opportunity-tags"><input type="checkbox"><span><div class="item-title">Thẻ cơ hội</div><div class="item-note">Cột thẻ rỗng và nút Thêm thẻ ở chi tiết chưa hoạt động.</div><div class="source">features/opportunities/template.js:310; 425</div></span><b class="badge placeholder">Placeholder</b></label>
+          <label class="item" data-id="opportunity-detail-actions"><input type="checkbox"><span><div class="item-title">Gọi điện, tạo lịch, gửi email và tùy chỉnh tóm tắt</div><div class="source">features/opportunities/template.js:428–431; 445</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="opportunity-fake-actions"><input type="checkbox"><span><div class="item-title">Tạo công việc và Gọi tại chi tiết</div><div class="item-note">Hiện chỉ chuyển sang tab Hoạt động, không tạo công việc/cuộc gọi.</div><div class="source">features/opportunities/template.js:429; 433</div></span><b class="badge partial">Sai mục đích</b></label>
+          <label class="item" data-id="opportunity-ai-analysis"><input type="checkbox"><span><div class="item-title">Phân tích với AI</div><div class="item-note">Có giao diện nhưng không có handler hay API.</div><div class="source">features/opportunities/template.js:506</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="opportunity-rail-select"><input type="checkbox"><span><div class="item-title">Dropdown “Cơ hội” trên activity rail</div><div class="source">features/opportunities/template.js:840</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="opportunity-support"><input type="checkbox"><span><div class="item-title">Tab Hỗ trợ</div><div class="item-note">Được ghi rõ là đang phát triển.</div><div class="source">features/opportunities/template.js:828–829</div></span><b class="badge placeholder">Placeholder</b></label>
+        </div>
+      </details>
+
+      <details open data-module="Đơn hàng">
+        <summary><h2>Đơn hàng</h2><span class="section-progress"></span></summary>
+        <div class="items">
+          <label class="item" data-id="order-download"><input type="checkbox"><span><div class="item-title">Tải xuống đơn hàng</div><div class="source">features/orders/template.js:483</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="order-print"><input type="checkbox"><span><div class="item-title">In đơn hàng</div><div class="source">features/orders/template.js:489</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="order-approval"><input type="checkbox"><span><div class="item-title">Gửi phê duyệt</div><div class="source">features/orders/template.js:491</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="order-revenue-request"><input type="checkbox"><span><div class="item-title">Đề nghị ghi doanh số</div><div class="source">features/orders/template.js:492</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="order-tags"><input type="checkbox"><span><div class="item-title">Thêm thẻ đơn hàng</div><div class="item-note">Chỉ là div hiển thị, không phải control.</div><div class="source">features/orders/template.js:530–533</div></span><b class="badge placeholder">Placeholder</b></label>
+          <label class="item" data-id="order-summary-customize"><input type="checkbox"><span><div class="item-title">Tùy chỉnh thông tin tóm tắt</div><div class="source">features/orders/template.js:588</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="order-selection"><input type="checkbox"><span><div class="item-title">Checkbox chọn tất cả/chọn dòng</div><div class="item-note">Chưa nối state hoặc bulk action.</div><div class="source">features/orders/template.js:1661; 1680</div></span><b class="badge dead">Chưa nối state</b></label>
+          <label class="item" data-id="order-related-links"><input type="checkbox"><span><div class="item-title">Các link liên quan trong chi tiết</div><div class="item-note">Khách hàng, liên hệ, cơ hội, báo giá, hóa đơn, người dùng và người liên quan được style như link nhưng không điều hướng.</div><div class="source">features/orders/template.js:754–812; 1050; 1107; 1204–1285</div></span><b class="badge partial">Link giả</b></label>
+          <label class="item" data-id="order-hardcoded-money"><input type="checkbox"><span><div class="item-title">Tổng Đã thu/Thực thu/Còn phải thu ở footer</div><div class="item-note">Các giá trị đang hard-code bằng 0.</div><div class="source">features/orders/template.js:1708–1712</div></span><b class="badge partial">Hard-code</b></label>
+          <label class="item" data-id="order-hardcoded-delivery"><input type="checkbox"><span><div class="item-title">Số lượng giao tại panel hàng hóa</div><div class="item-note">Giá trị “SL giao” đang hard-code bằng 0.</div><div class="source">features/orders/template.js:1801</div></span><b class="badge partial">Hard-code</b></label>
+        </div>
+      </details>
+
+      <details open data-module="Hoạt động">
+        <summary><h2>Hoạt động</h2><span class="section-progress"></span></summary>
+        <div class="items">
+          <label class="item" data-id="activity-header-controls"><input type="checkbox"><span><div class="item-title">Quay lại, menu ba chấm và dropdown khách hàng</div><div class="source">features/activities/template.js:228; 238; 241</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="activity-tags"><input type="checkbox"><span><div class="item-title">Thêm thẻ hoạt động</div><div class="source">features/activities/template.js:255</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="activity-tabs"><input type="checkbox"><span><div class="item-title">Tài liệu đính kèm, Nội dung trao đổi và Ghi chú</div><div class="item-note">Ba tab đều dùng chung placeholder “Chưa có dữ liệu”.</div><div class="source">features/activities/template.js:289–292; 379</div></span><b class="badge placeholder">3 tab rỗng</b></label>
+          <label class="item" data-id="activity-tab-tools"><input type="checkbox"><span><div class="item-title">Hai nút thêm/bố cục cạnh thanh tab</div><div class="source">features/activities/template.js:294–297</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="activity-related-links"><input type="checkbox"><span><div class="item-title">Link khách hàng, hóa đơn và người thực hiện</div><div class="item-note">Chỉ được style như liên kết, không có điều hướng.</div><div class="source">features/activities/template.js:269–326</div></span><b class="badge partial">Link giả</b></label>
+          <label class="item" data-id="activity-right-panel"><input type="checkbox"><span><div class="item-title">Các control rail phải</div><div class="item-note">Dropdown khách hàng, Xem thêm, Thêm công việc và nút thu gọn.</div><div class="source">features/activities/template.js:389; 423; 429; 452</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="activity-revenue"><input type="checkbox"><span><div class="item-title">Doanh thu khách hàng trên rail phải</div><div class="item-note">Trường hiện luôn để trống.</div><div class="source">features/activities/template.js:417–420</div></span><b class="badge partial">Thiếu dữ liệu</b></label>
+        </div>
+      </details>
+
+      <details open data-module="Thẻ chăm sóc">
+        <summary><h2>Thẻ chăm sóc</h2><span class="section-progress"></span></summary>
+        <div class="items">
+          <label class="item" data-id="care-import"><input type="checkbox"><span><div class="item-title">Nhập thẻ chăm sóc từ Excel</div><div class="source">features/care-cards/template.js:14–17</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="care-toolbar"><input type="checkbox"><span><div class="item-title">Nút đồng hồ và menu ba chấm</div><div class="source">features/care-cards/template.js:22–27</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="care-columns-stats"><input type="checkbox"><span><div class="item-title">Cấu hình cột và Thống kê</div><div class="source">features/care-cards/template.js:45–50</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="care-selection"><input type="checkbox"><span><div class="item-title">Checkbox chọn dòng</div><div class="item-note">Checkbox header bị disable; checkbox dòng không nối state.</div><div class="source">features/care-cards/template.js:61; 85</div></span><b class="badge dead">Chưa nối state</b></label>
+          <label class="item" data-id="care-actions"><input type="checkbox"><span><div class="item-title">Sáu quick actions</div><div class="item-note">Gọi điện, ghi chú, lịch, email, trao đổi và gọi ra.</div><div class="source">features/care-cards/template.js:124–129</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="care-detail-controls"><input type="checkbox"><span><div class="item-title">Thêm thẻ, Sinh đơn hàng và menu ba chấm</div><div class="source">features/care-cards/template.js:258; 267–271</div></span><b class="badge dead">Nút chết</b></label>
+          <label class="item" data-id="care-tabs"><input type="checkbox"><span><div class="item-title">Các tab nghiệp vụ tại chi tiết thẻ</div><div class="item-note">Ghi chú, đính kèm, công việc đang làm, công việc hoàn thành, trao đổi và thẻ tư vấn đều chung placeholder.</div><div class="source">features/care-cards/template.js:296–302; 478</div></span><b class="badge placeholder">6 tab rỗng</b></label>
+          <label class="item" data-id="care-links"><input type="checkbox"><span><div class="item-title">Các trường dạng link</div><div class="item-note">Khách hàng, đơn hàng và chủ sở hữu không điều hướng.</div><div class="source">features/care-cards/template.js:285; 331; 376; 435</div></span><b class="badge partial">Link giả</b></label>
+        </div>
+      </details>
+
+      <details open data-module="Tiềm năng và Báo giá">
+        <summary><h2>Tiềm năng và Báo giá</h2><span class="section-progress"></span></summary>
+        <div class="items">
+          <label class="item" data-id="lead-selection"><input type="checkbox"><span><div class="item-title">Checkbox danh sách tiềm năng</div><div class="item-note">Chọn tất cả và chọn dòng chưa nối state.</div><div class="source">features/leads/template.js:111; 114</div></span><b class="badge dead">Chưa nối state</b></label>
+          <label class="item" data-id="lead-convert"><input type="checkbox"><span><div class="item-title">Chuyển đổi Lead</div><div class="item-note">Hiện gọi cùng form với nút Sửa, chưa chuyển Lead thành Customer/Opportunity.</div><div class="source">features/leads/template.js:16–17; leads/composable.js:66</div></span><b class="badge partial">Sai mục đích</b></label>
+          <label class="item" data-id="quotation-selection"><input type="checkbox"><span><div class="item-title">Checkbox danh sách báo giá</div><div class="item-note">Chọn tất cả và chọn dòng chưa nối state.</div><div class="source">features/quotations/template.js:279; 295</div></span><b class="badge dead">Chưa nối state</b></label>
+          <label class="item" data-id="quotation-tags-view"><input type="checkbox"><span><div class="item-title">Cột Thẻ và dropdown giao diện báo giá</div><div class="item-note">Cột thẻ chỉ hiển thị; mũi tên cạnh tiêu đề không tương tác.</div><div class="source">features/quotations/template.js:246; 280</div></span><b class="badge placeholder">Placeholder</b></label>
+        </div>
+      </details>
+    </div>
+
+    <div id="emptyState" class="empty">Không có hạng mục phù hợp với bộ lọc.</div>
+    <p class="footnote">Không liệt kê Dashboard và Tài khoản dịch vụ vì chưa phát hiện control UI-only rõ ràng trong lần audit này.</p>
+  </main>
+
+  <script>
+    (() => {
+      const STORAGE_KEY = "dcnet-crm-ui-only-checklist-v1";
+      const items = [...document.querySelectorAll(".item")];
+      const checks = items.map((item) => item.querySelector('input[type="checkbox"]'));
+      const searchInput = document.querySelector("#searchInput");
+      const filterButtons = [...document.querySelectorAll(".filter")];
+      let activeFilter = "all";
+
+      const load = () => {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); }
+        catch { return {}; }
+      };
+
+      const save = () => {
+        const state = {};
+        items.forEach((item, index) => { state[item.dataset.id] = checks[index].checked; });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      };
+
+      const update = () => {
+        const done = checks.filter((check) => check.checked).length;
+        const total = checks.length;
+        document.querySelector("#totalCount").textContent = total;
+        document.querySelector("#doneCount").textContent = done;
+        document.querySelector("#pendingCount").textContent = total - done;
+        document.querySelector("#progressBar").style.width = `${total ? done / total * 100 : 0}%`;
+
+        document.querySelectorAll("details").forEach((section) => {
+          const sectionChecks = [...section.querySelectorAll('.item:not(.hidden) input[type="checkbox"]')];
+          const sectionDone = sectionChecks.filter((check) => check.checked).length;
+          section.querySelector(".section-progress").textContent = `${sectionDone}/${sectionChecks.length} hoàn thành`;
+        });
+
+        items.forEach((item, index) => item.classList.toggle("completed", checks[index].checked));
+      };
+
+      const applyFilter = () => {
+        const query = searchInput.value.trim().toLocaleLowerCase("vi");
+        let visible = 0;
+        items.forEach((item, index) => {
+          const matchesText = !query || item.textContent.toLocaleLowerCase("vi").includes(query);
+          const matchesStatus = activeFilter === "all"
+            || (activeFilter === "done" && checks[index].checked)
+            || (activeFilter === "pending" && !checks[index].checked);
+          const show = matchesText && matchesStatus;
+          item.classList.toggle("hidden", !show);
+          if (show) visible += 1;
+        });
+        document.querySelector("#emptyState").classList.toggle("visible", visible === 0);
+        update();
+      };
+
+      const state = load();
+      items.forEach((item, index) => {
+        checks[index].checked = Boolean(state[item.dataset.id]);
+        checks[index].addEventListener("change", () => {
+          save();
+          applyFilter();
+        });
+      });
+
+      searchInput.addEventListener("input", applyFilter);
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          activeFilter = button.dataset.filter;
+          filterButtons.forEach((item) => item.classList.toggle("active", item === button));
+          applyFilter();
+        });
+      });
+
+      document.querySelector("#expandButton").addEventListener("click", (event) => {
+        const sections = [...document.querySelectorAll("details")];
+        const shouldOpen = sections.some((section) => !section.open);
+        sections.forEach((section) => { section.open = shouldOpen; });
+        event.currentTarget.textContent = shouldOpen ? "Thu gọn tất cả" : "Mở tất cả";
+      });
+
+      document.querySelector("#resetButton").addEventListener("click", () => {
+        if (!window.confirm("Xóa toàn bộ trạng thái đã tick?")) return;
+        localStorage.removeItem(STORAGE_KEY);
+        checks.forEach((check) => { check.checked = false; });
+        applyFilter();
+      });
+
+      applyFilter();
+    })();
+  </script>
+</body>
+</html>

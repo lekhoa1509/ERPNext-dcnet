@@ -1,0 +1,243 @@
+{
+ "app": "vn_accounting",
+ "charts": [
+  {
+   "chart_name": "Doanh Thu Chi Phi Thang",
+   "label": "Doanh Thu & Chi Ph\u00ed Th\u00e1ng"
+  },
+  {
+   "chart_name": "Cong No Phai Thu",
+   "label": "Top KH N\u1ee3 Ph\u1ea3i Thu"
+  },
+  {
+   "chart_name": "Cong No Phai Tra",
+   "label": "Top NCC N\u1ee3 Ph\u1ea3i Tr\u1ea3"
+  },
+  {
+   "chart_name": "Bien Dong Tien",
+   "label": "Bi\u1ebfn \u0110\u1ed9ng Ti\u1ec1n"
+  },
+  {
+   "chart_name": "PAKD by Workflow State",
+   "label": "PAKD theo b\u01b0\u1edbc duy\u1ec7t"
+  }
+ ],
+ "content": "[{\"id\": \"vna_h1_overview\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>T\u1ed5ng quan k\u1ebf to\u00e1n</b></span>\", \"col\": 12}}, {\"id\": \"vna_nc_doanh_thu\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"T\u1ed5ng Doanh Thu\", \"col\": 2}}, {\"id\": \"vna_nc_chi_phi\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"T\u1ed5ng Chi Ph\u00ed\", \"col\": 2}}, {\"id\": \"vna_nc_phai_thu\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"C\u00f4ng N\u1ee3 Ph\u1ea3i Thu\", \"col\": 3}}, {\"id\": \"vna_nc_phai_tra\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"C\u00f4ng N\u1ee3 Ph\u1ea3i Tr\u1ea3\", \"col\": 3}}, {\"id\": \"vna_nc_ton_quy\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"T\u1ed3n Qu\u1ef9\", \"col\": 2}}, {\"id\": \"vna_chart_dtcp\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Doanh Thu & Chi Ph\u00ed Th\u00e1ng\", \"col\": 12}}, {\"id\": \"vna_chart_phai_thu\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Top KH N\u1ee3 Ph\u1ea3i Thu\", \"col\": 6}}, {\"id\": \"vna_chart_phai_tra\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Top NCC N\u1ee3 Ph\u1ea3i Tr\u1ea3\", \"col\": 6}}, {\"id\": \"vna_chart_bien_dong\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Bi\u1ebfn \u0110\u1ed9ng Ti\u1ec1n\", \"col\": 12}}, {\"id\": \"vna_h_contracts\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>S\u1ee9c kh\u1ecfe h\u1ee3p \u0111\u1ed3ng</b></span>\", \"col\": 12}}, {\"id\": \"vna_nc_overdue\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"S\u1ed1 k\u1ef3 qu\u00e1 h\u1ea1n\", \"col\": 4}}, {\"id\": \"vna_nc_outstanding\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"T\u1ed5ng DT ch\u01b0a thu\", \"col\": 4}}, {\"id\": \"vna_nc_pakd_pending\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"PAKD ch\u1edd duy\u1ec7t\", \"col\": 4}}, {\"id\": \"vna_chart_pakd_wf\", \"type\": \"chart\", \"data\": {\"chart_name\": \"PAKD theo b\u01b0\u1edbc duy\u1ec7t\", \"col\": 12}}, {\"id\": \"vna_h2_quick\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>T\u1ea1o nhanh</b></span>\", \"col\": 12}}, {\"id\": \"vna_qc_thu_tm\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"+ Phi\u1ebfu thu ti\u1ec1n m\u1eb7t\", \"col\": 3}}, {\"id\": \"vna_qc_chi_tm\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"+ Phi\u1ebfu chi ti\u1ec1n m\u1eb7t\", \"col\": 3}}, {\"id\": \"vna_qc_thu_nh\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"+ Thu ti\u1ec1n ng\u00e2n h\u00e0ng\", \"col\": 3}}, {\"id\": \"vna_qc_chi_nh\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"+ Chi ti\u1ec1n ng\u00e2n h\u00e0ng\", \"col\": 3}}, {\"id\": \"vna_qc_si\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"+ Ho\u00e1 \u0111\u01a1n b\u00e1n h\u00e0ng\", \"col\": 3}}, {\"id\": \"vna_qc_pi\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"+ Ho\u00e1 \u0111\u01a1n mua h\u00e0ng\", \"col\": 3}}, {\"id\": \"vna_qc_jv\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"+ B\u00fat to\u00e1n\", \"col\": 3}}, {\"id\": \"vna_h3_cash_bank\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Ti\u1ec1n m\u1eb7t & Ng\u00e2n h\u00e0ng</b></span>\", \"col\": 12}}, {\"id\": \"vna_sc_payment\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Phi\u1ebfu thu/chi\", \"col\": 3}}, {\"id\": \"vna_sc_bank\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Ng\u00e2n h\u00e0ng\", \"col\": 3}}, {\"id\": \"vna_h4_buying\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Mua h\u00e0ng</b></span>\", \"col\": 12}}, {\"id\": \"vna_sc_purchase_inv\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Ho\u00e1 \u0111\u01a1n mua h\u00e0ng\", \"col\": 3}}, {\"id\": \"vna_sc_ap\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"C\u00f4ng n\u1ee3 ph\u1ea3i tr\u1ea3\", \"col\": 3}}, {\"id\": \"vna_h5_selling\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>B\u00e1n h\u00e0ng</b></span>\", \"col\": 12}}, {\"id\": \"vna_sc_sales_inv\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Ho\u00e1 \u0111\u01a1n b\u00e1n h\u00e0ng\", \"col\": 3}}, {\"id\": \"vna_sc_ar\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"C\u00f4ng n\u1ee3 ph\u1ea3i thu\", \"col\": 3}}, {\"id\": \"vna_h6_general\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>T\u1ed5ng h\u1ee3p & B\u00e1o c\u00e1o</b></span>\", \"col\": 12}}, {\"id\": \"vna_sc_journal\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"B\u00fat to\u00e1n\", \"col\": 3}}, {\"id\": \"vna_sc_coa\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"H\u1ec7 th\u1ed1ng t\u00e0i kho\u1ea3n\", \"col\": 3}}, {\"id\": \"vna_sc_gl\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"S\u1ed5 c\u00e1i\", \"col\": 3}}, {\"id\": \"vna_sc_bs\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"B\u1ea3ng c\u00e2n \u0111\u1ed1i k\u1ebf to\u00e1n\", \"col\": 3}}, {\"id\": \"vna_sc_pnl\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"B\u00e1o c\u00e1o k\u1ebft qu\u1ea3 kinh doanh\", \"col\": 3}}, {\"id\": \"vna_sc_cf\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"B\u00e1o c\u00e1o l\u01b0u chuy\u1ec3n ti\u1ec1n t\u1ec7\", \"col\": 3}}, {\"id\": \"vna_sc_asset\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"T\u00e0i s\u1ea3n c\u1ed1 \u0111\u1ecbnh\", \"col\": 3}}]",
+ "creation": "2026-04-02 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "accounting",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "VN Accounting",
+ "links": [],
+ "modified": "2026-05-12 14:18:59.560372",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "VN Accounting",
+ "number_cards": [
+  {
+   "label": "T\u1ed5ng Doanh Thu",
+   "number_card_name": "T\u1ed5ng Doanh Thu"
+  },
+  {
+   "label": "T\u1ed5ng Chi Ph\u00ed",
+   "number_card_name": "T\u1ed5ng Chi Ph\u00ed"
+  },
+  {
+   "label": "C\u00f4ng N\u1ee3 Ph\u1ea3i Thu",
+   "number_card_name": "C\u00f4ng N\u1ee3 Ph\u1ea3i Thu"
+  },
+  {
+   "label": "C\u00f4ng N\u1ee3 Ph\u1ea3i Tr\u1ea3",
+   "number_card_name": "C\u00f4ng N\u1ee3 Ph\u1ea3i Tr\u1ea3"
+  },
+  {
+   "label": "T\u1ed3n Qu\u1ef9",
+   "number_card_name": "T\u1ed3n Qu\u1ef9"
+  },
+  {
+   "label": "S\u1ed1 k\u1ef3 qu\u00e1 h\u1ea1n",
+   "number_card_name": "Overdue Billing Count"
+  },
+  {
+   "label": "T\u1ed5ng DT ch\u01b0a thu",
+   "number_card_name": "Contracts Outstanding Total"
+  },
+  {
+   "label": "PAKD ch\u1edd duy\u1ec7t",
+   "number_card_name": "PAKD Pending Approval"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Auditor"
+  }
+ ],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Ho\u00e1 \u0111\u01a1n b\u00e1n h\u00e0ng",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Ho\u00e1 \u0111\u01a1n mua h\u00e0ng",
+   "link_to": "Purchase Invoice",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Phi\u1ebfu thu/chi",
+   "link_to": "Payment Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "B\u00fat to\u00e1n",
+   "link_to": "Journal Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "Tree",
+   "label": "H\u1ec7 th\u1ed1ng t\u00e0i kho\u1ea3n",
+   "link_to": "Account",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "label": "S\u1ed5 c\u00e1i",
+   "link_to": "General Ledger",
+   "report_ref_doctype": "GL Entry",
+   "stats_filter": "[]",
+   "type": "Report"
+  },
+  {
+   "color": "Orange",
+   "label": "C\u00f4ng n\u1ee3 ph\u1ea3i thu",
+   "link_to": "Accounts Receivable",
+   "report_ref_doctype": "Sales Invoice",
+   "stats_filter": "[]",
+   "type": "Report"
+  },
+  {
+   "color": "Orange",
+   "label": "C\u00f4ng n\u1ee3 ph\u1ea3i tr\u1ea3",
+   "link_to": "Accounts Payable",
+   "report_ref_doctype": "Purchase Invoice",
+   "stats_filter": "[]",
+   "type": "Report"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "label": "Ng\u00e2n h\u00e0ng",
+   "link_to": "Bank Account",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "label": "T\u00e0i s\u1ea3n c\u1ed1 \u0111\u1ecbnh",
+   "link_to": "Asset",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
+   "label": "B\u1ea3ng c\u00e2n \u0111\u1ed1i k\u1ebf to\u00e1n",
+   "link_to": "Balance Sheet",
+   "report_ref_doctype": "GL Entry",
+   "stats_filter": "[]",
+   "type": "Report"
+  },
+  {
+   "color": "Yellow",
+   "label": "B\u00e1o c\u00e1o k\u1ebft qu\u1ea3 kinh doanh",
+   "link_to": "Profit and Loss Statement",
+   "report_ref_doctype": "GL Entry",
+   "stats_filter": "[]",
+   "type": "Report"
+  },
+  {
+   "color": "Yellow",
+   "label": "B\u00e1o c\u00e1o l\u01b0u chuy\u1ec3n ti\u1ec1n t\u1ec7",
+   "link_to": "Cash Flow",
+   "report_ref_doctype": "GL Entry",
+   "stats_filter": "[]",
+   "type": "Report"
+  },
+  {
+   "color": "Green",
+   "label": "+ Phi\u1ebfu thu ti\u1ec1n m\u1eb7t",
+   "type": "URL",
+   "url": "/app/payment-entry/new?payment_type=Receive&mode_of_payment=Cash"
+  },
+  {
+   "color": "Green",
+   "label": "+ Phi\u1ebfu chi ti\u1ec1n m\u1eb7t",
+   "type": "URL",
+   "url": "/app/payment-entry/new?payment_type=Pay&mode_of_payment=Cash"
+  },
+  {
+   "color": "Cyan",
+   "label": "+ Thu ti\u1ec1n ng\u00e2n h\u00e0ng",
+   "type": "URL",
+   "url": "/app/payment-entry/new?payment_type=Receive&mode_of_payment=Bank Draft"
+  },
+  {
+   "color": "Cyan",
+   "label": "+ Chi ti\u1ec1n ng\u00e2n h\u00e0ng",
+   "type": "URL",
+   "url": "/app/payment-entry/new?payment_type=Pay&mode_of_payment=Bank Draft"
+  },
+  {
+   "color": "Blue",
+   "label": "+ Ho\u00e1 \u0111\u01a1n b\u00e1n h\u00e0ng",
+   "type": "URL",
+   "url": "/app/sales-invoice/new"
+  },
+  {
+   "color": "Blue",
+   "label": "+ Ho\u00e1 \u0111\u01a1n mua h\u00e0ng",
+   "type": "URL",
+   "url": "/app/purchase-invoice/new"
+  },
+  {
+   "color": "Green",
+   "label": "+ B\u00fat to\u00e1n",
+   "type": "URL",
+   "url": "/app/journal-entry/new"
+  }
+ ],
+ "title": "VN Accounting",
+ "type": "Workspace"
+}

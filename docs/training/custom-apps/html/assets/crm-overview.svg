@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690" role="img" aria-labelledby="title desc">
+  <title id="title">Minh họa màn hình tổng quan DCNET CRM</title>
+  <desc id="desc">Thanh điều hướng trái, các thẻ KPI và danh sách công việc CRM.</desc>
+  <rect width="1200" height="690" fill="#f5f7f9"/>
+  <rect x="24" y="22" width="1152" height="646" rx="16" fill="#fff" stroke="#d8dee4"/>
+  <rect x="24" y="22" width="238" height="646" rx="16" fill="#0f766e"/>
+  <text x="52" y="70" fill="#fff" font-family="Arial" font-size="25" font-weight="700">DCNET CRM</text>
+  <g font-family="Arial" font-size="17" fill="#d8fffa">
+    <text x="52" y="125">⌂  Tổng quan</text><text x="52" y="171">◎  Tiềm năng</text>
+    <text x="52" y="217">▣  Cơ hội</text><text x="52" y="263">▤  Khách hàng</text>
+    <text x="52" y="309">♙  Liên hệ</text><text x="52" y="355">▱  Báo giá</text>
+    <text x="52" y="401">▧  Đơn hàng</text><text x="52" y="447">✓  Hoạt động</text>
+    <text x="52" y="493">♡  Thẻ chăm sóc</text><text x="52" y="539">▥  Tài khoản</text>
+  </g>
+  <text x="298" y="72" fill="#172b4d" font-family="Arial" font-size="28" font-weight="700">Tổng quan CRM</text>
+  <text x="298" y="101" fill="#64748b" font-family="Arial" font-size="15">Theo dõi khách hàng và tiến độ bán hàng tại một nơi</text>
+  <g font-family="Arial">
+    <g><rect x="298" y="128" width="195" height="105" rx="12" fill="#ecfeff" stroke="#a5f3fc"/><text x="316" y="160" fill="#155e75" font-size="15">Tiềm năng</text><text x="316" y="207" fill="#164e63" font-size="32" font-weight="700">128</text></g>
+    <g><rect x="511" y="128" width="195" height="105" rx="12" fill="#f0fdf4" stroke="#bbf7d0"/><text x="529" y="160" fill="#166534" font-size="15">Cơ hội đang mở</text><text x="529" y="207" fill="#14532d" font-size="32" font-weight="700">42</text></g>
+    <g><rect x="724" y="128" width="195" height="105" rx="12" fill="#fff7ed" stroke="#fed7aa"/><text x="742" y="160" fill="#9a3412" font-size="15">Hoạt động hôm nay</text><text x="742" y="207" fill="#7c2d12" font-size="32" font-weight="700">17</text></g>
+    <g><rect x="937" y="128" width="205" height="105" rx="12" fill="#faf5ff" stroke="#e9d5ff"/><text x="955" y="160" fill="#6b21a8" font-size="15">Đơn hàng</text><text x="955" y="207" fill="#581c87" font-size="32" font-weight="700">36</text></g>
+  </g>
+  <rect x="298" y="266" width="844" height="353" rx="12" fill="#fff" stroke="#d8dee4"/>
+  <text x="320" y="306" fill="#172b4d" font-family="Arial" font-size="20" font-weight="700">Việc cần xử lý</text>
+  <rect x="935" y="282" width="180" height="38" rx="8" fill="#0f766e"/><text x="972" y="307" fill="#fff" font-family="Arial" font-size="15">+ Thêm hoạt động</text>
+  <g font-family="Arial" font-size="14" fill="#475569">
+    <text x="320" y="355">Loại</text><text x="460" y="355">Nội dung</text><text x="785" y="355">Liên quan</text><text x="1005" y="355">Hạn</text>
+    <line x1="320" y1="369" x2="1118" y2="369" stroke="#e2e8f0"/>
+    <text x="320" y="405">Cuộc gọi</text><text x="460" y="405">Xác nhận nhu cầu bộ gậy</text><text x="785" y="405">KH Nguyễn Minh</text><text x="1005" y="405">Hôm nay</text>
+    <line x1="320" y1="425" x2="1118" y2="425" stroke="#e2e8f0"/>
+    <text x="320" y="461">Công việc</text><text x="460" y="461">Gửi lại báo giá</text><text x="785" y="461">Cơ hội OPP-0024</text><text x="1005" y="461">14/07</text>
+    <line x1="320" y1="481" x2="1118" y2="481" stroke="#e2e8f0"/>
+    <text x="320" y="517">Chăm sóc</text><text x="460" y="517">Hỏi thăm sau fitting</text><text x="785" y="517">KH Trần Anh</text><text x="1005" y="517">15/07</text>
+  </g>
+  <text x="298" y="650" fill="#64748b" font-family="Arial" font-size="13">Hình minh họa phục vụ training — dữ liệu mẫu, không phải ảnh production.</text>
+</svg>

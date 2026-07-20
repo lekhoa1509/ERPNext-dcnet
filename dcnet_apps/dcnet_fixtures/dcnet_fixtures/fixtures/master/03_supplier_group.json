@@ -1,0 +1,22 @@
+[
+  {
+    "doctype": "Supplier Group",
+    "supplier_group_name": "Golf Manufacturers",
+    "parent_supplier_group": "All Supplier Groups"
+  },
+  {
+    "doctype": "Supplier Group",
+    "supplier_group_name": "Golf Distributors",
+    "parent_supplier_group": "All Supplier Groups"
+  },
+  {
+    "doctype": "Supplier Group",
+    "supplier_group_name": "Apparel Brands",
+    "parent_supplier_group": "All Supplier Groups"
+  },
+  {
+    "doctype": "Supplier Group",
+    "supplier_group_name": "Local Partners",
+    "parent_supplier_group": "All Supplier Groups"
+  }
+]

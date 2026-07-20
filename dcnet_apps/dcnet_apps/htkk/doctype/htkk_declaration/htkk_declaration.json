@@ -1,0 +1,402 @@
+{
+    "actions": [],
+    "allow_rename": 0,
+    "autoname": "format:HTKK-{declaration_type}-{period_type}{period}-{year}-{####}",
+    "creation": "2026-03-09 10:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "declaration_section",
+        "company",
+        "declaration_type",
+        "column_break_decl",
+        "period_type",
+        "period",
+        "year",
+        "period_section",
+        "from_date",
+        "column_break_period",
+        "to_date",
+        "finance_section",
+        "finance_book",
+        "vat_input_section",
+        "vat_carried_forward",
+        "received_vat_credit",
+        "column_break_vat_input",
+        "vat_refund_requested",
+        "investment_vat_offset",
+        "import_section",
+        "import_goods_value",
+        "import_vat_account",
+        "column_break_import",
+        "import_vat_amount",
+        "tndn_input_section",
+        "accounting_profit",
+        "prior_year_loss",
+        "column_break_tndn",
+        "cit_prepaid",
+        "cit_rate",
+        "adjustments_section",
+        "adjustments",
+        "ct_values_section",
+        "calculate_btn",
+        "ct_values",
+        "result_section",
+        "status",
+        "column_break_result",
+        "generated_at",
+        "generated_xml",
+        "state_file",
+        "state_version",
+        "state_hash",
+        "data_fingerprint",
+        "appendix_data",
+        "notes_section",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "declaration_section",
+            "fieldtype": "Section Break",
+            "label": "Thông tin tờ khai"
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Công ty",
+            "options": "Company",
+            "reqd": 1
+        },
+        {
+            "fieldname": "declaration_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Loại tờ khai",
+            "options": "",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_decl",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "period_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Kỳ kê khai",
+            "options": "Tháng\nQuý\nNăm",
+            "reqd": 1
+        },
+        {
+            "fieldname": "period",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Kỳ",
+            "reqd": 1,
+            "description": "1-12 (tháng) hoặc 1-4 (quý)"
+        },
+        {
+            "fieldname": "year",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Năm",
+            "reqd": 1
+        },
+        {
+            "fieldname": "period_section",
+            "fieldtype": "Section Break",
+            "label": "Thời gian"
+        },
+        {
+            "fieldname": "from_date",
+            "fieldtype": "Date",
+            "label": "Từ ngày",
+            "read_only": 1,
+            "description": "Tự tính từ kỳ kê khai"
+        },
+        {
+            "fieldname": "column_break_period",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "to_date",
+            "fieldtype": "Date",
+            "label": "Đến ngày",
+            "read_only": 1,
+            "description": "Tự tính từ kỳ kê khai"
+        },
+        {
+            "fieldname": "finance_section",
+            "fieldtype": "Section Break",
+            "label": "Sổ kế toán"
+        },
+        {
+            "fieldname": "finance_book",
+            "fieldtype": "Link",
+            "label": "Finance Book",
+            "options": "Finance Book",
+            "description": "Để trống để dùng giá trị mặc định từ HTKK Settings"
+        },
+        {
+            "fieldname": "vat_input_section",
+            "fieldtype": "Section Break",
+            "label": "Giá trị nhập tay - GTGT",
+            "depends_on": "eval:doc.declaration_type=='01/GTGT'"
+        },
+        {
+            "default": "0",
+            "fieldname": "vat_carried_forward",
+            "fieldtype": "Currency",
+            "label": "Thuế GTGT còn khấu trừ kỳ trước (CT22)",
+            "description": "Tự động lấy từ CT43 của tờ khai kỳ trước. Nhập tay nếu kỳ đầu tiên."
+        },
+        {
+            "default": "0",
+            "fieldname": "received_vat_credit",
+            "fieldtype": "Currency",
+            "label": "Thuế GTGT nhận bàn giao được khấu trừ (CT39a)",
+            "description": "Thuế GTGT của dự án đầu tư nhận bàn giao được khấu trừ trong kỳ. Mặc định 0."
+        },
+        {
+            "fieldname": "column_break_vat_input",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "0",
+            "fieldname": "vat_refund_requested",
+            "fieldtype": "Currency",
+            "label": "Thuế GTGT đề nghị hoàn (CT42)"
+        },
+        {
+            "default": "0",
+            "fieldname": "investment_vat_offset",
+            "fieldtype": "Currency",
+            "label": "Bù trừ thuế GTGT dự án đầu tư (CT40b)",
+            "description": "Thuế GTGT mua vào của dự án đầu tư được bù trừ với thuế phải nộp của hoạt động SXKD ([40b] ≤ [40a]). Mặc định 0."
+        },
+        {
+            "fieldname": "import_section",
+            "fieldtype": "Section Break",
+            "label": "Hàng hóa nhập khẩu (CT23a / CT24a)",
+            "collapsible": 1,
+            "depends_on": "eval:doc.declaration_type=='01/GTGT'",
+            "description": "Thuế GTGT hàng nhập khẩu thường hạch toán qua JE từ tờ khai hải quan, không qua Purchase Invoice."
+        },
+        {
+            "default": "0",
+            "fieldname": "import_goods_value",
+            "fieldtype": "Currency",
+            "label": "Giá trị hàng nhập khẩu (CT23a)",
+            "description": "Nhập tay — giá trị HHDV nhập khẩu chưa thuế. Thường lấy từ tờ khai hải quan."
+        },
+        {
+            "fieldname": "import_vat_account",
+            "fieldtype": "Link",
+            "label": "Tài khoản thuế GTGT nhập khẩu",
+            "options": "Account",
+            "description": "Đọc số dư Nợ từ JE trên tài khoản này. Gợi ý: TK 1331."
+        },
+        {
+            "fieldname": "column_break_import",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "0",
+            "fieldname": "import_vat_amount",
+            "fieldtype": "Currency",
+            "label": "Thuế GTGT nhập khẩu — nhập tay (CT24a)",
+            "description": "Dùng khi không chọn tài khoản, hoặc muốn ghi đè giá trị đọc từ tài khoản."
+        },
+        {
+            "fieldname": "tndn_input_section",
+            "fieldtype": "Section Break",
+            "label": "Giá trị nhập tay - TNDN",
+            "depends_on": "eval:doc.declaration_type=='03/TNDN'"
+        },
+        {
+            "default": "0",
+            "fieldname": "accounting_profit",
+            "fieldtype": "Currency",
+            "label": "Lợi nhuận kế toán trước thuế (A1)",
+            "description": "Tự động lấy từ P&L. Có thể nhập tay nếu cần."
+        },
+        {
+            "default": "0",
+            "fieldname": "prior_year_loss",
+            "fieldtype": "Currency",
+            "label": "Lỗ các năm trước chuyển sang (C3a)",
+            "description": "Lỗ từ hoạt động SXKD được chuyển trong kỳ."
+        },
+        {
+            "fieldname": "column_break_tndn",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "0",
+            "fieldname": "cit_prepaid",
+            "fieldtype": "Currency",
+            "label": "Thuế TNDN đã tạm nộp (G2)",
+            "description": "Số thuế TNDN đã tạm nộp trong năm."
+        },
+        {
+            "default": "20",
+            "fieldname": "cit_rate",
+            "fieldtype": "Percent",
+            "label": "Thuế suất TNDN (%)",
+            "description": "Thuế suất áp dụng cho doanh nghiệp. Mặc định 20%."
+        },
+        {
+            "fieldname": "adjustments_section",
+            "fieldtype": "Section Break",
+            "label": "Điều chỉnh",
+            "collapsible": 1,
+            "depends_on": "eval:doc.declaration_type=='01/GTGT'"
+        },
+        {
+            "fieldname": "adjustments",
+            "fieldtype": "Table",
+            "label": "Điều chỉnh tăng/giảm",
+            "options": "HTKK Declaration Adjustment"
+        },
+        {
+            "fieldname": "ct_values_section",
+            "fieldtype": "Section Break",
+            "label": "Chỉ tiêu tờ khai",
+            "description": "Nhấn 'Tính toán' để cập nhật giá trị từ chứng từ. Bật 'Ghi đè' để nhập tay giá trị khác."
+        },
+        {
+            "fieldname": "calculate_btn",
+            "fieldtype": "Button",
+            "label": "Tính toán chỉ tiêu"
+        },
+        {
+            "fieldname": "ct_values",
+            "fieldtype": "Table",
+            "label": "Chỉ tiêu",
+            "options": "HTKK Declaration CT Value"
+        },
+        {
+            "fieldname": "result_section",
+            "fieldtype": "Section Break",
+            "label": "Kết quả"
+        },
+        {
+            "default": "Nháp",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Trạng thái",
+            "options": "Nháp\nChờ duyệt\nĐã xuất\nĐã nộp"
+        },
+        {
+            "fieldname": "column_break_result",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "generated_at",
+            "fieldtype": "Datetime",
+            "label": "Xuất lúc",
+            "read_only": 1
+        },
+        {
+            "fieldname": "generated_xml",
+            "fieldtype": "Attach",
+            "label": "File XML",
+            "read_only": 1
+        },
+        {
+            "fieldname": "state_file",
+            "fieldtype": "Attach",
+            "label": "State File (.gz)",
+            "read_only": 1,
+            "description": "Compressed UI state snapshot"
+        },
+        {
+            "default": "0",
+            "fieldname": "state_version",
+            "fieldtype": "Int",
+            "label": "State Version",
+            "read_only": 1,
+            "hidden": 1
+        },
+        {
+            "fieldname": "state_hash",
+            "fieldtype": "Data",
+            "label": "State Hash (SHA-256)",
+            "read_only": 1,
+            "hidden": 1
+        },
+        {
+            "fieldname": "data_fingerprint",
+            "fieldtype": "Code",
+            "label": "Data Fingerprint",
+            "options": "JSON",
+            "read_only": 1,
+            "hidden": 1,
+            "description": "Snapshots of source documents to detect changes"
+        },
+        {
+            "fieldname": "appendix_data",
+            "fieldtype": "Code",
+            "label": "Appendix Virtual Data",
+            "options": "JSON",
+            "read_only": 1,
+            "hidden": 1,
+            "description": "Invoice references and manual overrides for appendices"
+        },
+        {
+            "fieldname": "notes_section",
+            "fieldtype": "Section Break",
+            "label": "Ghi chú",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Small Text",
+            "label": "Ghi chú"
+        }
+    ],
+    "index_web_pages_for_search": 0,
+    "links": [],
+    "modified": "2026-03-19 12:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "HTKK",
+    "name": "HTKK Declaration",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Accounts Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Accounts User",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": [],
+    "title_field": "declaration_type",
+    "show_title_field_in_link": 1,
+    "track_changes": 1
+}

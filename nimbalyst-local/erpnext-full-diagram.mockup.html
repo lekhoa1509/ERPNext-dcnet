@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ERPNext Complete Business Flow Diagram</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: Arial, sans-serif;
+			background: #f5f5f5;
+			padding: 20px;
+		}
+
+		.diagram-container {
+			background: white;
+			border: 2px solid #333;
+			padding: 40px;
+			max-width: 1800px;
+			margin: 0 auto;
+			position: relative;
+		}
+
+		.title {
+			text-align: center;
+			font-size: 2em;
+			font-weight: bold;
+			margin-bottom: 30px;
+			color: #333;
+		}
+
+		/* Module Sections */
+		.module-section {
+			border: 3px solid #333;
+			padding: 20px;
+			margin: 20px 0;
+			position: relative;
+			background: #fafafa;
+		}
+
+		.module-title {
+			position: absolute;
+			top: -15px;
+			left: 20px;
+			background: white;
+			padding: 5px 15px;
+			font-weight: bold;
+			font-size: 1.2em;
+			border: 2px solid #333;
+		}
+
+		/* Document Boxes */
+		.doc-box {
+			border: 2px solid #333;
+			padding: 12px 20px;
+			background: white;
+			text-align: center;
+			font-weight: bold;
+			border-radius: 8px;
+			min-width: 120px;
+			display: inline-block;
+			margin: 5px;
+		}
+
+		.doc-box.master {
+			background: #e3f2fd;
+		}
+
+		.doc-box.transaction {
+			background: #fff9e6;
+		}
+
+		.doc-box.ledger {
+			background: #e8f5e9;
+		}
+
+		/* Arrows */
+		.arrow-down {
+			text-align: center;
+			font-size: 2em;
+			margin: 5px 0;
+			color: #333;
+		}
+
+		.arrow-right {
+			display: inline-block;
+			margin: 0 10px;
+			font-size: 1.5em;
+			color: #333;
+		}
+
+		/* Grid Layouts */
+		.grid-container {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 15px;
+			margin: 20px 0;
+		}
+
+		.flex-row {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 10px;
+			margin: 15px 0;
+		}
+
+		.flex-col {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+		}
+
+		/* Top Section - CRM */
+		.crm-section {
+			border: 3px solid #333;
+			padding: 20px;
+			margin-bottom: 30px;
+			background: #e3f2fd;
+		}
+
+		/* Main Grid Layout */
+		.main-grid {
+			display: grid;
+			grid-template-columns: 1fr 2fr 1fr;
+			gap: 30px;
+			margin-top: 30px;
+		}
+
+		/* Left Column - Projects & Manufacturing */
+		.left-column {
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+		}
+
+		/* Center Column - Main Flow */
+		.center-column {
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+		}
+
+		/* Right Column - Buying */
+		.right-column {
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+		}
+
+		/* Bottom Section - Accounts & Stock */
+		.bottom-section {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 30px;
+			margin-top: 30px;
+		}
+
+		/* Service Section */
+		.service-section {
+			margin-top: 30px;
+			border: 3px solid #333;
+			padding: 20px;
+			background: #fff3e0;
+		}
+
+		/* HR Section */
+		.hr-section {
+			position: absolute;
+			right: 40px;
+			top: 40px;
+			border: 3px solid #333;
+			padding: 15px;
+			background: #f3e5f5;
+			width: 250px;
+		}
+
+		/* Connection Lines */
+		.connection-line {
+			border-left: 2px dashed #666;
+			height: 40px;
+			margin: 0 auto;
+			width: 2px;
+		}
+
+		.connection-line-horizontal {
+			border-top: 2px dashed #666;
+			width: 100%;
+			height: 2px;
+			margin: 10px 0;
+		}
+
+		/* Labels */
+		.label {
+			font-size: 0.85em;
+			color: #666;
+			font-style: italic;
+			text-align: center;
+			margin: 5px 0;
+		}
+
+		/* Small boxes */
+		.small-box {
+			border: 2px solid #333;
+			padding: 8px 12px;
+			background: white;
+			text-align: center;
+			font-size: 0.9em;
+			border-radius: 5px;
+			min-width: 100px;
+		}
+
+		/* Responsive */
+		@media (max-width: 1400px) {
+			.main-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.bottom-section {
+				grid-template-columns: 1fr;
+			}
+
+			.hr-section {
+				position: relative;
+				right: auto;
+				top: auto;
+				width: 100%;
+				margin-bottom: 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="diagram-container">
+		<div class="title">ERPNext Complete Business Flow Diagram (v15)</div>
+
+		<!-- HR Section (Top Right) -->
+		<div class="hr-section">
+			<div class="module-title" style="position: relative; top: 0; left: 0; margin-bottom: 15px;">Human Resource</div>
+			<div class="flex-col">
+				<div class="small-box master">Employee</div>
+				<div class="arrow-down">↓</div>
+				<div class="small-box">Payroll Entry</div>
+				<div class="arrow-down">↓</div>
+				<div class="small-box">Salary Structure</div>
+				<div class="arrow-down">↓</div>
+				<div class="small-box">Salary Component</div>
+				<div class="arrow-down">↓</div>
+				<div class="small-box ledger">Expense</div>
+			</div>
+			<div class="label" style="margin-top: 15px; font-size: 0.75em;">Note: HR features moved to<br>Frappe HR (separate app)</div>
+		</div>
+
+		<!-- CRM Section (Top) -->
+		<div class="crm-section">
+			<div class="module-title">CRM</div>
+			<div class="flex-row">
+				<div class="doc-box master">Customer</div>
+				<div class="arrow-right">→</div>
+				<div class="doc-box">Lead</div>
+				<div class="arrow-right">→</div>
+				<div class="doc-box">Opportunity</div>
+				<div class="arrow-right">→</div>
+				<div class="doc-box master">Lead as Opportunity</div>
+			</div>
+			<div class="connection-line"></div>
+			<div class="flex-row">
+				<div class="small-box">Lead Assignment</div>
+				<div class="small-box">Site Visit</div>
+				<div class="small-box">Campaign</div>
+			</div>
+			<div class="label">Sales Manager / Sales User</div>
+		</div>
+
+		<!-- Main Grid Layout -->
+		<div class="main-grid">
+			<!-- LEFT COLUMN: Projects & Manufacturing -->
+			<div class="left-column">
+				<!-- Projects -->
+				<div class="module-section">
+					<div class="module-title">Projects</div>
+					<div class="flex-col">
+						<div class="doc-box master">Technician / User</div>
+						<div class="flex-row" style="gap: 5px;">
+							<div class="small-box">Task Type</div>
+							<div class="small-box">Activity Cost & Type</div>
+						</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box">Project</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box">Task</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box ledger">Timesheet</div>
+					</div>
+				</div>
+
+				<!-- Manufacturing -->
+				<div class="module-section">
+					<div class="module-title">Manufacturing</div>
+					<div class="flex-col">
+						<div class="doc-box master">Master</div>
+						<div class="flex-row" style="gap: 5px;">
+							<div class="small-box">Items</div>
+							<div class="small-box">BOM</div>
+							<div class="small-box">Operations</div>
+							<div class="small-box">Workstation</div>
+						</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box">Production Planning</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box">Work Order</div>
+						<div class="arrow-down">↓</div>
+						<div class="flex-row">
+							<div class="small-box">Job Card</div>
+							<div class="small-box">Stock Exchange</div>
+						</div>
+						<div class="arrow-down">↓</div>
+						<div class="flex-row">
+							<div class="small-box">Stock Transfer</div>
+							<div class="small-box">Manufacturing Entry</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Service -->
+				<div class="module-section" style="background: #fff3e0;">
+					<div class="module-title">Service</div>
+					<div class="flex-col">
+						<div class="doc-box">Maintenance Service</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box">Maintenance Visit</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box">Warranty Claim</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box ledger">Issue / Support</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- CENTER COLUMN: Main Selling Flow -->
+			<div class="center-column">
+				<!-- Selling -->
+				<div class="module-section">
+					<div class="module-title">Selling</div>
+					<div class="flex-col">
+						<div class="doc-box">Design Team / Procurement Team</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box transaction">Quotation</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box transaction">Sales Order</div>
+						<div class="arrow-down">↓</div>
+						<div class="flex-row">
+							<div class="doc-box master">Customer</div>
+							<div class="doc-box master">Item and Price</div>
+							<div class="doc-box master">Payment Terms</div>
+						</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box transaction">Delivery Note</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box transaction">Sales Invoice</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box ledger">Payment Entry</div>
+					</div>
+					<div class="label">Selling → Delivery → Invoice → Payment</div>
+				</div>
+
+				<!-- Stock/Distribution -->
+				<div class="module-section" style="background: #e8f5e9;">
+					<div class="module-title">Distribution / Stock</div>
+					<div class="flex-row" style="justify-content: space-around;">
+						<div class="flex-col">
+							<div class="label">Selling</div>
+							<div class="small-box">Delivery Note</div>
+							<div class="arrow-down">↓</div>
+							<div class="small-box ledger">Sales Invoice</div>
+							<div class="arrow-down">↓</div>
+							<div class="small-box ledger">Payment Entry</div>
+							<div class="arrow-down">↓</div>
+							<div class="small-box ledger">Landed Cost</div>
+						</div>
+
+						<div style="border-left: 2px dashed #666; margin: 0 20px;"></div>
+
+						<div class="flex-col">
+							<div class="label">Buying</div>
+							<div class="small-box">Purchase Receipt</div>
+							<div class="arrow-down">↓</div>
+							<div class="small-box ledger">Payment Invoice</div>
+							<div class="arrow-down">↓</div>
+							<div class="small-box ledger">Payment Entry</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Accounts -->
+				<div class="module-section" style="background: #fff9e6;">
+					<div class="module-title">Accounts</div>
+					<div class="flex-col">
+						<div class="doc-box ledger">Journal Entry</div>
+						<div class="arrow-down">↓</div>
+						<div class="flex-row">
+							<div class="doc-box master">Chart of Account</div>
+							<div class="doc-box master">Cost Center</div>
+						</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box master">Master</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- RIGHT COLUMN: Buying -->
+			<div class="right-column">
+				<div class="module-section">
+					<div class="module-title">Buying</div>
+					<div class="flex-col">
+						<div class="doc-box master">Master</div>
+						<div class="flex-row" style="gap: 5px;">
+							<div class="small-box">Supplier</div>
+							<div class="small-box">Item</div>
+						</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box">Material Request</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box">RFQ</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box">Supplier Quotation</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box transaction">Purchase Order</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box transaction">Purchase Receipt</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box transaction">Purchase Invoice</div>
+						<div class="arrow-down">↓</div>
+						<div class="doc-box ledger">Payment Entry</div>
+					</div>
+					<div class="label">Buying → Receipt → Invoice → Payment</div>
+				</div>
+
+				<!-- Subcontracting (NEW) -->
+				<div class="module-section" style="background: #f3e5f5;">
+					<div class="module-title">Subcontracting (NEW)</div>
+					<div class="flex-col">
+						<div class="small-box">Subcontracting Order</div>
+						<div class="arrow-down">↓</div>
+						<div class="small-box">Subcontracting Receipt</div>
+						<div class="arrow-down">↓</div>
+						<div class="small-box ledger">Invoice</div>
+					</div>
+				</div>
+
+				<!-- Quality (NEW) -->
+				<div class="module-section" style="background: #e1f5fe;">
+					<div class="module-title">Quality Management (NEW)</div>
+					<div class="flex-col">
+						<div class="small-box">Quality Inspection</div>
+						<div class="arrow-down">↓</div>
+						<div class="small-box">Quality Review</div>
+						<div class="arrow-down">↓</div>
+						<div class="small-box">Quality Procedure</div>
+					</div>
+				</div>
+
+				<!-- Assets (NEW) -->
+				<div class="module-section" style="background: #fce4ec;">
+					<div class="module-title">Assets (NEW)</div>
+					<div class="flex-col">
+						<div class="small-box">Asset</div>
+						<div class="arrow-down">↓</div>
+						<div class="small-box">Asset Maintenance</div>
+						<div class="arrow-down">↓</div>
+						<div class="small-box">Asset Depreciation</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Connection Arrows Between Sections -->
+		<div style="position: relative; margin-top: 30px;">
+			<svg width="100%" height="200" style="position: absolute; top: -150px; left: 0; pointer-events: none;">
+				<!-- CRM to Selling -->
+				<line x1="50%" y1="0" x2="50%" y2="50" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+				<polygon points="50%,50 48%,40 52%,40" fill="#666" transform="translate(-50, 0)"/>
+
+				<!-- Sales Order to Projects -->
+				<path d="M 400 400 Q 200 450 150 500" stroke="#666" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+
+				<!-- Sales Order to Manufacturing -->
+				<path d="M 400 450 Q 200 500 150 600" stroke="#666" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+
+				<!-- Sales Order to Material Request -->
+				<path d="M 900 400 Q 1100 450 1200 500" stroke="#666" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+			</svg>
+		</div>
+
+		<!-- Legend -->
+		<div style="margin-top: 50px; padding: 20px; border: 2px solid #333; background: #f9f9f9;">
+			<div style="font-weight: bold; margin-bottom: 10px; font-size: 1.1em;">Legend:</div>
+			<div style="display: flex; gap: 30px; flex-wrap: wrap;">
+				<div style="display: flex; align-items: center; gap: 10px;">
+					<div style="width: 30px; height: 30px; background: #e3f2fd; border: 2px solid #333;"></div>
+					<span>Master Data</span>
+				</div>
+				<div style="display: flex; align-items: center; gap: 10px;">
+					<div style="width: 30px; height: 30px; background: #fff9e6; border: 2px solid #333;"></div>
+					<span>Transaction Documents</span>
+				</div>
+				<div style="display: flex; align-items: center; gap: 10px;">
+					<div style="width: 30px; height: 30px; background: #e8f5e9; border: 2px solid #333;"></div>
+					<span>Ledger/Accounting</span>
+				</div>
+				<div style="display: flex; align-items: center; gap: 10px;">
+					<div style="width: 30px; height: 30px; background: #f3e5f5; border: 2px solid #333;"></div>
+					<span>NEW Modules (v13+)</span>
+				</div>
+				<div style="display: flex; align-items: center; gap: 10px;">
+					<div style="width: 30px; height: 2px; background: #666; border: none;"></div>
+					<span>Solid Line (Direct Flow)</span>
+				</div>
+				<div style="display: flex; align-items: center; gap: 10px;">
+					<div style="width: 30px; height: 2px; background: transparent; border-top: 2px dashed #666;"></div>
+					<span>Dashed Line (Optional/Reference)</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Notes -->
+		<div style="margin-top: 20px; padding: 15px; background: #fffde7; border: 2px solid #f9a825; border-radius: 5px;">
+			<div style="font-weight: bold; margin-bottom: 10px; color: #f57f17;">📌 Key Updates from Original Diagram:</div>
+			<ul style="margin-left: 20px; line-height: 1.8;">
+				<li><strong>NEW Modules:</strong> Subcontracting, Quality Management, Assets (separate module)</li>
+				<li><strong>HR Module:</strong> Moved to Frappe HR (separate app)</li>
+				<li><strong>Service Module:</strong> Split into Support, Maintenance, Quality Management</li>
+				<li><strong>Stock Module:</strong> Expanded from ~20 to 80+ DocTypes (Pick List, Delivery Trip, Shipment...)</li>
+				<li><strong>Manufacturing:</strong> Added Job Card, Routing, Master Production Schedule</li>
+				<li><strong>Controllers:</strong> Clear hierarchy (AccountsController → StockController → Selling/Buying)</li>
+			</ul>
+		</div>
+
+		<!-- Footer -->
+		<div style="margin-top: 30px; text-align: center; color: #666; font-size: 0.9em; padding-top: 20px; border-top: 2px solid #e0e0e0;">
+			<strong>ERPNext v15 Complete Business Flow</strong> | Generated based on actual codebase structure<br>
+			Total: 16 Major Modules | 300+ DocTypes | 80+ Stock Management Documents | 50+ Mapper Functions
+		</div>
+	</div>
+</body>
+</html>

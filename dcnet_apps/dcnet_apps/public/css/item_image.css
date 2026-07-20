@@ -1,0 +1,141 @@
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 160px);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.image-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 6px;
+    background: #fff;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.image-card:hover {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-color: #5e64ff;
+    transform: translateY(-2px);
+}
+
+.image-card.has-checkbox {
+    padding-top: 30px;
+}
+
+.img-preview {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.image-checkbox {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    z-index: 10;
+    background: white;
+    border-radius: 4px;
+    padding: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.image-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.image-checkbox input[type="checkbox"]:checked {
+    accent-color: #5e64ff;
+}
+
+.preview-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.preview-image:hover {
+    opacity: 0.9;
+}
+
+.image-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #5e64ff;
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 11px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.img-controls {
+    margin-top: 8px;
+}
+
+.img-controls input {
+    margin-bottom: 6px;
+    font-size: 12px;
+    padding: 4px 6px;
+}
+
+.img-controls input:focus {
+    border-color: #5e64ff;
+    box-shadow: 0 0 0 2px rgba(94,100,255,0.1);
+}
+
+.item-image-manager .btn-primary {
+    background-color: #5e64ff;
+    border-color: #5e64ff;
+}
+
+.item-image-manager .btn-primary:hover {
+    background-color: #4a50e0;
+    border-color: #4a50e0;
+}
+
+.item-image-manager .btn-danger {
+    background-color: #ff4d4f;
+    border-color: #ff4d4f;
+}
+
+.item-image-manager .btn-danger:hover {
+    background-color: #ff7875;
+    border-color: #ff7875;
+}
+
+/* Delete selected buttons */
+.delete-selected-main, .delete-selected-gallery {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Animation for new images */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.image-card {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Selected card highlight */
+.image-card:has(.image-select:checked) {
+    border-color: #5e64ff;
+    box-shadow: 0 0 0 2px rgba(94,100,255,0.3);
+}

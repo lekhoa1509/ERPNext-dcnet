@@ -1,0 +1,13 @@
+node_modules/
+node_modules
+**/node_modules/
+**/node_modules
+__pycache__/
+__pycache__
+**/__pycache__/
+**/__pycache__
+*.py[cod]
+.DS_Store
+**/.DS_Store
+*_tmp_test.py
+dcnet_crm_backup/

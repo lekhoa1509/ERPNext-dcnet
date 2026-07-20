@@ -1,0 +1,30 @@
+<Pluc_01_3_TTDB>
+	<BangPhanBoDoiVoiHDKDXSDT>
+		<ct06/>
+		<ct07/>
+		<NoiDungBangPhanBo id="">
+			<stt/>
+			<loai/>
+			<ct09/>
+			<ct10/>
+			<DiaBanHDSXKD>
+				<ct11_huyen_ma/>
+				<ct11_huyen_ten/>
+				<ct12_tinh_ma/>
+				<ct12_tinh_ten/>
+			</DiaBanHDSXKD>
+			<ct13_cqt_ma/>
+			<ct13_cqt_ten/>
+			<ct14/>
+			<ct15/>
+			<ct16/>
+		</NoiDungBangPhanBo>
+		<cong_ct17 id="">
+			<ct17/>
+			<ct17_tinh_ma/>
+			<ct17_tinh_ten/>
+		</cong_ct17>
+		<ct18/>
+		<ct19/>
+	</BangPhanBoDoiVoiHDKDXSDT>
+</Pluc_01_3_TTDB>

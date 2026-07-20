@@ -1,0 +1,52 @@
+[
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/frappe-ui/src/utils/fileUploadHandler.ts",
+    "language": "TypeScript",
+    "patterns": [
+      {
+        "pattern_type": "ChainOfResponsibility",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/frappe-ui/src/utils/fileUploadHandler.ts",
+        "class_name": "FileUploadHandler",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Class name suggests handler chain: FileUploadHandler"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "ChainOfResponsibility": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/frappe-ui/vite/doctypeInterfaceGenerator.js",
+    "language": "JavaScript",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/frappe-ui/vite/doctypeInterfaceGenerator.js",
+        "class_name": "DocTypeInterfaceGenerator",
+        "method_name": null,
+        "line_number": 4,
+        "evidence": [
+          "Parameterized factory method: constructor"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1
+    }
+  }
+]

@@ -1,0 +1,16 @@
+[project]
+name = "dcnet_organization"
+authors = [
+    { name = "DCNet", email = "admin@dcnet.vn" },
+]
+description = "DCNET Organization — Company / Branch / Department / Designation linkage for Frappe/ERPNext"
+requires-python = ">=3.10"
+version = "0.0.1"
+dependencies = []
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "dcnet_organization"

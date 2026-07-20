@@ -1,0 +1,150 @@
+{
+    "charts": [],
+    "content": "[{\"id\":\"hdr_quick\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Thao tác nhanh</b></span>\",\"col\":12}},{\"id\":\"sc_new_ui\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Quản lý tờ khai\",\"col\":4}},{\"id\":\"sc_sec\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Tạo tờ khai mới\",\"col\":4}},{\"id\":\"sc_settings\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cấu hình HTKK\",\"col\":4}},{\"id\":\"hdr_list\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Danh sách & Báo cáo</b></span>\",\"col\":12}},{\"id\":\"c1\",\"type\":\"card\",\"data\":{\"card_name\":\"Tờ khai thuế\",\"col\":4}},{\"id\":\"c2\",\"type\":\"card\",\"data\":{\"card_name\":\"Cấu hình\",\"col\":4}},{\"id\":\"c3\",\"type\":\"card\",\"data\":{\"card_name\":\"Báo cáo tài chính VN\",\"col\":4}}]",
+    "creation": "2026-03-09 10:00:00.000000",
+    "custom_blocks": [],
+    "docstatus": 0,
+    "doctype": "Workspace",
+    "type": "Workspace",
+    "for_user": "",
+    "hide_custom": 0,
+    "icon": "file",
+    "idx": 0,
+    "is_hidden": 0,
+    "label": "HTKK",
+    "links": [
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Tờ khai thuế",
+            "link_count": 2,
+            "onboard": 0,
+            "type": "Card Break"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Quản lý tờ khai (Giao diện mới)",
+            "link_count": 0,
+            "link_to": "/htkk_list",
+            "link_type": "URL",
+            "onboard": 1,
+            "type": "Link",
+            "description": "Giao diện Vue hiện đại"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Danh sách tờ khai (Desk)",
+            "link_count": 0,
+            "link_to": "HTKK Declaration",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link",
+            "dependencies": "",
+            "only_for": ""
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Cấu hình",
+            "link_count": 1,
+            "onboard": 0,
+            "type": "Card Break"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Cấu hình HTKK",
+            "link_count": 0,
+            "link_to": "HTKK Settings",
+            "link_type": "DocType",
+            "onboard": 1,
+            "type": "Link",
+            "dependencies": "",
+            "only_for": "",
+            "description": "Bao gồm ánh xạ tài khoản tự động"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Báo cáo tài chính VN",
+            "link_count": 3,
+            "onboard": 0,
+            "type": "Card Break"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 1,
+            "label": "B01-DN: Bảng cân đối kế toán",
+            "link_count": 0,
+            "link_to": "B01 DN",
+            "link_type": "Report",
+            "onboard": 0,
+            "type": "Link",
+            "dependencies": "GL Entry"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 1,
+            "label": "B02-DN: Kết quả kinh doanh",
+            "link_count": 0,
+            "link_to": "B02 DN",
+            "link_type": "Report",
+            "onboard": 0,
+            "type": "Link",
+            "dependencies": "GL Entry"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 1,
+            "label": "B03-DN: Lưu chuyển tiền tệ",
+            "link_count": 0,
+            "link_to": "B03 DN",
+            "link_type": "Report",
+            "onboard": 0,
+            "type": "Link",
+            "dependencies": "GL Entry"
+        }
+    ],
+    "modified": "2026-03-20 11:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "HTKK",
+    "app": "dcnet_apps",
+    "name": "HTKK",
+    "owner": "Administrator",
+    "parent_page": "",
+    "public": 1,
+    "restrict_to_domain": "",
+    "roles": [
+        {"role": "Administrator"},
+        {"role": "Desk User"},
+        {"role": "System Manager"},
+        {"role": "Accounts Manager"},
+        {"role": "Accounts User"}
+    ],
+    "sequence_id": 32,
+    "shortcuts": [
+        {
+            "color": "Green",
+            "label": "Quản lý tờ khai",
+            "url": "/htkk_list",
+            "type": "URL"
+        },
+        {
+            "color": "Blue",
+            "label": "Tạo tờ khai mới",
+            "url": "/htkk_list",
+            "type": "URL"
+        },
+        {
+            "color": "Grey",
+            "doc_view": "",
+            "label": "Cấu hình HTKK",
+            "link_to": "HTKK Settings",
+            "type": "DocType"
+        }
+    ],
+    "standard": 1,
+    "title": "HTKK"
+}

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Huong (Seatech) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="Header">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="LoaiDauKhi">
+										<xs:annotation>
+											<xs:documentation>Loại dầu khí</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct01" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[01] Dầu thô:</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct02" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>[02] Condensate:</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ct12" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[12] Hợp đồng dầu khí lô: </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CT13">
+										<xs:annotation>
+											<xs:documentation>Loại hình ủy quyền</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="donViUyQuyen" type="xs:boolean" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Người nộp thuế thay</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="daiLyThue" type="xs:boolean" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Đại lý thuế </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="tenDonViDuocUyQuyen" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên người nộp thuế thay</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ma_THQuyetToan" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Trường hợp quyết toán</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ten_THQuyetToan" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên trường hợp quyết toán</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ten_DonVi" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Tên đơn vị (USD;VND)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ma_DonVi" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Mã đơn vị (USD;VND)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct23" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>1. Giá cơ sở của kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct24" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>a) Quý I: Sản lượng dầu lãi được chia theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct25" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>b) Quý II: Sản lượng dầu lãi được chia theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct26" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>c) Quý III: Sản lượng dầu lãi được chia theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct27" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>d) Quý IV: Sản lượng dầu lãi được chia theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct28" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>a) Quý I: Giá bán dầu thô trung bình theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct29" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>b) Quý II: Giá bán dầu thô trung bình theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct30" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>c) Quý III: Giá bán dầu thô trung bình theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct31" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>d) Quý IV: Giá bán dầu thô trung bình theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct32" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>4. Số phụ thu phải nộp trong kỳ tính thuế:
+[32] = [33]+[34]+[35]+[36]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct33" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>a) Quý I: [33] = 30%*{[28]–1,2*[23]}*[24]
+
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct34" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>b) Quý II: [34] = 30%*{[29]–1,2*[23]}*[25]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct35" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>c) Quý III: [35] = 30%*{[30]–1,2*[23]}*[26][25]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct36" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>d) Quý IV: [36] = 30%*{[31]–1,2*[23]}*[27]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct37" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>5. Số phụ thu tạm tính đã kê khai tạm tính theo quý trong kỳ tính thuế: [37] = [38]+[39]+[40]+[41]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct38" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>a) Quý I: Số phụ thu tạm tính đã kê khai tạm tính theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct39" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>b) Quý II: Số phụ thu tạm tính đã kê khai tạm tính theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct40" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>c) Quý III: Số phụ thu tạm tính đã kê khai tạm tính theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct41" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>d) Quý IV: Số phụ thu tạm tính đã kê khai tạm tính theo quý trong kỳ tính thuế</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct41a" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Chênh lệch giữa số tiền thuế phải nộp theo quyết toán với số đã kê khai trong kỳ tính thuế [41a]=[32]-[37]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct42" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>6. Số phụ thu nộp thừa của kỳ tính thuế trước (nếu có)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct43" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>7. Số phụ thu nộp thiếu (hoặc thừa) trong kỳ tính thuế: [43] = [32] - [37] - [42]</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct44" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>8. Tỷ giá quy đổi</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="PLucType">
+			<xs:complexContent>
+				<xs:extension base="PLucType">
+					<xs:sequence>
+						<xs:element name="PLuc_04_PTHU_DK" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTiet_Pluc" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Chi tiết Nghĩa vụ thuế của các nhà thầu dầu khí</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ngayThang" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ngày tháng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="sanLuong_khaiThac" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation>Sản lượng dầu thô khai thác (thùng)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="sanLuong_ban" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation>Sản lượng dầu thô bán (thùng)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="giaBan" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation>Giá bán</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ghiChu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ghi chú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="tongCong_khaiThac" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng số thuế phát sinh phải nộp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongCong_ban" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng số thuế phát sinh phải nộp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PLuc_05_PTHU_DK" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTiet_Pluc" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Chi tiết Nghĩa vụ thuế của các nhà thầu dầu khí</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tKhai_tamTinh" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tờ khai phụ thu tạm tính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="usd_soDaNop" type="xs:decimal">
+													<xs:annotation>
+														<xs:documentation>Sản lượng dầu thô khai thác (thùng)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="vnd_soDaNop" type="xs:nonNegativeInteger">
+													<xs:annotation>
+														<xs:documentation>Sản lượng dầu thô bán (thùng)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ghiChu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ghi chú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="tongCong_usd" type="xs:decimal" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng số thuế phát sinh phải nộp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tongCong_vnd" type="xs:nonNegativeInteger" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tổng số thuế phát sinh phải nộp</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

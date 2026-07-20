@@ -1,0 +1,22 @@
+[
+  {
+    "doctype": "UOM",
+    "uom_name": "Hộp",
+    "enabled": 1
+  },
+  {
+    "doctype": "UOM",
+    "uom_name": "Đôi",
+    "enabled": 1
+  },
+  {
+    "doctype": "UOM",
+    "uom_name": "Set",
+    "enabled": 1
+  },
+  {
+    "doctype": "UOM",
+    "uom_name": "Buổi",
+    "enabled": 1
+  }
+]

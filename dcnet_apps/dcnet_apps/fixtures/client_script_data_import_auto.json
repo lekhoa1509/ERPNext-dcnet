@@ -1,0 +1,9 @@
+[
+  {
+    "doctype": "Client Script",
+    "dt": "Data Import",
+    "script": "frappe.ui.form.on(\"Data Import\", {\n\timport_file(frm) {\n\t\t// When import file is set and document is saved\n\t\tif (frm.doc.import_file && !frm.is_new()) {\n\t\t\t// Auto-start import after a short delay to ensure file is processed\n\t\t\tsetTimeout(() => {\n\t\t\t\tfrm.call({\n\t\t\t\t\tmethod: \"dcnet_apps.utils.data_import_auto.auto_start_import\",\n\t\t\t\t\targs: {\n\t\t\t\t\t\tdata_import_name: frm.doc.name\n\t\t\t\t\t},\n\t\t\t\t\tbtn: frm.page.btn_primary,\n\t\t\t\t\tcallback: function(r) {\n\t\t\t\t\t\tif (r.message === true) {\n\t\t\t\t\t\t\tfrm.disable_save();\n\t\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\t\tmessage: __(\"Import started automatically\"),\n\t\t\t\t\t\t\t\tindicator: \"green\"\n\t\t\t\t\t\t\t});\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\terror: function(r) {\n\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\tmessage: __(\"Error starting import\"),\n\t\t\t\t\t\t\tindicator: \"red\"\n\t\t\t\t\t\t});\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t}, 500);\n\t\t}\n\t}\n});",
+    "enabled": 1,
+    "name": "Data Import - Auto Import"
+  }
+]

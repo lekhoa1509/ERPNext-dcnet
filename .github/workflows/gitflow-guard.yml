@@ -1,0 +1,191 @@
+name: Git Flow Guard
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: gitflow-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  guard:
+    name: Git Flow Guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Git Flow Rules
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const base = pr.base.ref;
+            const head = pr.head.ref;
+            const title = pr.title;
+            const violations = [];
+
+            // ── Rule 1: PR target branch ────────────────────────────
+            //   main    ← chỉ từ develop hoặc hotfix/*
+            //   develop ← chỉ từ feature/* hoặc fix/*
+            // ─────────────────────────────────────────────────────────
+            if (base === 'main') {
+              if (head !== 'develop' && !head.startsWith('hotfix/')) {
+                violations.push({
+                  rule: '🎯 PR → main',
+                  error: `Nhánh \`${head}\` không được merge trực tiếp vào \`main\`.`,
+                  fix: 'Chỉ nhánh `develop` hoặc `hotfix/*` mới được tạo PR vào `main`.\n'
+                    + '- Feature/fix → merge vào `develop` trước.\n'
+                    + '- `develop` → `main` khi bàn giao (release).\n'
+                    + '- `hotfix/*` → `main` chỉ khi production có lỗi nghiêm trọng.',
+                });
+              }
+            }
+
+            if (base === 'develop') {
+              if (!head.startsWith('feature/') && !head.startsWith('fix/')) {
+                violations.push({
+                  rule: '🎯 PR → develop',
+                  error: `Nhánh \`${head}\` không được merge vào \`develop\`.`,
+                  fix: 'Chỉ nhánh `feature/*` hoặc `fix/*` mới được tạo PR vào `develop`.\n'
+                    + '- Tạo nhánh mới: `git checkout -b feature/{STT}-{tên} develop`',
+                });
+              }
+            }
+
+            // ── Rule 2: Branch naming convention ────────────────────
+            //   feature/{STT}-{tên}  VD: feature/02-dashboard
+            //   fix/{STT}-{tên}      VD: fix/33-lead-duplicate
+            //   hotfix/{tên}         VD: hotfix/login-redirect-loop
+            // ─────────────────────────────────────────────────────────
+            const branchPatterns = [
+              /^feature\/\d{2}-.+$/,
+              /^fix\/\d{2}-.+$/,
+              /^hotfix\/.+$/,
+              /^develop$/,
+              /^main$/,
+            ];
+
+            if (!branchPatterns.some(re => re.test(head))) {
+              violations.push({
+                rule: '📛 Tên nhánh',
+                error: `Nhánh \`${head}\` không đúng quy tắc đặt tên.`,
+                fix: '**Format:**\n'
+                  + '- `feature/{STT}-{tên}` — VD: `feature/02-dashboard`, `feature/07-kho-setup`\n'
+                  + '- `fix/{STT}-{tên}` — VD: `fix/12-ban-hang-tinh-gia`\n'
+                  + '- `hotfix/{tên}` — VD: `hotfix/login-redirect-loop`\n\n'
+                  + '**Lưu ý:** STT là mã số module 2 chữ số (01-43).',
+              });
+            }
+
+            // ── Rule 3: PR title — Conventional Commits ─────────────
+            //   {type}({scope}): {mô tả}
+            //   VD: feat(02): add dashboard reports
+            // ─────────────────────────────────────────────────────────
+            const ccPattern = /^(feat|fix|refactor|docs|chore|test|style|ci|perf|build|revert|hotfix|release)(\(.+?\))?: .+/;
+
+            if (!ccPattern.test(title)) {
+              violations.push({
+                rule: '📝 PR Title',
+                error: `Title \`${title}\` không đúng format Conventional Commits.`,
+                fix: '**Format:** `{type}({scope}): {mô tả}`\n\n'
+                  + '**Types:**\n'
+                  + '| Type | Khi nào dùng |\n'
+                  + '|------|--------------|\n'
+                  + '| `feat` | Tính năng mới |\n'
+                  + '| `fix` | Sửa lỗi |\n'
+                  + '| `refactor` | Đổi code, không đổi chức năng |\n'
+                  + '| `docs` | Thay đổi tài liệu |\n'
+                  + '| `chore` | Config, build, dependencies |\n'
+                  + '| `test` | Thêm/sửa test |\n'
+                  + '| `style` | Format code |\n'
+                  + '| `hotfix` | Sửa lỗi production |\n'
+                  + '| `release` | Bàn giao đợt |\n\n'
+                  + '**VD:** `feat(02): add dashboard reports` · `fix(33): resolve lead validation` · `release: T3 delivery`',
+              });
+            }
+
+            // ── Rule 4: PR description — phải có mô tả ─────────────
+            //   Body không được trống hoặc chỉ có whitespace
+            //   Tối thiểu 10 ký tự mô tả chức năng
+            // ─────────────────────────────────────────────────────────
+            const description = (pr.body || '').trim();
+            const minLength = 10;
+
+            if (!description || description.length < minLength) {
+              violations.push({
+                rule: '📄 Mô tả PR',
+                error: description
+                  ? `Mô tả PR quá ngắn (${description.length}/${minLength} ký tự).`
+                  : 'PR không có mô tả. Vui lòng thêm mô tả chức năng.',
+                fix: '**Yêu cầu:** Mô tả ngắn gọn chức năng/thay đổi trong PR (tối thiểu 10 ký tự).\n\n'
+                  + '**Gợi ý format:**\n'
+                  + '```\n'
+                  + '## Mô tả\n'
+                  + '- Thêm/sửa/xóa gì, tại sao\n\n'
+                  + '## Test\n'
+                  + '- Đã test những gì\n'
+                  + '```\n\n'
+                  + '**VD đơn giản:** `Thêm validation trùng số điện thoại khi tạo Lead mới`',
+              });
+            }
+
+            // ── Build comment & set result ──────────────────────────
+            const marker = '<!-- gitflow-guard -->';
+
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: pr.number,
+            });
+            const existing = comments.find(c => c.body.includes(marker));
+
+            if (violations.length > 0) {
+              let body = `${marker}\n`;
+              body += `## ⛔ Git Flow Guard — ${violations.length} vi phạm\n\n`;
+              body += `| | Nhánh | PR Title |\n`;
+              body += `|---|---|---|\n`;
+              body += `| **Source** | \`${head}\` | \`${title}\` |\n`;
+              body += `| **Target** | \`${base}\` | — |\n\n`;
+
+              for (const v of violations) {
+                body += `### ${v.rule}\n\n`;
+                body += `> ${v.error}\n\n`;
+                body += `${v.fix}\n\n`;
+              }
+
+              body += '---\n\n';
+              body += '<details><summary>📋 Tất cả Git Flow Rules (click để xem)</summary>\n\n';
+              body += '### Quy tắc tạo PR\n\n';
+              body += '| Target | Cho phép từ | Ví dụ |\n';
+              body += '|--------|------------|-------|\n';
+              body += '| `main` | `develop`, `hotfix/*` | Release bàn giao, hotfix production |\n';
+              body += '| `develop` | `feature/*`, `fix/*` | Feature mới, bug fix |\n\n';
+              body += '### Quy tắc đặt tên nhánh\n\n';
+              body += '| Pattern | Ví dụ |\n';
+              body += '|---------|-------|\n';
+              body += '| `feature/{STT}-{tên}` | `feature/02-dashboard`, `feature/07-kho-setup` |\n';
+              body += '| `fix/{STT}-{tên}` | `fix/12-ban-hang-tinh-gia` |\n';
+              body += '| `hotfix/{tên}` | `hotfix/login-redirect-loop` |\n\n';
+              body += '### PR Title — Conventional Commits\n\n';
+              body += '```\n{type}({scope}): {mô tả tiếng Anh}\n```\n';
+              body += 'Types: `feat` · `fix` · `refactor` · `docs` · `chore` · `test` · `style` · `hotfix` · `release`\n\n';
+              body += '📖 Chi tiết: [`docs/git-flow.md`](../blob/develop/docs/git-flow.md)\n';
+              body += '</details>\n';
+
+              if (existing) {
+                await github.rest.issues.updateComment({ ...context.repo, comment_id: existing.id, body });
+              } else {
+                await github.rest.issues.createComment({ ...context.repo, issue_number: pr.number, body });
+              }
+
+              core.setFailed(`Git Flow Guard: ${violations.length} vi phạm — xem comment trên PR`);
+
+            } else {
+              // Xóa comment cũ nếu đã fix hết violations
+              if (existing) {
+                await github.rest.issues.deleteComment({ ...context.repo, comment_id: existing.id });
+              }
+              core.info('✅ Git Flow Guard — Tất cả rules đều pass');
+            }

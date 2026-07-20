@@ -1,0 +1,222 @@
+{
+ "actions": [],
+ "creation": "2026-04-29 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "links": [],
+ "modified": "2026-05-04 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "name": "CCDC Item",
+ "autoname": "format:CCDC-{YYYY}-{#####}",
+ "is_submittable": 1,
+ "permissions": [
+  {
+   "role": "Accounts User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 1,
+   "cancel": 0
+  },
+  {
+   "role": "Accounts Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1
+  }
+ ],
+ "field_order": [
+  "item_code",
+  "item_name",
+  "ccdc_category",
+  "company",
+  "location",
+  "custodian",
+  "cost",
+  "cost_account",
+  "expense_account",
+  "has_vat",
+  "vat_rate",
+  "accounting_section",
+  "accounting_entries",
+  "posted_je",
+  "prepayment_account",
+  "purchase_date",
+  "available_for_use_date",
+  "useful_period_months",
+  "allocation_periods",
+  "status",
+  "purchase_invoice",
+  "purchase_invoice_item",
+  "scope_for_handover"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "options": "Item",
+   "label": "Item Code",
+   "in_list_view": 0
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name",
+   "fetch_from": "item_code.item_name",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "ccdc_category",
+   "fieldtype": "Link",
+   "options": "CCDC Category",
+   "label": "CCDC Category"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "options": "Company",
+   "label": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "options": "Location",
+   "label": "Location"
+  },
+  {
+   "fieldname": "custodian",
+   "fieldtype": "Link",
+   "options": "Employee",
+   "label": "Custodian"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Cost",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cost_account",
+   "fieldtype": "Link",
+   "options": "Account",
+   "label": "Cost Account (153)"
+  },
+  {
+   "fieldname": "expense_account",
+   "fieldtype": "Link",
+   "options": "Account",
+   "label": "Expense Account"
+  },
+  {
+   "fieldname": "has_vat",
+   "fieldtype": "Check",
+   "label": "Có VAT?",
+   "default": "0",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "vat_rate",
+   "fieldtype": "Percent",
+   "label": "Thuế suất VAT (%)",
+   "default": "10",
+   "depends_on": "eval:doc.has_vat",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "accounting_section",
+   "fieldtype": "Section Break",
+   "label": "Hạch toán mua",
+   "collapsible": 0,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "accounting_entries",
+   "fieldtype": "Table",
+   "label": "Hạch toán",
+   "options": "VN Accounting Entry",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "posted_je",
+   "fieldtype": "Link",
+   "options": "Journal Entry",
+   "label": "Bút toán",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "prepayment_account",
+   "fieldtype": "Link",
+   "options": "Account",
+   "label": "Prepayment Account (242)"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "fieldname": "available_for_use_date",
+   "fieldtype": "Date",
+   "label": "Available For Use Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "useful_period_months",
+   "fieldtype": "Int",
+   "label": "Useful Period (months)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "allocation_periods",
+   "fieldtype": "Int",
+   "label": "Allocation Periods",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nMới mua\nĐang sử dụng\nHết phân bổ\nĐã ghi giảm",
+   "default": "Mới mua",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "purchase_invoice",
+   "fieldtype": "Link",
+   "options": "Purchase Invoice",
+   "label": "Purchase Invoice"
+  },
+  {
+   "fieldname": "purchase_invoice_item",
+   "fieldtype": "Data",
+   "label": "PI Item Row"
+  },
+  {
+   "fieldname": "scope_for_handover",
+   "fieldtype": "Data",
+   "label": "Scope",
+   "default": "CCDC",
+   "hidden": 1
+  }
+ ]
+}

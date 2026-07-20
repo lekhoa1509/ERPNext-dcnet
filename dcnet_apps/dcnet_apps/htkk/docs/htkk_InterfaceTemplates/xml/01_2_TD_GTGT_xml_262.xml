@@ -1,0 +1,21 @@
+<PL_01_2_TD_GTGT>
+	<BangPBoThueGTGTChoDPhuong>
+		<ChiTietPBoThueGTGTChoDPhuong ID="String">
+			<tenNhaMay/>
+			<mstNhaMay/>
+			<tyLePhanBoNhaMay/>
+			<thuePNopNhaMay/>
+			<PhanBoChoCQTDiaPhuong>
+				<tyLePBoThueChoTungCQT id="String">
+					<tenCoSo/>
+					<mstCoSo/>
+					<maCQTPBo/>
+					<tenCQTPBo/>
+					<tyLePBo/>
+					<thuePNopPBo/>
+				</tyLePBoThueChoTungCQT>
+			</PhanBoChoCQTDiaPhuong>
+		</ChiTietPBoThueGTGTChoDPhuong>
+	</BangPBoThueGTGTChoDPhuong>
+	<tongCong/>
+</PL_01_2_TD_GTGT>

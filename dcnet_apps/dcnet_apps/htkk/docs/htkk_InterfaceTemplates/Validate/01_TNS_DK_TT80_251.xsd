@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="Header">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct06" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[06] Hợp đồng dầu khí lô: </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct07" type="TINType" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[07] Mã số thuế hợp đồng dầu khí:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct08" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[08] Địa chỉ nhà điều hành PSC: </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[09] Mã Quận/huyện:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[09] tên Quận/huyện:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct10_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[10] Mã Tỉnh/Thành phố:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct10_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[10] Tên Tỉnh/Thành phố:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct11" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[11] Điện thoại:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct12" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>[12] Fax: </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct13" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation> [13] E-mail:</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CT14">
+										<xs:annotation>
+											<xs:documentation>Loại hình ủy quyền</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="donViUyQuyen" type="xs:boolean" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Đơn vị được uỷ quyền</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="daiLyThue" type="xs:boolean" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Đại lý thuế </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="tenDonViUyQuyen" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên đơn vị uỷ quyền</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ct23" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>1. Tiền thu hoa hồng chữ ký</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct24" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2. Tiền thu hoa hồng phát hiện thương mại dầu, khí</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct25" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>3. Tiền thu hoa hồng sản xuất</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct26" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>4. Tiền đền bù do không thực hiện đầy đủ cam kết tối thiểu của nhà thầu trong các Hợp đồng dầu khí</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct27" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>5. Tiền đọc và sử dụng tài liệu dầu khí (100%)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct28" type="xs:decimal" nillable="true">
+							<xs:annotation>
+								<xs:documentation>5.1. Tiền đọc và sử dụng tài liệu dầu khí nộp NSNN</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

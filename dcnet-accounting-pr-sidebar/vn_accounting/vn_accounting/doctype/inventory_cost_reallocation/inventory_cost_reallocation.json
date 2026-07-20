@@ -1,0 +1,220 @@
+{
+ "actions": [],
+ "autoname": "ICR-.YYYY.-.#####",
+ "creation": "2026-05-15 16:30:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "is_submittable": 1,
+ "field_order": [
+  "header_section",
+  "company",
+  "from_date",
+  "to_date",
+  "column_break_header",
+  "source_account",
+  "target_account",
+  "posting_date",
+  "computation_section",
+  "method",
+  "computed_period_cogs",
+  "column_break_compute",
+  "computed_landed_cost_balance",
+  "computed_amount",
+  "result_section",
+  "journal_entry",
+  "amended_from",
+  "remarks_section",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "header_section",
+   "fieldtype": "Section Break",
+   "label": "Phạm vi phân bổ",
+   "description": "Chọn Công ty và kỳ phân bổ. Thông thường: chạy mỗi tháng/quý vào ngày đầu kỳ tiếp theo. Nếu muốn phân bổ cho cả năm: from_date = 01/01, to_date = 31/12. Số tiền phân bổ = (1562 đầu kỳ + tăng trong kỳ) × tỉ trọng giá vốn xuất kho trong kỳ."
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Công ty",
+   "options": "Company",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "Từ ngày",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Ngày bắt đầu kỳ phân bổ (thường là ngày đầu tháng/quý)."
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "Đến ngày",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Ngày cuối kỳ phân bổ (thường là ngày cuối tháng/quý)."
+  },
+  {
+   "fieldname": "column_break_header",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_account",
+   "fieldtype": "Link",
+   "label": "TK nguồn (1562)",
+   "options": "Account",
+   "reqd": 1,
+   "description": "TK chứa phụ phí mua hàng tích lũy (mặc định 1562 - Chi phí thu mua hàng hoá). Bút toán phân bổ sẽ Cr (giảm) TK này."
+  },
+  {
+   "fieldname": "target_account",
+   "fieldtype": "Link",
+   "label": "TK đích (1561)",
+   "options": "Account",
+   "reqd": 1,
+   "description": "TK kho giá mua hàng hoá (mặc định 1561). Bút toán phân bổ sẽ Dr (cộng lại) phần phụ phí của hàng đã xuất kho — bù lại phần 1561 bị âm khi xuất kho."
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Ngày hạch toán",
+   "reqd": 1,
+   "default": "Today",
+   "description": "Ngày post Bút toán phân bổ (thường là ngày cuối kỳ to_date)."
+  },
+  {
+   "fieldname": "computation_section",
+   "fieldtype": "Section Break",
+   "label": "Số liệu tính toán",
+   "description": "Bấm 'Tính lại' để hệ thống quét GL trong kỳ và đề xuất số tiền phân bổ. Có thể chỉnh tay computed_amount trước khi submit nếu kế toán muốn điều chỉnh."
+  },
+  {
+   "fieldname": "method",
+   "fieldtype": "Select",
+   "label": "Phương pháp",
+   "options": "Theo tỉ trọng COGS kỳ",
+   "default": "Theo tỉ trọng COGS kỳ",
+   "reqd": 1,
+   "description": "Theo tỉ trọng COGS kỳ: amount = 1562 balance × (COGS kỳ / Tổng giá vốn cộng dồn). Phù hợp cho audit VAS chuẩn (sai số nhỏ, dễ giải thích)."
+  },
+  {
+   "fieldname": "computed_period_cogs",
+   "fieldtype": "Currency",
+   "label": "Σ Giá vốn xuất kho trong kỳ",
+   "read_only": 1,
+   "description": "Tổng Dr 632 trong kỳ from_date → to_date. Tự cập nhật khi bấm 'Tính lại'."
+  },
+  {
+   "fieldname": "column_break_compute",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "computed_landed_cost_balance",
+   "fieldtype": "Currency",
+   "label": "Số dư 1562 đầu kỳ + tăng trong kỳ",
+   "read_only": 1,
+   "description": "Số dư Dr TK 1562 cộng dồn đến hết to_date (tức landed cost cumulative chưa phân bổ)."
+  },
+  {
+   "fieldname": "computed_amount",
+   "fieldtype": "Currency",
+   "label": "Số tiền phân bổ",
+   "reqd": 1,
+   "description": "Số tiền sẽ Dr 1561 / Cr 1562. Hệ thống tự tính khi bấm 'Tính lại'; kế toán có thể chỉnh tay (vd: làm tròn, override theo quyết định nội bộ)."
+  },
+  {
+   "fieldname": "result_section",
+   "fieldtype": "Section Break",
+   "label": "Kết quả"
+  },
+  {
+   "fieldname": "journal_entry",
+   "fieldtype": "Link",
+   "label": "Bút toán đã tạo",
+   "options": "Journal Entry",
+   "read_only": 1,
+   "description": "Bút toán phân bổ tự lập khi submit. Click để xem chi tiết. Hủy phiếu này sẽ hủy luôn JE."
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Inventory Cost Reallocation",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks_section",
+   "fieldtype": "Section Break",
+   "label": "Ghi chú",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Diễn giải"
+  }
+ ],
+ "links": [
+  {
+   "link_doctype": "Journal Entry",
+   "link_fieldname": "name",
+   "parent_doctype": "Journal Entry",
+   "group": "Accounting"
+  }
+ ],
+ "modified": "2026-05-15 16:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "Inventory Cost Reallocation",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "write": 0
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "title_field": "name"
+}

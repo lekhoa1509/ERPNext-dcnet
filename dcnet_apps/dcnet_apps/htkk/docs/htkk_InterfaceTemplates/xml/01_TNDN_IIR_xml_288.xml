@@ -1,0 +1,47 @@
+<TKhai_01_TNDN_IIR>
+	<LoaiTienTNDN>
+		<tien_KhacVND/>
+		<tien_VND/>
+	</LoaiTienTNDN>
+	<ty_GiaQuyDoi/>
+	<ten_NganHang/>
+	<giam_TruTrachNhiem/>
+	<Muc_I>
+		<ma_DonViTien/>
+		<ten_DonViTien/>
+		<ChiTiet id="id1">
+			<ma_QuocGia/>
+			<ten_QuocGia/>
+			<so_ThueBoSung/>
+		</ChiTiet>
+		<tongCong_SoThueBoSung/>
+	</Muc_I>
+	<Muc_II>
+		<ten_DonViTien/>
+		<ma_DonViTien/>
+		<so_ThueTNDN>
+			<ChiTiet id="id1">
+				<ma_Loai/>
+				<ten_Loai/>
+				<ten_CTyMe/>
+				<mst_CTyMe/>
+				<ma_QuocGia/>
+				<ten_QuocGia/>
+				<mst_MaDoanhNghiep/>
+				<tenDonViHopThanh/>
+				<so_ThueBoSung/>
+				<thuNhapPhanBo/>
+				<thuNhapTheoQuyDinh/>
+				<tyLePhanBo/>
+				<soThuePhanBo/>
+			</ChiTiet>
+			<tong_SoThuePhanBo/>
+		</so_ThueTNDN>
+	</Muc_II>
+	<Muc_III>
+		<ct15/>
+		<ct16/>
+		<ct17/>
+		<ct18/>
+	</Muc_III>
+</TKhai_01_TNDN_IIR>

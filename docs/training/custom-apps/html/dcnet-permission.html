@@ -1,0 +1,171 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DCNET Permission — Tài liệu training</title><link rel="stylesheet" href="assets/training.css"></head><body><div class="topbar"><a href="index.html">← Bộ tài liệu custom apps</a></div><div class="layout"><aside class="toc"><strong>Mục lục</strong><a href="#1-muc-dich">1. Mục đích</a><a href="#2-khai-niem-can-phan-biet">2. Khái niệm cần phân biệt</a><a href="#3-ai-duoc-vao-trang-quan-tri">3. Ai được vào trang quản trị?</a><a href="#4-quy-trinh-cap-quyen-an-toan">4. Quy trình cấp quyền an toàn</a><a href="#5-chon-phong-ban-va-xem-nguoi-dung">5. Chọn phòng ban và xem người dùng</a><a href="#6-tao-va-cap-nhat-nguoi-dung">6. Tạo và cập nhật người dùng</a><a href="#7-phan-quyen-module">7. Phân quyền module</a><a href="#8-ma-tran-quyen-rieng-cho-user">8. Ma trận quyền riêng cho user</a><a href="#9-khoa-quyen-va-vo-hieu-hoa">9. Khóa quyền và vô hiệu hóa</a><a href="#10-kiem-thu-sau-thay-doi">10. Kiểm thử sau thay đổi</a><a href="#11-bai-thuc-hanh-training">11. Bài thực hành training</a><a href="#12-cau-hoi-thuong-gap">12. Câu hỏi thường gặp</a><a href="#13-thuat-ngu">13. Thuật ngữ</a><a href="#14-diem-can-xac-nhan-truoc-production">14. Điểm cần xác nhận trước production</a></aside><main><h1>Hướng dẫn sử dụng DCNET Permission</h1>
+<blockquote>
+<p><strong>Hệ thống:</strong> DCNET Flow<br><strong>Phiên bản tài liệu:</strong> 1.1 — 13/07/2026<br><strong>Đối tượng:</strong> System Manager, DCNET Permission Admin, DCNET Permission Manager<br><strong>Nguồn:</strong> <code>docs/feature/FEATURE_SPECIFICATION.md</code> mục 12; <code>docs/feature/ERP_SPECIFICATION.md</code> phần yêu cầu phân quyền; code app <code>dcnet-permission</code>.</p>
+</blockquote>
+<h2 id="1-muc-dich">1. Mục đích</h2>
+<p>DCNET Permission mở rộng cơ chế Role Permission của Frappe để quản trị người dùng theo phạm vi phòng ban. App hỗ trợ quản lý user, vai trò được ủy quyền, quyền module và ma trận quyền chi tiết; đồng thời áp dụng guard khi người dùng truy cập dữ liệu.</p>
+<p><img src="assets/screenshots/dcnet-permission/02-permission-dashboard-system-manager.png" alt="Permission Manager thực tế"></p>
+<p><em>Hình 1 — Permission Manager trên site UAT. Email quản trị đã được che.</em></p>
+<h2 id="2-khai-niem-can-phan-biet">2. Khái niệm cần phân biệt</h2>
+<table>
+<thead>
+<tr>
+<th>Khái niệm</th>
+<th>Tác dụng</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Role</td>
+<td>Nhóm quyền nghiệp vụ cơ sở của Frappe/ERPNext</td>
+</tr>
+<tr>
+<td>Permission Scope</td>
+<td>Phạm vi phòng ban và các role/profile người quản lý được phép cấp</td>
+</tr>
+<tr>
+<td>User Permission</td>
+<td>Giới hạn dữ liệu theo giá trị cụ thể, ví dụ Department</td>
+</tr>
+<tr>
+<td>Module Permission</td>
+<td>Cho phép/chặn module trên giao diện cho người dùng thuộc phòng ban</td>
+</tr>
+<tr>
+<td>Custom user permission matrix</td>
+<td>Quyền chi tiết riêng cho một user, thay cho nguồn quyền theo role ở phần được cấu hình</td>
+</tr>
+</tbody></table>
+<p>Ẩn module không đồng nghĩa xóa mọi quyền backend. Quyền thực tế là kết quả tổng hợp của role, DocType permission, user permission, module restriction và các guard của app.</p>
+<h2 id="3-ai-duoc-vao-trang-quan-tri">3. Ai được vào trang quản trị?</h2>
+<p>Trang <code>/app/dcnet-permission-manager</code> dành cho:</p>
+<ul>
+<li><code>System Manager</code></li>
+<li><code>DCNET Permission Admin</code></li>
+<li><code>DCNET Permission Manager</code></li>
+</ul>
+<p>Admin thấy phạm vi rộng theo cấu hình. Manager chỉ thấy các scope được giao. Không cấp <code>System Manager</code> chỉ để người dùng nhìn thấy trang này.</p>
+<h2 id="4-quy-trinh-cap-quyen-an-toan">4. Quy trình cấp quyền an toàn</h2>
+<figure class="workflow"><img src="assets/dcnet-permission-workflow.svg" alt="Sơ đồ quy trình DCNET Permission"><figcaption class="caption">Sơ đồ quy trình dùng trong training.</figcaption></figure><p>Nguyên tắc tối thiểu: cấp đủ để làm việc, không cấp theo chức danh suy đoán, không dùng tài khoản admin để kiểm thử thay cho user thật.</p>
+<h2 id="5-chon-phong-ban-va-xem-nguoi-dung">5. Chọn phòng ban và xem người dùng</h2>
+<ol>
+<li>Mở <strong>DCNET Permission</strong>.</li>
+<li>Chọn phòng ban ở sidebar bên trái.</li>
+<li>Kiểm tra trạng thái scope: phòng ban tồn tại nhưng chưa có <code>DCNET Permission Scope</code> sẽ không cấp role được.</li>
+<li>Dùng ô tìm kiếm theo user, email hoặc role.</li>
+<li>Lọc Active/Disabled khi cần rà soát tài khoản.</li>
+</ol>
+<p>Tab <strong>Người dùng</strong> hiển thị tài khoản trong phạm vi. Tab <strong>Phân quyền Module</strong> cấu hình module cho toàn bộ user thuộc phòng ban được áp dụng.</p>
+<h2 id="6-tao-va-cap-nhat-nguoi-dung">6. Tạo và cập nhật người dùng</h2>
+<p><img src="assets/screenshots/dcnet-permission/03-create-user-dialog-system-manager.png" alt="Dialog tạo user trên site UAT"></p>
+<p><em>Hình 2 — Dialog tạo user theo phòng ban và role. Thông tin mật khẩu mặc định đã được che; crawler không lưu user.</em></p>
+<ol>
+<li>Chọn đúng phòng ban trước khi bấm <strong>Tạo người dùng</strong>.</li>
+<li>Nhập Email và First Name; Last Name theo dữ liệu nhân sự.</li>
+<li>Liên kết Employee có sẵn nếu đây là nhân viên. Chỉ để trống cho tài khoản dịch vụ/phi nhân viên đã được phê duyệt.</li>
+<li>Chọn role trong danh mục được scope cho phép.</li>
+<li>Giữ trạng thái Active khi tài khoản cần sử dụng.</li>
+<li>Lưu, sau đó test đăng nhập bằng tài khoản mẫu tương đương.</li>
+</ol>
+<p>Code giao diện hiện hiển thị mật khẩu mặc định <code>123456</code> khi tạo user và yêu cầu đổi ở lần đăng nhập đầu. Đây là rủi ro cần xác nhận chính sách bảo mật trước production; không ghi mật khẩu thật vào tài liệu hoặc gửi qua kênh công khai.</p>
+<h2 id="7-phan-quyen-module">7. Phân quyền module</h2>
+<p><img src="assets/screenshots/dcnet-permission/04-module-permissions-system-manager.png" alt="Tab Phân quyền Module trên site UAT"></p>
+<p><em>Hình 3 — Danh mục module và toggle Allowed/Blocked. Crawler chỉ chụp, không thay toggle hoặc lưu.</em></p>
+<ol>
+<li>Chọn phòng ban → tab <strong>Phân quyền Module</strong>.</li>
+<li>Tìm module theo tên.</li>
+<li>Toggle module sang Allowed hoặc Blocked.</li>
+<li>Kiểm tra số user bị áp dụng và tổng module blocked.</li>
+<li>Bấm <strong>Lưu thay đổi</strong>.</li>
+<li>Nếu user không tự reload, yêu cầu đăng xuất/đăng nhập hoặc refresh trình duyệt.</li>
+</ol>
+<p>Trạng thái <strong>Mixed</strong> cho biết người dùng trong phòng ban hiện chưa đồng nhất. Không gạt toggle mà chưa hiểu thay đổi sẽ ghi đè như thế nào cho cả nhóm.</p>
+<h2 id="8-ma-tran-quyen-rieng-cho-user">8. Ma trận quyền riêng cho user</h2>
+<p><img src="assets/screenshots/dcnet-permission/06-permission-scope-list-system-manager.png" alt="Danh sách Permission Scope trên site UAT"></p>
+<p><em>Hình 4 — Scope Kế toán hiện có trên site UAT. Chưa có user mẫu trong scope nên không tạo dữ liệu chỉ để chụp ma trận quyền.</em></p>
+<p>Tại dòng user, chọn <strong>Permissions/Quyền</strong> để mở ma trận. Màn hình cho biết nguồn hiện tại là <strong>By Role</strong> hoặc <strong>Custom</strong>.</p>
+<p>Các quyền DocType trong code gồm các hành động chuẩn như read, write, create, delete, submit, cancel, amend, report, export, import, print, email và share. Quyền Report chỉ dùng read.</p>
+<ol>
+<li>Kiểm tra phòng ban và nguồn quyền hiện tại.</li>
+<li>Chỉ bật quyền có ticket/yêu cầu được duyệt.</li>
+<li>Lưu và chờ thông báo hoàn tất.</li>
+<li>Test cả thao tác được phép và thao tác phải bị chặn.</li>
+</ol>
+<p>Quyền custom theo user làm hệ thống khó kiểm toán hơn role dùng chung. Chỉ dùng cho ngoại lệ có ngày rà soát lại.</p>
+<h2 id="9-khoa-quyen-va-vo-hieu-hoa">9. Khóa quyền và vô hiệu hóa</h2>
+<ul>
+<li><strong>Khóa quyền phòng:</strong> gỡ quyền của user trong phòng ban được chọn, không nhất thiết vô hiệu hóa toàn bộ tài khoản.</li>
+<li><strong>Disable user:</strong> ngăn tài khoản đăng nhập/hoạt động theo cơ chế User.</li>
+</ul>
+<p>Trước khi khóa, xác nhận người phê duyệt và ảnh hưởng tới công việc đang xử lý. Không xóa lịch sử user để “dọn tài khoản”.</p>
+<h2 id="10-kiem-thu-sau-thay-doi">10. Kiểm thử sau thay đổi</h2>
+<p>Dùng một tài khoản test không có vai trò quản trị và kiểm tra:</p>
+<ol>
+<li>Có/không thấy đúng module.</li>
+<li>Danh sách chỉ hiện dữ liệu đúng phạm vi Department.</li>
+<li>Có thể đọc/tạo/sửa/submit đúng ma trận.</li>
+<li>Không thể truy cập bằng URL trực tiếp khi bị chặn.</li>
+<li>Không xem đơn giá/thành tiền hoặc sửa trường bị hạn chế đối với persona kho theo yêu cầu ERP spec.</li>
+<li>Sau khi thu hồi, phiên đăng nhập được reload hoặc đăng nhập lại.</li>
+</ol>
+<h2 id="11-bai-thuc-hanh-training">11. Bài thực hành training</h2>
+<ol>
+<li>Tạo một user test trong phòng Kinh doanh và liên kết Employee mẫu.</li>
+<li>Cấp <code>Sales User</code> từ catalog scope.</li>
+<li>Chặn một module không liên quan.</li>
+<li>Kiểm tra quyền đọc Customer và không cấp delete.</li>
+<li>Đăng nhập user test, ghi bằng chứng kết quả cho phép/chặn.</li>
+<li>Khóa quyền phòng rồi xác nhận quyền đã bị thu hồi.</li>
+</ol>
+<h2 id="12-cau-hoi-thuong-gap">12. Câu hỏi thường gặp</h2>
+<ol>
+<li><strong>Không thấy phòng ban?</strong> Scope của tài khoản quản lý chưa bao gồm phòng ban đó hoặc dữ liệu Department chưa cấu hình.</li>
+<li><strong>Phòng ban có nhưng không cấp role được?</strong> Chưa có <code>DCNET Permission Scope</code> tương ứng.</li>
+<li><strong>Ẩn module rồi user vẫn mở URL được?</strong> Kiểm tra DocType permission/guard; module visibility không phải lớp bảo mật duy nhất.</li>
+<li><strong>Lưu xong user chưa thấy thay đổi?</strong> Refresh hoặc đăng nhập lại; kiểm tra thông báo reload.</li>
+<li><strong>Mixed nghĩa là gì?</strong> Các user trong phòng ban đang có cấu hình module khác nhau.</li>
+<li><strong>By Role và Custom khác nhau thế nào?</strong> By Role kế thừa quyền chung; Custom là ngoại lệ riêng của user.</li>
+<li><strong>Có cấp System Manager cho quản lý phòng không?</strong> Không, trừ khi họ thực sự là quản trị hệ thống được phê duyệt.</li>
+<li><strong>Khóa quyền phòng có xóa user không?</strong> Không; nó thu hồi quyền scope phòng, tùy trường hợp tài khoản vẫn còn quyền khác.</li>
+<li><strong>Disable có xóa lịch sử không?</strong> Không; tài khoản bị vô hiệu hóa nhưng lịch sử cần được giữ.</li>
+<li><strong>Có thể cấp quyền kế toán cho nhân viên kho?</strong> Chỉ theo ma trận được phê duyệt; guard có hạn chế thao tác kế toán cho role không phù hợp.</li>
+<li><strong>Tại sao không sửa được role bảo vệ?</strong> <code>Administrator</code> và <code>System Manager</code> là protected roles trong code.</li>
+<li><strong>Ai phê duyệt ngoại lệ Custom?</strong> Cần ma trận phê duyệt của khách hàng; app không tự quyết định chính sách tổ chức.</li>
+</ol>
+<h2 id="13-thuat-ngu">13. Thuật ngữ</h2>
+<table>
+<thead>
+<tr>
+<th>Thuật ngữ</th>
+<th>Nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Least privilege</td>
+<td>Chỉ cấp mức quyền tối thiểu cần cho công việc</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Phạm vi mà người quản lý được phép thao tác</td>
+</tr>
+<tr>
+<td>Guard</td>
+<td>Kiểm tra quyền bổ sung khi truy cập dữ liệu</td>
+</tr>
+<tr>
+<td>Protected role</td>
+<td>Vai trò hệ thống được bảo vệ khỏi sửa/gỡ tùy tiện</td>
+</tr>
+<tr>
+<td>Persona test</td>
+<td>Tài khoản mẫu đại diện cho một nhóm người dùng thực tế</td>
+</tr>
+</tbody></table>
+<h2 id="14-diem-can-xac-nhan-truoc-production">14. Điểm cần xác nhận trước production</h2>
+<ul>
+<li>Ma trận role/phòng ban được khách hàng ký duyệt.</li>
+<li>Người có quyền phê duyệt user mới, ngoại lệ custom và thu hồi quyền.</li>
+<li>Chính sách mật khẩu khởi tạo; thay thế mật khẩu mặc định nếu cần.</li>
+<li>Chu kỳ rà soát quyền và quy trình offboarding.</li>
+<li>Quy tắc chính thức đối với đơn giá/thành tiền và các trường kho không được sửa.</li>
+</ul>
+</main></div><footer>DCNET Flow · Tài liệu training · Xuất ngày 13/07/2026</footer></body></html>

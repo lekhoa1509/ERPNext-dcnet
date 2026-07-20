@@ -1,0 +1,147 @@
+{
+ "actions": [],
+ "autoname": "format:BCTC Mapping {company}",
+ "creation": "2026-05-11 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "help_section",
+  "help_html",
+  "company",
+  "coa_template",
+  "column_break_header",
+  "last_restored_from_default",
+  "b01_section",
+  "b01_lines",
+  "b02_section",
+  "b02_lines",
+  "b03_section",
+  "b03_lines",
+  "b09_section",
+  "b09_template_path"
+ ],
+ "fields": [
+  {
+   "fieldname": "help_section",
+   "fieldtype": "Section Break",
+   "label": "🧭 Hướng dẫn nhanh — đọc trước khi sửa mapping",
+   "collapsible": 1,
+   "collapsible_depends_on": "eval:true"
+  },
+  {
+   "fieldname": "help_html",
+   "fieldtype": "HTML",
+   "options": "<div style='padding:10px 14px; background:#f8f9fa; border-left:4px solid #4f8cff; font-size:13px; line-height:1.6'>\n<p><b>BCTC Mapping</b> ánh xạ <b>mã chỉ tiêu</b> trong báo cáo TT99/2025 → <b>tài khoản kế toán</b> hoặc <b>công thức tính</b> từ các mã khác.</p>\n\n<p><b>Cú pháp công thức tài khoản</b> (cột <i>Công thức tài khoản</i>):</p>\n<table style='width:100%; border-collapse:collapse; margin:6px 0'>\n<tr style='background:#e9ecef'><th style='padding:4px; text-align:left'>Cú pháp</th><th style='padding:4px; text-align:left'>Ý nghĩa</th></tr>\n<tr><td style='padding:4px'><code>+111</code></td><td style='padding:4px'>Lấy TK 111 (đúng prefix, không match TK con như 1111)</td></tr>\n<tr><td style='padding:4px'><code>+111%</code></td><td style='padding:4px'>Lấy TK 111 <b>và tất cả TK con</b> (1111, 11211, …) — % là wildcard SQL</td></tr>\n<tr><td style='padding:4px'><code>+111,+112,+113</code></td><td style='padding:4px'>Cộng tổng số dư 3 TK</td></tr>\n<tr><td style='padding:4px'><code>+511,-521</code></td><td style='padding:4px'>Cộng TK 511, trừ TK 521 (giảm trừ doanh thu)</td></tr>\n</table>\n\n<p><b>Cú pháp công thức mã</b> (cột <i>Công thức mã chỉ tiêu</i>, chỉ dùng khi Loại giá trị = formula):</p>\n<table style='width:100%; border-collapse:collapse; margin:6px 0'>\n<tr><td style='padding:4px'><code>=110+120+130</code></td><td style='padding:4px'>Tổng giá trị của mã 110, 120, 130 đã tính ở dòng khác</td></tr>\n<tr><td style='padding:4px'><code>=100+200</code></td><td style='padding:4px'>Mã 270 = mã 100 + mã 200 (Tổng tài sản)</td></tr>\n</table>\n\n<p><b>Loại giá trị</b> (cột <i>Loại giá trị</i>) — chọn cách tính:</p>\n<table style='width:100%; border-collapse:collapse; margin:6px 0'>\n<tr style='background:#e9ecef'><th style='padding:4px; text-align:left'>Mã</th><th style='padding:4px; text-align:left'>Khi nào dùng</th></tr>\n<tr><td style='padding:4px'><code>closing_debit</code></td><td style='padding:4px'>Số dư cuối kỳ bên Nợ (TS Dr: 111, 112, 131, 156...)</td></tr>\n<tr><td style='padding:4px'><code>closing_credit</code></td><td style='padding:4px'>Số dư cuối kỳ bên Có (NPT/VCS: 331, 333, 411, 421...)</td></tr>\n<tr><td style='padding:4px'><code>period_debit</code></td><td style='padding:4px'>Tổng PS Nợ trong kỳ (loại trừ PCV closing). Chi phí Dr trong P&L</td></tr>\n<tr><td style='padding:4px'><code>period_credit</code></td><td style='padding:4px'>Tổng PS Có trong kỳ. Doanh thu Cr trong P&L</td></tr>\n<tr><td style='padding:4px'><code>period_net</code></td><td style='padding:4px'>PS Có − PS Nợ (Cr-Dr). Doanh thu +revenue, chi phí -expense, ↔ LN trước thuế dùng 1 dòng</td></tr>\n<tr><td style='padding:4px'><code>net_credit</code></td><td style='padding:4px'>Cumulative Cr − Dr (CÓ DẤU). Dùng cho TK 4211 có thể có Dr (lỗ)</td></tr>\n<tr><td style='padding:4px'><code>net_debit</code></td><td style='padding:4px'>Cumulative Dr − Cr (có dấu). Đối ứng net_credit</td></tr>\n<tr><td style='padding:4px'><code>delta_debit</code></td><td style='padding:4px'>Số dư Nợ cuối kỳ − đầu kỳ. Dùng B03 indirect (∆AR, ∆HTK)</td></tr>\n<tr><td style='padding:4px'><code>delta_credit</code></td><td style='padding:4px'>Số dư Có cuối kỳ − đầu kỳ. Dùng B03 indirect (∆AP, ∆nợ vay)</td></tr>\n<tr><td style='padding:4px'><code>formula</code></td><td style='padding:4px'>Tính từ mã khác qua công thức mã (=01+02+...)</td></tr>\n</table>\n\n<p><b>Hệ số dấu (sign_multiplier):</b> <code>+1</code> giữ nguyên, <code>-1</code> đảo dấu. Dùng <code>-1</code> cho: giảm trừ doanh thu, chi phí (để hiển thị âm trong P&L), hao mòn lũy kế (trừ khỏi nguyên giá).</p>\n\n<p><b>Khi nào sửa?</b> KTT sửa khi: (a) DN có TK đặc thù chưa map; (b) chính sách kế toán nội bộ khác mặc định; (c) TT mới ra cần cập nhật. <i>Sau khi sửa, click \"Save\" rồi chạy lại B01/B02/B03 để xem hiệu lực.</i></p>\n</div>"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Công ty sở hữu bộ mapping này. Mỗi Công ty có 1 bộ mapping riêng (tự tạo khi kích hoạt Công ty VN lần đầu). Dùng nút \"Copy từ Company khác\" để sao chép nhanh."
+  },
+  {
+   "fieldname": "coa_template",
+   "fieldtype": "Data",
+   "label": "COA Template",
+   "read_only": 1,
+   "description": "Mẫu biểu đồ tài khoản tự phát hiện: \"vn_large_enterprise\" (DN sản xuất — có TK 621/622/627) hoặc \"vn_small_trade\" (DN nhỏ-vừa thương mại/dịch vụ — gọn ~30 dòng). Ảnh hưởng template mặc định được clone khi tạo mới."
+  },
+  {
+   "fieldname": "column_break_header",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_restored_from_default",
+   "fieldtype": "Datetime",
+   "label": "Lần cuối khôi phục mặc định",
+   "read_only": 1,
+   "description": "Tự động cập nhật khi nhấn nút \"Khôi phục mặc định TT99/2025\"."
+  },
+  {
+   "fieldname": "b01_section",
+   "fieldtype": "Section Break",
+   "label": "B01-DN — Báo cáo tình hình tài chính",
+   "description": "Mapping các mã chỉ tiêu B01-DN theo TT99/2025 (Phụ lục IV). Mỗi dòng ánh xạ mã chỉ tiêu → công thức TK hoặc công thức mã. Nhấn \"Khôi phục mặc định\" để reset về TT99/2025."
+  },
+  {
+   "fieldname": "b01_lines",
+   "fieldtype": "Table",
+   "label": "B01 Lines",
+   "options": "BCTC Line",
+   "description": "Khoảng ~50 mã chỉ tiêu. Mã 270 (Tổng tài sản) phải bằng mã 440 (Tổng nguồn vốn) — hệ thống kiểm tra tự động khi chạy báo cáo."
+  },
+  {
+   "fieldname": "b02_section",
+   "fieldtype": "Section Break",
+   "label": "B02-DN — Báo cáo kết quả hoạt động kinh doanh",
+   "description": "Mapping ~18 mã chỉ tiêu B02-DN. Bao gồm doanh thu thuần, giá vốn, lợi nhuận gộp, chi phí bán hàng/quản lý, lợi nhuận trước/sau thuế."
+  },
+  {
+   "fieldname": "b02_lines",
+   "fieldtype": "Table",
+   "label": "B02 Lines",
+   "options": "BCTC Line",
+   "description": "Khoảng 18 mã chỉ tiêu KQHĐKD theo TT99/2025."
+  },
+  {
+   "fieldname": "b03_section",
+   "fieldtype": "Section Break",
+   "label": "B03-DN — Báo cáo lưu chuyển tiền tệ",
+   "description": "Mapping ~30 mã chỉ tiêu B03-DN (phương pháp gián tiếp). Bao gồm lưu chuyển từ HĐKD, HĐĐT, HĐTC."
+  },
+  {
+   "fieldname": "b03_lines",
+   "fieldtype": "Table",
+   "label": "B03 Lines",
+   "options": "BCTC Line",
+   "description": "Khoảng 30 mã chỉ tiêu LCTT theo TT99/2025 phương pháp gián tiếp."
+  },
+  {
+   "fieldname": "b09_section",
+   "fieldtype": "Section Break",
+   "label": "B09-DN — Bản thuyết minh báo cáo tài chính",
+   "description": "Đường dẫn template Excel B09-DN. Hệ thống sẽ clone file này và auto-fill các sheet chi tiết từ dữ liệu GL/Asset/Stock."
+  },
+  {
+   "fieldname": "b09_template_path",
+   "fieldtype": "Data",
+   "label": "Đường dẫn template B09",
+   "description": "Đường dẫn tương đối từ thư mục app đến file template Excel B09-DN. Mặc định: templates/b09_dn_template.xlsx trong vn_accounting. Có thể thay bằng file tùy chỉnh của DN."
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-11 17:27:49.287",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "BCTC Mapping",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 0,
+   "read": 1,
+   "role": "Accounts User",
+   "write": 0,
+   "delete": 0
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "write": 1,
+   "delete": 0
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

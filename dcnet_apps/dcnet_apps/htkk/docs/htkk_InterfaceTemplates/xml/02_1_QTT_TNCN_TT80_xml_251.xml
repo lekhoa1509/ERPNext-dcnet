@@ -1,0 +1,19 @@
+<PLuc_02_1_BK_QTT_TNCN>
+	<Header>
+		<ct06/>
+		<ct07/>
+		<ct08/>
+	</Header>
+	<CTiet id="">
+		<ct10/>
+		<ct11/>
+		<ct12_ma/>
+		<ct12_ten/>
+		<ct13/>
+		<ct14/>
+		<ct15_ma/>
+		<ct15_ten/>
+		<ct16/>
+		<ct17/>
+	</CTiet>
+</PLuc_02_1_BK_QTT_TNCN>

@@ -1,0 +1,18 @@
+[
+ {"doctype": "Bank Matcher Type", "name": "invoice_no", "matcher_key": "invoice_no",
+  "matcher_label": "Invoice No in Narration", "handler_path": "vn_banking.match.invoice_no.InvoiceNoMatcher",
+  "default_confidence": "High",
+  "description": "Regex-extract invoice numbers from narration and lookup outstanding invoices."},
+ {"doctype": "Bank Matcher Type", "name": "invoice_amount", "matcher_key": "invoice_amount",
+  "matcher_label": "Invoice Amount + Date", "handler_path": "vn_banking.match.invoice_amount.InvoiceAmountMatcher",
+  "default_confidence": "Medium",
+  "description": "Unique outstanding amount match within date window."},
+ {"doctype": "Bank Matcher Type", "name": "party_amount", "matcher_key": "party_amount",
+  "matcher_label": "Party (by bank account) + Amount", "handler_path": "vn_banking.match.party_amount.PartyAmountMatcher",
+  "default_confidence": "Medium",
+  "description": "Lookup party by counter account, match outstanding amount incl. combinations."},
+ {"doctype": "Bank Matcher Type", "name": "name_amount", "matcher_key": "name_amount",
+  "matcher_label": "Fuzzy Name + Amount", "handler_path": "vn_banking.match.name_amount.NameAmountMatcher",
+  "default_confidence": "Low",
+  "description": "rapidfuzz name match on narration + outstanding amount."}
+]

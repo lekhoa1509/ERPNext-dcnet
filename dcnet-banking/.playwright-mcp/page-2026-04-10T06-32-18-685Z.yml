@@ -1,0 +1,59 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e5] [cursor=pointer]:
+      - img [ref=e9]
+      - generic [ref=e11]:
+        - generic [ref=e12]: VN Banking
+        - generic [ref=e13]: larrytechusa@gmail.com
+      - button [ref=e14]:
+        - img [ref=e15]
+    - generic [ref=e17]:
+      - generic "Tìm kiếm" [ref=e18]:
+        - generic [ref=e20] [cursor=pointer]:
+          - img [ref=e22]
+          - generic [ref=e23]: Tìm kiếm
+          - generic [ref=e24]: Ctrl+K
+      - generic "Thông báo" [ref=e25]:
+        - generic [ref=e27] [cursor=pointer]:
+          - img [ref=e29]
+          - generic [ref=e30]: Thông báo
+    - generic [ref=e32]:
+      - generic "Banking VN" [ref=e33]:
+        - link "Banking VN" [ref=e35] [cursor=pointer]:
+          - /url: /desk/banking-vn
+          - img [ref=e37]
+          - generic [ref=e38]: Banking VN
+      - generic "Bank Matcher Type" [ref=e39]:
+        - link "Bank Matcher Type" [ref=e41] [cursor=pointer]:
+          - /url: /desk/bank-matcher-type
+          - img [ref=e43]
+          - generic [ref=e44]: Bank Matcher Type
+      - generic "Bank Statement Format" [ref=e45]:
+        - link "Bank Statement Format" [ref=e47] [cursor=pointer]:
+          - /url: /desk/bank-statement-format
+          - img [ref=e49]
+          - generic [ref=e50]: Bank Statement Format
+      - generic "Bank Data Source" [ref=e51]:
+        - link "Bank Data Source" [ref=e53] [cursor=pointer]:
+          - /url: /desk/bank-data-source
+          - img [ref=e55]
+          - generic [ref=e56]: Bank Data Source
+      - generic "Bank Reconcile" [ref=e57]:
+        - link "Bank Reconcile" [ref=e59] [cursor=pointer]:
+          - /url: /desk/bank-reconcile
+          - img [ref=e61]
+          - generic [ref=e62]: Bank Reconcile
+    - generic [ref=e63]:
+      - paragraph
+      - generic [ref=e64] [cursor=pointer]:
+        - img [ref=e65]
+        - generic [ref=e66]: Thu gọn
+      - generic "Menu người dùng" [ref=e68] [cursor=pointer]:
+        - generic "Long" [ref=e70]:
+          - generic "Long" [ref=e71]: L
+        - generic [ref=e72]:
+          - generic [ref=e73]: Long
+          - generic [ref=e74]: larrytechusa@gmail.com
+  - generic [ref=e75]:
+    - banner
+    - contentinfo

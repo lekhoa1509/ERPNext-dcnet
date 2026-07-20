@@ -1,0 +1,35 @@
+<PL_LCTT>
+	<ThuyetMinh>
+		<ctI_tMinh></ctI_tMinh>
+		<ctII_tMinh_PLLCTT></ctII_tMinh_PLLCTT>
+		<ctIII_tMinh></ctIII_tMinh>
+		<ctIV_tMinh></ctIV_tMinh>
+		<ctV_tMinh></ctV_tMinh>
+		<ctVI_tMinh></ctVI_tMinh>
+		<ctVII_tMinh></ctVII_tMinh>
+	</ThuyetMinh>
+	<NamNay>
+		<ctI_nNay></ctI_nNay>
+		<ctII_nNay_PLLCTT></ctII_nNay_PLLCTT>
+		<ctIII_nNay></ctIII_nNay>
+		<ctIV_nNay></ctIV_nNay>
+		<ctV_nNay></ctV_nNay>
+		<ctVI_nNay></ctVI_nNay>
+		<ctVII_nNay></ctVII_nNay>
+	</NamNay>
+	<NamTruoc>
+		<ctI_nTruoc></ctI_nTruoc>
+		<ctII_nTruoc_PLLCTT></ctII_nTruoc_PLLCTT>
+		<ctIII_nTruoc></ctIII_nTruoc>
+		<ctIV_nTruoc></ctIV_nTruoc>
+		<ctV_nTruoc></ctV_nTruoc>
+		<ctVI_nTruoc></ctVI_nTruoc>
+		<ctVII_nTruoc></ctVII_nTruoc>
+	</NamTruoc>
+	<PhanKy>
+		<nguoiLapBieu></nguoiLapBieu>
+		<keToanTruong></keToanTruong>
+		<ngayLap></ngayLap>
+		<giamDoc></giamDoc>
+	</PhanKy>
+</PL_LCTT>

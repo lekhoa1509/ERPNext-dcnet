@@ -1,0 +1,110 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-05-28 11:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "source_key",
+  "target_doctype",
+  "target_name",
+  "column_break_1",
+  "company",
+  "posting_date",
+  "registered_at",
+  "registered_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "source_key",
+   "fieldtype": "Data",
+   "label": "Source key",
+   "reqd": 1,
+   "in_list_view": 1,
+   "search_index": 1,
+   "description": "Stable identifier matching an auto_generated_doc_sources hook entry, e.g. 'dcnet_contract.auto_invoice'."
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Link",
+   "options": "DocType",
+   "label": "Target DocType",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "target_name",
+   "fieldtype": "Dynamic Link",
+   "options": "target_doctype",
+   "label": "Target name",
+   "reqd": 1,
+   "in_list_view": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "options": "Company",
+   "label": "Company",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting date",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "registered_at",
+   "fieldtype": "Datetime",
+   "label": "Registered at",
+   "default": "now",
+   "read_only": 1
+  },
+  {
+   "fieldname": "registered_by",
+   "fieldtype": "Data",
+   "label": "Registered by",
+   "description": "Module path of the caller (e.g. dcnet_contract.tasks.run_auto_invoice). Used for forensics when something looks wrong.",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2026-05-28 11:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "Auto Generated Doc Registry",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "Accounts User",
+   "read": 1
+  },
+  {
+   "role": "Accounts Manager",
+   "read": 1,
+   "delete": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "sort_field": "posting_date",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

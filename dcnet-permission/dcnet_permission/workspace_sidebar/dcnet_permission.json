@@ -1,0 +1,62 @@
+{
+ "app": "dcnet_permission",
+ "creation": "2026-05-29 23:25:32.834600",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "header_icon": "shield-check",
+ "idx": 0,
+ "items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "custom_lane": "Main",
+   "icon": "home",
+   "indent": 0,
+   "is_workflow_node": 0,
+   "keep_closed": 0,
+   "label": "Overview",
+   "link_to": "DCNET Permission",
+   "link_type": "Workspace",
+   "show_arrow": 0,
+   "type": "Link",
+   "workflow_color": "auto"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "custom_lane": "Main",
+   "icon": "shield-check",
+   "indent": 0,
+   "is_workflow_node": 0,
+   "keep_closed": 0,
+   "label": "Permission Manager",
+   "link_to": "dcnet-permission-manager",
+   "link_type": "Page",
+   "show_arrow": 0,
+   "type": "Link",
+   "workflow_color": "auto"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "custom_lane": "Main",
+   "icon": "settings",
+   "indent": 0,
+   "is_workflow_node": 0,
+   "keep_closed": 0,
+   "label": "Permission Scope",
+   "link_to": "DCNET Permission Scope",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link",
+   "workflow_color": "auto"
+  }
+ ],
+ "modified": "2026-07-20 11:10:17.141514",
+ "modified_by": "Administrator",
+ "module": "",
+ "name": "DCNET Permission",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "DCNET Permission"
+}

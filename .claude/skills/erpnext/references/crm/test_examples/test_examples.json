@@ -1,0 +1,1275 @@
+{
+  "total_examples": 44,
+  "examples_by_category": {
+    "workflow": 14,
+    "method_call": 24,
+    "instantiation": 6
+  },
+  "examples_by_language": {
+    "Python": 44
+  },
+  "avg_complexity": 0.49,
+  "high_value_count": 44,
+  "file_path": null,
+  "directory": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm",
+  "examples": [
+    {
+      "example_id": "f0038dd3",
+      "test_name": "test_carry_forward_of_email_and_comments",
+      "category": "workflow",
+      "code": "frappe.db.set_single_value('CRM Settings', 'carry_forward_communication_and_comments', 1)\nlead_doc = make_lead()\nlead_doc.add_comment('Comment', text='Test Comment 1')\nlead_doc.add_comment('Comment', text='Test Comment 2')\ncreate_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)\ncreate_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)\nopp_doc = make_opportunity(opportunity_from='Lead', lead=lead_doc.name)\nopportunity_comment_count = frappe.db.count('Comment', {'reference_doctype': opp_doc.doctype, 'reference_name': opp_doc.name})\nopportunity_communication_count = len(get_linked_communication_list(opp_doc.doctype, opp_doc.name))\nself.assertEqual(opportunity_comment_count, 2)\nself.assertEqual(opportunity_communication_count, 2)\nopp_doc.add_comment('Comment', text='Test Comment 3')\nopp_doc.add_comment('Comment', text='Test Comment 4')\ncreate_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)\ncreate_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)",
+      "language": "Python",
+      "description": "Workflow: test carry forward of email and comments",
+      "expected_behavior": "self.assertEqual(opportunity_communication_count, 2)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+      "line_start": 82,
+      "line_end": 101,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.opportunity.opportunity",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "f0038dd3",
+      "test_name": "test_carry_forward_of_email_and_comments",
+      "category": "workflow",
+      "code": "frappe.db.set_single_value('CRM Settings', 'carry_forward_communication_and_comments', 1)\nlead_doc = make_lead()\nlead_doc.add_comment('Comment', text='Test Comment 1')\nlead_doc.add_comment('Comment', text='Test Comment 2')\ncreate_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)\ncreate_communication(lead_doc.doctype, lead_doc.name, lead_doc.email_id)\nopp_doc = make_opportunity(opportunity_from='Lead', lead=lead_doc.name)\nopportunity_comment_count = frappe.db.count('Comment', {'reference_doctype': opp_doc.doctype, 'reference_name': opp_doc.name})\nopportunity_communication_count = len(get_linked_communication_list(opp_doc.doctype, opp_doc.name))\nself.assertEqual(opportunity_comment_count, 2)\nself.assertEqual(opportunity_communication_count, 2)\nopp_doc.add_comment('Comment', text='Test Comment 3')\nopp_doc.add_comment('Comment', text='Test Comment 4')\ncreate_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)\ncreate_communication(opp_doc.doctype, opp_doc.name, opp_doc.contact_email)",
+      "language": "Python",
+      "description": "Workflow: test carry forward of email and comments",
+      "expected_behavior": "self.assertEqual(opportunity_communication_count, 2)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+      "line_start": 82,
+      "line_end": 101,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.opportunity.opportunity",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "f2c7ad2e",
+      "test_name": "test_make_new_lead_if_required",
+      "category": "method_call",
+      "code": "self.assertTrue(opp_doc.party_name)\nself.assertEqual(opp_doc.opportunity_from, 'Lead')",
+      "language": "Python",
+      "description": "test make new lead if required",
+      "expected_behavior": "self.assertEqual(opp_doc.opportunity_from, 'Lead')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+      "line_start": 62,
+      "line_end": 63,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.opportunity.opportunity",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "d68802c4",
+      "test_name": "test_make_new_lead_if_required",
+      "category": "method_call",
+      "code": "self.assertEqual(opp_doc.opportunity_from, 'Lead')\nself.assertEqual(frappe.db.get_value('Lead', opp_doc.party_name, 'email_id'), opp_doc.contact_email)",
+      "language": "Python",
+      "description": "test make new lead if required",
+      "expected_behavior": "self.assertEqual(frappe.db.get_value('Lead', opp_doc.party_name, 'email_id'), opp_doc.contact_email)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+      "line_start": 63,
+      "line_end": 64,
+      "complexity_score": 0.45,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.opportunity.opportunity",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "15a441cf",
+      "test_name": "test_carry_forward_of_email_and_comments",
+      "category": "method_call",
+      "code": "self.assertEqual(opportunity_comment_count, 2)\nself.assertEqual(opportunity_communication_count, 2)",
+      "language": "Python",
+      "description": "test carry forward of email and comments",
+      "expected_behavior": "self.assertEqual(opportunity_communication_count, 2)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+      "line_start": 95,
+      "line_end": 96,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.opportunity.opportunity",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "f2c7ad2e",
+      "test_name": "test_make_new_lead_if_required",
+      "category": "method_call",
+      "code": "self.assertTrue(opp_doc.party_name)\nself.assertEqual(opp_doc.opportunity_from, 'Lead')",
+      "language": "Python",
+      "description": "test make new lead if required",
+      "expected_behavior": "self.assertEqual(opp_doc.opportunity_from, 'Lead')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+      "line_start": 62,
+      "line_end": 63,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.opportunity.opportunity",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "d68802c4",
+      "test_name": "test_make_new_lead_if_required",
+      "category": "method_call",
+      "code": "self.assertEqual(opp_doc.opportunity_from, 'Lead')\nself.assertEqual(frappe.db.get_value('Lead', opp_doc.party_name, 'email_id'), opp_doc.contact_email)",
+      "language": "Python",
+      "description": "test make new lead if required",
+      "expected_behavior": "self.assertEqual(frappe.db.get_value('Lead', opp_doc.party_name, 'email_id'), opp_doc.contact_email)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+      "line_start": 63,
+      "line_end": 64,
+      "complexity_score": 0.45,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.opportunity.opportunity",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "15a441cf",
+      "test_name": "test_carry_forward_of_email_and_comments",
+      "category": "method_call",
+      "code": "self.assertEqual(opportunity_comment_count, 2)\nself.assertEqual(opportunity_communication_count, 2)",
+      "language": "Python",
+      "description": "test carry forward of email and comments",
+      "expected_behavior": "self.assertEqual(opportunity_communication_count, 2)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+      "line_start": 95,
+      "line_end": 96,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.opportunity.opportunity",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "b9169f2d",
+      "test_name": "test_opportunity_status",
+      "category": "instantiation",
+      "code": "doc = make_opportunity(with_items=0)",
+      "language": "Python",
+      "description": "Instantiate make_opportunity: test opportunity status",
+      "expected_behavior": "self.assertEqual(doc.status, 'Quotation')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+      "line_start": 48,
+      "line_end": 48,
+      "complexity_score": 0.15,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.opportunity.opportunity",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "e2b65086",
+      "test_name": "test_opportunity_status",
+      "category": "instantiation",
+      "code": "quotation = make_quotation(doc.name)",
+      "language": "Python",
+      "description": "Instantiate make_quotation: test opportunity status",
+      "expected_behavior": "self.assertEqual(doc.status, 'Quotation')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/opportunity/test_opportunity.py",
+      "line_start": 49,
+      "line_end": 49,
+      "complexity_score": 0.15,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.opportunity.opportunity",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "2c5e16c3",
+      "test_name": "test_add_lead_to_prospect_and_address_linking",
+      "category": "workflow",
+      "code": "lead_doc = make_lead()\naddress_doc = make_address(address_title=lead_doc.name)\naddress_doc.append('links', {'link_doctype': lead_doc.doctype, 'link_name': lead_doc.name})\naddress_doc.save()\nprospect_doc = make_prospect()\nadd_lead_to_prospect(lead_doc.name, prospect_doc.name)\nprospect_doc.reload()\nlead_exists_in_prosoect = False\nfor rec in prospect_doc.get('leads'):\n    if rec.lead == lead_doc.name:\n        lead_exists_in_prosoect = True\nself.assertEqual(lead_exists_in_prosoect, True)\naddress_doc.reload()\nself.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+      "language": "Python",
+      "description": "Workflow: test add lead to prospect and address linking",
+      "expected_behavior": "self.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+      "line_start": 14,
+      "line_end": 28,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.prospect.prospect"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "2c5e16c3",
+      "test_name": "test_add_lead_to_prospect_and_address_linking",
+      "category": "workflow",
+      "code": "lead_doc = make_lead()\naddress_doc = make_address(address_title=lead_doc.name)\naddress_doc.append('links', {'link_doctype': lead_doc.doctype, 'link_name': lead_doc.name})\naddress_doc.save()\nprospect_doc = make_prospect()\nadd_lead_to_prospect(lead_doc.name, prospect_doc.name)\nprospect_doc.reload()\nlead_exists_in_prosoect = False\nfor rec in prospect_doc.get('leads'):\n    if rec.lead == lead_doc.name:\n        lead_exists_in_prosoect = True\nself.assertEqual(lead_exists_in_prosoect, True)\naddress_doc.reload()\nself.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+      "language": "Python",
+      "description": "Workflow: test add lead to prospect and address linking",
+      "expected_behavior": "self.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+      "line_start": 14,
+      "line_end": 28,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.prospect.prospect"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "bc9efd09",
+      "test_name": "test_add_lead_to_prospect_and_address_linking",
+      "category": "method_call",
+      "code": "address_doc.reload()\nself.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+      "language": "Python",
+      "description": "test add lead to prospect and address linking",
+      "expected_behavior": "self.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+      "line_start": 27,
+      "line_end": 28,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.prospect.prospect"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "9de4e64f",
+      "test_name": "test_make_customer_from_prospect",
+      "category": "method_call",
+      "code": "self.assertEqual(customer.doctype, 'Customer')\nself.assertEqual(customer.company_name, '_Test Prospect')",
+      "language": "Python",
+      "description": "test make customer from prospect",
+      "expected_behavior": "self.assertEqual(customer.company_name, '_Test Prospect')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+      "line_start": 46,
+      "line_end": 47,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.prospect.prospect"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "0076cc55",
+      "test_name": "test_make_customer_from_prospect",
+      "category": "method_call",
+      "code": "self.assertEqual(customer.company_name, '_Test Prospect')\nself.assertEqual(customer.customer_group, '_Test Customer Group')",
+      "language": "Python",
+      "description": "test make customer from prospect",
+      "expected_behavior": "self.assertEqual(customer.customer_group, '_Test Customer Group')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+      "line_start": 47,
+      "line_end": 48,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.prospect.prospect"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "bc9efd09",
+      "test_name": "test_add_lead_to_prospect_and_address_linking",
+      "category": "method_call",
+      "code": "address_doc.reload()\nself.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+      "language": "Python",
+      "description": "test add lead to prospect and address linking",
+      "expected_behavior": "self.assertEqual(address_doc.has_link('Prospect', prospect_doc.name), True)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+      "line_start": 27,
+      "line_end": 28,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.prospect.prospect"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "9de4e64f",
+      "test_name": "test_make_customer_from_prospect",
+      "category": "method_call",
+      "code": "self.assertEqual(customer.doctype, 'Customer')\nself.assertEqual(customer.company_name, '_Test Prospect')",
+      "language": "Python",
+      "description": "test make customer from prospect",
+      "expected_behavior": "self.assertEqual(customer.company_name, '_Test Prospect')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+      "line_start": 46,
+      "line_end": 47,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.prospect.prospect"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "0076cc55",
+      "test_name": "test_make_customer_from_prospect",
+      "category": "method_call",
+      "code": "self.assertEqual(customer.company_name, '_Test Prospect')\nself.assertEqual(customer.customer_group, '_Test Customer Group')",
+      "language": "Python",
+      "description": "test make customer from prospect",
+      "expected_behavior": "self.assertEqual(customer.customer_group, '_Test Customer Group')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+      "line_start": 47,
+      "line_end": 48,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.prospect.prospect"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "9f8df56c",
+      "test_name": "test_add_lead_to_prospect_and_address_linking",
+      "category": "instantiation",
+      "code": "address_doc = make_address(address_title=lead_doc.name)",
+      "language": "Python",
+      "description": "Instantiate make_address: test add lead to prospect and address linking",
+      "expected_behavior": "self.assertEqual(lead_exists_in_prosoect, True)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+      "line_start": 16,
+      "line_end": 16,
+      "complexity_score": 0.15,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.prospect.prospect"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "2538cb2c",
+      "test_name": "test_make_customer_from_prospect",
+      "category": "instantiation",
+      "code": "prospect = frappe.get_doc({'doctype': 'Prospect', 'company_name': '_Test Prospect', 'customer_group': '_Test Customer Group'})",
+      "language": "Python",
+      "description": "Instantiate get_doc: test make customer from prospect",
+      "expected_behavior": "self.assertEqual(customer.doctype, 'Customer')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/prospect/test_prospect.py",
+      "line_start": 35,
+      "line_end": 41,
+      "complexity_score": 0.25,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.test_lead",
+        "erpnext.crm.doctype.prospect.prospect"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "5df283bb",
+      "test_name": "test_calendar_event_created",
+      "category": "instantiation",
+      "code": "cal_event = frappe.get_doc('Event', self.test_appointment.calendar_event)",
+      "language": "Python",
+      "description": "Instantiate get_doc: test calendar event created",
+      "expected_behavior": "self.assertEqual(cal_event.starts_on, self.test_appointment.scheduled_time)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/appointment/test_appointment.py",
+      "line_start": 40,
+      "line_end": 40,
+      "complexity_score": 0.2,
+      "confidence": 0.8,
+      "setup_code": "self.test_appointment = create_test_appointment()\nself.test_appointment.set_verified(self.test_appointment.customer_email)",
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest",
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "5df283bb",
+      "test_name": "test_calendar_event_created",
+      "category": "instantiation",
+      "code": "cal_event = frappe.get_doc('Event', self.test_appointment.calendar_event)",
+      "language": "Python",
+      "description": "Instantiate get_doc: test calendar event created",
+      "expected_behavior": "self.assertEqual(cal_event.starts_on, self.test_appointment.scheduled_time)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/appointment/test_appointment.py",
+      "line_start": 40,
+      "line_end": 40,
+      "complexity_score": 0.2,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest",
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "3661658b",
+      "test_name": "test_sales_pipeline_analytics",
+      "category": "workflow",
+      "code": "self.from_date = '2021-01-01'\nself.to_date = '2021-12-31'\nself.check_for_monthly_and_number()\nself.check_for_monthly_and_amount()\nself.check_for_quarterly_and_number()\nself.check_for_quarterly_and_amount()\nself.check_for_all_filters()",
+      "language": "Python",
+      "description": "Workflow: test sales pipeline analytics",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/report/sales_pipeline_analytics/test_sales_pipeline_analytics.py",
+      "line_start": 15,
+      "line_end": 22,
+      "complexity_score": 0.7,
+      "confidence": 0.9,
+      "setup_code": "create_company()\ncreate_customer()\ncreate_opportunity()",
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "erpnext.crm.report.sales_pipeline_analytics.sales_pipeline_analytics"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "3661658b",
+      "test_name": "test_sales_pipeline_analytics",
+      "category": "workflow",
+      "code": "self.from_date = '2021-01-01'\nself.to_date = '2021-12-31'\nself.check_for_monthly_and_number()\nself.check_for_monthly_and_amount()\nself.check_for_quarterly_and_number()\nself.check_for_quarterly_and_amount()\nself.check_for_all_filters()",
+      "language": "Python",
+      "description": "Workflow: test sales pipeline analytics",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/report/sales_pipeline_analytics/test_sales_pipeline_analytics.py",
+      "line_start": 15,
+      "line_end": 22,
+      "complexity_score": 0.7,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "erpnext.crm.report.sales_pipeline_analytics.sales_pipeline_analytics"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "f62eb534",
+      "test_name": "test_make_customer",
+      "category": "workflow",
+      "code": "from erpnext.crm.doctype.lead.lead import make_customer\nfrappe.delete_doc_if_exists('Customer', '_Test Lead')\ncustomer = make_customer(self.leads[0].name)\nself.assertEqual(customer.doctype, 'Customer')\nself.assertEqual(customer.lead_name, self.leads[0].name)\ncustomer.company = '_Test Company'\ncustomer.customer_group = '_Test Customer Group'\ncustomer.insert()\ncontact = frappe.db.get_value('Dynamic Link', {'parenttype': 'Contact', 'link_doctype': 'Lead', 'link_name': customer.lead_name}, 'parent')\nif contact:\n    contact_doc = frappe.get_doc('Contact', contact)\n    self.assertEqual(contact_doc.has_link(customer.doctype, customer.name), True)",
+      "language": "Python",
+      "description": "Workflow: test make customer",
+      "expected_behavior": "self.assertEqual(customer.lead_name, self.leads[0].name)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+      "line_start": 20,
+      "line_end": 46,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.lead"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "f62eb534",
+      "test_name": "test_make_customer",
+      "category": "workflow",
+      "code": "from erpnext.crm.doctype.lead.lead import make_customer\nfrappe.delete_doc_if_exists('Customer', '_Test Lead')\ncustomer = make_customer(self.leads[0].name)\nself.assertEqual(customer.doctype, 'Customer')\nself.assertEqual(customer.lead_name, self.leads[0].name)\ncustomer.company = '_Test Company'\ncustomer.customer_group = '_Test Customer Group'\ncustomer.insert()\ncontact = frappe.db.get_value('Dynamic Link', {'parenttype': 'Contact', 'link_doctype': 'Lead', 'link_name': customer.lead_name}, 'parent')\nif contact:\n    contact_doc = frappe.get_doc('Contact', contact)\n    self.assertEqual(contact_doc.has_link(customer.doctype, customer.name), True)",
+      "language": "Python",
+      "description": "Workflow: test make customer",
+      "expected_behavior": "self.assertEqual(customer.lead_name, self.leads[0].name)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+      "line_start": 20,
+      "line_end": 46,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.lead"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "0a4e422e",
+      "test_name": "test_make_customer",
+      "category": "method_call",
+      "code": "self.assertEqual(customer.doctype, 'Customer')\nself.assertEqual(customer.lead_name, self.leads[0].name)",
+      "language": "Python",
+      "description": "test make customer",
+      "expected_behavior": "self.assertEqual(customer.lead_name, self.leads[0].name)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+      "line_start": 26,
+      "line_end": 27,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.lead"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "6dbe518f",
+      "test_name": "test_make_customer_from_organization",
+      "category": "method_call",
+      "code": "self.assertEqual(customer.doctype, 'Customer')\nself.assertEqual(customer.lead_name, self.leads[1].name)",
+      "language": "Python",
+      "description": "test make customer from organization",
+      "expected_behavior": "self.assertEqual(customer.lead_name, self.leads[1].name)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+      "line_start": 52,
+      "line_end": 53,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.lead"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "ac8c88d4",
+      "test_name": "test_create_lead_and_unlinking_dynamic_links",
+      "category": "method_call",
+      "code": "address_1.reload()\nself.assertEqual(frappe.db.exists('Lead', lead_doc.name), None)",
+      "language": "Python",
+      "description": "test create lead and unlinking dynamic links",
+      "expected_behavior": "self.assertEqual(frappe.db.exists('Lead', lead_doc.name), None)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+      "line_start": 88,
+      "line_end": 89,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.lead"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "6d0f4058",
+      "test_name": "test_create_lead_and_unlinking_dynamic_links",
+      "category": "method_call",
+      "code": "self.assertEqual(frappe.db.exists('Lead', lead_doc.name), None)\nself.assertEqual(len(address_1.get('links')), 1)",
+      "language": "Python",
+      "description": "test create lead and unlinking dynamic links",
+      "expected_behavior": "self.assertEqual(len(address_1.get('links')), 1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+      "line_start": 89,
+      "line_end": 90,
+      "complexity_score": 0.4,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.lead"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "610768bd",
+      "test_name": "test_prospect_creation_from_lead",
+      "category": "method_call",
+      "code": "event.reload()\nself.assertEqual(event.event_participants[1].reference_doctype, 'Prospect')",
+      "language": "Python",
+      "description": "test prospect creation from lead",
+      "expected_behavior": "self.assertEqual(event.event_participants[1].reference_doctype, 'Prospect')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+      "line_start": 110,
+      "line_end": 111,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.lead"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "4fc81db4",
+      "test_name": "test_prospect_creation_from_lead",
+      "category": "method_call",
+      "code": "self.assertEqual(event.event_participants[1].reference_doctype, 'Prospect')\nself.assertEqual(event.event_participants[1].reference_docname, prospect)",
+      "language": "Python",
+      "description": "test prospect creation from lead",
+      "expected_behavior": "self.assertEqual(event.event_participants[1].reference_docname, prospect)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+      "line_start": 111,
+      "line_end": 112,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.lead"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "f981d670",
+      "test_name": "test_opportunity_from_lead",
+      "category": "method_call",
+      "code": "opportunity.save()\nself.assertEqual(opportunity.get('party_name'), lead.name)",
+      "language": "Python",
+      "description": "test opportunity from lead",
+      "expected_behavior": "self.assertEqual(opportunity.get('party_name'), lead.name)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+      "line_start": 130,
+      "line_end": 132,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.lead"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "2ad40c02",
+      "test_name": "test_opportunity_from_lead",
+      "category": "method_call",
+      "code": "self.assertEqual(opportunity.get('party_name'), lead.name)\nself.assertEqual(opportunity.notes[0].note, 'test note')",
+      "language": "Python",
+      "description": "test opportunity from lead",
+      "expected_behavior": "self.assertEqual(opportunity.notes[0].note, 'test note')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/lead/test_lead.py",
+      "line_start": 132,
+      "line_end": 133,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.utils",
+        "erpnext.tests.utils",
+        "erpnext.crm.doctype.lead.lead",
+        "erpnext.crm.doctype.lead.lead"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "2c261561",
+      "test_name": "test_fulfilled_contract_status",
+      "category": "workflow",
+      "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'\nself.contract_doc.requires_fulfilment = 1\nfulfilment_terms = []\nfulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})\nself.contract_doc.set('fulfilment_terms', fulfilment_terms)\nfor term in self.contract_doc.fulfilment_terms:\n    term.fulfilled = 1\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Fulfilled')",
+      "language": "Python",
+      "description": "Workflow: test fulfilled contract status",
+      "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Fulfilled')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+      "line_start": 61,
+      "line_end": 75,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": "frappe.db.sql('delete from `tabContract`')\nself.contract_doc = get_contract()",
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "ec9e4f1d",
+      "test_name": "test_partially_fulfilled_contract_status",
+      "category": "workflow",
+      "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'\nself.contract_doc.requires_fulfilment = 1\nself.contract_doc.save()\nfulfilment_terms = []\nfulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})\nfulfilment_terms.append({'requirement': 'This is another test requirement.', 'fulfilled': 0})\nself.contract_doc.set('fulfilment_terms', fulfilment_terms)\nself.contract_doc.fulfilment_terms[0].fulfilled = 1\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Partially Fulfilled')",
+      "language": "Python",
+      "description": "Workflow: test partially fulfilled contract status",
+      "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Partially Fulfilled')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+      "line_start": 77,
+      "line_end": 91,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": "frappe.db.sql('delete from `tabContract`')\nself.contract_doc = get_contract()",
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "7d74cb6d",
+      "test_name": "test_lapsed_contract_status",
+      "category": "workflow",
+      "code": "self.contract_doc.contract_term = '_Test Customer Contract with Requirements'\nself.contract_doc.start_date = add_days(nowdate(), -2)\nself.contract_doc.end_date = add_days(nowdate(), 1)\nself.contract_doc.requires_fulfilment = 1\nself.contract_doc.fulfilment_deadline = add_days(nowdate(), -1)\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Lapsed')",
+      "language": "Python",
+      "description": "Workflow: test lapsed contract status",
+      "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Lapsed')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+      "line_start": 93,
+      "line_end": 101,
+      "complexity_score": 0.7,
+      "confidence": 0.9,
+      "setup_code": "frappe.db.sql('delete from `tabContract`')\nself.contract_doc = get_contract()",
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "2c261561",
+      "test_name": "test_fulfilled_contract_status",
+      "category": "workflow",
+      "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'\nself.contract_doc.requires_fulfilment = 1\nfulfilment_terms = []\nfulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})\nself.contract_doc.set('fulfilment_terms', fulfilment_terms)\nfor term in self.contract_doc.fulfilment_terms:\n    term.fulfilled = 1\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Fulfilled')",
+      "language": "Python",
+      "description": "Workflow: test fulfilled contract status",
+      "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Fulfilled')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+      "line_start": 61,
+      "line_end": 75,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "ec9e4f1d",
+      "test_name": "test_partially_fulfilled_contract_status",
+      "category": "workflow",
+      "code": "self.contract_doc.contract_terms = '_Test Customer Contract with Requirements'\nself.contract_doc.requires_fulfilment = 1\nself.contract_doc.save()\nfulfilment_terms = []\nfulfilment_terms.append({'requirement': 'This is a test requirement.', 'fulfilled': 0})\nfulfilment_terms.append({'requirement': 'This is another test requirement.', 'fulfilled': 0})\nself.contract_doc.set('fulfilment_terms', fulfilment_terms)\nself.contract_doc.fulfilment_terms[0].fulfilled = 1\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Partially Fulfilled')",
+      "language": "Python",
+      "description": "Workflow: test partially fulfilled contract status",
+      "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Partially Fulfilled')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+      "line_start": 77,
+      "line_end": 91,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "7d74cb6d",
+      "test_name": "test_lapsed_contract_status",
+      "category": "workflow",
+      "code": "self.contract_doc.contract_term = '_Test Customer Contract with Requirements'\nself.contract_doc.start_date = add_days(nowdate(), -2)\nself.contract_doc.end_date = add_days(nowdate(), 1)\nself.contract_doc.requires_fulfilment = 1\nself.contract_doc.fulfilment_deadline = add_days(nowdate(), -1)\nself.contract_doc.save()\nself.assertEqual(self.contract_doc.fulfilment_status, 'Lapsed')",
+      "language": "Python",
+      "description": "Workflow: test lapsed contract status",
+      "expected_behavior": "self.assertEqual(self.contract_doc.fulfilment_status, 'Lapsed')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+      "line_start": 93,
+      "line_end": 101,
+      "complexity_score": 0.7,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "b5bcdf81",
+      "test_name": "test_unsigned_contract_status",
+      "category": "method_call",
+      "code": "self.contract_doc.insert()\nself.assertEqual(self.contract_doc.status, 'Unsigned')",
+      "language": "Python",
+      "description": "test unsigned contract status",
+      "expected_behavior": "self.assertEqual(self.contract_doc.status, 'Unsigned')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+      "line_start": 22,
+      "line_end": 23,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": "frappe.db.sql('delete from `tabContract`')\nself.contract_doc = get_contract()",
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "a5782dc6",
+      "test_name": "test_active_signed_contract_status",
+      "category": "method_call",
+      "code": "self.contract_doc.insert()\nself.assertEqual(self.contract_doc.status, 'Active')",
+      "language": "Python",
+      "description": "test active signed contract status",
+      "expected_behavior": "self.assertEqual(self.contract_doc.status, 'Active')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+      "line_start": 29,
+      "line_end": 31,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": "frappe.db.sql('delete from `tabContract`')\nself.contract_doc = get_contract()",
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "945bc781",
+      "test_name": "test_past_inactive_signed_contract_status",
+      "category": "method_call",
+      "code": "self.contract_doc.insert()\nself.assertEqual(self.contract_doc.status, 'Inactive')",
+      "language": "Python",
+      "description": "test past inactive signed contract status",
+      "expected_behavior": "self.assertEqual(self.contract_doc.status, 'Inactive')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+      "line_start": 37,
+      "line_end": 39,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": "frappe.db.sql('delete from `tabContract`')\nself.contract_doc = get_contract()",
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "945bc781",
+      "test_name": "test_future_inactive_signed_contract_status",
+      "category": "method_call",
+      "code": "self.contract_doc.insert()\nself.assertEqual(self.contract_doc.status, 'Inactive')",
+      "language": "Python",
+      "description": "test future inactive signed contract status",
+      "expected_behavior": "self.assertEqual(self.contract_doc.status, 'Inactive')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/dcnet_core/erpnext/crm/doctype/contract/test_contract.py",
+      "line_start": 45,
+      "line_end": 47,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": "frappe.db.sql('delete from `tabContract`')\nself.contract_doc = get_contract()",
+      "tags": [
+        "unittest"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    }
+  ]
+}

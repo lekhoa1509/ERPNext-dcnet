@@ -1,0 +1,362 @@
+[
+  {
+    "doctype": "Customer",
+    "customer_name": "Nguyễn Văn An",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0901234567",
+    "email_id": "nguyenvanan@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Trần Minh Tuấn",
+    "customer_type": "Individual",
+    "customer_group": "Golf Club Members",
+    "territory": "Vietnam",
+    "mobile_no": "0912345678",
+    "email_id": "tranminhtuan@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Lê Hoàng Nam",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0923456789",
+    "email_id": "lehoangnam@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Phạm Đức Hùng",
+    "customer_type": "Individual",
+    "customer_group": "VIP Distributor",
+    "territory": "Vietnam",
+    "mobile_no": "0934567890",
+    "email_id": "phamduchung@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Võ Thị Mai",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0945678901",
+    "email_id": "vothimai@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Hoàng Quốc Việt",
+    "customer_type": "Individual",
+    "customer_group": "Golf Club Members",
+    "territory": "Vietnam",
+    "mobile_no": "0956789012",
+    "email_id": "hoangquocviet@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Đặng Thanh Tùng",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0967890123",
+    "email_id": "dangthanhtung@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Bùi Văn Hải",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0978901234",
+    "email_id": "buivanhai@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Ngô Thị Lan",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0989012345",
+    "email_id": "ngothilan@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Trịnh Công Sơn",
+    "customer_type": "Individual",
+    "customer_group": "Golf Club Members",
+    "territory": "Vietnam",
+    "mobile_no": "0990123456",
+    "email_id": "trinhcongson@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Đinh Văn Phong",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0901234568",
+    "email_id": "dinhvanphong@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Lý Minh Châu",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0912345679",
+    "email_id": "lyminhchau@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Phan Quang Huy",
+    "customer_type": "Individual",
+    "customer_group": "VIP Distributor",
+    "territory": "Vietnam",
+    "mobile_no": "0923456780",
+    "email_id": "phanquanghuy@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Vũ Ngọc Anh",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0934567891",
+    "email_id": "vungocanh@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Dương Minh Quang",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0945678902",
+    "email_id": "duongminhquang@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Hồ Văn Thắng",
+    "customer_type": "Individual",
+    "customer_group": "Golf Club Members",
+    "territory": "Vietnam",
+    "mobile_no": "0956789013",
+    "email_id": "hovanthang@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Nguyễn Thị Hương",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0967890124",
+    "email_id": "nguyenthihuong@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Trần Đình Khoa",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0978901235",
+    "email_id": "trandinhkhoa@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Lê Văn Đức",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0989012346",
+    "email_id": "levanduc@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Phạm Thị Thu",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0990123457",
+    "email_id": "phamthithu@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Sân Golf Long Thành",
+    "customer_type": "Company",
+    "customer_group": "Golf Wholesale",
+    "territory": "Vietnam",
+    "mobile_no": "02513456789",
+    "email_id": "proshop@longthanggolf.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Golf Shop Tân Sơn Nhất",
+    "customer_type": "Company",
+    "customer_group": "Golf Wholesale",
+    "territory": "Vietnam",
+    "mobile_no": "02838123456",
+    "email_id": "sales@tansonnhatgolf.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Pro Shop Vinpearl Golf",
+    "customer_type": "Company",
+    "customer_group": "Golf Wholesale",
+    "territory": "Vietnam",
+    "mobile_no": "02582345678",
+    "email_id": "proshop@vinpearlgolf.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "FLC Golf Club",
+    "customer_type": "Company",
+    "customer_group": "Golf Wholesale",
+    "territory": "Vietnam",
+    "mobile_no": "02033456789",
+    "email_id": "sales@flcgolf.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Sân Golf Đầm Vạc",
+    "customer_type": "Company",
+    "customer_group": "Golf Wholesale",
+    "territory": "Vietnam",
+    "mobile_no": "02113567890",
+    "email_id": "shop@damvacgolf.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Golf House Vietnam",
+    "customer_type": "Company",
+    "customer_group": "VIP Distributor",
+    "territory": "Vietnam",
+    "mobile_no": "02439876543",
+    "email_id": "order@golfhousevn.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Thế Giới Golf",
+    "customer_type": "Company",
+    "customer_group": "Golf Wholesale",
+    "territory": "Vietnam",
+    "mobile_no": "02838765432",
+    "email_id": "sales@thegioigolf.vn"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Golf Academy Hà Nội",
+    "customer_type": "Company",
+    "customer_group": "Training Centers",
+    "territory": "Vietnam",
+    "mobile_no": "02437654321",
+    "email_id": "info@golfacademyhn.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Trung tâm Golf Sài Gòn",
+    "customer_type": "Company",
+    "customer_group": "Training Centers",
+    "territory": "Vietnam",
+    "mobile_no": "02836543210",
+    "email_id": "contact@golfsaigon.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Golf Range Ciputra",
+    "customer_type": "Company",
+    "customer_group": "Training Centers",
+    "territory": "Vietnam",
+    "mobile_no": "02435432109",
+    "email_id": "booking@ciputragolf.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Kings Island Golf Resort",
+    "customer_type": "Company",
+    "customer_group": "Golf Wholesale",
+    "territory": "Vietnam",
+    "mobile_no": "02294321098",
+    "email_id": "proshop@kingsisland.vn"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "BRG Golf Vietnam",
+    "customer_type": "Company",
+    "customer_group": "VIP Distributor",
+    "territory": "Vietnam",
+    "mobile_no": "02433210987",
+    "email_id": "procurement@brggolf.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Lê Hoàng Golf Shop",
+    "customer_type": "Company",
+    "customer_group": "Golf Wholesale",
+    "territory": "Vietnam",
+    "mobile_no": "02832109876",
+    "email_id": "order@lehoanggolf.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Nguyễn Minh Golf Academy",
+    "customer_type": "Company",
+    "customer_group": "Training Centers",
+    "territory": "Vietnam",
+    "mobile_no": "02431098765",
+    "email_id": "info@nmgolfacademy.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Đặng Văn Bình",
+    "customer_type": "Individual",
+    "customer_group": "Golf Club Members",
+    "territory": "Vietnam",
+    "mobile_no": "0901098765",
+    "email_id": "dangvanbinh@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Cao Xuân Hùng",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0910987654",
+    "email_id": "caoxuanhung@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Tạ Minh Đức",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0920876543",
+    "email_id": "taminhduc@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Lương Thế Vinh",
+    "customer_type": "Individual",
+    "customer_group": "VIP Distributor",
+    "territory": "Vietnam",
+    "mobile_no": "0930765432",
+    "email_id": "luongthevinh@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Mai Văn Toàn",
+    "customer_type": "Individual",
+    "customer_group": "Golf Retail",
+    "territory": "Vietnam",
+    "mobile_no": "0940654321",
+    "email_id": "maivantoan@gmail.com"
+  },
+  {
+    "doctype": "Customer",
+    "customer_name": "Châu Ngọc Linh",
+    "customer_type": "Individual",
+    "customer_group": "Golf Club Members",
+    "territory": "Vietnam",
+    "mobile_no": "0950543210",
+    "email_id": "chaungoclinh@gmail.com"
+  }
+]

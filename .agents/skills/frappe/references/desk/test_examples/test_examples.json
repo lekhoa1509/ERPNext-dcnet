@@ -1,0 +1,1947 @@
+{
+  "total_examples": 76,
+  "examples_by_category": {
+    "instantiation": 8,
+    "method_call": 32,
+    "workflow": 36
+  },
+  "examples_by_language": {
+    "Python": 76
+  },
+  "avg_complexity": 0.59,
+  "high_value_count": 76,
+  "file_path": null,
+  "directory": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk",
+  "examples": [
+    {
+      "example_id": "c0bdbc7d",
+      "test_name": "test_linked_with",
+      "category": "instantiation",
+      "code": "results = get_linked_docs('Role', 'System Manager', linkinfo=get_linked_doctypes('Role'))",
+      "language": "Python",
+      "description": "Instantiate get_linked_docs: test linked with",
+      "expected_behavior": "self.assertTrue('User' in results)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/form/test_form.py",
+      "line_start": 11,
+      "line_end": 11,
+      "complexity_score": 0.25,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.desk.form.linked_with",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "ff7be555",
+      "test_name": "test_linked_with",
+      "category": "method_call",
+      "code": "self.assertTrue('User' in results)\nself.assertTrue('DocType' in results)",
+      "language": "Python",
+      "description": "test linked with",
+      "expected_behavior": "self.assertTrue('DocType' in results)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/form/test_form.py",
+      "line_start": 12,
+      "line_end": 13,
+      "complexity_score": 0.25,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.desk.form.linked_with",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "c0bdbc7d",
+      "test_name": "test_linked_with",
+      "category": "instantiation",
+      "code": "results = get_linked_docs('Role', 'System Manager', linkinfo=get_linked_doctypes('Role'))",
+      "language": "Python",
+      "description": "Instantiate get_linked_docs: test linked with",
+      "expected_behavior": "self.assertTrue('User' in results)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/form/test_form.py",
+      "line_start": 11,
+      "line_end": 11,
+      "complexity_score": 0.25,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.desk.form.linked_with",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "ff7be555",
+      "test_name": "test_linked_with",
+      "category": "method_call",
+      "code": "self.assertTrue('User' in results)\nself.assertTrue('DocType' in results)",
+      "language": "Python",
+      "description": "test linked with",
+      "expected_behavior": "self.assertTrue('DocType' in results)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/form/test_form.py",
+      "line_start": 12,
+      "line_end": 13,
+      "complexity_score": 0.25,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.desk.form.linked_with",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "dfd9e973",
+      "test_name": "test_fetch_setup",
+      "category": "workflow",
+      "code": "frappe.db.delete('ToDo')\ntodo_meta = frappe.get_meta('ToDo')\ntodo_meta.get('fields', dict(fieldname='assigned_by_full_name'))[0].fetch_from = ''\ntodo_meta.save()\nfrappe.clear_cache(doctype='ToDo')\ntodo = frappe.get_doc(doctype='ToDo', description='test todo', assigned_by='Administrator').insert()\nself.assertFalse(todo.assigned_by_full_name)\ntodo_meta = frappe.get_meta('ToDo')\ntodo_meta.get('fields', dict(fieldname='assigned_by_full_name'))[0].fetch_from = 'assigned_by.full_name'\ntodo_meta.save()\ntodo.reload()\ntodo.save()\nself.assertEqual(todo.assigned_by_full_name, frappe.db.get_value('User', todo.assigned_by, 'full_name'))",
+      "language": "Python",
+      "description": "Workflow: test fetch setup",
+      "expected_behavior": "self.assertEqual(todo.assigned_by_full_name, frappe.db.get_value('User', todo.assigned_by, 'full_name'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+      "line_start": 30,
+      "line_end": 53,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.doctype.doctype",
+        "frappe.model.db_query",
+        "frappe.permissions",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "430d120b",
+      "test_name": "test_doc_read_access",
+      "category": "workflow",
+      "code": "todo1 = create_new_todo('Test1', 'testperm@example.com')\ntest_user = frappe.get_doc('User', 'test4@example.com')\ntodo2 = create_new_todo('Test2', 'test4@example.com')\nfrappe.set_user('test4@example.com')\ntodo3 = create_new_todo('Test3', 'test4@example.com')\nself.assertFalse(todo1.has_permission('read'))\nself.assertFalse(todo1.has_permission('write'))\nself.assertTrue(todo2.has_permission('read'))\nself.assertTrue(todo2.has_permission('write'))\nself.assertTrue(todo3.has_permission('read'))\nself.assertTrue(todo3.has_permission('write'))\nfrappe.set_user('Administrator')\ntest_user.add_roles('Website Manager')\nadd_permission('ToDo', 'Website Manager')\nfrappe.set_user('test4@example.com')\nself.assertTrue(todo1.has_permission('read'))\nself.assertFalse(todo1.has_permission('write'))\nfrappe.set_user('Administrator')\ntest_user.remove_roles('Website Manager')\nreset_perms('ToDo')\nclear_permissions_cache('ToDo')\nfrappe.db.rollback()",
+      "language": "Python",
+      "description": "Workflow: test doc read access",
+      "expected_behavior": "self.assertFalse(todo1.has_permission('write'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+      "line_start": 70,
+      "line_end": 109,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.doctype.doctype",
+        "frappe.model.db_query",
+        "frappe.permissions",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "22941e91",
+      "test_name": "test_fetch_if_empty",
+      "category": "workflow",
+      "code": "frappe.db.delete('ToDo')\ntodo_meta = frappe.get_meta('ToDo')\nfield = todo_meta.get('fields', dict(fieldname='assigned_by_full_name'))[0]\nfield.fetch_from = 'assigned_by.full_name'\nfield.fetch_if_empty = 1\ntodo_meta.save()\nfrappe.clear_cache(doctype='ToDo')\ntodo = frappe.get_doc(doctype='ToDo', description='test todo', assigned_by='Administrator', assigned_by_full_name='Admin').insert()\nself.assertEqual(todo.assigned_by_full_name, 'Admin')\ntodo.meta.get('fields', dict(fieldname='assigned_by_full_name'))[0].fetch_if_empty = 0\ntodo.meta.save()\ntodo.reload()\ntodo.save()\nself.assertEqual(todo.assigned_by_full_name, frappe.db.get_value('User', todo.assigned_by, 'full_name'))",
+      "language": "Python",
+      "description": "Workflow: test fetch if empty",
+      "expected_behavior": "self.assertEqual(todo.assigned_by_full_name, frappe.db.get_value('User', todo.assigned_by, 'full_name'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+      "line_start": 111,
+      "line_end": 141,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.doctype.doctype",
+        "frappe.model.db_query",
+        "frappe.permissions",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "dfd9e973",
+      "test_name": "test_fetch_setup",
+      "category": "workflow",
+      "code": "frappe.db.delete('ToDo')\ntodo_meta = frappe.get_meta('ToDo')\ntodo_meta.get('fields', dict(fieldname='assigned_by_full_name'))[0].fetch_from = ''\ntodo_meta.save()\nfrappe.clear_cache(doctype='ToDo')\ntodo = frappe.get_doc(doctype='ToDo', description='test todo', assigned_by='Administrator').insert()\nself.assertFalse(todo.assigned_by_full_name)\ntodo_meta = frappe.get_meta('ToDo')\ntodo_meta.get('fields', dict(fieldname='assigned_by_full_name'))[0].fetch_from = 'assigned_by.full_name'\ntodo_meta.save()\ntodo.reload()\ntodo.save()\nself.assertEqual(todo.assigned_by_full_name, frappe.db.get_value('User', todo.assigned_by, 'full_name'))",
+      "language": "Python",
+      "description": "Workflow: test fetch setup",
+      "expected_behavior": "self.assertEqual(todo.assigned_by_full_name, frappe.db.get_value('User', todo.assigned_by, 'full_name'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+      "line_start": 30,
+      "line_end": 53,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.doctype.doctype",
+        "frappe.model.db_query",
+        "frappe.permissions",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "430d120b",
+      "test_name": "test_doc_read_access",
+      "category": "workflow",
+      "code": "todo1 = create_new_todo('Test1', 'testperm@example.com')\ntest_user = frappe.get_doc('User', 'test4@example.com')\ntodo2 = create_new_todo('Test2', 'test4@example.com')\nfrappe.set_user('test4@example.com')\ntodo3 = create_new_todo('Test3', 'test4@example.com')\nself.assertFalse(todo1.has_permission('read'))\nself.assertFalse(todo1.has_permission('write'))\nself.assertTrue(todo2.has_permission('read'))\nself.assertTrue(todo2.has_permission('write'))\nself.assertTrue(todo3.has_permission('read'))\nself.assertTrue(todo3.has_permission('write'))\nfrappe.set_user('Administrator')\ntest_user.add_roles('Website Manager')\nadd_permission('ToDo', 'Website Manager')\nfrappe.set_user('test4@example.com')\nself.assertTrue(todo1.has_permission('read'))\nself.assertFalse(todo1.has_permission('write'))\nfrappe.set_user('Administrator')\ntest_user.remove_roles('Website Manager')\nreset_perms('ToDo')\nclear_permissions_cache('ToDo')\nfrappe.db.rollback()",
+      "language": "Python",
+      "description": "Workflow: test doc read access",
+      "expected_behavior": "self.assertFalse(todo1.has_permission('write'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+      "line_start": 70,
+      "line_end": 109,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.doctype.doctype",
+        "frappe.model.db_query",
+        "frappe.permissions",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "22941e91",
+      "test_name": "test_fetch_if_empty",
+      "category": "workflow",
+      "code": "frappe.db.delete('ToDo')\ntodo_meta = frappe.get_meta('ToDo')\nfield = todo_meta.get('fields', dict(fieldname='assigned_by_full_name'))[0]\nfield.fetch_from = 'assigned_by.full_name'\nfield.fetch_if_empty = 1\ntodo_meta.save()\nfrappe.clear_cache(doctype='ToDo')\ntodo = frappe.get_doc(doctype='ToDo', description='test todo', assigned_by='Administrator', assigned_by_full_name='Admin').insert()\nself.assertEqual(todo.assigned_by_full_name, 'Admin')\ntodo.meta.get('fields', dict(fieldname='assigned_by_full_name'))[0].fetch_if_empty = 0\ntodo.meta.save()\ntodo.reload()\ntodo.save()\nself.assertEqual(todo.assigned_by_full_name, frappe.db.get_value('User', todo.assigned_by, 'full_name'))",
+      "language": "Python",
+      "description": "Workflow: test fetch if empty",
+      "expected_behavior": "self.assertEqual(todo.assigned_by_full_name, frappe.db.get_value('User', todo.assigned_by, 'full_name'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+      "line_start": 111,
+      "line_end": 141,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.doctype.doctype",
+        "frappe.model.db_query",
+        "frappe.permissions",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "c57b9176",
+      "test_name": "test_fetch_setup",
+      "category": "method_call",
+      "code": "todo.save()\nself.assertEqual(todo.assigned_by_full_name, frappe.db.get_value('User', todo.assigned_by, 'full_name'))",
+      "language": "Python",
+      "description": "test fetch setup",
+      "expected_behavior": "self.assertEqual(todo.assigned_by_full_name, frappe.db.get_value('User', todo.assigned_by, 'full_name'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+      "line_start": 49,
+      "line_end": 53,
+      "complexity_score": 0.4,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.doctype.doctype",
+        "frappe.model.db_query",
+        "frappe.permissions",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "05ee3dc1",
+      "test_name": "test_doc_read_access",
+      "category": "method_call",
+      "code": "self.assertFalse(todo1.has_permission('read'))\nself.assertFalse(todo1.has_permission('write'))",
+      "language": "Python",
+      "description": "test doc read access",
+      "expected_behavior": "self.assertFalse(todo1.has_permission('write'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+      "line_start": 83,
+      "line_end": 84,
+      "complexity_score": 0.25,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.doctype.doctype",
+        "frappe.model.db_query",
+        "frappe.permissions",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "38cbce11",
+      "test_name": "test_doc_read_access",
+      "category": "method_call",
+      "code": "self.assertFalse(todo1.has_permission('write'))\nself.assertTrue(todo2.has_permission('read'))",
+      "language": "Python",
+      "description": "test doc read access",
+      "expected_behavior": "self.assertTrue(todo2.has_permission('read'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+      "line_start": 84,
+      "line_end": 87,
+      "complexity_score": 0.25,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.doctype.doctype",
+        "frappe.model.db_query",
+        "frappe.permissions",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "f65ea9fb",
+      "test_name": "test_doc_read_access",
+      "category": "method_call",
+      "code": "self.assertTrue(todo2.has_permission('read'))\nself.assertTrue(todo2.has_permission('write'))",
+      "language": "Python",
+      "description": "test doc read access",
+      "expected_behavior": "self.assertTrue(todo2.has_permission('write'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/todo/test_todo.py",
+      "line_start": 87,
+      "line_end": 88,
+      "complexity_score": 0.25,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.doctype.doctype",
+        "frappe.model.db_query",
+        "frappe.permissions",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "5baccef8",
+      "test_name": "test_assign",
+      "category": "workflow",
+      "code": "from frappe.desk.form.assign_to import add\nev = frappe.get_doc(self.globalTestRecords['Event'][0]).insert()\nadd({'assign_to': ['test@example.com'], 'doctype': 'Event', 'name': ev.name, 'description': 'Test Assignment'})\nev = frappe.get_doc('Event', ev.name)\nself.assertEqual(ev._assign, json.dumps(['test@example.com']))\nadd({'assign_to': [self.test_user], 'doctype': 'Event', 'name': ev.name, 'description': 'Test Assignment'})\nev = frappe.get_doc('Event', ev.name)\nself.assertEqual(set(json.loads(ev._assign)), {'test@example.com', self.test_user})\ntodo = frappe.get_doc('ToDo', {'reference_type': ev.doctype, 'reference_name': ev.name, 'allocated_to': self.test_user})\ntodo.status = 'Cancelled'\ntodo.save()\nev = frappe.get_doc('Event', ev.name)\nself.assertEqual(ev._assign, json.dumps(['test@example.com']))\nev.delete()",
+      "language": "Python",
+      "description": "Workflow: test assign",
+      "expected_behavior": "self.assertEqual(ev._assign, json.dumps(['test@example.com']))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+      "line_start": 65,
+      "line_end": 109,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": "frappe.db.delete('Event')\nmake_test_objects('Event', reset=True)\nself.test_user = 'test1@example.com'",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "datetime",
+        "frappe",
+        "frappe.core.utils",
+        "frappe.desk.doctype.event.event",
+        "frappe.tests",
+        "frappe.tests.utils",
+        "frappe.desk.form.assign_to"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "1e6a397f",
+      "test_name": "test_yearly_repeat",
+      "category": "workflow",
+      "code": "ev = frappe.get_doc({'doctype': 'Event', 'subject': '_Test Event', 'starts_on': '2014-02-01', 'event_type': 'Public', 'repeat_this_event': 1, 'repeat_on': 'Yearly'}).insert()\n\ndef test_record_matched(e):\n    return e.name == ev.name\napplicable_dates = [(date(2014, 2, 1), date(2014, 2, 1)), (date(2015, 2, 1), date(2015, 2, 1)), (date(2016, 2, 1), date(2016, 2, 1))]\nfor start_date, end_date in applicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertTrue(find(event_list, test_record_matched), f'Event not found between {start_date} and {end_date}')\nunapplicable_dates = [(date(2014, 1, 20), date(2014, 1, 20)), (date(2015, 1, 20), date(2015, 1, 20))]\nfor start_date, end_date in unapplicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertFalse(find(event_list, test_record_matched), f'Event found between {start_date} and {end_date}')\nev.starts_on = date(2016, 2, 29)\nev.save()\napplicable_dates = [(date(2016, 2, 29), date(2016, 2, 29)), (date(2024, 2, 28), date(2024, 2, 29))]\nfor start_date, end_date in applicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertTrue(find(event_list, test_record_matched), f'Event not found between {start_date} and {end_date}')",
+      "language": "Python",
+      "description": "Workflow: test yearly repeat",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+      "line_start": 111,
+      "line_end": 165,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": "frappe.db.delete('Event')\nmake_test_objects('Event', reset=True)\nself.test_user = 'test1@example.com'",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "datetime",
+        "frappe",
+        "frappe.core.utils",
+        "frappe.desk.doctype.event.event",
+        "frappe.tests",
+        "frappe.tests.utils",
+        "frappe.desk.form.assign_to"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "3cc229e8",
+      "test_name": "test_quaterly_repeat",
+      "category": "workflow",
+      "code": "ev = frappe.get_doc({'doctype': 'Event', 'subject': '_Test Event', 'starts_on': '2023-02-17', 'repeat_till': '2024-02-17', 'event_type': 'Public', 'repeat_this_event': 1, 'repeat_on': 'Quarterly'}).insert()\n\ndef test_record_matched(e):\n    return e.name == ev.name\napplicable_dates = [(date(2023, 2, 17), date(2023, 2, 17)), (date(2023, 5, 17), date(2023, 5, 17)), (date(2023, 8, 17), date(2023, 8, 17)), (date(2023, 11, 17), date(2023, 11, 17))]\nfor start_date, end_date in applicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertTrue(find(event_list, test_record_matched), f'Event not found between {start_date} and {end_date}')\nunapplicable_dates = [(date(2022, 11, 17), date(2022, 11, 17)), (date(2024, 2, 17), date(2024, 2, 17)), (date(2023, 12, 17), date(2023, 12, 17)), (date(2023, 3, 17), date(2023, 3, 17))]\nfor start_date, end_date in unapplicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertFalse(find(event_list, test_record_matched), f'Event found between {start_date} and {end_date}')",
+      "language": "Python",
+      "description": "Workflow: test quaterly repeat",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+      "line_start": 196,
+      "line_end": 242,
+      "complexity_score": 0.6,
+      "confidence": 0.9,
+      "setup_code": "frappe.db.delete('Event')\nmake_test_objects('Event', reset=True)\nself.test_user = 'test1@example.com'",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "datetime",
+        "frappe",
+        "frappe.core.utils",
+        "frappe.desk.doctype.event.event",
+        "frappe.tests",
+        "frappe.tests.utils",
+        "frappe.desk.form.assign_to"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "b5d19f4a",
+      "test_name": "test_half_yearly_repeat",
+      "category": "workflow",
+      "code": "ev = frappe.get_doc({'doctype': 'Event', 'subject': '_Test Event', 'starts_on': '2023-02-17', 'repeat_till': '2024-02-17', 'event_type': 'Public', 'repeat_this_event': 1, 'repeat_on': 'Half Yearly'}).insert()\n\ndef test_record_matched(e):\n    return e.name == ev.name\napplicable_dates = [(date(2023, 2, 17), date(2023, 2, 17)), (date(2023, 8, 17), date(2023, 8, 17))]\nfor start_date, end_date in applicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertTrue(find(event_list, test_record_matched), f'Event not found between {start_date} and {end_date}')\nunapplicable_dates = [(date(2022, 8, 17), date(2022, 8, 17)), (date(2024, 2, 17), date(2024, 2, 17)), (date(2023, 12, 17), date(2023, 12, 17)), (date(2023, 5, 17), date(2023, 5, 17))]\nfor start_date, end_date in unapplicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertFalse(find(event_list, test_record_matched), f'Event found between {start_date} and {end_date}')",
+      "language": "Python",
+      "description": "Workflow: test half yearly repeat",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+      "line_start": 244,
+      "line_end": 288,
+      "complexity_score": 0.6,
+      "confidence": 0.9,
+      "setup_code": "frappe.db.delete('Event')\nmake_test_objects('Event', reset=True)\nself.test_user = 'test1@example.com'",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "datetime",
+        "frappe",
+        "frappe.core.utils",
+        "frappe.desk.doctype.event.event",
+        "frappe.tests",
+        "frappe.tests.utils",
+        "frappe.desk.form.assign_to"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "81005964",
+      "test_name": "test_daily_repeat",
+      "category": "workflow",
+      "code": "ev = frappe.get_doc({'doctype': 'Event', 'subject': '_Test Event', 'starts_on': '2023-02-17', 'repeat_till': '2024-02-17', 'event_type': 'Public', 'repeat_this_event': 1, 'repeat_on': 'Daily'}).insert()\n\ndef test_record_matched(e):\n    return e.name == ev.name\napplicable_dates = [(date(2023, 2, 17), date(2023, 2, 17)), (date(2024, 1, 1), date(2024, 1, 1))]\nfor start_date, end_date in applicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertTrue(find(event_list, test_record_matched), f'Event not found between {start_date} and {end_date}')\nunapplicable_dates = [(date(2024, 2, 17), date(2024, 2, 17)), (date(2022, 8, 17), date(2022, 8, 17)), (date(2024, 2, 18), date(2024, 2, 18))]\nfor start_date, end_date in unapplicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertFalse(find(event_list, test_record_matched), f'Event found between {start_date} and {end_date}')",
+      "language": "Python",
+      "description": "Workflow: test daily repeat",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+      "line_start": 290,
+      "line_end": 331,
+      "complexity_score": 0.6,
+      "confidence": 0.9,
+      "setup_code": "frappe.db.delete('Event')\nmake_test_objects('Event', reset=True)\nself.test_user = 'test1@example.com'",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "datetime",
+        "frappe",
+        "frappe.core.utils",
+        "frappe.desk.doctype.event.event",
+        "frappe.tests",
+        "frappe.tests.utils",
+        "frappe.desk.form.assign_to"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "809e4dd8",
+      "test_name": "test_weekly_repeat",
+      "category": "workflow",
+      "code": "ev = frappe.get_doc({'doctype': 'Event', 'subject': '_Test Event', 'starts_on': '2025-04-15 16:00:00', 'repeat_till': '2025-05-06 23:59:59', 'tuesday': 1, 'wednesday': 1, 'friday': 1, 'event_type': 'Public', 'repeat_this_event': 1, 'repeat_on': 'Weekly'}).insert()\n\ndef test_record_matched(e):\n    return e.name == ev.name\napplicable_dates = [(date(2025, 4, 15), date(2025, 4, 15)), (date(2025, 4, 22), date(2025, 4, 22)), (date(2025, 4, 29), date(2025, 4, 29)), (date(2025, 4, 30), date(2025, 4, 30)), (date(2025, 5, 2), date(2025, 5, 2))]\nfor start_date, end_date in applicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertTrue(find(event_list, test_record_matched), f'Event not found between {start_date} and {end_date}')\nunapplicable_dates = [(date(2022, 8, 17), date(2022, 8, 17)), (date(2024, 2, 18), date(2024, 2, 18)), (date(2023, 5, 17), date(2023, 5, 17)), (date(2023, 5, 18), date(2023, 5, 18))]\nfor start_date, end_date in unapplicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertFalse(find(event_list, test_record_matched), f'Event found between {start_date} and {end_date}')\nevent_list = get_events(date(2025, 4, 29), date(2025, 5, 2), 'Administrator', for_reminder=True)\nself.assertEqual(len(event_list), 3)",
+      "language": "Python",
+      "description": "Workflow: test weekly repeat",
+      "expected_behavior": "self.assertEqual(len(event_list), 3)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+      "line_start": 333,
+      "line_end": 384,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": "frappe.db.delete('Event')\nmake_test_objects('Event', reset=True)\nself.test_user = 'test1@example.com'",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "datetime",
+        "frappe",
+        "frappe.core.utils",
+        "frappe.desk.doctype.event.event",
+        "frappe.tests",
+        "frappe.tests.utils",
+        "frappe.desk.form.assign_to"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "5baccef8",
+      "test_name": "test_assign",
+      "category": "workflow",
+      "code": "from frappe.desk.form.assign_to import add\nev = frappe.get_doc(self.globalTestRecords['Event'][0]).insert()\nadd({'assign_to': ['test@example.com'], 'doctype': 'Event', 'name': ev.name, 'description': 'Test Assignment'})\nev = frappe.get_doc('Event', ev.name)\nself.assertEqual(ev._assign, json.dumps(['test@example.com']))\nadd({'assign_to': [self.test_user], 'doctype': 'Event', 'name': ev.name, 'description': 'Test Assignment'})\nev = frappe.get_doc('Event', ev.name)\nself.assertEqual(set(json.loads(ev._assign)), {'test@example.com', self.test_user})\ntodo = frappe.get_doc('ToDo', {'reference_type': ev.doctype, 'reference_name': ev.name, 'allocated_to': self.test_user})\ntodo.status = 'Cancelled'\ntodo.save()\nev = frappe.get_doc('Event', ev.name)\nself.assertEqual(ev._assign, json.dumps(['test@example.com']))\nev.delete()",
+      "language": "Python",
+      "description": "Workflow: test assign",
+      "expected_behavior": "self.assertEqual(ev._assign, json.dumps(['test@example.com']))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+      "line_start": 65,
+      "line_end": 109,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "datetime",
+        "frappe",
+        "frappe.core.utils",
+        "frappe.desk.doctype.event.event",
+        "frappe.tests",
+        "frappe.tests.utils",
+        "frappe.desk.form.assign_to"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "1e6a397f",
+      "test_name": "test_yearly_repeat",
+      "category": "workflow",
+      "code": "ev = frappe.get_doc({'doctype': 'Event', 'subject': '_Test Event', 'starts_on': '2014-02-01', 'event_type': 'Public', 'repeat_this_event': 1, 'repeat_on': 'Yearly'}).insert()\n\ndef test_record_matched(e):\n    return e.name == ev.name\napplicable_dates = [(date(2014, 2, 1), date(2014, 2, 1)), (date(2015, 2, 1), date(2015, 2, 1)), (date(2016, 2, 1), date(2016, 2, 1))]\nfor start_date, end_date in applicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertTrue(find(event_list, test_record_matched), f'Event not found between {start_date} and {end_date}')\nunapplicable_dates = [(date(2014, 1, 20), date(2014, 1, 20)), (date(2015, 1, 20), date(2015, 1, 20))]\nfor start_date, end_date in unapplicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertFalse(find(event_list, test_record_matched), f'Event found between {start_date} and {end_date}')\nev.starts_on = date(2016, 2, 29)\nev.save()\napplicable_dates = [(date(2016, 2, 29), date(2016, 2, 29)), (date(2024, 2, 28), date(2024, 2, 29))]\nfor start_date, end_date in applicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertTrue(find(event_list, test_record_matched), f'Event not found between {start_date} and {end_date}')",
+      "language": "Python",
+      "description": "Workflow: test yearly repeat",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+      "line_start": 111,
+      "line_end": 165,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "datetime",
+        "frappe",
+        "frappe.core.utils",
+        "frappe.desk.doctype.event.event",
+        "frappe.tests",
+        "frappe.tests.utils",
+        "frappe.desk.form.assign_to"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "3cc229e8",
+      "test_name": "test_quaterly_repeat",
+      "category": "workflow",
+      "code": "ev = frappe.get_doc({'doctype': 'Event', 'subject': '_Test Event', 'starts_on': '2023-02-17', 'repeat_till': '2024-02-17', 'event_type': 'Public', 'repeat_this_event': 1, 'repeat_on': 'Quarterly'}).insert()\n\ndef test_record_matched(e):\n    return e.name == ev.name\napplicable_dates = [(date(2023, 2, 17), date(2023, 2, 17)), (date(2023, 5, 17), date(2023, 5, 17)), (date(2023, 8, 17), date(2023, 8, 17)), (date(2023, 11, 17), date(2023, 11, 17))]\nfor start_date, end_date in applicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertTrue(find(event_list, test_record_matched), f'Event not found between {start_date} and {end_date}')\nunapplicable_dates = [(date(2022, 11, 17), date(2022, 11, 17)), (date(2024, 2, 17), date(2024, 2, 17)), (date(2023, 12, 17), date(2023, 12, 17)), (date(2023, 3, 17), date(2023, 3, 17))]\nfor start_date, end_date in unapplicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertFalse(find(event_list, test_record_matched), f'Event found between {start_date} and {end_date}')",
+      "language": "Python",
+      "description": "Workflow: test quaterly repeat",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+      "line_start": 196,
+      "line_end": 242,
+      "complexity_score": 0.6,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "datetime",
+        "frappe",
+        "frappe.core.utils",
+        "frappe.desk.doctype.event.event",
+        "frappe.tests",
+        "frappe.tests.utils",
+        "frappe.desk.form.assign_to"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "b5d19f4a",
+      "test_name": "test_half_yearly_repeat",
+      "category": "workflow",
+      "code": "ev = frappe.get_doc({'doctype': 'Event', 'subject': '_Test Event', 'starts_on': '2023-02-17', 'repeat_till': '2024-02-17', 'event_type': 'Public', 'repeat_this_event': 1, 'repeat_on': 'Half Yearly'}).insert()\n\ndef test_record_matched(e):\n    return e.name == ev.name\napplicable_dates = [(date(2023, 2, 17), date(2023, 2, 17)), (date(2023, 8, 17), date(2023, 8, 17))]\nfor start_date, end_date in applicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertTrue(find(event_list, test_record_matched), f'Event not found between {start_date} and {end_date}')\nunapplicable_dates = [(date(2022, 8, 17), date(2022, 8, 17)), (date(2024, 2, 17), date(2024, 2, 17)), (date(2023, 12, 17), date(2023, 12, 17)), (date(2023, 5, 17), date(2023, 5, 17))]\nfor start_date, end_date in unapplicable_dates:\n    event_list = get_events(start_date, end_date, 'Administrator', for_reminder=True)\n    with self.subTest(start_date=start_date, end_date=end_date):\n        self.assertFalse(find(event_list, test_record_matched), f'Event found between {start_date} and {end_date}')",
+      "language": "Python",
+      "description": "Workflow: test half yearly repeat",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/event/test_event.py",
+      "line_start": 244,
+      "line_end": 288,
+      "complexity_score": 0.6,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "datetime",
+        "frappe",
+        "frappe.core.utils",
+        "frappe.desk.doctype.event.event",
+        "frappe.tests",
+        "frappe.tests.utils",
+        "frappe.desk.form.assign_to"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "a95f2c64",
+      "test_name": "test_permission_query",
+      "category": "instantiation",
+      "code": "all_modules = get_modules_from_all_apps_for_user('Administrator')",
+      "language": "Python",
+      "description": "Instantiate get_modules_from_all_apps_for_user: test permission query",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard/test_dashboard.py",
+      "line_start": 19,
+      "line_end": 19,
+      "complexity_score": 0.15,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.user.test_user",
+        "frappe.tests",
+        "frappe.utils.modules"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "a95f2c64",
+      "test_name": "test_permission_query",
+      "category": "instantiation",
+      "code": "all_modules = get_modules_from_all_apps_for_user('Administrator')",
+      "language": "Python",
+      "description": "Instantiate get_modules_from_all_apps_for_user: test permission query",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard/test_dashboard.py",
+      "line_start": 19,
+      "line_end": 19,
+      "complexity_score": 0.15,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.user.test_user",
+        "frappe.tests",
+        "frappe.utils.modules"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "c33a53be",
+      "test_name": "test_assignment",
+      "category": "instantiation",
+      "code": "log_type = frappe.db.get_value('Notification Log', {'document_type': 'ToDo', 'document_name': todo.name}, 'type')",
+      "language": "Python",
+      "description": "Instantiate get_value: test assignment",
+      "expected_behavior": "self.assertEqual(log_type, 'Assignment')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/notification_log/test_notification_log.py",
+      "line_start": 17,
+      "line_end": 19,
+      "complexity_score": 0.3,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.user.user",
+        "frappe.desk.form.assign_to",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "c33a53be",
+      "test_name": "test_share",
+      "category": "instantiation",
+      "code": "log_type = frappe.db.get_value('Notification Log', {'document_type': 'ToDo', 'document_name': todo.name}, 'type')",
+      "language": "Python",
+      "description": "Instantiate get_value: test share",
+      "expected_behavior": "self.assertEqual(log_type, 'Share')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/notification_log/test_notification_log.py",
+      "line_start": 27,
+      "line_end": 29,
+      "complexity_score": 0.3,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.user.user",
+        "frappe.desk.form.assign_to",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "d622af07",
+      "test_name": "test_share",
+      "category": "workflow",
+      "code": "todo = get_todo()\nuser = get_user()\nfrappe.share.add('ToDo', todo.name, user, notify=1)\nlog_type = frappe.db.get_value('Notification Log', {'document_type': 'ToDo', 'document_name': todo.name}, 'type')\nself.assertEqual(log_type, 'Share')\nemail = get_last_email_queue()\ncontent = f'Subject: {frappe.utils.get_fullname(frappe.session.user)} shared a document ToDo'\nself.assertTrue(content in email.message)",
+      "language": "Python",
+      "description": "Workflow: test share",
+      "expected_behavior": "self.assertTrue(content in email.message)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/notification_log/test_notification_log.py",
+      "line_start": 22,
+      "line_end": 34,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.user.user",
+        "frappe.desk.form.assign_to",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "c33a53be",
+      "test_name": "test_assignment",
+      "category": "instantiation",
+      "code": "log_type = frappe.db.get_value('Notification Log', {'document_type': 'ToDo', 'document_name': todo.name}, 'type')",
+      "language": "Python",
+      "description": "Instantiate get_value: test assignment",
+      "expected_behavior": "self.assertEqual(log_type, 'Assignment')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/notification_log/test_notification_log.py",
+      "line_start": 17,
+      "line_end": 19,
+      "complexity_score": 0.3,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.user.user",
+        "frappe.desk.form.assign_to",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "c33a53be",
+      "test_name": "test_share",
+      "category": "instantiation",
+      "code": "log_type = frappe.db.get_value('Notification Log', {'document_type': 'ToDo', 'document_name': todo.name}, 'type')",
+      "language": "Python",
+      "description": "Instantiate get_value: test share",
+      "expected_behavior": "self.assertEqual(log_type, 'Share')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/notification_log/test_notification_log.py",
+      "line_start": 27,
+      "line_end": 29,
+      "complexity_score": 0.3,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.user.user",
+        "frappe.desk.form.assign_to",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "d622af07",
+      "test_name": "test_share",
+      "category": "workflow",
+      "code": "todo = get_todo()\nuser = get_user()\nfrappe.share.add('ToDo', todo.name, user, notify=1)\nlog_type = frappe.db.get_value('Notification Log', {'document_type': 'ToDo', 'document_name': todo.name}, 'type')\nself.assertEqual(log_type, 'Share')\nemail = get_last_email_queue()\ncontent = f'Subject: {frappe.utils.get_fullname(frappe.session.user)} shared a document ToDo'\nself.assertTrue(content in email.message)",
+      "language": "Python",
+      "description": "Workflow: test share",
+      "expected_behavior": "self.assertTrue(content in email.message)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/notification_log/test_notification_log.py",
+      "line_start": 22,
+      "line_end": 34,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.core.doctype.user.user",
+        "frappe.desk.form.assign_to",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "32cecb5e",
+      "test_name": "test_system_console_sql",
+      "category": "workflow",
+      "code": "system_console = frappe.get_doc('System Console')\nsystem_console.type = 'SQL'\nsystem_console.console = \"select 'test'\"\nsystem_console.run()\nself.assertIn('test', system_console.output)\nsystem_console.console = \"update `tabDocType` set is_virtual = 1 where name = 'xyz'\"\nsystem_console.run()\nself.assertIn('PermissionError', system_console.output)",
+      "language": "Python",
+      "description": "Workflow: test system console sql",
+      "expected_behavior": "self.assertIn('PermissionError', system_console.output)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+      "line_start": 25,
+      "line_end": 36,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "32cecb5e",
+      "test_name": "test_system_console_sql",
+      "category": "workflow",
+      "code": "system_console = frappe.get_doc('System Console')\nsystem_console.type = 'SQL'\nsystem_console.console = \"select 'test'\"\nsystem_console.run()\nself.assertIn('test', system_console.output)\nsystem_console.console = \"update `tabDocType` set is_virtual = 1 where name = 'xyz'\"\nsystem_console.run()\nself.assertIn('PermissionError', system_console.output)",
+      "language": "Python",
+      "description": "Workflow: test system console sql",
+      "expected_behavior": "self.assertIn('PermissionError', system_console.output)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+      "line_start": 25,
+      "line_end": 36,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "50de259e",
+      "test_name": "test_system_console",
+      "category": "method_call",
+      "code": "system_console.run()\nself.assertEqual(system_console.output, 'hello')",
+      "language": "Python",
+      "description": "test system console",
+      "expected_behavior": "self.assertEqual(system_console.output, 'hello')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+      "line_start": 16,
+      "line_end": 18,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "3e7cb868",
+      "test_name": "test_system_console",
+      "category": "method_call",
+      "code": "system_console.run()\nself.assertEqual(system_console.output, 'Core')",
+      "language": "Python",
+      "description": "test system console",
+      "expected_behavior": "self.assertEqual(system_console.output, 'Core')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+      "line_start": 21,
+      "line_end": 23,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "bf792bd6",
+      "test_name": "test_system_console_sql",
+      "category": "method_call",
+      "code": "system_console.run()\nself.assertIn('test', system_console.output)",
+      "language": "Python",
+      "description": "test system console sql",
+      "expected_behavior": "self.assertIn('test', system_console.output)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+      "line_start": 29,
+      "line_end": 31,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "4b1c9e82",
+      "test_name": "test_system_console_sql",
+      "category": "method_call",
+      "code": "system_console.run()\nself.assertIn('PermissionError', system_console.output)",
+      "language": "Python",
+      "description": "test system console sql",
+      "expected_behavior": "self.assertIn('PermissionError', system_console.output)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+      "line_start": 34,
+      "line_end": 36,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "50de259e",
+      "test_name": "test_system_console",
+      "category": "method_call",
+      "code": "system_console.run()\nself.assertEqual(system_console.output, 'hello')",
+      "language": "Python",
+      "description": "test system console",
+      "expected_behavior": "self.assertEqual(system_console.output, 'hello')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+      "line_start": 16,
+      "line_end": 18,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "3e7cb868",
+      "test_name": "test_system_console",
+      "category": "method_call",
+      "code": "system_console.run()\nself.assertEqual(system_console.output, 'Core')",
+      "language": "Python",
+      "description": "test system console",
+      "expected_behavior": "self.assertEqual(system_console.output, 'Core')",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+      "line_start": 21,
+      "line_end": 23,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "bf792bd6",
+      "test_name": "test_system_console_sql",
+      "category": "method_call",
+      "code": "system_console.run()\nself.assertIn('test', system_console.output)",
+      "language": "Python",
+      "description": "test system console sql",
+      "expected_behavior": "self.assertIn('test', system_console.output)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+      "line_start": 29,
+      "line_end": 31,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "4b1c9e82",
+      "test_name": "test_system_console_sql",
+      "category": "method_call",
+      "code": "system_console.run()\nself.assertIn('PermissionError', system_console.output)",
+      "language": "Python",
+      "description": "test system console sql",
+      "expected_behavior": "self.assertIn('PermissionError', system_console.output)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/system_console/test_system_console.py",
+      "line_start": 34,
+      "line_end": 36,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "ece077bf",
+      "test_name": "test_bulk_submit_in_background",
+      "category": "workflow",
+      "code": "unsubmitted = frappe.get_all(self.doctype, {'docstatus': 0}, limit=5, pluck='name')\nfailed = submit_cancel_or_update_docs(self.doctype, unsubmitted, action='submit')\nself.assertEqual(failed, [])\n\ndef check_docstatus(docs, status):\n    frappe.db.rollback()\n    matching_docs = frappe.get_all(self.doctype, {'docstatus': status, 'name': ('in', docs)}, pluck='name')\n    return set(matching_docs) == set(docs)\nunsubmitted = frappe.get_all(self.doctype, {'docstatus': 0}, limit=20, pluck='name')\nsubmit_cancel_or_update_docs(self.doctype, unsubmitted, action='submit')\nself.wait_for_assertion(lambda: check_docstatus(unsubmitted, 1))\nsubmitted = frappe.get_all(self.doctype, {'docstatus': 1}, limit=20, pluck='name')\nsubmit_cancel_or_update_docs(self.doctype, submitted, action='cancel')\nself.wait_for_assertion(lambda: check_docstatus(submitted, 2))",
+      "language": "Python",
+      "description": "Workflow: test bulk submit in background",
+      "expected_behavior": "self.wait_for_assertion(lambda: check_docstatus(submitted, 2))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+      "line_start": 30,
+      "line_end": 49,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "time",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.bulk_update.bulk_update",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "449085c5",
+      "test_name": "test_bulk_update_parent_fields",
+      "category": "workflow",
+      "code": "docnames = frappe.get_all(self.doctype, {'docstatus': 0}, limit=5, pluck='name')\nfailed = submit_cancel_or_update_docs(self.doctype, docnames, action='update', data={'some_fieldname': '_Test Sync'})\nself.assertEqual(failed, [])\n\ndef check_field_values(docs, expected):\n    frappe.db.rollback()\n    values = frappe.get_all(self.doctype, {'name': ['in', docs]}, ['name', 'some_fieldname'])\n    return all((v.some_fieldname == expected for v in values))\ndocnames_bg = frappe.get_all(self.doctype, {'docstatus': 0}, limit=20, pluck='name')\nsubmit_cancel_or_update_docs(self.doctype, docnames_bg, action='update', data={'some_fieldname': '_Test Background'})\nself.wait_for_assertion(lambda: check_field_values(docnames_bg, '_Test Background'))",
+      "language": "Python",
+      "description": "Workflow: test bulk update parent fields",
+      "expected_behavior": "self.wait_for_assertion(lambda: check_field_values(docnames_bg, '_Test Background'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+      "line_start": 51,
+      "line_end": 68,
+      "complexity_score": 0.7,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "time",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.bulk_update.bulk_update",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "98a1258f",
+      "test_name": "test_bulk_update_child_fields",
+      "category": "workflow",
+      "code": "doctype_doc = frappe.get_doc('DocType', self.doctype)\ndoctype_doc.append('fields', {'fieldname': 'child_table', 'fieldtype': 'Table', 'options': self.child_doctype})\ndoctype_doc.save()\nfrappe.db.commit()\nexisting_docs = frappe.get_all(self.doctype, {'docstatus': 0}, pluck='name')\nfor docname in existing_docs:\n    doc = frappe.get_doc(self.doctype, docname)\n    doc.append('child_table', {'some_fieldname': '_Test Child Value'})\n    doc.save()\nfrappe.db.commit()\nupdate_data = {'child_table_updates': {self.child_doctype: {'some_fieldname': '_Test Child Updated'}}}\n\ndef check_child_field(docs, expected):\n    frappe.db.rollback()\n    for docname in docs:\n        doc = frappe.get_doc(self.doctype, docname)\n        if not doc.child_table or doc.child_table[0].some_fieldname != expected:\n            return False\n    return True\ndocnames = frappe.get_all(self.doctype, {'docstatus': 0}, limit=5, pluck='name')\nfailed = submit_cancel_or_update_docs(self.doctype, docnames, action='update', data=update_data)\nself.assertEqual(failed, [])\ndocnames_bg = frappe.get_all(self.doctype, {'docstatus': 0}, limit=20, pluck='name')\nsubmit_cancel_or_update_docs(self.doctype, docnames_bg, action='update', data=update_data)\nself.wait_for_assertion(lambda: check_child_field(docnames_bg, '_Test Child Updated'))",
+      "language": "Python",
+      "description": "Workflow: test bulk update child fields",
+      "expected_behavior": "self.wait_for_assertion(lambda: check_child_field(docnames_bg, '_Test Child Updated'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+      "line_start": 70,
+      "line_end": 105,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "time",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.bulk_update.bulk_update",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "ece077bf",
+      "test_name": "test_bulk_submit_in_background",
+      "category": "workflow",
+      "code": "unsubmitted = frappe.get_all(self.doctype, {'docstatus': 0}, limit=5, pluck='name')\nfailed = submit_cancel_or_update_docs(self.doctype, unsubmitted, action='submit')\nself.assertEqual(failed, [])\n\ndef check_docstatus(docs, status):\n    frappe.db.rollback()\n    matching_docs = frappe.get_all(self.doctype, {'docstatus': status, 'name': ('in', docs)}, pluck='name')\n    return set(matching_docs) == set(docs)\nunsubmitted = frappe.get_all(self.doctype, {'docstatus': 0}, limit=20, pluck='name')\nsubmit_cancel_or_update_docs(self.doctype, unsubmitted, action='submit')\nself.wait_for_assertion(lambda: check_docstatus(unsubmitted, 1))\nsubmitted = frappe.get_all(self.doctype, {'docstatus': 1}, limit=20, pluck='name')\nsubmit_cancel_or_update_docs(self.doctype, submitted, action='cancel')\nself.wait_for_assertion(lambda: check_docstatus(submitted, 2))",
+      "language": "Python",
+      "description": "Workflow: test bulk submit in background",
+      "expected_behavior": "self.wait_for_assertion(lambda: check_docstatus(submitted, 2))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+      "line_start": 30,
+      "line_end": 49,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "time",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.bulk_update.bulk_update",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "449085c5",
+      "test_name": "test_bulk_update_parent_fields",
+      "category": "workflow",
+      "code": "docnames = frappe.get_all(self.doctype, {'docstatus': 0}, limit=5, pluck='name')\nfailed = submit_cancel_or_update_docs(self.doctype, docnames, action='update', data={'some_fieldname': '_Test Sync'})\nself.assertEqual(failed, [])\n\ndef check_field_values(docs, expected):\n    frappe.db.rollback()\n    values = frappe.get_all(self.doctype, {'name': ['in', docs]}, ['name', 'some_fieldname'])\n    return all((v.some_fieldname == expected for v in values))\ndocnames_bg = frappe.get_all(self.doctype, {'docstatus': 0}, limit=20, pluck='name')\nsubmit_cancel_or_update_docs(self.doctype, docnames_bg, action='update', data={'some_fieldname': '_Test Background'})\nself.wait_for_assertion(lambda: check_field_values(docnames_bg, '_Test Background'))",
+      "language": "Python",
+      "description": "Workflow: test bulk update parent fields",
+      "expected_behavior": "self.wait_for_assertion(lambda: check_field_values(docnames_bg, '_Test Background'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+      "line_start": 51,
+      "line_end": 68,
+      "complexity_score": 0.7,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "time",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.bulk_update.bulk_update",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "98a1258f",
+      "test_name": "test_bulk_update_child_fields",
+      "category": "workflow",
+      "code": "doctype_doc = frappe.get_doc('DocType', self.doctype)\ndoctype_doc.append('fields', {'fieldname': 'child_table', 'fieldtype': 'Table', 'options': self.child_doctype})\ndoctype_doc.save()\nfrappe.db.commit()\nexisting_docs = frappe.get_all(self.doctype, {'docstatus': 0}, pluck='name')\nfor docname in existing_docs:\n    doc = frappe.get_doc(self.doctype, docname)\n    doc.append('child_table', {'some_fieldname': '_Test Child Value'})\n    doc.save()\nfrappe.db.commit()\nupdate_data = {'child_table_updates': {self.child_doctype: {'some_fieldname': '_Test Child Updated'}}}\n\ndef check_child_field(docs, expected):\n    frappe.db.rollback()\n    for docname in docs:\n        doc = frappe.get_doc(self.doctype, docname)\n        if not doc.child_table or doc.child_table[0].some_fieldname != expected:\n            return False\n    return True\ndocnames = frappe.get_all(self.doctype, {'docstatus': 0}, limit=5, pluck='name')\nfailed = submit_cancel_or_update_docs(self.doctype, docnames, action='update', data=update_data)\nself.assertEqual(failed, [])\ndocnames_bg = frappe.get_all(self.doctype, {'docstatus': 0}, limit=20, pluck='name')\nsubmit_cancel_or_update_docs(self.doctype, docnames_bg, action='update', data=update_data)\nself.wait_for_assertion(lambda: check_child_field(docnames_bg, '_Test Child Updated'))",
+      "language": "Python",
+      "description": "Workflow: test bulk update child fields",
+      "expected_behavior": "self.wait_for_assertion(lambda: check_child_field(docnames_bg, '_Test Child Updated'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+      "line_start": 70,
+      "line_end": 105,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "time",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.bulk_update.bulk_update",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "a76137f2",
+      "test_name": "test_bulk_submit_in_background",
+      "category": "method_call",
+      "code": "submit_cancel_or_update_docs(self.doctype, unsubmitted, action='submit')\nself.wait_for_assertion(lambda: check_docstatus(unsubmitted, 1))",
+      "language": "Python",
+      "description": "test bulk submit in background",
+      "expected_behavior": "self.wait_for_assertion(lambda: check_docstatus(unsubmitted, 1))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+      "line_start": 43,
+      "line_end": 45,
+      "complexity_score": 0.4,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "time",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.bulk_update.bulk_update",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "8870ec18",
+      "test_name": "test_bulk_submit_in_background",
+      "category": "method_call",
+      "code": "submit_cancel_or_update_docs(self.doctype, submitted, action='cancel')\nself.wait_for_assertion(lambda: check_docstatus(submitted, 2))",
+      "language": "Python",
+      "description": "test bulk submit in background",
+      "expected_behavior": "self.wait_for_assertion(lambda: check_docstatus(submitted, 2))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+      "line_start": 48,
+      "line_end": 49,
+      "complexity_score": 0.4,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "time",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.bulk_update.bulk_update",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "35713e4c",
+      "test_name": "test_bulk_update_parent_fields",
+      "category": "method_call",
+      "code": "submit_cancel_or_update_docs(self.doctype, docnames_bg, action='update', data={'some_fieldname': '_Test Background'})\nself.wait_for_assertion(lambda: check_field_values(docnames_bg, '_Test Background'))",
+      "language": "Python",
+      "description": "test bulk update parent fields",
+      "expected_behavior": "self.wait_for_assertion(lambda: check_field_values(docnames_bg, '_Test Background'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+      "line_start": 64,
+      "line_end": 68,
+      "complexity_score": 0.45,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "time",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.bulk_update.bulk_update",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "d761e99e",
+      "test_name": "test_bulk_update_child_fields",
+      "category": "method_call",
+      "code": "submit_cancel_or_update_docs(self.doctype, docnames_bg, action='update', data=update_data)\nself.wait_for_assertion(lambda: check_child_field(docnames_bg, '_Test Child Updated'))",
+      "language": "Python",
+      "description": "test bulk update child fields",
+      "expected_behavior": "self.wait_for_assertion(lambda: check_child_field(docnames_bg, '_Test Child Updated'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/bulk_update/test_bulk_update.py",
+      "line_start": 104,
+      "line_end": 105,
+      "complexity_score": 0.45,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "time",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.bulk_update.bulk_update",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "ec6427e4",
+      "test_name": "test_dashboard_chart",
+      "category": "workflow",
+      "code": "if frappe.db.exists('Dashboard Chart', 'Test Dashboard Chart'):\n    frappe.delete_doc('Dashboard Chart', 'Test Dashboard Chart')\nfrappe.get_doc(doctype='Dashboard Chart', chart_name='Test Dashboard Chart', chart_type='Count', document_type='DocType', based_on='creation', timespan='Last Year', time_interval='Monthly', filters_json='{}', timeseries=1).insert()\ncur_date = datetime.now() - relativedelta(years=1)\nresult = get(chart_name='Test Dashboard Chart', refresh=1)\nfor idx in range(13):\n    month = get_last_day(cur_date)\n    month = formatdate(month.strftime('%Y-%m-%d'))\n    self.assertEqual(result.get('labels')[idx], get_period(month))\n    cur_date += relativedelta(months=1)",
+      "language": "Python",
+      "description": "Workflow: test dashboard chart",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+      "line_start": 59,
+      "line_end": 83,
+      "complexity_score": 0.5,
+      "confidence": 0.9,
+      "setup_code": "doc = new_doctype(fields=[{'fieldname': 'title', 'fieldtype': 'Text', 'label': 'Title', 'reqd': 1}, {'fieldname': 'number', 'fieldtype': 'Int', 'label': 'Number', 'reqd': 1}, {'fieldname': 'date', 'fieldtype': 'Date', 'label': 'Date', 'reqd': 1}])\ndoc.insert()\nself.doctype_name = doc.name",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest.mock",
+        "dateutil.relativedelta",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.dashboard_chart.dashboard_chart",
+        "frappe.tests",
+        "frappe.utils",
+        "frappe.utils.dateutils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "fdb41890",
+      "test_name": "test_empty_dashboard_chart",
+      "category": "workflow",
+      "code": "if frappe.db.exists('Dashboard Chart', 'Test Empty Dashboard Chart'):\n    frappe.delete_doc('Dashboard Chart', 'Test Empty Dashboard Chart')\nfrappe.db.delete('Error Log')\nfrappe.get_doc(doctype='Dashboard Chart', chart_name='Test Empty Dashboard Chart', chart_type='Count', document_type='Error Log', based_on='creation', timespan='Last Year', time_interval='Monthly', filters_json='[]', timeseries=1).insert()\ncur_date = datetime.now() - relativedelta(years=1)\nresult = get(chart_name='Test Empty Dashboard Chart', refresh=1)\nfor idx in range(13):\n    month = get_last_day(cur_date)\n    month = formatdate(month.strftime('%Y-%m-%d'))\n    self.assertEqual(result.get('labels')[idx], get_period(month))\n    cur_date += relativedelta(months=1)",
+      "language": "Python",
+      "description": "Workflow: test empty dashboard chart",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+      "line_start": 85,
+      "line_end": 111,
+      "complexity_score": 0.6,
+      "confidence": 0.9,
+      "setup_code": "doc = new_doctype(fields=[{'fieldname': 'title', 'fieldtype': 'Text', 'label': 'Title', 'reqd': 1}, {'fieldname': 'number', 'fieldtype': 'Int', 'label': 'Number', 'reqd': 1}, {'fieldname': 'date', 'fieldtype': 'Date', 'label': 'Date', 'reqd': 1}])\ndoc.insert()\nself.doctype_name = doc.name",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest.mock",
+        "dateutil.relativedelta",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.dashboard_chart.dashboard_chart",
+        "frappe.tests",
+        "frappe.utils",
+        "frappe.utils.dateutils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "39adb67f",
+      "test_name": "test_chart_wih_one_value",
+      "category": "workflow",
+      "code": "if frappe.db.exists('Dashboard Chart', 'Test Empty Dashboard Chart 2'):\n    frappe.delete_doc('Dashboard Chart', 'Test Empty Dashboard Chart 2')\nfrappe.db.delete('Error Log')\nfrappe.get_doc(doctype='Error Log', creation='2018-06-01 00:00:00').insert()\nfrappe.get_doc(doctype='Dashboard Chart', chart_name='Test Empty Dashboard Chart 2', chart_type='Count', document_type='Error Log', based_on='creation', timespan='Last Year', time_interval='Monthly', filters_json='[]', timeseries=1).insert()\ncur_date = datetime.now() - relativedelta(years=1)\nresult = get(chart_name='Test Empty Dashboard Chart 2', refresh=1)\nfor idx in range(13):\n    month = get_last_day(cur_date)\n    month = formatdate(month.strftime('%Y-%m-%d'))\n    self.assertEqual(result.get('labels')[idx], get_period(month))\n    cur_date += relativedelta(months=1)\nself.assertEqual(result.get('datasets')[0].get('values')[2], 0)",
+      "language": "Python",
+      "description": "Workflow: test chart wih one value",
+      "expected_behavior": "self.assertEqual(result.get('datasets')[0].get('values')[2], 0)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+      "line_start": 113,
+      "line_end": 145,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": "doc = new_doctype(fields=[{'fieldname': 'title', 'fieldtype': 'Text', 'label': 'Title', 'reqd': 1}, {'fieldname': 'number', 'fieldtype': 'Int', 'label': 'Number', 'reqd': 1}, {'fieldname': 'date', 'fieldtype': 'Date', 'label': 'Date', 'reqd': 1}])\ndoc.insert()\nself.doctype_name = doc.name",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest.mock",
+        "dateutil.relativedelta",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.dashboard_chart.dashboard_chart",
+        "frappe.tests",
+        "frappe.utils",
+        "frappe.utils.dateutils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "ec6427e4",
+      "test_name": "test_dashboard_chart",
+      "category": "workflow",
+      "code": "if frappe.db.exists('Dashboard Chart', 'Test Dashboard Chart'):\n    frappe.delete_doc('Dashboard Chart', 'Test Dashboard Chart')\nfrappe.get_doc(doctype='Dashboard Chart', chart_name='Test Dashboard Chart', chart_type='Count', document_type='DocType', based_on='creation', timespan='Last Year', time_interval='Monthly', filters_json='{}', timeseries=1).insert()\ncur_date = datetime.now() - relativedelta(years=1)\nresult = get(chart_name='Test Dashboard Chart', refresh=1)\nfor idx in range(13):\n    month = get_last_day(cur_date)\n    month = formatdate(month.strftime('%Y-%m-%d'))\n    self.assertEqual(result.get('labels')[idx], get_period(month))\n    cur_date += relativedelta(months=1)",
+      "language": "Python",
+      "description": "Workflow: test dashboard chart",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+      "line_start": 59,
+      "line_end": 83,
+      "complexity_score": 0.5,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest.mock",
+        "dateutil.relativedelta",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.dashboard_chart.dashboard_chart",
+        "frappe.tests",
+        "frappe.utils",
+        "frappe.utils.dateutils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "fdb41890",
+      "test_name": "test_empty_dashboard_chart",
+      "category": "workflow",
+      "code": "if frappe.db.exists('Dashboard Chart', 'Test Empty Dashboard Chart'):\n    frappe.delete_doc('Dashboard Chart', 'Test Empty Dashboard Chart')\nfrappe.db.delete('Error Log')\nfrappe.get_doc(doctype='Dashboard Chart', chart_name='Test Empty Dashboard Chart', chart_type='Count', document_type='Error Log', based_on='creation', timespan='Last Year', time_interval='Monthly', filters_json='[]', timeseries=1).insert()\ncur_date = datetime.now() - relativedelta(years=1)\nresult = get(chart_name='Test Empty Dashboard Chart', refresh=1)\nfor idx in range(13):\n    month = get_last_day(cur_date)\n    month = formatdate(month.strftime('%Y-%m-%d'))\n    self.assertEqual(result.get('labels')[idx], get_period(month))\n    cur_date += relativedelta(months=1)",
+      "language": "Python",
+      "description": "Workflow: test empty dashboard chart",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+      "line_start": 85,
+      "line_end": 111,
+      "complexity_score": 0.6,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest.mock",
+        "dateutil.relativedelta",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.dashboard_chart.dashboard_chart",
+        "frappe.tests",
+        "frappe.utils",
+        "frappe.utils.dateutils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "39adb67f",
+      "test_name": "test_chart_wih_one_value",
+      "category": "workflow",
+      "code": "if frappe.db.exists('Dashboard Chart', 'Test Empty Dashboard Chart 2'):\n    frappe.delete_doc('Dashboard Chart', 'Test Empty Dashboard Chart 2')\nfrappe.db.delete('Error Log')\nfrappe.get_doc(doctype='Error Log', creation='2018-06-01 00:00:00').insert()\nfrappe.get_doc(doctype='Dashboard Chart', chart_name='Test Empty Dashboard Chart 2', chart_type='Count', document_type='Error Log', based_on='creation', timespan='Last Year', time_interval='Monthly', filters_json='[]', timeseries=1).insert()\ncur_date = datetime.now() - relativedelta(years=1)\nresult = get(chart_name='Test Empty Dashboard Chart 2', refresh=1)\nfor idx in range(13):\n    month = get_last_day(cur_date)\n    month = formatdate(month.strftime('%Y-%m-%d'))\n    self.assertEqual(result.get('labels')[idx], get_period(month))\n    cur_date += relativedelta(months=1)\nself.assertEqual(result.get('datasets')[0].get('values')[2], 0)",
+      "language": "Python",
+      "description": "Workflow: test chart wih one value",
+      "expected_behavior": "self.assertEqual(result.get('datasets')[0].get('values')[2], 0)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+      "line_start": 113,
+      "line_end": 145,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest.mock",
+        "dateutil.relativedelta",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.dashboard_chart.dashboard_chart",
+        "frappe.tests",
+        "frappe.utils",
+        "frappe.utils.dateutils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "084cf101",
+      "test_name": "test_period_ending",
+      "category": "method_call",
+      "code": "self.assertEqual(get_period_ending('2019-04-10', 'Monthly'), getdate('2019-04-30'))\nself.assertEqual(get_period_ending('2019-04-30', 'Monthly'), getdate('2019-04-30'))",
+      "language": "Python",
+      "description": "test period ending",
+      "expected_behavior": "self.assertEqual(get_period_ending('2019-04-30', 'Monthly'), getdate('2019-04-30'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+      "line_start": 51,
+      "line_end": 52,
+      "complexity_score": 0.45,
+      "confidence": 0.85,
+      "setup_code": "doc = new_doctype(fields=[{'fieldname': 'title', 'fieldtype': 'Text', 'label': 'Title', 'reqd': 1}, {'fieldname': 'number', 'fieldtype': 'Int', 'label': 'Number', 'reqd': 1}, {'fieldname': 'date', 'fieldtype': 'Date', 'label': 'Date', 'reqd': 1}])\ndoc.insert()\nself.doctype_name = doc.name",
+      "tags": [
+        "mock"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest.mock",
+        "dateutil.relativedelta",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.dashboard_chart.dashboard_chart",
+        "frappe.tests",
+        "frappe.utils",
+        "frappe.utils.dateutils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "48bd6a53",
+      "test_name": "test_period_ending",
+      "category": "method_call",
+      "code": "self.assertEqual(get_period_ending('2019-04-30', 'Monthly'), getdate('2019-04-30'))\nself.assertEqual(get_period_ending('2019-03-31', 'Monthly'), getdate('2019-03-31'))",
+      "language": "Python",
+      "description": "test period ending",
+      "expected_behavior": "self.assertEqual(get_period_ending('2019-03-31', 'Monthly'), getdate('2019-03-31'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+      "line_start": 52,
+      "line_end": 53,
+      "complexity_score": 0.45,
+      "confidence": 0.85,
+      "setup_code": "doc = new_doctype(fields=[{'fieldname': 'title', 'fieldtype': 'Text', 'label': 'Title', 'reqd': 1}, {'fieldname': 'number', 'fieldtype': 'Int', 'label': 'Number', 'reqd': 1}, {'fieldname': 'date', 'fieldtype': 'Date', 'label': 'Date', 'reqd': 1}])\ndoc.insert()\nself.doctype_name = doc.name",
+      "tags": [
+        "mock"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest.mock",
+        "dateutil.relativedelta",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.dashboard_chart.dashboard_chart",
+        "frappe.tests",
+        "frappe.utils",
+        "frappe.utils.dateutils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "aca54ed1",
+      "test_name": "test_period_ending",
+      "category": "method_call",
+      "code": "self.assertEqual(get_period_ending('2019-03-31', 'Monthly'), getdate('2019-03-31'))\nself.assertEqual(get_period_ending('2019-04-10', 'Quarterly'), getdate('2019-06-30'))",
+      "language": "Python",
+      "description": "test period ending",
+      "expected_behavior": "self.assertEqual(get_period_ending('2019-04-10', 'Quarterly'), getdate('2019-06-30'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+      "line_start": 53,
+      "line_end": 55,
+      "complexity_score": 0.45,
+      "confidence": 0.85,
+      "setup_code": "doc = new_doctype(fields=[{'fieldname': 'title', 'fieldtype': 'Text', 'label': 'Title', 'reqd': 1}, {'fieldname': 'number', 'fieldtype': 'Int', 'label': 'Number', 'reqd': 1}, {'fieldname': 'date', 'fieldtype': 'Date', 'label': 'Date', 'reqd': 1}])\ndoc.insert()\nself.doctype_name = doc.name",
+      "tags": [
+        "mock"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest.mock",
+        "dateutil.relativedelta",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.dashboard_chart.dashboard_chart",
+        "frappe.tests",
+        "frappe.utils",
+        "frappe.utils.dateutils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "c1469d59",
+      "test_name": "test_period_ending",
+      "category": "method_call",
+      "code": "self.assertEqual(get_period_ending('2019-04-10', 'Quarterly'), getdate('2019-06-30'))\nself.assertEqual(get_period_ending('2019-06-30', 'Quarterly'), getdate('2019-06-30'))",
+      "language": "Python",
+      "description": "test period ending",
+      "expected_behavior": "self.assertEqual(get_period_ending('2019-06-30', 'Quarterly'), getdate('2019-06-30'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/dashboard_chart/test_dashboard_chart.py",
+      "line_start": 55,
+      "line_end": 56,
+      "complexity_score": 0.45,
+      "confidence": 0.85,
+      "setup_code": "doc = new_doctype(fields=[{'fieldname': 'title', 'fieldtype': 'Text', 'label': 'Title', 'reqd': 1}, {'fieldname': 'number', 'fieldtype': 'Int', 'label': 'Number', 'reqd': 1}, {'fieldname': 'date', 'fieldtype': 'Date', 'label': 'Date', 'reqd': 1}])\ndoc.insert()\nself.doctype_name = doc.name",
+      "tags": [
+        "mock"
+      ],
+      "dependencies": [
+        "datetime",
+        "unittest.mock",
+        "dateutil.relativedelta",
+        "frappe",
+        "frappe.core.doctype.doctype.test_doctype",
+        "frappe.desk.doctype.dashboard_chart.dashboard_chart",
+        "frappe.tests",
+        "frappe.utils",
+        "frappe.utils.dateutils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "9f7597de",
+      "test_name": "test_version",
+      "category": "workflow",
+      "code": "note = self.insert_note()\nnote.title = 'test note 1'\nnote.content = '1'\nnote.save(ignore_version=False)\nversion = frappe.get_doc('Version', dict(docname=note.name))\ndata = version.get_data()\nself.assertTrue(('title', 'test note', 'test note 1'), data['changed'])\nself.assertTrue(('content', 'test note content', '1'), data['changed'])",
+      "language": "Python",
+      "description": "Workflow: test version",
+      "expected_behavior": "self.assertTrue(('content', 'test note content', '1'), data['changed'])",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+      "line_start": 16,
+      "line_end": 26,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "1fbc8ed9",
+      "test_name": "test_rows",
+      "category": "workflow",
+      "code": "note = self.insert_note()\nnote.append('seen_by', {'user': 'Administrator'})\nnote.save(ignore_version=False)\nversion = frappe.get_doc('Version', dict(docname=note.name))\ndata = version.get_data()\nself.assertEqual(len(data.get('added')), 1)\nself.assertEqual(len(data.get('removed')), 0)\nself.assertEqual(len(data.get('changed')), 0)\nfor row in data.get('added'):\n    self.assertEqual(row[0], 'seen_by')\n    self.assertEqual(row[1]['user'], 'Administrator')\nnote.seen_by[0].user = 'Guest'\nnote.save(ignore_version=False)\nversion = frappe.get_doc('Version', dict(docname=note.name))\ndata = version.get_data()\nself.assertEqual(len(data.get('row_changed')), 1)\nfor row in data.get('row_changed'):\n    self.assertEqual(row[0], 'seen_by')\n    self.assertEqual(row[1], 0)\n    self.assertEqual(row[2], note.seen_by[0].name)\n    self.assertEqual(row[3], [['user', 'Administrator', 'Guest']])\nnote.seen_by = []\nnote.save(ignore_version=False)\nversion = frappe.get_doc('Version', dict(docname=note.name))\ndata = version.get_data()\nself.assertEqual(len(data.get('removed')), 1)\nfor row in data.get('removed'):\n    self.assertEqual(row[0], 'seen_by')\n    self.assertEqual(row[1]['user'], 'Guest')",
+      "language": "Python",
+      "description": "Workflow: test rows",
+      "expected_behavior": "self.assertEqual(len(data.get('removed')), 1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+      "line_start": 28,
+      "line_end": 70,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "9f7597de",
+      "test_name": "test_version",
+      "category": "workflow",
+      "code": "note = self.insert_note()\nnote.title = 'test note 1'\nnote.content = '1'\nnote.save(ignore_version=False)\nversion = frappe.get_doc('Version', dict(docname=note.name))\ndata = version.get_data()\nself.assertTrue(('title', 'test note', 'test note 1'), data['changed'])\nself.assertTrue(('content', 'test note content', '1'), data['changed'])",
+      "language": "Python",
+      "description": "Workflow: test version",
+      "expected_behavior": "self.assertTrue(('content', 'test note content', '1'), data['changed'])",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+      "line_start": 16,
+      "line_end": 26,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "1fbc8ed9",
+      "test_name": "test_rows",
+      "category": "workflow",
+      "code": "note = self.insert_note()\nnote.append('seen_by', {'user': 'Administrator'})\nnote.save(ignore_version=False)\nversion = frappe.get_doc('Version', dict(docname=note.name))\ndata = version.get_data()\nself.assertEqual(len(data.get('added')), 1)\nself.assertEqual(len(data.get('removed')), 0)\nself.assertEqual(len(data.get('changed')), 0)\nfor row in data.get('added'):\n    self.assertEqual(row[0], 'seen_by')\n    self.assertEqual(row[1]['user'], 'Administrator')\nnote.seen_by[0].user = 'Guest'\nnote.save(ignore_version=False)\nversion = frappe.get_doc('Version', dict(docname=note.name))\ndata = version.get_data()\nself.assertEqual(len(data.get('row_changed')), 1)\nfor row in data.get('row_changed'):\n    self.assertEqual(row[0], 'seen_by')\n    self.assertEqual(row[1], 0)\n    self.assertEqual(row[2], note.seen_by[0].name)\n    self.assertEqual(row[3], [['user', 'Administrator', 'Guest']])\nnote.seen_by = []\nnote.save(ignore_version=False)\nversion = frappe.get_doc('Version', dict(docname=note.name))\ndata = version.get_data()\nself.assertEqual(len(data.get('removed')), 1)\nfor row in data.get('removed'):\n    self.assertEqual(row[0], 'seen_by')\n    self.assertEqual(row[1]['user'], 'Guest')",
+      "language": "Python",
+      "description": "Workflow: test rows",
+      "expected_behavior": "self.assertEqual(len(data.get('removed')), 1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+      "line_start": 28,
+      "line_end": 70,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "53b5c32f",
+      "test_name": "test_version",
+      "category": "method_call",
+      "code": "self.assertTrue(('title', 'test note', 'test note 1'), data['changed'])\nself.assertTrue(('content', 'test note content', '1'), data['changed'])",
+      "language": "Python",
+      "description": "test version",
+      "expected_behavior": "self.assertTrue(('content', 'test note content', '1'), data['changed'])",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+      "line_start": 25,
+      "line_end": 26,
+      "complexity_score": 0.55,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "ce8e2c7f",
+      "test_name": "test_rows",
+      "category": "method_call",
+      "code": "self.assertEqual(len(data.get('added')), 1)\nself.assertEqual(len(data.get('removed')), 0)",
+      "language": "Python",
+      "description": "test rows",
+      "expected_behavior": "self.assertEqual(len(data.get('removed')), 0)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+      "line_start": 38,
+      "line_end": 39,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "a05e7047",
+      "test_name": "test_rows",
+      "category": "method_call",
+      "code": "self.assertEqual(len(data.get('removed')), 0)\nself.assertEqual(len(data.get('changed')), 0)",
+      "language": "Python",
+      "description": "test rows",
+      "expected_behavior": "self.assertEqual(len(data.get('changed')), 0)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+      "line_start": 39,
+      "line_end": 40,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "53b5c32f",
+      "test_name": "test_version",
+      "category": "method_call",
+      "code": "self.assertTrue(('title', 'test note', 'test note 1'), data['changed'])\nself.assertTrue(('content', 'test note content', '1'), data['changed'])",
+      "language": "Python",
+      "description": "test version",
+      "expected_behavior": "self.assertTrue(('content', 'test note content', '1'), data['changed'])",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+      "line_start": 25,
+      "line_end": 26,
+      "complexity_score": 0.55,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "ce8e2c7f",
+      "test_name": "test_rows",
+      "category": "method_call",
+      "code": "self.assertEqual(len(data.get('added')), 1)\nself.assertEqual(len(data.get('removed')), 0)",
+      "language": "Python",
+      "description": "test rows",
+      "expected_behavior": "self.assertEqual(len(data.get('removed')), 0)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+      "line_start": 38,
+      "line_end": 39,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "a05e7047",
+      "test_name": "test_rows",
+      "category": "method_call",
+      "code": "self.assertEqual(len(data.get('removed')), 0)\nself.assertEqual(len(data.get('changed')), 0)",
+      "language": "Python",
+      "description": "test rows",
+      "expected_behavior": "self.assertEqual(len(data.get('changed')), 0)",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/note/test_note.py",
+      "line_start": 39,
+      "line_end": 40,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "4b3e5be0",
+      "test_name": "test_tag_count_query",
+      "category": "method_call",
+      "code": "add_tag('Standard', 'DocType', 'ToDo')\nself.assertDictEqual(get_stats('[\"_user_tags\"]', 'DocType'), {'_user_tags': [['Standard', 2], ['No Tags', frappe.db.count('DocType') - 2]]})",
+      "language": "Python",
+      "description": "test tag count query",
+      "expected_behavior": "self.assertDictEqual(get_stats('[\"_user_tags\"]', 'DocType'), {'_user_tags': [['Standard', 2], ['No Tags', frappe.db.count('DocType') - 2]]})",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/tag/test_tag.py",
+      "line_start": 18,
+      "line_end": 24,
+      "complexity_score": 0.6,
+      "confidence": 0.85,
+      "setup_code": "frappe.db.delete('Tag')\nfrappe.db.sql(\"UPDATE `tabDocType` set _user_tags=''\")",
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.desk.doctype.tag.tag",
+        "frappe.desk.reportview",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "a6bfb940",
+      "test_name": "test_tag_count_query",
+      "category": "method_call",
+      "code": "self.assertDictEqual(get_stats('[\"_user_tags\"]', 'DocType'), {'_user_tags': [['Standard', 2], ['No Tags', frappe.db.count('DocType') - 2]]})\nself.assertDictEqual(get_stats('[\"_user_tags\"]', 'DocType', filters='[[\"DocField\", \"fieldname\", \"like\", \"%last_name%\"], [\"DocType\", \"name\", \"like\", \"%use%\"]]'), {'_user_tags': [['Standard', 1], ['No Tags', 0]]})",
+      "language": "Python",
+      "description": "test tag count query",
+      "expected_behavior": "self.assertDictEqual(get_stats('[\"_user_tags\"]', 'DocType', filters='[[\"DocField\", \"fieldname\", \"like\", \"%last_name%\"], [\"DocType\", \"name\", \"like\", \"%use%\"]]'), {'_user_tags': [['Standard', 1], ['No Tags', 0]]})",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/tag/test_tag.py",
+      "line_start": 21,
+      "line_end": 34,
+      "complexity_score": 1.0,
+      "confidence": 0.85,
+      "setup_code": "frappe.db.delete('Tag')\nfrappe.db.sql(\"UPDATE `tabDocType` set _user_tags=''\")",
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.desk.doctype.tag.tag",
+        "frappe.desk.reportview",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "4b3e5be0",
+      "test_name": "test_tag_count_query",
+      "category": "method_call",
+      "code": "add_tag('Standard', 'DocType', 'ToDo')\nself.assertDictEqual(get_stats('[\"_user_tags\"]', 'DocType'), {'_user_tags': [['Standard', 2], ['No Tags', frappe.db.count('DocType') - 2]]})",
+      "language": "Python",
+      "description": "test tag count query",
+      "expected_behavior": "self.assertDictEqual(get_stats('[\"_user_tags\"]', 'DocType'), {'_user_tags': [['Standard', 2], ['No Tags', frappe.db.count('DocType') - 2]]})",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/tag/test_tag.py",
+      "line_start": 18,
+      "line_end": 24,
+      "complexity_score": 0.6,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.desk.doctype.tag.tag",
+        "frappe.desk.reportview",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "a6bfb940",
+      "test_name": "test_tag_count_query",
+      "category": "method_call",
+      "code": "self.assertDictEqual(get_stats('[\"_user_tags\"]', 'DocType'), {'_user_tags': [['Standard', 2], ['No Tags', frappe.db.count('DocType') - 2]]})\nself.assertDictEqual(get_stats('[\"_user_tags\"]', 'DocType', filters='[[\"DocField\", \"fieldname\", \"like\", \"%last_name%\"], [\"DocType\", \"name\", \"like\", \"%use%\"]]'), {'_user_tags': [['Standard', 1], ['No Tags', 0]]})",
+      "language": "Python",
+      "description": "test tag count query",
+      "expected_behavior": "self.assertDictEqual(get_stats('[\"_user_tags\"]', 'DocType', filters='[[\"DocField\", \"fieldname\", \"like\", \"%last_name%\"], [\"DocType\", \"name\", \"like\", \"%use%\"]]'), {'_user_tags': [['Standard', 1], ['No Tags', 0]]})",
+      "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/desk/doctype/tag/test_tag.py",
+      "line_start": 21,
+      "line_end": 34,
+      "complexity_score": 1.0,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.desk.doctype.tag.tag",
+        "frappe.desk.reportview",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    }
+  ]
+}

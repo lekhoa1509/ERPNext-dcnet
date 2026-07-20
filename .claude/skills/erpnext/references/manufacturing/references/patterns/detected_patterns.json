@@ -1,0 +1,2176 @@
+[
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/blanket_order/blanket_order.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/blanket_order/blanket_order.py",
+        "class_name": "BlanketOrder",
+        "method_name": null,
+        "line_number": 15,
+        "evidence": [
+          "Factory method: get_customer_items_ref",
+          "Factory method: get_supplier_items_ref",
+          "Multiple factory methods: get_customer_items_ref, get_supplier_items_ref",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/blanket_order/blanket_order.py",
+        "class_name": "BlanketOrder",
+        "method_name": null,
+        "line_number": 15,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 8 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/blanket_order/blanket_order.py",
+        "class_name": "BlanketOrder",
+        "method_name": "update_ordered_qty",
+        "line_number": 97,
+        "evidence": [
+          "Observer method detected: update_ordered_qty"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/blanket_order/test_blanket_order.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/blanket_order/test_blanket_order.py",
+        "class_name": "TestBlanketOrder",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/bom.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/bom.py",
+        "class_name": "BOMTree",
+        "method_name": "__create_tree",
+        "line_number": 49,
+        "evidence": [
+          "Factory method detected: __create_tree"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/bom.py",
+        "class_name": "BOM",
+        "method_name": null,
+        "line_number": 104,
+        "evidence": [
+          "Parameterized factory method: get_index_for_bom",
+          "Factory method: get_next_version_index",
+          "Parameterized factory method: get_context",
+          "Parameterized factory method: get_item_det",
+          "Factory method: get_routing",
+          "Parameterized factory method: get_bom_material_detail",
+          "Parameterized factory method: get_rm_rate",
+          "Parameterized factory method: get_bom_unitcost",
+          "Parameterized factory method: get_item_data",
+          "Factory method: get_rm_rate_map",
+          "Factory method: get_exploded_items",
+          "Parameterized factory method: get_child_exploded_items",
+          "Factory method: get_tree_representation",
+          "Multiple factory methods: get_index_for_bom, get_next_version_index, get_context",
+          "Inherits from: WebsiteGenerator"
+        ],
+        "related_classes": [
+          "WebsiteGenerator"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/bom.py",
+        "class_name": "BOM",
+        "method_name": null,
+        "line_number": 104,
+        "evidence": [
+          "Has 13 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/bom.py",
+        "class_name": "BOM",
+        "method_name": "get_next_version_index",
+        "line_number": 241,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/bom.py",
+        "class_name": "BOM",
+        "method_name": null,
+        "line_number": 104,
+        "evidence": [
+          "Implements interface: WebsiteGenerator",
+          "Has 61 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/bom.py",
+        "class_name": "BOM",
+        "method_name": null,
+        "line_number": 104,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: update_bom_creator_status",
+          "Notify method: on_update_after_submit",
+          "Notify method: update_cost",
+          "Notify method: update_parent_cost",
+          "Notify method: update_stock_qty",
+          "Attach method: add_raw_materials",
+          "Attach method: add_materials_from_bom",
+          "Notify method: update_rate_and_time",
+          "Notify method: update_exploded_items",
+          "Attach method: add_to_cur_exploded_items",
+          "Attach method: add_exploded_items"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 3,
+    "total_functions": 22,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 2,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/test_bom.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/test_bom.py",
+        "class_name": "TestBOM",
+        "method_name": null,
+        "line_number": 27,
+        "evidence": [
+          "Factory method: test_get_items",
+          "Factory method: test_get_items_exploded",
+          "Factory method: test_get_items_list",
+          "Multiple factory methods: test_get_items, test_get_items_exploded, test_get_items_list",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/test_bom.py",
+        "class_name": "TestBOM",
+        "method_name": "test_get_items",
+        "line_number": 29,
+        "evidence": [
+          "Method uses decorators: ['timeout']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/test_bom.py",
+        "class_name": "TestBOM",
+        "method_name": null,
+        "line_number": 27,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 30 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom/test_bom.py",
+        "class_name": "TestBOM",
+        "method_name": null,
+        "line_number": 27,
+        "evidence": [
+          "Notify method: test_update_bom_cost_in_all_boms",
+          "Notify method: test_bom_cost_update_flag"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 11,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.py",
+        "class_name": "BOMCreator",
+        "method_name": null,
+        "line_number": 37,
+        "evidence": [
+          "Parameterized factory method: get_raw_material_cost",
+          "Factory method: enqueue_create_boms",
+          "Factory method: create_boms",
+          "Parameterized factory method: create_bom",
+          "Parameterized factory method: get_default_bom",
+          "Multiple factory methods: get_raw_material_cost, enqueue_create_boms, create_boms",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.py",
+        "class_name": "BOMCreator",
+        "method_name": null,
+        "line_number": 37,
+        "evidence": [
+          "Has 7 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.py",
+        "class_name": "BOMCreator",
+        "method_name": "add_boms",
+        "line_number": 175,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.py",
+        "class_name": "BOMCreator",
+        "method_name": null,
+        "line_number": 37,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 21 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 7,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_creator/test_bom_creator.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_creator/test_bom_creator.py",
+        "class_name": "TestBOMCreator",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.py",
+        "class_name": "BOMOperation",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Class name suggests Command: BOMOperation"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_update_log/bom_update_log.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_update_log/bom_update_log.py",
+        "class_name": "BOMUpdateLog",
+        "method_name": "clear_old_logs",
+        "line_number": 49,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_update_log/bom_update_log.py",
+        "class_name": "BOMUpdateLog",
+        "method_name": null,
+        "line_number": 26,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 8 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_update_log/bom_update_log.py",
+        "class_name": "BOMUpdateLog",
+        "method_name": "validate_bom_cost_update_in_progress",
+        "line_number": 89,
+        "evidence": [
+          "Observer method detected: validate_bom_cost_update_in_progress"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 5,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_update_log/test_bom_update_log.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_update_log/test_bom_update_log.py",
+        "class_name": "TestBOMUpdateLog",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_update_log/test_bom_update_log.py",
+        "class_name": "TestBOMUpdateLog",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Notify method: test_bom_update_log_validate",
+          "Notify method: test_bom_update_log_completion"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_update_tool/test_bom_update_tool.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_update_tool/test_bom_update_tool.py",
+        "class_name": "TestBOMUpdateTool",
+        "method_name": "test_replace_bom",
+        "line_number": 24,
+        "evidence": [
+          "Method uses decorators: ['timeout']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_update_tool/test_bom_update_tool.py",
+        "class_name": "TestBOMUpdateTool",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_website_operation/bom_website_operation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/bom_website_operation/bom_website_operation.py",
+        "class_name": "BOMWebsiteOperation",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Class name suggests Command: BOMWebsiteOperation"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "OverlapError",
+        "method_name": null,
+        "line_number": 36,
+        "evidence": [
+          "Part of strategy family with: OperationMismatchError, OperationSequenceError, JobCardCancelError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "OperationMismatchError",
+        "method_name": null,
+        "line_number": 40,
+        "evidence": [
+          "Part of strategy family with: OverlapError, OperationSequenceError, JobCardCancelError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "OperationMismatchError",
+        "method_name": null,
+        "line_number": 40,
+        "evidence": [
+          "Class name suggests Command: OperationMismatchError"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "OperationSequenceError",
+        "method_name": null,
+        "line_number": 44,
+        "evidence": [
+          "Part of strategy family with: OverlapError, OperationMismatchError, JobCardCancelError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "OperationSequenceError",
+        "method_name": null,
+        "line_number": 44,
+        "evidence": [
+          "Class name suggests Command: OperationSequenceError"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "JobCardCancelError",
+        "method_name": null,
+        "line_number": 48,
+        "evidence": [
+          "Part of strategy family with: OverlapError, OperationMismatchError, OperationSequenceError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "JobCardOverTransferError",
+        "method_name": null,
+        "line_number": 52,
+        "evidence": [
+          "Part of strategy family with: OverlapError, OperationMismatchError, OperationSequenceError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "JobCard",
+        "method_name": null,
+        "line_number": 56,
+        "evidence": [
+          "Parameterized factory method: get_overlap_for",
+          "Parameterized factory method: get_time_logs",
+          "Parameterized factory method: get_open_job_cards",
+          "Parameterized factory method: get_workstation_based_on_available_slot",
+          "Factory method: get_required_items",
+          "Factory method: get_current_operation_data",
+          "Parameterized factory method: make_stock_entry_for_semi_fg_item",
+          "Multiple factory methods: get_overlap_for, get_time_logs, get_open_job_cards",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "JobCard",
+        "method_name": null,
+        "line_number": 56,
+        "evidence": [
+          "Has 16 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "JobCard",
+        "method_name": "time_slot_wise_busy_workstations",
+        "line_number": 486,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "JobCard",
+        "method_name": null,
+        "line_number": 56,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 59 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/job_card.py",
+        "class_name": "JobCard",
+        "method_name": null,
+        "line_number": 56,
+        "evidence": [
+          "Notify method: on_update",
+          "Attach method: add_time_log",
+          "Attach method: add_start_time_log",
+          "Notify method: update_sub_operation_status",
+          "Notify method: update_time_logs",
+          "Notify method: update_work_order",
+          "Notify method: update_semi_finished_good_details",
+          "Notify method: update_corrective_in_work_order",
+          "Notify method: update_work_order_data",
+          "Notify method: update_status_in_workstation",
+          "Attach method: add_time_logs",
+          "Notify method: update_workstation_status"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 6,
+    "total_functions": 17,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 5,
+      "Command": 2,
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/test_job_card.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/test_job_card.py",
+        "class_name": "TestJobCard",
+        "method_name": "setUpClass",
+        "line_number": 33,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card/test_job_card.py",
+        "class_name": "TestJobCard",
+        "method_name": null,
+        "line_number": 31,
+        "evidence": [
+          "Implements interface: ERPNextTestSuite",
+          "Has 22 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card_operation/job_card_operation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/job_card_operation/job_card_operation.py",
+        "class_name": "JobCardOperation",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Class name suggests Command: JobCardOperation"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/master_production_schedule/master_production_schedule.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/master_production_schedule/master_production_schedule.py",
+        "class_name": "MasterProductionSchedule",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Factory method: get_actual_demand",
+          "Factory method: get_sales_forecast_data",
+          "Parameterized factory method: get_item_details",
+          "Parameterized factory method: get_cumulative_lead_time",
+          "Factory method: get_demand_data",
+          "Factory method: get_material_requests_data",
+          "Factory method: get_sales_orders_data",
+          "Parameterized factory method: get_items_from_sales_orders",
+          "Factory method: get_sales_order_schedules",
+          "Parameterized factory method: get_item_wise_mps_data",
+          "Parameterized factory method: get_distinct_items",
+          "Parameterized factory method: get_material_requests",
+          "Parameterized factory method: get_sales_orders",
+          "Factory method: get_items_for_mps",
+          "Multiple factory methods: get_actual_demand, get_sales_forecast_data, get_item_details",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/master_production_schedule/master_production_schedule.py",
+        "class_name": "MasterProductionSchedule",
+        "method_name": "get_actual_demand",
+        "line_number": 46,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/master_production_schedule/master_production_schedule.py",
+        "class_name": "MasterProductionSchedule",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 23 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/master_production_schedule/master_production_schedule.py",
+        "class_name": "MasterProductionSchedule",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Notify method: update_item_details",
+          "Attach method: add_mps_data"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/operation/operation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/operation/operation.py",
+        "class_name": "Operation",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/operation/operation.py",
+        "class_name": "Operation",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Class name suggests Command: Operation"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/operation/test_operation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/operation/test_operation.py",
+        "class_name": "TestOperation",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Class name suggests Command: TestOperation"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/plant_floor/plant_floor.js",
+    "language": "JavaScript",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.8500000000000001,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/plant_floor/plant_floor.js",
+        "class_name": "VisualStock",
+        "method_name": null,
+        "line_number": 83,
+        "evidence": [
+          "Factory method: constructor",
+          "Factory method: make",
+          "Multiple factory methods: constructor, make"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/plant_floor/plant_floor.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/plant_floor/plant_floor.py",
+        "class_name": "PlantFloor",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Parameterized factory method: make_stock_entry",
+          "Parameterized factory method: get_item_details",
+          "Multiple factory methods: make_stock_entry, get_item_details",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/plant_floor/plant_floor.py",
+        "class_name": "PlantFloor",
+        "method_name": "make_stock_entry",
+        "line_number": 25,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.py",
+        "class_name": "ProductionPlan",
+        "method_name": null,
+        "line_number": 39,
+        "evidence": [
+          "Factory method: get_open_sales_orders",
+          "Factory method: get_pending_material_requests",
+          "Factory method: get_items",
+          "Parameterized factory method: get_so_mr_list",
+          "Factory method: get_bom_item_condition",
+          "Factory method: get_so_items",
+          "Factory method: get_mr_items",
+          "Factory method: get_so_wise_planned_qty",
+          "Factory method: get_production_items",
+          "Factory method: make_work_order",
+          "Parameterized factory method: make_work_order_for_finished_goods",
+          "Parameterized factory method: make_work_order_for_subassembly_items",
+          "Parameterized factory method: make_subcontracted_purchase_order",
+          "Parameterized factory method: show_list_created_message",
+          "Parameterized factory method: create_work_order",
+          "Factory method: make_material_request",
+          "Parameterized factory method: get_sub_assembly_items",
+          "Multiple factory methods: get_open_sales_orders, get_pending_material_requests, get_items",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.py",
+        "class_name": "ProductionPlan",
+        "method_name": null,
+        "line_number": 39,
+        "evidence": [
+          "Has 9 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.py",
+        "class_name": "ProductionPlan",
+        "method_name": "validate_sales_orders",
+        "line_number": 144,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.py",
+        "class_name": "ProductionPlan",
+        "method_name": null,
+        "line_number": 39,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 50 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.py",
+        "class_name": "ProductionPlan",
+        "method_name": null,
+        "line_number": 39,
+        "evidence": [
+          "Attach method: add_so_in_table",
+          "Attach method: add_mr_in_table",
+          "Attach method: add_items",
+          "Attach method: add_pp_ref",
+          "Notify method: update_produced_pending_qty",
+          "Notify method: update_stock_reservation",
+          "Attach method: add_reference_to_raw_materials",
+          "Notify method: update_sales_order",
+          "Notify method: update_bin_qty",
+          "Notify method: update_ordered_status",
+          "Notify method: update_requested_status"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.py",
+        "class_name": "ProductionPlan",
+        "method_name": null,
+        "line_number": 39,
+        "evidence": [
+          "Has hook methods: validate, validate_material_request_type, validate_sales_orders",
+          "Has abstract methods: _rename_temporary_references"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 22,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/production_plan/test_production_plan.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/production_plan/test_production_plan.py",
+        "class_name": "TestProductionPlan",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Factory method: test_donot_allow_to_make_multiple_pp_against_same_so",
+          "Factory method: test_get_warehouse_list_group",
+          "Factory method: test_get_warehouse_list_single",
+          "Factory method: test_get_sales_order_with_variant",
+          "Factory method: test_get_sales_order_items_for_product_bundle",
+          "Multiple factory methods: test_donot_allow_to_make_multiple_pp_against_same_so, test_get_warehouse_list_group, test_get_warehouse_list_single",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/production_plan/test_production_plan.py",
+        "class_name": "TestProductionPlan",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 55 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 6,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/routing/routing.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/routing/routing.py",
+        "class_name": "Routing",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/routing/routing.py",
+        "class_name": "Routing",
+        "method_name": "on_update",
+        "line_number": 31,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/routing/test_routing.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/routing/test_routing.py",
+        "class_name": "TestRouting",
+        "method_name": "setUpClass",
+        "line_number": 15,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/routing/test_routing.py",
+        "class_name": "TestRouting",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/routing/test_routing.py",
+        "class_name": "TestRouting",
+        "method_name": "test_update_bom_operation_time",
+        "line_number": 61,
+        "evidence": [
+          "Observer method detected: test_update_bom_operation_time"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/sales_forecast/sales_forecast.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/sales_forecast/sales_forecast.py",
+        "class_name": "SalesForecast",
+        "method_name": "generate_demand",
+        "line_number": 64,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/sales_forecast/sales_forecast.py",
+        "class_name": "SalesForecast",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/sub_operation/sub_operation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/sub_operation/sub_operation.py",
+        "class_name": "SubOperation",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Class name suggests Command: SubOperation"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/sub_operation/test_sub_operation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/sub_operation/test_sub_operation.py",
+        "class_name": "TestSubOperation",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Class name suggests Command: TestSubOperation"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/test_work_order.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/test_work_order.py",
+        "class_name": "TestWorkOrder",
+        "method_name": null,
+        "line_number": 40,
+        "evidence": [
+          "Factory method: test_make_stock_entry_for_customer_provided_item",
+          "Factory method: test_valuation_rate_missing_on_make_stock_entry",
+          "Parameterized factory method: get_serial_nos_for_fg",
+          "Factory method: test_get_rm_cost_from_consumption_entry",
+          "Multiple factory methods: test_make_stock_entry_for_customer_provided_item, test_valuation_rate_missing_on_make_stock_entry, get_serial_nos_for_fg",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/test_work_order.py",
+        "class_name": "TestWorkOrder",
+        "method_name": "test_job_card",
+        "line_number": 462,
+        "evidence": [
+          "Method uses decorators: ['timeout(seconds=60)']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/test_work_order.py",
+        "class_name": "TestWorkOrder",
+        "method_name": null,
+        "line_number": 40,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 74 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/test_work_order.py",
+        "class_name": "TestWorkOrder",
+        "method_name": null,
+        "line_number": 40,
+        "evidence": [
+          "Attach method: test_disassembly_with_additional_rm_not_in_bom",
+          "Attach method: test_allow_additional_material_transfer",
+          "Attach method: test_phantom_bom_item_not_in_additional_cost"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 11,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "OverProductionError",
+        "method_name": null,
+        "line_number": 45,
+        "evidence": [
+          "Part of strategy family with: CapacityError, StockOverProductionError, OperationTooLongError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "CapacityError",
+        "method_name": null,
+        "line_number": 49,
+        "evidence": [
+          "Part of strategy family with: OverProductionError, StockOverProductionError, OperationTooLongError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "StockOverProductionError",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Part of strategy family with: OverProductionError, CapacityError, OperationTooLongError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "OperationTooLongError",
+        "method_name": null,
+        "line_number": 57,
+        "evidence": [
+          "Part of strategy family with: OverProductionError, CapacityError, StockOverProductionError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "OperationTooLongError",
+        "method_name": null,
+        "line_number": 57,
+        "evidence": [
+          "Class name suggests Command: OperationTooLongError"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "ItemHasVariantError",
+        "method_name": null,
+        "line_number": 61,
+        "evidence": [
+          "Part of strategy family with: OverProductionError, CapacityError, StockOverProductionError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "SerialNoQtyError",
+        "method_name": null,
+        "line_number": 65,
+        "evidence": [
+          "Part of strategy family with: OverProductionError, CapacityError, StockOverProductionError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "WorkOrder",
+        "method_name": null,
+        "line_number": 69,
+        "evidence": [
+          "Factory method: show_create_job_card_button",
+          "Parameterized factory method: get_status",
+          "Parameterized factory method: get_transferred_or_manufactured_qty",
+          "Factory method: create_serial_no_batch_no",
+          "Factory method: create_batch_for_finished_good",
+          "Factory method: delete_auto_created_batch_and_serial_no",
+          "Parameterized factory method: make_serial_nos",
+          "Factory method: create_job_card",
+          "Parameterized factory method: get_holidays",
+          "Factory method: get_items_and_operations_from_bom",
+          "Factory method: make_bom",
+          "Parameterized factory method: get_list_of_materials_for_reservation",
+          "Parameterized factory method: get_finished_goods_for_reservation",
+          "Factory method: get_wo_details",
+          "Factory method: get_scio_details",
+          "Factory method: get_so_details",
+          "Parameterized factory method: get_voucher_details",
+          "Multiple factory methods: show_create_job_card_button, get_status, get_transferred_or_manufactured_qty",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "WorkOrder",
+        "method_name": null,
+        "line_number": 69,
+        "evidence": [
+          "Has 14 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "WorkOrder",
+        "method_name": "get_items_and_operations_from_bom",
+        "line_number": 1488,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "WorkOrder",
+        "method_name": null,
+        "line_number": 69,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 83 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order/work_order.py",
+        "class_name": "WorkOrder",
+        "method_name": null,
+        "line_number": 69,
+        "evidence": [
+          "Notify method: update_status",
+          "Notify method: update_work_order_qty",
+          "Attach method: validate_additional_transferred_qty",
+          "Notify method: update_disassembled_qty",
+          "Notify method: update_production_plan_status",
+          "Notify method: update_stock_reservation",
+          "Notify method: update_subcontracting_inward_order_received_items",
+          "Notify method: update_planned_qty",
+          "Notify method: update_ordered_qty",
+          "Notify method: update_work_order_qty_in_so",
+          "Notify method: update_work_order_qty_in_combined_so",
+          "Notify method: update_completed_qty_in_material_request",
+          "Notify method: update_operation_status",
+          "Notify method: update_required_items",
+          "Notify method: update_reserved_qty_for_production",
+          "Notify method: update_transferred_qty_for_required_items",
+          "Notify method: update_qty_in_stock_reservation",
+          "Notify method: update_returned_qty",
+          "Notify method: update_consumed_qty_for_required_items",
+          "Notify method: update_consumed_qty_in_stock_reservation",
+          "Attach method: remove_additional_items",
+          "Detach method: remove_additional_items",
+          "Attach method: add_additional_items"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 7,
+    "total_functions": 31,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 6,
+      "Command": 1,
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.py",
+        "class_name": "WorkOrderOperation",
+        "method_name": null,
+        "line_number": 8,
+        "evidence": [
+          "Class name suggests Command: WorkOrderOperation"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation/test_workstation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation/test_workstation.py",
+        "class_name": "TestWorkstation",
+        "method_name": "test_update_bom_operation_rate",
+        "line_number": 51,
+        "evidence": [
+          "Observer method detected: test_update_bom_operation_rate"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation/workstation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation/workstation.py",
+        "class_name": "WorkstationHolidayError",
+        "method_name": null,
+        "line_number": 26,
+        "evidence": [
+          "Part of strategy family with: NotInWorkingHoursError, OverlapError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation/workstation.py",
+        "class_name": "NotInWorkingHoursError",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Part of strategy family with: WorkstationHolidayError, OverlapError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation/workstation.py",
+        "class_name": "OverlapError",
+        "method_name": null,
+        "line_number": 34,
+        "evidence": [
+          "Part of strategy family with: WorkstationHolidayError, NotInWorkingHoursError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation/workstation.py",
+        "class_name": "Workstation",
+        "method_name": null,
+        "line_number": 38,
+        "evidence": [
+          "Has 3 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation/workstation.py",
+        "class_name": "Workstation",
+        "method_name": "set_data_based_on_workstation_type",
+        "line_number": 117,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation/workstation.py",
+        "class_name": "Workstation",
+        "method_name": null,
+        "line_number": 38,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 15 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation/workstation.py",
+        "class_name": "Workstation",
+        "method_name": null,
+        "line_number": 38,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: publish_workstation_status",
+          "Notify method: update_bom_operation"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 4,
+    "total_functions": 12,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 3,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation_type/workstation_type.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/doctype/workstation_type/workstation_type.py",
+        "class_name": "WorkstationType",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/page/bom_comparison_tool/bom_comparison_tool.js",
+    "language": "JavaScript",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.8500000000000001,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/page/bom_comparison_tool/bom_comparison_tool.js",
+        "class_name": "BOMComparisonTool",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Factory method: constructor",
+          "Factory method: make_form",
+          "Multiple factory methods: constructor, make_form"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/exponential_smoothing_forecasting/exponential_smoothing_forecasting.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/exponential_smoothing_forecasting/exponential_smoothing_forecasting.py",
+        "class_name": "ForecastingReport",
+        "method_name": null,
+        "line_number": 39,
+        "evidence": [
+          "Factory method: get_data_for_forecast",
+          "Factory method: get_columns",
+          "Factory method: get_chart_data",
+          "Factory method: get_summary_data",
+          "Multiple factory methods: get_data_for_forecast, get_columns, get_chart_data",
+          "Inherits from: ExponentialSmoothingForecast"
+        ],
+        "related_classes": [
+          "ExponentialSmoothingForecast"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/exponential_smoothing_forecasting/exponential_smoothing_forecasting.py",
+        "class_name": "ForecastingReport",
+        "method_name": null,
+        "line_number": 39,
+        "evidence": [
+          "Implements interface: ExponentialSmoothingForecast",
+          "Has 9 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/exponential_smoothing_forecasting/exponential_smoothing_forecasting.py",
+        "class_name": "ForecastingReport",
+        "method_name": null,
+        "line_number": 39,
+        "evidence": [
+          "Has hook methods: prepare_periodical_data, prepare_final_data",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/material_requirements_planning_report/material_requirements_planning_report.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/material_requirements_planning_report/material_requirements_planning_report.py",
+        "class_name": "MaterialRequirementsPlanningReport",
+        "method_name": null,
+        "line_number": 34,
+        "evidence": [
+          "Factory method: get_orders_to_skip",
+          "Factory method: get_item_wise_bin_details",
+          "Factory method: get_mrp_data",
+          "Parameterized factory method: get_chart_data",
+          "Parameterized factory method: get_detailed_view_chart_data",
+          "Parameterized factory method: get_bucket_view_chart_data",
+          "Parameterized factory method: get_bucket_view_data",
+          "Factory method: get_detailed_view_data",
+          "Parameterized factory method: get_lead_time_from_raw_materials",
+          "Factory method: get_work_order_data",
+          "Factory method: get_purchase_order_data",
+          "Factory method: get_sales_order_data",
+          "Factory method: get_packed_items_sales_order",
+          "Factory method: get_subcontracted_data",
+          "Factory method: get_mps_data",
+          "Parameterized factory method: get_items_from_mps",
+          "Parameterized factory method: get_raw_materials_data",
+          "Parameterized factory method: get_raw_materials",
+          "Factory method: get_columns",
+          "Factory method: get_dates",
+          "Parameterized factory method: get_first_date_of_week",
+          "Parameterized factory method: get_last_date_of_week",
+          "Factory method: get_sales_forecast_data",
+          "Multiple factory methods: get_orders_to_skip, get_item_wise_bin_details, get_mrp_data"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/material_requirements_planning_report/material_requirements_planning_report.py",
+        "class_name": "MaterialRequirementsPlanningReport",
+        "method_name": null,
+        "line_number": 34,
+        "evidence": [
+          "Has 6 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/material_requirements_planning_report/material_requirements_planning_report.py",
+        "class_name": "MaterialRequirementsPlanningReport",
+        "method_name": null,
+        "line_number": 34,
+        "evidence": [
+          "Attach method: add_non_planned_orders",
+          "Notify method: update_mps_data_with_bin_details",
+          "Notify method: update_sales_forecast_data",
+          "Attach method: add_non_planned_so",
+          "Attach method: add_bin_details",
+          "Attach method: add_po_details",
+          "Attach method: add_wo_details",
+          "Notify method: update_required_qty",
+          "Attach method: add_safety_stock",
+          "Notify method: update_rm_details"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 10,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/production_planning_report/production_planning_report.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/production_planning_report/production_planning_report.py",
+        "class_name": "ProductionPlanReport",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Factory method: get_open_orders",
+          "Factory method: get_raw_materials",
+          "Factory method: get_item_details",
+          "Factory method: get_bin_details",
+          "Factory method: get_purchase_details",
+          "Factory method: get_args",
+          "Factory method: get_columns",
+          "Multiple factory methods: get_open_orders, get_raw_materials, get_item_details"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/production_planning_report/production_planning_report.py",
+        "class_name": "ProductionPlanReport",
+        "method_name": "update_raw_materials",
+        "line_number": 275,
+        "evidence": [
+          "Observer method detected: update_raw_materials"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/test_reports.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/manufacturing/report/test_reports.py",
+        "class_name": "TestManufacturingReports",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  }
+]

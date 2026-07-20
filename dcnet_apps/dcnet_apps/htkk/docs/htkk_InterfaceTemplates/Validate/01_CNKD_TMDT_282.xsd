@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by DINHDT (SEATECH) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:redefine schemaLocation="..\TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="KKThueGTGT_TNCN">
+							<xs:annotation>
+								<xs:documentation>A. KÊ KHAI THUẾ GIÁ TRỊ GIA TĂNG (GTGT), THUẾ THU NHẬP CÁ NHÂN (TNCN)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ma_loaitien" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Mã loại tiền</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ten_loaitien" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên loại tiền</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="DoanhThu">
+										<xs:annotation>
+											<xs:documentation>Doanh thu của hộ kinh doanh, cá nhân kinh doanh</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct09" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Cung cấp hàng hóa</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Cung cấp dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct11" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Vận tải, dịch vụ có gắn với hàng hóa</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct12" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động kinh doanh khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="SoThueGTGT">
+										<xs:annotation>
+											<xs:documentation>Số thuế GTGT (b)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct09" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Cung cấp hàng hóa</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Cung cấp dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct11" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Vận tải, dịch vụ có gắn với hàng hóa</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct12" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động kinh doanh khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="SoThueTNCN">
+										<xs:annotation>
+											<xs:documentation>Số thuế TNCN (d)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct09" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Cung cấp hàng hóa</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Cung cấp dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct11" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Vận tải, dịch vụ có gắn với hàng hóa</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct12" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động kinh doanh khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TongSoThueDaKhauTru">
+										<xs:annotation>
+											<xs:documentation>Số thuế đã khấu trừ: Tổng cộng</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct09" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Cung cấp hàng hóa</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct10" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Cung cấp dịch vụ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct11" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Vận tải, dịch vụ có gắn với hàng hóa</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct12" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động kinh doanh khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TongCong">
+										<xs:annotation>
+											<xs:documentation>Tổng cộng</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct13_1" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng doanh thu thuế GTGT</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct13_2" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế GTGT</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct13_3" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng doanh thu thuế TNCN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct13_4" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế TNCN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="PLucType">
+			<xs:complexContent>
+				<xs:extension base="PLucType">
+					<xs:sequence>
+						<xs:element name="PLuc_01_1_BK_CNKD_TMDT" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="BKeCNKD-NguoiVN">
+										<xs:annotation>
+											<xs:documentation>I: Người việt nam</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="CTietCNKD" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ct02" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên sàn giao dịch TMĐT/ Tên nền tảng số</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct03" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mã quản lý trên sàn giao dịch TMĐT của người bán là cá nhân, hộ kinh doanh (Nhà cung cấp)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct04" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên gian hàng trên/ Tên tài khoản trên nền tảng TMĐT</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct05" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên hộ kinh doanh/ Họ và tên cá nhân kinh doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_giayto" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>mã Loại giấy tờ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_giayto" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>tên Loại giấy tờ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct06" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mã số thuế/ Số định danh (CCCD)/ Số giấy tờ định danh của hộ kinh doanh, cá nhân kinh doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct07" type="xs:boolean" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Cá nhân không cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct08_ma" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>mã Nhóm ngành nghề</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct08_ten" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>tên Nhóm ngành nghề</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct09" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Doanh thu của hộ kinh doanh, cá nhân kinh doanh phát sinh trong kỳ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct10" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Số thuế GTGT</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct11" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Số thuế TNCN</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct12" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tổng cộng</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="BKeCNKD_NguoiNN">
+										<xs:annotation>
+											<xs:documentation>II: Người nước ngoài</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="CTietCNKD" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ct02" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên sàn giao dịch TMĐT/ Tên nền tảng số</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct03" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mã quản lý trên sàn giao dịch TMĐT của người bán là cá nhân, hộ kinh doanh (Nhà cung cấp)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct04" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên gian hàng trên/ Tên tài khoản trên nền tảng TMĐT</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct05" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên hộ kinh doanh/ Họ và tên cá nhân kinh doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_giayto" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>mã Loại giấy tờ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_giayto" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>tên Loại giấy tờ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct06" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mã số thuế/ Số định danh (CCCD)/ Số giấy tờ định danh của hộ kinh doanh, cá nhân kinh doanh</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct07" type="xs:boolean" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Cá nhân không cư trú</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct08_ma" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>mã Nhóm ngành nghề</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct08_ten" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>tên Nhóm ngành nghề</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct09" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Doanh thu của hộ kinh doanh, cá nhân kinh doanh phát sinh trong kỳ</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct10" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Số thuế GTGT</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct11" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Số thuế TNCN</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ct12" type="xs:decimal" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tổng cộng</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TongCongHangHoa">
+										<xs:annotation>
+											<xs:documentation>Tổng cộng nhóm hàng hóa</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct13" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu của hộ kinh doanh, cá nhân kinh doanh phát sinh trong kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct14" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế GTGT</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct15" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế TNCN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct16" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế GTGT + TNCN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TongCongDichVu">
+										<xs:annotation>
+											<xs:documentation>Tổng cộng nhóm dịch vụ</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct13" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu của hộ kinh doanh, cá nhân kinh doanh phát sinh trong kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct14" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế GTGT</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct15" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế TNCN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct16" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế GTGT + TNCN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TongCongVanTai">
+										<xs:annotation>
+											<xs:documentation>Tổng cộng nhóm Vận tải, dịch vụ có gắn với hàng hóa</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct13" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu của hộ kinh doanh, cá nhân kinh doanh phát sinh trong kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct14" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế GTGT</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct15" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế TNCN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct16" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế GTGT + TNCN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TongCongKinhDoanhKhac">
+										<xs:annotation>
+											<xs:documentation>Hoạt động kinh doanh khác</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct13" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu của hộ kinh doanh, cá nhân kinh doanh phát sinh trong kỳ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct14" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế GTGT</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct15" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế TNCN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct16" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng số thuế GTGT + TNCN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

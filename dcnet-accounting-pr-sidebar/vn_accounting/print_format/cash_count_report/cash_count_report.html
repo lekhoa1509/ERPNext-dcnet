@@ -1,0 +1,148 @@
+{%- set company_doc = frappe.get_doc("Company", doc.company) -%}
+{%- set company_address = company_doc.get("address") or company_doc.get("company_name") -%}
+{%- macro vnd(amount) -%}{{ "{:,.0f}".format(amount or 0).replace(",", ".") }}{%- endmacro -%}
+{%- set cashier_name = frappe.db.get_value("Employee", doc.cashier, "employee_name") if doc.cashier else "" -%}
+{%- set ca_name = frappe.db.get_value("Employee", doc.chief_accountant, "employee_name") if doc.chief_accountant else "" -%}
+{%- set dir_name = frappe.db.get_value("Employee", doc.director, "employee_name") if doc.director else "" -%}
+
+<style>
+@media print {
+    @page { size: A4 portrait; margin: 20mm 15mm; }
+}
+.cash-count-print {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.cash-count-print .header-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.cash-count-print .header-left { text-align: left; }
+.cash-count-print .header-right { text-align: right; font-style: italic; }
+.cash-count-print h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+.cash-count-print .subtitle {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+.cash-count-print table.denom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+.cash-count-print table.denom-table th,
+.cash-count-print table.denom-table td {
+    border: 1px solid #000;
+    padding: 4px 8px;
+    text-align: right;
+}
+.cash-count-print table.denom-table th { text-align: center; font-weight: bold; }
+.cash-count-print .sig-table {
+    width: 100%;
+    margin-top: 30px;
+}
+.cash-count-print .sig-table td {
+    text-align: center;
+    vertical-align: top;
+    padding: 5px 10px;
+    width: 33%;
+}
+.cash-count-print .sig-table .sig-title { font-weight: bold; }
+.cash-count-print .sig-table .sig-note { font-style: italic; font-size: 12px; }
+.cash-count-print .sig-table .sig-name { margin-top: 50px; font-weight: bold; }
+.cash-count-print .section-title { font-weight: bold; margin-top: 10px; }
+</style>
+
+<div class="cash-count-print">
+    <div class="header-row">
+        <div class="header-left">
+            <div><b>{{ company_doc.company_name }}</b></div>
+        </div>
+        <div class="header-right">
+            <div>M&#7851;u s&#7889; 08a</div>
+            <div>(Ban h&agrave;nh theo TT200/2014)</div>
+        </div>
+    </div>
+
+    <h2>BI&Ecirc;N B&#7842;N KI&#7874;M K&Ecirc; QU&#7928; TI&#7872;N M&#7862;T</h2>
+    {%- set d = frappe.utils.getdate(doc.count_date) -%}
+    <div class="subtitle">Ng&agrave;y {{ d.day }} th&aacute;ng {{ d.month }} n&#259;m {{ d.year }}</div>
+
+    <div>
+        <b>Lo&#7841;i ki&#7875;m k&ecirc;:</b>
+        {% if doc.count_type == "Periodic" %}&#272;&#7883;nh k&#7923;{% else %}&#272;&#7897;t xu&#7845;t{% endif %}
+    </div>
+    {% if doc.count_type == "Unscheduled" and doc.reason %}
+    <div><b>L&yacute; do:</b> {{ doc.reason }}</div>
+    {% endif %}
+    <div><b>T&agrave;i kho&#7843;n qu&#7929;:</b> {{ doc.cash_account }}</div>
+
+    <div class="section-title">I. S&#7889; d&#432; theo s&#7893; k&#7871; to&aacute;n: {{ vnd(doc.book_balance) }} VND</div>
+
+    <div class="section-title">II. S&#7889; ki&#7875;m k&ecirc; th&#7921;c t&#7871;:</div>
+    {% if doc.show_denomination %}
+    <table class="denom-table">
+        <thead>
+            <tr>
+                <th>M&#7879;nh gi&aacute; (VND)</th>
+                <th>S&#7889; t&#7901;</th>
+                <th>Th&agrave;nh ti&#7873;n (VND)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in doc.denominations if row.quantity and row.quantity > 0 %}
+            <tr>
+                <td>{{ vnd(row.denomination) }}</td>
+                <td>{{ row.quantity }}</td>
+                <td>{{ vnd(row.amount) }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="2" style="text-align: center; font-weight: bold;">T&#7893;ng c&#7897;ng</td>
+                <td><b>{{ vnd(doc.actual_amount) }}</b></td>
+            </tr>
+        </tbody>
+    </table>
+    {% else %}
+    <div>T&#7893;ng s&#7889; ti&#7873;n m&#7863;t ki&#7875;m k&ecirc;: <b>{{ vnd(doc.actual_amount) }} VND</b></div>
+    {% endif %}
+
+    <div class="section-title">III. Ch&ecirc;nh l&#7879;ch:</div>
+    <div>
+        - Th&#7915;a: {% if doc.difference_type == "Surplus" %}{{ vnd(doc.difference) }} VND{% else %}&mdash;{% endif %}<br>
+        - Thi&#7871;u: {% if doc.difference_type == "Deficit" %}{{ vnd(doc.difference|abs) }} VND{% else %}&mdash;{% endif %}
+    </div>
+    {% if doc.remarks %}
+    <div>- L&yacute; do ch&ecirc;nh l&#7879;ch: {{ doc.remarks }}</div>
+    {% endif %}
+
+    <div class="section-title">IV. K&#7871;t lu&#7853;n v&agrave; ki&#7871;n ngh&#7883; x&#7917; l&yacute;:</div>
+    <div>{% if doc.difference == 0 %}Qu&#7929; c&acirc;n b&#7857;ng, kh&ocirc;ng ch&ecirc;nh l&#7879;ch.{% elif doc.remarks %}{{ doc.remarks }}{% else %}&mdash;{% endif %}</div>
+
+    <table class="sig-table">
+        <tr>
+            <td class="sig-title">Gi&aacute;m &#273;&#7889;c</td>
+            <td class="sig-title">K&#7871; to&aacute;n tr&#432;&#7903;ng</td>
+            <td class="sig-title">Th&#7911; qu&#7929;</td>
+        </tr>
+        <tr>
+            <td class="sig-note">(K&yacute; t&ecirc;n)</td>
+            <td class="sig-note">(K&yacute; t&ecirc;n)</td>
+            <td class="sig-note">(K&yacute; t&ecirc;n)</td>
+        </tr>
+        <tr>
+            <td class="sig-name">{{ dir_name }}</td>
+            <td class="sig-name">{{ ca_name }}</td>
+            <td class="sig-name">{{ cashier_name }}</td>
+        </tr>
+    </table>
+</div>

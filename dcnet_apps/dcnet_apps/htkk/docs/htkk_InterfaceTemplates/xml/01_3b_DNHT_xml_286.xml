@@ -1,0 +1,17 @@
+<PLuc_01_3b_HT>
+	<VienChucNgoaiGiaoHoanThue id="String">
+		<tenCaNhan/>
+		<chucVu/>
+		<so/>
+		<ngayCap/>
+		<ngayHetHan/>
+		<ma_QuocTich/>
+		<ten_QuocTich/>
+		<soTaiKhoan/>
+		<tenChuTaiKhoan/>
+		<NganHang_ma/>
+		<NganHang_ten/>
+		<soTienThueGTGTDeNghiHoan/>
+		<soTienThueGTGTXacNhanHoan/>
+	</VienChucNgoaiGiaoHoanThue>
+</PLuc_01_3b_HT>

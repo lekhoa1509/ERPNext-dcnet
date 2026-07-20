@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard HLV - DCNET Flow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink-gray-9: #171717;
+            --ink-gray-8: #2D2D2D;
+            --ink-gray-7: #4B4B4B;
+            --ink-gray-6: #6B6B6B;
+            --surface-white: #FFFFFF;
+            --surface-gray-1: #FAFAFA;
+            --surface-gray-2: #F5F5F5;
+            --outline-gray-2: #E5E5E5;
+            --outline-gray-3: #D4D4D4;
+            --blue-500: #0289F7;
+            --blue-100: #E5F3FF;
+            --green-500: #46B37E;
+            --green-100: #E5F9F0;
+            --red-500: #E03636;
+            --amber-500: #E79913;
+            --amber-100: #FFF3E5;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --radius-md: 0.625rem;
+            --radius-lg: 0.75rem;
+            --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0px 0px 1px rgba(0, 0, 0, 0.12), 0px 0.5px 2px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 14px;
+            font-weight: 420;
+            line-height: 1.5;
+            color: var(--ink-gray-8);
+            background: var(--surface-gray-1);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background: var(--surface-white);
+            border-right: 1px solid var(--outline-gray-2);
+            padding: var(--spacing-4);
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: var(--surface-white);
+            border-bottom: 1px solid var(--outline-gray-2);
+            padding: var(--spacing-4) var(--spacing-6);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--ink-gray-9);
+        }
+
+        .coach-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue-500), var(--green-500));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .coach-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .coach-name {
+            font-weight: 600;
+            color: var(--ink-gray-9);
+        }
+
+        .coach-rating {
+            font-size: 12px;
+            color: var(--ink-gray-6);
+        }
+
+        .date-filter {
+            display: flex;
+            gap: var(--spacing-2);
+            align-items: center;
+            margin-top: var(--spacing-3);
+        }
+
+        .date-filter select {
+            height: 32px;
+            padding: 0 var(--spacing-3);
+            border: 1px solid var(--outline-gray-2);
+            border-radius: var(--radius-md);
+            background: var(--surface-white);
+            font-size: 13px;
+            outline: none;
+        }
+
+        /* Stats Grid */
+        .content-area {
+            flex: 1;
+            overflow: auto;
+            padding: var(--spacing-6);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .stat-card {
+            background: var(--surface-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-4);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .stat-icon.blue { background: var(--blue-100); }
+        .stat-icon.green { background: var(--green-100); }
+        .stat-icon.amber { background: var(--amber-100); }
+
+        .stat-change {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .stat-change.positive {
+            background: var(--green-100);
+            color: var(--green-500);
+        }
+
+        .stat-change.negative {
+            background: #FFE5E5;
+            color: var(--red-500);
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--ink-gray-9);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--ink-gray-6);
+        }
+
+        /* Today's Schedule */
+        .section-card {
+            background: var(--surface-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            padding: var(--spacing-6);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-6);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ink-gray-9);
+        }
+
+        .button {
+            height: 32px;
+            padding: 0 var(--spacing-4);
+            border: 1px solid var(--outline-gray-2);
+            border-radius: var(--radius-md);
+            background: var(--surface-white);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            transition: all 0.15s;
+        }
+
+        .button:hover {
+            background: var(--surface-gray-2);
+        }
+
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .schedule-item {
+            display: flex;
+            gap: var(--spacing-4);
+            padding: var(--spacing-4);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--outline-gray-2);
+            transition: all 0.15s;
+        }
+
+        .schedule-item:hover {
+            background: var(--surface-gray-1);
+            border-color: var(--blue-500);
+        }
+
+        .schedule-time {
+            min-width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: var(--spacing-2);
+            background: var(--surface-gray-1);
+            border-radius: var(--radius-md);
+        }
+
+        .schedule-time-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ink-gray-9);
+        }
+
+        .schedule-time-label {
+            font-size: 11px;
+            color: var(--ink-gray-6);
+        }
+
+        .schedule-details {
+            flex: 1;
+        }
+
+        .schedule-student {
+            font-weight: 600;
+            color: var(--ink-gray-9);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .schedule-meta {
+            display: flex;
+            gap: var(--spacing-4);
+            font-size: 13px;
+            color: var(--ink-gray-6);
+        }
+
+        .schedule-meta span {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-1);
+        }
+
+        .schedule-actions {
+            display: flex;
+            gap: var(--spacing-2);
+            align-items: center;
+        }
+
+        .icon-button {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--outline-gray-2);
+            border-radius: var(--radius-md);
+            background: var(--surface-white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+        }
+
+        .icon-button:hover {
+            background: var(--surface-gray-2);
+        }
+
+        /* Two Column Layout */
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-6);
+        }
+
+        /* Student Progress */
+        .progress-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .progress-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-3);
+            border-radius: var(--radius-md);
+            background: var(--surface-gray-1);
+        }
+
+        .progress-info {
+            flex: 1;
+        }
+
+        .progress-name {
+            font-weight: 500;
+            color: var(--ink-gray-9);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .progress-bar-container {
+            width: 200px;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--surface-white);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blue-500), var(--green-500));
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--ink-gray-7);
+            min-width: 40px;
+        }
+
+        /* Quick Stats */
+        .quick-stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-3) 0;
+            border-bottom: 1px solid var(--outline-gray-2);
+        }
+
+        .quick-stat:last-child {
+            border-bottom: none;
+        }
+
+        .quick-stat-label {
+            font-size: 13px;
+            color: var(--ink-gray-6);
+        }
+
+        .quick-stat-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--ink-gray-9);
+        }
+
+        /* Calendar Widget */
+        .calendar {
+            background: var(--surface-gray-1);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-4);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .calendar-month {
+            font-weight: 600;
+            color: var(--ink-gray-9);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: var(--spacing-2);
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .calendar-day.header {
+            font-weight: 600;
+            color: var(--ink-gray-6);
+            cursor: default;
+        }
+
+        .calendar-day.inactive {
+            color: var(--ink-gray-6);
+            opacity: 0.3;
+        }
+
+        .calendar-day:not(.header):not(.inactive):hover {
+            background: var(--surface-white);
+        }
+
+        .calendar-day.today {
+            background: var(--blue-500);
+            color: white;
+            font-weight: 600;
+        }
+
+        .calendar-day.has-session {
+            background: var(--green-100);
+            color: var(--green-500);
+            font-weight: 600;
+        }
+
+        /* Sidebar Nav */
+        .nav-section {
+            margin-bottom: var(--spacing-4);
+        }
+
+        .nav-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--ink-gray-6);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-2) var(--spacing-3);
+            border-radius: var(--radius-md);
+            color: var(--ink-gray-7);
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.15s;
+        }
+
+        .nav-item:hover {
+            background: var(--surface-gray-1);
+        }
+
+        .nav-item.active {
+            background: var(--surface-gray-2);
+            color: var(--blue-500);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="nav-section">
+                <div class="nav-title">HLV Dashboard</div>
+                <a href="#" class="nav-item active">
+                    <span>📊</span> Tổng quan
+                </a>
+                <a href="#" class="nav-item">
+                    <span>📅</span> Lịch dạy
+                </a>
+                <a href="#" class="nav-item">
+                    <span>👥</span> Học viên của tôi
+                </a>
+                <a href="#" class="nav-item">
+                    <span>📝</span> Đánh giá & Báo cáo
+                </a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-title">Coaching</div>
+                <a href="#" class="nav-item">
+                    <span>📋</span> Đơn Coaching
+                </a>
+                <a href="#" class="nav-item">
+                    <span>📦</span> Gói huấn luyện
+                </a>
+                <a href="#" class="nav-item">
+                    <span>⛳</span> Sân tập
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-top">
+                    <h1 class="page-title">Dashboard HLV</h1>
+                    <div class="coach-info">
+                        <div class="avatar">NA</div>
+                        <div class="coach-details">
+                            <div class="coach-name">HLV Nguyễn Văn A</div>
+                            <div class="coach-rating">⭐ 4.8 (125 đánh giá)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="date-filter">
+                    <span style="font-size: 13px; color: var(--ink-gray-6);">Hiển thị:</span>
+                    <select>
+                        <option>Hôm nay</option>
+                        <option>Tuần này</option>
+                        <option selected>Tháng này</option>
+                        <option>Tùy chỉnh</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content-area">
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon blue">👥</div>
+                            <div class="stat-change positive">↑ 12%</div>
+                        </div>
+                        <div class="stat-value">28</div>
+                        <div class="stat-label">Học viên đang dạy</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon green">📚</div>
+                            <div class="stat-change positive">↑ 8%</div>
+                        </div>
+                        <div class="stat-value">52</div>
+                        <div class="stat-label">Buổi dạy tháng này</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon amber">💰</div>
+                            <div class="stat-change positive">↑ 15%</div>
+                        </div>
+                        <div class="stat-value">89tr</div>
+                        <div class="stat-label">Doanh thu tháng</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon green">✅</div>
+                            <div class="stat-change negative">↓ 3%</div>
+                        </div>
+                        <div class="stat-value">96%</div>
+                        <div class="stat-label">Tỉ lệ hoàn thành</div>
+                    </div>
+                </div>
+
+                <!-- Today's Schedule -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">📅 Lịch dạy hôm nay (14/01/2026)</h2>
+                        <button class="button">
+                            <span>📅</span> Xem lịch tuần
+                        </button>
+                    </div>
+
+                    <div class="schedule-list">
+                        <div class="schedule-item">
+                            <div class="schedule-time">
+                                <div class="schedule-time-value">08:00</div>
+                                <div class="schedule-time-label">1.5h</div>
+                            </div>
+                            <div class="schedule-details">
+                                <div class="schedule-student">Nguyễn Văn An</div>
+                                <div class="schedule-meta">
+                                    <span>📍 Sân ABC</span>
+                                    <span>📚 Buổi 4/8</span>
+                                    <span>🎯 8 buổi cơ bản</span>
+                                </div>
+                            </div>
+                            <div class="schedule-actions">
+                                <button class="icon-button" title="Điểm danh">✓</button>
+                                <button class="icon-button" title="Ghi chú">📝</button>
+                                <button class="icon-button" title="Chi tiết">→</button>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item">
+                            <div class="schedule-time">
+                                <div class="schedule-time-value">10:00</div>
+                                <div class="schedule-time-label">1.5h</div>
+                            </div>
+                            <div class="schedule-details">
+                                <div class="schedule-student">Trần Thị Bích</div>
+                                <div class="schedule-meta">
+                                    <span>📍 Sân XYZ</span>
+                                    <span>📚 Buổi 2/12</span>
+                                    <span>🎯 12 buổi nâng cao</span>
+                                </div>
+                            </div>
+                            <div class="schedule-actions">
+                                <button class="icon-button" title="Điểm danh">✓</button>
+                                <button class="icon-button" title="Ghi chú">📝</button>
+                                <button class="icon-button" title="Chi tiết">→</button>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item">
+                            <div class="schedule-time">
+                                <div class="schedule-time-value">14:00</div>
+                                <div class="schedule-time-label">1.5h</div>
+                            </div>
+                            <div class="schedule-details">
+                                <div class="schedule-student">Lê Văn Cường</div>
+                                <div class="schedule-meta">
+                                    <span>📍 Sân ABC</span>
+                                    <span>📚 Buổi 11/12</span>
+                                    <span>🎯 Thi đấu nâng cao</span>
+                                </div>
+                            </div>
+                            <div class="schedule-actions">
+                                <button class="icon-button" title="Điểm danh">✓</button>
+                                <button class="icon-button" title="Ghi chú">📝</button>
+                                <button class="icon-button" title="Chi tiết">→</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two Column Grid -->
+                <div class="two-col-grid">
+                    <!-- Student Progress -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">📈 Tiến độ học viên</h2>
+                            <button class="button">Xem tất cả</button>
+                        </div>
+
+                        <div class="progress-list">
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <div class="progress-name">Nguyễn Văn An</div>
+                                    <div style="font-size: 12px; color: var(--ink-gray-6);">8 buổi cơ bản</div>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 50%;"></div>
+                                    </div>
+                                    <div class="progress-text">4/8</div>
+                                </div>
+                            </div>
+
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <div class="progress-name">Trần Thị Bích</div>
+                                    <div style="font-size: 12px; color: var(--ink-gray-6);">12 buổi nâng cao</div>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 17%;"></div>
+                                    </div>
+                                    <div class="progress-text">2/12</div>
+                                </div>
+                            </div>
+
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <div class="progress-name">Lê Văn Cường</div>
+                                    <div style="font-size: 12px; color: var(--ink-gray-6);">Thi đấu nâng cao</div>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 92%;"></div>
+                                    </div>
+                                    <div class="progress-text">11/12</div>
+                                </div>
+                            </div>
+
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <div class="progress-name">Phạm Thị Dung</div>
+                                    <div style="font-size: 12px; color: var(--ink-gray-6);">8 buổi cơ bản</div>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 100%;"></div>
+                                    </div>
+                                    <div class="progress-text">8/8</div>
+                                </div>
+                            </div>
+
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <div class="progress-name">Hoàng Văn Em</div>
+                                    <div style="font-size: 12px; color: var(--ink-gray-6);">12 buổi nâng cao</div>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 33%;"></div>
+                                    </div>
+                                    <div class="progress-text">4/12</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats & Calendar -->
+                    <div>
+                        <!-- Quick Stats -->
+                        <div class="section-card" style="margin-bottom: var(--spacing-6);">
+                            <h2 class="section-title" style="margin-bottom: var(--spacing-4);">⚡ Thống kê nhanh</h2>
+
+                            <div class="quick-stat">
+                                <div class="quick-stat-label">Buổi hôm nay</div>
+                                <div class="quick-stat-value">3</div>
+                            </div>
+                            <div class="quick-stat">
+                                <div class="quick-stat-label">Buổi tuần này</div>
+                                <div class="quick-stat-value">12</div>
+                            </div>
+                            <div class="quick-stat">
+                                <div class="quick-stat-label">Học viên mới</div>
+                                <div class="quick-stat-value">4</div>
+                            </div>
+                            <div class="quick-stat">
+                                <div class="quick-stat-label">Sắp hoàn thành</div>
+                                <div class="quick-stat-value">2</div>
+                            </div>
+                        </div>
+
+                        <!-- Calendar -->
+                        <div class="section-card">
+                            <h2 class="section-title" style="margin-bottom: var(--spacing-4);">📅 Lịch tháng 1</h2>
+                            <div class="calendar">
+                                <div class="calendar-header">
+                                    <button class="icon-button">←</button>
+                                    <div class="calendar-month">Tháng 1, 2026</div>
+                                    <button class="icon-button">→</button>
+                                </div>
+                                <div class="calendar-grid">
+                                    <div class="calendar-day header">T2</div>
+                                    <div class="calendar-day header">T3</div>
+                                    <div class="calendar-day header">T4</div>
+                                    <div class="calendar-day header">T5</div>
+                                    <div class="calendar-day header">T6</div>
+                                    <div class="calendar-day header">T7</div>
+                                    <div class="calendar-day header">CN</div>
+
+                                    <div class="calendar-day inactive">29</div>
+                                    <div class="calendar-day inactive">30</div>
+                                    <div class="calendar-day inactive">31</div>
+                                    <div class="calendar-day">1</div>
+                                    <div class="calendar-day has-session">2</div>
+                                    <div class="calendar-day has-session">3</div>
+                                    <div class="calendar-day">4</div>
+
+                                    <div class="calendar-day has-session">5</div>
+                                    <div class="calendar-day has-session">6</div>
+                                    <div class="calendar-day has-session">7</div>
+                                    <div class="calendar-day has-session">8</div>
+                                    <div class="calendar-day has-session">9</div>
+                                    <div class="calendar-day has-session">10</div>
+                                    <div class="calendar-day">11</div>
+
+                                    <div class="calendar-day has-session">12</div>
+                                    <div class="calendar-day has-session">13</div>
+                                    <div class="calendar-day today">14</div>
+                                    <div class="calendar-day">15</div>
+                                    <div class="calendar-day">16</div>
+                                    <div class="calendar-day">17</div>
+                                    <div class="calendar-day">18</div>
+
+                                    <div class="calendar-day">19</div>
+                                    <div class="calendar-day">20</div>
+                                    <div class="calendar-day">21</div>
+                                    <div class="calendar-day">22</div>
+                                    <div class="calendar-day">23</div>
+                                    <div class="calendar-day">24</div>
+                                    <div class="calendar-day">25</div>
+
+                                    <div class="calendar-day">26</div>
+                                    <div class="calendar-day">27</div>
+                                    <div class="calendar-day">28</div>
+                                    <div class="calendar-day">29</div>
+                                    <div class="calendar-day">30</div>
+                                    <div class="calendar-day">31</div>
+                                    <div class="calendar-day inactive">1</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+{
+  "total_files": 8,
+  "categories": {
+    "overview": [
+      "README.md"
+    ],
+    "other": [
+      "doctype/purchase_order/README.md",
+      "doctype/purchase_order_item/README.md",
+      "doctype/purchase_order_item_supplied/README.md",
+      "doctype/purchase_receipt_item_supplied/README.md",
+      "doctype/supplier/README.md",
+      "doctype/supplier_quotation/README.md",
+      "doctype/supplier_quotation_item/README.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "filename": "README.md",
+      "category": "overview",
+      "size_bytes": 129,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 17,
+        "line_count": 8
+      },
+      "summary": "Manage buying (purchasing).\n(17 words, 0 code blocks)",
+      "content": "Manage buying (purchasing).\n\nTransactions include:\n\n- Material Request\n- Supplier Quotation\n- Purchase Order\n- Quality Inspection"
+    },
+    {
+      "path": "doctype/purchase_order/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 53,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Confirmed order to Supplier to deliver certain Items.\n(8 words, 0 code blocks)",
+      "content": "Confirmed order to Supplier to deliver certain Items."
+    },
+    {
+      "path": "doctype/purchase_order_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 56,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Item details (qty, rate etc.) for parent Purchase Order.\n(9 words, 0 code blocks)",
+      "content": "Item details (qty, rate etc.) for parent Purchase Order."
+    },
+    {
+      "path": "doctype/purchase_order_item_supplied/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 57,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Raw material (if any) supplied along with Purchase Order.\n(9 words, 0 code blocks)",
+      "content": "Raw material (if any) supplied along with Purchase Order."
+    },
+    {
+      "path": "doctype/purchase_receipt_item_supplied/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 72,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 10,
+        "line_count": 1
+      },
+      "summary": "Details of Items supplied when receiving purchases via Purchase Receipt.\n(10 words, 0 code blocks)",
+      "content": "Details of Items supplied when receiving purchases via Purchase Receipt."
+    },
+    {
+      "path": "doctype/supplier/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 25,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 3,
+        "line_count": 1
+      },
+      "summary": "Supplier (vendor) master.\n(3 words, 0 code blocks)",
+      "content": "Supplier (vendor) master."
+    },
+    {
+      "path": "doctype/supplier_quotation/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 53,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 9,
+        "line_count": 1
+      },
+      "summary": "Quotation sent by Supplier with price, qty and terms.\n(9 words, 0 code blocks)",
+      "content": "Quotation sent by Supplier with price, qty and terms."
+    },
+    {
+      "path": "doctype/supplier_quotation_item/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 54,
+      "title": "README",
+      "structure": {
+        "title": null,
+        "headers": [],
+        "code_blocks": [],
+        "links": [],
+        "word_count": 8,
+        "line_count": 1
+      },
+      "summary": "Item details (rate, qty) in parent Supplier Quotation.\n(8 words, 0 code blocks)",
+      "content": "Item details (rate, qty) in parent Supplier Quotation."
+    }
+  ]
+}

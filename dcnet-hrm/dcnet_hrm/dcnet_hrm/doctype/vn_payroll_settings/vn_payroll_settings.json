@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "creation": "2026-07-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "insurance_section",
+  "current_insurance_rate",
+  "enable_skip_insurance_under_min_days",
+  "deduction_section",
+  "personal_deduction",
+  "dependent_deduction",
+  "column_break_deduction",
+  "meal_allowance_exemption_cap",
+  "union_section",
+  "union_funding_percent",
+  "union_fee_percent",
+  "column_break_union",
+  "union_fee_monthly_cap"
+ ],
+ "fields": [
+  {
+   "fieldname": "insurance_section",
+   "fieldtype": "Section Break",
+   "label": "Social Insurance"
+  },
+  {
+   "fieldname": "current_insurance_rate",
+   "fieldtype": "Link",
+   "label": "Current Insurance Rate (Auto)",
+   "options": "Insurance Rate",
+   "read_only": 1,
+   "description": "Tự động trỏ tới bản ghi Insurance Rate có effective_from mới nhất — chỉ để tham khảo, engine luôn tự tra theo ngày kỳ lương."
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_skip_insurance_under_min_days",
+   "fieldtype": "Check",
+   "label": "Skip Insurance Contribution If Worked Under Minimum Days"
+  },
+  {
+   "fieldname": "deduction_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Income Tax Deductions"
+  },
+  {
+   "default": "11000000",
+   "fieldname": "personal_deduction",
+   "fieldtype": "Currency",
+   "label": "Personal Deduction",
+   "non_negative": 1
+  },
+  {
+   "default": "4400000",
+   "fieldname": "dependent_deduction",
+   "fieldtype": "Currency",
+   "label": "Dependent Deduction (Per Dependent)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_deduction",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "730000",
+   "fieldname": "meal_allowance_exemption_cap",
+   "fieldtype": "Currency",
+   "label": "Meal Allowance Tax-Exempt Cap",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "union_section",
+   "fieldtype": "Section Break",
+   "label": "Trade Union"
+  },
+  {
+   "default": "2",
+   "fieldname": "union_funding_percent",
+   "fieldtype": "Percent",
+   "label": "Trade Union Funding % (Employer, On Insurance Salary Fund)"
+  },
+  {
+   "default": "1",
+   "fieldname": "union_fee_percent",
+   "fieldtype": "Percent",
+   "label": "Trade Union Fee % (Employee, On Insurance Salary)"
+  },
+  {
+   "fieldname": "column_break_union",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "union_fee_monthly_cap",
+   "fieldtype": "Currency",
+   "label": "Trade Union Fee Monthly Cap",
+   "non_negative": 1,
+   "description": "⚠️ Cần clarify với khách: mức trần đoàn phí/tháng theo quy định Công đoàn áp dụng cho DN (nếu có). Để trống hoặc 0 = không áp trần."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-07-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet HRM",
+ "name": "VN Payroll Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": []
+}

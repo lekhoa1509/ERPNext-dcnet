@@ -1,0 +1,1019 @@
+[
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/customer/customer.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/customer/customer.py",
+        "class_name": "Customer",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Factory method: get_customer_name",
+          "Factory method: get_customer_group_details",
+          "Factory method: create_primary_contact",
+          "Factory method: create_primary_address",
+          "Multiple factory methods: get_customer_name, get_customer_group_details, create_primary_contact",
+          "Inherits from: TransactionBase"
+        ],
+        "related_classes": [
+          "TransactionBase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/customer/customer.py",
+        "class_name": "Customer",
+        "method_name": "get_customer_group_details",
+        "line_number": 196,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/customer/customer.py",
+        "class_name": "Customer",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Implements interface: TransactionBase",
+          "Has 24 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/customer/customer.py",
+        "class_name": "Customer",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Attach method: load_dashboard_info",
+          "Notify method: on_update",
+          "Attach method: add_role_for_user",
+          "Notify method: update_customer_groups",
+          "Attach method: create_primary_address",
+          "Notify method: update_lead_status",
+          "Attach method: link_address_and_contact"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 17,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/customer/test_customer.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/customer/test_customer.py",
+        "class_name": "TestCustomer",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Factory method: test_get_customer_group_details",
+          "Factory method: get_customer_outstanding_amount",
+          "Multiple factory methods: test_get_customer_group_details, get_customer_outstanding_amount",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/customer/test_customer.py",
+        "class_name": "TestCustomer",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 15 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/installation_note/installation_note.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/installation_note/installation_note.py",
+        "class_name": "InstallationNote",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Parameterized factory method: get_prevdoc_serial_no",
+          "Inherits from: TransactionBase"
+        ],
+        "related_classes": [
+          "TransactionBase"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/installation_note/installation_note.py",
+        "class_name": "InstallationNote",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: TransactionBase",
+          "Has 12 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/installation_note/installation_note.py",
+        "class_name": "InstallationNote",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Attach method: is_serial_no_added",
+          "Notify method: on_update"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/installation_note/installation_note.py",
+        "class_name": "InstallationNote",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Has hook methods: validate, get_prevdoc_serial_no, validate_serial_no",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/party_specific_item/test_party_specific_item.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/party_specific_item/test_party_specific_item.py",
+        "class_name": "TestPartySpecificItem",
+        "method_name": null,
+        "line_number": 21,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/product_bundle/product_bundle.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/product_bundle/product_bundle.py",
+        "class_name": "ProductBundle",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/quotation/quotation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/quotation/quotation.py",
+        "class_name": "Quotation",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Factory method: get_ordered_status",
+          "Factory method: get_valid_items",
+          "Factory method: get_rows_with_alternatives",
+          "Multiple factory methods: get_ordered_status, get_valid_items, get_rows_with_alternatives",
+          "Inherits from: SellingController"
+        ],
+        "related_classes": [
+          "SellingController"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/quotation/quotation.py",
+        "class_name": "Quotation",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Has 4 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/quotation/quotation.py",
+        "class_name": "Quotation",
+        "method_name": "declare_enquiry_lost",
+        "line_number": 260,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/quotation/quotation.py",
+        "class_name": "Quotation",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: SellingController",
+          "Has 21 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/quotation/quotation.py",
+        "class_name": "Quotation",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Notify method: update_lead",
+          "Notify method: update_opportunity",
+          "Notify method: update_opportunity_status"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 21,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/quotation/test_quotation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/quotation/test_quotation.py",
+        "class_name": "TestQuotation",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Factory method: test_make_quotation_without_terms",
+          "Factory method: test_make_sales_order_terms_copied",
+          "Factory method: test_do_not_add_ordered_items_in_new_sales_order",
+          "Factory method: test_make_sales_order_with_different_currency",
+          "Factory method: test_make_sales_order",
+          "Factory method: test_make_sales_order_with_terms",
+          "Factory method: test_create_quotation_with_margin",
+          "Factory method: test_create_two_quotations",
+          "Factory method: test_make_quotation_qar_to_inr",
+          "Multiple factory methods: test_make_quotation_without_terms, test_make_sales_order_terms_copied, test_do_not_add_ordered_items_in_new_sales_order",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/quotation/test_quotation.py",
+        "class_name": "TestQuotation",
+        "method_name": "test_make_sales_order_with_terms",
+        "line_number": 289,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Accounts Settings', {'add_taxes_from_item_tax_template': 0, 'add_taxes_from_taxes_and_charges_template': 0})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/quotation/test_quotation.py",
+        "class_name": "TestQuotation",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 35 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/quotation/test_quotation.py",
+        "class_name": "TestQuotation",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Attach method: test_update_child_quotation_add_item",
+          "Notify method: test_update_child_quotation_add_item",
+          "Notify method: test_update_child_disallow_rate_change",
+          "Notify method: test_update_child_removing_item",
+          "Attach method: test_do_not_add_ordered_items_in_new_sales_order"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/sales_order.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/sales_order.py",
+        "class_name": "SalesOrder",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Parameterized factory method: create_stock_reservation_entries",
+          "Parameterized factory method: get_delivery_schedule",
+          "Parameterized factory method: create_delivery_schedule",
+          "Multiple factory methods: create_stock_reservation_entries, get_delivery_schedule, create_delivery_schedule",
+          "Inherits from: SellingController"
+        ],
+        "related_classes": [
+          "SellingController"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/sales_order.py",
+        "class_name": "SalesOrder",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Has 3 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/sales_order.py",
+        "class_name": "SalesOrder",
+        "method_name": "create_stock_reservation_entries",
+        "line_number": 835,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/sales_order.py",
+        "class_name": "SalesOrder",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Implements interface: SellingController",
+          "Has 46 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/sales_order.py",
+        "class_name": "SalesOrder",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Notify method: can_update_items",
+          "Notify method: update_enquiry_status",
+          "Notify method: update_prevdoc_status",
+          "Detach method: delete_removed_delivery_schedule_items",
+          "Notify method: update_project",
+          "Notify method: update_status",
+          "Notify method: update_subcontracting_order_status",
+          "Notify method: update_reserved_qty",
+          "Notify method: on_update_after_submit",
+          "Notify method: before_update_after_submit",
+          "Notify method: update_delivery_status",
+          "Notify method: update_picking_status",
+          "Notify method: update_delivery_date_based_on_schedule"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/sales_order.py",
+        "class_name": "SalesOrder",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Has hook methods: before_validate, validate, validate_fg_item_for_subcontracting",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 55,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/test_sales_order.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/test_sales_order.py",
+        "class_name": "TestSalesOrder",
+        "method_name": null,
+        "line_number": 37,
+        "evidence": [
+          "Factory method: test_make_material_request",
+          "Factory method: test_make_delivery_note",
+          "Factory method: test_make_sales_invoice",
+          "Factory method: test_make_sales_invoice_with_terms",
+          "Factory method: test_update_child_adding_new_item",
+          "Factory method: test_create_so_with_margin",
+          "Factory method: test_make_work_order",
+          "Multiple factory methods: test_make_material_request, test_make_delivery_note, test_make_sales_invoice",
+          "Inherits from: AccountsTestMixin, IntegrationTestCase"
+        ],
+        "related_classes": [
+          "AccountsTestMixin",
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/test_sales_order.py",
+        "class_name": "TestSalesOrder",
+        "method_name": "setUpClass",
+        "line_number": 39,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/test_sales_order.py",
+        "class_name": "TestSalesOrder",
+        "method_name": null,
+        "line_number": 37,
+        "evidence": [
+          "Implements interface: AccountsTestMixin",
+          "Has 81 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sales_order/test_sales_order.py",
+        "class_name": "TestSalesOrder",
+        "method_name": null,
+        "line_number": 37,
+        "evidence": [
+          "Notify method: test_update_qty",
+          "Attach method: test_update_child_adding_new_item",
+          "Notify method: test_update_child_adding_new_item",
+          "Notify method: test_update_child_removing_item",
+          "Notify method: test_update_child",
+          "Notify method: test_update_child_with_precision",
+          "Notify method: test_update_child_perm",
+          "Notify method: test_update_child_qty_rate_with_workflow",
+          "Notify method: test_update_child_product_bundle",
+          "Notify method: test_update_child_with_tax_template",
+          "Notify method: test_update_existing_item_price",
+          "Notify method: test_purchase_order_updates_packed_item_ordered_qty",
+          "Attach method: test_terms_auto_added",
+          "Notify method: test_so_back_updated_from_wo_via_mr",
+          "Notify method: test_auto_update_price_list",
+          "Notify method: test_pending_quantity_after_update_item_during_invoice_creation"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 5,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/selling_settings/selling_settings.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/selling_settings/selling_settings.py",
+        "class_name": "SellingSettings",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/selling_settings/selling_settings.py",
+        "class_name": "SellingSettings",
+        "method_name": "on_update",
+        "line_number": 54,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sms_center/sms_center.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sms_center/sms_center.py",
+        "class_name": "SMSCenter",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Factory method: create_receiver_list",
+          "Factory method: get_receiver_nos",
+          "Multiple factory methods: create_receiver_list, get_receiver_nos",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sms_center/sms_center.py",
+        "class_name": "SMSCenter",
+        "method_name": "create_receiver_list",
+        "line_number": 43,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/doctype/sms_center/sms_center.py",
+        "class_name": "SMSCenter",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/page/sales_funnel/sales_funnel.js",
+    "language": "JavaScript",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.8,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/page/sales_funnel/sales_funnel.js",
+        "class_name": "SalesFunnel",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Factory method: constructor",
+          "Factory method: get_data",
+          "Multiple factory methods: constructor, get_data"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/payment_terms_status_for_sales_order/test_payment_terms_status_for_sales_order.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/payment_terms_status_for_sales_order/test_payment_terms_status_for_sales_order.py",
+        "class_name": "TestPaymentTermsStatusForSalesOrder",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Factory method: create_payment_terms_template",
+          "Parameterized factory method: create_exchange_rate",
+          "Multiple factory methods: create_payment_terms_template, create_exchange_rate",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/payment_terms_status_for_sales_order/test_payment_terms_status_for_sales_order.py",
+        "class_name": "TestPaymentTermsStatusForSalesOrder",
+        "method_name": "test_02_alternate_currency",
+        "line_number": 151,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Accounts Settings', allow_multi_currency_invoices_against_single_party_account=1)\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/payment_terms_status_for_sales_order/test_payment_terms_status_for_sales_order.py",
+        "class_name": "TestPaymentTermsStatusForSalesOrder",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_analytics/sales_analytics.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_analytics/sales_analytics.py",
+        "class_name": "Analytics",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Factory method: get_columns",
+          "Factory method: get_data",
+          "Factory method: get_sales_transactions_based_on_order_type",
+          "Factory method: get_sales_transactions_based_on_customers_or_suppliers",
+          "Factory method: get_sales_transactions_based_on_items",
+          "Factory method: get_sales_transactions_based_on_customer_or_territory_group",
+          "Factory method: get_sales_transactions_based_on_item_group",
+          "Factory method: get_sales_transactions_based_on_project",
+          "Factory method: get_rows",
+          "Factory method: get_rows_by_group",
+          "Factory method: get_periodic_data",
+          "Parameterized factory method: get_period",
+          "Factory method: get_period_date_ranges",
+          "Factory method: get_groups",
+          "Factory method: get_teams",
+          "Factory method: get_supplier_parent_child_map",
+          "Factory method: get_chart_data",
+          "Multiple factory methods: get_columns, get_data, get_sales_transactions_based_on_order_type"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_analytics/sales_analytics.py",
+        "class_name": "Analytics",
+        "method_name": "update_company_list_for_parent_company",
+        "line_number": 83,
+        "evidence": [
+          "Observer method detected: update_company_list_for_parent_company"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.7,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_analytics/sales_analytics.py",
+        "class_name": "Analytics",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Has execute method: run()",
+          "Encapsulates receiver/parameters"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Observer": 1,
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_analytics/test_analytics.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_analytics/test_analytics.py",
+        "class_name": "TestAnalytics",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_order_analysis/test_sales_order_analysis.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_order_analysis/test_sales_order_analysis.py",
+        "class_name": "TestSalesOrderAnalysis",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Parameterized factory method: create_sales_order",
+          "Parameterized factory method: create_sales_invoice",
+          "Parameterized factory method: create_delivery_note",
+          "Multiple factory methods: create_sales_order, create_sales_invoice, create_delivery_note",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_order_analysis/test_sales_order_analysis.py",
+        "class_name": "TestSalesOrderAnalysis",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 10 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_partner_target_variance_based_on_item_group/test_sales_partner_target_variance_based_on_item_group.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_partner_target_variance_based_on_item_group/test_sales_partner_target_variance_based_on_item_group.py",
+        "class_name": "TestSalesPartnerTargetVarianceBasedOnItemGroup",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_person_target_variance_based_on_item_group/test_sales_person_target_variance_based_on_item_group.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/selling/report/sales_person_target_variance_based_on_item_group/test_sales_person_target_variance_based_on_item_group.py",
+        "class_name": "TestSalesPersonTargetVarianceBasedOnItemGroup",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  }
+]

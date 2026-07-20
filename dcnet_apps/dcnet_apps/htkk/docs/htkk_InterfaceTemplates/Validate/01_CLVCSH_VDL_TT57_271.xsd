@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by TeaM DJiNN (TeaM DJiNN) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ct09" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>1.Vốn chủ sở hữu</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct10" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2.Vốn điều lệ</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ct11" type="xs:nonNegativeInteger" nillable="true">
+							<xs:annotation>
+								<xs:documentation>3.Chênh lệch vốn chủ sở hữu lớn hơn vốn điều lệ tại doanh nghiệp phải nộp ngân sách nhà nước</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

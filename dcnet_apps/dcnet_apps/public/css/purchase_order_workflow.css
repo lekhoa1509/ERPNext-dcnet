@@ -1,0 +1,14 @@
+/* Completed -> xanh lá đẹp như Frappe */
+
+.indicator-pill.gray[data-filter*="Completed"] {
+    background: var(--bg-green);
+    color: var(--text-on-green);
+}
+
+/* Các trạng thái cần xử lý -> cam */
+
+.indicator-pill.gray[data-filter*="To Receive"],
+.indicator-pill.gray[data-filter*="To Bill"] {
+    background: var(--bg-orange);
+    color: var(--text-on-orange);
+}

@@ -1,0 +1,17 @@
+[project]
+name = "dcnet_htkk"
+version = "0.0.1"
+description = "Automatic Tax Declaration (HTKK) for ERPNext Vietnam"
+authors = [
+    {name = "DCNET", email = "dev@dcnet.vn"}
+]
+license = {text = "MIT"}
+requires-python = ">=3.10"
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.bench.dev-dependencies]
+# frappe = "https://github.com/frappe/frappe"
+# erpnext = "https://github.com/frappe/erpnext"

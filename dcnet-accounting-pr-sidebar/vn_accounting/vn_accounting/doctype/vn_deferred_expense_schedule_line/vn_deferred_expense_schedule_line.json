@@ -1,0 +1,37 @@
+{
+ "actions": [],
+ "creation": "2026-05-27 05:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "period_label",
+  "period_start",
+  "period_end",
+  "column_break_1",
+  "amount",
+  "status",
+  "recognized_je"
+ ],
+ "fields": [
+  {"fieldname": "period_label", "fieldtype": "Data", "in_list_view": 1, "label": "Kỳ", "reqd": 1},
+  {"fieldname": "period_start", "fieldtype": "Date", "in_list_view": 1, "label": "Từ ngày", "reqd": 1},
+  {"fieldname": "period_end", "fieldtype": "Date", "in_list_view": 1, "label": "Đến ngày", "reqd": 1},
+  {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+  {"fieldname": "amount", "fieldtype": "Currency", "in_list_view": 1, "label": "Số tiền phân bổ", "reqd": 1},
+  {"fieldname": "status", "fieldtype": "Select", "in_list_view": 1, "label": "Trạng thái", "options": "Pending\nRecognized\nSkipped", "default": "Pending"},
+  {"fieldname": "recognized_je", "fieldtype": "Link", "label": "Phiếu kế toán phân bổ", "options": "Journal Entry", "read_only": 1}
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-27 05:00:00",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "VN Deferred Expense Schedule Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "period_start",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 0
+}

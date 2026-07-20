@@ -1,0 +1,1314 @@
+{
+  "total_guides": 3,
+  "guides_by_complexity": {
+    "advanced": 3
+  },
+  "guides_by_use_case": {
+    "Webhook With Array Body": [
+      {
+        "guide_id": "3180e392f1b2",
+        "title": "Webhook With Array Body",
+        "overview": "Workflow: Check if array request body are supported.",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "json",
+          "contextlib",
+          "responses",
+          "responses.matchers",
+          "frappe",
+          "frappe.integrations.doctype.webhook",
+          "frappe.integrations.doctype.webhook.webhook",
+          "frappe.tests",
+          "frappe.tests.classes.context_managers"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "fd69caca",
+            "test_name": "test_webhook_with_array_body",
+            "category": "workflow",
+            "code": "'Check if array request body are supported.'\nwh_config = {'doctype': 'Webhook', 'webhook_doctype': 'Note', 'webhook_docevent': 'on_change', 'enabled': 1, 'request_url': 'https://httpbin.org/post', 'request_method': 'POST', 'request_structure': 'JSON', 'webhook_json': '[\\r\\n{% for n in range(3) %}\\r\\n    {\\r\\n        \"title\": \"{{ doc.title }}\"    }\\r\\n    {%- if not loop.last -%}\\r\\n        , \\r\\n    {%endif%}\\r\\n{%endfor%}\\r\\n]', 'meets_condition': 'Yes', 'webhook_headers': [{'key': 'Content-Type', 'value': 'application/json'}]}\ndoc = frappe.new_doc('Note')\ndoc.title = 'Test Webhook Note'\nfinal_title = frappe.generate_hash()\nexpected_req = [{'title': final_title} for _ in range(3)]\nself.responses.add(responses.POST, 'https://httpbin.org/post', status=200, json=expected_req, match=[json_params_matcher(expected_req)])\nwith get_test_webhook(wh_config):\n    doc.insert()\n    doc.reload()\n    doc.save()\n    doc = frappe.get_doc(doc.doctype, doc.name)\n    doc.title = final_title\n    doc.save()\n    flush_webhook_execution_queue()\n    log = frappe.get_last_doc('Webhook Request Log')\n    self.assertEqual(len(json.loads(log.response)), 3)",
+            "language": "Python",
+            "description": "Workflow: Check if array request body are supported.",
+            "expected_behavior": "self.responses.add(responses.POST, 'https://httpbin.org/post', status=200, json=expected_req, match=[json_params_matcher(expected_req)])",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook/test_webhook.py",
+            "line_start": 226,
+            "line_end": 269,
+            "complexity_score": 0.8,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "mock",
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "json",
+              "contextlib",
+              "responses",
+              "responses.matchers",
+              "frappe",
+              "frappe.integrations.doctype.webhook",
+              "frappe.integrations.doctype.webhook.webhook",
+              "frappe.tests",
+              "frappe.tests.classes.context_managers"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "'Check if array request body are supported.'",
+            "description": "'Check if array request body are supported.'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "wh_config = {'doctype': 'Webhook', 'webhook_doctype': 'Note', 'webhook_docevent': 'on_change', 'enabled': 1, 'request_url': 'https://httpbin.org/post', 'request_method': 'POST', 'request_structure': 'JSON', 'webhook_json': '[\\r\\n{% for n in range(3) %}\\r\\n    {\\r\\n        \"title\": \"{{ doc.title }}\"    }\\r\\n    {%- if not loop.last -%}\\r\\n        , \\r\\n    {%endif%}\\r\\n{%endfor%}\\r\\n]', 'meets_condition': 'Yes', 'webhook_headers': [{'key': 'Content-Type', 'value': 'application/json'}]}",
+            "description": "Assign wh_config = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "doc = frappe.new_doc('Note')",
+            "description": "Assign doc = frappe.new_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "doc.title = 'Test Webhook Note'",
+            "description": "Assign doc.title = 'Test Webhook Note'",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "final_title = frappe.generate_hash()",
+            "description": "Assign final_title = frappe.generate_hash(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "expected_req = [{'title': final_title} for _ in range(3)]",
+            "description": "Assign expected_req = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "self.responses.add(responses.POST, 'https://httpbin.org/post', status=200, json=expected_req, match=[json_params_matcher(expected_req)])",
+            "description": "Call self.responses.add()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "doc.insert()",
+            "description": "Call doc.insert()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 9,
+            "code": "doc.reload()",
+            "description": "Call doc.reload()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 10,
+            "code": "doc.save()",
+            "description": "Call doc.save()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 11,
+            "code": "doc = frappe.get_doc(doc.doctype, doc.name)",
+            "description": "Assign doc = frappe.get_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 12,
+            "code": "doc.title = final_title",
+            "description": "Assign doc.title = final_title",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 13,
+            "code": "doc.save()",
+            "description": "Call doc.save()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 14,
+            "code": "flush_webhook_execution_queue()",
+            "description": "Call flush_webhook_execution_queue()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 15,
+            "code": "log = frappe.get_last_doc('Webhook Request Log')",
+            "description": "Assign log = frappe.get_last_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 16,
+            "code": "self.assertEqual(len(json.loads(log.response)), 3)",
+            "description": "Call self.assertEqual()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Webhook With Array Body",
+        "tags": [
+          "mock",
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "20 minutes",
+        "source_files": [
+          "test_webhook.py:226"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Get Ldap Client Settings": [
+      {
+        "guide_id": "136be1697c80",
+        "title": "Get Ldap Client Settings",
+        "overview": "Workflow: test get ldap client settings",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "contextlib",
+          "functools",
+          "os",
+          "ssl",
+          "typing",
+          "unittest",
+          "ldap3",
+          "ldap3",
+          "frappe",
+          "frappe.exceptions",
+          "frappe.integrations.doctype.ldap_settings.ldap_settings"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "2c92690b",
+            "test_name": "test_get_ldap_client_settings",
+            "category": "workflow",
+            "code": "result = self.test_class.get_ldap_client_settings()\nself.assertIsInstance(result, dict)\nself.assertTrue(result['enabled'] == self.doc['enabled'])\nlocaldoc = self.doc.copy()\nlocaldoc['enabled'] = False\nfrappe.get_doc(localdoc).save()\nresult = self.test_class.get_ldap_client_settings()\nself.assertFalse(result['enabled'])",
+            "language": "Python",
+            "description": "Workflow: test get ldap client settings",
+            "expected_behavior": "self.assertFalse(result['enabled'])",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+            "line_start": 316,
+            "line_end": 327,
+            "complexity_score": 0.8,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "mock",
+              "unittest",
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "contextlib",
+              "functools",
+              "os",
+              "ssl",
+              "typing",
+              "unittest",
+              "ldap3",
+              "ldap3",
+              "frappe",
+              "frappe.exceptions",
+              "frappe.integrations.doctype.ldap_settings.ldap_settings"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "result = self.test_class.get_ldap_client_settings()",
+            "description": "Assign result = self.test_class.get_ldap_client_settings(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "self.assertIsInstance(result, dict)",
+            "description": "Call self.assertIsInstance()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "self.assertTrue(result['enabled'] == self.doc['enabled'])",
+            "description": "Call self.assertTrue()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "localdoc = self.doc.copy()",
+            "description": "Assign localdoc = self.doc.copy(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "localdoc['enabled'] = False",
+            "description": "Assign unknown = False",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "frappe.get_doc(localdoc).save()",
+            "description": "Call frappe.get_doc.save()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "result = self.test_class.get_ldap_client_settings()",
+            "description": "Assign result = self.test_class.get_ldap_client_settings(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "self.assertFalse(result['enabled'])",
+            "description": "Call self.assertFalse()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Get Ldap Client Settings",
+        "tags": [
+          "mock",
+          "unittest",
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "15 minutes",
+        "source_files": [
+          "test_ldap_settings.py:316"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ],
+    "Sync Roles": [
+      {
+        "guide_id": "6408b625b448",
+        "title": "Sync Roles",
+        "overview": "Workflow: test sync roles",
+        "complexity_level": "advanced",
+        "prerequisites": [],
+        "required_imports": [
+          "contextlib",
+          "functools",
+          "os",
+          "ssl",
+          "typing",
+          "unittest",
+          "ldap3",
+          "ldap3",
+          "frappe",
+          "frappe.exceptions",
+          "frappe.integrations.doctype.ldap_settings.ldap_settings"
+        ],
+        "required_fixtures": [],
+        "workflows": [
+          {
+            "example_id": "9b791000",
+            "test_name": "test_sync_roles",
+            "category": "workflow",
+            "code": "if self.TEST_LDAP_SERVER.lower() == 'openldap':\n    test_user_data = {'posix.user1': ['Users', 'Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user'], 'posix.user2': ['Users', 'Group3', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user']}\nelif self.TEST_LDAP_SERVER.lower() == 'active directory':\n    test_user_data = {'posix.user1': ['Domain Users', 'Domain Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user'], 'posix.user2': ['Domain Users', 'Enterprise Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user']}\nrole_to_group_map = {self.doc['ldap_groups'][0]['erpnext_role']: self.doc['ldap_groups'][0]['ldap_group'], self.doc['ldap_groups'][1]['erpnext_role']: self.doc['ldap_groups'][1]['ldap_group'], self.doc['ldap_groups'][2]['erpnext_role']: self.doc['ldap_groups'][2]['ldap_group'], 'Newsletter Manager': 'default_role', 'All': 'frappe_default_all', 'Guest': 'frappe_default_guest', 'Desk User': 'frappe_default_desk_user'}\nfrappe.get_doc('User', 'posix.user1@unit.testing').delete()\nuser = frappe.get_doc(self.user1doc)\nuser.insert(ignore_permissions=True)\nfor test_user in test_user_data:\n    test_user_doc = frappe.get_doc('User', f'{test_user}@unit.testing')\n    test_user_roles = frappe.get_roles(f'{test_user}@unit.testing')\n    self.assertTrue(len(test_user_roles) == 2, 'User should only be a part of the All and Guest roles')\n    self.test_class.sync_roles(test_user_doc, test_user_data[test_user])\n    frappe.get_doc('User', f'{test_user}@unit.testing')\n    updated_user_roles = frappe.get_roles(f'{test_user}@unit.testing')\n    self.assertTrue(len(updated_user_roles) == len(test_user_data[test_user]), f'syncing of the user roles failed. {len(updated_user_roles)} != {len(test_user_data[test_user])} for user {test_user}')\n    for user_role in updated_user_roles:\n        self.assertTrue(role_to_group_map[user_role] in test_user_data[test_user], f'during sync_roles(), the user was given role {user_role} which should not have occurred')",
+            "language": "Python",
+            "description": "Workflow: test sync roles",
+            "expected_behavior": "",
+            "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+            "line_start": 365,
+            "line_end": 443,
+            "complexity_score": 0.6,
+            "confidence": 0.9,
+            "setup_code": null,
+            "tags": [
+              "mock",
+              "unittest",
+              "workflow",
+              "integration"
+            ],
+            "dependencies": [
+              "contextlib",
+              "functools",
+              "os",
+              "ssl",
+              "typing",
+              "unittest",
+              "ldap3",
+              "ldap3",
+              "frappe",
+              "frappe.exceptions",
+              "frappe.integrations.doctype.ldap_settings.ldap_settings"
+            ],
+            "ai_analysis": null
+          }
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "code": "role_to_group_map = {self.doc['ldap_groups'][0]['erpnext_role']: self.doc['ldap_groups'][0]['ldap_group'], self.doc['ldap_groups'][1]['erpnext_role']: self.doc['ldap_groups'][1]['ldap_group'], self.doc['ldap_groups'][2]['erpnext_role']: self.doc['ldap_groups'][2]['ldap_group'], 'Newsletter Manager': 'default_role', 'All': 'frappe_default_all', 'Guest': 'frappe_default_guest', 'Desk User': 'frappe_default_desk_user'}",
+            "description": "Assign role_to_group_map = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 2,
+            "code": "frappe.get_doc('User', 'posix.user1@unit.testing').delete()",
+            "description": "Call frappe.get_doc.delete()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 3,
+            "code": "user = frappe.get_doc(self.user1doc)",
+            "description": "Assign user = frappe.get_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 4,
+            "code": "user.insert(ignore_permissions=True)",
+            "description": "Call user.insert()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 5,
+            "code": "test_user_data = {'posix.user1': ['Users', 'Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user'], 'posix.user2': ['Users', 'Group3', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user']}",
+            "description": "Assign test_user_data = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 6,
+            "code": "test_user_doc = frappe.get_doc('User', f'{test_user}@unit.testing')",
+            "description": "Assign test_user_doc = frappe.get_doc(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 7,
+            "code": "test_user_roles = frappe.get_roles(f'{test_user}@unit.testing')",
+            "description": "Assign test_user_roles = frappe.get_roles(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 8,
+            "code": "self.assertTrue(len(test_user_roles) == 2, 'User should only be a part of the All and Guest roles')",
+            "description": "Call self.assertTrue()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 9,
+            "code": "self.test_class.sync_roles(test_user_doc, test_user_data[test_user])",
+            "description": "Call self.test_class.sync_roles()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 10,
+            "code": "frappe.get_doc('User', f'{test_user}@unit.testing')",
+            "description": "Call frappe.get_doc()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 11,
+            "code": "updated_user_roles = frappe.get_roles(f'{test_user}@unit.testing')",
+            "description": "Assign updated_user_roles = frappe.get_roles(...)",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 12,
+            "code": "self.assertTrue(len(updated_user_roles) == len(test_user_data[test_user]), f'syncing of the user roles failed. {len(updated_user_roles)} != {len(test_user_data[test_user])} for user {test_user}')",
+            "description": "Call self.assertTrue()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 13,
+            "code": "test_user_data = {'posix.user1': ['Domain Users', 'Domain Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user'], 'posix.user2': ['Domain Users', 'Enterprise Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user']}",
+            "description": "Assign test_user_data = value",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          },
+          {
+            "step_number": 14,
+            "code": "self.assertTrue(role_to_group_map[user_role] in test_user_data[test_user], f'during sync_roles(), the user was given role {user_role} which should not have occurred')",
+            "description": "Call self.assertTrue()",
+            "expected_result": null,
+            "verification": null,
+            "setup_required": null,
+            "explanation": null,
+            "common_pitfall": null,
+            "common_variations": []
+          }
+        ],
+        "use_case": "Sync Roles",
+        "tags": [
+          "mock",
+          "unittest",
+          "workflow",
+          "integration"
+        ],
+        "estimated_time": "20 minutes",
+        "source_files": [
+          "test_ldap_settings.py:365"
+        ],
+        "common_pitfalls": [],
+        "troubleshooting": {},
+        "variations": [],
+        "related_guides": [],
+        "prerequisites_detailed": [],
+        "troubleshooting_detailed": [],
+        "next_steps_detailed": [],
+        "use_cases": []
+      }
+    ]
+  },
+  "guides": [
+    {
+      "guide_id": "3180e392f1b2",
+      "title": "Webhook With Array Body",
+      "overview": "Workflow: Check if array request body are supported.",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "json",
+        "contextlib",
+        "responses",
+        "responses.matchers",
+        "frappe",
+        "frappe.integrations.doctype.webhook",
+        "frappe.integrations.doctype.webhook.webhook",
+        "frappe.tests",
+        "frappe.tests.classes.context_managers"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "fd69caca",
+          "test_name": "test_webhook_with_array_body",
+          "category": "workflow",
+          "code": "'Check if array request body are supported.'\nwh_config = {'doctype': 'Webhook', 'webhook_doctype': 'Note', 'webhook_docevent': 'on_change', 'enabled': 1, 'request_url': 'https://httpbin.org/post', 'request_method': 'POST', 'request_structure': 'JSON', 'webhook_json': '[\\r\\n{% for n in range(3) %}\\r\\n    {\\r\\n        \"title\": \"{{ doc.title }}\"    }\\r\\n    {%- if not loop.last -%}\\r\\n        , \\r\\n    {%endif%}\\r\\n{%endfor%}\\r\\n]', 'meets_condition': 'Yes', 'webhook_headers': [{'key': 'Content-Type', 'value': 'application/json'}]}\ndoc = frappe.new_doc('Note')\ndoc.title = 'Test Webhook Note'\nfinal_title = frappe.generate_hash()\nexpected_req = [{'title': final_title} for _ in range(3)]\nself.responses.add(responses.POST, 'https://httpbin.org/post', status=200, json=expected_req, match=[json_params_matcher(expected_req)])\nwith get_test_webhook(wh_config):\n    doc.insert()\n    doc.reload()\n    doc.save()\n    doc = frappe.get_doc(doc.doctype, doc.name)\n    doc.title = final_title\n    doc.save()\n    flush_webhook_execution_queue()\n    log = frappe.get_last_doc('Webhook Request Log')\n    self.assertEqual(len(json.loads(log.response)), 3)",
+          "language": "Python",
+          "description": "Workflow: Check if array request body are supported.",
+          "expected_behavior": "self.responses.add(responses.POST, 'https://httpbin.org/post', status=200, json=expected_req, match=[json_params_matcher(expected_req)])",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/webhook/test_webhook.py",
+          "line_start": 226,
+          "line_end": 269,
+          "complexity_score": 0.8,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "mock",
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "json",
+            "contextlib",
+            "responses",
+            "responses.matchers",
+            "frappe",
+            "frappe.integrations.doctype.webhook",
+            "frappe.integrations.doctype.webhook.webhook",
+            "frappe.tests",
+            "frappe.tests.classes.context_managers"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "'Check if array request body are supported.'",
+          "description": "'Check if array request body are supported.'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "wh_config = {'doctype': 'Webhook', 'webhook_doctype': 'Note', 'webhook_docevent': 'on_change', 'enabled': 1, 'request_url': 'https://httpbin.org/post', 'request_method': 'POST', 'request_structure': 'JSON', 'webhook_json': '[\\r\\n{% for n in range(3) %}\\r\\n    {\\r\\n        \"title\": \"{{ doc.title }}\"    }\\r\\n    {%- if not loop.last -%}\\r\\n        , \\r\\n    {%endif%}\\r\\n{%endfor%}\\r\\n]', 'meets_condition': 'Yes', 'webhook_headers': [{'key': 'Content-Type', 'value': 'application/json'}]}",
+          "description": "Assign wh_config = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "doc = frappe.new_doc('Note')",
+          "description": "Assign doc = frappe.new_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "doc.title = 'Test Webhook Note'",
+          "description": "Assign doc.title = 'Test Webhook Note'",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "final_title = frappe.generate_hash()",
+          "description": "Assign final_title = frappe.generate_hash(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "expected_req = [{'title': final_title} for _ in range(3)]",
+          "description": "Assign expected_req = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "self.responses.add(responses.POST, 'https://httpbin.org/post', status=200, json=expected_req, match=[json_params_matcher(expected_req)])",
+          "description": "Call self.responses.add()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "doc.insert()",
+          "description": "Call doc.insert()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 9,
+          "code": "doc.reload()",
+          "description": "Call doc.reload()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 10,
+          "code": "doc.save()",
+          "description": "Call doc.save()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 11,
+          "code": "doc = frappe.get_doc(doc.doctype, doc.name)",
+          "description": "Assign doc = frappe.get_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 12,
+          "code": "doc.title = final_title",
+          "description": "Assign doc.title = final_title",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 13,
+          "code": "doc.save()",
+          "description": "Call doc.save()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 14,
+          "code": "flush_webhook_execution_queue()",
+          "description": "Call flush_webhook_execution_queue()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 15,
+          "code": "log = frappe.get_last_doc('Webhook Request Log')",
+          "description": "Assign log = frappe.get_last_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 16,
+          "code": "self.assertEqual(len(json.loads(log.response)), 3)",
+          "description": "Call self.assertEqual()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Webhook With Array Body",
+      "tags": [
+        "mock",
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "20 minutes",
+      "source_files": [
+        "test_webhook.py:226"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "136be1697c80",
+      "title": "Get Ldap Client Settings",
+      "overview": "Workflow: test get ldap client settings",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "contextlib",
+        "functools",
+        "os",
+        "ssl",
+        "typing",
+        "unittest",
+        "ldap3",
+        "ldap3",
+        "frappe",
+        "frappe.exceptions",
+        "frappe.integrations.doctype.ldap_settings.ldap_settings"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "2c92690b",
+          "test_name": "test_get_ldap_client_settings",
+          "category": "workflow",
+          "code": "result = self.test_class.get_ldap_client_settings()\nself.assertIsInstance(result, dict)\nself.assertTrue(result['enabled'] == self.doc['enabled'])\nlocaldoc = self.doc.copy()\nlocaldoc['enabled'] = False\nfrappe.get_doc(localdoc).save()\nresult = self.test_class.get_ldap_client_settings()\nself.assertFalse(result['enabled'])",
+          "language": "Python",
+          "description": "Workflow: test get ldap client settings",
+          "expected_behavior": "self.assertFalse(result['enabled'])",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+          "line_start": 316,
+          "line_end": 327,
+          "complexity_score": 0.8,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "mock",
+            "unittest",
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "contextlib",
+            "functools",
+            "os",
+            "ssl",
+            "typing",
+            "unittest",
+            "ldap3",
+            "ldap3",
+            "frappe",
+            "frappe.exceptions",
+            "frappe.integrations.doctype.ldap_settings.ldap_settings"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "result = self.test_class.get_ldap_client_settings()",
+          "description": "Assign result = self.test_class.get_ldap_client_settings(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "self.assertIsInstance(result, dict)",
+          "description": "Call self.assertIsInstance()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "self.assertTrue(result['enabled'] == self.doc['enabled'])",
+          "description": "Call self.assertTrue()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "localdoc = self.doc.copy()",
+          "description": "Assign localdoc = self.doc.copy(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "localdoc['enabled'] = False",
+          "description": "Assign unknown = False",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "frappe.get_doc(localdoc).save()",
+          "description": "Call frappe.get_doc.save()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "result = self.test_class.get_ldap_client_settings()",
+          "description": "Assign result = self.test_class.get_ldap_client_settings(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "self.assertFalse(result['enabled'])",
+          "description": "Call self.assertFalse()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Get Ldap Client Settings",
+      "tags": [
+        "mock",
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "15 minutes",
+      "source_files": [
+        "test_ldap_settings.py:316"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    },
+    {
+      "guide_id": "6408b625b448",
+      "title": "Sync Roles",
+      "overview": "Workflow: test sync roles",
+      "complexity_level": "advanced",
+      "prerequisites": [],
+      "required_imports": [
+        "contextlib",
+        "functools",
+        "os",
+        "ssl",
+        "typing",
+        "unittest",
+        "ldap3",
+        "ldap3",
+        "frappe",
+        "frappe.exceptions",
+        "frappe.integrations.doctype.ldap_settings.ldap_settings"
+      ],
+      "required_fixtures": [],
+      "workflows": [
+        {
+          "example_id": "9b791000",
+          "test_name": "test_sync_roles",
+          "category": "workflow",
+          "code": "if self.TEST_LDAP_SERVER.lower() == 'openldap':\n    test_user_data = {'posix.user1': ['Users', 'Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user'], 'posix.user2': ['Users', 'Group3', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user']}\nelif self.TEST_LDAP_SERVER.lower() == 'active directory':\n    test_user_data = {'posix.user1': ['Domain Users', 'Domain Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user'], 'posix.user2': ['Domain Users', 'Enterprise Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user']}\nrole_to_group_map = {self.doc['ldap_groups'][0]['erpnext_role']: self.doc['ldap_groups'][0]['ldap_group'], self.doc['ldap_groups'][1]['erpnext_role']: self.doc['ldap_groups'][1]['ldap_group'], self.doc['ldap_groups'][2]['erpnext_role']: self.doc['ldap_groups'][2]['ldap_group'], 'Newsletter Manager': 'default_role', 'All': 'frappe_default_all', 'Guest': 'frappe_default_guest', 'Desk User': 'frappe_default_desk_user'}\nfrappe.get_doc('User', 'posix.user1@unit.testing').delete()\nuser = frappe.get_doc(self.user1doc)\nuser.insert(ignore_permissions=True)\nfor test_user in test_user_data:\n    test_user_doc = frappe.get_doc('User', f'{test_user}@unit.testing')\n    test_user_roles = frappe.get_roles(f'{test_user}@unit.testing')\n    self.assertTrue(len(test_user_roles) == 2, 'User should only be a part of the All and Guest roles')\n    self.test_class.sync_roles(test_user_doc, test_user_data[test_user])\n    frappe.get_doc('User', f'{test_user}@unit.testing')\n    updated_user_roles = frappe.get_roles(f'{test_user}@unit.testing')\n    self.assertTrue(len(updated_user_roles) == len(test_user_data[test_user]), f'syncing of the user roles failed. {len(updated_user_roles)} != {len(test_user_data[test_user])} for user {test_user}')\n    for user_role in updated_user_roles:\n        self.assertTrue(role_to_group_map[user_role] in test_user_data[test_user], f'during sync_roles(), the user was given role {user_role} which should not have occurred')",
+          "language": "Python",
+          "description": "Workflow: test sync roles",
+          "expected_behavior": "",
+          "file_path": "/Users/vovanduc/Code/dcnet/flow_next/development/frappe-bench/apps/frappe/frappe/integrations/doctype/ldap_settings/test_ldap_settings.py",
+          "line_start": 365,
+          "line_end": 443,
+          "complexity_score": 0.6,
+          "confidence": 0.9,
+          "setup_code": null,
+          "tags": [
+            "mock",
+            "unittest",
+            "workflow",
+            "integration"
+          ],
+          "dependencies": [
+            "contextlib",
+            "functools",
+            "os",
+            "ssl",
+            "typing",
+            "unittest",
+            "ldap3",
+            "ldap3",
+            "frappe",
+            "frappe.exceptions",
+            "frappe.integrations.doctype.ldap_settings.ldap_settings"
+          ],
+          "ai_analysis": null
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "code": "role_to_group_map = {self.doc['ldap_groups'][0]['erpnext_role']: self.doc['ldap_groups'][0]['ldap_group'], self.doc['ldap_groups'][1]['erpnext_role']: self.doc['ldap_groups'][1]['ldap_group'], self.doc['ldap_groups'][2]['erpnext_role']: self.doc['ldap_groups'][2]['ldap_group'], 'Newsletter Manager': 'default_role', 'All': 'frappe_default_all', 'Guest': 'frappe_default_guest', 'Desk User': 'frappe_default_desk_user'}",
+          "description": "Assign role_to_group_map = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 2,
+          "code": "frappe.get_doc('User', 'posix.user1@unit.testing').delete()",
+          "description": "Call frappe.get_doc.delete()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 3,
+          "code": "user = frappe.get_doc(self.user1doc)",
+          "description": "Assign user = frappe.get_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 4,
+          "code": "user.insert(ignore_permissions=True)",
+          "description": "Call user.insert()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 5,
+          "code": "test_user_data = {'posix.user1': ['Users', 'Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user'], 'posix.user2': ['Users', 'Group3', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user']}",
+          "description": "Assign test_user_data = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 6,
+          "code": "test_user_doc = frappe.get_doc('User', f'{test_user}@unit.testing')",
+          "description": "Assign test_user_doc = frappe.get_doc(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 7,
+          "code": "test_user_roles = frappe.get_roles(f'{test_user}@unit.testing')",
+          "description": "Assign test_user_roles = frappe.get_roles(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 8,
+          "code": "self.assertTrue(len(test_user_roles) == 2, 'User should only be a part of the All and Guest roles')",
+          "description": "Call self.assertTrue()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 9,
+          "code": "self.test_class.sync_roles(test_user_doc, test_user_data[test_user])",
+          "description": "Call self.test_class.sync_roles()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 10,
+          "code": "frappe.get_doc('User', f'{test_user}@unit.testing')",
+          "description": "Call frappe.get_doc()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 11,
+          "code": "updated_user_roles = frappe.get_roles(f'{test_user}@unit.testing')",
+          "description": "Assign updated_user_roles = frappe.get_roles(...)",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 12,
+          "code": "self.assertTrue(len(updated_user_roles) == len(test_user_data[test_user]), f'syncing of the user roles failed. {len(updated_user_roles)} != {len(test_user_data[test_user])} for user {test_user}')",
+          "description": "Call self.assertTrue()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 13,
+          "code": "test_user_data = {'posix.user1': ['Domain Users', 'Domain Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user'], 'posix.user2': ['Domain Users', 'Enterprise Administrators', 'default_role', 'frappe_default_all', 'frappe_default_guest', 'frappe_default_desk_user']}",
+          "description": "Assign test_user_data = value",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        },
+        {
+          "step_number": 14,
+          "code": "self.assertTrue(role_to_group_map[user_role] in test_user_data[test_user], f'during sync_roles(), the user was given role {user_role} which should not have occurred')",
+          "description": "Call self.assertTrue()",
+          "expected_result": null,
+          "verification": null,
+          "setup_required": null,
+          "explanation": null,
+          "common_pitfall": null,
+          "common_variations": []
+        }
+      ],
+      "use_case": "Sync Roles",
+      "tags": [
+        "mock",
+        "unittest",
+        "workflow",
+        "integration"
+      ],
+      "estimated_time": "20 minutes",
+      "source_files": [
+        "test_ldap_settings.py:365"
+      ],
+      "common_pitfalls": [],
+      "troubleshooting": {},
+      "variations": [],
+      "related_guides": [],
+      "prerequisites_detailed": [],
+      "troubleshooting_detailed": [],
+      "next_steps_detailed": [],
+      "use_cases": []
+    }
+  ]
+}

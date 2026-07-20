@@ -1,0 +1,85 @@
+{
+    "actions": [],
+    "allow_rename": 0,
+    "creation": "2026-03-09 10:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "general_section",
+        "default_finance_book",
+        "column_break_general",
+        "default_cit_rate",
+        "account_mapping_section",
+        "seed_mapping_btn",
+        "account_mapping"
+    ],
+    "fields": [
+        {
+            "fieldname": "general_section",
+            "fieldtype": "Section Break",
+            "label": "C\u1ea5u h\u00ecnh chung"
+        },
+        {
+            "fieldname": "default_finance_book",
+            "fieldtype": "Link",
+            "label": "Finance Book m\u1eb7c \u0111\u1ecbnh",
+            "options": "Finance Book",
+            "description": "S\u1ed5 k\u1ebf to\u00e1n m\u1eb7c \u0111\u1ecbnh khi query GL Entry cho t\u1edd khai thu\u1ebf. \u0110\u1ec3 tr\u1ed1ng n\u1ebfu kh\u00f4ng d\u00f9ng Finance Book."
+        },
+        {
+            "fieldname": "column_break_general",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "20",
+            "fieldname": "default_cit_rate",
+            "fieldtype": "Percent",
+            "label": "Thu\u1ebf su\u1ea5t TNDN m\u1eb7c \u0111\u1ecbnh (%)",
+            "description": "Thu\u1ebf su\u1ea5t thu\u1ebf thu nh\u1eadp doanh nghi\u1ec7p, m\u1eb7c \u0111\u1ecbnh 20%"
+        },
+        {
+            "fieldname": "account_mapping_section",
+            "fieldtype": "Section Break",
+            "label": "Mapping t\u00e0i kho\u1ea3n"
+        },
+        {
+            "fieldname": "seed_mapping_btn",
+            "fieldtype": "Button",
+            "label": "T\u1ea1o mapping m\u1eb7c \u0111\u1ecbnh",
+            "description": "T\u1ea1o mapping t\u00e0i kho\u1ea3n m\u1eb7c \u0111\u1ecbnh theo TT99/2025 cho c\u00e1c c\u00f4ng ty Vi\u1ec7t Nam"
+        },
+        {
+            "fieldname": "account_mapping",
+            "fieldtype": "Table",
+            "label": "Mapping t\u00e0i kho\u1ea3n",
+            "options": "HTKK Account Mapping",
+            "description": "C\u1ea5u h\u00ecnh m\u00e3 t\u00e0i kho\u1ea3n cho t\u1eebng vai tr\u00f2 trong t\u1edd khai thu\u1ebf. M\u1ed7i c\u00f4ng ty c\u00f3 th\u1ec3 c\u00f3 m\u00e3 TK kh\u00e1c nhau."
+        }
+    ],
+    "index_web_pages_for_search": 0,
+    "issingle": 1,
+    "links": [],
+    "modified": "2026-03-09 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "HTKK",
+    "name": "HTKK Settings",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "Accounts Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "read": 1,
+            "role": "Accounts User"
+        }
+    ],
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "states": []
+}

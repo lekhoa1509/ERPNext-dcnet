@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.2">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="Header">
+							<xs:annotation>
+								<xs:documentation>Thông tin chung</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct09" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Số nhà, đường phố</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09a_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>mã Phường/xã</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09a_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên Phường/xã</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09b_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>mã Quận/Huyện  </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09b_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên Quận/Huyện  </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09c_ma" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>mã Tỉnh/Tp </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct09c_ten" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tên Tỉnh/Tp </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="KeKhaiNVThue">
+							<xs:annotation>
+								<xs:documentation>I. Kê khai nghĩa vụ thuế:</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="HDXayDung">
+										<xs:annotation>
+											<xs:documentation>Thông tin chung</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct21" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu chưa có thuế giá trị gia tăng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct22" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tỷ lệ (%) thuế giá trị gia tăng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct23" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế giá trị gia tăng phải nộp
+[23]=[21]x[22]
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="HDChuyenNhuongBDS">
+										<xs:annotation>
+											<xs:documentation>Thông tin chung</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct21" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh thu chưa có thuế giá trị gia tăng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct22" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tỷ lệ (%) thuế giá trị gia tăng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct23" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thuế giá trị gia tăng phải nộp
+[23]=[21]x[22]
+</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TongCong">
+										<xs:annotation>
+											<xs:documentation>Tổng cộng</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct24" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng Doanh thu chưa có thuế giá trị gia tăng ct24= tổng ct21 tại các dòng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct25" type="xs:nonNegativeInteger" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng Thuế giá trị gia tăng phải nộp ct25= tổng ct23 tại các dòng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="BangChiTietHDXD">
+							<xs:annotation>
+								<xs:documentation>II. Kê khai thông tin của hợp đồng xây dựng</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="thongTinHDXD" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>thông tin HDXD</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="sTT" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số thứ tự</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soHopDong" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số hợp đồng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ngayHopDong" type="xs:date" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Ngày hợp đồng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tenChuDauTu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên chủ đầu tư</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="maSoThueCDT" type="TINType" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã số thuế của chủ đầu tư (nếu có)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soNha" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Địa chỉ nơi có công trình: Số nhà, đường phố</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="phuong_xa_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Địa chỉ nơi có công trình: Phường/xã </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="phuong_xa_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Địa chỉ nơi có công trình: Phường/xã </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="quan_huyen_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Địa chỉ nơi có công trình: Quận/huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="quan_huyen_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Địa chỉ nơi có công trình: Quận/huyện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tinh_tp_ma" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Địa chỉ nơi có công trình: Tỉnh/TP</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tinh_tp_ten" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Địa chỉ nơi có công trình: Tỉnh/TP</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tongGiaTriHD" type="xs:long" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng giá trị hợp đồng (chưa có thuế GTGT)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

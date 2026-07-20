@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "autoname": "format:BSI-{YYYY}-{#####}",
+ "creation": "2026-04-10 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "bank_account", "from_date", "to_date", "status", "column_break_1",
+  "source_type", "format", "file", "file_hash", "triggered_by",
+  "section_stats", "total_rows", "matched_rows", "unmatched_rows", "duplicate_rows",
+  "section_v2", "api_from_date", "api_to_date", "api_page_cursor",
+  "section_log", "log"
+ ],
+ "fields": [
+  {"fieldname": "bank_account", "fieldtype": "Link", "options": "Bank Account", "label": "Bank Account", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "from_date", "fieldtype": "Date", "label": "From Date", "in_list_view": 1},
+  {"fieldname": "to_date", "fieldtype": "Date", "label": "To Date", "in_list_view": 1},
+  {"fieldname": "status", "fieldtype": "Select", "options": "Draft\nParsed\nReviewed\nPosted", "default": "Draft", "label": "Status", "in_list_view": 1, "reqd": 1},
+  {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+  {"fieldname": "source_type", "fieldtype": "Link", "options": "Bank Data Source", "default": "excel_upload", "label": "Source Type", "reqd": 1},
+  {"fieldname": "format", "fieldtype": "Link", "options": "Bank Statement Format", "label": "Format"},
+  {"fieldname": "file", "fieldtype": "Attach", "label": "File"},
+  {"fieldname": "file_hash", "fieldtype": "Data", "label": "File Hash (metadata)", "read_only": 1},
+  {"fieldname": "triggered_by", "fieldtype": "Select", "options": "Manual\nScheduled\nWebhook", "default": "Manual", "label": "Triggered By"},
+  {"fieldname": "section_stats", "fieldtype": "Section Break", "label": "Statistics"},
+  {"fieldname": "total_rows", "fieldtype": "Int", "label": "Total Rows", "read_only": 1},
+  {"fieldname": "matched_rows", "fieldtype": "Int", "label": "Matched Rows", "read_only": 1},
+  {"fieldname": "unmatched_rows", "fieldtype": "Int", "label": "Unmatched Rows", "read_only": 1},
+  {"fieldname": "duplicate_rows", "fieldtype": "Int", "label": "Duplicate Rows", "read_only": 1},
+  {"fieldname": "section_v2", "fieldtype": "Section Break", "label": "API (v2)", "hidden": 1},
+  {"fieldname": "api_from_date", "fieldtype": "Date", "label": "API From Date"},
+  {"fieldname": "api_to_date", "fieldtype": "Date", "label": "API To Date"},
+  {"fieldname": "api_page_cursor", "fieldtype": "Data", "label": "API Page Cursor"},
+  {"fieldname": "section_log", "fieldtype": "Section Break", "label": "Log"},
+  {"fieldname": "log", "fieldtype": "Long Text", "label": "Parse Log"}
+ ],
+ "istable": 0,
+ "is_submittable": 0,
+ "module": "VN Banking",
+ "name": "Bank Statement Import",
+ "owner": "Administrator",
+ "permissions": [
+  {"role": "Accounts User", "read": 1, "write": 1, "create": 1},
+  {"role": "Accounts Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

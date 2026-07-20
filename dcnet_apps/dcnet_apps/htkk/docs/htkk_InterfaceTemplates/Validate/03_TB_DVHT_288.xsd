@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:redefine schemaLocation="..\TKhaiThue_DBHC.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="so_ThongBao" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số thông báo đơn vị hợp thành</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ten_DVHTNop" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>4.1. Tên đơn vị hợp thành</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="mst_DVHTNop" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>4.2. Mã số thuế được cấp tại Việt Nam (nếu có)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ma_QuocGiaCuTru" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>4.3. Quốc gia cư trú</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ten_QuocGiaCuTru" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>4.3. Quốc gia cư trú</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

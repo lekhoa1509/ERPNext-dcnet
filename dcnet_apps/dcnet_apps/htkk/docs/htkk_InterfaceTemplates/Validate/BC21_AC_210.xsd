@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by mennt (ST) -->
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.8">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="ngayMatChayHongHD" type="xs:dateTime">
+							<xs:annotation>
+								<xs:documentation>Ngày Hoá đơn mất, cháy, hỏng</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="HoaDon">
+							<xs:annotation>
+								<xs:documentation>Hóa đơn</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="ChiTietHoaDon" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Chi tiết hóa đơn </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="lyDo" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Lý do mất, cháy, hỏng hoá đơn</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="nguoiDaiDien" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Người đại diện theo pháp luật</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ngayLapBCao" type="xs:date">
+							<xs:annotation>
+								<xs:documentation>Ngày báo cáo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+	<xs:complexType name="ChiTietHoaDonType">
+		<xs:sequence>
+			<xs:element name="tenHDon" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Tên loại hóa đơn</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mauHDon" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Mẫu số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kyHieu" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Ký hiệu hóa đơn</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tuSo" type="xs:nonNegativeInteger" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Từ số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="denSo" type="xs:nonNegativeInteger" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Đến số</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="soLuong" type="xs:nonNegativeInteger" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Số lượng</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lien" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Liên hóa đơn</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ghiChu" type="xs:string" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Ghi chú</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ktraLoaiHDon" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Ký hiệu để kiểm tra loại hóa đơn (0: Hóa đơn, 1: tem thuộc loại hóa đơn GTGT, 2: Tem thuộc loại hóa đơn bán hàng)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+	</xs:complexType>
+	<xs:element name="ChiTietHoaDon" type="ChiTietHoaDonType"/>
+</xs:schema>

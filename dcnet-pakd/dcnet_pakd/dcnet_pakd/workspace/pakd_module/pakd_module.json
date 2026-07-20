@@ -1,0 +1,83 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"pakd_h1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>L\\u1ed1i t\\u1eaft</b></span>\",\"col\":12}},{\"id\":\"pakd_sc_list\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Ph\\u01b0\\u01a1ng \\u00c1n Kinh Doanh\",\"col\":4}},{\"id\":\"pakd_sc_new\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"T\\u1ea1o PAKD m\\u1edbi\",\"col\":4}},{\"id\":\"pakd_sc_commission\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Hoa H\\u1ed3ng C\\u1ea7n Duy\\u1ec7t\",\"col\":4}},{\"id\":\"pakd_sc_aging\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PAKD Ch\\u1edd Duy\\u1ec7t\",\"col\":4}},{\"id\":\"pakd_sc_profit\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"L\\u1ee3i Nhu\\u1eadn Theo D\\u1ecbch V\\u1ee5\",\"col\":4}},{\"id\":\"pakd_sc_register\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"S\\u1ed5 \\u0110\\u0103ng K\\u00fd Hoa H\\u1ed3ng\",\"col\":4}}]",
+ "creation": "2026-04-13 10:00:00.000000",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "is_default": 0,
+ "type": "Workspace",
+ "label": "Phương Án Kinh Doanh",
+ "module": "DCNet PAKD",
+ "modified": "2026-04-13 10:00:00.000000",
+ "modified_by": "Administrator",
+ "name": "PAKD Module",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "icon": "file",
+   "idx": 1,
+   "label": "Phương Án Kinh Doanh",
+   "link_to": "Phuong An Kinh Doanh",
+   "name": "shortcut-pakd-list",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "New",
+   "icon": "add",
+   "idx": 2,
+   "label": "Tạo PAKD mới",
+   "link_to": "Phuong An Kinh Doanh",
+   "name": "shortcut-pakd-new",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "icon": "task",
+   "idx": 3,
+   "label": "Hoa Hồng Cần Duyệt",
+   "link_to": "PAKD Commission Line",
+   "name": "shortcut-commission-list",
+   "type": "DocType"
+  },
+  {
+   "color": "Gray",
+   "icon": "chart",
+   "idx": 4,
+   "label": "Sổ Đăng Ký Hoa Hồng",
+   "link_to": "Commission Register",
+   "name": "shortcut-commission-register",
+   "type": "Report"
+  },
+  {
+   "color": "Gray",
+   "icon": "chart",
+   "idx": 5,
+   "label": "Lợi Nhuận Theo Dịch Vụ",
+   "link_to": "Profitability by Service",
+   "name": "shortcut-profitability",
+   "type": "Report"
+  },
+  {
+   "color": "Red",
+   "icon": "clock",
+   "idx": 6,
+   "label": "PAKD Chờ Duyệt",
+   "link_to": "Pending PAKD Aging",
+   "name": "shortcut-pending-aging",
+   "type": "Report"
+  }
+ ],
+ "title": "Phương Án Kinh Doanh"
+}

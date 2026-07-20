@@ -1,0 +1,11 @@
+[
+ {
+  "doctype": "Bank Data Source",
+  "name": "excel_upload",
+  "source_key": "excel_upload",
+  "source_label": "Excel File Upload",
+  "handler_path": "vn_banking.source.excel.ExcelFileSource",
+  "requires_credentials": 0,
+  "supports_pull": 0
+ }
+]

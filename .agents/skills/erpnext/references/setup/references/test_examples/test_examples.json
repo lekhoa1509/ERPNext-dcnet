@@ -1,0 +1,1851 @@
+{
+  "total_examples": 68,
+  "examples_by_category": {
+    "workflow": 42,
+    "method_call": 16,
+    "instantiation": 10
+  },
+  "examples_by_language": {
+    "Python": 68
+  },
+  "avg_complexity": 0.66,
+  "high_value_count": 68,
+  "file_path": null,
+  "directory": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup",
+  "examples": [
+    {
+      "example_id": "d48af175",
+      "test_name": "test_employee_status_left",
+      "category": "workflow",
+      "code": "employee1 = make_employee('test_employee_1@company.com')\nemployee2 = make_employee('test_employee_2@company.com')\nemployee1_doc = frappe.get_doc('Employee', employee1)\nemployee2_doc = frappe.get_doc('Employee', employee2)\nemployee2_doc.reload()\nemployee2_doc.reports_to = employee1_doc.name\nemployee2_doc.save()\nemployee1_doc.reload()\nemployee1_doc.status = 'Left'\nself.assertRaises(InactiveEmployeeStatusError, employee1_doc.save)",
+      "language": "Python",
+      "description": "Workflow: test employee status left",
+      "expected_behavior": "self.assertRaises(InactiveEmployeeStatusError, employee1_doc.save)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+      "line_start": 15,
+      "line_end": 25,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.utils",
+        "frappe.query_builder",
+        "frappe.tests",
+        "erpnext",
+        "erpnext.accounts.utils",
+        "erpnext.setup.doctype.employee.employee"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "557b7d01",
+      "test_name": "test_user_has_employee",
+      "category": "workflow",
+      "code": "employee = make_employee('test_emp_user_creation@company.com')\nemployee_doc = frappe.get_doc('Employee', employee)\nuser = employee_doc.user_id\nself.assertTrue('Employee' in frappe.get_roles(user))\nemployee_doc.user_id = ''\nemployee_doc.save()\nself.assertTrue('Employee' not in frappe.get_roles(user))",
+      "language": "Python",
+      "description": "Workflow: test user has employee",
+      "expected_behavior": "self.assertTrue('Employee' not in frappe.get_roles(user))",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+      "line_start": 27,
+      "line_end": 34,
+      "complexity_score": 0.7,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.utils",
+        "frappe.query_builder",
+        "frappe.tests",
+        "erpnext",
+        "erpnext.accounts.utils",
+        "erpnext.setup.doctype.employee.employee"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "1622c74e",
+      "test_name": "test_employee_user_permission",
+      "category": "workflow",
+      "code": "employee1 = make_employee('employee_1_test@company.com', create_user_permission=1)\nemployee2 = make_employee('employee_2_test@company.com', create_user_permission=1)\nmake_employee('employee_3_test@company.com', create_user_permission=1)\nemployee1_doc = frappe.get_doc('Employee', employee1)\nemployee2_doc = frappe.get_doc('Employee', employee2)\nemployee2_doc.reload()\nemployee2_doc.reports_to = employee1_doc.name\nemployee2_doc.save()\nfrappe.set_user(employee1_doc.user_id)\nEmployee = frappe.qb.DocType('Employee')\nqb_employee_list = frappe.qb.from_(Employee).select(Employee.name).where(Criterion.all(build_qb_match_conditions('Employee'))).orderby(Employee.Name).run(pluck=Employee.name)\nemployee_list = frappe.db.get_list('Employee', pluck='name', order_by='name')\nself.assertEqual(qb_employee_list, employee_list)\nfrappe.set_user('Administrator')",
+      "language": "Python",
+      "description": "Workflow: test employee user permission",
+      "expected_behavior": "self.assertEqual(qb_employee_list, employee_list)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+      "line_start": 36,
+      "line_end": 60,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.utils",
+        "frappe.query_builder",
+        "frappe.tests",
+        "erpnext",
+        "erpnext.accounts.utils",
+        "erpnext.setup.doctype.employee.employee"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "d48af175",
+      "test_name": "test_employee_status_left",
+      "category": "workflow",
+      "code": "employee1 = make_employee('test_employee_1@company.com')\nemployee2 = make_employee('test_employee_2@company.com')\nemployee1_doc = frappe.get_doc('Employee', employee1)\nemployee2_doc = frappe.get_doc('Employee', employee2)\nemployee2_doc.reload()\nemployee2_doc.reports_to = employee1_doc.name\nemployee2_doc.save()\nemployee1_doc.reload()\nemployee1_doc.status = 'Left'\nself.assertRaises(InactiveEmployeeStatusError, employee1_doc.save)",
+      "language": "Python",
+      "description": "Workflow: test employee status left",
+      "expected_behavior": "self.assertRaises(InactiveEmployeeStatusError, employee1_doc.save)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+      "line_start": 15,
+      "line_end": 25,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.utils",
+        "frappe.query_builder",
+        "frappe.tests",
+        "erpnext",
+        "erpnext.accounts.utils",
+        "erpnext.setup.doctype.employee.employee"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "557b7d01",
+      "test_name": "test_user_has_employee",
+      "category": "workflow",
+      "code": "employee = make_employee('test_emp_user_creation@company.com')\nemployee_doc = frappe.get_doc('Employee', employee)\nuser = employee_doc.user_id\nself.assertTrue('Employee' in frappe.get_roles(user))\nemployee_doc.user_id = ''\nemployee_doc.save()\nself.assertTrue('Employee' not in frappe.get_roles(user))",
+      "language": "Python",
+      "description": "Workflow: test user has employee",
+      "expected_behavior": "self.assertTrue('Employee' not in frappe.get_roles(user))",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+      "line_start": 27,
+      "line_end": 34,
+      "complexity_score": 0.7,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.utils",
+        "frappe.query_builder",
+        "frappe.tests",
+        "erpnext",
+        "erpnext.accounts.utils",
+        "erpnext.setup.doctype.employee.employee"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "1622c74e",
+      "test_name": "test_employee_user_permission",
+      "category": "workflow",
+      "code": "employee1 = make_employee('employee_1_test@company.com', create_user_permission=1)\nemployee2 = make_employee('employee_2_test@company.com', create_user_permission=1)\nmake_employee('employee_3_test@company.com', create_user_permission=1)\nemployee1_doc = frappe.get_doc('Employee', employee1)\nemployee2_doc = frappe.get_doc('Employee', employee2)\nemployee2_doc.reload()\nemployee2_doc.reports_to = employee1_doc.name\nemployee2_doc.save()\nfrappe.set_user(employee1_doc.user_id)\nEmployee = frappe.qb.DocType('Employee')\nqb_employee_list = frappe.qb.from_(Employee).select(Employee.name).where(Criterion.all(build_qb_match_conditions('Employee'))).orderby(Employee.Name).run(pluck=Employee.name)\nemployee_list = frappe.db.get_list('Employee', pluck='name', order_by='name')\nself.assertEqual(qb_employee_list, employee_list)\nfrappe.set_user('Administrator')",
+      "language": "Python",
+      "description": "Workflow: test employee user permission",
+      "expected_behavior": "self.assertEqual(qb_employee_list, employee_list)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+      "line_start": 36,
+      "line_end": 60,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.utils",
+        "frappe.query_builder",
+        "frappe.tests",
+        "erpnext",
+        "erpnext.accounts.utils",
+        "erpnext.setup.doctype.employee.employee"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "03b0199a",
+      "test_name": "test_user_has_employee",
+      "category": "method_call",
+      "code": "employee_doc.save()\nself.assertTrue('Employee' not in frappe.get_roles(user))",
+      "language": "Python",
+      "description": "test user has employee",
+      "expected_behavior": "self.assertTrue('Employee' not in frappe.get_roles(user))",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+      "line_start": 33,
+      "line_end": 34,
+      "complexity_score": 0.25,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.utils",
+        "frappe.query_builder",
+        "frappe.tests",
+        "erpnext",
+        "erpnext.accounts.utils",
+        "erpnext.setup.doctype.employee.employee"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "03b0199a",
+      "test_name": "test_user_has_employee",
+      "category": "method_call",
+      "code": "employee_doc.save()\nself.assertTrue('Employee' not in frappe.get_roles(user))",
+      "language": "Python",
+      "description": "test user has employee",
+      "expected_behavior": "self.assertTrue('Employee' not in frappe.get_roles(user))",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+      "line_start": 33,
+      "line_end": 34,
+      "complexity_score": 0.25,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.utils",
+        "frappe.query_builder",
+        "frappe.tests",
+        "erpnext",
+        "erpnext.accounts.utils",
+        "erpnext.setup.doctype.employee.employee"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "77df4924",
+      "test_name": "test_employee_status_left",
+      "category": "instantiation",
+      "code": "employee1 = make_employee('test_employee_1@company.com')",
+      "language": "Python",
+      "description": "Instantiate make_employee: test employee status left",
+      "expected_behavior": "self.assertRaises(InactiveEmployeeStatusError, employee1_doc.save)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+      "line_start": 16,
+      "line_end": 16,
+      "complexity_score": 0.15,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.utils",
+        "frappe.query_builder",
+        "frappe.tests",
+        "erpnext",
+        "erpnext.accounts.utils",
+        "erpnext.setup.doctype.employee.employee"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "990dd71f",
+      "test_name": "test_employee_status_left",
+      "category": "instantiation",
+      "code": "employee2 = make_employee('test_employee_2@company.com')",
+      "language": "Python",
+      "description": "Instantiate make_employee: test employee status left",
+      "expected_behavior": "self.assertRaises(InactiveEmployeeStatusError, employee1_doc.save)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/employee/test_employee.py",
+      "line_start": 17,
+      "line_end": 17,
+      "complexity_score": 0.15,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.utils",
+        "frappe.query_builder",
+        "frappe.tests",
+        "erpnext",
+        "erpnext.accounts.utils",
+        "erpnext.setup.doctype.employee.employee"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "5465b530",
+      "test_name": "test_basic_tree",
+      "category": "workflow",
+      "code": "min_lft = 1\nmax_rgt = frappe.db.sql('select max(rgt) from `tabItem Group`')[0][0]\nif not records:\n    records = self.globalTestRecords['Item Group'][2:]\nfor item_group in records:\n    lft, rgt, parent_item_group = frappe.db.get_value('Item Group', item_group['item_group_name'], ['lft', 'rgt', 'parent_item_group'])\n    if parent_item_group:\n        parent_lft, parent_rgt = frappe.db.get_value('Item Group', parent_item_group, ['lft', 'rgt'])\n    else:\n        parent_lft = min_lft - 1\n        parent_rgt = max_rgt + 1\n    self.assertTrue(lft, 'has no lft')\n    self.assertTrue(rgt, 'has no rgt')\n    self.assertTrue(lft < rgt, 'lft >= rgt')\n    self.assertTrue(parent_lft < parent_rgt, 'parent_lft >= parent_rgt')\n    self.assertTrue(lft > parent_lft, 'lft <= parent_lft')\n    self.assertTrue(rgt < parent_rgt, 'rgt >= parent_rgt')\n    self.assertTrue(lft >= min_lft, 'lft < min_lft')\n    self.assertTrue(rgt <= max_rgt, 'rgs > max_rgt')\n    no_of_children = self._get_no_of_children(item_group['item_group_name'])\n    self.assertTrue(rgt == lft + 1 + 2 * no_of_children, 'rgt is not lft + 1 + (2 * #children)')\n    no_of_children = self._get_no_of_children(parent_item_group)\n    self.assertTrue(parent_rgt == parent_lft + 1 + 2 * no_of_children, 'parent_rgs is not 1 + (2 * #children)')",
+      "language": "Python",
+      "description": "Workflow: test basic tree",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+      "line_start": 17,
+      "line_end": 51,
+      "complexity_score": 0.4,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils.nestedset",
+        "json"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "0a28db31",
+      "test_name": "test_move_group_into_another",
+      "category": "workflow",
+      "code": "old_lft, old_rgt = frappe.db.get_value('Item Group', '_Test Item Group C', ['lft', 'rgt'])\ngroup_b = frappe.get_doc('Item Group', '_Test Item Group B')\nlft, rgt = (group_b.lft, group_b.rgt)\ngroup_b.parent_item_group = '_Test Item Group C'\ngroup_b.save()\nself.test_basic_tree()\nnew_lft, new_rgt = frappe.db.get_value('Item Group', '_Test Item Group C', ['lft', 'rgt'])\nself.assertEqual(old_lft - new_lft, rgt - lft + 1)\nself.assertEqual(new_rgt - old_rgt, 0)\nself._move_it_back()",
+      "language": "Python",
+      "description": "Workflow: test move group into another",
+      "expected_behavior": "self.assertEqual(new_rgt - old_rgt, 0)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+      "line_start": 66,
+      "line_end": 87,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils.nestedset",
+        "json"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "48b57316",
+      "test_name": "test_move_leaf_into_another_group",
+      "category": "workflow",
+      "code": "old_lft, old_rgt = frappe.db.get_value('Item Group', '_Test Item Group C', ['lft', 'rgt'])\ngroup_b_3 = frappe.get_doc('Item Group', '_Test Item Group B - 3')\nlft, rgt = (group_b_3.lft, group_b_3.rgt)\ngroup_b_3.parent_item_group = '_Test Item Group C'\ngroup_b_3.save()\nself.test_basic_tree()\nnew_lft, new_rgt = frappe.db.get_value('Item Group', '_Test Item Group C', ['lft', 'rgt'])\nself.assertEqual(old_lft - new_lft, 0)\nself.assertEqual(new_rgt - old_rgt, rgt - lft + 1)\ngroup_b_3 = frappe.get_doc('Item Group', '_Test Item Group B - 3')\ngroup_b_3.parent_item_group = '_Test Item Group B'\ngroup_b_3.save()\nself.test_basic_tree()",
+      "language": "Python",
+      "description": "Workflow: test move leaf into another group",
+      "expected_behavior": "self.assertEqual(new_rgt - old_rgt, rgt - lft + 1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+      "line_start": 99,
+      "line_end": 123,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils.nestedset",
+        "json"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "fb9da91a",
+      "test_name": "test_delete_leaf",
+      "category": "workflow",
+      "code": "parent_item_group = frappe.db.get_value('Item Group', '_Test Item Group B - 3', 'parent_item_group')\nfrappe.db.get_value('Item Group', parent_item_group, 'rgt')\nancestors = get_ancestors_of('Item Group', '_Test Item Group B - 3')\nancestors = frappe.db.sql('select name, rgt from `tabItem Group`\\n\\t\\t\\twhere name in ({})'.format(', '.join(['%s'] * len(ancestors))), tuple(ancestors), as_dict=True)\nfrappe.delete_doc('Item Group', '_Test Item Group B - 3')\nrecords_to_test = self.globalTestRecords['Item Group'][2:]\ndel records_to_test[4]\nself.test_basic_tree(records=records_to_test)\nfor item_group in ancestors:\n    new_lft, new_rgt = frappe.db.get_value('Item Group', item_group.name, ['lft', 'rgt'])\n    self.assertEqual(new_rgt, item_group.rgt - 2)\nfrappe.copy_doc(self.globalTestRecords['Item Group'][6]).insert()\nself.test_basic_tree()",
+      "language": "Python",
+      "description": "Workflow: test delete leaf",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+      "line_start": 125,
+      "line_end": 151,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils.nestedset",
+        "json"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "5465b530",
+      "test_name": "test_basic_tree",
+      "category": "workflow",
+      "code": "min_lft = 1\nmax_rgt = frappe.db.sql('select max(rgt) from `tabItem Group`')[0][0]\nif not records:\n    records = self.globalTestRecords['Item Group'][2:]\nfor item_group in records:\n    lft, rgt, parent_item_group = frappe.db.get_value('Item Group', item_group['item_group_name'], ['lft', 'rgt', 'parent_item_group'])\n    if parent_item_group:\n        parent_lft, parent_rgt = frappe.db.get_value('Item Group', parent_item_group, ['lft', 'rgt'])\n    else:\n        parent_lft = min_lft - 1\n        parent_rgt = max_rgt + 1\n    self.assertTrue(lft, 'has no lft')\n    self.assertTrue(rgt, 'has no rgt')\n    self.assertTrue(lft < rgt, 'lft >= rgt')\n    self.assertTrue(parent_lft < parent_rgt, 'parent_lft >= parent_rgt')\n    self.assertTrue(lft > parent_lft, 'lft <= parent_lft')\n    self.assertTrue(rgt < parent_rgt, 'rgt >= parent_rgt')\n    self.assertTrue(lft >= min_lft, 'lft < min_lft')\n    self.assertTrue(rgt <= max_rgt, 'rgs > max_rgt')\n    no_of_children = self._get_no_of_children(item_group['item_group_name'])\n    self.assertTrue(rgt == lft + 1 + 2 * no_of_children, 'rgt is not lft + 1 + (2 * #children)')\n    no_of_children = self._get_no_of_children(parent_item_group)\n    self.assertTrue(parent_rgt == parent_lft + 1 + 2 * no_of_children, 'parent_rgs is not 1 + (2 * #children)')",
+      "language": "Python",
+      "description": "Workflow: test basic tree",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+      "line_start": 17,
+      "line_end": 51,
+      "complexity_score": 0.4,
+      "confidence": 0.9,
+      "setup_code": "# Fixtures: records",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils.nestedset",
+        "json"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "0a28db31",
+      "test_name": "test_move_group_into_another",
+      "category": "workflow",
+      "code": "old_lft, old_rgt = frappe.db.get_value('Item Group', '_Test Item Group C', ['lft', 'rgt'])\ngroup_b = frappe.get_doc('Item Group', '_Test Item Group B')\nlft, rgt = (group_b.lft, group_b.rgt)\ngroup_b.parent_item_group = '_Test Item Group C'\ngroup_b.save()\nself.test_basic_tree()\nnew_lft, new_rgt = frappe.db.get_value('Item Group', '_Test Item Group C', ['lft', 'rgt'])\nself.assertEqual(old_lft - new_lft, rgt - lft + 1)\nself.assertEqual(new_rgt - old_rgt, 0)\nself._move_it_back()",
+      "language": "Python",
+      "description": "Workflow: test move group into another",
+      "expected_behavior": "self.assertEqual(new_rgt - old_rgt, 0)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+      "line_start": 66,
+      "line_end": 87,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils.nestedset",
+        "json"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "48b57316",
+      "test_name": "test_move_leaf_into_another_group",
+      "category": "workflow",
+      "code": "old_lft, old_rgt = frappe.db.get_value('Item Group', '_Test Item Group C', ['lft', 'rgt'])\ngroup_b_3 = frappe.get_doc('Item Group', '_Test Item Group B - 3')\nlft, rgt = (group_b_3.lft, group_b_3.rgt)\ngroup_b_3.parent_item_group = '_Test Item Group C'\ngroup_b_3.save()\nself.test_basic_tree()\nnew_lft, new_rgt = frappe.db.get_value('Item Group', '_Test Item Group C', ['lft', 'rgt'])\nself.assertEqual(old_lft - new_lft, 0)\nself.assertEqual(new_rgt - old_rgt, rgt - lft + 1)\ngroup_b_3 = frappe.get_doc('Item Group', '_Test Item Group B - 3')\ngroup_b_3.parent_item_group = '_Test Item Group B'\ngroup_b_3.save()\nself.test_basic_tree()",
+      "language": "Python",
+      "description": "Workflow: test move leaf into another group",
+      "expected_behavior": "self.assertEqual(new_rgt - old_rgt, rgt - lft + 1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+      "line_start": 99,
+      "line_end": 123,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils.nestedset",
+        "json"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "fb9da91a",
+      "test_name": "test_delete_leaf",
+      "category": "workflow",
+      "code": "parent_item_group = frappe.db.get_value('Item Group', '_Test Item Group B - 3', 'parent_item_group')\nfrappe.db.get_value('Item Group', parent_item_group, 'rgt')\nancestors = get_ancestors_of('Item Group', '_Test Item Group B - 3')\nancestors = frappe.db.sql('select name, rgt from `tabItem Group`\\n\\t\\t\\twhere name in ({})'.format(', '.join(['%s'] * len(ancestors))), tuple(ancestors), as_dict=True)\nfrappe.delete_doc('Item Group', '_Test Item Group B - 3')\nrecords_to_test = self.globalTestRecords['Item Group'][2:]\ndel records_to_test[4]\nself.test_basic_tree(records=records_to_test)\nfor item_group in ancestors:\n    new_lft, new_rgt = frappe.db.get_value('Item Group', item_group.name, ['lft', 'rgt'])\n    self.assertEqual(new_rgt, item_group.rgt - 2)\nfrappe.copy_doc(self.globalTestRecords['Item Group'][6]).insert()\nself.test_basic_tree()",
+      "language": "Python",
+      "description": "Workflow: test delete leaf",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+      "line_start": 125,
+      "line_end": 151,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils.nestedset",
+        "json"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "36908fdd",
+      "test_name": "test_move_group_into_another",
+      "category": "method_call",
+      "code": "self.assertEqual(old_lft - new_lft, rgt - lft + 1)\nself.assertEqual(new_rgt - old_rgt, 0)",
+      "language": "Python",
+      "description": "test move group into another",
+      "expected_behavior": "self.assertEqual(new_rgt - old_rgt, 0)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+      "line_start": 82,
+      "line_end": 85,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils.nestedset",
+        "json"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "8866e922",
+      "test_name": "test_move_leaf_into_another_group",
+      "category": "method_call",
+      "code": "self.assertEqual(old_lft - new_lft, 0)\nself.assertEqual(new_rgt - old_rgt, rgt - lft + 1)",
+      "language": "Python",
+      "description": "test move leaf into another group",
+      "expected_behavior": "self.assertEqual(new_rgt - old_rgt, rgt - lft + 1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/item_group/test_item_group.py",
+      "line_start": 114,
+      "line_end": 117,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils.nestedset",
+        "json"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "e2e904d8",
+      "test_name": "test_doctypes_contain_company_field",
+      "category": "workflow",
+      "code": "'Test that all DocTypes in To Delete list have a valid company link field'\ntdr = create_and_submit_transaction_deletion_doc('Dunder Mifflin Paper Co')\nfor doctype_row in tdr.doctypes_to_delete:\n    if doctype_row.company_field:\n        field_found = False\n        doctype_fields = frappe.get_meta(doctype_row.doctype_name).as_dict()['fields']\n        for doctype_field in doctype_fields:\n            if doctype_field['fieldname'] == doctype_row.company_field and doctype_field['fieldtype'] == 'Link' and (doctype_field['options'] == 'Company'):\n                field_found = True\n                break\n        self.assertTrue(field_found, f\"DocType {doctype_row.doctype_name} should have company field '{doctype_row.company_field}'\")",
+      "language": "Python",
+      "description": "Workflow: Test that all DocTypes in To Delete list have a valid company link field",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+      "line_start": 36,
+      "line_end": 55,
+      "complexity_score": 0.3,
+      "confidence": 0.9,
+      "setup_code": "self._clear_all_deletion_cache_flags()\ncreate_company('Dunder Mifflin Paper Co')",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "2c194d9c",
+      "test_name": "test_generate_to_delete_list",
+      "category": "workflow",
+      "code": "'Test automatic generation of To Delete list'\ncompany = 'Dunder Mifflin Paper Co'\ncreate_task(company)\ntdr = frappe.new_doc('Transaction Deletion Record')\ntdr.company = company\ntdr.insert()\ntdr.generate_to_delete_list()\ntdr.reload()\nself.assertGreater(len(tdr.doctypes_to_delete), 0)\ntask_in_list = any((d.doctype_name == 'Task' for d in tdr.doctypes_to_delete))\nself.assertTrue(task_in_list, 'Task should be in To Delete list')",
+      "language": "Python",
+      "description": "Workflow: Test automatic generation of To Delete list",
+      "expected_behavior": "self.assertTrue(task_in_list, 'Task should be in To Delete list')",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+      "line_start": 91,
+      "line_end": 107,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": "self._clear_all_deletion_cache_flags()\ncreate_company('Dunder Mifflin Paper Co')",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "12ceb20c",
+      "test_name": "test_csv_export_import",
+      "category": "workflow",
+      "code": "'Test CSV export and import functionality with company_field column'\ncompany = 'Dunder Mifflin Paper Co'\ncreate_task(company)\ntdr = frappe.new_doc('Transaction Deletion Record')\ntdr.company = company\ntdr.insert()\ntdr.generate_to_delete_list()\ntdr.reload()\noriginal_count = len(tdr.doctypes_to_delete)\nself.assertGreater(original_count, 0)\ntdr.export_to_delete_template_method()\ncsv_content = frappe.response.get('result')\nself.assertIsNotNone(csv_content)\nself.assertIn('doctype_name', csv_content)\nself.assertIn('company_field', csv_content)\ntdr2 = frappe.new_doc('Transaction Deletion Record')\ntdr2.company = company\ntdr2.insert()\nresult = tdr2.import_to_delete_template_method(csv_content)\ntdr2.reload()\nself.assertEqual(len(tdr2.doctypes_to_delete), original_count)\nself.assertGreaterEqual(result['imported'], 1)\nfor row in tdr2.doctypes_to_delete:\n    if row.doctype_name == 'Task':\n        self.assertIsNotNone(row.company_field, 'Task should have company_field set after import')",
+      "language": "Python",
+      "description": "Workflow: Test CSV export and import functionality with company_field column",
+      "expected_behavior": "self.assertGreaterEqual(result['imported'], 1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+      "line_start": 133,
+      "line_end": 170,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": "self._clear_all_deletion_cache_flags()\ncreate_company('Dunder Mifflin Paper Co')",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "c7cb6863",
+      "test_name": "test_progress_tracking",
+      "category": "workflow",
+      "code": "'Test that deleted checkbox is marked when DocType deletion completes'\ncompany = 'Dunder Mifflin Paper Co'\ncreate_task(company)\ntdr = create_and_submit_transaction_deletion_doc(company)\ntdr.reload()\ntask_row = None\nfor doctype in tdr.doctypes_to_delete:\n    if doctype.doctype_name == 'Task':\n        task_row = doctype\n        break\nif task_row:\n    self.assertEqual(task_row.deleted, 1, 'Task should be marked as deleted')",
+      "language": "Python",
+      "description": "Workflow: Test that deleted checkbox is marked when DocType deletion completes",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+      "line_start": 172,
+      "line_end": 189,
+      "complexity_score": 0.8,
+      "confidence": 0.9,
+      "setup_code": "self._clear_all_deletion_cache_flags()\ncreate_company('Dunder Mifflin Paper Co')",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "0d63632c",
+      "test_name": "test_cache_flag_management",
+      "category": "workflow",
+      "code": "'Test that cache flags can be set and cleared correctly'\ncompany = 'Dunder Mifflin Paper Co'\ncreate_task(company)\ntdr = frappe.new_doc('Transaction Deletion Record')\ntdr.company = company\ntdr.insert()\ntdr.generate_to_delete_list()\ntdr.reload()\ntdr._set_deletion_cache()\ncached_value = frappe.cache.get_value('deletion_running_doctype:Task')\nself.assertEqual(cached_value, tdr.name, 'Cache flag should be set for Task')\ntdr._clear_deletion_cache()\ncached_value = frappe.cache.get_value('deletion_running_doctype:Task')\nself.assertIsNone(cached_value, 'Cache flag should be cleared for Task')",
+      "language": "Python",
+      "description": "Workflow: Test that cache flags can be set and cleared correctly",
+      "expected_behavior": "self.assertIsNone(cached_value, 'Cache flag should be cleared for Task')",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+      "line_start": 279,
+      "line_end": 302,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": "self._clear_all_deletion_cache_flags()\ncreate_company('Dunder Mifflin Paper Co')",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "0c2a1ed0",
+      "test_name": "test_check_for_running_deletion_blocks_save",
+      "category": "workflow",
+      "code": "'Test that check_for_running_deletion_job blocks saves when cache flag exists'\nfrom erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record import check_for_running_deletion_job\ncompany = 'Dunder Mifflin Paper Co'\nfrappe.cache.set_value('deletion_running_doctype:Task', 'TDR-00001', expires_in_sec=60)\ntry:\n    new_task = frappe.new_doc('Task')\n    new_task.company = company\n    new_task.subject = 'Should be blocked'\n    with self.assertRaises(frappe.ValidationError) as context:\n        check_for_running_deletion_job(new_task)\n    error_message = str(context.exception)\n    self.assertIn('currently deleting', error_message)\n    self.assertIn('TDR-00001', error_message)\nfinally:\n    frappe.cache.delete_value('deletion_running_doctype:Task')",
+      "language": "Python",
+      "description": "Workflow: Test that check_for_running_deletion_job blocks saves when cache flag exists",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+      "line_start": 304,
+      "line_end": 330,
+      "complexity_score": 0.5,
+      "confidence": 0.9,
+      "setup_code": "self._clear_all_deletion_cache_flags()\ncreate_company('Dunder Mifflin Paper Co')",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "e8ff00d9",
+      "test_name": "test_check_for_running_deletion_allows_save_when_no_flag",
+      "category": "workflow",
+      "code": "'Test that documents can be saved when no deletion is running'\ncompany = 'Dunder Mifflin Paper Co'\nfrappe.cache.delete_value('deletion_running_doctype:Task')\nnew_task = frappe.new_doc('Task')\nnew_task.company = company\nnew_task.subject = 'Should be allowed'\ntry:\n    new_task.insert()\n    frappe.delete_doc('Task', new_task.name)\nexcept frappe.ValidationError as e:\n    self.fail(f'Should allow save when no deletion is running, but got: {e}')",
+      "language": "Python",
+      "description": "Workflow: Test that documents can be saved when no deletion is running",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+      "line_start": 332,
+      "line_end": 350,
+      "complexity_score": 0.7,
+      "confidence": 0.9,
+      "setup_code": "self._clear_all_deletion_cache_flags()\ncreate_company('Dunder Mifflin Paper Co')",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "e8b8769a",
+      "test_name": "test_only_one_deletion_allowed_globally",
+      "category": "workflow",
+      "code": "'Test that only one deletion can be submitted at a time (global enforcement)'\ncompany1 = 'Dunder Mifflin Paper Co'\ncompany2 = 'Sabre Corporation'\ncreate_company(company2)\ntdr1 = frappe.new_doc('Transaction Deletion Record')\ntdr1.company = company1\ntdr1.insert()\ntdr1.append('doctypes_to_delete', {'doctype_name': 'Task', 'company_field': 'company'})\ntdr1.save()\ntdr1.submit()\ntry:\n    tdr2 = frappe.new_doc('Transaction Deletion Record')\n    tdr2.company = company2\n    tdr2.insert()\n    tdr2.append('doctypes_to_delete', {'doctype_name': 'Lead', 'company_field': 'company'})\n    tdr2.save()\n    with self.assertRaises(frappe.ValidationError) as context:\n        tdr2.submit()\n    self.assertIn('already', str(context.exception).lower())\n    self.assertIn(tdr1.name, str(context.exception))\nfinally:\n    tdr1.cancel()",
+      "language": "Python",
+      "description": "Workflow: Test that only one deletion can be submitted at a time (global enforcement)",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+      "line_start": 352,
+      "line_end": 383,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": "self._clear_all_deletion_cache_flags()\ncreate_company('Dunder Mifflin Paper Co')",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "e2e904d8",
+      "test_name": "test_doctypes_contain_company_field",
+      "category": "workflow",
+      "code": "'Test that all DocTypes in To Delete list have a valid company link field'\ntdr = create_and_submit_transaction_deletion_doc('Dunder Mifflin Paper Co')\nfor doctype_row in tdr.doctypes_to_delete:\n    if doctype_row.company_field:\n        field_found = False\n        doctype_fields = frappe.get_meta(doctype_row.doctype_name).as_dict()['fields']\n        for doctype_field in doctype_fields:\n            if doctype_field['fieldname'] == doctype_row.company_field and doctype_field['fieldtype'] == 'Link' and (doctype_field['options'] == 'Company'):\n                field_found = True\n                break\n        self.assertTrue(field_found, f\"DocType {doctype_row.doctype_name} should have company field '{doctype_row.company_field}'\")",
+      "language": "Python",
+      "description": "Workflow: Test that all DocTypes in To Delete list have a valid company link field",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+      "line_start": 36,
+      "line_end": 55,
+      "complexity_score": 0.3,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "2c194d9c",
+      "test_name": "test_generate_to_delete_list",
+      "category": "workflow",
+      "code": "'Test automatic generation of To Delete list'\ncompany = 'Dunder Mifflin Paper Co'\ncreate_task(company)\ntdr = frappe.new_doc('Transaction Deletion Record')\ntdr.company = company\ntdr.insert()\ntdr.generate_to_delete_list()\ntdr.reload()\nself.assertGreater(len(tdr.doctypes_to_delete), 0)\ntask_in_list = any((d.doctype_name == 'Task' for d in tdr.doctypes_to_delete))\nself.assertTrue(task_in_list, 'Task should be in To Delete list')",
+      "language": "Python",
+      "description": "Workflow: Test automatic generation of To Delete list",
+      "expected_behavior": "self.assertTrue(task_in_list, 'Task should be in To Delete list')",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/transaction_deletion_record/test_transaction_deletion_record.py",
+      "line_start": 91,
+      "line_end": 107,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record",
+        "erpnext.setup.doctype.transaction_deletion_record.transaction_deletion_record"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "5dd957c9",
+      "test_name": "test_coa_based_on_existing_company",
+      "category": "workflow",
+      "code": "company = frappe.new_doc('Company')\ncompany.company_name = 'COA from Existing Company'\ncompany.abbr = 'CFEC'\ncompany.default_currency = 'INR'\ncompany.create_chart_of_accounts_based_on = 'Existing Company'\ncompany.existing_company = '_Test Company'\ncompany.save()\nexpected_results = {'Debtors - CFEC': {'account_type': 'Receivable', 'is_group': 0, 'root_type': 'Asset', 'parent_account': 'Accounts Receivable - CFEC'}, 'Cash - CFEC': {'account_type': 'Cash', 'is_group': 0, 'root_type': 'Asset', 'parent_account': 'Cash In Hand - CFEC'}}\nfor account, acc_property in expected_results.items():\n    acc = frappe.get_doc('Account', account)\n    for prop, val in acc_property.items():\n        self.assertEqual(acc.get(prop), val)\nself.delete_mode_of_payment('COA from Existing Company')\nfrappe.delete_doc('Company', 'COA from Existing Company')",
+      "language": "Python",
+      "description": "Workflow: test coa based on existing company",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+      "line_start": 26,
+      "line_end": 56,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "frappe",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.demo"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "274a547e",
+      "test_name": "test_basic_tree",
+      "category": "workflow",
+      "code": "min_lft = 1\nmax_rgt = frappe.db.sql('select max(rgt) from `tabCompany`')[0][0]\nif not records:\n    records = self.globalTestRecords['Company'][2:]\nfor company in records:\n    lft, rgt, parent_company = frappe.db.get_value('Company', company['company_name'], ['lft', 'rgt', 'parent_company'])\n    if parent_company:\n        parent_lft, parent_rgt = frappe.db.get_value('Company', parent_company, ['lft', 'rgt'])\n    else:\n        parent_lft = min_lft - 1\n        parent_rgt = max_rgt + 1\n    self.assertTrue(lft)\n    self.assertTrue(rgt)\n    self.assertTrue(lft < rgt)\n    self.assertTrue(parent_lft < parent_rgt)\n    self.assertTrue(lft > parent_lft)\n    self.assertTrue(rgt < parent_rgt)\n    self.assertTrue(lft >= min_lft)\n    self.assertTrue(rgt <= max_rgt)",
+      "language": "Python",
+      "description": "Workflow: test basic tree",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+      "line_start": 112,
+      "line_end": 138,
+      "complexity_score": 0.4,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "frappe",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.demo"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "f0dcc246",
+      "test_name": "test_primary_address",
+      "category": "workflow",
+      "code": "company = '_Test Company'\nsecondary = frappe.get_doc({'address_title': 'Non Primary', 'doctype': 'Address', 'address_type': 'Billing', 'address_line1': 'Something', 'city': 'Mumbai', 'state': 'Maharashtra', 'country': 'India', 'is_primary_address': 1, 'pincode': '400098', 'links': [{'link_doctype': 'Company', 'link_name': company}]})\nsecondary.insert()\nself.addCleanup(secondary.delete)\nprimary = frappe.copy_doc(secondary)\nprimary.is_primary_address = 1\nprimary.insert()\nself.addCleanup(primary.delete)\nself.assertEqual(get_default_company_address(company), primary.name)",
+      "language": "Python",
+      "description": "Workflow: test primary address",
+      "expected_behavior": "self.assertEqual(get_default_company_address(company), primary.name)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+      "line_start": 140,
+      "line_end": 170,
+      "complexity_score": 0.9,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "frappe",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.demo"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "5dd957c9",
+      "test_name": "test_coa_based_on_existing_company",
+      "category": "workflow",
+      "code": "company = frappe.new_doc('Company')\ncompany.company_name = 'COA from Existing Company'\ncompany.abbr = 'CFEC'\ncompany.default_currency = 'INR'\ncompany.create_chart_of_accounts_based_on = 'Existing Company'\ncompany.existing_company = '_Test Company'\ncompany.save()\nexpected_results = {'Debtors - CFEC': {'account_type': 'Receivable', 'is_group': 0, 'root_type': 'Asset', 'parent_account': 'Accounts Receivable - CFEC'}, 'Cash - CFEC': {'account_type': 'Cash', 'is_group': 0, 'root_type': 'Asset', 'parent_account': 'Cash In Hand - CFEC'}}\nfor account, acc_property in expected_results.items():\n    acc = frappe.get_doc('Account', account)\n    for prop, val in acc_property.items():\n        self.assertEqual(acc.get(prop), val)\nself.delete_mode_of_payment('COA from Existing Company')\nfrappe.delete_doc('Company', 'COA from Existing Company')",
+      "language": "Python",
+      "description": "Workflow: test coa based on existing company",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+      "line_start": 26,
+      "line_end": 56,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "frappe",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.demo"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "274a547e",
+      "test_name": "test_basic_tree",
+      "category": "workflow",
+      "code": "min_lft = 1\nmax_rgt = frappe.db.sql('select max(rgt) from `tabCompany`')[0][0]\nif not records:\n    records = self.globalTestRecords['Company'][2:]\nfor company in records:\n    lft, rgt, parent_company = frappe.db.get_value('Company', company['company_name'], ['lft', 'rgt', 'parent_company'])\n    if parent_company:\n        parent_lft, parent_rgt = frappe.db.get_value('Company', parent_company, ['lft', 'rgt'])\n    else:\n        parent_lft = min_lft - 1\n        parent_rgt = max_rgt + 1\n    self.assertTrue(lft)\n    self.assertTrue(rgt)\n    self.assertTrue(lft < rgt)\n    self.assertTrue(parent_lft < parent_rgt)\n    self.assertTrue(lft > parent_lft)\n    self.assertTrue(rgt < parent_rgt)\n    self.assertTrue(lft >= min_lft)\n    self.assertTrue(rgt <= max_rgt)",
+      "language": "Python",
+      "description": "Workflow: test basic tree",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+      "line_start": 112,
+      "line_end": 138,
+      "complexity_score": 0.4,
+      "confidence": 0.9,
+      "setup_code": "# Fixtures: records",
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "frappe",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.demo"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "f0dcc246",
+      "test_name": "test_primary_address",
+      "category": "workflow",
+      "code": "company = '_Test Company'\nsecondary = frappe.get_doc({'address_title': 'Non Primary', 'doctype': 'Address', 'address_type': 'Billing', 'address_line1': 'Something', 'city': 'Mumbai', 'state': 'Maharashtra', 'country': 'India', 'is_primary_address': 1, 'pincode': '400098', 'links': [{'link_doctype': 'Company', 'link_name': company}]})\nsecondary.insert()\nself.addCleanup(secondary.delete)\nprimary = frappe.copy_doc(secondary)\nprimary.is_primary_address = 1\nprimary.insert()\nself.addCleanup(primary.delete)\nself.assertEqual(get_default_company_address(company), primary.name)",
+      "language": "Python",
+      "description": "Workflow: test primary address",
+      "expected_behavior": "self.assertEqual(get_default_company_address(company), primary.name)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+      "line_start": 140,
+      "line_end": 170,
+      "complexity_score": 0.9,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "json",
+        "frappe",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.demo"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "36d186f1",
+      "test_name": "test_primary_address",
+      "category": "method_call",
+      "code": "self.addCleanup(primary.delete)\nself.assertEqual(get_default_company_address(company), primary.name)",
+      "language": "Python",
+      "description": "test primary address",
+      "expected_behavior": "self.assertEqual(get_default_company_address(company), primary.name)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+      "line_start": 168,
+      "line_end": 170,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "json",
+        "frappe",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.demo"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "36d186f1",
+      "test_name": "test_primary_address",
+      "category": "method_call",
+      "code": "self.addCleanup(primary.delete)\nself.assertEqual(get_default_company_address(company), primary.name)",
+      "language": "Python",
+      "description": "test primary address",
+      "expected_behavior": "self.assertEqual(get_default_company_address(company), primary.name)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+      "line_start": 168,
+      "line_end": 170,
+      "complexity_score": 0.3,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "json",
+        "frappe",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.demo"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "c1883082",
+      "test_name": "test_coa_based_on_existing_company",
+      "category": "instantiation",
+      "code": "company = frappe.new_doc('Company')",
+      "language": "Python",
+      "description": "Instantiate new_doc: test coa based on existing company",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+      "line_start": 27,
+      "line_end": 27,
+      "complexity_score": 0.15,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "json",
+        "frappe",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.demo"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "59d7c150",
+      "test_name": "test_coa_based_on_existing_company",
+      "category": "instantiation",
+      "code": "acc = frappe.get_doc('Account', account)",
+      "language": "Python",
+      "description": "Instantiate get_doc: test coa based on existing company",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/company/test_company.py",
+      "line_start": 51,
+      "line_end": 51,
+      "complexity_score": 0.2,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "json",
+        "frappe",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts",
+        "erpnext.setup.doctype.company.company",
+        "erpnext.setup.demo"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "4effb805",
+      "test_name": "test_remove_department_data",
+      "category": "instantiation",
+      "code": "doc = create_department('Test Department')",
+      "language": "Python",
+      "description": "Instantiate create_department: test remove department data",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/department/test_department.py",
+      "line_start": 12,
+      "line_end": 12,
+      "complexity_score": 0.15,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "4effb805",
+      "test_name": "test_remove_department_data",
+      "category": "instantiation",
+      "code": "doc = create_department('Test Department')",
+      "language": "Python",
+      "description": "Instantiate create_department: test remove department data",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/department/test_department.py",
+      "line_start": 12,
+      "line_end": 12,
+      "complexity_score": 0.15,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "bba18acf",
+      "test_name": "test_exchange_rate",
+      "category": "workflow",
+      "code": "save_new_records(self.globalTestRecords['Currency Exchange'])\nfrappe.db.set_single_value('Accounts Settings', 'allow_stale', 1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-01', 'for_buying')\nself.assertEqual(flt(exchange_rate, 3), 60.0)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-15', 'for_buying')\nself.assertEqual(exchange_rate, 65.1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-30', 'for_selling')\nself.assertEqual(exchange_rate, 62.9)\nself.clear_cache()\nexchange_rate = get_exchange_rate('USD', 'INR', '2015-12-15', 'for_selling')\nself.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 66.999)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-20', 'for_buying')\nself.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 65.1)",
+      "language": "Python",
+      "description": "Workflow: test exchange rate",
+      "expected_behavior": "self.assertEqual(flt(exchange_rate, 3), 65.1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+      "line_start": 91,
+      "line_end": 114,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "mock",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "e1ca93fd",
+      "test_name": "test_exchange_rate_via_exchangerate_host",
+      "category": "workflow",
+      "code": "save_new_records(self.globalTestRecords['Currency Exchange'])\nsettings = frappe.get_single('Currency Exchange Settings')\nsettings.service_provider = 'exchangerate.host'\nsettings.access_key = '12345667890'\nsettings.save()\nfrappe.db.set_single_value('Accounts Settings', 'allow_stale', 1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-01', 'for_buying')\nself.assertEqual(flt(exchange_rate, 3), 60.0)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-15', 'for_buying')\nself.assertEqual(exchange_rate, 65.1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-30', 'for_selling')\nself.assertEqual(exchange_rate, 62.9)\nself.clear_cache()\nexchange_rate = get_exchange_rate('USD', 'INR', '2015-12-15', 'for_selling')\nself.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 66.999)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-20', 'for_buying')\nself.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 65.1)\nsettings = frappe.get_single('Currency Exchange Settings')\nsettings.service_provider = 'frankfurter.dev'\nsettings.save()",
+      "language": "Python",
+      "description": "Workflow: test exchange rate via exchangerate host",
+      "expected_behavior": "self.assertEqual(flt(exchange_rate, 3), 65.1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+      "line_start": 116,
+      "line_end": 150,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "mock",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "9b15c9a1",
+      "test_name": "test_exchange_rate_strict",
+      "category": "workflow",
+      "code": "frappe.db.set_single_value('Accounts Settings', 'allow_stale', 0)\nfrappe.db.set_single_value('Accounts Settings', 'stale_days', 1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-01', 'for_buying')\nself.assertEqual(exchange_rate, 60.0)\nself.clear_cache()\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-15', 'for_buying')\nself.assertEqual(flt(exchange_rate, 3), 65.1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-30', 'for_selling')\nself.assertEqual(exchange_rate, 62.9)\nself.clear_cache()\nexchange_rate = get_exchange_rate('USD', 'INR', '2015-12-15', 'for_buying')\nself.assertEqual(flt(exchange_rate, 3), 66.999)",
+      "language": "Python",
+      "description": "Workflow: test exchange rate strict",
+      "expected_behavior": "self.assertEqual(flt(exchange_rate, 3), 66.999)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+      "line_start": 152,
+      "line_end": 170,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "mock",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "bba18acf",
+      "test_name": "test_exchange_rate",
+      "category": "workflow",
+      "code": "save_new_records(self.globalTestRecords['Currency Exchange'])\nfrappe.db.set_single_value('Accounts Settings', 'allow_stale', 1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-01', 'for_buying')\nself.assertEqual(flt(exchange_rate, 3), 60.0)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-15', 'for_buying')\nself.assertEqual(exchange_rate, 65.1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-30', 'for_selling')\nself.assertEqual(exchange_rate, 62.9)\nself.clear_cache()\nexchange_rate = get_exchange_rate('USD', 'INR', '2015-12-15', 'for_selling')\nself.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 66.999)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-20', 'for_buying')\nself.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 65.1)",
+      "language": "Python",
+      "description": "Workflow: test exchange rate",
+      "expected_behavior": "self.assertEqual(flt(exchange_rate, 3), 65.1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+      "line_start": 91,
+      "line_end": 114,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": "# Fixtures: mock_get",
+      "tags": [
+        "unittest",
+        "mock",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "e1ca93fd",
+      "test_name": "test_exchange_rate_via_exchangerate_host",
+      "category": "workflow",
+      "code": "save_new_records(self.globalTestRecords['Currency Exchange'])\nsettings = frappe.get_single('Currency Exchange Settings')\nsettings.service_provider = 'exchangerate.host'\nsettings.access_key = '12345667890'\nsettings.save()\nfrappe.db.set_single_value('Accounts Settings', 'allow_stale', 1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-01', 'for_buying')\nself.assertEqual(flt(exchange_rate, 3), 60.0)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-15', 'for_buying')\nself.assertEqual(exchange_rate, 65.1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-30', 'for_selling')\nself.assertEqual(exchange_rate, 62.9)\nself.clear_cache()\nexchange_rate = get_exchange_rate('USD', 'INR', '2015-12-15', 'for_selling')\nself.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 66.999)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-20', 'for_buying')\nself.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 65.1)\nsettings = frappe.get_single('Currency Exchange Settings')\nsettings.service_provider = 'frankfurter.dev'\nsettings.save()",
+      "language": "Python",
+      "description": "Workflow: test exchange rate via exchangerate host",
+      "expected_behavior": "self.assertEqual(flt(exchange_rate, 3), 65.1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+      "line_start": 116,
+      "line_end": 150,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": "# Fixtures: mock_get",
+      "tags": [
+        "unittest",
+        "mock",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "9b15c9a1",
+      "test_name": "test_exchange_rate_strict",
+      "category": "workflow",
+      "code": "frappe.db.set_single_value('Accounts Settings', 'allow_stale', 0)\nfrappe.db.set_single_value('Accounts Settings', 'stale_days', 1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-01', 'for_buying')\nself.assertEqual(exchange_rate, 60.0)\nself.clear_cache()\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-15', 'for_buying')\nself.assertEqual(flt(exchange_rate, 3), 65.1)\nexchange_rate = get_exchange_rate('USD', 'INR', '2016-01-30', 'for_selling')\nself.assertEqual(exchange_rate, 62.9)\nself.clear_cache()\nexchange_rate = get_exchange_rate('USD', 'INR', '2015-12-15', 'for_buying')\nself.assertEqual(flt(exchange_rate, 3), 66.999)",
+      "language": "Python",
+      "description": "Workflow: test exchange rate strict",
+      "expected_behavior": "self.assertEqual(flt(exchange_rate, 3), 66.999)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+      "line_start": 152,
+      "line_end": 170,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": "# Fixtures: mock_get",
+      "tags": [
+        "unittest",
+        "mock",
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "6869f507",
+      "test_name": "test_exchange_rate",
+      "category": "method_call",
+      "code": "self.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 66.999)",
+      "language": "Python",
+      "description": "test exchange rate",
+      "expected_behavior": "self.assertEqual(flt(exchange_rate, 3), 66.999)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+      "line_start": 109,
+      "line_end": 110,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "mock"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "3ab6cfdf",
+      "test_name": "test_exchange_rate",
+      "category": "method_call",
+      "code": "self.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 65.1)",
+      "language": "Python",
+      "description": "test exchange rate",
+      "expected_behavior": "self.assertEqual(flt(exchange_rate, 3), 65.1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+      "line_start": 113,
+      "line_end": 114,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "mock"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "6869f507",
+      "test_name": "test_exchange_rate_via_exchangerate_host",
+      "category": "method_call",
+      "code": "self.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 66.999)",
+      "language": "Python",
+      "description": "test exchange rate via exchangerate host",
+      "expected_behavior": "self.assertEqual(flt(exchange_rate, 3), 66.999)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+      "line_start": 141,
+      "line_end": 142,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "mock"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "3ab6cfdf",
+      "test_name": "test_exchange_rate_via_exchangerate_host",
+      "category": "method_call",
+      "code": "self.assertFalse(exchange_rate == 60)\nself.assertEqual(flt(exchange_rate, 3), 65.1)",
+      "language": "Python",
+      "description": "test exchange rate via exchangerate host",
+      "expected_behavior": "self.assertEqual(flt(exchange_rate, 3), 65.1)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/currency_exchange/test_currency_exchange.py",
+      "line_start": 145,
+      "line_end": 146,
+      "complexity_score": 0.35,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [
+        "unittest",
+        "mock"
+      ],
+      "dependencies": [
+        "unittest",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "1b9d1432",
+      "test_name": "test_holiday_list",
+      "category": "workflow",
+      "code": "today_date = getdate()\ntest_holiday_dates = [today_date - timedelta(days=5), today_date - timedelta(days=4)]\nholiday_list = make_holiday_list('test_holiday_list', holiday_dates=[{'holiday_date': test_holiday_dates[0], 'description': 'test holiday'}, {'holiday_date': test_holiday_dates[1], 'description': 'test holiday2'}])\nfetched_holiday_list = frappe.get_value('Holiday List', holiday_list.name)\nself.assertEqual(holiday_list.name, fetched_holiday_list)",
+      "language": "Python",
+      "description": "Workflow: test holiday list",
+      "expected_behavior": "self.assertEqual(holiday_list.name, fetched_holiday_list)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+      "line_start": 14,
+      "line_end": 25,
+      "complexity_score": 0.5,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "contextlib",
+        "datetime",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.doctype.holiday_list.holiday_list"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "6d69003d",
+      "test_name": "test_weekly_off",
+      "category": "workflow",
+      "code": "holiday_list = frappe.new_doc('Holiday List')\nholiday_list.from_date = '2023-01-01'\nholiday_list.to_date = '2023-02-28'\nholiday_list.weekly_off = 'Sunday'\nholiday_list.get_weekly_off_dates()\nholidays = [holiday.holiday_date for holiday in holiday_list.holidays]\nself.assertNotIn(date(2022, 12, 25), holidays)\nself.assertIn(date(2023, 1, 1), holidays)\nself.assertIn(date(2023, 1, 8), holidays)\nself.assertIn(date(2023, 1, 15), holidays)\nself.assertIn(date(2023, 1, 22), holidays)\nself.assertIn(date(2023, 1, 29), holidays)\nself.assertIn(date(2023, 2, 5), holidays)\nself.assertIn(date(2023, 2, 12), holidays)\nself.assertIn(date(2023, 2, 19), holidays)\nself.assertIn(date(2023, 2, 26), holidays)\nself.assertNotIn(date(2023, 3, 5), holidays)",
+      "language": "Python",
+      "description": "Workflow: test weekly off",
+      "expected_behavior": "self.assertNotIn(date(2023, 3, 5), holidays)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+      "line_start": 27,
+      "line_end": 46,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "contextlib",
+        "datetime",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.doctype.holiday_list.holiday_list"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "7e16121e",
+      "test_name": "test_localized_country_names",
+      "category": "workflow",
+      "code": "lang = frappe.local.lang\nfrappe.local.lang = 'en-gb'\nself.assertEqual(local_country_name('IN'), 'India')\nself.assertEqual(local_country_name('DE'), 'Germany')\nfrappe.local.lang = 'de'\nself.assertEqual(local_country_name('DE'), 'Deutschland')\nfrappe.local.lang = lang",
+      "language": "Python",
+      "description": "Workflow: test localized country names",
+      "expected_behavior": "self.assertEqual(local_country_name('DE'), 'Deutschland')",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+      "line_start": 103,
+      "line_end": 111,
+      "complexity_score": 0.7,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "contextlib",
+        "datetime",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.doctype.holiday_list.holiday_list"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "1b9d1432",
+      "test_name": "test_holiday_list",
+      "category": "workflow",
+      "code": "today_date = getdate()\ntest_holiday_dates = [today_date - timedelta(days=5), today_date - timedelta(days=4)]\nholiday_list = make_holiday_list('test_holiday_list', holiday_dates=[{'holiday_date': test_holiday_dates[0], 'description': 'test holiday'}, {'holiday_date': test_holiday_dates[1], 'description': 'test holiday2'}])\nfetched_holiday_list = frappe.get_value('Holiday List', holiday_list.name)\nself.assertEqual(holiday_list.name, fetched_holiday_list)",
+      "language": "Python",
+      "description": "Workflow: test holiday list",
+      "expected_behavior": "self.assertEqual(holiday_list.name, fetched_holiday_list)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+      "line_start": 14,
+      "line_end": 25,
+      "complexity_score": 0.5,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "contextlib",
+        "datetime",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.doctype.holiday_list.holiday_list"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "6d69003d",
+      "test_name": "test_weekly_off",
+      "category": "workflow",
+      "code": "holiday_list = frappe.new_doc('Holiday List')\nholiday_list.from_date = '2023-01-01'\nholiday_list.to_date = '2023-02-28'\nholiday_list.weekly_off = 'Sunday'\nholiday_list.get_weekly_off_dates()\nholidays = [holiday.holiday_date for holiday in holiday_list.holidays]\nself.assertNotIn(date(2022, 12, 25), holidays)\nself.assertIn(date(2023, 1, 1), holidays)\nself.assertIn(date(2023, 1, 8), holidays)\nself.assertIn(date(2023, 1, 15), holidays)\nself.assertIn(date(2023, 1, 22), holidays)\nself.assertIn(date(2023, 1, 29), holidays)\nself.assertIn(date(2023, 2, 5), holidays)\nself.assertIn(date(2023, 2, 12), holidays)\nself.assertIn(date(2023, 2, 19), holidays)\nself.assertIn(date(2023, 2, 26), holidays)\nself.assertNotIn(date(2023, 3, 5), holidays)",
+      "language": "Python",
+      "description": "Workflow: test weekly off",
+      "expected_behavior": "self.assertNotIn(date(2023, 3, 5), holidays)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+      "line_start": 27,
+      "line_end": 46,
+      "complexity_score": 1.0,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "contextlib",
+        "datetime",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.doctype.holiday_list.holiday_list"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "7e16121e",
+      "test_name": "test_localized_country_names",
+      "category": "workflow",
+      "code": "lang = frappe.local.lang\nfrappe.local.lang = 'en-gb'\nself.assertEqual(local_country_name('IN'), 'India')\nself.assertEqual(local_country_name('DE'), 'Germany')\nfrappe.local.lang = 'de'\nself.assertEqual(local_country_name('DE'), 'Deutschland')\nfrappe.local.lang = lang",
+      "language": "Python",
+      "description": "Workflow: test localized country names",
+      "expected_behavior": "self.assertEqual(local_country_name('DE'), 'Deutschland')",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+      "line_start": 103,
+      "line_end": 111,
+      "complexity_score": 0.7,
+      "confidence": 0.9,
+      "setup_code": null,
+      "tags": [
+        "workflow",
+        "integration"
+      ],
+      "dependencies": [
+        "contextlib",
+        "datetime",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.doctype.holiday_list.holiday_list"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "df280799",
+      "test_name": "test_weekly_off",
+      "category": "method_call",
+      "code": "self.assertNotIn(date(2022, 12, 25), holidays)\nself.assertIn(date(2023, 1, 1), holidays)",
+      "language": "Python",
+      "description": "test weekly off",
+      "expected_behavior": "self.assertIn(date(2023, 1, 1), holidays)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+      "line_start": 36,
+      "line_end": 37,
+      "complexity_score": 0.55,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "contextlib",
+        "datetime",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.doctype.holiday_list.holiday_list"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "8a04963a",
+      "test_name": "test_weekly_off",
+      "category": "method_call",
+      "code": "self.assertIn(date(2023, 1, 1), holidays)\nself.assertIn(date(2023, 1, 8), holidays)",
+      "language": "Python",
+      "description": "test weekly off",
+      "expected_behavior": "self.assertIn(date(2023, 1, 8), holidays)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+      "line_start": 37,
+      "line_end": 38,
+      "complexity_score": 0.55,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "contextlib",
+        "datetime",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.doctype.holiday_list.holiday_list"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "c9215d68",
+      "test_name": "test_weekly_off",
+      "category": "method_call",
+      "code": "self.assertIn(date(2023, 1, 8), holidays)\nself.assertIn(date(2023, 1, 15), holidays)",
+      "language": "Python",
+      "description": "test weekly off",
+      "expected_behavior": "self.assertIn(date(2023, 1, 15), holidays)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+      "line_start": 38,
+      "line_end": 39,
+      "complexity_score": 0.55,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "contextlib",
+        "datetime",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.doctype.holiday_list.holiday_list"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "e3eaa950",
+      "test_name": "test_weekly_off",
+      "category": "method_call",
+      "code": "self.assertIn(date(2023, 1, 15), holidays)\nself.assertIn(date(2023, 1, 22), holidays)",
+      "language": "Python",
+      "description": "test weekly off",
+      "expected_behavior": "self.assertIn(date(2023, 1, 22), holidays)",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/holiday_list/test_holiday_list.py",
+      "line_start": 39,
+      "line_end": 40,
+      "complexity_score": 0.55,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "contextlib",
+        "datetime",
+        "frappe",
+        "frappe.tests",
+        "frappe.utils",
+        "erpnext.setup.doctype.holiday_list.holiday_list"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "16c8d1f2",
+      "test_name": "test_make_vehicle",
+      "category": "instantiation",
+      "code": "vehicle = frappe.get_doc({'doctype': 'Vehicle', 'license_plate': random_string(10).upper(), 'make': 'Maruti', 'model': 'PCM', 'last_odometer': 5000, 'acquisition_date': frappe.utils.nowdate(), 'location': 'Mumbai', 'chassis_no': '1234ABCD', 'uom': 'Litre', 'vehicle_value': frappe.utils.flt(500000)})",
+      "language": "Python",
+      "description": "Instantiate get_doc: test make vehicle",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/vehicle/test_vehicle.py",
+      "line_start": 11,
+      "line_end": 24,
+      "complexity_score": 0.6,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "9cab45f2",
+      "test_name": "test_renaming_vehicle",
+      "category": "instantiation",
+      "code": "vehicle = frappe.get_doc({'doctype': 'Vehicle', 'license_plate': license_plate, 'make': 'Skoda', 'model': 'Slavia', 'last_odometer': 5000, 'acquisition_date': frappe.utils.nowdate(), 'location': 'Mumbai', 'chassis_no': '1234EFGH', 'uom': 'Litre', 'vehicle_value': frappe.utils.flt(500000)})",
+      "language": "Python",
+      "description": "Instantiate get_doc: test renaming vehicle",
+      "expected_behavior": "self.assertEqual(new_license_plate, frappe.db.get_value('Vehicle', new_license_plate, 'license_plate'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/vehicle/test_vehicle.py",
+      "line_start": 30,
+      "line_end": 43,
+      "complexity_score": 0.6,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "b5224828",
+      "test_name": "test_renaming_vehicle",
+      "category": "method_call",
+      "code": "frappe.rename_doc('Vehicle', license_plate, new_license_plate)\nself.assertEqual(new_license_plate, frappe.db.get_value('Vehicle', new_license_plate, 'license_plate'))",
+      "language": "Python",
+      "description": "test renaming vehicle",
+      "expected_behavior": "self.assertEqual(new_license_plate, frappe.db.get_value('Vehicle', new_license_plate, 'license_plate'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/vehicle/test_vehicle.py",
+      "line_start": 47,
+      "line_end": 51,
+      "complexity_score": 0.5,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "16c8d1f2",
+      "test_name": "test_make_vehicle",
+      "category": "instantiation",
+      "code": "vehicle = frappe.get_doc({'doctype': 'Vehicle', 'license_plate': random_string(10).upper(), 'make': 'Maruti', 'model': 'PCM', 'last_odometer': 5000, 'acquisition_date': frappe.utils.nowdate(), 'location': 'Mumbai', 'chassis_no': '1234ABCD', 'uom': 'Litre', 'vehicle_value': frappe.utils.flt(500000)})",
+      "language": "Python",
+      "description": "Instantiate get_doc: test make vehicle",
+      "expected_behavior": "",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/vehicle/test_vehicle.py",
+      "line_start": 11,
+      "line_end": 24,
+      "complexity_score": 0.6,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "9cab45f2",
+      "test_name": "test_renaming_vehicle",
+      "category": "instantiation",
+      "code": "vehicle = frappe.get_doc({'doctype': 'Vehicle', 'license_plate': license_plate, 'make': 'Skoda', 'model': 'Slavia', 'last_odometer': 5000, 'acquisition_date': frappe.utils.nowdate(), 'location': 'Mumbai', 'chassis_no': '1234EFGH', 'uom': 'Litre', 'vehicle_value': frappe.utils.flt(500000)})",
+      "language": "Python",
+      "description": "Instantiate get_doc: test renaming vehicle",
+      "expected_behavior": "self.assertEqual(new_license_plate, frappe.db.get_value('Vehicle', new_license_plate, 'license_plate'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/vehicle/test_vehicle.py",
+      "line_start": 30,
+      "line_end": 43,
+      "complexity_score": 0.6,
+      "confidence": 0.8,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    },
+    {
+      "example_id": "b5224828",
+      "test_name": "test_renaming_vehicle",
+      "category": "method_call",
+      "code": "frappe.rename_doc('Vehicle', license_plate, new_license_plate)\nself.assertEqual(new_license_plate, frappe.db.get_value('Vehicle', new_license_plate, 'license_plate'))",
+      "language": "Python",
+      "description": "test renaming vehicle",
+      "expected_behavior": "self.assertEqual(new_license_plate, frappe.db.get_value('Vehicle', new_license_plate, 'license_plate'))",
+      "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/setup/doctype/vehicle/test_vehicle.py",
+      "line_start": 47,
+      "line_end": 51,
+      "complexity_score": 0.5,
+      "confidence": 0.85,
+      "setup_code": null,
+      "tags": [],
+      "dependencies": [
+        "frappe",
+        "frappe.tests",
+        "frappe.utils"
+      ],
+      "ai_analysis": null
+    }
+  ]
+}

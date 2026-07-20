@@ -1,0 +1,18 @@
+<PL03_6_TNDN>
+	<mucTrichLap/>
+	<soTienTrichLap/>
+	<TTinNoiDung_PL036TNDN>
+		<NoiDungPL036TNDN id="String">
+			<namTrLap/>
+			<mucTrLapKyNay/>
+			<soTienTrLapKyNay/>
+			<soTienSDungKyNay/>
+			<soTienTrLapKyTruoc/>
+			<soTienTrLapKySau/>
+		</NoiDungPL036TNDN>
+	</TTinNoiDung_PL036TNDN>
+	<tongTienTrLapKyNay/>
+	<tongTienSDungKyNay/>
+	<tongTienTrLapKyTruoc/>
+	<tongTienTrLapKySau/>
+</PL03_6_TNDN>

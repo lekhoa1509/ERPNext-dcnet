@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Module - UI Mockups Index</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink-gray-9: #171717;
+            --ink-gray-8: #2D2D2D;
+            --ink-gray-7: #4B4B4B;
+            --ink-gray-6: #6B6B6B;
+            --surface-white: #FFFFFF;
+            --surface-gray-1: #FAFAFA;
+            --outline-gray-2: #E5E5E5;
+            --blue-500: #0289F7;
+            --blue-100: #E5F3FF;
+            --green-500: #46B37E;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --radius-lg: 0.75rem;
+            --shadow-md: 0px 0px 1px rgba(0, 0, 0, 0.12), 0px 0.5px 2px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--ink-gray-8);
+            background: var(--surface-gray-1);
+            padding: var(--spacing-8);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: var(--spacing-8);
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--ink-gray-9);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--ink-gray-6);
+        }
+
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-6);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .mockup-card {
+            background: var(--surface-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .mockup-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .mockup-preview {
+            height: 200px;
+            background: linear-gradient(135deg, var(--blue-100), var(--surface-gray-1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            border-bottom: 1px solid var(--outline-gray-2);
+        }
+
+        .mockup-content {
+            padding: var(--spacing-6);
+        }
+
+        .mockup-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--ink-gray-9);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .mockup-description {
+            font-size: 14px;
+            color: var(--ink-gray-6);
+            margin-bottom: var(--spacing-4);
+            line-height: 1.5;
+        }
+
+        .mockup-features {
+            list-style: none;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .mockup-features li {
+            font-size: 13px;
+            color: var(--ink-gray-7);
+            padding: 4px 0;
+        }
+
+        .mockup-features li::before {
+            content: "✓ ";
+            color: var(--green-500);
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--blue-500);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .button:hover {
+            background: #0271CF;
+        }
+
+        .info-section {
+            background: var(--surface-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            box-shadow: var(--shadow-md);
+        }
+
+        .info-section h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--ink-gray-9);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .info-section p {
+            color: var(--ink-gray-6);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-4);
+            margin-top: var(--spacing-4);
+        }
+
+        .color-swatch {
+            text-align: center;
+        }
+
+        .color-box {
+            height: 80px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--ink-gray-8);
+        }
+
+        .color-code {
+            font-size: 11px;
+            color: var(--ink-gray-6);
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: var(--spacing-8);
+            padding-top: var(--spacing-6);
+            border-top: 1px solid var(--outline-gray-2);
+            color: var(--ink-gray-6);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏌️ DCNET Flow - Coaching Module</h1>
+            <p class="subtitle">UI Mockups Collection</p>
+        </header>
+
+        <div class="mockup-grid">
+            <!-- Mockup 1: List View -->
+            <div class="mockup-card">
+                <div class="mockup-preview">📋</div>
+                <div class="mockup-content">
+                    <h2 class="mockup-title">Danh sách đơn Coaching</h2>
+                    <p class="mockup-description">
+                        Màn hình list view hiển thị tất cả đơn Coaching với filters và search.
+                    </p>
+                    <ul class="mockup-features">
+                        <li>Table view với 11 cột thông tin</li>
+                        <li>8 trạng thái đơn với badges màu</li>
+                        <li>Progress bar cho tiến trình</li>
+                        <li>Search & Filter toolbar</li>
+                        <li>Pagination</li>
+                    </ul>
+                    <a href="coaching-list-view.mockup.html" class="button">Xem Mockup →</a>
+                </div>
+            </div>
+
+            <!-- Mockup 2: Form View -->
+            <div class="mockup-card">
+                <div class="mockup-preview">📝</div>
+                <div class="mockup-content">
+                    <h2 class="mockup-title">Form tạo/sửa đơn Coaching</h2>
+                    <p class="mockup-description">
+                        Form chi tiết với 7 tabs để quản lý toàn bộ thông tin đơn Coaching.
+                    </p>
+                    <ul class="mockup-features">
+                        <li>7 tabs: Học viên, Test, Specs, Đăng ký, Lịch, Tiến trình, Thanh toán</li>
+                        <li>14+ thông số kỹ thuật</li>
+                        <li>Payment summary với VAT</li>
+                        <li>Timeline tiến trình học tập</li>
+                        <li>Session table</li>
+                    </ul>
+                    <a href="coaching-form-view.mockup.html" class="button">Xem Mockup →</a>
+                </div>
+            </div>
+
+            <!-- Mockup 3: Coach Dashboard -->
+            <div class="mockup-card">
+                <div class="mockup-preview">📊</div>
+                <div class="mockup-content">
+                    <h2 class="mockup-title">Dashboard HLV</h2>
+                    <p class="mockup-description">
+                        Dashboard tổng quan dành riêng cho Huấn luyện viên.
+                    </p>
+                    <ul class="mockup-features">
+                        <li>4 stat cards chính</li>
+                        <li>Lịch dạy hôm nay với actions</li>
+                        <li>Tiến độ học viên với progress bars</li>
+                        <li>Quick stats & Mini calendar</li>
+                        <li>Coach info với rating</li>
+                    </ul>
+                    <a href="coach-dashboard.mockup.html" class="button">Xem Mockup →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design System Info -->
+        <div class="info-section">
+            <h2>🎨 Design System</h2>
+            <p>
+                Tất cả mockups được thiết kế dựa trên <strong>Frappe UI design system</strong> của DCNET Flow,
+                sử dụng Vue 3 + Tailwind CSS với Inter Variable font.
+            </p>
+
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #0289F7;"></div>
+                    <div class="color-name">Primary Blue</div>
+                    <div class="color-code">#0289F7</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #46B37E;"></div>
+                    <div class="color-name">Success Green</div>
+                    <div class="color-code">#46B37E</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #E79913;"></div>
+                    <div class="color-name">Warning Amber</div>
+                    <div class="color-code">#E79913</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #E03636;"></div>
+                    <div class="color-name">Error Red</div>
+                    <div class="color-code">#E03636</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                <strong>DCNET Flow - Coaching Module UI Mockups</strong><br>
+                Created: 14/01/2026 | Designer: Claude Code<br>
+                <a href="README.md" style="color: var(--blue-500);">📖 Xem README.md</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

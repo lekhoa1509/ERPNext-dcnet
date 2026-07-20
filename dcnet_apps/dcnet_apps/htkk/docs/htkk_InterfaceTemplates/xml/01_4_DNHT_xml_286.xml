@@ -1,0 +1,26 @@
+<PLuc_01_4_HT>
+	<BangKeChungTuHoan id="String">
+		<kyHieu/>
+		<soHoaDon/>
+		<ngayThangNam/>
+		<tenDonViBanHang/>
+		<mstNguoiBan/>
+		<hoVaTen/>
+		<so/>
+		<ngayCap/>
+		<ma_QuocTich/>
+		<ten_QuocTich/>
+		<triGiaHangChuaThueGTGT/>
+		<thueGTGT/>
+		<maCQHQ/>
+		<tenCQHQ/>
+		<ngayNHHoan/>
+		<soTienThueGTGT/>
+		<phiDichVu/>
+	</BangKeChungTuHoan>
+	<tongCongTriGiaHangChuaThueGTGT/>
+	<tongCongThueGTGT/>
+	<tongCongSoTienThueGTGT/>
+	<tongCongPhiDichVu/>
+	<tongSoTienDeNghiHoanTra/>
+</PLuc_01_4_HT>

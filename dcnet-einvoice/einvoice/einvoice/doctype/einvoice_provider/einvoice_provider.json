@@ -1,0 +1,265 @@
+{
+    "actions": [],
+    "autoname": "field:provider_name",
+    "creation": "2026-03-03 14:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "provider_name",
+        "provider_type",
+        "enabled",
+        "company",
+        "tax_code",
+        "connection_section",
+        "api_url",
+        "api_url_purchase",
+        "inward_section",
+        "enable_inward",
+        "inward_auth_method",
+        "outward_section",
+        "enable_outward",
+        "outward_auth_method",
+        "credentials_section",
+        "api_token",
+        "api_username",
+        "column_break_creds",
+        "api_password",
+        "api_key",
+        "auth_method",
+        "template_section",
+        "default_invoice_pattern",
+        "column_break_tpl",
+        "default_invoice_serial",
+        "status_section",
+        "connection_status",
+        "last_tested",
+        "column_break_status",
+        "test_connection_btn",
+        "refresh_templates_btn"
+    ],
+    "fields": [
+        {
+            "fieldname": "provider_name",
+            "fieldtype": "Data",
+            "label": "Tên nhà cung cấp",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "provider_type",
+            "fieldtype": "Select",
+            "label": "Loại",
+            "options": "Matbao\nViettel\nMISA\nEasyInvoice\nCustom",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "enabled",
+            "fieldtype": "Check",
+            "label": "Enabled",
+            "default": "1",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Company",
+            "options": "Company",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tax_code",
+            "fieldtype": "Data",
+            "label": "Mã số thuế (MST)",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "connection_section",
+            "fieldtype": "Section Break",
+            "label": "Kết nối API"
+        },
+        {
+            "fieldname": "api_url",
+            "fieldtype": "Data",
+            "label": "URL API chính",
+            "reqd": 1
+        },
+        {
+            "fieldname": "api_url_purchase",
+            "fieldtype": "Data",
+            "label": "URL API Hóa đơn mua vào",
+            "description": "Nếu khác URL chính (VD: Mắt Bão có URL riêng cho mua vào)"
+        },
+        {
+            "fieldname": "inward_section",
+            "fieldtype": "Section Break",
+            "label": "Hóa đơn đầu vào (Inward)"
+        },
+        {
+            "fieldname": "enable_inward",
+            "fieldtype": "Check",
+            "label": "Bật chế độ hóa đơn đầu vào",
+            "description": "Pull hóa đơn mua vào từ provider",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "inward_auth_method",
+            "fieldtype": "Select",
+            "label": "Phương thức xác thực (đầu vào)",
+            "options": "Token\nUsername-Password\nAPI Key",
+            "default": "Token",
+            "depends_on": "eval:doc.enable_inward",
+            "mandatory_depends_on": "eval:doc.enable_inward"
+        },
+        {
+            "fieldname": "outward_section",
+            "fieldtype": "Section Break",
+            "label": "Hóa đơn đầu ra (Outward)"
+        },
+        {
+            "fieldname": "enable_outward",
+            "fieldtype": "Check",
+            "label": "Bật chế độ hóa đơn đầu ra",
+            "description": "Phát hành hóa đơn bán ra qua provider",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "outward_auth_method",
+            "fieldtype": "Select",
+            "label": "Phương thức xác thực (đầu ra)",
+            "options": "Token\nUsername-Password\nAPI Key",
+            "default": "Username-Password",
+            "depends_on": "eval:doc.enable_outward",
+            "mandatory_depends_on": "eval:doc.enable_outward"
+        },
+        {
+            "fieldname": "credentials_section",
+            "fieldtype": "Section Break",
+            "label": "Thông tin xác thực",
+            "depends_on": "eval:doc.enable_inward || doc.enable_outward"
+        },
+        {
+            "fieldname": "api_token",
+            "fieldtype": "Password",
+            "label": "Token",
+            "depends_on": "eval:(doc.enable_inward && doc.inward_auth_method=='Token') || (doc.enable_outward && doc.outward_auth_method=='Token')"
+        },
+        {
+            "fieldname": "api_username",
+            "fieldtype": "Data",
+            "label": "Username",
+            "depends_on": "eval:(doc.enable_inward && doc.inward_auth_method=='Username-Password') || (doc.enable_outward && doc.outward_auth_method=='Username-Password')"
+        },
+        {
+            "fieldname": "column_break_creds",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "api_password",
+            "fieldtype": "Password",
+            "label": "Password",
+            "depends_on": "eval:(doc.enable_inward && doc.inward_auth_method=='Username-Password') || (doc.enable_outward && doc.outward_auth_method=='Username-Password')"
+        },
+        {
+            "fieldname": "api_key",
+            "fieldtype": "Password",
+            "label": "API Key",
+            "depends_on": "eval:(doc.enable_inward && doc.inward_auth_method=='API Key') || (doc.enable_outward && doc.outward_auth_method=='API Key')"
+        },
+        {
+            "fieldname": "auth_method",
+            "fieldtype": "Select",
+            "label": "Phương thức xác thực (legacy)",
+            "options": "Token\nUsername-Password\nAPI Key",
+            "default": "Token",
+            "hidden": 1,
+            "description": "Field cũ — chỉ giữ cho migration tương thích ngược."
+        },
+        {
+            "fieldname": "template_section",
+            "fieldtype": "Section Break",
+            "label": "Mẫu hóa đơn mặc định",
+            "depends_on": "eval:doc.enable_outward"
+        },
+        {
+            "fieldname": "default_invoice_pattern",
+            "fieldtype": "Data",
+            "label": "Ký hiệu mẫu số",
+            "description": "VD: 1 (GTGT), 2 (Bán hàng)"
+        },
+        {
+            "fieldname": "column_break_tpl",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "default_invoice_serial",
+            "fieldtype": "Data",
+            "label": "Ký hiệu hóa đơn",
+            "description": "VD: C25TAT"
+        },
+        {
+            "fieldname": "status_section",
+            "fieldtype": "Section Break",
+            "label": "Trạng thái kết nối"
+        },
+        {
+            "fieldname": "connection_status",
+            "fieldtype": "Select",
+            "label": "Trạng thái",
+            "options": "Not Tested\nConnected\nFailed",
+            "default": "Not Tested",
+            "read_only": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "last_tested",
+            "fieldtype": "Datetime",
+            "label": "Kiểm tra lần cuối",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_status",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "test_connection_btn",
+            "fieldtype": "Button",
+            "label": "Kiểm tra kết nối"
+        },
+        {
+            "fieldname": "refresh_templates_btn",
+            "fieldtype": "Button",
+            "label": "Lấy mẫu hóa đơn"
+        }
+    ],
+    "index_web_pages_for_search": 0,
+    "links": [],
+    "modified": "2026-05-06 22:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "EInvoice",
+    "name": "EInvoice Provider",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "read": 1,
+            "role": "Accounts Manager",
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

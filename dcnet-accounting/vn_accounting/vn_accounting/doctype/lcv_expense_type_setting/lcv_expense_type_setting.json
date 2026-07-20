@@ -1,0 +1,72 @@
+{
+ "actions": [],
+ "creation": "2026-05-11 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "expense_type",
+  "expense_type_key",
+  "default_expense_account",
+  "is_import_only",
+  "allocation_method"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "expense_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Lo\u1ea1i ph\u1ee5 ph\u00ed",
+   "reqd": 1,
+   "description": "T\u00ean lo\u1ea1i ph\u1ee5 ph\u00ed hi\u1ec3n th\u1ecb tr\u00ean giao di\u1ec7n. V\u00ed d\u1ee5: \"V\u1eadn chuy\u1ec3n\", \"Thu\u1ebf nh\u1eadp kh\u1ea9u\", \"VAT NK (kh\u1ea5u tr\u1eeb)\"."
+  },
+  {
+   "columns": 2,
+   "fieldname": "expense_type_key",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "M\u00e3 n\u1ed9i b\u1ed9",
+   "reqd": 1,
+   "description": "M\u00e3 n\u1ed9i b\u1ed9 b\u1ea5t bi\u1ebfn (kh\u00f4ng \u0111\u1ed5i d\u00f9 \u0111\u1ed5i t\u00ean VN). V\u00ed d\u1ee5: \"shipping\", \"import_duty\". D\u00f9ng \u0111\u1ec3 map t\u1ef1 \u0111\u1ed9ng khi t\u1ea1o phi\u1ebfu ph\u00e2n b\u1ed5 m\u1edbi."
+  },
+  {
+   "columns": 3,
+   "fieldname": "default_expense_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "TK ghi C\u00f3 m\u1eb7c \u0111\u1ecbnh",
+   "options": "Account",
+   "description": "T\u00e0i kho\u1ea3n ghi C\u00f3 trong b\u00fat to\u00e1n ph\u00e2n b\u1ed5: N\u1ee3 TK 1562/152 (t\u0103ng gi\u00e1 v\u1ed1n h\u00e0ng mua) / C\u00f3 TK n\u00e0y.\n\u2022 V\u1eadn chuy\u1ec3n, B\u1ed1c x\u1ebfp, Kho b\u00e3i\u2026 \u2192 TK 331 (Ph\u1ea3i tr\u1ea3 NCC d\u1ecbch v\u1ee5)\n\u2022 Thu\u1ebf NK \u2192 TK 3333 (Ph\u1ea3i n\u1ed9p NSNN)\n\u2022 Thu\u1ebf TT\u0110B NK \u2192 TK 3332\n\u2022 VAT NK kh\u00f4ng kh\u1ea5u tr\u1eeb \u2192 TK 33312\nK\u1ebf to\u00e1n c\u00f3 th\u1ec3 s\u1eeda tr\u1ef1c ti\u1ebfp tr\u00ean m\u1ed7i phi\u1ebfu ph\u00e2n b\u1ed5."
+  },
+  {
+   "columns": 1,
+   "fieldname": "is_import_only",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Ch\u1ec9 h\u00e0ng NK",
+   "description": "Tick n\u1ebfu lo\u1ea1i ph\u1ee5 ph\u00ed n\u00e0y CH\u1ec8 \u00e1p d\u1ee5ng cho h\u00e0ng nh\u1eadp kh\u1ea9u (v\u00ed d\u1ee5: thu\u1ebf NK, VAT NK, ph\u00ed h\u1ea3i quan). Khi kh\u00f4ng tick \"H\u00e0ng nh\u1eadp kh\u1ea9u\" tr\u00ean phi\u1ebfu ph\u00e2n b\u1ed5, c\u00e1c d\u00f2ng n\u00e0y s\u1ebd b\u1ecb \u1ea9n."
+  },
+  {
+   "columns": 2,
+   "fieldname": "allocation_method",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Ti\u00eau th\u1ee9c ph\u00e2n b\u1ed5",
+   "options": "Amount\nQty\nWeight\nVolume",
+   "description": "Ti\u00eau th\u1ee9c ph\u00e2n b\u1ed5 g\u1ee3i \u00fd cho lo\u1ea1i ph\u1ee5 ph\u00ed n\u00e0y. \"Amount\" = theo gi\u00e1 tr\u1ecb h\u00e0ng h\u00f3a. \"Weight\" = theo kh\u1ed1i l\u01b0\u1ee3ng. \"Qty\" = theo s\u1ed1 l\u01b0\u1ee3ng. K\u1ebf to\u00e1n c\u00f3 th\u1ec3 thay \u0111\u1ed5i tr\u00ean m\u1ed7i phi\u1ebfu ph\u00e2n b\u1ed5."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-11 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "LCV Expense Type Setting",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

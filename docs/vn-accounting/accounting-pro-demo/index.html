@@ -1,0 +1,1310 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DCNET Accounting Studio</title>
+  <style>
+    :root {
+      --ink: #101828;
+      --muted: #667085;
+      --soft: #f3f6fa;
+      --paper: #ffffff;
+      --line: #d7dee8;
+      --line-2: #edf1f6;
+      --blue-900: #073763;
+      --blue-800: #084c91;
+      --blue-700: #0b61b5;
+      --blue-100: #e8f2ff;
+      --green: #087f5b;
+      --green-bg: #e7f7ef;
+      --amber: #a15c00;
+      --amber-bg: #fff3d8;
+      --red: #b42318;
+      --red-bg: #fff1f0;
+      --violet: #6941c6;
+      --violet-bg: #f1eaff;
+      --shadow: 0 14px 35px rgba(16, 24, 40, .08);
+      --radius: 8px;
+      --font: "Segoe UI", Arial, Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #eef2f7;
+      color: var(--ink);
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 2px solid #1b75d0;
+      outline-offset: 2px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 48px 48px minmax(0, 1fr);
+    }
+
+    .titlebar {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      padding: 0 14px;
+      background: var(--blue-900);
+      color: #fff;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: var(--blue-800);
+      font-weight: 800;
+    }
+
+    .brand b {
+      display: block;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand span {
+      display: block;
+      color: #bdd7f4;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .global-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.1);
+      border-radius: 6px;
+      padding: 0 10px;
+      max-width: 760px;
+    }
+
+    .global-search svg {
+      width: 17px;
+      height: 17px;
+      color: #d9e9fb;
+      flex: 0 0 auto;
+    }
+
+    .global-search input {
+      min-width: 0;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      color: #fff;
+      background: transparent;
+    }
+
+    .global-search input::placeholder { color: #c9dcf4; }
+
+    .title-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .period-pill {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.08);
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: #f5faff;
+      white-space: nowrap;
+    }
+
+    .ribbon {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 14px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .ribbon-tabs {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+    }
+
+    .ribbon-tab {
+      min-height: 34px;
+      border: 0;
+      background: transparent;
+      color: #344054;
+      border-radius: 6px;
+      padding: 6px 11px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .ribbon-tab:hover,
+    .ribbon-tab.active {
+      background: var(--blue-100);
+      color: var(--blue-800);
+    }
+
+    .ribbon-actions {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+
+    .btn {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 6px 10px;
+      transition: background .16s ease, border-color .16s ease, color .16s ease;
+      white-space: nowrap;
+    }
+
+    .btn svg { width: 17px; height: 17px; }
+    .btn:hover { background: #f8fafc; border-color: #b9c4d2; }
+    .btn.primary { background: var(--blue-700); border-color: var(--blue-700); color: #fff; }
+    .btn.primary:hover { background: var(--blue-800); }
+
+    .workspace {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 254px minmax(0, 1fr);
+    }
+
+    .side {
+      min-height: 0;
+      background: #102033;
+      color: #dbe8f6;
+      border-right: 1px solid #091525;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .side-head {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .side-head label {
+      display: block;
+      margin-bottom: 6px;
+      color: #9fb4cc;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .side-head select,
+    .side-head input {
+      width: 100%;
+      min-height: 36px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: #152a43;
+      color: #fff;
+      border-radius: 6px;
+      padding: 7px 9px;
+    }
+
+    .module-nav {
+      padding: 8px;
+      overflow: auto;
+    }
+
+    .module-title {
+      color: #88a0bd;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: 12px 10px 6px;
+    }
+
+    .module-btn {
+      width: 100%;
+      min-height: 42px;
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 7px;
+      background: transparent;
+      color: #dbe8f6;
+      text-align: left;
+      padding: 8px 10px;
+      transition: background .16s ease;
+    }
+
+    .module-btn:hover,
+    .module-btn.active {
+      background: #1a4673;
+      color: #fff;
+    }
+
+    .module-btn svg { width: 18px; height: 18px; }
+    .module-btn span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .badge {
+      min-width: 24px;
+      min-height: 22px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,.13);
+      color: #d7e8fb;
+      font-size: 12px;
+      padding: 1px 6px;
+    }
+
+    .main {
+      min-width: 0;
+      overflow: auto;
+      padding: 14px;
+    }
+
+    .view-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 12px;
+    }
+
+    .view-head h1 {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .view-head p {
+      margin: 5px 0 0;
+      color: var(--muted);
+    }
+
+    .view-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(360px, .75fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+
+    .panel-head {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line-2);
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .panel-head span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .panel-body { padding: 14px; }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .kpi {
+      min-height: 104px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff 0%, #f8fbff 100%);
+      padding: 12px;
+    }
+
+    .kpi-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .kpi strong {
+      display: block;
+      font-size: 21px;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .pill {
+      min-height: 22px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin-top: 9px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .pill.good { background: var(--green-bg); color: var(--green); }
+    .pill.warn { background: var(--amber-bg); color: var(--amber); }
+    .pill.bad { background: var(--red-bg); color: var(--red); }
+    .pill.info { background: var(--blue-100); color: var(--blue-800); }
+    .pill.violet { background: var(--violet-bg); color: var(--violet); }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .process-step {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 10px;
+      min-height: 82px;
+    }
+
+    .process-step small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .process-step b {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .chart {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 12px;
+      min-height: 178px;
+    }
+
+    .chart h3 {
+      margin: 0 0 12px;
+      font-size: 13px;
+    }
+
+    .columns {
+      height: 112px;
+      display: grid;
+      align-items: end;
+      grid-template-columns: repeat(12, minmax(12px, 1fr));
+      gap: 6px;
+      border-bottom: 1px solid var(--line-2);
+      padding-top: 8px;
+    }
+
+    .columns span {
+      display: block;
+      min-height: 10px;
+      border-radius: 5px 5px 0 0;
+      background: var(--blue-700);
+    }
+
+    .bars {
+      display: grid;
+      gap: 9px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr) 66px;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .track {
+      height: 10px;
+      border-radius: 999px;
+      background: #edf2f7;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: inherit;
+      background: var(--blue-700);
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .toolbar input,
+    .toolbar select {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      padding: 6px 9px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 940px;
+      border-collapse: collapse;
+      background: #fff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line-2);
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    th {
+      background: #eef3fa;
+      color: #344054;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    tr:hover td { background: #f8fbff; }
+    td.num { text-align: right; }
+
+    .right-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .task-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .task {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 10px;
+      background: #fff;
+    }
+
+    .task-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+
+    .task b { font-size: 13px; }
+    .task p { margin: 0; color: var(--muted); font-size: 12px; }
+
+    .reports {
+      display: grid;
+      gap: 7px;
+    }
+
+    .report-link {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 10px;
+      text-align: left;
+      transition: background .16s ease, border-color .16s ease;
+    }
+
+    .report-link:hover {
+      background: var(--blue-100);
+      border-color: #9bc4ed;
+    }
+
+    .work-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .work-tab {
+      min-height: 36px;
+      border: 0;
+      border-bottom: 3px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 700;
+      padding: 7px 10px;
+    }
+
+    .work-tab.active {
+      color: var(--blue-800);
+      border-bottom-color: var(--blue-700);
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .mock {
+      min-height: 420px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 170px 1fr;
+    }
+
+    .mock-side {
+      background: #f3f5f8;
+      border-right: 1px solid var(--line);
+      padding: 10px 8px;
+    }
+
+    .mock-side b {
+      display: block;
+      padding: 6px 8px;
+      font-size: 13px;
+    }
+
+    .mock-side span {
+      display: block;
+      min-height: 29px;
+      padding: 6px 8px;
+      border-radius: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .mock-side span.active {
+      background: #3f4958;
+      color: #fff;
+    }
+
+    .mock-content {
+      padding: 12px;
+    }
+
+    .note-grid {
+      display: grid;
+      gap: 8px;
+    }
+
+    .note {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 10px;
+    }
+
+    .note b { display: block; margin-bottom: 4px; }
+    .note span { color: var(--muted); font-size: 12px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: .001ms !important;
+        animation-duration: .001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 1260px) {
+      .layout { grid-template-columns: 1fr; }
+      .right-stack { grid-template-columns: 1fr 1fr; }
+      .process { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 900px) {
+      body { font-size: 16px; }
+      .shell { grid-template-rows: auto auto minmax(0, 1fr); }
+      .titlebar { grid-template-columns: 1fr; padding: 10px; }
+      .workspace { grid-template-columns: 1fr; }
+      .side { display: none; }
+      .ribbon { grid-template-columns: 1fr; }
+      .view-head { grid-template-columns: 1fr; }
+      .view-actions { justify-content: flex-start; }
+      .kpis, .chart-grid, .right-stack, .compare-grid { grid-template-columns: 1fr; }
+      .process { grid-template-columns: 1fr; }
+      .mock { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="titlebar">
+      <div class="brand">
+        <div class="logo">D</div>
+        <div>
+          <b>DCNET Accounting Studio</b>
+          <span>Prototype giao diện kế toán Việt Nam</span>
+        </div>
+      </div>
+      <div class="global-search" role="search">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <label class="sr-only" for="global-search">Tìm chứng từ</label>
+        <input id="global-search" type="search" placeholder="Tìm chứng từ, đối tượng, tài khoản, MST hoặc chức năng">
+      </div>
+      <div class="title-actions">
+        <span class="period-pill">Kỳ 07/2026 · Đang mở</span>
+        <span class="period-pill">DCNET · VND</span>
+      </div>
+    </header>
+
+    <div class="ribbon">
+      <div class="ribbon-tabs" aria-label="Nhóm thao tác nhanh">
+        <button class="ribbon-tab active" type="button" data-ribbon="daily">Hằng ngày</button>
+        <button class="ribbon-tab" type="button" data-ribbon="reconcile">Đối chiếu</button>
+        <button class="ribbon-tab" type="button" data-ribbon="tax">Thuế</button>
+        <button class="ribbon-tab" type="button" data-ribbon="close">Cuối kỳ</button>
+        <button class="ribbon-tab" type="button" data-ribbon="reports">Báo cáo</button>
+      </div>
+      <div class="ribbon-actions" id="ribbon-actions"></div>
+    </div>
+
+    <div class="workspace">
+      <aside class="side">
+        <div class="side-head">
+          <label for="company">Công ty / chi nhánh</label>
+          <select id="company">
+            <option>DCNET - Toàn công ty</option>
+            <option>Thăng Long TM</option>
+            <option>Nhật Minh Sport</option>
+          </select>
+          <div style="height:8px"></div>
+          <label for="nav-filter">Lọc nhanh</label>
+          <input id="nav-filter" type="search" placeholder="Nhập tên nghiệp vụ">
+        </div>
+        <nav class="module-nav" aria-label="Phân hệ kế toán">
+          <div class="module-title">Bàn làm việc</div>
+          <button class="module-btn active" type="button" data-module="overview"></button>
+          <button class="module-btn" type="button" data-module="cash"></button>
+          <button class="module-btn" type="button" data-module="sales"></button>
+          <button class="module-btn" type="button" data-module="purchase"></button>
+          <button class="module-btn" type="button" data-module="tax"></button>
+          <button class="module-btn" type="button" data-module="close"></button>
+          <div class="module-title">Tài sản & quản trị</div>
+          <button class="module-btn" type="button" data-module="asset"></button>
+          <button class="module-btn" type="button" data-module="settings"></button>
+          <button class="module-btn" type="button" data-module="compare"></button>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <section class="view-head">
+          <div>
+            <h1 id="view-title"></h1>
+            <p id="view-subtitle"></p>
+          </div>
+          <div class="view-actions" id="view-actions"></div>
+        </section>
+
+        <section id="view"></section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const icons = {
+      overview: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>',
+      cash: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle></svg>',
+      sales: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h10v18l-5-3-5 3z"></path><path d="M9 8h6M9 12h6"></path></svg>',
+      purchase: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12l3 6v14H3V8z"></path><path d="M3 8h18M8 13h8"></path></svg>',
+      tax: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M8 13h8M8 17h5"></path></svg>',
+      close: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"></path><path d="M8 9h8M8 13h8M8 17h5"></path></svg>',
+      asset: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-8h6v8"></path></svg>',
+      settings: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"></path></svg>',
+      compare: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h7v14H4zM13 5h7v14h-7z"></path></svg>',
+      plus: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg>',
+      filter: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h18M6 10h12M10 16h4"></path></svg>',
+      export: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5M12 15V3"></path></svg>'
+    };
+
+    const modules = {
+      overview: {
+        label: 'Tổng quan điều hành', count: 28, icon: 'overview',
+        title: 'Bàn làm việc kế toán',
+        subtitle: 'Một màn hình cho việc hằng ngày: chứng từ chờ xử lý, cảnh báo thuế, công nợ, ngân hàng và khóa sổ.',
+        actions: ['Tạo chứng từ', 'Đối chiếu nhanh', 'Xuất báo cáo'],
+        kpis: [
+          ['Tiền & ngân hàng', '12,84 tỷ', '+8,4% so với tháng trước', 'good'],
+          ['Phải thu quá hạn', '2,16 tỷ', '18 hóa đơn cần đôn đốc', 'bad'],
+          ['VAT phải nộp', '428,5 triệu', 'Còn 5 ngày tới hạn', 'warn'],
+          ['Chứng từ chờ ghi sổ', '37 CT', '12 chứng từ thiếu VAT', 'warn']
+        ],
+        process: ['Nhập chứng từ', 'Duyệt & ghi sổ', 'Đối chiếu', 'Kê khai/BC', 'Khóa kỳ'],
+        tableTitle: 'Dòng công việc ưu tiên',
+        columns: ['Mã', 'Ngày', 'Đối tượng', 'Nghiệp vụ', 'Giá trị', 'Trạng thái', 'Việc cần làm'],
+        rows: [
+          ['PI-00128', '08/07/2026', 'Golf Partner VN', 'Hóa đơn mua hàng', '1.420.500.000', 'Chờ duyệt', 'Kiểm tra VAT đầu vào'],
+          ['SI-00374', '07/07/2026', 'KH Nguyễn Anh', 'Hóa đơn bán hàng', '86.900.000', 'Quá hạn', 'Đôn đốc công nợ'],
+          ['BT-00044', '07/07/2026', 'VCB 1121', 'Sao kê chưa khớp', '248.000.000', 'Chờ xử lý', 'Khớp Payment Entry'],
+          ['JE-00043', '06/07/2026', 'Nội bộ', 'Phân bổ chi phí 242', '37.200.000', 'Nháp', 'Gắn trung tâm chi phí'],
+          ['TAX-07', '05/07/2026', 'Cơ quan thuế', 'Tờ khai 01/GTGT', '428.500.000', 'Chờ', 'Xuất HTKK XML']
+        ],
+        tasks: [
+          ['12 hóa đơn mua chưa có VAT', 'Kiểm tra trước hạn kê khai để tránh thiếu đầu vào khấu trừ.', 'warn'],
+          ['18 khoản phải thu quá hạn', 'Lập danh sách đôn đốc và gửi xác nhận công nợ.', 'bad'],
+          ['5 giao dịch ngân hàng chưa khớp', 'So khớp sao kê với Payment Entry hoặc tạo bút toán.', 'warn']
+        ],
+        reports: ['Sổ nhật ký chung S03a-DN', 'Bảng cân đối số phát sinh', 'Báo cáo KQKD B02-DN', 'Báo cáo lưu chuyển tiền tệ B03-DN']
+      },
+      cash: {
+        label: 'Tiền mặt & ngân hàng', count: 14, icon: 'cash',
+        title: 'Tiền mặt & ngân hàng',
+        subtitle: 'Phiếu thu, phiếu chi, sao kê, đối soát, khế ước vay, tiền gửi có kỳ hạn và dự báo dòng tiền.',
+        actions: ['Phiếu thu', 'Phiếu chi', 'Import sao kê'],
+        kpis: [
+          ['Tồn quỹ 111', '684,2 triệu', '2 quỹ chi nhánh cần kiểm kê', 'warn'],
+          ['Số dư 112', '12,16 tỷ', '5 giao dịch chưa khớp', 'warn'],
+          ['Tiền gửi có kỳ hạn', '4,50 tỷ', '2 sổ đáo hạn trong tháng', 'info'],
+          ['Khế ước vay', '1,80 tỷ', 'Lãi phải trả 26,4 triệu', 'bad']
+        ],
+        process: ['Nhận sao kê', 'Tạo giao dịch', 'Khớp chứng từ', 'Ghi sổ', 'Báo cáo quỹ'],
+        tableTitle: 'Giao dịch tiền và ngân hàng',
+        columns: ['Mã', 'Ngày', 'Tài khoản', 'Nội dung', 'Thu', 'Chi', 'Trạng thái'],
+        rows: [
+          ['PT-00091', '08/07/2026', '1111', 'Thu tiền khách lẻ', '42.000.000', '', 'Đã ghi sổ'],
+          ['PC-00064', '08/07/2026', '1111', 'Chi tạm ứng công tác', '', '15.000.000', 'Chờ duyệt'],
+          ['BT-00044', '07/07/2026', '1121-VCB', 'Khách chuyển khoản', '248.000.000', '', 'Chưa khớp'],
+          ['TD-00012', '06/07/2026', '1122-BIDV', 'Lãi tiền gửi', '6.450.000', '', 'Đã ghi sổ'],
+          ['LN-00003', '05/07/2026', '1121-VCB', 'Trả lãi vay', '', '26.400.000', 'Đến hạn']
+        ],
+        tasks: [
+          ['5 giao dịch sao kê chưa khớp', 'Ưu tiên các khoản thu khách hàng để cập nhật công nợ.', 'warn'],
+          ['2 quỹ chưa kiểm kê', 'Chi nhánh Hà Nội và Đà Nẵng chưa nộp biên bản.', 'warn'],
+          ['1 khế ước tới hạn lãi', 'Cần lập phiếu chi lãi vay trước ngày 12/07.', 'bad']
+        ],
+        reports: ['Sổ quỹ tiền mặt', 'Sổ tài khoản ngân hàng', 'Báo cáo thu ngân hàng', 'Tổng hợp tiền gửi có kỳ hạn']
+      },
+      sales: {
+        label: 'Bán hàng & công nợ', count: 21, icon: 'sales',
+        title: 'Bán hàng & công nợ phải thu',
+        subtitle: 'Từ báo giá, đơn hàng, hóa đơn, VAT đầu ra đến tuổi nợ, dunning và công nợ theo hợp đồng.',
+        actions: ['Hóa đơn bán', 'Phiếu thu', 'Gửi đôn đốc'],
+        kpis: [
+          ['Doanh thu tháng', '8,72 tỷ', '+12,6% theo kế hoạch', 'good'],
+          ['Phải thu 131', '5,81 tỷ', '2,16 tỷ quá hạn', 'bad'],
+          ['Đơn cần xuất HĐ', '23 đơn', 'Tổng 1,94 tỷ', 'warn'],
+          ['VAT đầu ra', '821,7 triệu', 'Sẵn sàng lên tờ khai', 'info']
+        ],
+        process: ['Đơn hàng', 'Xuất kho', 'Hóa đơn', 'Thu tiền', 'Đối chiếu nợ'],
+        tableTitle: 'Hóa đơn và công nợ khách hàng',
+        columns: ['Mã', 'Ngày', 'Khách hàng', 'Kênh', 'Tổng tiền', 'Còn nợ', 'Trạng thái'],
+        rows: [
+          ['SI-00374', '07/07/2026', 'KH Nguyễn Anh', 'Bán lẻ', '86.900.000', '86.900.000', 'Quá hạn'],
+          ['SI-00370', '06/07/2026', 'Công ty Minh Long', 'Dự án', '412.000.000', '206.000.000', 'Thanh toán 1 phần'],
+          ['SO-00219', '06/07/2026', 'Nhật Minh Sport', 'Hợp đồng', '980.000.000', '980.000.000', 'Cần xuất HĐ'],
+          ['SI-00365', '04/07/2026', 'KH Hoàng Nam', 'Bán lẻ', '64.300.000', '0', 'Đã thu'],
+          ['DN-00152', '03/07/2026', 'CLB Golf Hà Nội', 'Bán buôn', '156.000.000', '0', 'Chờ hóa đơn']
+        ],
+        tasks: [
+          ['18 hóa đơn quá hạn', 'Tạo dunning và phân công nhân viên phụ trách thu hồi.', 'bad'],
+          ['23 đơn cần xuất hóa đơn', 'Đối chiếu với phiếu xuất kho trước khi phát hành.', 'warn'],
+          ['6 khách vượt hạn mức', 'Cần kế toán trưởng xác nhận trước đơn mới.', 'bad']
+        ],
+        reports: ['Công nợ phải thu', 'Bảng tổng hợp công nợ KH', 'Sales Analytics', 'Công nợ theo hợp đồng']
+      },
+      purchase: {
+        label: 'Mua hàng & phải trả', count: 17, icon: 'purchase',
+        title: 'Mua hàng & công nợ phải trả',
+        subtitle: 'Theo dõi PO, nhập kho, hóa đơn NCC, thanh toán, tạm ứng, chi phí mua và hàng không VAT.',
+        actions: ['Hóa đơn mua', 'Phiếu chi NCC', 'Phân bổ chi phí'],
+        kpis: [
+          ['Phải trả 331', '6,42 tỷ', '1,25 tỷ đến hạn 7 ngày', 'warn'],
+          ['PO cần lập HĐ', '31 đơn', 'Tổng 3,18 tỷ', 'warn'],
+          ['Mua không VAT', '12 chứng từ', 'Cần nhắc NCC', 'bad'],
+          ['Chi phí mua chờ PB', '284 triệu', '4 Landed Cost Voucher', 'info']
+        ],
+        process: ['PO', 'Nhập kho', 'Hóa đơn NCC', 'Phân bổ CP', 'Thanh toán'],
+        tableTitle: 'Hóa đơn mua và thanh toán NCC',
+        columns: ['Mã', 'Ngày', 'Nhà cung cấp', 'Nghiệp vụ', 'Giá trị', 'Đã trả', 'Trạng thái'],
+        rows: [
+          ['PI-00128', '08/07/2026', 'Golf Partner VN', 'Hóa đơn nhập hàng', '1.420.500.000', '0', 'Chờ duyệt'],
+          ['PI-00123', '07/07/2026', 'Logistics ACB', 'Chi phí vận chuyển', '84.000.000', '84.000.000', 'Đã trả'],
+          ['PO-00210', '06/07/2026', 'Mizuno APAC', 'PO cần hóa đơn', '2.180.000.000', '0', 'Chờ HĐ'],
+          ['PE-00088', '05/07/2026', 'TaylorMade VN', 'Thanh toán NCC', '500.000.000', '500.000.000', 'Đã ghi sổ'],
+          ['LCV-00012', '04/07/2026', 'Hải quan', 'Phân bổ thuế nhập', '186.000.000', '0', 'Nháp']
+        ],
+        tasks: [
+          ['12 chứng từ mua chưa có hóa đơn VAT', 'Ảnh hưởng trực tiếp chỉ tiêu VAT đầu vào.', 'bad'],
+          ['9 khoản phải trả đến hạn', 'Chuẩn bị kế hoạch dòng tiền tuần này.', 'warn'],
+          ['4 khoản chi phí mua chờ phân bổ', 'Cần phân bổ vào giá vốn trước khi chốt kỳ.', 'warn']
+        ],
+        reports: ['Công nợ phải trả', 'Bảng tổng hợp công nợ NCC', 'Purchase Analytics', 'Landed Cost Report']
+      },
+      tax: {
+        label: 'Thuế & HTKK', count: 11, icon: 'tax',
+        title: 'Thuế GTGT, TNDN và HTKK',
+        subtitle: 'Một bàn làm việc cho hóa đơn đầu vào/đầu ra, tờ khai 01/GTGT, quy tắc thuế và kết xuất HTKK.',
+        actions: ['Tờ khai 01/GTGT', 'Xuất HTKK', 'Đối chiếu VAT'],
+        kpis: [
+          ['VAT đầu ra 33311', '821,7 triệu', 'Từ 164 hóa đơn bán', 'info'],
+          ['VAT đầu vào 1331', '393,2 triệu', '12 chứng từ cần kiểm tra', 'warn'],
+          ['VAT phải nộp', '428,5 triệu', 'Hạn nộp còn 5 ngày', 'bad'],
+          ['TNDN tạm tính', '214,0 triệu', 'B4 chưa chốt', 'warn']
+        ],
+        process: ['Hóa đơn vào', 'Hóa đơn ra', 'Đối chiếu TK', 'Tờ khai', 'HTKK XML'],
+        tableTitle: 'Bảng kiểm thuế trong kỳ',
+        columns: ['Mã', 'Ngày', 'Đối tượng', 'Loại thuế', 'Giá trị thuế', 'Tài khoản', 'Trạng thái'],
+        rows: [
+          ['VAT-IN-091', '08/07/2026', 'Golf Partner VN', 'GTGT đầu vào', '129.136.364', '1331', 'Cần khớp HĐĐT'],
+          ['VAT-OUT-164', '07/07/2026', 'KH Nguyễn Anh', 'GTGT đầu ra', '7.900.000', '33311', 'Đã vào tờ khai'],
+          ['TAX-01GTGT', '07/2026', 'Cơ quan thuế', '01/GTGT', '428.500.000', '33311-1331', 'Chờ xuất XML'],
+          ['CIT-03', 'Q2/2026', 'Cơ quan thuế', 'TNDN', '214.000.000', '821/3334', 'Chờ rà B4'],
+          ['WHT-001', '06/07/2026', 'Cộng tác viên', 'Khấu trừ', '3.500.000', '3335', 'Chờ duyệt']
+        ],
+        tasks: [
+          ['Xuất HTKK XML chưa hoàn tất', 'Cần đưa HTKK Declaration vào luồng VN Accounting.', 'bad'],
+          ['12 hóa đơn đầu vào cần khớp', 'Có thể làm lệch chỉ tiêu 31/32 trên 01/GTGT.', 'warn'],
+          ['B4 chi phí không được trừ chưa chốt', 'Ảnh hưởng quyết toán TNDN.', 'warn']
+        ],
+        reports: ['Tờ khai 01/GTGT', 'Quyết toán TNDN Form 03', 'Chi phí không được trừ B4', 'Tax Withholding Details']
+      },
+      close: {
+        label: 'Tổng hợp & khóa sổ', count: 13, icon: 'close',
+        title: 'Tổng hợp, kết chuyển và báo cáo tài chính',
+        subtitle: 'Sổ cái, nhật ký chung, đánh giá tỷ giá, kết chuyển 911, khóa kỳ và bộ BCTC TT99/2025.',
+        actions: ['Kết chuyển kỳ', 'Khóa sổ', 'In BCTC'],
+        kpis: [
+          ['Chứng từ chưa ghi sổ', '37 CT', 'Cần xử lý trước khóa kỳ', 'warn'],
+          ['Bút toán tự động', '9 CT', '3 chứng từ chờ duyệt', 'warn'],
+          ['Chênh lệch đối chiếu', '15 điểm', 'VAT, ngân hàng, công nợ', 'bad'],
+          ['BCTC đã sẵn sàng', '3/4', 'B09 cần thuyết minh', 'info']
+        ],
+        process: ['Soát chứng từ', 'Đối chiếu', 'Kết chuyển', 'BCTC', 'Khóa kỳ'],
+        tableTitle: 'Checklist khóa kỳ',
+        columns: ['Mã', 'Hạng mục', 'Người phụ trách', 'Phát hiện', 'Số tiền', 'Trạng thái', 'Hạn'],
+        rows: [
+          ['CL-001', 'Đối chiếu quỹ 111', 'Kế toán tiền', '2 quỹ chưa kiểm kê', '0', 'Đang làm', '10/07'],
+          ['CL-002', 'Đối chiếu ngân hàng 112', 'Kế toán NH', '5 giao dịch lệch', '248.000.000', 'Cần xử lý', '10/07'],
+          ['CL-003', 'Kết chuyển 911', 'Kế toán trưởng', 'Chờ B4 TNDN', '0', 'Chờ', '12/07'],
+          ['CL-004', 'Báo cáo B02-DN', 'Kế toán tổng hợp', 'Đã khớp', '0', 'Xong', '12/07'],
+          ['CL-005', 'Thuyết minh B09-DN', 'Kế toán trưởng', 'Thiếu diễn giải vay', '1.800.000.000', 'Đang làm', '13/07']
+        ],
+        tasks: [
+          ['Không cho khóa kỳ khi còn lệch ngân hàng', 'Cần xử lý 5 giao dịch chưa khớp.', 'bad'],
+          ['Bút toán kết chuyển chờ duyệt', 'VN Period Close đã tạo nhưng chưa submit.', 'warn'],
+          ['B09-DN thiếu thuyết minh vay', 'Cần bổ sung trước khi xuất bộ BCTC.', 'warn']
+        ],
+        reports: ['S03a-DN Sổ nhật ký chung', 'S03b-DN Sổ cái', 'Bảng cân đối số phát sinh', 'B01/B02/B03/B09-DN']
+      },
+      asset: {
+        label: 'TSCĐ & CCDC', count: 9, icon: 'asset',
+        title: 'Tài sản cố định và công cụ dụng cụ',
+        subtitle: 'Quản lý tăng giảm, bàn giao, kiểm kê, khấu hao TSCĐ và phân bổ CCDC nhiều kỳ.',
+        actions: ['Ghi tăng TSCĐ', 'Bàn giao', 'Tính khấu hao'],
+        kpis: [
+          ['Nguyên giá TSCĐ', '4,82 tỷ', '68 tài sản đang dùng', 'info'],
+          ['Khấu hao tháng', '86,4 triệu', 'Đã tạo lịch tự động', 'good'],
+          ['CCDC chờ phân bổ', '312 triệu', '14 lịch phân bổ', 'warn'],
+          ['Kiểm kê lệch', '3 tài sản', 'Cần biên bản xử lý', 'bad']
+        ],
+        process: ['Ghi tăng', 'Bàn giao', 'Khấu hao/PB', 'Kiểm kê', 'Thanh lý/Ghi giảm'],
+        tableTitle: 'Tài sản và CCDC cần xử lý',
+        columns: ['Mã', 'Tên', 'Bộ phận', 'Nguyên giá', 'Hao mòn/PB', 'Trạng thái', 'Việc cần làm'],
+        rows: [
+          ['TS-00045', 'Máy chủ Dell R760', 'IT', '620.000.000', '62.000.000', 'Đang dùng', 'Khấu hao tháng'],
+          ['TS-00038', 'Xe tải giao hàng', 'Kho', '980.000.000', '410.000.000', 'Đang dùng', 'Kiểm kê'],
+          ['CCDC-0018', 'Bộ gậy demo', 'Marketing', '72.000.000', '24.000.000', 'Đang PB', 'Phân bổ tháng'],
+          ['TS-00012', 'Laptop Lenovo', 'Sales', '32.000.000', '30.000.000', 'Mất kiểm kê', 'Xử lý lệch'],
+          ['CCDC-0024', 'Kệ trưng bày', 'Showroom', '45.000.000', '0', 'Chờ bàn giao', 'Tạo biên bản']
+        ],
+        tasks: [
+          ['3 tài sản lệch kiểm kê', 'Cần xác nhận phòng ban và lập biên bản xử lý.', 'bad'],
+          ['14 CCDC tới kỳ phân bổ', 'Tạo bút toán phân bổ chi phí tháng 07.', 'warn'],
+          ['2 tài sản đủ điều kiện thanh lý', 'Chuẩn bị biên bản hội đồng thanh lý.', 'info']
+        ],
+        reports: ['S21-DN Sổ TSCĐ', 'S22-DN Sổ TSCĐ/CCDC', 'Asset Depreciation Ledger', 'Fixed Asset Register']
+      },
+      settings: {
+        label: 'Thiết lập', count: 16, icon: 'settings',
+        title: 'Thiết lập nền kế toán',
+        subtitle: 'Cây tài khoản, năm tài chính, kỳ kế toán, kho, ngân hàng, thuế, PAKD, hợp đồng và mapping BCTC.',
+        actions: ['Import COA', 'Cài đặt thuế', 'Cài đặt ngân hàng'],
+        kpis: [
+          ['Cây tài khoản', '254 TK', 'TT99/2025, đã import', 'good'],
+          ['Tài khoản thiếu mapping', '7 TK', 'Ảnh hưởng BCTC', 'warn'],
+          ['Quy tắc thuế', '0 rule', 'Cần cấu hình tự động', 'bad'],
+          ['Ngân hàng', '39 NH', 'Đã sẵn sàng đối soát', 'good']
+        ],
+        process: ['COA', 'Master Data', 'Cấu hình thuế', 'Cấu hình kho/NH', 'Mapping BCTC'],
+        tableTitle: 'Cấu hình cần rà soát',
+        columns: ['Nhóm', 'Mục', 'Trạng thái', 'Ảnh hưởng', 'Người phụ trách', 'Hạn', 'Ghi chú'],
+        rows: [
+          ['COA', 'Tài khoản 33311', 'Đã có', 'VAT đầu ra', 'KTT', 'Xong', 'Tax type đúng'],
+          ['Tax', 'Tax Rule', 'Chưa có', 'Tự áp mẫu thuế', 'KT Thuế', '12/07', 'Cần tạo 5/8/10%'],
+          ['Bank', 'Bank Statement Settings', 'Đã có', 'Import sao kê', 'KT Ngân hàng', 'Xong', 'Cần test file VCB'],
+          ['BCTC', 'Mapping B01/B02', 'Thiếu 7 TK', 'Báo cáo tài chính', 'KT Tổng hợp', '14/07', 'Rà 635/811'],
+          ['PAKD', 'Commission Rule', 'Đã có', 'Hoa hồng', 'KTT', 'Xong', 'Chờ user test']
+        ],
+        tasks: [
+          ['Chưa có Tax Rule', 'Nếu không cấu hình, kế toán vẫn phải chọn mẫu thuế thủ công.', 'bad'],
+          ['7 tài khoản thiếu mapping BCTC', 'Có thể làm thiếu chỉ tiêu trên B01/B02.', 'warn'],
+          ['Cần test import sao kê ngân hàng', 'Chọn 3 file VCB/BIDV/ACB để kiểm thử.', 'warn']
+        ],
+        reports: ['Hệ thống tài khoản', 'BCTC Mapping', 'Cài đặt kế toán', 'Cài đặt ngân hàng']
+      },
+      compare: {
+        label: 'So sánh 2 UI', count: 2, icon: 'compare',
+        title: 'So sánh Workspace hiện tại và Accounting Studio',
+        subtitle: 'Demo này giúp user chọn giữa cách dùng Frappe workspace chuẩn và một bàn làm việc riêng cho kế toán.',
+        actions: ['Ghi nhận feedback', 'Chọn phương án', 'Lập backlog'],
+        compare: true
+      }
+    };
+
+    const ribbonActions = {
+      daily: ['Phiếu thu', 'Phiếu chi', 'Hóa đơn mua', 'Hóa đơn bán', 'Bút toán chung'],
+      reconcile: ['Đối soát ngân hàng', 'Đối chiếu công nợ', 'Đối chiếu VAT', 'Đối chiếu kho'],
+      tax: ['01/GTGT', 'HTKK XML', 'Danh mục thuế', 'Quy tắc thuế'],
+      close: ['Kết chuyển 911', 'Đánh giá tỷ giá', 'Khóa kỳ', 'BCTC'],
+      reports: ['Sổ cái', 'Nhật ký chung', 'CĐPS', 'KQKD', 'LCTT']
+    };
+
+    let currentModule = 'overview';
+
+    const fmtStatus = (status) => {
+      const s = status.toLowerCase();
+      const cls = s.includes('quá') || s.includes('lệch') || s.includes('chưa') || s.includes('cần') ? 'bad'
+        : s.includes('chờ') || s.includes('nháp') || s.includes('đang') || s.includes('đến hạn') ? 'warn'
+        : s.includes('xong') || s.includes('đã') ? 'good'
+        : 'info';
+      return `<span class="pill ${cls}" style="margin-top:0">${status}</span>`;
+    };
+
+    const navButtons = document.querySelectorAll('.module-btn');
+    navButtons.forEach((button) => {
+      const key = button.dataset.module;
+      const item = modules[key];
+      button.innerHTML = `${icons[item.icon]}<span>${item.label}</span><span class="badge">${item.count}</span>`;
+      button.addEventListener('click', () => {
+        currentModule = key;
+        navButtons.forEach((b) => b.classList.remove('active'));
+        button.classList.add('active');
+        render();
+      });
+    });
+
+    document.querySelectorAll('.ribbon-tab').forEach((button) => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.ribbon-tab').forEach((b) => b.classList.remove('active'));
+        button.classList.add('active');
+        renderRibbon(button.dataset.ribbon);
+      });
+    });
+
+    function renderRibbon(key = 'daily') {
+      const target = document.getElementById('ribbon-actions');
+      target.innerHTML = ribbonActions[key].map((label, index) => {
+        const primary = index === 0 ? ' primary' : '';
+        return `<button class="btn${primary}" type="button">${index === 0 ? icons.plus : icons.filter}${label}</button>`;
+      }).join('');
+    }
+
+    function renderActions(actions) {
+      return actions.map((label, index) => {
+        const primary = index === 0 ? ' primary' : '';
+        const icon = index === 2 ? icons.export : index === 1 ? icons.filter : icons.plus;
+        return `<button class="btn${primary}" type="button">${icon}${label}</button>`;
+      }).join('');
+    }
+
+    function renderStandard(module) {
+      return `
+        <div class="layout">
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>${module.tableTitle}</h2>
+                <span>Dữ liệu demo đủ để trình bày luồng nghiệp vụ và rủi ro</span>
+              </div>
+              <button class="btn" type="button">${icons.export}Xuất bảng</button>
+            </div>
+            <div class="panel-body">
+              <div class="kpis">
+                ${module.kpis.map(([label, value, hint, type]) => `
+                  <div class="kpi">
+                    <div class="kpi-top"><span>${label}</span><span>07/2026</span></div>
+                    <strong>${value}</strong>
+                    <span class="pill ${type}">${hint}</span>
+                  </div>
+                `).join('')}
+              </div>
+
+              <div class="process">
+                ${module.process.map((label, index) => `
+                  <div class="process-step">
+                    <small>Bước ${index + 1}</small>
+                    <b>${label}</b>
+                    <span class="pill ${index < 2 ? 'good' : index === 2 ? 'warn' : 'info'}">${index < 2 ? 'Đang vận hành' : index === 2 ? 'Cần soát' : 'Theo dõi'}</span>
+                  </div>
+                `).join('')}
+              </div>
+
+              <div class="chart-grid">
+                <div class="chart">
+                  <h3>Biến động 12 kỳ</h3>
+                  <div class="columns" aria-label="Biểu đồ biến động 12 kỳ">
+                    ${[42, 55, 49, 66, 73, 58, 80, 64, 70, 88, 76, 92].map((h, i) => `<span style="height:${h}%; background:${i > 8 ? '#087f5b' : '#0b61b5'}"></span>`).join('')}
+                  </div>
+                </div>
+                <div class="chart">
+                  <h3>Cơ cấu rủi ro</h3>
+                  <div class="bars">
+                    <div class="bar-row"><span>Đúng hạn</span><span class="track"><span class="fill" style="width:74%; background:#087f5b"></span></span><b>74%</b></div>
+                    <div class="bar-row"><span>Cần soát</span><span class="track"><span class="fill" style="width:43%; background:#a15c00"></span></span><b>43%</b></div>
+                    <div class="bar-row"><span>Quá hạn</span><span class="track"><span class="fill" style="width:28%; background:#b42318"></span></span><b>28%</b></div>
+                    <div class="bar-row"><span>Chưa khớp</span><span class="track"><span class="fill" style="width:36%; background:#6941c6"></span></span><b>36%</b></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="work-tabs" aria-label="Chế độ xem dữ liệu">
+                <button class="work-tab active" type="button">Chứng từ</button>
+                <button class="work-tab" type="button">Đối chiếu</button>
+                <button class="work-tab" type="button">Báo cáo</button>
+                <button class="work-tab" type="button">Lịch sử</button>
+              </div>
+
+              <div class="toolbar">
+                <select aria-label="Bộ lọc trạng thái"><option>Tất cả trạng thái</option><option>Cần xử lý</option><option>Quá hạn</option><option>Đã ghi sổ</option></select>
+                <input aria-label="Từ ngày" type="date" value="2026-07-01">
+                <input aria-label="Đến ngày" type="date" value="2026-07-08">
+                <button class="btn" type="button">${icons.filter}Lọc dữ liệu</button>
+                <button class="btn" type="button">Duyệt hàng loạt</button>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th><input type="checkbox" aria-label="Chọn tất cả"></th>
+                      ${module.columns.map((col) => `<th>${col}</th>`).join('')}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${module.rows.map((row, rowIndex) => `
+                      <tr>
+                        <td><input type="checkbox" aria-label="Chọn dòng ${rowIndex + 1}"></td>
+                        ${row.map((cell, i) => {
+                          const numeric = /^[0-9.,]+$/.test(cell.replaceAll(' ', '')) || cell.includes('tỷ') || cell.includes('triệu');
+                          const isStatus = i === row.length - 2 || ['Đã ghi sổ','Chờ duyệt','Quá hạn','Chờ xử lý','Nháp','Cần xử lý','Xong','Đang làm','Chờ','Đã có','Chưa có','Đến hạn','Đã trả','Đã thu'].some((s) => cell.includes(s));
+                          return `<td class="${numeric ? 'num' : ''}">${isStatus ? fmtStatus(cell) : cell}</td>`;
+                        }).join('')}
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <aside class="right-stack">
+            <section class="panel">
+              <div class="panel-head">
+                <h2>Việc cần xử lý</h2>
+                <span>Theo rủi ro kế toán</span>
+              </div>
+              <div class="panel-body task-list">
+                ${module.tasks.map(([title, desc, type]) => `
+                  <div class="task">
+                    <div class="task-head"><b>${title}</b><span class="pill ${type}" style="margin-top:0">${type === 'bad' ? 'Cao' : type === 'warn' ? 'Vừa' : 'Theo dõi'}</span></div>
+                    <p>${desc}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <h2>Báo cáo thường dùng</h2>
+                <span>Mở nhanh</span>
+              </div>
+              <div class="panel-body reports">
+                ${module.reports.map((name) => `<button class="report-link" type="button"><span>${name}</span><b>Mở</b></button>`).join('')}
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <h2>Gợi ý triển khai thật</h2>
+                <span>Frappe Page</span>
+              </div>
+              <div class="panel-body note-grid">
+                <div class="note"><b>Giữ ERPNext backend</b><span>UI mới chỉ là lớp workspace riêng, vẫn dùng DocType, Report và permission hiện có.</span></div>
+                <div class="note"><b>Không thay thế Desk ngay</b><span>Cho user chọn Accounting Studio hoặc Workspace hiện tại trong giai đoạn demo.</span></div>
+                <div class="note"><b>Đo hiệu quả bằng task</b><span>So thời gian tạo phiếu, đối chiếu VAT, khóa kỳ giữa hai UI.</span></div>
+              </div>
+            </section>
+          </aside>
+        </div>
+      `;
+    }
+
+    function renderCompare() {
+      return `
+        <div class="compare-grid">
+          <section class="panel">
+            <div class="panel-head"><h2>Workspace hiện tại</h2><span>Mạnh về chuẩn Frappe, yếu về flow kế toán</span></div>
+            <div class="panel-body">
+              <div class="mock">
+                <div class="mock-side">
+                  <b>Kế Toán VN</b>
+                  <span>Tiền mặt</span><span>Ngân hàng</span><span>Mua hàng</span><span>Bán hàng</span><span class="active">Thuế</span><span>Tổng hợp</span><span>BCTC</span><span>Thiết lập</span>
+                </div>
+                <div class="mock-content">
+                  <div class="toolbar"><button class="btn">List View</button><button class="btn">Filter</button><button class="btn primary">Add</button></div>
+                  <div class="note-grid">
+                    <div class="note"><b>Mỗi màn hình tách rời</b><span>User phải tự biết bước tiếp theo, ví dụ sau hóa đơn mua cần kiểm VAT, đối chiếu NCC, thanh toán.</span></div>
+                    <div class="note"><b>Cảnh báo chưa nổi bật</b><span>Không thấy ngay hóa đơn thiếu VAT, công nợ quá hạn, giao dịch ngân hàng chưa khớp.</span></div>
+                    <div class="note"><b>Khó demo nghiệp vụ</b><span>Demo thường phải nhảy nhiều route, dễ làm user không thấy bức tranh kế toán tổng thể.</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h2>Accounting Studio đề xuất</h2><span>Flow kế toán Việt Nam, nhiều dữ liệu demo, có trạng thái rõ</span></div>
+            <div class="panel-body note-grid">
+              <div class="note"><b>Một màn hình một nghiệp vụ</b><span>Tiền, công nợ, thuế, tổng hợp, TSCĐ đều có KPI, quy trình, bảng chứng từ, task và báo cáo.</span></div>
+              <div class="note"><b>Phù hợp demo so sánh</b><span>Người dùng có thể bấm từng phân hệ để thấy dữ liệu thay đổi thật, không còn cảm giác chết một trang.</span></div>
+              <div class="note"><b>Giống thói quen kế toán desktop</b><span>Có ribbon thao tác nhanh, bảng chứng từ dày, trạng thái, bộ lọc, checklist khóa kỳ.</span></div>
+              <div class="note"><b>Triển khai ít rủi ro</b><span>Có thể dựng thành Frappe custom Page đọc dữ liệu từ report/doctype hiện có trước khi thay hẳn UI.</span></div>
+              <div class="kpis">
+                <div class="kpi"><div class="kpi-top"><span>Module demo</span></div><strong>8</strong><span class="pill good">Có dữ liệu riêng</span></div>
+                <div class="kpi"><div class="kpi-top"><span>Bảng demo</span></div><strong>40+ dòng</strong><span class="pill info">Đủ trình bày</span></div>
+                <div class="kpi"><div class="kpi-top"><span>Task cảnh báo</span></div><strong>24</strong><span class="pill warn">Theo rủi ro</span></div>
+                <div class="kpi"><div class="kpi-top"><span>Rủi ro đổi UI</span></div><strong>Thấp</strong><span class="pill good">Chạy song song</span></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function render() {
+      const module = modules[currentModule];
+      document.getElementById('view-title').textContent = module.title;
+      document.getElementById('view-subtitle').textContent = module.subtitle;
+      document.getElementById('view-actions').innerHTML = renderActions(module.actions);
+      document.getElementById('view').innerHTML = module.compare ? renderCompare() : renderStandard(module);
+    }
+
+    renderRibbon('daily');
+    render();
+  </script>
+</body>
+</html>

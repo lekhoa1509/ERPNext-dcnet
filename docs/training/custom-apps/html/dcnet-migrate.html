@@ -1,0 +1,234 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DCNET Migrate — Tài liệu training</title><link rel="stylesheet" href="assets/training.css"></head><body><div class="topbar"><a href="index.html">← Bộ tài liệu custom apps</a></div><div class="layout"><aside class="toc"><strong>Mục lục</strong><a href="#1-pham-vi-va-canh-bao">1. Phạm vi và cảnh báo</a><a href="#2-cac-man-hinh-chinh">2. Các màn hình chính</a><a href="#3-du-lieu-duoc-nhan-dien-trong-giao-dien">3. Dữ liệu được nhận diện trong giao diện</a><a href="#4-quy-trinh-chuan">4. Quy trình chuẩn</a><a href="#5-chuan-bi-truoc-khi-import">5. Chuẩn bị trước khi import</a><a href="#6-upload-va-scan-file">6. Upload và scan file</a><a href="#7-doc-trang-thai-va-muc-an-toan">7. Đọc trạng thái và mức an toàn</a><a href="#8-kiem-tra-trung-va-smart-plan">8. Kiểm tra trùng và Smart Plan</a><a href="#9-thuc-hien-va-doi-chieu">9. Thực hiện và đối chiếu</a><a href="#10-nhap-so-du-dau-ky">10. Nhập số dư đầu kỳ</a><a href="#11-bai-thuc-hanh-training">11. Bài thực hành training</a><a href="#12-xu-ly-su-co">12. Xử lý sự cố</a><a href="#13-cau-hoi-thuong-gap">13. Câu hỏi thường gặp</a><a href="#14-thuat-ngu">14. Thuật ngữ</a><a href="#15-diem-can-xac-nhan">15. Điểm cần xác nhận</a></aside><main><h1>Hướng dẫn sử dụng DCNET Migrate — Import tự động</h1>
+<blockquote>
+<p><strong>Hệ thống:</strong> DCNET Flow<br><strong>Phiên bản tài liệu:</strong> 1.1 — 13/07/2026<br><strong>Đối tượng:</strong> Đội migration, key user dữ liệu, kế toán trưởng và quản trị hệ thống<br><strong>Nguồn:</strong> Code app <code>dcnet-migrate</code>; <code>docs/modules/import-auto/AI_SMART_FIX_HANDOFF.md</code>; kế hoạch migration BRAVO của dự án.</p>
+</blockquote>
+<h2 id="1-pham-vi-va-canh-bao">1. Phạm vi và cảnh báo</h2>
+<p>DCNET Migrate hỗ trợ đọc file Excel, nhận diện loại dữ liệu, kiểm tra trùng, sinh kế hoạch import, yêu cầu người dùng duyệt và ghi dữ liệu vào ERPNext. Công cụ không thay thế trách nhiệm đối chiếu của chủ dữ liệu.</p>
+<p><img src="assets/screenshots/dcnet-migrate/01-import-auto-workspace-system-manager.png" alt="Workspace Import tự động thực tế"></p>
+<p><em>Hình 1 — Trang chủ Import tự động trên site UAT, chụp ở chế độ chỉ đọc.</em></p>
+<blockquote>
+<p><strong>Cảnh báo:</strong> Import là thao tác có ảnh hưởng lớn và có thể khó hoàn tác. Luôn chạy trên UAT/backup trước, duyệt kế hoạch và đối chiếu tổng số bản ghi sau import.</p>
+</blockquote>
+<h2 id="2-cac-man-hinh-chinh">2. Các màn hình chính</h2>
+<p><img src="assets/screenshots/dcnet-migrate/02-import-auto-list-system-manager.png" alt="Danh sách batch Import tự động"></p>
+<p><em>Hình 2 — Danh sách batch import và trạng thái xử lý. Batch được mở để quan sát, không chạy lại import.</em></p>
+<table>
+<thead>
+<tr>
+<th>Màn hình</th>
+<th>Mục đích</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Import Auto</td>
+<td>Upload/scan nhiều file, phân tích, kiểm tra và import theo danh mục</td>
+</tr>
+<tr>
+<td>Import Auto Settings</td>
+<td>Cấu hình kết nối AI và kiểm tra kết nối</td>
+</tr>
+<tr>
+<td>Opening Balance Import</td>
+<td>Nhập số dư đầu kỳ theo công ty và ngày hạch toán</td>
+</tr>
+<tr>
+<td>Báo cáo import</td>
+<td>Xem bản ghi thành công, bỏ qua, lỗi và lý do</td>
+</tr>
+</tbody></table>
+<h2 id="3-du-lieu-duoc-nhan-dien-trong-giao-dien">3. Dữ liệu được nhận diện trong giao diện</h2>
+<p>Danh mục hiện có trong code gồm UOM, Item Group, Bank, Account, Branch, Department, Warehouse, Bank Account, Customer Group, Supplier Group, Customer, Supplier, Item, Employee và Project. File ngoài danh mục có thể được xếp vào nhóm <strong>Không hỗ trợ/Khác</strong>; không ép import nếu chưa xác định đúng DocType.</p>
+<h2 id="4-quy-trinh-chuan">4. Quy trình chuẩn</h2>
+<figure class="workflow"><img src="assets/dcnet-migrate-workflow.svg" alt="Sơ đồ quy trình DCNET Migrate"><figcaption class="caption">Sơ đồ quy trình dùng trong training.</figcaption></figure><h2 id="5-chuan-bi-truoc-khi-import">5. Chuẩn bị trước khi import</h2>
+<ol>
+<li>Chốt công ty đích, dữ liệu đích và người phê duyệt.</li>
+<li>Tạo backup có thể khôi phục.</li>
+<li>Giữ một bản file nguồn bất biến; làm sạch trên bản sao.</li>
+<li>Kiểm tra tiêu đề cột, sheet, mã định danh và quan hệ cha-con.</li>
+<li>Xác định thứ tự dữ liệu nền trước dữ liệu phụ thuộc, ví dụ Nhóm khách hàng trước Khách hàng.</li>
+<li>Với dữ liệu kế toán, kế toán trưởng phải duyệt hệ thống tài khoản, ngày hạch toán và số dư.</li>
+</ol>
+<h2 id="6-upload-va-scan-file">6. Upload và scan file</h2>
+<p><img src="assets/screenshots/dcnet-migrate/03-import-auto-document-top-system-manager.png" alt="Hồ sơ Import Auto thực tế"></p>
+<p><em>Hình 3 — Hồ sơ Import Auto đã có sẵn với các ô danh mục và trạng thái file.</em></p>
+<ol>
+<li>Mở <strong>Import tự động</strong> và tạo hồ sơ mới.</li>
+<li>Chọn <strong>Company</strong> đúng site/công ty.</li>
+<li>Tải file vào đúng ô danh mục. Có thể dùng phần nâng cao để upload nhiều file, upload thư mục hoặc scan thư mục server nếu quản trị cho phép.</li>
+<li>Sau khi scan, kiểm tra tên file, sheet, số dòng và <code>Target DocType</code> mà hệ thống nhận diện.</li>
+<li>File bị nhận diện sai phải <strong>Phân tích lại</strong> và ghi phản hồi rõ ràng; không tiếp tục chỉ vì nút Import đang bật.</li>
+</ol>
+<h2 id="7-doc-trang-thai-va-muc-an-toan">7. Đọc trạng thái và mức an toàn</h2>
+<p><img src="assets/screenshots/dcnet-migrate/04-file-analysis-status-system-manager.png" alt="Thống kê phân tích file Import Auto"></p>
+<p><em>Hình 4 — Khu vực thống kê file, cảnh báo và số file đã import của batch mẫu.</em></p>
+<table>
+<thead>
+<tr>
+<th>Trạng thái</th>
+<th>Ý nghĩa</th>
+<th>Hành động</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Scanned</td>
+<td>Đã đọc file</td>
+<td>Chạy phân tích</td>
+</tr>
+<tr>
+<td>Ready</td>
+<td>Có kế hoạch sẵn sàng</td>
+<td>Kiểm tra plan và duplicate</td>
+</tr>
+<tr>
+<td>Reanalyzing</td>
+<td>Đang phân tích lại</td>
+<td>Chờ hoàn tất, không reload liên tục</td>
+</tr>
+<tr>
+<td>Error / Failed</td>
+<td>Phân tích hoặc import lỗi</td>
+<td>Mở chi tiết lỗi, sửa nguyên nhân</td>
+</tr>
+<tr>
+<td>Imported</td>
+<td>Đã import</td>
+<td>Mở báo cáo và đối chiếu</td>
+</tr>
+<tr>
+<td>Partial</td>
+<td>Một phần thành công</td>
+<td>Xác định dòng lỗi trước khi chạy lại</td>
+</tr>
+</tbody></table>
+<p>Mức <code>Safe</code> không có nghĩa dữ liệu nghiệp vụ chắc chắn đúng; nó chỉ cho biết công cụ không phát hiện rủi ro kỹ thuật đã biết. <code>Warning</code> phải được người có trách nhiệm duyệt. <code>Error</code> không được bỏ qua.</p>
+<h2 id="8-kiem-tra-trung-va-smart-plan">8. Kiểm tra trùng và Smart Plan</h2>
+<p>Trước khi import, mở báo cáo trùng để xem bản ghi hiện có. Không tự chọn “tạo mới” khi khóa định danh chưa được thống nhất.</p>
+<p>Smart Plan mô tả các bước tạo dữ liệu, thứ tự phụ thuộc và trường sẽ ghi. Người duyệt cần kiểm tra:</p>
+<ul>
+<li>Đúng DocType và công ty.</li>
+<li>Đúng khóa/mã bản ghi.</li>
+<li>Đúng quan hệ Link, parent và nhóm.</li>
+<li>Không tạo master phụ thuộc ngoài phạm vi mong muốn.</li>
+<li>Số dòng trong plan phù hợp file nguồn.</li>
+</ul>
+<p>Smart Fix có thể đề xuất tạo dữ liệu phụ thuộc và sửa liên kết sau khi người dùng chấp nhận. Đề xuất AI không phải phê duyệt nghiệp vụ tự động.</p>
+<h2 id="9-thuc-hien-va-doi-chieu">9. Thực hiện và đối chiếu</h2>
+<ol>
+<li>Xác nhận plan đã được chủ dữ liệu duyệt.</li>
+<li>Chọn <strong>Import</strong> và không đóng trang khi đang chạy nếu giao diện chưa báo hoàn tất.</li>
+<li>Mở báo cáo ngay sau khi hoàn thành.</li>
+<li>Ghi lại số imported, skipped và failed.</li>
+<li>Đối chiếu tổng số và chọn mẫu bản ghi trong ERPNext.</li>
+<li>Với <code>Partial</code>, chỉ chạy lại dòng lỗi sau khi hiểu cơ chế chống trùng; tránh tạo bản ghi lặp.</li>
+<li>Lưu biên bản đối chiếu và người phê duyệt.</li>
+</ol>
+<h2 id="10-nhap-so-du-dau-ky">10. Nhập số dư đầu kỳ</h2>
+<p>Màn hình <code>Opening Balance Import</code> có Company, Default Posting Date và dashboard theo dõi. Đây là dữ liệu kế toán có rủi ro cao:</p>
+<ul>
+<li>Ngày hạch toán phải được kế toán trưởng xác nhận.</li>
+<li>Tổng Nợ/Có và số dư theo đối tượng phải được đối chiếu.</li>
+<li>Không trộn dữ liệu master và số dư trong cùng một quyết định phê duyệt.</li>
+<li>Chỉ import sau khi COA và các master liên quan đã ổn định.</li>
+</ul>
+<h2 id="11-bai-thuc-hanh-training">11. Bài thực hành training</h2>
+<ol>
+<li>Upload một file UOM nhỏ trên UAT.</li>
+<li>Xem preview, Target DocType và số dòng.</li>
+<li>Chạy duplicate check.</li>
+<li>Mở Smart Plan và từ chối một plan giả định sai.</li>
+<li>Gửi phản hồi để phân tích lại.</li>
+<li>Import file đã duyệt, mở báo cáo và đối chiếu 3 bản ghi mẫu.</li>
+</ol>
+<h2 id="12-xu-ly-su-co">12. Xử lý sự cố</h2>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Kiểm tra trước</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Không scan thấy file</td>
+<td>Định dạng Excel, quyền file, thư mục server và pattern</td>
+</tr>
+<tr>
+<td>Nhận diện sai DocType</td>
+<td>Tên file, header, sheet; dùng phản hồi phân tích lại</td>
+</tr>
+<tr>
+<td>AI không kết nối</td>
+<td><code>Import Auto Settings</code>, URL, model, API key, timeout</td>
+</tr>
+<tr>
+<td>Báo trùng</td>
+<td>Mở bản ghi mẫu, xác nhận khóa định danh với chủ dữ liệu</td>
+</tr>
+<tr>
+<td>Link không tồn tại</td>
+<td>Kiểm tra thứ tự import và master phụ thuộc</td>
+</tr>
+<tr>
+<td>Partial</td>
+<td>Đọc từng reason type, không chạy lại toàn bộ ngay</td>
+</tr>
+<tr>
+<td>Import xong nhưng sai nghiệp vụ</td>
+<td>Dừng batch tiếp theo, khóa biên bản và khôi phục theo kế hoạch đã duyệt</td>
+</tr>
+</tbody></table>
+<h2 id="13-cau-hoi-thuong-gap">13. Câu hỏi thường gặp</h2>
+<ol>
+<li><strong>AI có tự import không cần duyệt?</strong> Không; người dùng phải kiểm tra và xác nhận plan.</li>
+<li><strong>Safe có nghĩa 100% đúng không?</strong> Không; vẫn phải đối chiếu nghiệp vụ.</li>
+<li><strong>Có thể import thẳng production?</strong> Không nên; phải chạy UAT/backup và có phê duyệt.</li>
+<li><strong>Có thể chạy lại file Imported?</strong> Chỉ sau khi hiểu chống trùng và mục tiêu chạy lại.</li>
+<li><strong>File CSV có dùng được không?</strong> Quy trình này tập trung vào Excel; dùng công cụ phù hợp hoặc xác nhận hỗ trợ trước.</li>
+<li><strong>Tại sao số dòng import ít hơn file?</strong> Kiểm tra dòng trống, duplicate, skipped và báo cáo lỗi.</li>
+<li><strong>AI đề xuất tạo Department mới thì có chấp nhận ngay không?</strong> Không; chủ dữ liệu tổ chức phải duyệt.</li>
+<li><strong>Có thể xóa file khỏi hồ sơ?</strong> Có nút xóa trong giao diện, nhưng phải giữ bản nguồn và biên bản migration bên ngoài hồ sơ.</li>
+<li><strong>Partial có cần rollback toàn bộ không?</strong> Tùy loại dữ liệu và kế hoạch khôi phục; phải đánh giá trước khi hành động.</li>
+<li><strong>Ai duyệt COA/số dư?</strong> Kế toán có thẩm quyền của khách hàng.</li>
+<li><strong>API key có đưa vào tài liệu training không?</strong> Không; chỉ quản trị viên lưu trong cấu hình bảo mật.</li>
+<li><strong>Làm sao chứng minh import đúng?</strong> Lưu file nguồn, log/báo cáo, tổng đối chiếu và mẫu bản ghi được ký xác nhận.</li>
+</ol>
+<h2 id="14-thuat-ngu">14. Thuật ngữ</h2>
+<table>
+<thead>
+<tr>
+<th>Thuật ngữ</th>
+<th>Nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Target DocType</td>
+<td>Loại bản ghi ERPNext đích</td>
+</tr>
+<tr>
+<td>Smart Plan</td>
+<td>Kế hoạch các bước ghi dữ liệu</td>
+</tr>
+<tr>
+<td>Smart Fix</td>
+<td>Đề xuất sửa plan/lỗi có kiểm soát</td>
+</tr>
+<tr>
+<td>Duplicate</td>
+<td>Bản ghi có khả năng trùng dữ liệu hiện có</td>
+</tr>
+<tr>
+<td>Partial</td>
+<td>Chỉ một phần batch thành công</td>
+</tr>
+<tr>
+<td>Opening Balance</td>
+<td>Số dư đầu kỳ</td>
+</tr>
+</tbody></table>
+<h2 id="15-diem-can-xac-nhan">15. Điểm cần xác nhận</h2>
+<ul>
+<li>Quyền thao tác chính thức của đội migration trên UAT và production.</li>
+<li>Ma trận người duyệt theo từng loại master và dữ liệu kế toán.</li>
+<li>Kịch bản rollback được phê duyệt cho từng batch.</li>
+<li>Mapping BRAVO cuối cùng và tiêu chí chấp nhận đối chiếu.</li>
+</ul>
+</main></div><footer>DCNET Flow · Tài liệu training · Xuất ngày 13/07/2026</footer></body></html>

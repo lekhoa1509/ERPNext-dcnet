@@ -1,0 +1,33 @@
+{
+  "updated_at": "2026-03-17T04:01:21Z",
+  "working_on": {
+    "feature": "Vietnamese Translations",
+    "task": "Integrate vi.csv from setup_for_vn to dcnet_fixtures",
+    "status": "completed",
+    "files": [
+      "dcnet_apps/dcnet_fixtures/translations/vi.csv",
+      "dcnet_apps/dcnet_apps/public/js/dcnet_einvoice/dcnet_inward_invoice_list.js",
+      ".gitignore"
+    ]
+  },
+  "recent_changes": [
+    {
+      "timestamp": "2026-03-17T04:01:21Z",
+      "type": "feature",
+      "description": "Moved Vietnamese translations to dcnet_fixtures to avoid team conflicts and confirmed functionality via migrate.",
+      "files": ["dcnet_apps/dcnet_fixtures/translations/vi.csv"]
+    },
+    {
+      "timestamp": "2026-03-17T04:01:21Z",
+      "type": "fix",
+      "description": "Cleaned up debug files and restored inward invoice list JS.",
+      "files": ["dcnet_apps/dcnet_apps/public/js/dcnet_einvoice/dcnet_inward_invoice_list.js"]
+    }
+  ],
+  "decisions_made": [
+    {
+      "decision": "Store personal translations in dcnet_fixtures/translations/",
+      "reason": "Avoid git merge conflicts with other developers working on dcnet_apps."
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by mennt (ST) -->
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.2">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="NoiDung01LP">
+							<xs:annotation>
+								<xs:documentation>Thông tin chi tiết  tờ khai</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietLePhi" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ten_LoaiLePhi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Loại lệ phí</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_LoaiLePhi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã Loại lệ phí</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="tieuMuc" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tiểu mục</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="soTienPHPhaiNop" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số tiền lệ phí phải nộp NSNN</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TongCong01LP">
+							<xs:annotation>
+								<xs:documentation>Tổng cộng (theo đơn vị tiền):</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietTongCongTheoLoaiTien" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="tongCong" type="xs:decimal" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổng cộng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_DonViTien" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã đơn vị tiền </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

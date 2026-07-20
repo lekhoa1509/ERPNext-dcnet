@@ -1,0 +1,110 @@
+{
+ "actions": [],
+ "creation": "2026-04-29 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "links": [],
+ "modified": "2026-04-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "name": "CCDC Allocation Schedule",
+ "is_submittable": 1,
+ "permissions": [
+  {
+   "role": "Accounts User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 1,
+   "cancel": 0
+  },
+  {
+   "role": "Accounts Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1
+  }
+ ],
+ "field_order": [
+  "ccdc_item",
+  "start_date",
+  "total_amount",
+  "periods",
+  "frequency",
+  "allocation_entries",
+  "status",
+  "progress_text"
+ ],
+ "fields": [
+  {
+   "fieldname": "ccdc_item",
+   "fieldtype": "Link",
+   "options": "CCDC Item",
+   "label": "CCDC Item",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "periods",
+   "fieldtype": "Int",
+   "label": "Periods"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "\nMonthly",
+   "default": "Monthly"
+  },
+  {
+   "fieldname": "allocation_entries",
+   "fieldtype": "Table",
+   "label": "Allocation Entries",
+   "options": "CCDC Allocation Entry"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nActive\nCompleted\nCancelled",
+   "default": "Active",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "progress_text",
+   "fieldtype": "Data",
+   "label": "Tiến độ phân bổ (kỳ)",
+   "read_only": 1,
+   "in_list_view": 1
+  }
+ ]
+}

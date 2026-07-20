@@ -1,0 +1,32 @@
+[
+  {
+    "doctype": "Property Setter",
+    "name": "Desktop Icon-icon-hidden",
+    "doc_type": "Desktop Icon",
+    "doctype_or_field": "DocField",
+    "field_name": "icon",
+    "property": "hidden",
+    "property_type": "Check",
+    "value": "0"
+  },
+  {
+    "doctype": "Property Setter",
+    "name": "Desktop Icon-bg_color-fieldtype",
+    "doc_type": "Desktop Icon",
+    "doctype_or_field": "DocField",
+    "field_name": "bg_color",
+    "property": "fieldtype",
+    "property_type": "Select",
+    "value": "Color"
+  },
+  {
+    "doctype": "Property Setter",
+    "name": "Desktop Icon-bg_color-options",
+    "doc_type": "Desktop Icon",
+    "doctype_or_field": "DocField",
+    "field_name": "bg_color",
+    "property": "options",
+    "property_type": "Text",
+    "value": ""
+  }
+]

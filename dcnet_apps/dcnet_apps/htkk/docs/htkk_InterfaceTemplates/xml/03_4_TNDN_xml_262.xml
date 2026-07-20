@@ -1,0 +1,32 @@
+<PL03_4_TNDN>
+	<BangThongTinThueTNDNDaNopNN>
+		<TTinThueTNDNDaNopNN id="String">
+			<ct2/>
+			<TNhapNhanDuocONNgoai>
+				<ct3/>
+				<ct4/>
+			</TNhapNhanDuocONNgoai>
+			<ThueTNhapDaNop>
+				<ct5/>
+				<ct6/>
+			</ThueTNhapDaNop>
+			<ThuNhapChiuThue>
+				<ct7/>
+				<ct8/>
+			</ThuNhapChiuThue>
+			<XacDinhThueDuocTru>
+				<ct9/>
+				<ct10/>
+				<ct11/>
+			</XacDinhThueDuocTru>
+		</TTinThueTNDNDaNopNN>
+	</BangThongTinThueTNDNDaNopNN>
+	<tongNgoaiTeTNNN/>
+	<tongDongVNTNNN/>
+	<tongNgoaiTeDaNopTNNN/>
+	<tongDongVNDaNopTNNN/>
+	<tongNgoaiTeChiuThueTNDN/>
+	<tongDongVNChiuThueTNDN/>
+	<tongThuePNopTNDN/>
+	<tongThueDuocKhauTru/>
+</PL03_4_TNDN>

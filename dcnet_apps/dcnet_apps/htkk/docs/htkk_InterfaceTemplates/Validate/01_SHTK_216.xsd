@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.2">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="NOIDUNG_DANHSACH_HDR">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="MA_NH"/>
+									<xs:element name="TONGSO_BANGHI"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="NOIDUNG_DANHSACH_CTIET">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ROW_CTIET" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="STT"/>
+												<xs:element name="MST"/>
+												<xs:element name="TTIN_GIAYTO">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="GIAYTO" maxOccurs="unbounded">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="LOAI_GIAYTO"/>
+																		<xs:element name="SO_GIAYTO"/>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="TEN_CHUTK"/>
+												<xs:element name="SOHIEU_TK"/>
+												<xs:element name="NGAY_MO" />
+												<xs:element name="NGAY_DONG" nillable="true"/>
+												<xs:element name="LOAI_KH"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

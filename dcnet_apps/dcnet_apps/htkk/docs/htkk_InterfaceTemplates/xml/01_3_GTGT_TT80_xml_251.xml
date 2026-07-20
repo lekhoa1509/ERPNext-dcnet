@@ -1,0 +1,24 @@
+<Pluc_01_3_GTGT>
+	<ct07/>
+	<NoiDungBangPhanBo id="String">
+		<loai/>
+		<ct08/>
+		<ct09/>
+		<ct10_huyen_ma/>
+		<ct10_huyen_ten/>
+		<ct11_tinh_ma/>
+		<ct11_tinh_ten/>
+		<ct12_cqt_ma/>
+		<ct12_cqt_ten/>
+		<ct13/>
+		<ct14/>
+		<ct15/>
+	</NoiDungBangPhanBo>
+	<cong_ct16 id="text">
+		<ct16/>
+		<ct16_tinh_ma/>
+		<ct16_tinh_ten/>
+	</cong_ct16>
+	<ct17/>
+	<ct18/>
+</Pluc_01_3_GTGT>

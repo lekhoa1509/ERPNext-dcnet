@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:redefine schemaLocation="..\TKhaiThue_DBHC.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="so_ThongBao" type="xs:string" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Số thông báo đơn vị hợp thành</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="LoaiDonViThongBao" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Loại đơn vị thông báo</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="don_ViVietNam" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Đơn vị Việt Nam</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="don_ViNuocNgoai" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Đơn vị Nước Ngoài</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="LoaiThongBao" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Loại thông báo</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="nnt_ThongBaoLanDau" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thông báo lần đầu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="cqt_ThongBaoLanDau" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thông báo lần đầu sau khi cơ quan thuế chỉ định    </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="thong_BaoThayDoi" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thông báo thay đổi   </xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="thay_DoiLanThu" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thay đổi lần thứ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DoiTuongApDung" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Đối tượng áp dụng</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="doi_TuongApDungQDMTT" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tập đoàn đa quốc gia thuộc đối tượng áp dụng quy định về thuế thu nhập doanh nghiệp bổ sung tối thiểu nội địa đạt chuẩn (QDMTT)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="loai_ApDungQDMTT" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thông tin về loại đối tượng áp dụng quy định QDMTT</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="dvht_TapDoanDaQuocGia" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đơn vị hợp thành của Tập đoàn đa quốc gia</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="lien_DoanhKhongThanhVien" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Liên doanh không phải thành viên của Tập đoàn liên doanh</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="cong_TyThanhVienLienDoanh" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Công ty thành viên thuộc Tập đoàn liên doanh </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="dvht_TapDoanCon" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đơn vị hợp thành của Tập đoàn con có công ty mẹ tối cao là chủ sở hữu thiểu số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="dvht_KhongThanhVienTapDoanCon" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Đơn vị hợp thành có công ty mẹ tối cao là chủ sở hữu thiểu số không phải là thành viên của Tập đoàn con có công ty mẹ tối cao là chủ sở hữu thiểu số</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="doi_TuongApDungIIR" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tập đoàn đa quốc gia thuộc đối tượng áp dụng quy định về tổng hợp thu nhập chịu thuế tối thiểu (IIR)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="NoiDungThayDoi" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Nội dung thông báo thay đổi</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="thay_DoiDVHTKeKhai" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thay đổi đơn vị hợp thành chịu trách nhiệm kê khai</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="thay_DoiThongTinQDMTT" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thay đổi thông tin đơn vị hợp thành thuộc đối tượng áp dụng quy định QDMTT</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="thay_DoiThongTinIIR" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thay đổi thông tin đơn vị hợp thành thuộc đối tượng áp dụng quy định IIR</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TT_DonViThongBao" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thông tin đơn vị thông báo</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ten_DonViThongBao" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>1. Tên đơn vị thông báo</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="mst_DonViThongBao" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>2. Mã số thuế/Mã số doanh nghiệp (hoặc tương tự) tại quốc gia nơi thành lập của đơn vị thông báo</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="diaChi_DonViThongBao" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>3. Địa chỉ trụ sở chính của đơn vị thông báo</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="sdt_DonViThongBao" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>4. Số điện thoại của đơn vị thông báo</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="email_DonViThongBao" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Email của đơn vị thông báo</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DS_CongTyMeToiCao" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thông tin công ty mẹ tối cao</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ten_CongTyMeToiCao" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>5. Tên Công ty mẹ tối cao</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="mst_CongTyMeToiCao" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>6. Mã số thuế/Mã số doanh nghiệp (hoặc tương tự) tại quốc gia nơi thành lập của Công ty mẹ tối cao</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="diaChi_CongTyMeToiCao" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>7. Địa chỉ trụ sở chính của Công ty mẹ tối cao</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="nam_TCCongTyMeToiCaoTu" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>8. Năm tài chính của Công ty mẹ tối cao: Từ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="nam_TCCongTyMeToiCaoDen" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>8. Năm tài chính của Công ty mẹ tối cao: Đến</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TT_LienDoanh" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thông tin liên doanh</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ten_LienDoanh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>9. Tên Liên doanh, Công ty mẹ có sở hữu thiểu số</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="mst_LienDoanh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>10. Mã số thuế/Mã số doanh nghiệp (hoặc tương tự) tại quốc gia nơi thành lập của của Liên doanh, Công ty mẹ có sở hữu thiểu số</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="diaChi_LienDoanh" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>11. Địa chỉ trụ sở chính của Liên doanh, Công ty mẹ có sở hữu thiểu số</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="nam_TCLienDoanhTu" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>12. Năm tài chính của Liên doanh, Công ty mẹ có sở hữu thiểu số: Từ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="nam_TCLienDoanhDen" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>12. Năm tài chính của Liên doanh, Công ty mẹ có sở hữu thiểu số: Đến</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TT_DVHTKeKhai" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Thông tin đơn vị kê khai</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ten_DVHTKeKhai" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>1. Tên đơn vị hợp thành chịu trách nhiệm kê khai</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="mst_DVHTKeKhai" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>2. Mã số thuế đã được cấp tại Việt Nam</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="diaChi_DVHTKeKhai" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>3. Địa chỉ trụ sở chính</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ma_XaDVHTKeKhai" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Xã/Phường/Đặc khu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ten_XaDVHTKeKhai" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Xã/Phường/Đặc khu</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ma_TinhDVHTKeKhai" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tỉnh</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ten_TinhDVHTKeKhai" type="xs:string" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tỉnh</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DS_DVHT_QDMTT" nillable="true">
+							<xs:annotation>
+								<xs:documentation>1. Danh sách đơn vị hợp thành thuộc đối tượng áp dụng quy định QDMTT</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="stt" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số thứ tự</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="maSoThue" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã số thuế đã được cấp tại Việt Nam</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_DVHT" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị hợp thành</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="dia_Chi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Địa chỉ trụ sở chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DS_CongTyMe_IIR" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2.1. Thông tin về các công ty mẹ thuộc đối tượng áp dụng quy định IIR</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="stt" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số thứ tự</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_LoaiHinhCongTyMe" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Loại hình công ty mẹ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_LoaiHinhCongTyMe" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Loại hình công ty mẹ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="maSoThue" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã số thuế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_CongTyMe" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên Công ty mẹ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="dia_Chi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Địa chỉ trụ sở chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DS_DVHT_IIR" nillable="true">
+							<xs:annotation>
+								<xs:documentation>2.2. Thông tin về các đơn vị hợp thành thuộc đối tượng áp dụng quy định IIR </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ChiTietDanhSach" nillable="true" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="stt" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Số thứ tự</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="maSoThue" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Mã số thuế/Mã số doanh nghiệp (hoặc tương tự)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_DVHT" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tên đơn vị hợp thành</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ma_QuocGiaCuTru" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quốc gia cư trú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ten_QuocGiaCuTru" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Quốc gia cư trú</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="dia_Chi" type="xs:string" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Địa chỉ trụ sở chính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

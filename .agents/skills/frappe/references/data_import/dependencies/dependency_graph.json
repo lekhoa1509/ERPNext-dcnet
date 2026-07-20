@@ -1,0 +1,49 @@
+{
+  "nodes": [
+    {
+      "file": "__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "data_import.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "data_import.py",
+      "language": "Python"
+    },
+    {
+      "file": "data_import_list.js",
+      "language": "JavaScript"
+    },
+    {
+      "file": "exporter.py",
+      "language": "Python"
+    },
+    {
+      "file": "importer.py",
+      "language": "Python"
+    },
+    {
+      "file": "patches/__init__.py",
+      "language": "Python"
+    },
+    {
+      "file": "patches/remove_stale_docfields_from_legacy_version.py",
+      "language": "Python"
+    },
+    {
+      "file": "test_data_import.py",
+      "language": "Python"
+    },
+    {
+      "file": "test_exporter.py",
+      "language": "Python"
+    },
+    {
+      "file": "test_importer.py",
+      "language": "Python"
+    }
+  ],
+  "edges": []
+}

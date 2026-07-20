@@ -1,0 +1,18 @@
+{
+ "doctype": "DocType",
+ "name": "Bank Match Rule",
+ "module": "VN Banking",
+ "creation": "2026-04-10 00:00:00",
+ "istable": 1,
+ "engine": "InnoDB",
+ "field_order": ["rule_key", "enabled", "priority", "confidence_override", "tolerance_override", "bank_account"],
+ "fields": [
+  {"fieldname": "rule_key", "fieldtype": "Link", "options": "Bank Matcher Type", "label": "Rule", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "enabled", "fieldtype": "Check", "default": 1, "label": "Enabled", "in_list_view": 1},
+  {"fieldname": "priority", "fieldtype": "Int", "label": "Priority", "in_list_view": 1},
+  {"fieldname": "confidence_override", "fieldtype": "Select", "options": "\nHigh\nMedium\nLow", "label": "Confidence Override"},
+  {"fieldname": "tolerance_override", "fieldtype": "Currency", "label": "Tolerance Override"},
+  {"fieldname": "bank_account", "fieldtype": "Link", "options": "Bank Account", "label": "Bank Account (L6 scaffold)"}
+ ],
+ "permissions": []
+}

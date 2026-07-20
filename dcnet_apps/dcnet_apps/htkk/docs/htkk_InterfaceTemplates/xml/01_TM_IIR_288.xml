@@ -1,0 +1,32 @@
+<!-- Edited by TAS_CMC-->
+<!DOCTYPE Sections SYSTEM "..\..\InterfaceTemplates\Schema.dtd">
+<Sections Version="466">
+	<Section Dynamic="0" MaxRows="0">
+		<Cells>
+			<Cell CellID="R_17" CellID2="R_17"  Encode="1" Value="false"  Controltype="2"  DefaultValue="false" Path="TKhai_01_TM/giam_TruTrachNhiem" MaxLen="" MinValue="" MaxValue="" HelpContextID="Q51" />
+
+		</Cells>
+	</Section>
+	<Section Dynamic="1" MaxRows="0" TableName="Muc_1.3.1" id="1" TablePath="TKhai_01_TM/ChiTiet" iColumnSTT="3" TableSTTValue="1" iColumnSTTReport="3">
+		<Location>
+			<TableTemplateRowStart>25</TableTemplateRowStart>
+			<TableReportRowStart>25</TableReportRowStart>
+			<DataLocationTemplateRowStart>27</DataLocationTemplateRowStart>
+			<DataLocationReportRowStart>27</DataLocationReportRowStart>
+			<DataLocationTaiBangKeRowStart>-1</DataLocationTaiBangKeRowStart>
+		</Location>
+		<RowInfo>		
+			<Cell CellID="C" CellID2="C"  Encode="1" Value="1"  Controltype="0"  DefaultValue="1" Path="path_stt" MaxLen="" MinValue="" MaxValue="" HelpContextID="Q52" />
+<Cell CellID="E" CellID2="E"  Encode="1" Value=""  Controltype="26"  DefaultValue="" Path="mst_DVHT" MaxLen="" MinValue="" MaxValue="" HelpContextID="Q52" />
+<Cell CellID="K" CellID2="K"  Encode="1" Value=""  Controltype="0"  DefaultValue="" Path="ten_DVHT" MaxLen="" MinValue="" MaxValue="" HelpContextID="Q53" />
+<Cell CellID="Q" CellID2="Q"  Encode="1" Value=""  Controltype="0"  DefaultValue="" Path="ten_ChiTieu" MaxLen="" MinValue="" MaxValue="" HelpContextID="Q54" />
+<Cell CellID="R" CellID2="R"  Encode="1" Value=""  Controltype="0"  DefaultValue="" Path="ma_ChiTieu" MaxLen="" MinValue="" MaxValue="" HelpContextID="Q55" />
+<Cell CellID="T" CellID2="T"  Encode="1" Value="0"  Controltype="16"  DefaultValue="0,0000" Path="soLieu_DVHT" MaxLen="" MinValue="-999999999999999" MaxValue="999999999999999" HelpContextID="Q56" />
+<Cell CellID="X" CellID2="X"  Encode="1" Value="0"  Controltype="16"  DefaultValue="0,0000" Path="soLieu_CongTyMe" MaxLen="" MinValue="-999999999999999" MaxValue="999999999999999" HelpContextID="Q57" />
+<Cell CellID="AD" CellID2="AD"  Encode="1" Value="0"  Controltype="16"  DefaultValue="0,0000" Path="so_ChenhLech" MaxLen="" MinValue="-999999999999999" MaxValue="999999999999999" HelpContextID="Q58" />
+<Cell CellID="AJ" CellID2="AJ"  Encode="1" Value=""  Controltype="0"  DefaultValue="" Path="nguyen_NhanChenhLech" MaxLen="" MinValue="" MaxValue="" HelpContextID="Q59" />
+
+		</RowInfo>
+		<RowData RowDisplay="1">1###############0###0###0######</RowData>
+	</Section>	
+</Sections>

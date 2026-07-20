@@ -1,0 +1,94 @@
+{
+  "total_files": 1,
+  "categories": {
+    "overview": [
+      "README.md"
+    ]
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "filename": "README.md",
+      "category": "overview",
+      "size_bytes": 4079,
+      "title": "Integrations",
+      "structure": {
+        "title": "Integrations",
+        "headers": [
+          {
+            "level": 1,
+            "text": "Integrations",
+            "line": 1
+          },
+          {
+            "level": 2,
+            "text": "OAuth 2",
+            "line": 3
+          },
+          {
+            "level": 3,
+            "text": "Features",
+            "line": 25
+          },
+          {
+            "level": 3,
+            "text": "Additional Docs",
+            "line": 33
+          },
+          {
+            "level": 3,
+            "text": "OAuth Settings",
+            "line": 49
+          }
+        ],
+        "code_blocks": [],
+        "links": [
+          {
+            "text": "`oauthlib`",
+            "url": "https://github.com/oauthlib/oauthlib"
+          },
+          {
+            "text": "RFC7591",
+            "url": "https://datatracker.ietf.org/doc/html/rfc7591"
+          },
+          {
+            "text": "RFC8414",
+            "url": "https://datatracker.ietf.org/doc/html/rfc8414"
+          },
+          {
+            "text": "RFC9728",
+            "url": "https://datatracker.ietf.org/doc/html/rfc9728"
+          },
+          {
+            "text": "How to setup OAuth 2?",
+            "url": "https://docs.frappe.io/framework/user/en/guides/integration/how_to_set_up_oauth"
+          },
+          {
+            "text": "OAuth 2",
+            "url": "https://docs.frappe.io/framework/user/en/guides/integration/rest_api/oauth-2"
+          },
+          {
+            "text": "Token Based Authentication",
+            "url": "https://docs.frappe.io/framework/user/en/guides/integration/rest_api/token_based_authentication"
+          },
+          {
+            "text": "Using Frappe as OAuth Service",
+            "url": "https://docs.frappe.io/framework/user/en/using_frappe_as_oauth_service"
+          },
+          {
+            "text": "Social Login Key",
+            "url": "https://docs.frappe.io/framework/user/en/guides/integration/social_login_key"
+          },
+          {
+            "text": "Connected App",
+            "url": "https://docs.frappe.io/framework/user/en/guides/app-development/connected-app"
+          }
+        ],
+        "word_count": 501,
+        "line_count": 71
+      },
+      "summary": "**Integrations**\nSections: OAuth 2, Features, Additional Docs, OAuth Settings\nFrappe Framework uses [`oauthlib`](https://github.com/oauthlib/oauthlib) to manage OAuth2 requirements. A Frappe instance can function as all of these:\n(501 words, 0 code blocks)",
+      "content": null
+    }
+  ]
+}

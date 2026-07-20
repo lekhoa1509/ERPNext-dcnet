@@ -1,0 +1,694 @@
+{
+  "app": "erpnext",
+  "charts": [],
+  "content": "[{\"id\": \"wf_diagram_1\", \"type\": \"custom_block\", \"data\": {\"custom_block_name\": \"Accounts Workflow Diagram\", \"col\": 12}}, {\"id\": \"nc_cash\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Cash Balance\", \"col\": 4}}, {\"id\": \"nc_ar\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"AR Overdue\", \"col\": 4}}, {\"id\": \"nc_ap\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"AP Due This Week\", \"col\": 4}}, {\"id\": \"spacer_1\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"header_1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Nghi\\u1ec7p v\\u1ee5 K\\u1ebf to\\u00e1n</b></span>\", \"col\": 12}}, {\"id\": \"card_cash\", \"type\": \"card\", \"data\": {\"card_name\": \"K\\u1ebf to\\u00e1n Ti\\u1ec1n m\\u1eb7t\", \"col\": 4}}, {\"id\": \"card_bank\", \"type\": \"card\", \"data\": {\"card_name\": \"K\\u1ebf to\\u00e1n Ng\\u00e2n h\\u00e0ng\", \"col\": 4}}, {\"id\": \"card_purchase\", \"type\": \"card\", \"data\": {\"card_name\": \"K\\u1ebf to\\u00e1n Mua h\\u00e0ng\", \"col\": 4}}, {\"id\": \"card_sales\", \"type\": \"card\", \"data\": {\"card_name\": \"K\\u1ebf to\\u00e1n B\\u00e1n h\\u00e0ng\", \"col\": 4}}, {\"id\": \"card_ar_ap\", \"type\": \"card\", \"data\": {\"card_name\": \"K\\u1ebf to\\u00e1n C\\u00f4ng n\\u1ee3\", \"col\": 4}}, {\"id\": \"card_stock\", \"type\": \"card\", \"data\": {\"card_name\": \"K\\u1ebf to\\u00e1n Kho\", \"col\": 4}}, {\"id\": \"card_asset\", \"type\": \"card\", \"data\": {\"card_name\": \"K\\u1ebf to\\u00e1n T\\u00e0i s\\u1ea3n\", \"col\": 4}}, {\"id\": \"card_tax\", \"type\": \"card\", \"data\": {\"card_name\": \"K\\u1ebf to\\u00e1n Thu\\u1ebf\", \"col\": 4}}, {\"id\": \"card_gl\", \"type\": \"card\", \"data\": {\"card_name\": \"K\\u1ebf to\\u00e1n T\\u1ed5ng h\\u1ee3p\", \"col\": 4}}, {\"id\": \"card_report\", \"type\": \"card\", \"data\": {\"card_name\": \"B\\u00e1o c\\u00e1o T\\u00e0i ch\\u00ednh\", \"col\": 4}}]",
+  "creation": "2026-03-19 10:00:00.000000",
+  "custom_blocks": [
+    {
+      "custom_block_name": "Accounts Workflow Diagram",
+      "label": "Quy trình Kế toán"
+    }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "calculator",
+  "idx": 0,
+  "is_hidden": 0,
+  "label": "Accounts",
+  "links": [
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Kế toán Tiền mặt",
+      "link_count": 0,
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "+ Lập phiếu thu",
+      "link_count": 0,
+      "link_to": "/app/payment-entry/new?payment_type=Receive",
+      "link_type": "URL",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "+ Lập phiếu chi",
+      "link_count": 0,
+      "link_to": "/app/payment-entry/new?payment_type=Pay",
+      "link_type": "URL",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Phiếu thu",
+      "link_count": 0,
+      "link_to": "/app/payment-entry?payment_type=Receive",
+      "link_type": "URL",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Phiếu chi",
+      "link_count": 0,
+      "link_to": "/app/payment-entry?payment_type=Pay",
+      "link_type": "URL",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Sổ quỹ tiền mặt",
+      "link_count": 0,
+      "link_to": "Cash Flow",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Kế toán Ngân hàng",
+      "link_count": 0,
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Đối chiếu ngân hàng",
+      "link_count": 0,
+      "link_to": "Bank Reconciliation Tool",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Giao dịch ngân hàng",
+      "link_count": 0,
+      "link_to": "Bank Transaction",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Tài khoản ngân hàng",
+      "link_count": 0,
+      "link_to": "Bank Account",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Kế toán Mua hàng",
+      "link_count": 0,
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "+ Lập HĐ mua",
+      "link_count": 0,
+      "link_to": "/app/purchase-invoice/new",
+      "link_type": "URL",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Hóa đơn mua",
+      "link_count": 0,
+      "link_to": "Purchase Invoice",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Chi phí nhập khẩu",
+      "link_count": 0,
+      "link_to": "Landed Cost Voucher",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Sổ mua hàng",
+      "link_count": 0,
+      "link_to": "Purchase Register",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Kế toán Bán hàng",
+      "link_count": 0,
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "+ Lập HĐ bán",
+      "link_count": 0,
+      "link_to": "/app/sales-invoice/new",
+      "link_type": "URL",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Hóa đơn bán",
+      "link_count": 0,
+      "link_to": "Sales Invoice",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Giảm giá bán (Credit Note)",
+      "link_count": 0,
+      "link_to": "/app/sales-invoice?is_return=1",
+      "link_type": "URL",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Sổ bán hàng",
+      "link_count": 0,
+      "link_to": "Sales Register",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Kế toán Công nợ",
+      "link_count": 0,
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Công nợ phải thu (AR)",
+      "link_count": 0,
+      "link_to": "Accounts Receivable",
+      "link_type": "Report",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Công nợ phải trả (AP)",
+      "link_count": 0,
+      "link_to": "Accounts Payable",
+      "link_type": "Report",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Tuổi nợ AR",
+      "link_count": 0,
+      "link_to": "Accounts Receivable Summary",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Tuổi nợ AP",
+      "link_count": 0,
+      "link_to": "Accounts Payable Summary",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Đối chiếu công nợ",
+      "link_count": 0,
+      "link_to": "Payment Reconciliation",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Yêu cầu thanh toán",
+      "link_count": 0,
+      "link_to": "Payment Request",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Kế toán Kho",
+      "link_count": 0,
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Giá trị tồn kho",
+      "link_count": 0,
+      "link_to": "Stock Balance",
+      "link_type": "Report",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Giá vốn hàng bán",
+      "link_count": 0,
+      "link_to": "Gross Profit",
+      "link_type": "Report",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Chi phí nhập hàng",
+      "link_count": 0,
+      "link_to": "Landed Cost Voucher",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Kiểm kê kho",
+      "link_count": 0,
+      "link_to": "Stock Reconciliation",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Repost Valuation",
+      "link_count": 0,
+      "link_to": "Repost Item Valuation",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Kế toán Tài sản",
+      "link_count": 0,
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Tài sản cố định",
+      "link_count": 0,
+      "link_to": "Asset",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Khấu hao TSCĐ",
+      "link_count": 0,
+      "link_to": "Asset Depreciation Ledger",
+      "link_type": "Report",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Lịch khấu hao",
+      "link_count": 0,
+      "link_to": "Asset Depreciation Schedule",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Loại tài sản",
+      "link_count": 0,
+      "link_to": "Asset Category",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Điều chỉnh giá trị TS",
+      "link_count": 0,
+      "link_to": "Asset Value Adjustment",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Kế toán Thuế",
+      "link_count": 0,
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Thuế GTGT đầu ra",
+      "link_count": 0,
+      "link_to": "/app/sales-invoice?taxes_and_charges=[\"is\",\"set\"]",
+      "link_type": "URL",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Thuế GTGT đầu vào",
+      "link_count": 0,
+      "link_to": "/app/purchase-invoice?taxes_and_charges=[\"is\",\"set\"]",
+      "link_type": "URL",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Mẫu thuế bán hàng",
+      "link_count": 0,
+      "link_to": "Sales Taxes and Charges Template",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Mẫu thuế mua hàng",
+      "link_count": 0,
+      "link_to": "Purchase Taxes and Charges Template",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Thuế khấu trừ",
+      "link_count": 0,
+      "link_to": "Tax Withholding Category",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Kế toán Tổng hợp",
+      "link_count": 0,
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Sổ cái",
+      "link_count": 0,
+      "link_to": "General Ledger",
+      "link_type": "Report",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "+ Bút toán điều chỉnh",
+      "link_count": 0,
+      "link_to": "/app/journal-entry/new",
+      "link_type": "URL",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Bút toán (Journal Entry)",
+      "link_count": 0,
+      "link_to": "Journal Entry",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Kỳ kế toán",
+      "link_count": 0,
+      "link_to": "Accounting Period",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Khóa sổ cuối kỳ",
+      "link_count": 0,
+      "link_to": "Period Closing Voucher",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Năm tài chính",
+      "link_count": 0,
+      "link_to": "Fiscal Year",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Báo cáo Tài chính",
+      "link_count": 0,
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Bảng cân đối kế toán (B01)",
+      "link_count": 0,
+      "link_to": "Balance Sheet",
+      "link_type": "Report",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Báo cáo KQKD (B02)",
+      "link_count": 0,
+      "link_to": "Profit and Loss Statement",
+      "link_type": "Report",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Lưu chuyển tiền tệ (B03)",
+      "link_count": 0,
+      "link_to": "Cash Flow",
+      "link_type": "Report",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Bảng cân đối phát sinh",
+      "link_count": 0,
+      "link_to": "Trial Balance",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Gross Profit",
+      "link_count": 0,
+      "link_to": "Gross Profit",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "BC theo chi nhánh",
+      "link_count": 0,
+      "link_to": "Profitability Analysis",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    }
+  ],
+  "modified": "2026-03-19 10:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Accounts",
+  "name": "Accounts",
+  "number_cards": [
+    {
+      "label": "Số dư tiền mặt",
+      "number_card_name": "Cash Balance"
+    },
+    {
+      "label": "AR quá hạn",
+      "number_card_name": "AR Overdue"
+    },
+    {
+      "label": "AP đến hạn",
+      "number_card_name": "AP Due This Week"
+    }
+  ],
+  "owner": "Administrator",
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": "",
+  "roles": [],
+  "sequence_id": 3.0,
+  "shortcuts": [
+    {
+      "color": "Blue",
+      "label": "Lập phiếu thu",
+      "link_to": "/app/payment-entry/new?payment_type=Receive",
+      "type": "URL"
+    },
+    {
+      "color": "Blue",
+      "label": "Lập phiếu chi",
+      "link_to": "/app/payment-entry/new?payment_type=Pay",
+      "type": "URL"
+    },
+    {
+      "color": "Green",
+      "label": "Bút toán",
+      "link_to": "/app/journal-entry/new",
+      "type": "URL"
+    },
+    {
+      "color": "Orange",
+      "label": "Hóa đơn bán",
+      "link_to": "/app/sales-invoice/new",
+      "type": "URL"
+    }
+  ],
+  "title": "Kế toán",
+  "type": "Workspace"
+}

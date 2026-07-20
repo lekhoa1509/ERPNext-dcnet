@@ -1,0 +1,191 @@
+{
+ "actions": [],
+ "creation": "2026-04-13 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_section",
+  "default_payment_terms",
+  "default_rounding_mode",
+  "currency_display_unit",
+  "representative_section",
+  "default_representative",
+  "column_break_rep",
+  "default_representative_title",
+  "billing_section",
+  "overdue_grace_period_days",
+  "proration_formula",
+  "column_break_billing",
+  "include_setup_fee_in_first_period_row",
+  "lifecycle_section",
+  "expiry_notification_days",
+  "column_break_lifecycle",
+  "auto_renewal_enabled",
+  "accounting_section",
+  "default_income_account",
+  "column_break_accounting",
+  "default_sales_tax_template",
+  "branch_cc_section",
+  "branch_cost_center_map"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_section",
+   "fieldtype": "Section Break",
+   "label": "C\u00e0i \u0111\u1eb7t chung"
+  },
+  {
+   "fieldname": "default_payment_terms",
+   "fieldtype": "Link",
+   "label": "\u0110i\u1ec1u kho\u1ea3n thanh to\u00e1n m\u1eb7c \u0111\u1ecbnh",
+   "options": "Payment Terms Template"
+  },
+  {
+   "default": "Half-up",
+   "fieldname": "default_rounding_mode",
+   "fieldtype": "Select",
+   "label": "Ch\u1ebf \u0111\u1ed9 l\u00e0m tr\u00f2n",
+   "options": "Half-up\nBankers"
+  },
+  {
+   "default": "VND",
+   "fieldname": "currency_display_unit",
+   "fieldtype": "Select",
+   "label": "\u0110\u01a1n v\u1ecb hi\u1ec3n th\u1ecb ti\u1ec1n t\u1ec7",
+   "options": "VND\n1000 VND"
+  },
+  {
+   "fieldname": "representative_section",
+   "fieldtype": "Section Break",
+   "label": "Ng\u01b0\u1eddi \u0111\u1ea1i di\u1ec7n m\u1eb7c \u0111\u1ecbnh (B\u00ean B)"
+  },
+  {
+   "fieldname": "default_representative",
+   "fieldtype": "Data",
+   "label": "Ng\u01b0\u1eddi \u0111\u1ea1i di\u1ec7n m\u1eb7c \u0111\u1ecbnh (B\u00ean B)"
+  },
+  {
+   "fieldname": "column_break_rep",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_representative_title",
+   "fieldtype": "Data",
+   "label": "Ch\u1ee9c v\u1ee5 m\u1eb7c \u0111\u1ecbnh (B\u00ean B)"
+  },
+  {
+   "fieldname": "billing_section",
+   "fieldtype": "Section Break",
+   "label": "L\u1ecbch thu ti\u1ec1n"
+  },
+  {
+   "default": "15",
+   "fieldname": "overdue_grace_period_days",
+   "fieldtype": "Int",
+   "label": "Th\u1eddi gian gia h\u1ea1n qu\u00e1 h\u1ea1n (ng\u00e0y)"
+  },
+  {
+   "default": "days_in_month",
+   "fieldname": "proration_formula",
+   "fieldtype": "Select",
+   "label": "C\u00f4ng th\u1ee9c t\u00ednh theo ng\u00e0y",
+   "options": "days_in_month\nfixed_30"
+  },
+  {
+   "fieldname": "column_break_billing",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "include_setup_fee_in_first_period_row",
+   "fieldtype": "Check",
+   "label": "G\u1ed9p ph\u00ed l\u1eafp \u0111\u1eb7t v\u00e0o k\u1ef3 \u0111\u1ea7u"
+  },
+  {
+   "fieldname": "lifecycle_section",
+   "fieldtype": "Section Break",
+   "label": "V\u00f2ng \u0111\u1eddi h\u1ee3p \u0111\u1ed3ng"
+  },
+  {
+   "default": "30",
+   "fieldname": "expiry_notification_days",
+   "fieldtype": "Int",
+   "label": "Th\u00f4ng b\u00e1o h\u1ebft h\u1ea1n tr\u01b0\u1edbc (ng\u00e0y)"
+  },
+  {
+   "fieldname": "column_break_lifecycle",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_renewal_enabled",
+   "fieldtype": "Check",
+   "label": "T\u1ef1 \u0111\u1ed9ng gia h\u1ea1n"
+  },
+  {
+   "fieldname": "accounting_section",
+   "fieldtype": "Section Break",
+   "label": "Accounting"
+  },
+  {
+   "fieldname": "default_income_account",
+   "fieldtype": "Link",
+   "label": "Default Income Account",
+   "options": "Account",
+   "description": "Overrides Company default_income_account for contract invoices (e.g. TK 5113)"
+  },
+  {
+   "fieldname": "column_break_accounting",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_sales_tax_template",
+   "fieldtype": "Link",
+   "label": "Default Sales Tax Template",
+   "options": "Sales Taxes and Charges Template",
+   "description": "Applied to auto-generated Sales Invoices for VAT"
+  },
+  {
+   "fieldname": "branch_cc_section",
+   "fieldtype": "Section Break",
+   "label": "Chi nh\u00e1nh - Trung t\u00e2m chi ph\u00ed"
+  },
+  {
+   "fieldname": "branch_cost_center_map",
+   "fieldtype": "Table",
+   "label": "B\u1ea3ng chi nh\u00e1nh - TTCP",
+   "options": "DCNet Contract Branch CC Map"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-04-16 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCNet Contract",
+ "name": "DCNet Contract Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": []
+}

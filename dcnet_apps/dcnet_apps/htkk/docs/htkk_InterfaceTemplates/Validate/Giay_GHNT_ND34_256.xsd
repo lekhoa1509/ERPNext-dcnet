@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by MESMERiZE (MSM) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue" targetNamespace="http://kekhaithue.gdt.gov.vn/TKhaiThue" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.2">
+	<xs:redefine schemaLocation="../TKhaiThue.xsd">
+		<xs:complexType name="CTieuTKhaiChinhType">
+			<xs:complexContent>
+				<xs:extension base="CTieuTKhaiChinhType">
+					<xs:sequence>
+						<xs:element name="KinhGui">
+							<xs:annotation>
+								<xs:documentation>Kính gửi</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="maCQT" type="xs:nonNegativeInteger" nillable="false">
+										<xs:annotation>
+											<xs:documentation>Mã CQT</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="tenCQT" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>Tên CQT</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CT07">
+							<xs:annotation>
+								<xs:documentation>Loại thuế đề nghị gia hạn</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ct_a" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thuế GTGT của doanh nghiệp, tổ chức</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct_b" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thuế TNDN của doanh nghiệp, tổ chức</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct_c" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Thuế GTGT và thuế TNCN của hộ gia đình, cá nhân kinh doanh</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ct_d" type="xs:boolean" nillable="true">
+										<xs:annotation>
+											<xs:documentation>Tiền thuê đất (kê chi tiết địa chỉ từng khu đất thuê thuộc đối tượng gia hạn tiền thuê đất)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="KhuDat">
+										<xs:annotation>
+											<xs:documentation>Khu đất thuê</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="CTietKhuDat" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="ma_CQT_QLy" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mã CQT quản lý khu đất</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_CQT_QLy" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên CQT quản lý khu đất</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_Tinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mã Tỉnh/Thành phối</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_Tinh" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên Tỉnh/Thành phố</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_Huyen" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mã Quận/Huyện</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_Huyen" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên Quận/Huyện</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ma_Xa" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Mã Phường/Xã</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ten_Xa" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Tên Phường/Xã</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="diaChi_KhuDat" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Địa chỉ khu đất</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="soThongBao_ND52" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Số thông báo như NĐ52</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="kiHieuThongBao" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Kí hiệu thông báo như NĐ52</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="soThongBao" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Số quyết đinh/Hợp đồng</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="kiHieu" type="xs:string" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Kí hiệu quyết đinh/hợp đồng</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ngay" type="xs:date" nillable="true">
+																<xs:annotation>
+																	<xs:documentation>Ngày</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="id" type="xs:string"/>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CT08">
+							<xs:annotation>
+								<xs:documentation>Loại thuế đề nghị gia hạn</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CT_I">
+										<xs:annotation>
+											<xs:documentation>Doanh nghiệp nhỏ và siêu nhỏ</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct_a" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh nghiệp nhỏ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="DNNho">
+													<xs:annotation>
+														<xs:documentation>Bảng kê doanh nghiệp nhỏ</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="CTietDNNho" maxOccurs="unbounded">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="ma_linhVucHDong" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Mã Lĩnh vực hoạt động</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="linhVucHDong" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Tên Lĩnh vực hoạt động</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="soLaoDong" type="xs:nonNegativeInteger" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Số lao động</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="doanhThu" type="xs:long" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Doanh thu (VNĐ)</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nguonVon" type="xs:long" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Nguồn vốn (VNĐ)</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																	<xs:attribute name="id" type="xs:string"/>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ct_b" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Doanh nghiệp siêu nhỏ</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="DNSieuNho">
+													<xs:annotation>
+														<xs:documentation>Bảng kê doanh nghiệp siêu nhỏ</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="CTietDNSieuNho" maxOccurs="unbounded">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="ma_linhVucHDong" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Mã Lĩnh vực hoạt động</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="linhVucHDong" type="xs:string" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Tên Lĩnh vực hoạt động</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="soLaoDong" type="xs:nonNegativeInteger" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Số lao động</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="doanhThu" type="xs:long" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Doanh thu (VNĐ)</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="nguonVon" type="xs:long" nillable="true">
+																			<xs:annotation>
+																				<xs:documentation>Nguồn vốn (VNĐ)</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																	<xs:attribute name="id" type="xs:string"/>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="CT_II">
+										<xs:annotation>
+											<xs:documentation>Doanh nghiệp, tổ chức, hộ gia đình, cá nhân kinh doanh hoạt động trong các lĩnh vực</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ct_1" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Nông nghiệp, lâm nghiệp và thủy sản</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_2" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất, chế biến thực phẩm</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_3" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Dệt</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_4" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất trang phục</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_5" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất da và các sản phẩm có liên quan</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_6" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Chế biến gỗ và sản xuất sản phẩm từ gỗ, tre, nứa (trừ giường, tủ, bàn, ghế); sản xuất sản phẩm từ rơm, rạ và vật liệu tết bện</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_7" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất giấy và sản phẩm từ giấy</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_8" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất sản phẩm từ cao su và Plastic</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_9" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất sản phẩm từ khoáng phi kim loại khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_10" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất kim loại</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_11" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Gia công cơ khí; xử lý và tráng phủ kim loại</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_12" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất sản phẩm điện tử, máy vi tính và sản phẩm quang học</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_13" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất ô tô và xe có động cơ khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_14" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất giường, tủ, bàn, ghế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_15" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Xây dựng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_16" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Vận tải kho bãi</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_17" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Dịch vụ lưu trú và ăn uống</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_18" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Giáo dục và đào tạo</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_19" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Y tế và hoạt động trợ giúp xã hội</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_20" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động kinh doanh bất động sản</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_21" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động dịch vụ lao động và việc làm</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_22" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động của các đại lý du lịch, kinh doanh tua du lịch và các dịch vụ hỗ trợ, liên quan đến quảng bá và tổ chức tua du lịch</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_23" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động sáng tác, nghệ thuật và giải trí</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_24" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động của thư viện, lưu trữ, bảo tàng và các hoạt động văn hóa khác</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_25" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động thể thao, vui chơi giải trí</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_26" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động chiếu phim</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_27" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất sản phẩm công nghiệp hỗ trợ ưu tiên phát triển</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_28" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất sản phẩm cơ khí trọng điểm</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_29" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Tổ chức tín dụng, chi nhánh ngân hàng nước ngoài</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_30" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động xuất bản</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_31" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động điện ảnh, sản xuất chương trình truyền hình, ghi âm và xuất bản âm nhạc</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_32" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động phát thanh, truyền hình</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_33" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Lập trình máy vi tính, dịch vụ tư vấn và các hoạt động khác liên quan đến máy vi tính</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_34" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động dịch vụ thông tin</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_35" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Khai thác dầu thô và khí đốt tự nhiên (không gia hạn đối với thuế thu nhập doanh nghiệp của dầu thô, condensate, khí thiên nhiên thu theo hiệp định, hợp đồng);</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_36" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Hoạt động dịch vụ hỗ trợ khai khoáng</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_37" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất đồ uống</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_38" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>In, sao chép bản ghi các loại</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_39" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất than cốc, sản phẩm dầu mỏ tinh chế</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_40" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất hóa chất và sản phẩm hóa chất</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_41" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất sản phẩm từ kim loại đúc sẵn (trừ máy móc, thiết bị)</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_42" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sản xuất mô tô, xe máy</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_43" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Sửa chữa, bảo dưỡng và lắp đặt máy móc và thiết bị</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ct_44" type="xs:boolean" nillable="true">
+													<xs:annotation>
+														<xs:documentation>Thoát nước và xử lý nước thải</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>

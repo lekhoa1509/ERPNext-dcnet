@@ -1,0 +1,5160 @@
+[
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/dashboard/item_dashboard.js",
+    "language": "JavaScript",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.8500000000000001,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/dashboard/item_dashboard.js",
+        "class_name": "ItemDashboard",
+        "method_name": null,
+        "line_number": 3,
+        "evidence": [
+          "Factory method: constructor",
+          "Factory method: make",
+          "Multiple factory methods: constructor, make"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/deprecated_serial_batch.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/deprecated_serial_batch.py",
+        "class_name": "DeprecatedSerialNoValuation",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Parameterized factory method: get_incoming_value_for_serial_nos"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/deprecated_serial_batch.py",
+        "class_name": "DeprecatedSerialNoValuation",
+        "method_name": "calculate_stock_value_from_deprecarated_ledgers",
+        "line_number": 21,
+        "evidence": [
+          "Method uses decorators: [\"deprecated('erpnext.stock.serial_batch_bundle.SerialNoValuation.calculate_stock_value_from_deprecarated_ledgers', 'unknown', 'v16', 'No known instructions.')\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.8,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/deprecated_serial_batch.py",
+        "class_name": "DeprecatedBatchNoValuation",
+        "method_name": null,
+        "line_number": 88,
+        "evidence": [
+          "Factory method: get_sle_for_batches",
+          "Factory method: get_last_sle_for_non_batch",
+          "Multiple factory methods: get_sle_for_batches, get_last_sle_for_non_batch"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/deprecated_serial_batch.py",
+        "class_name": "DeprecatedBatchNoValuation",
+        "method_name": null,
+        "line_number": 88,
+        "evidence": [
+          "Has 3 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/deprecated_serial_batch.py",
+        "class_name": "DeprecatedBatchNoValuation",
+        "method_name": "calculate_avg_rate_from_deprecarated_ledgers",
+        "line_number": 95,
+        "evidence": [
+          "Method uses decorators: [\"deprecated('erpnext.stock.serial_batch_bundle.BatchNoValuation.calculate_avg_rate_from_deprecarated_ledgers', 'unknown', 'v16', 'No known instructions.')\"]"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 2,
+      "Decorator": 2,
+      "Builder": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/batch/batch.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/batch/batch.py",
+        "class_name": "Batch",
+        "method_name": "recalculate_batch_qty",
+        "line_number": 160,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/batch/batch.py",
+        "class_name": "Batch",
+        "method_name": null,
+        "line_number": 89,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 10 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 15,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/batch/test_batch.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/batch/test_batch.py",
+        "class_name": "TestBatch",
+        "method_name": null,
+        "line_number": 27,
+        "evidence": [
+          "Parameterized factory method: make_batch_item",
+          "Factory method: test_get_batch_qty",
+          "Parameterized factory method: make_new_batch_and_entry",
+          "Parameterized factory method: make_new_batch",
+          "Multiple factory methods: make_batch_item, test_get_batch_qty, make_new_batch_and_entry",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/batch/test_batch.py",
+        "class_name": "TestBatch",
+        "method_name": "make_batch_item",
+        "line_number": 35,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/batch/test_batch.py",
+        "class_name": "TestBatch",
+        "method_name": null,
+        "line_number": 27,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 19 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/batch/test_batch.py",
+        "class_name": "TestBatch",
+        "method_name": "test_update_batch_properties",
+        "line_number": 536,
+        "evidence": [
+          "Observer method detected: test_update_batch_properties"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/bin/bin.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/bin/bin.py",
+        "class_name": "Bin",
+        "method_name": "recalculate_qty",
+        "line_number": 39,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/bin/bin.py",
+        "class_name": "Bin",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 8 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/bin/bin.py",
+        "class_name": "Bin",
+        "method_name": null,
+        "line_number": 12,
+        "evidence": [
+          "Notify method: update_reserved_qty_for_production_plan",
+          "Notify method: update_reserved_qty_for_for_sub_assembly",
+          "Notify method: update_reserved_qty_for_production",
+          "Notify method: update_reserved_qty_for_sub_contracting",
+          "Notify method: update_reserved_stock"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.py",
+        "class_name": "DeliveryNote",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Factory method: make_return_invoice",
+          "Factory method: get_product_bundle_list",
+          "Multiple factory methods: make_return_invoice, get_product_bundle_list",
+          "Inherits from: SellingController"
+        ],
+        "related_classes": [
+          "SellingController"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.py",
+        "class_name": "DeliveryNote",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Implements interface: SellingController",
+          "Has 28 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.py",
+        "class_name": "DeliveryNote",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Notify method: update_current_stock",
+          "Notify method: update_pick_list_status",
+          "Notify method: update_status",
+          "Notify method: update_billing_status"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.py",
+        "class_name": "DeliveryNote",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Has hook methods: before_print, validate, validate_with_previous_doc",
+          "Has abstract methods: __init__, _validate_dependent_item_fields"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 26,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_note/test_delivery_note.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_note/test_delivery_note.py",
+        "class_name": "TestDeliveryNote",
+        "method_name": null,
+        "line_number": 47,
+        "evidence": [
+          "Factory method: test_delivery_of_bundled_items_to_target_warehouse",
+          "Factory method: test_make_sales_invoice_from_dn_for_returned_qty",
+          "Factory method: test_make_sales_invoice_from_dn_with_returned_qty_duplicate_items",
+          "Multiple factory methods: test_delivery_of_bundled_items_to_target_warehouse, test_make_sales_invoice_from_dn_for_returned_qty, test_make_sales_invoice_from_dn_with_returned_qty_duplicate_items",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_note/test_delivery_note.py",
+        "class_name": "TestDeliveryNote",
+        "method_name": "test_sales_invoice_qty_after_return",
+        "line_number": 1026,
+        "evidence": [
+          "Method uses decorators: [\"change_settings('Accounts Settings', {'delete_linked_ledger_entries': True})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_note/test_delivery_note.py",
+        "class_name": "TestDeliveryNote",
+        "method_name": null,
+        "line_number": 47,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 64 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_trip/delivery_trip.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_trip/delivery_trip.py",
+        "class_name": "DeliveryTrip",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Parameterized factory method: get_directions",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_trip/delivery_trip.py",
+        "class_name": "DeliveryTrip",
+        "method_name": "process_route",
+        "line_number": 153,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_trip/delivery_trip.py",
+        "class_name": "DeliveryTrip",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 16 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_trip/delivery_trip.py",
+        "class_name": "DeliveryTrip",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: on_update_after_submit",
+          "Attach method: validate_stop_addresses",
+          "Notify method: update_status",
+          "Notify method: update_delivery_notes"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_trip/delivery_trip.py",
+        "class_name": "DeliveryTrip",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Has hook methods: validate, on_update_after_submit, validate_stop_addresses",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 8,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_trip/test_delivery_trip.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_trip/test_delivery_trip.py",
+        "class_name": "TestDeliveryTrip",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 12 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/delivery_trip/test_delivery_trip.py",
+        "class_name": "TestDeliveryTrip",
+        "method_name": "test_delivery_trip_notify_customers",
+        "line_number": 35,
+        "evidence": [
+          "Observer method detected: test_delivery_trip_notify_customers"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 5,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.py",
+        "class_name": "DoNotChangeError",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Part of strategy family with: CanNotBeChildDoc, CanNotBeDefaultDimension"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.py",
+        "class_name": "CanNotBeChildDoc",
+        "method_name": null,
+        "line_number": 15,
+        "evidence": [
+          "Part of strategy family with: DoNotChangeError, CanNotBeDefaultDimension"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.py",
+        "class_name": "CanNotBeDefaultDimension",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Part of strategy family with: DoNotChangeError, CanNotBeChildDoc"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.py",
+        "class_name": "InventoryDimension",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Factory method: set_source_and_target_fieldname",
+          "Factory method: get_insert_after_fieldname",
+          "Parameterized factory method: get_dimension_fields",
+          "Multiple factory methods: set_source_and_target_fieldname, get_insert_after_fieldname, get_dimension_fields",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.py",
+        "class_name": "InventoryDimension",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Has 4 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.py",
+        "class_name": "InventoryDimension",
+        "method_name": "get_insert_after_fieldname",
+        "line_number": 148,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.py",
+        "class_name": "InventoryDimension",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 16 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.py",
+        "class_name": "InventoryDimension",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Notify method: do_not_update_document",
+          "Notify method: on_update",
+          "Attach method: add_custom_fields",
+          "Attach method: add_transfer_field"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 4,
+    "total_functions": 7,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 3,
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/test_inventory_dimension.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/test_inventory_dimension.py",
+        "class_name": "TestInventoryDimension",
+        "method_name": "test_validate_negative_stock_with_multiple_dimension",
+        "line_number": 500,
+        "evidence": [
+          "Method uses decorators: [\"change_settings('Stock Settings', {'allow_negative_stock': 0})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/inventory_dimension/test_inventory_dimension.py",
+        "class_name": "TestInventoryDimension",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 12 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 5,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/item.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/item.py",
+        "class_name": "DuplicateReorderRows",
+        "method_name": null,
+        "line_number": 37,
+        "evidence": [
+          "Part of strategy family with: StockExistsForTemplate, InvalidBarcode, DataValidationError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/item.py",
+        "class_name": "StockExistsForTemplate",
+        "method_name": null,
+        "line_number": 41,
+        "evidence": [
+          "Part of strategy family with: DuplicateReorderRows, InvalidBarcode, DataValidationError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/item.py",
+        "class_name": "InvalidBarcode",
+        "method_name": null,
+        "line_number": 45,
+        "evidence": [
+          "Part of strategy family with: DuplicateReorderRows, StockExistsForTemplate, DataValidationError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/item.py",
+        "class_name": "DataValidationError",
+        "method_name": null,
+        "line_number": 49,
+        "evidence": [
+          "Part of strategy family with: DuplicateReorderRows, StockExistsForTemplate, InvalidBarcode"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/item.py",
+        "class_name": "Item",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Factory method: stock_ledger_created",
+          "Parameterized factory method: _get_linked_submitted_documents",
+          "Multiple factory methods: stock_ledger_created, _get_linked_submitted_documents",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/item.py",
+        "class_name": "Item",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Has 4 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/item.py",
+        "class_name": "Item",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 50 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/item.py",
+        "class_name": "Item",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Notify method: on_update",
+          "Attach method: add_price",
+          "Attach method: add_default_uom_in_conversion_factor_table",
+          "Notify method: update_template_tables",
+          "Notify method: update_item_price",
+          "Notify method: update_bom_item_desc",
+          "Notify method: update_defaults_from_item_group",
+          "Notify method: update_variants"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/item.py",
+        "class_name": "Item",
+        "method_name": null,
+        "line_number": 53,
+        "evidence": [
+          "Has hook methods: after_insert, validate, validate_description",
+          "Has abstract methods: _get_linked_submitted_documents"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 5,
+    "total_functions": 20,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 4,
+      "Factory": 1,
+      "Builder": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/test_item.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/test_item.py",
+        "class_name": "TestItem",
+        "method_name": null,
+        "line_number": 77,
+        "evidence": [
+          "Parameterized factory method: get_item",
+          "Factory method: test_get_item_details",
+          "Factory method: test_get_asset_item_details",
+          "Factory method: test_make_item_variant",
+          "Factory method: test_make_item_variant_with_numeric_values",
+          "Multiple factory methods: get_item, test_get_item_details, test_get_asset_item_details",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/test_item.py",
+        "class_name": "TestItem",
+        "method_name": "test_autoname_series",
+        "line_number": 745,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Stock Settings', {'item_naming_by': 'Naming Series'})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/test_item.py",
+        "class_name": "TestItem",
+        "method_name": null,
+        "line_number": 77,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 39 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item/test_item.py",
+        "class_name": "TestItem",
+        "method_name": null,
+        "line_number": 77,
+        "evidence": [
+          "Attach method: test_add_item_barcode",
+          "Notify method: test_update_is_stock_item"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_alternative/item_alternative.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_alternative/item_alternative.py",
+        "class_name": "ItemAlternative",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_alternative/test_item_alternative.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_alternative/test_item_alternative.py",
+        "class_name": "TestItemAlternative",
+        "method_name": null,
+        "line_number": 29,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_attribute/item_attribute.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_attribute/item_attribute.py",
+        "class_name": "ItemAttribute",
+        "method_name": null,
+        "line_number": 20,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_attribute/item_attribute.py",
+        "class_name": "ItemAttribute",
+        "method_name": "on_update",
+        "line_number": 45,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_manufacturer/item_manufacturer.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_manufacturer/item_manufacturer.py",
+        "class_name": "ItemManufacturer",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_price/item_price.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_price/item_price.py",
+        "class_name": "ItemPrice",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_price/item_price.py",
+        "class_name": "ItemPrice",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Notify method: update_price_list_details",
+          "Notify method: update_item_details"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_price/test_item_price.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_price/test_item_price.py",
+        "class_name": "TestItemPrice",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 14 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_variant_settings/item_variant_settings.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/item_variant_settings/item_variant_settings.py",
+        "class_name": "ItemVariantSettings",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py",
+        "class_name": "LandedCostVoucher",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Factory method: get_items_from_purchase_receipts",
+          "Parameterized factory method: get_receipt_document_details",
+          "Parameterized factory method: get_vendor_invoice_amount",
+          "Multiple factory methods: get_items_from_purchase_receipts, get_receipt_document_details, get_vendor_invoice_amount",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py",
+        "class_name": "LandedCostVoucher",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Has 3 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py",
+        "class_name": "LandedCostVoucher",
+        "method_name": "get_items_from_purchase_receipts",
+        "line_number": 51,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py",
+        "class_name": "LandedCostVoucher",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 17 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py",
+        "class_name": "LandedCostVoucher",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Notify method: update_claimed_landed_cost",
+          "Notify method: update_landed_cost",
+          "Notify method: update_rate_in_serial_no_for_non_asset_items"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/landed_cost_voucher/test_landed_cost_voucher.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/landed_cost_voucher/test_landed_cost_voucher.py",
+        "class_name": "TestLandedCostVoucher",
+        "method_name": null,
+        "line_number": 28,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 15 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/material_request/material_request.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/material_request/material_request.py",
+        "class_name": "MaterialRequest",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Parameterized factory method: get_mr_items_ordered_qty",
+          "Inherits from: BuyingController"
+        ],
+        "related_classes": [
+          "BuyingController"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/material_request/material_request.py",
+        "class_name": "MaterialRequest",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Implements interface: BuyingController",
+          "Has 20 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/material_request/material_request.py",
+        "class_name": "MaterialRequest",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Notify method: before_update_after_submit",
+          "Notify method: update_status",
+          "Notify method: update_completed_qty",
+          "Notify method: update_requested_qty",
+          "Notify method: update_requested_qty_in_production_plan"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/material_request/material_request.py",
+        "class_name": "MaterialRequest",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Has hook methods: validate_qty_against_so, validate, validate_pp_qty",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 24,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/material_request/test_material_request.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/material_request/test_material_request.py",
+        "class_name": "TestMaterialRequest",
+        "method_name": null,
+        "line_number": 26,
+        "evidence": [
+          "Factory method: test_make_purchase_order",
+          "Factory method: test_make_subcontracted_purchase_order",
+          "Factory method: test_make_supplier_quotation",
+          "Factory method: test_make_stock_entry",
+          "Factory method: test_partial_make_stock_entry",
+          "Factory method: test_in_transit_make_stock_entry",
+          "Parameterized factory method: _get_requested_qty",
+          "Factory method: test_make_stock_entry_for_material_issue",
+          "Factory method: test_get_remaining_qty_from_sales_order",
+          "Multiple factory methods: test_make_purchase_order, test_make_subcontracted_purchase_order, test_make_supplier_quotation",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/material_request/test_material_request.py",
+        "class_name": "TestMaterialRequest",
+        "method_name": null,
+        "line_number": 26,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 40 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/material_request/test_material_request.py",
+        "class_name": "TestMaterialRequest",
+        "method_name": null,
+        "line_number": 26,
+        "evidence": [
+          "Has hook methods: test_mr_changes_from_stopped_to_pending_after_reopen, test_mr_changes_from_pending_to_cancelled_after_cancel, test_stopped_mr_changes_to_pending_after_reopen",
+          "Has abstract methods: _insert_stock_entry, _get_requested_qty"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/packed_item/test_packed_item.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/packed_item/test_packed_item.py",
+        "class_name": "TestPackedItem",
+        "method_name": "setUpClass",
+        "line_number": 47,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/packed_item/test_packed_item.py",
+        "class_name": "TestPackedItem",
+        "method_name": null,
+        "line_number": 43,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 11 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/packing_slip/packing_slip.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/packing_slip/packing_slip.py",
+        "class_name": "PackingSlip",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: StatusUpdater",
+          "Has 10 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/packing_slip/packing_slip.py",
+        "class_name": "PackingSlip",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Has hook methods: validate, validate_delivery_note, validate_case_nos",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/pick_list/pick_list.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/pick_list/pick_list.py",
+        "class_name": "PickList",
+        "method_name": null,
+        "line_number": 34,
+        "evidence": [
+          "Factory method: make_bundle_using_old_serial_batch_fields",
+          "Parameterized factory method: create_stock_reservation_entries",
+          "Parameterized factory method: get_picked_items_details",
+          "Parameterized factory method: _get_pick_list_items",
+          "Factory method: _get_product_bundles",
+          "Parameterized factory method: _get_product_bundle_qty_map",
+          "Multiple factory methods: make_bundle_using_old_serial_batch_fields, create_stock_reservation_entries, get_picked_items_details",
+          "Inherits from: TransactionBase"
+        ],
+        "related_classes": [
+          "TransactionBase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/pick_list/pick_list.py",
+        "class_name": "PickList",
+        "method_name": "create_stock_reservation_entries",
+        "line_number": 431,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/pick_list/pick_list.py",
+        "class_name": "PickList",
+        "method_name": null,
+        "line_number": 34,
+        "evidence": [
+          "Implements interface: TransactionBase",
+          "Has 45 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/pick_list/pick_list.py",
+        "class_name": "PickList",
+        "method_name": null,
+        "line_number": 34,
+        "evidence": [
+          "Notify method: on_update_after_submit",
+          "Notify method: on_update",
+          "Detach method: remove_serial_and_batch_bundle",
+          "Notify method: update_status",
+          "Notify method: update_reference_qty",
+          "Notify method: update_packed_items_qty",
+          "Notify method: update_sales_order_item_qty",
+          "Notify method: update_sales_order_picking_status",
+          "Notify method: update_bundle_picked_qty",
+          "Notify method: update_picked_item_from_current_pick_list"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/pick_list/pick_list.py",
+        "class_name": "PickList",
+        "method_name": null,
+        "line_number": 34,
+        "evidence": [
+          "Has hook methods: validate, before_save, validate_stock_qty",
+          "Has abstract methods: __init__, _get_pick_list_items"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 34,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/pick_list/test_pick_list.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/pick_list/test_pick_list.py",
+        "class_name": "TestPickList",
+        "method_name": null,
+        "line_number": 28,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 33 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/price_list/price_list.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/price_list/price_list.py",
+        "class_name": "PriceList",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/price_list/price_list.py",
+        "class_name": "PriceList",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: update_item_price"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py",
+        "class_name": "PurchaseReceipt",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Parameterized factory method: get_already_received_qty",
+          "Parameterized factory method: get_po_qty_and_warehouse",
+          "Parameterized factory method: get_gl_entries",
+          "Parameterized factory method: make_item_gl_entries",
+          "Parameterized factory method: make_tax_gl_entries",
+          "Factory method: get_production_plan_references",
+          "Multiple factory methods: get_already_received_qty, get_po_qty_and_warehouse, get_gl_entries",
+          "Inherits from: BuyingController"
+        ],
+        "related_classes": [
+          "BuyingController"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py",
+        "class_name": "PurchaseReceipt",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Implements interface: BuyingController",
+          "Has 31 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py",
+        "class_name": "PurchaseReceipt",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Notify method: update_received_qty_if_from_pp",
+          "Detach method: remove_amount_difference_with_purchase_invoice",
+          "Attach method: add_provisional_gl_entry",
+          "Notify method: update_assets",
+          "Notify method: update_status",
+          "Notify method: update_billing_status"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py",
+        "class_name": "PurchaseReceipt",
+        "method_name": null,
+        "line_number": 32,
+        "evidence": [
+          "Has hook methods: before_validate, validate, validate_uom_is_integer",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 33,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/purchase_receipt/test_purchase_receipt.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/purchase_receipt/test_purchase_receipt.py",
+        "class_name": "TestPurchaseReceipt",
+        "method_name": null,
+        "line_number": 31,
+        "evidence": [
+          "Factory method: test_make_purchase_invoice",
+          "Factory method: test_make_purchase_invoice_from_pr_for_returned_qty",
+          "Factory method: test_make_purchase_invoice_from_pr_with_returned_qty_duplicate_items",
+          "Parameterized factory method: create_lcv",
+          "Factory method: test_recreate_stock_ledgers",
+          "Factory method: test_validate_recreate_stock_ledgers_for_sn_item",
+          "Factory method: test_set_lcv_from_pi_created_against_po",
+          "Multiple factory methods: test_make_purchase_invoice, test_make_purchase_invoice_from_pr_for_returned_qty, test_make_purchase_invoice_from_pr_with_returned_qty_duplicate_items",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/purchase_receipt/test_purchase_receipt.py",
+        "class_name": "TestPurchaseReceipt",
+        "method_name": "test_payment_terms_are_fetched_when_creating_purchase_invoice",
+        "line_number": 1209,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Accounts Settings', {'automatically_fetch_payment_terms': 1})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/purchase_receipt/test_purchase_receipt.py",
+        "class_name": "TestPurchaseReceipt",
+        "method_name": null,
+        "line_number": 31,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 96 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/purchase_receipt/test_purchase_receipt.py",
+        "class_name": "TestPurchaseReceipt",
+        "method_name": "test_pr_status_based_on_invoices_with_update_stock",
+        "line_number": 4140,
+        "evidence": [
+          "Observer method detected: test_pr_status_based_on_invoices_with_update_stock"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 8,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/putaway_rule/putaway_rule.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/putaway_rule/putaway_rule.py",
+        "class_name": "PutawayRule",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 7,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/putaway_rule/test_putaway_rule.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/putaway_rule/test_putaway_rule.py",
+        "class_name": "TestPutawayRule",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 14 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/quality_inspection/quality_inspection.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/quality_inspection/quality_inspection.py",
+        "class_name": "QualityInspection",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Factory method: get_item_specification_details",
+          "Factory method: get_quality_inspection_template",
+          "Parameterized factory method: get_formula_evaluation_data",
+          "Multiple factory methods: get_item_specification_details, get_quality_inspection_template, get_formula_evaluation_data",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/quality_inspection/quality_inspection.py",
+        "class_name": "QualityInspection",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Has 4 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/quality_inspection/quality_inspection.py",
+        "class_name": "QualityInspection",
+        "method_name": "get_item_specification_details",
+        "line_number": 152,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/quality_inspection/quality_inspection.py",
+        "class_name": "QualityInspection",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 20 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/quality_inspection/quality_inspection.py",
+        "class_name": "QualityInspection",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: update_qc_reference"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 5,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/quality_inspection/test_quality_inspection.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/quality_inspection/test_quality_inspection.py",
+        "class_name": "TestQualityInspection",
+        "method_name": "test_diff_number_format",
+        "line_number": 220,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('System Settings', {'number_format': '#.###,##'})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/quality_inspection/test_quality_inspection.py",
+        "class_name": "TestQualityInspection",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 10 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py",
+        "class_name": "RepostItemValuation",
+        "method_name": null,
+        "line_number": 29,
+        "evidence": [
+          "Factory method: validate_recreate_stock_ledgers",
+          "Factory method: reset_recreate_stock_ledgers",
+          "Factory method: get_closing_stock_balance",
+          "Factory method: get_max_period_closing_date",
+          "Factory method: recreate_stock_ledger_entries",
+          "Multiple factory methods: validate_recreate_stock_ledgers, reset_recreate_stock_ledgers, get_closing_stock_balance",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py",
+        "class_name": "RepostItemValuation",
+        "method_name": "clear_old_logs",
+        "line_number": 65,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py",
+        "class_name": "RepostItemValuation",
+        "method_name": null,
+        "line_number": 29,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 24 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py",
+        "class_name": "RepostItemValuation",
+        "method_name": "clear_attachment",
+        "line_number": 220,
+        "evidence": [
+          "Observer method detected: clear_attachment"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 16,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/repost_item_valuation/test_repost_item_valuation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/repost_item_valuation/test_repost_item_valuation.py",
+        "class_name": "TestRepostItemValuation",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Factory method: test_create_item_wise_repost_item_valuation_entries",
+          "Factory method: test_create_repost_entry_for_cancelled_document",
+          "Multiple factory methods: test_create_item_wise_repost_item_valuation_entries, test_create_repost_entry_for_cancelled_document",
+          "Inherits from: IntegrationTestCase, StockTestMixin"
+        ],
+        "related_classes": [
+          "IntegrationTestCase",
+          "StockTestMixin"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/repost_item_valuation/test_repost_item_valuation.py",
+        "class_name": "TestRepostItemValuation",
+        "method_name": "test_prevention_of_cancelled_transaction_riv",
+        "line_number": 199,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Stock Reposting Settings', {'item_based_reposting': 0})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/repost_item_valuation/test_repost_item_valuation.py",
+        "class_name": "TestRepostItemValuation",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 15 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/repost_item_valuation/test_repost_item_valuation.py",
+        "class_name": "TestRepostItemValuation",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Attach method: test_remove_attached_file",
+          "Detach method: test_remove_attached_file"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+        "class_name": "SerialNoExistsInFutureTransactionError",
+        "method_name": null,
+        "line_number": 38,
+        "evidence": [
+          "Part of strategy family with: BatchNegativeStockError, SerialNoDuplicateError, SerialNoWarehouseError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+        "class_name": "SerialNoExistsInFutureTransactionError",
+        "method_name": null,
+        "line_number": 38,
+        "evidence": [
+          "Class name suggests Command: SerialNoExistsInFutureTransactionError"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+        "class_name": "BatchNegativeStockError",
+        "method_name": null,
+        "line_number": 42,
+        "evidence": [
+          "Part of strategy family with: SerialNoExistsInFutureTransactionError, SerialNoDuplicateError, SerialNoWarehouseError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+        "class_name": "SerialNoDuplicateError",
+        "method_name": null,
+        "line_number": 46,
+        "evidence": [
+          "Part of strategy family with: SerialNoExistsInFutureTransactionError, BatchNegativeStockError, SerialNoWarehouseError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+        "class_name": "SerialNoWarehouseError",
+        "method_name": null,
+        "line_number": 50,
+        "evidence": [
+          "Part of strategy family with: SerialNoExistsInFutureTransactionError, BatchNegativeStockError, SerialNoDuplicateError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+        "class_name": "SerialandBatchBundle",
+        "method_name": null,
+        "line_number": 54,
+        "evidence": [
+          "Parameterized factory method: get_valuation_rate_for_return_entry",
+          "Factory method: get_serial_nos",
+          "Factory method: get_sle_for_outward_transaction",
+          "Parameterized factory method: get_return_against",
+          "Parameterized factory method: get_serial_nos_for_validate",
+          "Parameterized factory method: get_skip_serial_nos_for_stock_reconciliation",
+          "Parameterized factory method: get_qty_field",
+          "Factory method: get_orignal_document_data",
+          "Factory method: get_batchwise_available_qty",
+          "Factory method: get_available_qty_from_stock_ledger",
+          "Factory method: get_available_qty_from_sabb",
+          "Multiple factory methods: get_valuation_rate_for_return_entry, get_serial_nos, get_sle_for_outward_transaction",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+        "class_name": "SerialandBatchBundle",
+        "method_name": null,
+        "line_number": 54,
+        "evidence": [
+          "Has 11 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+        "class_name": "SerialandBatchBundle",
+        "method_name": "set_warehouse",
+        "line_number": 1042,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+        "class_name": "SerialandBatchBundle",
+        "method_name": null,
+        "line_number": 54,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 65 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py",
+        "class_name": "SerialandBatchBundle",
+        "method_name": null,
+        "line_number": 54,
+        "evidence": [
+          "Notify method: update_valuation_rate",
+          "Attach method: add_serial_batch"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 5,
+    "total_functions": 55,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 4,
+      "Command": 1,
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/test_serial_and_batch_bundle.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/test_serial_and_batch_bundle.py",
+        "class_name": "TestSerialandBatchBundle",
+        "method_name": "test_auto_create_serial_and_batch_bundle_for_outward_for_batch_item",
+        "line_number": 822,
+        "evidence": [
+          "Factory method detected: test_auto_create_serial_and_batch_bundle_for_outward_for_batch_item"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/test_serial_and_batch_bundle.py",
+        "class_name": "TestSerialandBatchBundle",
+        "method_name": "test_duplicate_serial_and_batch_bundle",
+        "line_number": 645,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Stock Settings', {'auto_create_serial_and_batch_bundle_for_outward': 1})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_and_batch_bundle/test_serial_and_batch_bundle.py",
+        "class_name": "TestSerialandBatchBundle",
+        "method_name": null,
+        "line_number": 20,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 16 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_no/serial_no.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_no/serial_no.py",
+        "class_name": "SerialNoCannotCreateDirectError",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Part of strategy family with: SerialNoCannotCannotChangeError, SerialNoWarehouseError"
+        ],
+        "related_classes": [
+          "ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_no/serial_no.py",
+        "class_name": "SerialNoCannotCannotChangeError",
+        "method_name": null,
+        "line_number": 20,
+        "evidence": [
+          "Part of strategy family with: SerialNoCannotCreateDirectError, SerialNoWarehouseError"
+        ],
+        "related_classes": [
+          "ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_no/serial_no.py",
+        "class_name": "SerialNoWarehouseError",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Part of strategy family with: SerialNoCannotCreateDirectError, SerialNoCannotCannotChangeError"
+        ],
+        "related_classes": [
+          "ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_no/serial_no.py",
+        "class_name": "SerialNo",
+        "method_name": null,
+        "line_number": 28,
+        "evidence": [
+          "Implements interface: StockController",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_no/serial_no.py",
+        "class_name": "SerialNo",
+        "method_name": null,
+        "line_number": 28,
+        "evidence": [
+          "Has hook methods: validate, validate_warehouse",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 4,
+    "total_functions": 12,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 3,
+      "Adapter": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_no/test_serial_no.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_no/test_serial_no.py",
+        "class_name": "TestSerialNo",
+        "method_name": "test_cannot_create_direct",
+        "line_number": 31,
+        "evidence": [
+          "Factory method detected: test_cannot_create_direct"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/serial_no/test_serial_no.py",
+        "class_name": "TestSerialNo",
+        "method_name": null,
+        "line_number": 27,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/shipment/shipment.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/shipment/shipment.py",
+        "class_name": "Shipment",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 9 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py",
+        "class_name": "StockClosingEntry",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Factory method: create_stock_closing_balance_entries",
+          "Factory method: get_prepared_data",
+          "Multiple factory methods: create_stock_closing_balance_entries, get_prepared_data",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py",
+        "class_name": "StockClosingEntry",
+        "method_name": "enqueue_job",
+        "line_number": 96,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py",
+        "class_name": "StockClosingEntry",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 12 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py",
+        "class_name": "StockClosing",
+        "method_name": null,
+        "line_number": 160,
+        "evidence": [
+          "Factory method: get_stock_closing_entries",
+          "Parameterized factory method: get_initialized_entry",
+          "Factory method: get_sle_entries",
+          "Parameterized factory method: get_entries",
+          "Factory method: get_last_stock_closing_entry",
+          "Parameterized factory method: get_keys",
+          "Parameterized factory method: get_stock_closing_balance",
+          "Multiple factory methods: get_stock_closing_entries, get_initialized_entry, get_sle_entries"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.py",
+        "class_name": "StockClosing",
+        "method_name": "update_fifo_queue",
+        "line_number": 199,
+        "evidence": [
+          "Observer method detected: update_fifo_queue"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 2,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "FinishedGoodError",
+        "method_name": null,
+        "line_number": 61,
+        "evidence": [
+          "Part of strategy family with: IncorrectValuationRateError, DuplicateEntryForWorkOrderError, OperationsNotCompleteError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "IncorrectValuationRateError",
+        "method_name": null,
+        "line_number": 65,
+        "evidence": [
+          "Part of strategy family with: FinishedGoodError, DuplicateEntryForWorkOrderError, OperationsNotCompleteError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "DuplicateEntryForWorkOrderError",
+        "method_name": null,
+        "line_number": 69,
+        "evidence": [
+          "Part of strategy family with: FinishedGoodError, IncorrectValuationRateError, OperationsNotCompleteError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "OperationsNotCompleteError",
+        "method_name": null,
+        "line_number": 73,
+        "evidence": [
+          "Part of strategy family with: FinishedGoodError, IncorrectValuationRateError, DuplicateEntryForWorkOrderError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "OperationsNotCompleteError",
+        "method_name": null,
+        "line_number": 73,
+        "evidence": [
+          "Class name suggests Command: OperationsNotCompleteError"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "MaxSampleAlreadyRetainedError",
+        "method_name": null,
+        "line_number": 77,
+        "evidence": [
+          "Part of strategy family with: FinishedGoodError, IncorrectValuationRateError, DuplicateEntryForWorkOrderError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "StockEntry",
+        "method_name": null,
+        "line_number": 87,
+        "evidence": [
+          "Factory method: validate_same_source_target_warehouse_during_material_transfer",
+          "Parameterized factory method: get_matched_items",
+          "Factory method: get_consumed_items",
+          "Factory method: get_stock_and_rate",
+          "Parameterized factory method: get_args_for_incoming_rate",
+          "Parameterized factory method: get_basic_rate_for_repacked_items",
+          "Parameterized factory method: get_basic_rate_for_manufactured_item",
+          "Factory method: make_serial_and_batch_bundle_for_outward",
+          "Factory method: get_finished_item",
+          "Factory method: get_finished_item_row",
+          "Parameterized factory method: get_sle_for_source_warehouse",
+          "Factory method: make_serial_and_batch_bundle_for_transfer",
+          "Parameterized factory method: get_sle_for_target_warehouse",
+          "Parameterized factory method: get_gl_entries",
+          "Factory method: make_stock_reserve_for_wip_and_fg",
+          "Parameterized factory method: get_item_details",
+          "Factory method: get_items_for_disassembly",
+          "Factory method: get_items_from_manufacture_entry",
+          "Factory method: get_items",
+          "Factory method: get_available_reserved_materials",
+          "Factory method: get_reserved_materials",
+          "Parameterized factory method: get_bom_raw_materials",
+          "Parameterized factory method: get_bom_scrap_material",
+          "Factory method: get_scrap_items_from_job_card",
+          "Factory method: get_completed_job_card_qty",
+          "Factory method: get_used_scrap_items",
+          "Factory method: get_unconsumed_raw_materials",
+          "Parameterized factory method: get_serial_nos_based_on_transferred_batch",
+          "Parameterized factory method: get_pending_raw_materials",
+          "Parameterized factory method: get_pro_order_required_items",
+          "Parameterized factory method: get_job_card_item_codes",
+          "Factory method: get_available_serial_nos",
+          "Multiple factory methods: validate_same_source_target_warehouse_during_material_transfer, get_matched_items, get_consumed_items",
+          "Inherits from: StockController, SubcontractingInwardController"
+        ],
+        "related_classes": [
+          "StockController",
+          "SubcontractingInwardController"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "StockEntry",
+        "method_name": null,
+        "line_number": 87,
+        "evidence": [
+          "Has 25 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "StockEntry",
+        "method_name": "get_stock_and_rate",
+        "line_number": 1076,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "StockEntry",
+        "method_name": null,
+        "line_number": 87,
+        "evidence": [
+          "Implements interface: StockController",
+          "Has 110 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "StockEntry",
+        "method_name": null,
+        "line_number": 87,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: update_cost_in_project",
+          "Attach method: distribute_additional_costs",
+          "Notify method: update_valuation_rate",
+          "Notify method: update_stock_ledger",
+          "Notify method: update_work_order",
+          "Notify method: update_disassembled_order",
+          "Attach method: _add_items_for_disassembly_from_work_order",
+          "Attach method: _add_items_for_disassembly_from_bom",
+          "Attach method: add_batchwise_finished_good",
+          "Attach method: add_finished_goods",
+          "Attach method: add_transfered_raw_materials_in_items",
+          "Notify method: update_batches_to_be_consume",
+          "Notify method: update_item_in_stock_entry_detail",
+          "Attach method: add_to_stock_entry_detail",
+          "Notify method: update_subcontract_order_supplied_items",
+          "Notify method: update_transferred_qty",
+          "Notify method: update_quality_inspection",
+          "Notify method: update_subcontracting_order_status",
+          "Notify method: update_pick_list_status"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py",
+        "class_name": "StockEntry",
+        "method_name": null,
+        "line_number": 87,
+        "evidence": [
+          "Has hook methods: before_insert, before_validate, validate",
+          "Has abstract methods: __init__, _add_items_for_disassembly_from_work_order"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 6,
+    "total_functions": 22,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 5,
+      "Command": 1,
+      "Factory": 1,
+      "Builder": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/test_stock_entry.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/test_stock_entry.py",
+        "class_name": "TestStockEntry",
+        "method_name": "test_work_order_manufacture_with_material_consumption",
+        "line_number": 869,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Manufacturing Settings', {'material_consumption': 1})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/test_stock_entry.py",
+        "class_name": "TestStockEntry",
+        "method_name": null,
+        "line_number": 58,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 68 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/test_stock_entry.py",
+        "class_name": "TestStockEntry",
+        "method_name": null,
+        "line_number": 58,
+        "evidence": [
+          "Attach method: test_add_to_transit_entry",
+          "Attach method: test_repack_with_additional_costs",
+          "Attach method: test_additional_cost_distribution_manufacture",
+          "Attach method: test_additional_cost_distribution_non_manufacture",
+          "Attach method: test_batch_item_additional_cost_for_material_transfer_entry"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry/test_stock_entry.py",
+        "class_name": "TestStockEntry",
+        "method_name": null,
+        "line_number": 58,
+        "evidence": [
+          "Has hook methods: tearDown, test_reposting_for_depedent_warehouse, test_stock_entry_for_same_posting_date_and_time",
+          "Has abstract methods: _test_auto_material_request"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 6,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry_type/stock_entry_type.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.8,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry_type/stock_entry_type.py",
+        "class_name": "ManufactureEntry",
+        "method_name": null,
+        "line_number": 63,
+        "evidence": [
+          "Factory method: make_stock_entry",
+          "Factory method: get_items_from_job_card",
+          "Multiple factory methods: make_stock_entry, get_items_from_job_card"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_entry_type/stock_entry_type.py",
+        "class_name": "ManufactureEntry",
+        "method_name": null,
+        "line_number": 63,
+        "evidence": [
+          "Attach method: add_raw_materials",
+          "Attach method: add_finished_good"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py",
+        "class_name": "StockFreezeError",
+        "method_name": null,
+        "line_number": 20,
+        "evidence": [
+          "Part of strategy family with: BackDatedStockTransaction, InventoryDimensionNegativeStockError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py",
+        "class_name": "BackDatedStockTransaction",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Part of strategy family with: StockFreezeError, InventoryDimensionNegativeStockError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py",
+        "class_name": "BackDatedStockTransaction",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Class name suggests Command: BackDatedStockTransaction"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py",
+        "class_name": "InventoryDimensionNegativeStockError",
+        "method_name": null,
+        "line_number": 28,
+        "evidence": [
+          "Part of strategy family with: StockFreezeError, BackDatedStockTransaction"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py",
+        "class_name": "StockLedgerEntry",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Parameterized factory method: get_available_qty_after_prev_transaction",
+          "Factory method: _get_inventory_dimensions",
+          "Multiple factory methods: get_available_qty_after_prev_transaction, _get_inventory_dimensions",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py",
+        "class_name": "StockLedgerEntry",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 18 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py",
+        "class_name": "StockLedgerEntry",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Has hook methods: validate, set_posting_datetime, validate_inventory_dimension_negative_stock",
+          "Has abstract methods: _get_inventory_dimensions"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 4,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 3,
+      "Command": 1,
+      "Factory": 1,
+      "Adapter": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/test_stock_ledger_entry.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/test_stock_ledger_entry.py",
+        "class_name": "TestStockLedgerEntry",
+        "method_name": "test_transfer_invariants",
+        "line_number": 1260,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('System Settings', {'float_precision': 3, 'currency_precision': 2})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/test_stock_ledger_entry.py",
+        "class_name": "TestStockLedgerEntry",
+        "method_name": null,
+        "line_number": 34,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 24 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/test_stock_ledger_entry.py",
+        "class_name": "TestStockLedgerEntry",
+        "method_name": null,
+        "line_number": 34,
+        "evidence": [
+          "Part of strategy family with: TestDeferredNaming"
+        ],
+        "related_classes": [
+          "IntegrationTestCase",
+          "StockTestMixin"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/test_stock_ledger_entry.py",
+        "class_name": "TestDeferredNaming",
+        "method_name": "setUpClass",
+        "line_number": 1598,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/test_stock_ledger_entry.py",
+        "class_name": "TestDeferredNaming",
+        "method_name": null,
+        "line_number": 1596,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_ledger_entry/test_stock_ledger_entry.py",
+        "class_name": "TestDeferredNaming",
+        "method_name": null,
+        "line_number": 1596,
+        "evidence": [
+          "Part of strategy family with: TestStockLedgerEntry"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 15,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 2,
+      "Adapter": 2,
+      "Strategy": 2
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py",
+        "class_name": "OpeningEntryAccountError",
+        "method_name": null,
+        "line_number": 22,
+        "evidence": [
+          "Part of strategy family with: EmptyStockReconciliationItemsError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py",
+        "class_name": "EmptyStockReconciliationItemsError",
+        "method_name": null,
+        "line_number": 26,
+        "evidence": [
+          "Part of strategy family with: OpeningEntryAccountError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py",
+        "class_name": "StockReconciliation",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Factory method: make_bundle_for_current_qty",
+          "Parameterized factory method: get_bundle_for_specific_serial_batch",
+          "Factory method: set_new_serial_and_batch_bundle",
+          "Parameterized factory method: make_adjustment_entry",
+          "Parameterized factory method: get_sle_for_serialized_items",
+          "Parameterized factory method: get_sle_for_items",
+          "Factory method: make_sle_on_cancel",
+          "Parameterized factory method: get_gl_entries",
+          "Parameterized factory method: get_items_for",
+          "Parameterized factory method: get_current_qty_for_serial_or_batch",
+          "Parameterized factory method: get_current_qty_for_serial_nos",
+          "Parameterized factory method: get_current_qty_for_batch_nos",
+          "Multiple factory methods: make_bundle_for_current_qty, get_bundle_for_specific_serial_batch, set_new_serial_and_batch_bundle",
+          "Inherits from: StockController"
+        ],
+        "related_classes": [
+          "StockController"
+        ]
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py",
+        "class_name": "StockReconciliation",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Has 5 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py",
+        "class_name": "StockReconciliation",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Implements interface: StockController",
+          "Has 39 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py",
+        "class_name": "StockReconciliation",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: update_existing_serial_and_batch_bundle",
+          "Detach method: remove_items_with_no_change",
+          "Notify method: update_stock_ledger",
+          "Notify method: update_valuation_rate_for_serial_no",
+          "Notify method: update_valuation_rate_for_serial_nos",
+          "Attach method: add_missing_stock_ledger_entry"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py",
+        "class_name": "StockReconciliation",
+        "method_name": null,
+        "line_number": 30,
+        "evidence": [
+          "Has hook methods: validate, validate_inventory_dimension, validate_data",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 3,
+    "total_functions": 11,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 2,
+      "Factory": 1,
+      "Builder": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/test_stock_reconciliation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/test_stock_reconciliation.py",
+        "class_name": "TestStockReconciliation",
+        "method_name": null,
+        "line_number": 36,
+        "evidence": [
+          "Factory method: test_get_items",
+          "Factory method: test_make_stock_zero_for_serial_batch_item",
+          "Multiple factory methods: test_get_items, test_make_stock_zero_for_serial_batch_item",
+          "Inherits from: IntegrationTestCase, StockTestMixin"
+        ],
+        "related_classes": [
+          "IntegrationTestCase",
+          "StockTestMixin"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/test_stock_reconciliation.py",
+        "class_name": "TestStockReconciliation",
+        "method_name": "setUpClass",
+        "line_number": 38,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/test_stock_reconciliation.py",
+        "class_name": "TestStockReconciliation",
+        "method_name": null,
+        "line_number": 36,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 35 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/test_stock_reconciliation.py",
+        "class_name": "TestStockReconciliation",
+        "method_name": null,
+        "line_number": 36,
+        "evidence": [
+          "Notify method: test_intermediate_sr_bin_update",
+          "Notify method: test_update_stock_reconciliation_while_reposting"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reconciliation/test_stock_reconciliation.py",
+        "class_name": "TestStockReconciliation",
+        "method_name": null,
+        "line_number": 36,
+        "evidence": [
+          "Has hook methods: setUpClass, tearDown, test_backdated_stock_reco_qty_reposting",
+          "Has abstract methods: _test_reco_sle_gle"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 6,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.py",
+        "class_name": "StockRepostingSettings",
+        "method_name": "convert_to_item_wh_reposting",
+        "line_number": 61,
+        "evidence": [
+          "Method uses decorators: ['frappe.whitelist()']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.py",
+        "class_name": "StockRepostingSettings",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 5 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reposting_settings/test_stock_reposting_settings.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reposting_settings/test_stock_reposting_settings.py",
+        "class_name": "TestStockRepostingSettings",
+        "method_name": "test_notify_reposting_error_to_role",
+        "line_number": 11,
+        "evidence": [
+          "Observer method detected: test_notify_reposting_error_to_role"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py",
+        "class_name": "StockReservationEntry",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Factory method: get_serial_batch_entries",
+          "Factory method: get_from_voucher_reservation_entries",
+          "Multiple factory methods: get_serial_batch_entries, get_from_voucher_reservation_entries",
+          "Inherits from: Document"
+        ],
+        "related_classes": [
+          "Document"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py",
+        "class_name": "StockReservationEntry",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 25 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py",
+        "class_name": "StockReservationEntry",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Notify method: on_update_after_submit",
+          "Notify method: update_unreserved_qty_in_sre",
+          "Notify method: update_reserved_qty_in_voucher",
+          "Notify method: update_reserved_qty_in_pick_list",
+          "Notify method: update_reserved_stock_in_bin",
+          "Notify method: update_status",
+          "Notify method: can_be_updated"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py",
+        "class_name": "StockReservation",
+        "method_name": null,
+        "line_number": 1073,
+        "evidence": [
+          "Factory method: make_stock_reservation_entries",
+          "Parameterized factory method: get_available_qty_to_reserve",
+          "Parameterized factory method: make_stock_reservation_entry",
+          "Parameterized factory method: get_reserved_entries",
+          "Parameterized factory method: get_items_to_reserve",
+          "Multiple factory methods: make_stock_reservation_entries, get_available_qty_to_reserve, make_stock_reservation_entry"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py",
+        "class_name": "StockReservation",
+        "method_name": "update_delivered_qty",
+        "line_number": 1382,
+        "evidence": [
+          "Observer method detected: update_delivered_qty"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 18,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 2,
+      "Adapter": 1,
+      "Observer": 2
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reservation_entry/test_stock_reservation_entry.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reservation_entry/test_stock_reservation_entry.py",
+        "class_name": "TestStockReservationEntry",
+        "method_name": "test_get_available_qty_to_reserve",
+        "line_number": 55,
+        "evidence": [
+          "Factory method detected: test_get_available_qty_to_reserve"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reservation_entry/test_stock_reservation_entry.py",
+        "class_name": "TestStockReservationEntry",
+        "method_name": "test_validate_stock_reservation_settings",
+        "line_number": 31,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Stock Settings', {'allow_negative_stock': 0})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reservation_entry/test_stock_reservation_entry.py",
+        "class_name": "TestStockReservationEntry",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 12 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_reservation_entry/test_stock_reservation_entry.py",
+        "class_name": "TestStockReservationEntry",
+        "method_name": null,
+        "line_number": 24,
+        "evidence": [
+          "Notify method: test_update_status",
+          "Notify method: test_update_reserved_qty_in_voucher"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.py",
+        "class_name": "StockSettings",
+        "method_name": "make_property_setter_for_precision",
+        "line_number": 260,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.py",
+        "class_name": "StockSettings",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: Document",
+          "Has 12 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.py",
+        "class_name": "StockSettings",
+        "method_name": "on_update",
+        "line_number": 225,
+        "evidence": [
+          "Observer method detected: on_update"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_settings/test_stock_settings.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/stock_settings/test_stock_settings.py",
+        "class_name": "TestStockSettings",
+        "method_name": null,
+        "line_number": 9,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/warehouse/test_warehouse.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/warehouse/test_warehouse.py",
+        "class_name": "TestWarehouse",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 6 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 4,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/warehouse/warehouse.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/warehouse/warehouse.py",
+        "class_name": "Warehouse",
+        "method_name": null,
+        "line_number": 20,
+        "evidence": [
+          "Implements interface: NestedSet",
+          "Has 13 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/doctype/warehouse/warehouse.py",
+        "class_name": "Warehouse",
+        "method_name": null,
+        "line_number": 20,
+        "evidence": [
+          "Notify method: on_update",
+          "Notify method: update_nsm_model"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 8,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/available_serial_no/test_available_serial_no.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/available_serial_no/test_available_serial_no.py",
+        "class_name": "TestStockLedgerReeport",
+        "method_name": null,
+        "line_number": 13,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/delayed_item_report/delayed_item_report.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/delayed_item_report/delayed_item_report.py",
+        "class_name": "DelayedItemReport",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Parameterized factory method: get_data",
+          "Factory method: get_columns",
+          "Multiple factory methods: get_data, get_columns"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.7,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/delayed_item_report/delayed_item_report.py",
+        "class_name": "DelayedItemReport",
+        "method_name": null,
+        "line_number": 16,
+        "evidence": [
+          "Has execute method: run()",
+          "Encapsulates receiver/parameters"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/delayed_order_report/delayed_order_report.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/delayed_order_report/delayed_order_report.py",
+        "class_name": "DelayedOrderReport",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Parameterized factory method: get_data",
+          "Factory method: get_columns",
+          "Multiple factory methods: get_data, get_columns",
+          "Inherits from: DelayedItemReport"
+        ],
+        "related_classes": [
+          "DelayedItemReport"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/delayed_order_report/delayed_order_report.py",
+        "class_name": "DelayedOrderReport",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Implements interface: DelayedItemReport",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/delayed_order_report/delayed_order_report.py",
+        "class_name": "DelayedOrderReport",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Has execute method: run()"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1,
+      "Command": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/reserved_stock/test_reserved_stock.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/reserved_stock/test_reserved_stock.py",
+        "class_name": "TestReservedStock",
+        "method_name": "test_reserved_stock_report",
+        "line_number": 36,
+        "evidence": [
+          "Method uses decorators: [\"IntegrationTestCase.change_settings('Stock Settings', {'allow_negative_stock': 0, 'enable_stock_reservation': 1, 'auto_reserve_serial_and_batch': 1, 'pick_serial_and_batch_based_on': 'FIFO'})\"]"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/reserved_stock/test_reserved_stock.py",
+        "class_name": "TestReservedStock",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 3 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/serial_no_and_batch_traceability/serial_no_and_batch_traceability.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/serial_no_and_batch_traceability/serial_no_and_batch_traceability.py",
+        "class_name": "ReportData",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Factory method: get_data",
+          "Parameterized factory method: get_data_from_sabb",
+          "Parameterized factory method: get_serial_no_batches",
+          "Factory method: get_doctype",
+          "Parameterized factory method: get_materials",
+          "Parameterized factory method: get_sabb_entries",
+          "Parameterized factory method: get_finished_item_from_stock_entry",
+          "Parameterized factory method: get_serial_batch_no",
+          "Parameterized factory method: get_columns",
+          "Multiple factory methods: get_data, get_data_from_sabb, get_serial_no_batches"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.55,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/serial_no_and_batch_traceability/serial_no_and_batch_traceability.py",
+        "class_name": "ReportData",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Has 3 configuration methods",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/serial_no_and_batch_traceability/serial_no_and_batch_traceability.py",
+        "class_name": "ReportData",
+        "method_name": null,
+        "line_number": 35,
+        "evidence": [
+          "Has hook methods: validate_filters, prepare_source_data, process_manufacture_or_repack_entry",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 2,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Builder": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_ageing/stock_ageing.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_ageing/stock_ageing.py",
+        "class_name": "FIFOSlots",
+        "method_name": null,
+        "line_number": 228,
+        "evidence": [
+          "Factory method: __get_stock_ledger_entries",
+          "Factory method: __get_bundle_wise_serial_nos",
+          "Factory method: __get_item_query",
+          "Parameterized factory method: __get_warehouse_conditions",
+          "Multiple factory methods: __get_stock_ledger_entries, __get_bundle_wise_serial_nos, __get_item_query"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_ageing/stock_ageing.py",
+        "class_name": "FIFOSlots",
+        "method_name": "__update_balances",
+        "line_number": 410,
+        "evidence": [
+          "Observer method detected: __update_balances"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 10,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Observer": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_ageing/test_stock_ageing.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_ageing/test_stock_ageing.py",
+        "class_name": "TestStockAgeing",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 14 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_analytics/test_stock_analytics.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_analytics/test_stock_analytics.py",
+        "class_name": "TestStockAnalyticsReport",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Factory method: test_get_period_date_ranges",
+          "Factory method: test_get_period_date_ranges_yearly",
+          "Multiple factory methods: test_get_period_date_ranges, test_get_period_date_ranges_yearly",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_analytics/test_stock_analytics.py",
+        "class_name": "TestStockAnalyticsReport",
+        "method_name": null,
+        "line_number": 19,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 9 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_balance/stock_balance.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "ChainOfResponsibility",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_balance/stock_balance.py",
+        "class_name": "StockBalanceFilter",
+        "method_name": null,
+        "line_number": 23,
+        "evidence": [
+          "Class name suggests handler chain: StockBalanceFilter"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_balance/stock_balance.py",
+        "class_name": "StockBalanceReport",
+        "method_name": null,
+        "line_number": 43,
+        "evidence": [
+          "Factory method: get_entries_from_stock_closing_balance",
+          "Factory method: prepare_new_data",
+          "Factory method: get_sre_reserved_qty_details",
+          "Parameterized factory method: get_group_by_key",
+          "Factory method: get_columns",
+          "Factory method: get_itemwise_conversion_factor",
+          "Factory method: get_variant_values_for",
+          "Factory method: get_opening_vouchers",
+          "Factory method: get_inventory_dimension_fields",
+          "Factory method: get_opening_fifo_queue",
+          "Multiple factory methods: get_entries_from_stock_closing_balance, prepare_new_data, get_sre_reserved_qty_details"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_balance/stock_balance.py",
+        "class_name": "StockBalanceReport",
+        "method_name": "get_inventory_dimension_fields",
+        "line_number": 618,
+        "evidence": [
+          "Method uses decorators: ['staticmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.7,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_balance/stock_balance.py",
+        "class_name": "StockBalanceReport",
+        "method_name": null,
+        "line_number": 43,
+        "evidence": [
+          "Has execute method: run()",
+          "Encapsulates receiver/parameters"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_balance/stock_balance.py",
+        "class_name": "StockBalanceReport",
+        "method_name": null,
+        "line_number": 43,
+        "evidence": [
+          "Has hook methods: prepare_opening_stock, prepare_sle_query, prepare_item_warehouse_map_for_current_period",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 3,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "ChainOfResponsibility": 1,
+      "Factory": 1,
+      "Decorator": 1,
+      "Command": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_balance/test_stock_balance.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/stock_balance/test_stock_balance.py",
+        "class_name": "TestStockBalance",
+        "method_name": null,
+        "line_number": 18,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 11 interface methods"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Adapter": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/warehouse_wise_stock_balance/warehouse_wise_stock_balance.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "ChainOfResponsibility",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/report/warehouse_wise_stock_balance/warehouse_wise_stock_balance.py",
+        "class_name": "StockBalanceFilter",
+        "method_name": null,
+        "line_number": 11,
+        "evidence": [
+          "Class name suggests handler chain: StockBalanceFilter"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 1,
+    "total_functions": 9,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "ChainOfResponsibility": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "SerialBatchBundle",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Factory method: make_serial_batch_no_bundle_for_material_transfer",
+          "Factory method: make_serial_batch_no_bundle",
+          "Parameterized factory method: get_status_for_serial_nos",
+          "Multiple factory methods: make_serial_batch_no_bundle_for_material_transfer, make_serial_batch_no_bundle, get_status_for_serial_nos"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "SerialBatchBundle",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Has 4 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "SerialBatchBundle",
+        "method_name": "child_doctype",
+        "line_number": 230,
+        "evidence": [
+          "Method uses decorators: ['property']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "SerialBatchBundle",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Notify method: update_serial_no_status_warehouse",
+          "Notify method: update_serial_no_status_for_stock_reco"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "SerialBatchBundle",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Has hook methods: process_serial_and_batch_bundle, process_serial_no, validate_actual_qty",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "SerialNoValuation",
+        "method_name": null,
+        "line_number": 616,
+        "evidence": [
+          "Parameterized factory method: get_serial_no_wise_incoming_rate",
+          "Factory method: get_serial_nos",
+          "Factory method: get_incoming_rate",
+          "Parameterized factory method: get_incoming_rate_of_serial_no",
+          "Multiple factory methods: get_serial_no_wise_incoming_rate, get_serial_nos, get_incoming_rate",
+          "Inherits from: DeprecatedSerialNoValuation"
+        ],
+        "related_classes": [
+          "DeprecatedSerialNoValuation"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "SerialNoValuation",
+        "method_name": null,
+        "line_number": 616,
+        "evidence": [
+          "Implements interface: DeprecatedSerialNoValuation",
+          "Has 8 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "BatchNoValuation",
+        "method_name": null,
+        "line_number": 784,
+        "evidence": [
+          "Factory method: get_batch_stock_before_date",
+          "Factory method: get_batch_nos",
+          "Factory method: get_incoming_rate",
+          "Factory method: get_actual_qty",
+          "Multiple factory methods: get_batch_stock_before_date, get_batch_nos, get_incoming_rate",
+          "Inherits from: DeprecatedBatchNoValuation"
+        ],
+        "related_classes": [
+          "DeprecatedBatchNoValuation"
+        ]
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "BatchNoValuation",
+        "method_name": null,
+        "line_number": 784,
+        "evidence": [
+          "Implements interface: DeprecatedBatchNoValuation",
+          "Has 9 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "BatchNoValuation",
+        "method_name": null,
+        "line_number": 784,
+        "evidence": [
+          "Has hook methods: get_batch_stock_before_date, prepare_batches",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "SerialBatchCreation",
+        "method_name": null,
+        "line_number": 1017,
+        "evidence": [
+          "Parameterized factory method: get",
+          "Parameterized factory method: make_serial_and_batch_bundle",
+          "Factory method: make_serial_no_if_not_exists",
+          "Parameterized factory method: make_serial_nos",
+          "Factory method: create_batch",
+          "Factory method: get_auto_created_serial_nos",
+          "Multiple factory methods: get, make_serial_and_batch_bundle, make_serial_no_if_not_exists"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "SerialBatchCreation",
+        "method_name": null,
+        "line_number": 1017,
+        "evidence": [
+          "Has 7 configuration methods",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.8999999999999999,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/serial_batch_bundle.py",
+        "class_name": "SerialBatchCreation",
+        "method_name": null,
+        "line_number": 1017,
+        "evidence": [
+          "Detach method: remove_returned_serial_nos",
+          "Attach method: add_serial_nos_for_batch_item",
+          "Notify method: update_serial_and_batch_entries"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 4,
+    "total_functions": 20,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 4,
+      "Builder": 2,
+      "Decorator": 1,
+      "Observer": 2,
+      "TemplateMethod": 2,
+      "Adapter": 2
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/stock_ledger.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/stock_ledger.py",
+        "class_name": "NegativeStockError",
+        "method_name": null,
+        "line_number": 47,
+        "evidence": [
+          "Part of strategy family with: SerialNoExistsInFutureTransaction"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/stock_ledger.py",
+        "class_name": "SerialNoExistsInFutureTransaction",
+        "method_name": null,
+        "line_number": 51,
+        "evidence": [
+          "Part of strategy family with: NegativeStockError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Command",
+        "category": "Behavioral",
+        "confidence": 0.65,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/stock_ledger.py",
+        "class_name": "SerialNoExistsInFutureTransaction",
+        "method_name": null,
+        "line_number": 51,
+        "evidence": [
+          "Class name suggests Command: SerialNoExistsInFutureTransaction"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.9,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/stock_ledger.py",
+        "class_name": "update_entries_after",
+        "method_name": null,
+        "line_number": 525,
+        "evidence": [
+          "Factory method: get_reserved_stock",
+          "Factory method: build",
+          "Factory method: get_sle_against_current_voucher",
+          "Factory method: get_future_entries_to_fix",
+          "Parameterized factory method: get_dependent_entries_to_fix",
+          "Parameterized factory method: get_dependent_voucher_detail_nos",
+          "Parameterized factory method: get_serialized_values",
+          "Parameterized factory method: get_outgoing_rate_for_batched_item",
+          "Parameterized factory method: get_dynamic_incoming_outgoing_rate",
+          "Parameterized factory method: get_incoming_outgoing_rate_from_transaction",
+          "Parameterized factory method: get_incoming_value_for_serial_nos",
+          "Parameterized factory method: get_moving_average_values",
+          "Parameterized factory method: get_fallback_rate",
+          "Parameterized factory method: get_sle_before_datetime",
+          "Parameterized factory method: get_sle_after_datetime",
+          "Multiple factory methods: get_reserved_stock, build, get_sle_against_current_voucher"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Builder",
+        "category": "Creational",
+        "confidence": 0.8500000000000001,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/stock_ledger.py",
+        "class_name": "update_entries_after",
+        "method_name": null,
+        "line_number": 525,
+        "evidence": [
+          "Has terminal build/create method",
+          "Uses fluent interface (return self)",
+          "Builds complex object with multiple fields"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/stock_ledger.py",
+        "class_name": "update_entries_after",
+        "method_name": null,
+        "line_number": 525,
+        "evidence": [
+          "Notify method: update_distinct_item_warehouses_for_repack",
+          "Notify method: update_distinct_item_warehouses",
+          "Notify method: update_serial_no_status",
+          "Notify method: update_serial_batch_no_valuation",
+          "Notify method: update_outgoing_rate_on_transaction",
+          "Notify method: update_rate_on_stock_entry",
+          "Notify method: update_rate_on_delivery_and_sales_return",
+          "Notify method: update_rate_on_purchase_receipt",
+          "Notify method: update_rate_on_subcontracting_receipt",
+          "Notify method: update_rate_on_stock_reconciliation",
+          "Notify method: update_queue_values",
+          "Notify method: update_batched_values",
+          "Notify method: update_bin_data",
+          "Notify method: update_bin"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/stock_ledger.py",
+        "class_name": "update_entries_after",
+        "method_name": null,
+        "line_number": 525,
+        "evidence": [
+          "Has hook methods: set_precision, initialize_previous_data, process_sle_against_current_timestamp",
+          "Has abstract methods: __init__"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 3,
+    "total_functions": 44,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 2,
+      "Command": 1,
+      "Factory": 1,
+      "Builder": 1,
+      "Observer": 1,
+      "TemplateMethod": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_utils.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_utils.py",
+        "class_name": "StockTestMixin",
+        "method_name": null,
+        "line_number": 10,
+        "evidence": [
+          "Parameterized factory method: make_item"
+        ],
+        "related_classes": []
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestFIFOValuation",
+        "method_name": "test_fifo_qty_hypothesis",
+        "line_number": 127,
+        "evidence": [
+          "Method uses decorators: ['given(stock_queue_generator)']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestFIFOValuation",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 20 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestFIFOValuation",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Attach method: test_simple_addition",
+          "Attach method: test_adding_negative_stock_keeps_rate",
+          "Attach method: test_adding_negative_stock_updates_rate",
+          "Notify method: test_adding_negative_stock_updates_rate",
+          "Detach method: test_remove_multiple_bins",
+          "Detach method: test_remove_multiple_bins_with_rate"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestFIFOValuation",
+        "method_name": null,
+        "line_number": 17,
+        "evidence": [
+          "Part of strategy family with: TestLIFOValuation, TestLIFOValuationSLE"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestLIFOValuation",
+        "method_name": "test_lifo_qty_hypothesis",
+        "line_number": 274,
+        "evidence": [
+          "Method uses decorators: ['given(stock_queue_generator)']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestLIFOValuation",
+        "method_name": null,
+        "line_number": 197,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 15 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.95,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestLIFOValuation",
+        "method_name": null,
+        "line_number": 197,
+        "evidence": [
+          "Attach method: test_simple_addition",
+          "Attach method: test_adding_negative_stock_keeps_rate",
+          "Attach method: test_adding_negative_stock_updates_rate",
+          "Notify method: test_adding_negative_stock_updates_rate"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestLIFOValuation",
+        "method_name": null,
+        "line_number": 197,
+        "evidence": [
+          "Part of strategy family with: TestFIFOValuation, TestLIFOValuationSLE"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestLIFOValuationSLE",
+        "method_name": null,
+        "line_number": 319,
+        "evidence": [
+          "Parameterized factory method: _make_stock_entry",
+          "Inherits from: IntegrationTestCase"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestLIFOValuationSLE",
+        "method_name": "setUpClass",
+        "line_number": 324,
+        "evidence": [
+          "Method uses decorators: ['classmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestLIFOValuationSLE",
+        "method_name": null,
+        "line_number": 319,
+        "evidence": [
+          "Implements interface: IntegrationTestCase",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/tests/test_valuation.py",
+        "class_name": "TestLIFOValuationSLE",
+        "method_name": null,
+        "line_number": 319,
+        "evidence": [
+          "Part of strategy family with: TestFIFOValuation, TestLIFOValuation"
+        ],
+        "related_classes": [
+          "IntegrationTestCase"
+        ]
+      }
+    ],
+    "total_classes": 3,
+    "total_functions": 0,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Decorator": 3,
+      "Adapter": 3,
+      "Observer": 2,
+      "Strategy": 3,
+      "Factory": 1
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/utils.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/utils.py",
+        "class_name": "InvalidWarehouseCompany",
+        "method_name": null,
+        "line_number": 21,
+        "evidence": [
+          "Part of strategy family with: PendingRepostingError"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/utils.py",
+        "class_name": "PendingRepostingError",
+        "method_name": null,
+        "line_number": 25,
+        "evidence": [
+          "Part of strategy family with: InvalidWarehouseCompany"
+        ],
+        "related_classes": [
+          "frappe.ValidationError"
+        ]
+      }
+    ],
+    "total_classes": 2,
+    "total_functions": 30,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Strategy": 2
+    }
+  },
+  {
+    "file_path": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+    "language": "Python",
+    "patterns": [
+      {
+        "pattern_type": "Factory",
+        "category": "Creational",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "BinWiseValuation",
+        "method_name": "get_total_stock_and_value",
+        "line_number": 33,
+        "evidence": [
+          "Factory method detected: get_total_stock_and_value"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "BinWiseValuation",
+        "method_name": "add_stock",
+        "line_number": 16,
+        "evidence": [
+          "Method uses decorators: ['abstractmethod']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "BinWiseValuation",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Implements interface: ABC",
+          "Has 7 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "BinWiseValuation",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Attach method: add_stock",
+          "Detach method: remove_stock"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "BinWiseValuation",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Strategy base with implementations: FIFOValuation, LIFOValuation"
+        ],
+        "related_classes": [
+          "ABC",
+          "FIFOValuation",
+          "LIFOValuation"
+        ]
+      },
+      {
+        "pattern_type": "TemplateMethod",
+        "category": "Behavioral",
+        "confidence": 0.6000000000000001,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "BinWiseValuation",
+        "method_name": null,
+        "line_number": 14,
+        "evidence": [
+          "Base class with 2 implementations",
+          "Has abstract methods: __repr__, __iter__"
+        ],
+        "related_classes": [
+          "FIFOValuation",
+          "LIFOValuation"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "FIFOValuation",
+        "method_name": "state",
+        "line_number": 74,
+        "evidence": [
+          "Method uses decorators: ['property']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "FIFOValuation",
+        "method_name": null,
+        "line_number": 55,
+        "evidence": [
+          "Implements interface: BinWiseValuation",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "FIFOValuation",
+        "method_name": null,
+        "line_number": 55,
+        "evidence": [
+          "Attach method: add_stock",
+          "Detach method: remove_stock"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "FIFOValuation",
+        "method_name": null,
+        "line_number": 55,
+        "evidence": [
+          "Part of strategy family with: LIFOValuation"
+        ],
+        "related_classes": [
+          "BinWiseValuation"
+        ]
+      },
+      {
+        "pattern_type": "Decorator",
+        "category": "Structural",
+        "confidence": 0.3,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "LIFOValuation",
+        "method_name": "state",
+        "line_number": 182,
+        "evidence": [
+          "Method uses decorators: ['property']"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Adapter",
+        "category": "Structural",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "LIFOValuation",
+        "method_name": null,
+        "line_number": 162,
+        "evidence": [
+          "Implements interface: BinWiseValuation",
+          "Has 4 interface methods"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Observer",
+        "category": "Behavioral",
+        "confidence": 0.6,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "LIFOValuation",
+        "method_name": null,
+        "line_number": 162,
+        "evidence": [
+          "Attach method: add_stock",
+          "Detach method: remove_stock"
+        ],
+        "related_classes": []
+      },
+      {
+        "pattern_type": "Strategy",
+        "category": "Behavioral",
+        "confidence": 0.5,
+        "location": "/Users/vovanduc/Code/dcnet/erpnext/erpnext/stock/valuation.py",
+        "class_name": "LIFOValuation",
+        "method_name": null,
+        "line_number": 162,
+        "evidence": [
+          "Part of strategy family with: FIFOValuation"
+        ],
+        "related_classes": [
+          "BinWiseValuation"
+        ]
+      }
+    ],
+    "total_classes": 3,
+    "total_functions": 1,
+    "analysis_depth": "full",
+    "pattern_summary": {
+      "Factory": 1,
+      "Decorator": 3,
+      "Adapter": 3,
+      "Observer": 3,
+      "Strategy": 3,
+      "TemplateMethod": 1
+    }
+  }
+]

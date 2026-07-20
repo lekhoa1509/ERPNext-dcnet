@@ -1,0 +1,28 @@
+<PL02_1_TAIN_VSP>
+		<BangSLuongVaDThu>
+			<XuatBanTrongNuoc>
+				<ChiTiet id="String">
+					<ct2/>
+					<ct3/>
+					<ct4/>
+					<ct5/>
+					<ct6/>
+					<ct7/>
+					<ct8/>
+				</ChiTiet>
+			</XuatBanTrongNuoc>
+			<BanXuatKhau>
+				<ChiTiet id="String">
+					<ct2/>
+					<ct3/>
+					<ct4/>
+					<ct5/>
+					<ct6/>
+					<ct7/>
+					<ct8/>
+				</ChiTiet>
+			</BanXuatKhau>
+			<tongCot5/>
+			<tongCot7/>
+		</BangSLuongVaDThu>
+	</PL02_1_TAIN_VSP>

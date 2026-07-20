@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "creation": "2026-04-14 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_label",
+  "item_label",
+  "is_allowed",
+  "column_break_qztn",
+  "link_type",
+  "link_to",
+  "sidebar_item_key"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nhóm menu",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Menu",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_allowed",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Hiển thị"
+  },
+  {
+   "fieldname": "column_break_qztn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "link_type",
+   "fieldtype": "Data",
+   "label": "Loại liên kết",
+   "read_only": 1
+  },
+  {
+   "fieldname": "link_to",
+   "fieldtype": "Data",
+   "label": "Liên kết",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sidebar_item_key",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Sidebar Item Key",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 100,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VN Accounting",
+ "name": "VN Accounting Branch Menu Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": []
+}

@@ -1,0 +1,46 @@
+<Pluc_01_1_TTDB>
+	<TTinThueNLMVao>
+		<ChiTietThueTTDBNLMVao>
+			<ThueNLMVao id="String">
+				<BienLaiChungTuNopThueTTDB>
+					<ct2/>
+					<ct3/>
+					<ct4/>
+				</BienLaiChungTuNopThueTTDB>
+				<ct5/>
+				<ct6/>
+				<ct7/>
+				<ct8/>
+				<ct9/>
+				<ct10/>
+			</ThueNLMVao>
+		</ChiTietThueTTDBNLMVao>
+		<tong_ct7/>
+		<tong_ct9/>
+		<tong_ct10/>
+	</TTinThueNLMVao>
+	<TTinThueNLDuocKTru>
+		<ChiTietThueTTDBNLDuocKTru>
+			<ThueNLDuocKTru id="String">
+				<ct2/>
+				<ct3/>
+				<ct4/>
+				<ct5/>
+				<ct6/>
+				<ct7/>
+			</ThueNLDuocKTru>
+		</ChiTietThueTTDBNLDuocKTru>
+		<tong_ct7/>
+	</TTinThueNLDuocKTru>
+	<TTinThueHHNKDuocKTru>
+		<ChiTietThueTTDBHHNKDuocKTru>
+			<ThueHHNKDuocKTru id="String">
+				<ct2/>
+				<ct3/>
+				<ct4/>
+				<ct5/>
+			</ThueHHNKDuocKTru>
+		</ChiTietThueTTDBHHNKDuocKTru>
+		<tong_ct5/>
+	</TTinThueHHNKDuocKTru>
+</Pluc_01_1_TTDB>

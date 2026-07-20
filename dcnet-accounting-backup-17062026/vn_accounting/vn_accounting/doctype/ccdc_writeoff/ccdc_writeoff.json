@@ -1,0 +1,140 @@
+{
+  "actions": [],
+  "creation": "2026-04-29 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "links": [],
+  "modified": "2026-05-04 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "VN Accounting",
+  "owner": "Administrator",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "name": "CCDC Writeoff",
+  "autoname": "format:GG-{YYYY}-{#####}",
+  "is_submittable": 1,
+  "permissions": [
+    {
+      "role": "Accounts User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0
+    },
+    {
+      "role": "Accounts Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1
+    },
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1
+    }
+  ],
+  "field_order": [
+    "ccdc_item",
+    "ccdc_item_name",
+    "writeoff_date",
+    "writeoff_reason",
+    "compensation_amount",
+    "compensation_employee",
+    "remaining_242_amount",
+    "remaining_153_amount",
+    "accounting_section",
+    "accounting_entries",
+    "posted_je",
+    "remarks"
+  ],
+  "fields": [
+    {
+      "fieldname": "ccdc_item",
+      "fieldtype": "Link",
+      "options": "CCDC Item",
+      "label": "CCDC Item",
+      "reqd": 1
+    },
+    {
+      "fieldname": "ccdc_item_name",
+      "fieldtype": "Data",
+      "label": "Tên công cụ",
+      "fetch_from": "ccdc_item.item_name",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "writeoff_date",
+      "fieldtype": "Date",
+      "label": "Writeoff Date",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "writeoff_reason",
+      "fieldtype": "Select",
+      "label": "Writeoff Reason",
+      "options": "\nMất\nHỏng không sửa được\nHết hạn sử dụng\nKhác",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "compensation_amount",
+      "fieldtype": "Currency",
+      "label": "Compensation Amount"
+    },
+    {
+      "fieldname": "compensation_employee",
+      "fieldtype": "Link",
+      "options": "Employee",
+      "label": "Compensation Employee"
+    },
+    {
+      "fieldname": "remaining_242_amount",
+      "fieldtype": "Currency",
+      "label": "Remaining 242 Amount",
+      "read_only": 1
+    },
+    {
+      "fieldname": "remaining_153_amount",
+      "fieldtype": "Currency",
+      "label": "Remaining 153 Amount",
+      "read_only": 1
+    },
+    {
+      "fieldname": "accounting_section",
+      "fieldtype": "Section Break",
+      "label": "Hạch toán ghi giảm",
+      "collapsible": 0,
+      "allow_on_submit": 1
+    },
+    {
+      "fieldname": "accounting_entries",
+      "fieldtype": "Table",
+      "label": "Hạch toán",
+      "options": "VN Accounting Entry",
+      "allow_on_submit": 1
+    },
+    {
+      "fieldname": "posted_je",
+      "fieldtype": "Link",
+      "options": "Journal Entry",
+      "label": "Bút toán",
+      "read_only": 1,
+      "allow_on_submit": 1
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "Remarks"
+    }
+  ]
+}

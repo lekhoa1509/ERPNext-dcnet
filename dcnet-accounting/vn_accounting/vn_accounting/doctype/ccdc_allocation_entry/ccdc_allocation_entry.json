@@ -1,0 +1,80 @@
+{
+  "actions": [],
+  "creation": "2026-04-29 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "links": [],
+  "modified": "2026-05-04 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "VN Accounting",
+  "owner": "Administrator",
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "name": "CCDC Allocation Entry",
+  "istable": 1,
+  "editable_grid": 1,
+  "permissions": [],
+  "field_order": [
+    "period_no",
+    "period_start_date",
+    "allocation_amount",
+    "debit_account",
+    "credit_account",
+    "status",
+    "journal_entry",
+    "posted_at"
+  ],
+  "fields": [
+    {
+      "fieldname": "period_no",
+      "fieldtype": "Int",
+      "label": "Period No",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "period_start_date",
+      "fieldtype": "Date",
+      "label": "Period Start",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "allocation_amount",
+      "fieldtype": "Currency",
+      "label": "Allocation Amount",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "debit_account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "label": "Debit Account",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "credit_account",
+      "fieldtype": "Link",
+      "options": "Account",
+      "label": "Credit Account",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "\nPending\nPosted\nCancelled",
+      "default": "Pending",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "journal_entry",
+      "fieldtype": "Link",
+      "options": "Journal Entry",
+      "label": "Journal Entry"
+    },
+    {
+      "fieldname": "posted_at",
+      "fieldtype": "Datetime",
+      "label": "Posted At"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+version: "3.0"
+project:
+  name: flow_next
+  description: "ERP development with Frappe/ERPNext - Business analysis and formula testing"
+  techStack:
+    - Frappe Framework
+    - ERPNext v16
+    - Python
+    - MariaDB
+    - JavaScript/Vue.js
+defaultRole: developer
+roles:
+  - product-manager
+  - data-analyst
+  - data-engineer
+  - developer
+  - frontend-developer
+  - backend-developer
+  - fullstack-developer
+  - architect
+  - tester
+  - devops-engineer
+  - security-engineer
+  - technical-writer
+  - ux-designer
+  - ai-engineer
+  - content-writer
+  - marketing
+  - sales-engineer
+  - support-engineer
+  - project-manager
+  - scrum-master
+  - database-admin
+  - mobile-developer
+  - game-developer
+  - blockchain-developer
+  - hr-specialist
+output:
+  analysis: docs/tramy/analysis/
+  reports: docs/tramy/reports/
+  notebooks: docs/tramy/notebooks/
+data:
+  raw: docs/tramy/data/raw/
+  processed: docs/tramy/data/processed/

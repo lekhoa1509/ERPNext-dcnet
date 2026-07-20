@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo đơn Coaching - DCNET Flow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink-gray-9: #171717;
+            --ink-gray-8: #2D2D2D;
+            --ink-gray-7: #4B4B4B;
+            --ink-gray-6: #6B6B6B;
+            --surface-white: #FFFFFF;
+            --surface-gray-1: #FAFAFA;
+            --surface-gray-2: #F5F5F5;
+            --outline-gray-2: #E5E5E5;
+            --outline-gray-3: #D4D4D4;
+            --blue-500: #0289F7;
+            --blue-600: #0271CF;
+            --green-500: #46B37E;
+            --red-500: #E03636;
+            --amber-500: #E79913;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --radius-md: 0.625rem;
+            --radius-sm: 0.25rem;
+            --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0px 0px 1px rgba(0, 0, 0, 0.12), 0px 0.5px 2px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 14px;
+            font-weight: 420;
+            line-height: 1.5;
+            color: var(--ink-gray-8);
+            background: var(--surface-gray-1);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background: var(--surface-white);
+            border-right: 1px solid var(--outline-gray-2);
+            padding: var(--spacing-4);
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: var(--surface-white);
+            border-bottom: 1px solid var(--outline-gray-2);
+            padding: var(--spacing-4) var(--spacing-6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breadcrumb {
+            font-size: 13px;
+            color: var(--ink-gray-6);
+        }
+
+        .breadcrumb a {
+            color: var(--ink-gray-6);
+            text-decoration: none;
+        }
+
+        .page-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--ink-gray-9);
+            margin-top: var(--spacing-1);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: var(--spacing-2);
+        }
+
+        .button {
+            height: 32px;
+            padding: 0 var(--spacing-4);
+            border: 1px solid var(--outline-gray-2);
+            border-radius: var(--radius-md);
+            background: var(--surface-white);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            transition: all 0.15s;
+        }
+
+        .button:hover {
+            background: var(--surface-gray-2);
+        }
+
+        .button-primary {
+            background: var(--blue-500);
+            color: white;
+            border-color: var(--blue-500);
+        }
+
+        .button-primary:hover {
+            background: var(--blue-600);
+        }
+
+        /* Form Container */
+        .form-container {
+            flex: 1;
+            overflow: auto;
+            padding: var(--spacing-6);
+        }
+
+        .form-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--surface-white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--outline-gray-2);
+            background: var(--surface-gray-1);
+            padding: 0 var(--spacing-6);
+        }
+
+        .tab {
+            padding: var(--spacing-4) var(--spacing-6);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink-gray-6);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.15s;
+            position: relative;
+            top: 1px;
+        }
+
+        .tab:hover {
+            color: var(--ink-gray-8);
+        }
+
+        .tab.active {
+            color: var(--blue-500);
+            border-bottom-color: var(--blue-500);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            padding: var(--spacing-6);
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .form-section {
+            margin-bottom: var(--spacing-8);
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--ink-gray-9);
+            margin-bottom: var(--spacing-4);
+            padding-bottom: var(--spacing-3);
+            border-bottom: 1px solid var(--outline-gray-2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .form-row.single {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-2);
+        }
+
+        .form-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink-gray-7);
+        }
+
+        .form-label.required::after {
+            content: " *";
+            color: var(--red-500);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            height: 36px;
+            padding: 0 var(--spacing-3);
+            border: 1px solid var(--outline-gray-2);
+            border-radius: var(--radius-md);
+            background: var(--surface-white);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.15s;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 3px rgba(2, 137, 247, 0.1);
+        }
+
+        .form-textarea {
+            height: auto;
+            min-height: 80px;
+            padding: var(--spacing-3);
+            resize: vertical;
+        }
+
+        .form-help {
+            font-size: 12px;
+            color: var(--ink-gray-6);
+        }
+
+        /* Info Alert */
+        .alert {
+            padding: var(--spacing-3);
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            display: flex;
+            gap: var(--spacing-2);
+            align-items: flex-start;
+        }
+
+        .alert-info {
+            background: #E5F3FF;
+            color: #0271CF;
+        }
+
+        .alert-warning {
+            background: #FFF3E5;
+            color: #D68910;
+        }
+
+        /* Session Table */
+        .session-table {
+            width: 100%;
+            border: 1px solid var(--outline-gray-2);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .session-table th {
+            background: var(--surface-gray-1);
+            padding: var(--spacing-3);
+            text-align: left;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--ink-gray-7);
+            border-bottom: 1px solid var(--outline-gray-2);
+        }
+
+        .session-table td {
+            padding: var(--spacing-3);
+            border-bottom: 1px solid var(--outline-gray-2);
+        }
+
+        .session-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .badge-scheduled { background: #E5E5E5; color: #6B6B6B; }
+        .badge-completed { background: #E5F9F0; color: #46B37E; }
+        .badge-absent { background: #FFE5E5; color: #E03636; }
+
+        /* Specs Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-4);
+        }
+
+        /* Timeline */
+        .timeline {
+            border-left: 2px solid var(--outline-gray-2);
+            padding-left: var(--spacing-4);
+        }
+
+        .timeline-item {
+            margin-bottom: var(--spacing-6);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -21px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--blue-500);
+            border: 2px solid var(--surface-white);
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            color: var(--ink-gray-6);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .timeline-content {
+            background: var(--surface-gray-1);
+            padding: var(--spacing-3);
+            border-radius: var(--radius-md);
+        }
+
+        .timeline-title {
+            font-weight: 500;
+            margin-bottom: var(--spacing-1);
+        }
+
+        /* Payment Summary */
+        .payment-summary {
+            background: var(--surface-gray-1);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-4);
+            margin-top: var(--spacing-4);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-2) 0;
+            font-size: 14px;
+        }
+
+        .summary-row.total {
+            border-top: 2px solid var(--outline-gray-3);
+            margin-top: var(--spacing-2);
+            padding-top: var(--spacing-3);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .amount {
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+
+        .amount-negative {
+            color: var(--red-500);
+        }
+
+        /* Sidebar Nav */
+        .nav-section {
+            margin-bottom: var(--spacing-4);
+        }
+
+        .nav-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--ink-gray-6);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-2) var(--spacing-3);
+            border-radius: var(--radius-sm);
+            color: var(--ink-gray-7);
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.15s;
+        }
+
+        .nav-item:hover {
+            background: var(--surface-gray-1);
+        }
+
+        .nav-item.active {
+            background: var(--surface-gray-2);
+            color: var(--blue-500);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="nav-section">
+                <div class="nav-title">Coaching</div>
+                <a href="#" class="nav-item active">
+                    <span>📋</span> Đơn Coaching
+                </a>
+                <a href="#" class="nav-item">
+                    <span>📦</span> Gói huấn luyện
+                </a>
+                <a href="#" class="nav-item">
+                    <span>👨‍🏫</span> Huấn luyện viên
+                </a>
+                <a href="#" class="nav-item">
+                    <span>⛳</span> Sân tập
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div>
+                    <div class="breadcrumb">
+                        <a href="#">Home</a>
+                        <span> › </span>
+                        <a href="#">Coaching</a>
+                        <span> › </span>
+                        <span>Tạo đơn mới</span>
+                    </div>
+                    <h1 class="page-title">Đơn Coaching - Mới</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="button">Hủy</button>
+                    <button class="button">Lưu nháp</button>
+                    <button class="button button-primary">Lưu</button>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="form-container">
+                <div class="form-card">
+                    <!-- Tabs -->
+                    <div class="tabs">
+                        <div class="tab active" onclick="switchTab(0)">Thông tin học viên</div>
+                        <div class="tab" onclick="switchTab(1)">Bài test đầu vào</div>
+                        <div class="tab" onclick="switchTab(2)">Thông số kỹ thuật</div>
+                        <div class="tab" onclick="switchTab(3)">Đăng ký khóa học</div>
+                        <div class="tab" onclick="switchTab(4)">Lịch học</div>
+                        <div class="tab" onclick="switchTab(5)">Tiến trình</div>
+                        <div class="tab" onclick="switchTab(6)">Thanh toán</div>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- Tab 1: Thông tin học viên -->
+                        <div class="tab-panel active">
+                            <div class="form-section">
+                                <h2 class="section-title">Thông tin cá nhân</h2>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label required">Học viên</label>
+                                        <input type="text" class="form-input" placeholder="Chọn học viên hoặc tạo mới">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Số điện thoại</label>
+                                        <input type="text" class="form-input" placeholder="0901234567">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-input" placeholder="email@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Ngày sinh</label>
+                                        <input type="date" class="form-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2 class="section-title">Trình độ & Mục tiêu</h2>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Trình độ hiện tại</label>
+                                        <select class="form-select">
+                                            <option>Chọn trình độ</option>
+                                            <option>Người mới bắt đầu</option>
+                                            <option>Đã chơi (1-2 năm)</option>
+                                            <option>Trung cấp (3-5 năm)</option>
+                                            <option>Nâng cao (5+ năm)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Handicap</label>
+                                        <input type="number" class="form-input" placeholder="VD: 18">
+                                    </div>
+                                </div>
+                                <div class="form-row single">
+                                    <div class="form-group">
+                                        <label class="form-label">Mục tiêu học</label>
+                                        <textarea class="form-textarea" placeholder="VD: Cải thiện swing, tăng độ xa..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 2: Bài test đầu vào -->
+                        <div class="tab-panel">
+                            <div class="alert alert-info">
+                                <span>ℹ️</span>
+                                <span>Bài test đầu vào giúp HLV đánh giá trình độ và đề xuất gói học phù hợp</span>
+                            </div>
+
+                            <div class="form-section" style="margin-top: var(--spacing-6);">
+                                <h2 class="section-title">Thông tin test</h2>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Ngày test</label>
+                                        <input type="date" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">HLV thực hiện test</label>
+                                        <select class="form-select">
+                                            <option>Chọn HLV</option>
+                                            <option>HLV Nguyễn Văn A</option>
+                                            <option>HLV Trần Văn B</option>
+                                            <option>HLV Lê Văn C</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2 class="section-title">Kết quả đánh giá</h2>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Trình độ đánh giá</label>
+                                        <select class="form-select">
+                                            <option>Chọn trình độ</option>
+                                            <option>Beginner</option>
+                                            <option>Intermediate</option>
+                                            <option>Advanced</option>
+                                            <option>Professional</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Điểm số (nếu có)</label>
+                                        <input type="number" class="form-input" placeholder="VD: 85/100">
+                                    </div>
+                                </div>
+                                <div class="form-row single">
+                                    <div class="form-group">
+                                        <label class="form-label">Nhận xét chi tiết</label>
+                                        <textarea class="form-textarea" rows="4" placeholder="Nhận xét về kỹ thuật, điểm mạnh, điểm yếu..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-row single">
+                                    <div class="form-group">
+                                        <label class="form-label">Đề xuất gói học</label>
+                                        <textarea class="form-textarea" rows="2" placeholder="Đề xuất gói phù hợp dựa trên kết quả test..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 3: Thông số kỹ thuật -->
+                        <div class="tab-panel">
+                            <div class="alert alert-warning">
+                                <span>⚠️</span>
+                                <span>Thông số kỹ thuật giúp HLV lên kế hoạch training phù hợp với điều kiện thể chất của học viên</span>
+                            </div>
+
+                            <div class="form-section" style="margin-top: var(--spacing-6);">
+                                <h2 class="section-title">Thông số cơ thể</h2>
+                                <div class="specs-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">Chiều cao (cm)</label>
+                                        <input type="number" class="form-input" placeholder="170">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Cân nặng (kg)</label>
+                                        <input type="number" class="form-input" placeholder="65">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Size tay</label>
+                                        <select class="form-select">
+                                            <option>Chọn size</option>
+                                            <option>S</option>
+                                            <option>M</option>
+                                            <option>L</option>
+                                            <option>XL</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2 class="section-title">Thông số kỹ thuật</h2>
+                                <div class="specs-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">Tốc độ đầu gậy (mph)</label>
+                                        <input type="number" class="form-input" placeholder="85">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Tốc độ bóng (mph)</label>
+                                        <input type="number" class="form-input" placeholder="120">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Hình swing</label>
+                                        <select class="form-select">
+                                            <option>Chọn hình swing</option>
+                                            <option>Inside-out</option>
+                                            <option>Outside-in</option>
+                                            <option>Square</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Đường bóng</label>
+                                        <select class="form-select">
+                                            <option>Chọn đường bóng</option>
+                                            <option>Straight</option>
+                                            <option>Draw</option>
+                                            <option>Fade</option>
+                                            <option>Hook</option>
+                                            <option>Slice</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Khoảng cách gậy sắt (yards)</label>
+                                        <input type="number" class="form-input" placeholder="150">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Khoảng cách driver (yards)</label>
+                                        <input type="number" class="form-input" placeholder="220">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2 class="section-title">Thông tin khác</h2>
+                                <div class="form-row single">
+                                    <div class="form-group">
+                                        <label class="form-label">Tình trạng bộ gậy hiện tại</label>
+                                        <textarea class="form-textarea" placeholder="Mô tả bộ gậy đang sử dụng..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-row single">
+                                    <div class="form-group">
+                                        <label class="form-label">Nhu cầu riêng</label>
+                                        <textarea class="form-textarea" placeholder="Các nhu cầu đặc biệt khác..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 4: Đăng ký khóa học -->
+                        <div class="tab-panel">
+                            <div class="form-section">
+                                <h2 class="section-title">Chọn gói & HLV</h2>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label required">Gói huấn luyện</label>
+                                        <select class="form-select">
+                                            <option>Chọn gói</option>
+                                            <option>8 buổi cơ bản - 12,000,000đ</option>
+                                            <option>12 buổi nâng cao - 18,000,000đ</option>
+                                            <option>Thi đấu nâng cao 12 buổi - 25,000,000đ</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label required">HLV phụ trách</label>
+                                        <select class="form-select">
+                                            <option>Chọn HLV</option>
+                                            <option>HLV Nguyễn Văn A - ⭐ 4.8</option>
+                                            <option>HLV Trần Văn B - ⭐ 4.7</option>
+                                            <option>HLV Lê Văn C - ⭐ 4.9</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label required">Sân tập</label>
+                                        <select class="form-select">
+                                            <option>Chọn sân tập</option>
+                                            <option>Sân ABC - Hà Nội</option>
+                                            <option>Sân XYZ - Hà Nội</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Ngày bắt đầu dự kiến</label>
+                                        <input type="date" class="form-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2 class="section-title">Thông tin thanh toán</h2>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Mã ưu đãi</label>
+                                        <input type="text" class="form-input" placeholder="Nhập mã ưu đãi">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Hình thức thanh toán</label>
+                                        <select class="form-select">
+                                            <option>Trọn gói (100%)</option>
+                                            <option>Đặt cọc (30%)</option>
+                                            <option>Theo buổi</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="payment-summary">
+                                    <div class="summary-row">
+                                        <span>Học phí gói</span>
+                                        <span class="amount">12,000,000đ</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Giảm giá</span>
+                                        <span class="amount">-500,000đ</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Thuế VAT (10%)</span>
+                                        <span class="amount">1,150,000đ</span>
+                                    </div>
+                                    <div class="summary-row total">
+                                        <span>Tổng cộng</span>
+                                        <span class="amount">12,650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 5: Lịch học -->
+                        <div class="tab-panel">
+                            <div class="alert alert-info">
+                                <span>ℹ️</span>
+                                <span>Lịch học sẽ được tạo tự động sau khi xác nhận đăng ký. Bạn có thể điều chỉnh lại lịch học sau.</span>
+                            </div>
+
+                            <div class="form-section" style="margin-top: var(--spacing-6);">
+                                <h2 class="section-title">Lịch học dự kiến (8 buổi)</h2>
+                                <table class="session-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 80px;">Buổi</th>
+                                            <th>Ngày</th>
+                                            <th>Giờ</th>
+                                            <th>HLV</th>
+                                            <th>Sân</th>
+                                            <th style="width: 120px;">Trạng thái</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Buổi 1</td>
+                                            <td>20/01/2026</td>
+                                            <td>08:00 - 09:30</td>
+                                            <td>HLV Nguyễn A</td>
+                                            <td>Sân ABC</td>
+                                            <td><span class="badge badge-scheduled">Đã xếp lịch</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Buổi 2</td>
+                                            <td>22/01/2026</td>
+                                            <td>08:00 - 09:30</td>
+                                            <td>HLV Nguyễn A</td>
+                                            <td>Sân ABC</td>
+                                            <td><span class="badge badge-scheduled">Đã xếp lịch</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Buổi 3</td>
+                                            <td>25/01/2026</td>
+                                            <td>08:00 - 09:30</td>
+                                            <td>HLV Nguyễn A</td>
+                                            <td>Sân ABC</td>
+                                            <td><span class="badge badge-scheduled">Đã xếp lịch</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Buổi 4</td>
+                                            <td>27/01/2026</td>
+                                            <td>08:00 - 09:30</td>
+                                            <td>HLV Nguyễn A</td>
+                                            <td>Sân ABC</td>
+                                            <td><span class="badge badge-scheduled">Đã xếp lịch</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6" style="text-align: center; color: var(--ink-gray-6);">... và 4 buổi tiếp theo</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <button class="button" style="margin-top: var(--spacing-4);">
+                                    <span>📅</span> Tùy chỉnh lịch học
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Tab 6: Tiến trình -->
+                        <div class="tab-panel">
+                            <div class="alert alert-info">
+                                <span>ℹ️</span>
+                                <span>Tiến trình học tập sẽ được cập nhật sau mỗi buổi học</span>
+                            </div>
+
+                            <div class="form-section" style="margin-top: var(--spacing-6);">
+                                <h2 class="section-title">Lịch sử học tập</h2>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">20/01/2026 - 08:00</div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-title">Buổi 1: Cơ bản về grip và stance</div>
+                                            <p style="font-size: 13px; color: var(--ink-gray-7); margin-top: 4px;">
+                                                Học viên có tiến bộ trong việc điều chỉnh grip. Cần luyện tập thêm về stance...
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">22/01/2026 - 08:00</div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-title">Buổi 2: Backswing và follow-through</div>
+                                            <p style="font-size: 13px; color: var(--ink-gray-7); margin-top: 4px;">
+                                                Cải thiện đáng kể backswing. Follow-through còn cần điều chỉnh...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 7: Thanh toán -->
+                        <div class="tab-panel">
+                            <div class="form-section">
+                                <h2 class="section-title">Tổng quan thanh toán</h2>
+                                <div class="payment-summary">
+                                    <div class="summary-row">
+                                        <span>Tổng học phí</span>
+                                        <span class="amount">12,650,000đ</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Đã thanh toán</span>
+                                        <span class="amount">10,000,000đ</span>
+                                    </div>
+                                    <div class="summary-row total">
+                                        <span>Còn nợ</span>
+                                        <span class="amount amount-negative">2,650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2 class="section-title">Lịch sử thanh toán</h2>
+                                <table class="session-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ngày</th>
+                                            <th>Phương thức</th>
+                                            <th>Số tiền</th>
+                                            <th>Người thu</th>
+                                            <th>Ghi chú</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>15/01/2026</td>
+                                            <td>Chuyển khoản</td>
+                                            <td class="amount">10,000,000đ</td>
+                                            <td>NV Nguyễn Văn B</td>
+                                            <td>Đặt cọc 80%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <button class="button button-primary" style="margin-top: var(--spacing-4);">
+                                    <span>💳</span> Thêm thanh toán
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(index) {
+            // Hide all panels
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            // Remove active from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected panel
+            panels[index].classList.add('active');
+            tabs[index].classList.add('active');
+        }
+    </script>
+</body>
+</html>
